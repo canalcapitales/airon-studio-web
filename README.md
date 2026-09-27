@@ -10,7 +10,8 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 | `src/static/css/styles.css` | Colores, tipografías y diseño. |
 | `src/static/js/main.js` | Menú de celular, filtros de proyectos y envío del formulario. |
 | `build.mjs` | Arma todas las páginas a partir de la lista de proyectos. |
-| `src/static/_headers` | Cabeceras de seguridad para Cloudflare Pages. |
+| `src/static/_headers` | Cabeceras de seguridad. |
+| `wrangler.jsonc` | Configuración de publicación en Cloudflare. |
 
 La carpeta `dist/` se genera sola: no se edita a mano.
 
@@ -25,14 +26,15 @@ cd dist && python3 -m http.server 8000
 
 Después abrí `http://localhost:8000` en el navegador.
 
-## Publicar en Cloudflare Pages
+## Publicar en Cloudflare
 
-1. En Cloudflare: **Workers & Pages → Create → Pages → Connect to Git** y elegí este repositorio.
+La web se publica con **Cloudflare Workers** (plan gratis). La configuración está en `wrangler.jsonc`.
+
+1. En Cloudflare: **Workers & Pages → Create → Import a repository** y elegí este repositorio.
 2. Completá así:
-   - **Framework preset:** None
    - **Build command:** `node build.mjs`
-   - **Build output directory:** `dist`
-3. **Save and Deploy.** Cada vez que se actualiza el repositorio, la web se vuelve a publicar sola.
+   - **Deploy command:** `npx wrangler deploy` (viene puesto)
+3. **Deploy.** Cada vez que se actualiza el repositorio, la web se vuelve a publicar sola.
 
 ## Formulario de contacto
 
