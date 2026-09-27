@@ -63,6 +63,14 @@ const TXT = {
     ],
     retrato: 'Retrato de Matías Gonzalez, fundador de AIRON Studio', cargo: 'Diseñador en Comunicación Visual',
     disciplinas: 'Disciplinas', marcasTitulo: 'Marcas y medios con los que trabajamos', ctaEstudio: 'Trabajemos juntos',
+    procesoKicker: 'Método', procesoTitulo: 'Cómo trabajamos',
+    proceso: [
+      ['Brief', 'Escuchamos: objetivos, público, plazos y presupuesto. Todo arranca con una buena pregunta.'],
+      ['Concepto', 'Investigamos y definimos la idea y la dirección visual del proyecto.'],
+      ['Diseño', 'Desarrollamos, ajustamos con tu devolución y refinamos cada detalle.'],
+      ['Entrega', 'Archivos finales listos para usar y acompañamiento en la implementación.'],
+    ],
+    clientesKicker: 'Confiaron en nosotros', verCursor: 'Ver',
     contactoTitulo: 'Contacto', contactoH1: 'Hablemos.',
     contactoLead: 'Contanos tu proyecto: una marca, piezas gráficas, una web, motion, un mural o lo que tengas en mente.',
     contactoDesc: 'Contanos tu proyecto: marca, piezas gráficas, web, motion, mural o lo que tengas en mente.',
@@ -116,6 +124,14 @@ const TXT = {
     ],
     retrato: 'Portrait of Matías Gonzalez, founder of AIRON Studio', cargo: 'Visual Communication Designer',
     disciplinas: 'Disciplines', marcasTitulo: 'Brands and media we have worked with', ctaEstudio: "Let's work together",
+    procesoKicker: 'Method', procesoTitulo: 'How we work',
+    proceso: [
+      ['Brief', 'We listen: goals, audience, timeline and budget. Everything starts with a good question.'],
+      ['Concept', 'We research and define the idea and the visual direction of the project.'],
+      ['Design', 'We develop, refine with your feedback and polish every detail.'],
+      ['Delivery', 'Final files ready to use, and support during implementation.'],
+    ],
+    clientesKicker: 'They trusted us', verCursor: 'View',
     contactoTitulo: 'Contact', contactoH1: "Let's talk.",
     contactoLead: 'Tell us about your project: a brand, graphic pieces, a website, motion, a mural or whatever you have in mind.',
     contactoDesc: 'Tell us about your project: a brand, graphic pieces, a website, motion, a mural or whatever you have in mind.',
@@ -265,6 +281,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = '',
   <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://cdn.myportfolio.com">
   <link rel="stylesheet" href="${ASSETS.css}">
+  <script src="${ASSETS.vt}"></script>
   <script src="${ASSETS.js}" defer></script>${jsonld}
 </head>
 <body>
@@ -308,9 +325,15 @@ const nombreCat = (l, id) => TXT[l].categorias[id] ?? id;
 const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ');
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 
+// Imagen que aparece al pasar el mouse por una tarjeta (la primera de la galería).
+const vistaPrevia = (p) => p.galeria[0] || (p.galerias || [])[0]?.imagenes[0];
+
 function tarjeta(l, p, i, { sizes, destacado = false }) {
-  return `<a class="card reveal${destacado ? ' card--destacado' : ''}" href="${rutaDe(l, 'proyecto', p.slug)}" data-cats="${p.categorias.join(' ')}">
-        <div class="card-img">${img(p.portada, { alt: TXT[l].portadaDe(p.titulo), sizes, dims: [640, 501] })}</div>
+  const previa = vistaPrevia(p);
+  return `<a class="card reveal${destacado ? ' card--destacado' : ''}" href="${rutaDe(l, 'proyecto', p.slug)}" data-cats="${p.categorias.join(' ')}" data-cursor="${TXT[l].verCursor}">
+        <div class="card-img" data-vt="p-${p.slug}">${img(p.portada, { alt: TXT[l].portadaDe(p.titulo), sizes, dims: [640, 501] })}${
+    previa ? img(previa, { alt: '', sizes, clase: 'card-previa' }) : ''
+  }</div>
         <div class="card-meta">
           <div class="card-text">
             <span class="card-title">${esc(p.titulo)}</span>
@@ -354,6 +377,31 @@ function numeros(l, proyectos) {
       <div class="numeros-grid">
         ${items}
       </div>
+    </div>
+  </section>`;
+}
+
+function proceso(l) {
+  const T = TXT[l];
+  const pasos = T.proceso
+    .map(([t, d], i) => `<li class="paso reveal"><span class="paso-num">${num(i)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`)
+    .join('\n        ');
+  return `<section class="seccion seccion--borde">
+    <div class="wrap">
+      <span class="kicker mono">${T.procesoKicker}</span>
+      <h2 class="h2">${T.procesoTitulo}</h2>
+      <ol class="proceso">
+        ${pasos}
+      </ol>
+    </div>
+  </section>`;
+}
+
+function clientes(l) {
+  return `<section class="clientes" aria-label="${TXT[l].clientesKicker}">
+    <div class="wrap">
+      <span class="kicker mono">${TXT[l].clientesKicker}</span>
+      <ul class="clientes-lista">${MARCAS.map((m) => `<li>${esc(m)}</li>`).join('')}</ul>
     </div>
   </section>`;
 }
@@ -414,6 +462,8 @@ function inicio(l, proyectos) {
 
   ${numeros(l, proyectos)}
 
+  ${clientes(l)}
+
   <section class="seccion">
     <div class="wrap servicios-grid">
       <div>
@@ -425,6 +475,8 @@ function inicio(l, proyectos) {
       </ul>
     </div>
   </section>
+
+  ${proceso(l)}
 
   ${ctaBloque(l, T.ctaInicio)}
 `,
@@ -575,7 +627,7 @@ function detalle(l, proyectos, p, i) {
       </div>
     </header>
     <div class="wrap">
-      <div class="proyecto-portada">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 1584px) 1440px, 100vw', eager: true, dims: [1280, 1001] })}</div>
+      <div class="proyecto-portada" data-vt="p-${p.slug}">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 1584px) 1440px, 100vw', eager: true, dims: [1280, 1001] })}</div>
       <dl class="ficha" aria-label="${T.fichaAria}">
         ${ficha}
       </dl>
@@ -648,6 +700,7 @@ function estudio(l, proyectos) {
       <ul class="marcas">${marcas}</ul>
     </div>
   </section>
+  ${proceso(l)}
   ${ctaBloque(l, T.ctaEstudio)}
 `,
   });
@@ -761,6 +814,7 @@ rmSync(OUT, { recursive: true, force: true });
 cpSync('src/static', OUT, { recursive: true });
 ASSETS.css = conHuella('css/styles.css');
 ASSETS.js = conHuella('js/main.js');
+ASSETS.vt = conHuella('js/transiciones.js');
 
 const archivo = (ruta) => `${ruta.replace(/^\//, '')}index.html`;
 const paraMapa = [];

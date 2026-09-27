@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   menu();
   apariciones();
   contadores();
+  textosQueSeArman();
+  cursorEstrella();
   visor();
   formulario();
   filtros();
@@ -87,6 +89,89 @@ function contadores() {
     { threshold: 0.6 }
   );
   nums.forEach((el) => obs.observe(el));
+}
+
+// ----- Textos chicos que se "arman" como un código al aparecer -----
+function textosQueSeArman() {
+  const items = document.querySelectorAll('.kicker');
+  if (!items.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const signos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/#*+<>';
+  const armar = (el) => {
+    const final = el.textContent;
+    const inicio = performance.now();
+    el.classList.add('armando');
+    const paso = (t) => {
+      const p = Math.min((t - inicio) / 700, 1);
+      const fijos = Math.floor(final.length * p);
+      el.textContent = [...final]
+        .map((c, i) => (i < fijos || c === ' ' || c === '·' ? c : signos[Math.floor(Math.random() * signos.length)]))
+        .join('');
+      if (p < 1) requestAnimationFrame(paso);
+      else {
+        el.textContent = final;
+        el.classList.remove('armando');
+      }
+    };
+    requestAnimationFrame(paso);
+  };
+  const obs = new IntersectionObserver(
+    (entradas) =>
+      entradas.forEach((en) => {
+        if (en.isIntersecting) {
+          armar(en.target);
+          obs.unobserve(en.target);
+        }
+      }),
+    { threshold: 1 }
+  );
+  items.forEach((el) => obs.observe(el));
+}
+
+// ----- Cursor con la estrella del logo (solo en computadora) -----
+function cursorEstrella() {
+  if (!matchMedia('(pointer: fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const html = document.documentElement;
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor';
+  cursor.setAttribute('aria-hidden', 'true');
+  cursor.innerHTML =
+    '<svg viewBox="731.8 70.7 352.3 352.3" fill="currentColor"><path d="M1084.08,246.8c-158.73,9.62-166.53,17.42-176.15,176.15-9.62-158.73-17.42-166.53-176.15-176.15,158.73-9.62,166.53-17.42,176.15-176.15,9.62,158.73,17.42,166.53,176.15,176.15Z"/></svg><span></span>';
+  document.body.appendChild(cursor);
+  const etiqueta = cursor.querySelector('span');
+  html.classList.add('cursor-activo');
+
+  let x = -100, y = -100, cx = x, cy = y;
+  const actualizar = (sobre) => {
+    if (!sobre || !sobre.closest) return;
+    const tarjeta = sobre.closest('[data-cursor]');
+    const enlace = sobre.closest('a, button, [role="button"], label, summary');
+    cursor.classList.toggle('ver', !!tarjeta);
+    cursor.classList.toggle('enlace', !tarjeta && !!enlace);
+    cursor.classList.toggle('oscuro', !!sobre.closest('.site-footer, .numeros, .franja, .menu-open .nav'));
+    if (tarjeta) etiqueta.textContent = tarjeta.dataset.cursor;
+  };
+  addEventListener('mousemove', (e) => {
+    x = e.clientX;
+    y = e.clientY;
+    cursor.classList.add('visible');
+    actualizar(e.target);
+  });
+  // Al bajar con la rueda, el contenido se mueve debajo del mouse: se vuelve a revisar qué hay debajo
+  addEventListener('scroll', () => actualizar(document.elementFromPoint(x, y)), { passive: true });
+  document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+  const mover = () => {
+    cx += (x - cx) * 0.22;
+    cy += (y - cy) * 0.22;
+    cursor.style.transform = `translate(${cx}px, ${cy}px)`;
+    requestAnimationFrame(mover);
+  };
+  requestAnimationFrame(mover);
+
+  // Dentro del visor de imágenes se usa el cursor normal
+  const visor = document.querySelector('.visor');
+  if (visor) {
+    new MutationObserver(() => html.classList.toggle('cursor-activo', !visor.open)).observe(visor, { attributes: true, attributeFilter: ['open'] });
+  }
 }
 
 // ----- Visor de imágenes a pantalla completa -----

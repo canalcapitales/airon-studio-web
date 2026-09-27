@@ -424,3 +424,60 @@ ul { padding: 0; list-style: none; }
   .js .reveal { opacity: 1; transform: none; }
   *, *::before, *::after { transition: none !important; }
 }
+
+/* ---------- transiciones entre páginas ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .35s; }
+  ::view-transition-group(*) { animation-duration: .55s; animation-timing-function: cubic-bezier(.2, .7, .1, 1); }
+}
+.site-header { view-transition-name: cabecera; }
+
+/* ---------- vista previa al pasar por una tarjeta ---------- */
+.card-img { position: relative; }
+.card-previa { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .45s ease; }
+.card:hover .card-previa, .card:focus-visible .card-previa { opacity: 1; }
+@media (hover: none) { .card-previa { display: none; } }
+
+/* ---------- cómo trabajamos ---------- */
+.proceso { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; counter-reset: paso; }
+.paso { display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--ink); padding-top: 20px; }
+.paso-num { font-family: var(--f-display); font-size: clamp(48px, 5vw, 80px); line-height: 1; color: var(--acento); }
+.paso h3 { font-family: var(--f-display); font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); text-transform: uppercase; line-height: 1; }
+.paso p { color: var(--texto-2); line-height: 1.55; }
+@media (max-width: 899px) { .proceso { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; } }
+@media (max-width: 499px) { .proceso { grid-template-columns: 1fr; } }
+
+/* ---------- confiaron en nosotros ---------- */
+.clientes { border-bottom: 1px solid var(--ink); }
+.clientes .wrap { padding-block: clamp(40px, 5vw, 64px); }
+.clientes-lista {
+  display: flex; flex-wrap: wrap; gap: 12px 44px; margin-top: 8px;
+  font-family: var(--f-display); font-size: clamp(26px, 3vw, 44px); line-height: 1.1; text-transform: uppercase; color: #8C887E;
+}
+.clientes-lista li { transition: color .25s ease; }
+.clientes-lista li:hover { color: var(--ink); }
+
+/* ---------- textos que se "arman" ---------- */
+.armando { color: var(--acento) !important; }
+
+/* ---------- cursor estrella (solo computadora) ---------- */
+.cursor { display: none; }
+@media (pointer: fine) {
+  .cursor-activo, .cursor-activo * { cursor: none !important; }
+  .cursor-activo input, .cursor-activo textarea, .cursor-activo select { cursor: text !important; }
+  .cursor {
+    display: flex; position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
+    width: 28px; height: 28px; margin: -14px 0 0 -14px; align-items: center; justify-content: center;
+    border-radius: 999px; color: var(--acento); transition: width .25s ease, height .25s ease, margin .25s ease, background-color .25s ease, opacity .2s ease;
+    opacity: 0;
+  }
+  .cursor.visible { opacity: 1; }
+  .cursor svg { width: 22px; height: 22px; transition: transform .25s ease, opacity .2s ease; }
+  .cursor span { position: absolute; font: 600 14px/1 var(--f-texto); color: var(--ink); opacity: 0; transition: opacity .2s ease; }
+  .cursor.enlace svg { transform: scale(1.5) rotate(45deg); }
+  .cursor.ver { width: 88px; height: 88px; margin: -44px 0 0 -44px; background: var(--acento); }
+  .cursor.ver svg { opacity: 0; }
+  .cursor.ver span { opacity: 1; }
+  .cursor.oscuro { color: var(--bg); }
+}
