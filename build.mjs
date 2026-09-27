@@ -122,7 +122,6 @@ function pagina({ ruta, titulo, descripcion = SITIO.descripcion, activo = '', im
   ${imagen ? `<meta property="og:image" content="${esc(imagen)}">\n  <meta name="twitter:card" content="summary_large_image">` : '<meta name="twitter:card" content="summary">'}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/michroma-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://cdn.myportfolio.com">
   <link rel="stylesheet" href="${ASSETS.css}">
   <script src="${ASSETS.js}" defer></script>${jsonld}
@@ -136,7 +135,7 @@ function pagina({ ruta, titulo, descripcion = SITIO.descripcion, activo = '', im
       <nav id="menu" class="nav" aria-label="Principal">
         <a class="nav-link only-menu" href="/"${actual('inicio')}>Inicio</a>
         <a class="nav-link" href="/proyectos/"${actual('proyectos')}>Proyectos</a>
-        <a class="nav-link" href="/sobre-mi/"${actual('sobre')}>Sobre mí</a>
+        <a class="nav-link" href="/estudio/"${actual('sobre')}>Estudio</a>
         <a class="nav-link nav-cta" href="/contacto/"${actual('contacto')}>Hablemos</a>
         <div class="nav-redes only-menu">${redes()}</div>
       </nav>
@@ -175,7 +174,7 @@ function tarjeta(p, i, { sizes, destacado = false }) {
       </a>`;
 }
 
-function ctaBloque(titulo, texto = 'Escribime →') {
+function ctaBloque(titulo, texto = 'Escribinos →') {
   return `<section class="cta">
     <div class="wrap cta-in">
       <h2 class="cta-title">${titulo}</h2>
@@ -235,7 +234,7 @@ function inicio() {
     <div class="wrap servicios-grid">
       <div>
         <span class="kicker mono">Servicios</span>
-        <h2 class="h2">Qué hago</h2>
+        <h2 class="h2">Qué hacemos</h2>
       </div>
       <ul class="servicios">
         ${servicios}
@@ -425,18 +424,18 @@ function sobreMi() {
     .map((m) => `<li>${m}</li>`)
     .join('');
   return pagina({
-    ruta: '/sobre-mi/',
-    titulo: 'Sobre mí',
+    ruta: '/estudio/',
+    titulo: 'Estudio',
     activo: 'sobre',
     imagen: `${SITIO.url}/img/foto-perfil-1080.webp`,
     descripcion: 'AIRON Studio: estudio de diseño multimedial fundado en 2015 en Buenos Aires, liderado por Matías Gonzalez.',
-    datos: { '@type': 'AboutPage', name: 'Sobre AIRON Studio', url: `${SITIO.url}/sobre-mi/`, about: ORGANIZACION },
+    datos: { '@type': 'AboutPage', name: 'Sobre AIRON Studio', url: `${SITIO.url}/estudio/`, about: ORGANIZACION },
     cuerpo: `
   <section class="seccion seccion--top">
     <div class="wrap sobre-grid">
       <img class="sobre-foto" src="/img/foto-perfil-1080.webp" srcset="/img/foto-perfil-640.webp 640w, /img/foto-perfil-1080.webp 1080w" sizes="(min-width: 900px) 40vw, 100vw" width="1080" height="1080" alt="Retrato de Matías Gonzalez, fundador de AIRON Studio" fetchpriority="high">
       <div class="sobre-texto">
-        <span class="kicker mono">Sobre mí</span>
+        <span class="kicker mono">El estudio</span>
         <h1 class="page-title page-title--md">Diseño con mirada integral</h1>
         <p class="texto-destacado">Estudio de diseño multimedial fundado en 2015, con base en Buenos Aires y liderado por Matías Gonzalez, Diseñador en Comunicación Visual recibido en la Universidad Nacional de La Plata.</p>
         <p>Desarrollamos proyectos que combinan estrategia, diseño y comunicación, creando identidades y experiencias visuales capaces de conectar marcas con sus públicos.</p>
@@ -459,7 +458,7 @@ function sobreMi() {
   </section>
   <section class="seccion seccion--borde">
     <div class="wrap">
-      <span class="kicker mono">Marcas y medios con los que trabajé</span>
+      <span class="kicker mono">Marcas y medios con los que trabajamos</span>
       <ul class="marcas">${marcas}</ul>
     </div>
   </section>
@@ -476,7 +475,7 @@ function contacto() {
     ruta: '/contacto/',
     titulo: 'Contacto',
     activo: 'contacto',
-    descripcion: 'Contame tu proyecto: marca, piezas gráficas, motion, mural o lo que tengas en mente.',
+    descripcion: 'Contanos tu proyecto: marca, piezas gráficas, motion, mural o lo que tengas en mente.',
     datos: { '@type': 'ContactPage', name: 'Contacto — AIRON Studio', url: `${SITIO.url}/contacto/` },
     cuerpo: `
   <section class="seccion seccion--top">
@@ -484,7 +483,7 @@ function contacto() {
       <div class="contacto-info">
         <span class="kicker mono">Contacto</span>
         <h1 class="page-title">Hablemos.</h1>
-        <p class="lead">Contame tu proyecto: una marca, piezas gráficas, motion, un mural o lo que tengas en mente.</p>
+        <p class="lead">Contanos tu proyecto: una marca, piezas gráficas, motion, un mural o lo que tengas en mente.</p>
         <nav class="redes-lista" aria-label="Redes">
           <a href="${SITIO.behance}" target="_blank" rel="noopener noreferrer"><span>Behance</span><span class="mono">/AIRONSTUDIO ↗</span></a>
           <a href="${SITIO.linkedin}" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span class="mono">/in/aironstudio ↗</span></a>
@@ -563,11 +562,11 @@ const paginas = [
   ['index.html', '/', inicio()],
   ['proyectos/index.html', '/proyectos/', listado()],
   ...proyectos.map((p, i) => [`proyectos/${p.slug}/index.html`, `/proyectos/${p.slug}/`, detalle(p, i)]),
-  ['sobre-mi/index.html', '/sobre-mi/', sobreMi()],
+  ['estudio/index.html', '/estudio/', sobreMi()],
   ['contacto/index.html', '/contacto/', contacto()],
 ];
 for (const [archivo, , html] of paginas) escribir(archivo, html);
-escribir('gracias/index.html', simple({ ruta: '/gracias/', titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibí tu mensaje. Te voy a responder a la brevedad.' }));
+escribir('gracias/index.html', simple({ ruta: '/gracias/', titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' }));
 escribir('404.html', simple({ ruta: '/404.html', titulo: 'Página no encontrada', h1: 'Ups.', texto: 'Esta página no existe o cambió de lugar.' }));
 
 const hoy = new Date().toISOString().slice(0, 10);

@@ -8,7 +8,7 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 |---|---|
 | `src/data/proyectos.json` | **La lista de proyectos**: títulos, textos, categorías, portadas e imágenes. Casi todo lo que cambies va acá. |
 | `src/static/css/styles.css` | Colores, tipografías y diseño. |
-| `src/static/js/main.js` | Menú de celular, filtros de proyectos y envío del formulario. |
+| `src/static/js/main.js` | Menú de celular, filtros, visor de imágenes y formulario. |
 | `build.mjs` | Arma todas las páginas a partir de la lista de proyectos. |
 | `src/static/_headers` | Cabeceras de seguridad. |
 | `wrangler.jsonc` | Configuración de publicación en Cloudflare. |
@@ -53,6 +53,5 @@ Por ahora las portadas y galerías se muestran desde los servidores de Adobe Por
 ## Pendientes
 
 - Imágenes definitivas de cada proyecto.
-- Logo con "STUDIO" en curvas (hoy se muestra con Michroma, parecida a Eurostile).
 - Enlace de Behance de cada proyecto (hoy apuntan al perfil).
 - Conectar el dominio propio (y cambiar `url:` en `build.mjs` por la nueva dirección, para Google y el mapa del sitio).

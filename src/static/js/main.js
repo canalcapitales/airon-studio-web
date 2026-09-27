@@ -118,7 +118,7 @@ function formulario() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (form.hasAttribute('data-pendiente')) {
-      estado.textContent = 'El formulario se activa muy pronto. Mientras tanto, escribime por Instagram o LinkedIn.';
+      estado.textContent = 'El formulario se activa muy pronto. Mientras tanto, escribinos por Instagram o LinkedIn.';
       return;
     }
     enviar.disabled = true;
@@ -128,7 +128,7 @@ function formulario() {
       if (!r.ok) throw new Error(r.status);
       location.href = '/gracias/';
     } catch {
-      estado.textContent = 'No se pudo enviar. Probá de nuevo o escribime por Instagram o LinkedIn.';
+      estado.textContent = 'No se pudo enviar. Probá de nuevo o escribinos por Instagram o LinkedIn.';
       enviar.disabled = false;
     }
   });
