@@ -54,7 +54,7 @@ const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Fo
 const NUMEROS = [
   { valor: anio - FUNDACION, texto: 'Años de estudio' },
   { valor: proyectos.length, texto: 'Proyectos en el portafolio' },
-  { valor: null, prefijo: '+', texto: 'Identidades y logos diseñados' },
+  { valor: 27, texto: 'Identidades de marca' },
   { valor: MARCAS.length, texto: 'Marcas y medios' },
   { valor: 47, sufijo: ' m²', texto: 'Nuestro mural más grande' },
   { valor: 6, texto: 'Disciplinas creativas' },
@@ -359,21 +359,32 @@ function detalle(p, i) {
         )
         .join('')}</div>`
     : '';
+  const figura = (g, k, total, { full = false, grilla = false } = {}) => {
+    const alt = g.alt || `${p.titulo} — imagen ${k + 1} de ${total}`;
+    const clase = full ? 'galeria-full' : '';
+    const sizes = grilla ? '(min-width: 900px) 25vw, 50vw' : full ? '(min-width: 1584px) 1440px, 100vw' : '(min-width: 900px) 50vw, 100vw';
+    return `<figure class="${clase} reveal"><a class="zoom" href="${esc(paraVisor(g))}" aria-label="Ampliar: ${esc(alt)}">${img(g, { alt, sizes, dims: g._wh })}</a></figure>`;
+  };
+  const esAncha = (g) => g._wh && g._wh[0] / g._wh[1] > 1.6;
   const galeria = p.galeria.length
-    ? `<div class="galeria">${p.galeria
-        .map((g, k) => {
-          const alt = `${p.titulo} — imagen ${k + 1} de ${p.galeria.length}`;
-          const ancho = g._wh && g._wh[0] / g._wh[1] > 1.6;
-          const clase = k === 0 || ancho ? 'galeria-full' : '';
-          return `<figure class="${clase} reveal"><a class="zoom" href="${esc(paraVisor(g))}" data-zoom="${k}" aria-label="Ampliar imagen ${k + 1}">${img(g, {
-            alt,
-            sizes: clase ? '(min-width: 1584px) 1440px, 100vw' : '(min-width: 900px) 50vw, 100vw',
-            dims: g._wh,
-          })}</a></figure>`;
-        })
-        .join('')}</div>`
+    ? `<div class="galeria">${p.galeria.map((g, k) => figura(g, k, p.galeria.length, { full: k === 0 || esAncha(g) })).join('')}</div>`
     : '';
-  const visor = p.galeria.length
+  const galerias = (p.galerias || [])
+    .map((grupo) => {
+      const grilla = grupo.estilo === 'grilla';
+      const figs = grupo.imagenes
+        .map((g, k) => figura(g, k, grupo.imagenes.length, { grilla, full: !grilla && (k === 0 || esAncha(g)) }))
+        .join('');
+      return `<div class="galeria-grupo">
+          <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${esc(grupo.titulo)}</h3>${
+            grupo.texto ? `<p>${esc(grupo.texto)}</p>` : ''
+          }${grupo.nota ? `<span class="mono">${esc(grupo.nota)}</span>` : ''}</div>
+          <div class="galeria${grilla ? ' galeria--grilla' : ''}">${figs}</div>
+        </div>`;
+    })
+    .join('');
+  const hayImagenes = p.galeria.length || (p.galerias || []).length;
+  const visor = hayImagenes
     ? `
   <dialog class="visor" aria-label="Visor de imágenes">
     <button class="visor-btn visor-cerrar" type="button" aria-label="Cerrar">✕</button>
@@ -424,6 +435,7 @@ function detalle(p, i) {
       <div class="wrap">
         ${videos}
         ${galeria}
+        ${galerias}
       </div>
     </section>
     <div class="wrap">

@@ -348,7 +348,7 @@
   {
     "slug": "branding-x-airon-studio",
     "titulo": "Branding x AIRON Studio",
-    "subtitulo": "Selección de identidades",
+    "subtitulo": "27 identidades de marca",
     "categorias": [
       "branding"
     ],
@@ -363,173 +363,459 @@
         "Identidad visual y branding"
       ],
       [
-        "Proyectos",
-        "San Martín de los Andes · Franqui Quiroga · Laionbeats · Museo de Ciencias Naturales"
+        "Identidades",
+        "27 marcas diseñadas"
+      ],
+      [
+        "Rubros",
+        "Música, gastronomía, inmobiliarias, industria, cultura y turismo"
       ]
     ],
     "bloques": [
       {
         "titulo": "La selección",
         "parrafos": [
-          "Una colección de marcas desarrolladas para distintos proyectos, sectores y disciplinas. Un recorrido por diferentes enfoques de identidad visual, explorando conceptos, formas, tipografías y sistemas gráficos para construir marcas únicas y reconocibles."
-        ]
-      },
-      {
-        "titulo": "Las marcas",
-        "lista": [
-          [
-            "Geometría & Sistema",
-            "Estudio geométrico y técnico aplicado al desarrollo de marcas: formas, proporciones, retículas y construcción visual."
-          ],
-          [
-            "San Martín de los Andes — Marca Destino",
-            "Propuesta presentada en un concurso organizado por la Municipalidad, explorando la identidad, el paisaje y los atributos culturales de la ciudad."
-          ],
-          [
-            "Franqui Quiroga — Identidad de Artista",
-            "Identidad visual para un artista musical de La Plata, traducida en un sistema visual contemporáneo y adaptable."
-          ],
-          [
-            "Laionbeats — Identidad de Artista",
-            "Branding para un artista musical de San Martín de los Andes radicado en Buenos Aires."
-          ],
-          [
-            "Museo de Ciencias Naturales — Rediseño",
-            "Propuesta desarrollada desde la Facultad de Artes de la UNLP, tomando como eje el patrimonio científico, histórico y cultural del museo."
-          ]
+          "Una colección de marcas desarrolladas para distintos proyectos, sectores y disciplinas. Un recorrido por diferentes enfoques de identidad visual, explorando conceptos, formas, tipografías y sistemas gráficos para construir marcas únicas y reconocibles.",
+          "Detrás de cada marca hay un estudio geométrico y técnico: formas, proporciones, retículas y construcción visual para crear identidades sólidas, coherentes y reconocibles."
         ]
       }
     ],
-    "galeria": [
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/096605e6-77a4-47a8-b190-f41998459ae9_rw_600.png?h=de3c2acd00dadb8c84c3f02fc81fc665",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/096605e6-77a4-47a8-b190-f41998459ae9_rw_1200.png?h=58c44ba1642ea627b2bca680b1493909",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/096605e6-77a4-47a8-b190-f41998459ae9_rw_1920.png?h=d9dc2f962581b152e7087f3d441249fd",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/dadbdbdb-036f-493d-850e-e7828d2cebc5_rw_600.png?h=c23b6c41cb2ff1e1b25d0ce3bee3c866",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/dadbdbdb-036f-493d-850e-e7828d2cebc5_rw_1200.png?h=edf9c579a5ebf572b88907f6d5b7bf50",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/dadbdbdb-036f-493d-850e-e7828d2cebc5_rw_1920.png?h=b8c5829541342c421c1a0a7b098b9b27",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/4764da22-b753-4cbb-87fa-ee4f79ce233e_rw_600.png?h=c09da2987315973715d8cd36a3d095c6",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/4764da22-b753-4cbb-87fa-ee4f79ce233e_rw_1200.png?h=39e4147f2afca5e0ea3bc8fe1766d13e",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/4764da22-b753-4cbb-87fa-ee4f79ce233e_rw_1920.png?h=6a77ea1e0c4ee910d79ca13b15cf1904",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d30d4a17-5e46-4758-be18-b09171d9124b_rw_600.png?h=612852a2027fb5d1b113fb16574e1018",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d30d4a17-5e46-4758-be18-b09171d9124b_rw_1200.png?h=ab1f8a0d7277685388040b58fcb4b77f",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d30d4a17-5e46-4758-be18-b09171d9124b_rw_1920.png?h=a068215cebbfc68e5f83a52dc3e650f1",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/76157ff1-0470-4c9c-a9f0-0f082b19f8d7_rw_600.png?h=367ded56b5cbea03dc996a17ee45e0e0",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/76157ff1-0470-4c9c-a9f0-0f082b19f8d7_rw_1200.png?h=8380308c88b7a90e72e2b269742c5336",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/76157ff1-0470-4c9c-a9f0-0f082b19f8d7_rw_1920.png?h=b3d5b318eab6b1dea79c3bad75308dcb",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0af83959-a19c-43e2-86f4-15b28616c15e_rw_600.png?h=0c4de546bf9fb0d66aabc1448efb23c1",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0af83959-a19c-43e2-86f4-15b28616c15e_rw_1200.png?h=cbb465c84f8beca4c7723fcb543e96c7",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0af83959-a19c-43e2-86f4-15b28616c15e_rw_1920.png?h=0ce9ca877b43cdedd2ae136d81398178",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3a6ae588-8932-4d25-8a11-80dc52caba74_rw_600.png?h=66eeb89373dd44cdd66b11e6d0ff69ff",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3a6ae588-8932-4d25-8a11-80dc52caba74_rw_1200.png?h=df4dbc16161e44759f431cd76fe27ae8",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3a6ae588-8932-4d25-8a11-80dc52caba74_rw_1920.png?h=3a555522bf962c8280f204b76f5d1b60",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8f98a367-494a-402d-b6d2-e682fcf8db61_rw_600.png?h=659d9ef1c6bc9a516e5d02ebea5beaff",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8f98a367-494a-402d-b6d2-e682fcf8db61_rw_1200.png?h=415e89c59be4ecd1d8b49bdf13cf7de8",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8f98a367-494a-402d-b6d2-e682fcf8db61_rw_1920.png?h=95c5a144a570e32ded87610f14eae08c",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/28222f97-3765-4399-a1b7-c7991eb7f2fe_rw_600.png?h=eaea237feff80eebf0a97cd23560d67a",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/28222f97-3765-4399-a1b7-c7991eb7f2fe_rw_1200.png?h=7b69feaedc8e7e4957f1d25fee21f5ac",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/28222f97-3765-4399-a1b7-c7991eb7f2fe_rw_1920.png?h=d1b16a1663354dce96a225b3082db6d3",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d29e552c-b6d3-4436-bc6b-cc1576cdf4fc_rw_600.png?h=0dd4569d64906828a2b84420660f25fb",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d29e552c-b6d3-4436-bc6b-cc1576cdf4fc_rw_1200.png?h=62cf3e7d589fd2165dc911840b419d09",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d29e552c-b6d3-4436-bc6b-cc1576cdf4fc_rw_1920.png?h=94b831e8a72afc32386f2d249d849596",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/982a2319-7c05-477e-8cb7-828c7984a1ba_rw_600.png?h=81d7412927c8be45620f97fb8b112113",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/982a2319-7c05-477e-8cb7-828c7984a1ba_rw_1200.png?h=94854ddcc0ba7ce2f9bf5746e62f986d",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/982a2319-7c05-477e-8cb7-828c7984a1ba_rw_1920.png?h=886e1e509267cf9204ff7d1c9d1e077b",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/ba57a593-755c-4a17-a58e-6241f870c9ad_rw_600.png?h=7a332af348d8db9a6fd7fdd193bc51e3",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/ba57a593-755c-4a17-a58e-6241f870c9ad_rw_1200.png?h=666ac4f13044d4a306cd1fa8d478fdfa",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/ba57a593-755c-4a17-a58e-6241f870c9ad_rw_1920.png?h=693ae0124406d5bb851fb51ef2800a66",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3f9d87d4-da06-476d-88f4-6d3f754b0a73_rw_600.png?h=2cde5aa17f918efaa7cc5840bdcff7f8",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3f9d87d4-da06-476d-88f4-6d3f754b0a73_rw_1200.png?h=9dca8241d0ec1201b0face7e3424b956",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3f9d87d4-da06-476d-88f4-6d3f754b0a73_rw_1920.png?h=8098dc716121a9e95d9840313b36ac55",
-        "_wh": [
-          600,
-          600
-        ]
-      },
-      {
-        "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/b186a29d-f90a-472f-9e28-b2d99cd2e4e8_rw_600.png?h=700301a7966d7202082d2bb8c356d8be",
-        "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/b186a29d-f90a-472f-9e28-b2d99cd2e4e8_rw_1200.png?h=4d0e5c595beb7988d87c95af37e62136",
-        "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/b186a29d-f90a-472f-9e28-b2d99cd2e4e8_rw_1920.png?h=4c456b6105e2d66b5ce0992b993f5586",
-        "_wh": [
-          600,
-          600
-        ]
-      }
-    ],
+    "galeria": [],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/254209773/Branding-x-AIRON-STUDIO"
+    "behance": "https://www.behance.net/gallery/254209773/Branding-x-AIRON-STUDIO",
+    "galerias": [
+      {
+        "titulo": "Muro de marcas",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/096605e6-77a4-47a8-b190-f41998459ae9_rw_600.png?h=de3c2acd00dadb8c84c3f02fc81fc665",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/096605e6-77a4-47a8-b190-f41998459ae9_rw_1200.png?h=58c44ba1642ea627b2bca680b1493909",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/096605e6-77a4-47a8-b190-f41998459ae9_rw_1920.png?h=d9dc2f962581b152e7087f3d441249fd",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Laionbeats — Artista musical"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/dadbdbdb-036f-493d-850e-e7828d2cebc5_rw_600.png?h=c23b6c41cb2ff1e1b25d0ce3bee3c866",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/dadbdbdb-036f-493d-850e-e7828d2cebc5_rw_1200.png?h=edf9c579a5ebf572b88907f6d5b7bf50",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/dadbdbdb-036f-493d-850e-e7828d2cebc5_rw_1920.png?h=b8c5829541342c421c1a0a7b098b9b27",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Franqui Quiroga — Artista musical"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/4764da22-b753-4cbb-87fa-ee4f79ce233e_rw_600.png?h=c09da2987315973715d8cd36a3d095c6",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/4764da22-b753-4cbb-87fa-ee4f79ce233e_rw_1200.png?h=39e4147f2afca5e0ea3bc8fe1766d13e",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/4764da22-b753-4cbb-87fa-ee4f79ce233e_rw_1920.png?h=6a77ea1e0c4ee910d79ca13b15cf1904",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Plaga Records — Sello discográfico"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d30d4a17-5e46-4758-be18-b09171d9124b_rw_600.png?h=612852a2027fb5d1b113fb16574e1018",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d30d4a17-5e46-4758-be18-b09171d9124b_rw_1200.png?h=ab1f8a0d7277685388040b58fcb4b77f",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d30d4a17-5e46-4758-be18-b09171d9124b_rw_1920.png?h=a068215cebbfc68e5f83a52dc3e650f1",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Trademat — Comercializadora e importadora"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/76157ff1-0470-4c9c-a9f0-0f082b19f8d7_rw_600.png?h=367ded56b5cbea03dc996a17ee45e0e0",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/76157ff1-0470-4c9c-a9f0-0f082b19f8d7_rw_1200.png?h=8380308c88b7a90e72e2b269742c5336",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/76157ff1-0470-4c9c-a9f0-0f082b19f8d7_rw_1920.png?h=b3d5b318eab6b1dea79c3bad75308dcb",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Kinkuro — Servicios petroleros"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0af83959-a19c-43e2-86f4-15b28616c15e_rw_600.png?h=0c4de546bf9fb0d66aabc1448efb23c1",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0af83959-a19c-43e2-86f4-15b28616c15e_rw_1200.png?h=cbb465c84f8beca4c7723fcb543e96c7",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0af83959-a19c-43e2-86f4-15b28616c15e_rw_1920.png?h=0ce9ca877b43cdedd2ae136d81398178",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "94 Cypherground — Artista musical"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3a6ae588-8932-4d25-8a11-80dc52caba74_rw_600.png?h=66eeb89373dd44cdd66b11e6d0ff69ff",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3a6ae588-8932-4d25-8a11-80dc52caba74_rw_1200.png?h=df4dbc16161e44759f431cd76fe27ae8",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3a6ae588-8932-4d25-8a11-80dc52caba74_rw_1920.png?h=3a555522bf962c8280f204b76f5d1b60",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Coolsnow — Winter supplies"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8f98a367-494a-402d-b6d2-e682fcf8db61_rw_600.png?h=659d9ef1c6bc9a516e5d02ebea5beaff",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8f98a367-494a-402d-b6d2-e682fcf8db61_rw_1200.png?h=415e89c59be4ecd1d8b49bdf13cf7de8",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8f98a367-494a-402d-b6d2-e682fcf8db61_rw_1920.png?h=95c5a144a570e32ded87610f14eae08c",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "RAC3 Design — Diseñador gráfico"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/28222f97-3765-4399-a1b7-c7991eb7f2fe_rw_600.png?h=eaea237feff80eebf0a97cd23560d67a",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/28222f97-3765-4399-a1b7-c7991eb7f2fe_rw_1200.png?h=7b69feaedc8e7e4957f1d25fee21f5ac",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/28222f97-3765-4399-a1b7-c7991eb7f2fe_rw_1920.png?h=d1b16a1663354dce96a225b3082db6d3",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Affum — Ahumados y conservas"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d29e552c-b6d3-4436-bc6b-cc1576cdf4fc_rw_600.png?h=0dd4569d64906828a2b84420660f25fb",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d29e552c-b6d3-4436-bc6b-cc1576cdf4fc_rw_1200.png?h=62cf3e7d589fd2165dc911840b419d09",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/d29e552c-b6d3-4436-bc6b-cc1576cdf4fc_rw_1920.png?h=94b831e8a72afc32386f2d249d849596",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Brandy — Pizzas y empanadas"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/982a2319-7c05-477e-8cb7-828c7984a1ba_rw_600.png?h=81d7412927c8be45620f97fb8b112113",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/982a2319-7c05-477e-8cb7-828c7984a1ba_rw_1200.png?h=94854ddcc0ba7ce2f9bf5746e62f986d",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/982a2319-7c05-477e-8cb7-828c7984a1ba_rw_1920.png?h=886e1e509267cf9204ff7d1c9d1e077b",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "A.S.A — Asociación de Skate de San Martín de los Andes"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/ba57a593-755c-4a17-a58e-6241f870c9ad_rw_600.png?h=7a332af348d8db9a6fd7fdd193bc51e3",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/ba57a593-755c-4a17-a58e-6241f870c9ad_rw_1200.png?h=666ac4f13044d4a306cd1fa8d478fdfa",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/ba57a593-755c-4a17-a58e-6241f870c9ad_rw_1920.png?h=693ae0124406d5bb851fb51ef2800a66",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "San Martín de los Andes — Marca destino"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3f9d87d4-da06-476d-88f4-6d3f754b0a73_rw_600.png?h=2cde5aa17f918efaa7cc5840bdcff7f8",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3f9d87d4-da06-476d-88f4-6d3f754b0a73_rw_1200.png?h=9dca8241d0ec1201b0face7e3424b956",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/3f9d87d4-da06-476d-88f4-6d3f754b0a73_rw_1920.png?h=8098dc716121a9e95d9840313b36ac55",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Fermani — Artista musical"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/b186a29d-f90a-472f-9e28-b2d99cd2e4e8_rw_600.png?h=700301a7966d7202082d2bb8c356d8be",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/b186a29d-f90a-472f-9e28-b2d99cd2e4e8_rw_1200.png?h=4d0e5c595beb7988d87c95af37e62136",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/b186a29d-f90a-472f-9e28-b2d99cd2e4e8_rw_1920.png?h=4c456b6105e2d66b5ce0992b993f5586",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "María Rasgido Propiedades — Inmobiliaria"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/cb0de0ac-1cf5-4c04-af64-ab159b00e6e4_rw_600.png?h=752b91fda927121381853841603e7faa",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/cb0de0ac-1cf5-4c04-af64-ab159b00e6e4_rw_1200.png?h=99c49a1268217119e515deab0e8e2f76",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/cb0de0ac-1cf5-4c04-af64-ab159b00e6e4_rw_1920.png?h=f4c8d007001353af291f11adac4e658c",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Museo de La Plata — Museo de Ciencias Naturales"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/5572722d-844a-4e25-95a3-b336b8dd22bf_rw_600.png?h=2fd3d193d2e7b3afb9b4101470a353ab",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/5572722d-844a-4e25-95a3-b336b8dd22bf_rw_1200.png?h=69cf7905b3e419b3d72c3b6d651bb85a",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/5572722d-844a-4e25-95a3-b336b8dd22bf_rw_1920.png?h=6f7484a50313ecaaafe4443bcab76051",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Laion Prods — Productora audiovisual"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/ffdd050c-4d47-4e58-8509-5ac2f23c5da5_rw_600.png?h=0ee9e3e035f4b612760bf14219e42c5f",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/ffdd050c-4d47-4e58-8509-5ac2f23c5da5_rw_1200.png?h=133663c9c8bee4408d9d48dd40616130",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/ffdd050c-4d47-4e58-8509-5ac2f23c5da5_rw_1920.png?h=65e27d32f8e8859699f3725301601cc6",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "iPhone Store SMA — Tienda Apple"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8dd0a665-9be5-42e6-ba39-4ebf7ba7d169_rw_600.png?h=5b857883977a8d4a0ef2b69c988767d7",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8dd0a665-9be5-42e6-ba39-4ebf7ba7d169_rw_1200.png?h=a393406848f55f1a1d78f889b42b03fd",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8dd0a665-9be5-42e6-ba39-4ebf7ba7d169_rw_1920.png?h=a84d553fb0b7ba5fcf9475ac43d5818b",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Renacer — Negocios inmobiliarios"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/21d6a11d-3e13-4675-90f8-c28728c9c83b_rw_600.png?h=585447cccf7da30a6262ec90e9e89f1a",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/21d6a11d-3e13-4675-90f8-c28728c9c83b_rw_1200.png?h=f2cf7c78f0e65a77299dec339dcff7d2",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/21d6a11d-3e13-4675-90f8-c28728c9c83b_rw_1920.png?h=7490d3007ae9b29492c6932a2b3eadda",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "M93 — Indumentaria vintage"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/1a048991-2d12-4720-b266-35cab88e56b1_rw_600.png?h=248d03f72447a584aea2f884d7bbde7b",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/1a048991-2d12-4720-b266-35cab88e56b1_rw_1200.png?h=36fe36aabf0be58ffe49faa56db93164",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/1a048991-2d12-4720-b266-35cab88e56b1_rw_1920.png?h=a37c346a22d33f3823c5d08b7ce0028a",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Kaizen — Panadería de autor"
+          }
+        ],
+        "nota": "20 de 27 identidades"
+      },
+      {
+        "titulo": "San Martín de los Andes — Marca Destino",
+        "texto": "Propuesta presentada en el concurso organizado por la Municipalidad de San Martín de los Andes, explorando la identidad, el paisaje y los atributos culturales de la ciudad.",
+        "imagenes": [
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/36ea639d-cee7-4145-9873-ddec8405290e_rw_600.png?h=a6e09f0ed56b7597a07439a3971ff09e",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/36ea639d-cee7-4145-9873-ddec8405290e_rw_1200.png?h=d98c7f939596c7f1d72dfa46a4daa76b",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/36ea639d-cee7-4145-9873-ddec8405290e_rw_1920.png?h=c3bf6b7741e40fae24cd43047edbac91",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "San Martín de los Andes — imagen 1"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/6b980abf-236a-4fd3-a838-7c2361dd286c_rw_600.jpeg?h=6d20905bc3dadd8b031466a7eafcfdf3",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/6b980abf-236a-4fd3-a838-7c2361dd286c_rw_1200.jpeg?h=220e14147cbe82b6819743bccad7cff6",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/6b980abf-236a-4fd3-a838-7c2361dd286c_rw_1920.jpeg?h=350ad15a0f7ba26b15f8ed4a379d35f5",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "San Martín de los Andes — imagen 2"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/32b50252-e77e-44a2-ac69-bc47d2e6e448_rw_600.jpeg?h=dc4192102a7136ad2b55af040922a7e2",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/32b50252-e77e-44a2-ac69-bc47d2e6e448_rw_1200.jpeg?h=dd80f0f6bdd8c159ce1c41be7cad3fc0",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/32b50252-e77e-44a2-ac69-bc47d2e6e448_rw_1920.jpeg?h=80943d9fa2217fefab60b50b4fd8bbb4",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "San Martín de los Andes — imagen 3"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/1ca00a9e-bcf4-4ade-b036-8d08f9f1345d_rw_600.jpeg?h=b07b1b2ffc1514eb6507f46d23dfad2f",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/1ca00a9e-bcf4-4ade-b036-8d08f9f1345d_rw_1200.jpeg?h=3528808834859d75a20902b1df992863",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/1ca00a9e-bcf4-4ade-b036-8d08f9f1345d_rw_1920.jpeg?h=b827d3c09b214d7426931a0d14394fef",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "San Martín de los Andes — imagen 4"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0d44b9b6-1c39-4727-9cc7-0363a37779bc_rw_600.jpeg?h=c92cb3e57fcf9f5205a115fb4b6b5f60",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0d44b9b6-1c39-4727-9cc7-0363a37779bc_rw_1200.jpeg?h=9dfcc22faeedc17c2516fe02f0c469d1",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0d44b9b6-1c39-4727-9cc7-0363a37779bc_rw_1920.jpeg?h=8ee285bc664e64c8927d56f310b588b9",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "San Martín de los Andes — imagen 5"
+          }
+        ]
+      },
+      {
+        "titulo": "Franqui Quiroga — Identidad de Artista",
+        "texto": "Identidad visual para un artista musical de La Plata: un sistema visual contemporáneo, reconocible y adaptable.",
+        "imagenes": [
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/c706ffcf-3589-45b4-81d4-14b762b7c21d_rw_600.png?h=a1dbfe57eac198870975f152d72a44d6",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/c706ffcf-3589-45b4-81d4-14b762b7c21d_rw_1200.png?h=db9275e4df48a7add1061857f8b8fc5a",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/c706ffcf-3589-45b4-81d4-14b762b7c21d_rw_1920.png?h=85963104172b53ed6025496e27650f96",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Franqui Quiroga — imagen 1"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/9240cd92-f0a4-4d31-a93e-abda2fd56b7b_rw_600.jpeg?h=0ab37eb7cfc07254f16e3550a7d3a351",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/9240cd92-f0a4-4d31-a93e-abda2fd56b7b_rw_1200.jpeg?h=b52f2e49dbef59f5ac7efa86661e3ec1",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/9240cd92-f0a4-4d31-a93e-abda2fd56b7b_rw_1920.jpeg?h=1cbff842c2eeb709280cc31ee9cb1d05",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Franqui Quiroga — imagen 2"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/553dca08-956b-4c0a-ad79-869f52009826_rw_600.jpeg?h=d2f14a9387c729ba1a1d1dc7993c554b",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/553dca08-956b-4c0a-ad79-869f52009826_rw_1200.jpeg?h=269d3846511fdac65b6ef567695ca0ac",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/553dca08-956b-4c0a-ad79-869f52009826_rw_1920.jpeg?h=4f7c506cf25ca3a073d42dc55f19738a",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Franqui Quiroga — imagen 3"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/18984450-98f1-45cd-86ca-6809070bc32c_rw_600.jpeg?h=6bb6de8ed1a45015d5ccb6e87ebeebc7",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/18984450-98f1-45cd-86ca-6809070bc32c_rw_1200.jpeg?h=3b67efb1728fc36340f0fd548c1dd467",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/18984450-98f1-45cd-86ca-6809070bc32c_rw_1920.jpeg?h=52776e6d84811fa5e1053815317a7133",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Franqui Quiroga — imagen 4"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/1d1069f3-82da-4b87-877c-596839c78fc9_rw_600.jpeg?h=226480f69f84741c0db79efa753e3768",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/1d1069f3-82da-4b87-877c-596839c78fc9_rw_1200.jpeg?h=26da0f5ba3ed4dcf7e19e67273cee09f",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/1d1069f3-82da-4b87-877c-596839c78fc9_rw_1920.jpeg?h=a53bb9e312884627f62bd9492d9c93c9",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Franqui Quiroga — imagen 5"
+          }
+        ]
+      },
+      {
+        "titulo": "Laionbeats — Identidad de Artista",
+        "texto": "Branding para un artista musical de San Martín de los Andes radicado en Buenos Aires, que traduce su universo sonoro en un lenguaje visual flexible.",
+        "imagenes": [
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/69307ad3-6951-4baf-b298-e03c9cdbc535_rw_600.png?h=39cd4b441349cd58da9e09b215659c43",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/69307ad3-6951-4baf-b298-e03c9cdbc535_rw_1200.png?h=63127d1f17124c61285956f041d653a9",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/69307ad3-6951-4baf-b298-e03c9cdbc535_rw_1920.png?h=e9a53cd6ed281ff3a77d73b57dea00b0",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Laionbeats — imagen 1"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0f6acda7-db0d-4c26-bc38-32d6a80a09fb_rw_600.jpeg?h=ce53b7598911848e8bc782dea866db82",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0f6acda7-db0d-4c26-bc38-32d6a80a09fb_rw_1200.jpeg?h=1104d58e3cee9fb7014de1b7dd9dd0c1",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/0f6acda7-db0d-4c26-bc38-32d6a80a09fb_rw_1920.jpeg?h=cbf95b579474db7b142aff0ed3807812",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Laionbeats — imagen 2"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/2be0549a-4cb2-471e-b943-e247c4d6af19_rw_600.jpeg?h=7beff578312ae93c2f8c9e00401d4fec",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/2be0549a-4cb2-471e-b943-e247c4d6af19_rw_1200.jpeg?h=8eb5f018f431cec2f656b55d97a38805",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/2be0549a-4cb2-471e-b943-e247c4d6af19_rw_1920.jpeg?h=84fcb7f7de263cd268ccc616b58c7fc2",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Laionbeats — imagen 3"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/36860148-7772-466d-81f2-58272024c613_rw_600.jpeg?h=401e21edcef0f043597c63d99e4e15ec",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/36860148-7772-466d-81f2-58272024c613_rw_1200.jpeg?h=311beda900882357ed43411ecc13bc84",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/36860148-7772-466d-81f2-58272024c613_rw_1920.jpeg?h=e1b1ab379c892875801ad36d5f4aadfd",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Laionbeats — imagen 4"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/30e5fc70-dbb4-4529-8271-76d6fde10928_rw_600.jpeg?h=523db786c5f8be169e632c1fab29b487",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/30e5fc70-dbb4-4529-8271-76d6fde10928_rw_1200.jpeg?h=4f25e2408f5521eabad6721cccebdfd7",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/30e5fc70-dbb4-4529-8271-76d6fde10928_rw_1920.jpeg?h=f8295b49f0e7cab0e773c42c8babc843",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Laionbeats — imagen 5"
+          }
+        ]
+      },
+      {
+        "titulo": "Museo de Ciencias Naturales — Rediseño de Identidad",
+        "texto": "Propuesta desarrollada desde la Facultad de Artes de la UNLP, tomando como eje el patrimonio científico, histórico y cultural del museo.",
+        "imagenes": [
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8ed0b0e5-26bd-4aef-88a0-3994b839a9db_rw_600.png?h=848186f03ef3fe0dd417cf89255713ef",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8ed0b0e5-26bd-4aef-88a0-3994b839a9db_rw_1200.png?h=97906c27e0254c4e779773c607aaf468",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/8ed0b0e5-26bd-4aef-88a0-3994b839a9db_rw_1920.png?h=6b323bc80d24502f1c76888ae72789f7",
+            "_wh": [
+              600,
+              600
+            ],
+            "alt": "Museo de Ciencias Naturales — imagen 1"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/5e2a0ba4-90d3-4705-8762-b1d73fac099d_rw_600.jpeg?h=48685b1974a204b718ed1001c20834b3",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/5e2a0ba4-90d3-4705-8762-b1d73fac099d_rw_1200.jpeg?h=cbe2cef4948b05cd2ea00ee30417f07a",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/5e2a0ba4-90d3-4705-8762-b1d73fac099d_rw_1920.jpeg?h=877686e432f00265d054e47919e040d2",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Museo de Ciencias Naturales — imagen 2"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/7123f332-9982-4de9-91ef-d196cf228804_rw_600.jpeg?h=7253bbaaceef93953fae82cfc64c330e",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/7123f332-9982-4de9-91ef-d196cf228804_rw_1200.jpeg?h=95e646f6a3a448e0f8ecea483f44e31a",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/7123f332-9982-4de9-91ef-d196cf228804_rw_1920.jpeg?h=cf3fd3f57b625f2c6f97c570559fa833",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Museo de Ciencias Naturales — imagen 3"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/188480b4-84f1-427d-97d3-2e0f2be735ab_rw_600.jpeg?h=3808c8a8efd0a9f5f891486b4e72efd5",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/188480b4-84f1-427d-97d3-2e0f2be735ab_rw_1200.jpeg?h=8a2e68db301722725689d89590332105",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/188480b4-84f1-427d-97d3-2e0f2be735ab_rw_1920.jpeg?h=7b8745d64cf8de1ed176441bebb300aa",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Museo de Ciencias Naturales — imagen 4"
+          },
+          {
+            "600": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/6d25f087-3707-45e2-be23-b1d008557c4c_rw_600.jpeg?h=6610a75d84f8539c2425023e58557e2e",
+            "1200": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/6d25f087-3707-45e2-be23-b1d008557c4c_rw_1200.jpeg?h=40eca04525bd953d0198b34237264e78",
+            "1920": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/6d25f087-3707-45e2-be23-b1d008557c4c_rw_1920.jpeg?h=95ceb8c9b701ebba0bfc135b497d626c",
+            "_wh": [
+              600,
+              448
+            ],
+            "alt": "Museo de Ciencias Naturales — imagen 5"
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "ploteo-vehicular",
