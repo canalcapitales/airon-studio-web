@@ -327,8 +327,12 @@ const nombreCat = (l, id) => TXT[l].categorias[id] ?? id;
 const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ');
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 
-// Imagen que aparece al pasar el mouse por una tarjeta (la primera de la galería).
-const vistaPrevia = (p) => p.galeria[0] || (p.galerias || [])[0]?.imagenes[0];
+// Imagen que aparece al pasar el mouse por una tarjeta.
+// Por defecto es la primera de la galería; con "previa" en el proyecto se elige otra (1 = la primera).
+const vistaPrevia = (p) => {
+  const todas = [...p.galeria, ...(p.galerias || []).flatMap((g) => g.imagenes)];
+  return todas[(p.previa || 1) - 1] || todas[0];
+};
 
 function tarjeta(l, p, i, { sizes, destacado = false }) {
   const previa = vistaPrevia(p);
