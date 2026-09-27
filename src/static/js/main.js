@@ -1,6 +1,11 @@
 // AIRON Studio — menú de celular, filtros, visor de imágenes, formulario y animaciones
 document.documentElement.classList.add('js');
 
+const EN = document.documentElement.lang.startsWith('en');
+const MSG = EN
+  ? { abrir: 'Open menu', cerrar: 'Close menu', pausa: 'The form will be available very soon. In the meantime, reach us on Instagram or LinkedIn.', enviando: 'Sending…', error: "Couldn't send. Please try again or reach us on Instagram or LinkedIn." }
+  : { abrir: 'Abrir menú', cerrar: 'Cerrar menú', pausa: 'El formulario se activa muy pronto. Mientras tanto, escribinos por Instagram o LinkedIn.', enviando: 'Enviando…', error: 'No se pudo enviar. Probá de nuevo o escribinos por Instagram o LinkedIn.' };
+
 document.addEventListener('DOMContentLoaded', () => {
   menu();
   apariciones();
@@ -20,7 +25,7 @@ function menu() {
   const cambiar = (abierto) => {
     html.classList.toggle('menu-open', abierto);
     boton.setAttribute('aria-expanded', String(abierto));
-    boton.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+    boton.setAttribute('aria-label', abierto ? MSG.cerrar : MSG.abrir);
     if (abierto) nav.querySelector('a')?.focus();
   };
 
@@ -146,17 +151,17 @@ function formulario() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (form.hasAttribute('data-pendiente')) {
-      estado.textContent = 'El formulario se activa muy pronto. Mientras tanto, escribinos por Instagram o LinkedIn.';
+      estado.textContent = MSG.pausa;
       return;
     }
     enviar.disabled = true;
-    estado.textContent = 'Enviando…';
+    estado.textContent = MSG.enviando;
     try {
       const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
       if (!r.ok) throw new Error(r.status);
-      location.href = '/gracias/';
+      location.href = form.dataset.gracias || '/gracias/';
     } catch {
-      estado.textContent = 'No se pudo enviar. Probá de nuevo o escribinos por Instagram o LinkedIn.';
+      estado.textContent = MSG.error;
       enviar.disabled = false;
     }
   });

@@ -6,10 +6,11 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 
 | Archivo / carpeta | Qué es |
 |---|---|
-| `src/data/proyectos.json` | **La lista de proyectos**: títulos, textos, categorías, portadas e imágenes. Casi todo lo que cambies va acá. |
+| `src/data/proyectos.json` | **La lista de proyectos** en español: títulos, textos, categorías, portadas e imágenes. |
+| `src/data/proyectos.en.json` | **La traducción al inglés** de cada proyecto. |
 | `src/static/css/styles.css` | Colores, tipografías y diseño. |
 | `src/static/js/main.js` | Menú de celular, filtros, visor de imágenes y formulario. |
-| `build.mjs` | Arma todas las páginas a partir de la lista de proyectos. |
+| `build.mjs` | Arma todas las páginas en español (`/`) e inglés (`/en/`). Los textos de menú, botones y secciones están arriba, en `TXT`. |
 | `src/static/_headers` | Cabeceras de seguridad. |
 | `wrangler.jsonc` | Configuración de publicación en Cloudflare. |
 
