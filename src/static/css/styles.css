@@ -129,15 +129,24 @@ ul { padding: 0; list-style: none; }
   .hero-bottom .btn { width: 100%; }
 }
 
-/* ---------- franja de servicios ---------- */
+/* ---------- franja de disciplinas (movimiento continuo) ---------- */
 .franja { background: var(--ink); color: var(--bg); overflow: hidden; }
-.franja-in {
-  height: 88px; display: flex; align-items: center; gap: 28px; padding-inline: var(--gutter);
-  font-family: var(--f-display); font-size: clamp(20px, 1.5vw, 26px); text-transform: uppercase; white-space: nowrap;
+.franja-pista { display: flex; width: max-content; animation: franja 45s linear infinite; }
+.franja:hover .franja-pista, .franja:focus-within .franja-pista { animation-play-state: paused; }
+.franja-lista { display: flex; align-items: center; flex-shrink: 0; height: 88px; }
+.franja-lista a {
+  display: flex; align-items: center; min-height: 44px; padding: 0 28px;
+  font-family: var(--f-display); font-size: clamp(20px, 1.6vw, 26px); text-transform: uppercase; white-space: nowrap; text-decoration: none;
 }
-.franja-in i { flex-shrink: 0; width: 10px; height: 10px; background: var(--acento); }
-@media (min-width: 1100px) { .franja-in { justify-content: space-between; } }
-@media (max-width: 699px) { .franja-in { height: 56px; gap: 18px; } .franja-in i { width: 8px; height: 8px; } }
+.franja-lista a:hover, .franja-lista a:focus-visible { color: var(--acento); }
+.franja-sep { width: 10px; height: 10px; background: var(--acento); flex-shrink: 0; }
+@keyframes franja { to { transform: translateX(-50%); } }
+@media (max-width: 699px) { .franja-lista { height: 60px; } .franja-lista a { padding: 0 18px; } .franja-sep { width: 8px; height: 8px; } }
+@media (prefers-reduced-motion: reduce) {
+  .franja { overflow-x: auto; }
+  .franja-pista { animation: none; }
+  .franja-lista[aria-hidden="true"] { display: none; }
+}
 
 /* ---------- secciones ---------- */
 .seccion { padding-block: clamp(56px, 8vw, 120px); }
@@ -185,6 +194,8 @@ ul { padding: 0; list-style: none; }
 .servicio .num { font-family: var(--f-mono); font-size: 14px; padding-top: 6px; }
 .servicio h3 { font-family: var(--f-display); font-weight: 400; font-size: clamp(24px, 2.2vw, 30px); text-transform: uppercase; }
 .servicio p { color: var(--texto-2); margin-top: 6px; }
+.servicio h3 a { text-decoration: none; }
+.servicio h3 a:hover { color: var(--hover); }
 @media (max-width: 899px) {
   .servicios-grid, .servicios { grid-template-columns: 1fr; }
 }
@@ -321,8 +332,10 @@ ul { padding: 0; list-style: none; }
 @media (max-width: 899px) { .numeros-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 339px) { .numeros-grid { grid-template-columns: 1fr; } }
 
-.disciplinas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 40px; margin-top: 40px; }
+.disciplinas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 40px; margin-top: 40px; }
 .disciplinas li { display: flex; gap: 16px; align-items: baseline; border-top: 1px solid var(--ink); padding: 18px 0 32px; font-family: var(--f-display); font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; }
+.disciplinas a { text-decoration: none; }
+.disciplinas a:hover { color: var(--hover); }
 .disciplinas .num { font-family: var(--f-mono); font-size: 13px; }
 @media (max-width: 899px) { .disciplinas { grid-template-columns: 1fr; } .disciplinas li { padding-bottom: 18px; } }
 

@@ -346,6 +346,159 @@
     "behance": "https://www.behance.net/gallery/236781527/Diseno-y-animacion-de-zocalo-para-TV"
   },
   {
+    "slug": "web-airon-studio",
+    "titulo": "Web AIRON Studio",
+    "subtitulo": "Diseño y desarrollo del sitio",
+    "categorias": [
+      "web"
+    ],
+    "portada": {
+      "640": "/img/proyectos/web-airon/portada-640.webp",
+      "1280": "/img/proyectos/web-airon/portada-1280.webp"
+    },
+    "ficha": [
+      [
+        "Cliente",
+        "AIRON Studio"
+      ],
+      [
+        "Año",
+        "2026"
+      ],
+      [
+        "Rol",
+        "Diseño UX/UI y desarrollo"
+      ],
+      [
+        "Publicación",
+        "Cloudflare"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El reto",
+        "destacado": "Pasar de un portafolio genérico a una web propia que ordene más de veinte publicaciones de Behance en un sistema claro, con identidad fuerte y pensada primero para el celular.",
+        "parrafos": []
+      },
+      {
+        "titulo": "El proceso",
+        "parrafos": [
+          "Arquitectura de la información por disciplinas, diseño en escritorio y celular, y un sistema visual propio: Anton para los títulos, Instrument Sans para los textos, IBM Plex Mono para los datos y el rojo del logo como único acento.",
+          "Galería con filtros por categoría, visor de imágenes a pantalla completa, contadores animados y una franja de disciplinas en movimiento que lleva a cada sección."
+        ]
+      },
+      {
+        "titulo": "El resultado",
+        "parrafos": [
+          "Un sitio liviano y rápido, con tipografías propias, cabeceras de seguridad, formulario de contacto conectado al mail del estudio y datos estructurados para buscadores. Cada cambio se publica solo en menos de dos minutos."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "behance": [
+      {
+        "texto": "Visitar el sitio",
+        "url": "https://airon-studio-web.laionbeats.workers.dev/"
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "Escritorio",
+        "imagenes": [
+          {
+            "720": "/img/proyectos/web-airon/d-inicio-720.webp",
+            "1440": "/img/proyectos/web-airon/d-inicio-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — inicio en escritorio"
+          },
+          {
+            "720": "/img/proyectos/web-airon/d-proyectos-720.webp",
+            "1440": "/img/proyectos/web-airon/d-proyectos-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — galería de proyectos con filtros"
+          },
+          {
+            "720": "/img/proyectos/web-airon/d-proyecto-720.webp",
+            "1440": "/img/proyectos/web-airon/d-proyecto-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — página de proyecto"
+          },
+          {
+            "720": "/img/proyectos/web-airon/d-visor-720.webp",
+            "1440": "/img/proyectos/web-airon/d-visor-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — visor de imágenes a pantalla completa"
+          },
+          {
+            "720": "/img/proyectos/web-airon/d-numeros-720.webp",
+            "1440": "/img/proyectos/web-airon/d-numeros-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — el estudio en números"
+          }
+        ]
+      },
+      {
+        "titulo": "Celular",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "390": "/img/proyectos/web-airon/m-inicio-390.webp",
+            "780": "/img/proyectos/web-airon/m-inicio-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Web AIRON Studio — inicio en celular"
+          },
+          {
+            "390": "/img/proyectos/web-airon/m-menu-390.webp",
+            "780": "/img/proyectos/web-airon/m-menu-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Web AIRON Studio — menú en celular"
+          },
+          {
+            "390": "/img/proyectos/web-airon/m-proyectos-390.webp",
+            "780": "/img/proyectos/web-airon/m-proyectos-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Web AIRON Studio — proyectos en celular"
+          },
+          {
+            "390": "/img/proyectos/web-airon/m-proyecto-390.webp",
+            "780": "/img/proyectos/web-airon/m-proyecto-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Web AIRON Studio — muro de marcas en celular"
+          }
+        ]
+      }
+    ],
+    "cta": "¿Querés verla en vivo?"
+  },
+  {
     "slug": "branding-x-airon-studio",
     "titulo": "Branding x AIRON Studio",
     "subtitulo": "27 identidades de marca",
@@ -1974,7 +2127,7 @@
     "titulo": "Analogic Photos",
     "subtitulo": "Fotografía analógica",
     "categorias": [
-      "urbano"
+      "foto"
     ],
     "portada": {
       "640": "https://cdn.myportfolio.com/b3e1f562-da1f-4807-86c7-e7096f15e3a7/5f903b62-4107-4151-9d1e-f5fd826e25c9_carw_202x158x640.png?h=b803a452b6b737f34ff514207cdbd3fe",

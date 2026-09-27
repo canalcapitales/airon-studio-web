@@ -11,7 +11,7 @@ const SITIO = {
   url: 'https://airon-studio-web.laionbeats.workers.dev',
   nombre: 'AIRON STUDIO',
   lema: 'Diseño que construye marcas, ideas y experiencias',
-  descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, gráfica musical, motion, fotografía analógica y arte urbano.',
+  descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
   behance: 'https://www.behance.net/AIRONSTUDIO',
   linkedin: 'https://www.linkedin.com/in/aironstudio/',
   instagram: 'https://www.instagram.com/_aironstudio/',
@@ -22,20 +22,26 @@ const SITIO = {
 const CATEGORIAS = [
   { id: 'branding', nombre: 'Branding' },
   { id: 'aplicada', nombre: 'Gráfica aplicada' },
+  { id: 'web', nombre: 'Diseño web' },
   { id: 'musical', nombre: 'Gráfica musical' },
   { id: 'motion', nombre: 'Motion' },
-  { id: 'urbano', nombre: 'Arte urbano y foto' },
+  { id: 'urbano', nombre: 'Arte urbano' },
+  { id: 'foto', nombre: 'Fotografía' },
 ];
 const DESTACADOS = ['gsp-seguridad', 'blend-david', 'zocalo-fox-sports', 'branding-x-airon-studio'];
 
+// Lo que hace el estudio. `cat` enlaza con el filtro de Proyectos (vacío = sin enlace).
 const SERVICIOS = [
-  ['Identidad & branding', 'Logos, sistemas visuales y manuales de marca.'],
-  ['Diseño gráfico', 'Catálogos, flyers, piezas impresas y ploteo vehicular.'],
-  ['Comunicación digital', 'Redes sociales, web y campañas.'],
-  ['Gráfica musical', 'Portadas, banners y covers para Spotify.'],
-  ['Motion graphics', 'Animación para TV y redes.'],
-  ['Arte urbano & foto', 'Murales, graffiti y fotografía analógica.'],
+  { cat: 'branding', nombre: 'Identidad & branding', texto: 'Logos, sistemas visuales y manuales de marca.' },
+  { cat: 'aplicada', nombre: 'Diseño gráfico', texto: 'Catálogos, flyers, piezas impresas y ploteo vehicular.' },
+  { cat: 'web', nombre: 'Diseño web', texto: 'Sitios a medida: rápidos, seguros y pensados para el celular.' },
+  { cat: '', nombre: 'Comunicación digital', texto: 'Redes sociales y campañas.' },
+  { cat: 'musical', nombre: 'Gráfica musical', texto: 'Portadas, banners y covers para Spotify.' },
+  { cat: 'motion', nombre: 'Motion graphics', texto: 'Animación para TV y redes.' },
+  { cat: 'urbano', nombre: 'Arte urbano', texto: 'Murales y graffiti que transforman espacios.' },
+  { cat: 'foto', nombre: 'Fotografía analógica', texto: 'Fotografía en película, con mirada de autor.' },
 ];
+const enlaceCat = (cat) => `/proyectos/?categoria=${cat}`;
 
 const proyectos = JSON.parse(readFileSync('src/data/proyectos.json', 'utf8'));
 
@@ -57,7 +63,7 @@ const NUMEROS = [
   { valor: 27, texto: 'Identidades de marca' },
   { valor: MARCAS.length, texto: 'Marcas y medios' },
   { valor: 47, sufijo: ' m²', texto: 'Nuestro mural más grande' },
-  { valor: 6, texto: 'Disciplinas creativas' },
+  { valor: SERVICIOS.length, texto: 'Disciplinas creativas' },
 ];
 
 function numeros(titulo = 'El estudio en números') {
@@ -82,6 +88,7 @@ const esc = (s = '') =>
 const num = (i) => String(i + 1).padStart(2, '0');
 const nombreCat = (id) => CATEGORIAS.find((c) => c.id === id)?.nombre ?? id;
 const catsTexto = (p) => p.categorias.map(nombreCat).join(' / ');
+const absoluta = (u) => (u && u.startsWith('/') ? SITIO.url + u : u);
 const recortar = (t, n = 155) => (t.length <= n ? t : t.slice(0, t.lastIndexOf(' ', n - 1)) + '…');
 const anchos = (t) => Object.keys(t).filter((k) => /^\d+$/.test(k)).map(Number).sort((a, b) => a - b);
 const paraVisor = (t) => t[anchos(t).filter((w) => w <= 1920).at(-1) ?? anchos(t)[0]];
@@ -131,6 +138,7 @@ function pagina({ ruta, titulo, descripcion = SITIO.descripcion, activo = '', im
   const actual = (id) => (activo === id ? ' aria-current="page"' : '');
   const tituloCompleto = titulo ? `${titulo} — AIRON Studio` : `AIRON Studio — ${SITIO.lema}`;
   const url = SITIO.url + ruta;
+  if (imagen && imagen.startsWith('/')) imagen = SITIO.url + imagen;
   const jsonld = datos ? `\n  <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...datos })}</script>` : '';
   return `<!doctype html>
 <html lang="es-AR">
@@ -218,10 +226,16 @@ function inicio() {
   const cards = dest
     .map((p, i) => tarjeta(p, i, { destacado: true, sizes: '(min-width: 900px) 58vw, 100vw' }))
     .join('\n      ');
-  const franja = SERVICIOS.map(([t]) => `<span>${esc(t)}</span>`).join('<i aria-hidden="true"></i>');
-  const servicios = SERVICIOS.map(
-    ([t, d], i) => `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`
-  ).join('\n        ');
+  const conCat = SERVICIOS.filter((x) => x.cat);
+  const lista = (oculta) =>
+    `<ul class="franja-lista"${oculta ? ' aria-hidden="true"' : ''}>${conCat
+      .map((x) => `<li><a href="${enlaceCat(x.cat)}"${oculta ? ' tabindex="-1"' : ''}>${esc(x.nombre)}</a></li><li class="franja-sep" aria-hidden="true"></li>`)
+      .join('')}</ul>`;
+  const franja = lista(false) + lista(true);
+  const servicios = SERVICIOS.map((x, i) => {
+    const titulo = x.cat ? `<a href="${enlaceCat(x.cat)}">${esc(x.nombre)} <span aria-hidden="true">→</span></a>` : esc(x.nombre);
+    return `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${titulo}</h3><p>${esc(x.texto)}</p></div></li>`;
+  }).join('\n        ');
   return pagina({
     ruta: '/',
     activo: 'inicio',
@@ -233,7 +247,7 @@ function inicio() {
       <div class="hero-kicker mono"><span>Estudio de diseño multimedial</span><span>Buenos Aires · desde 2015</span></div>
       <h1 class="hero-title">${SITIO.lema}</h1>
       <div class="hero-bottom">
-        <p class="lead">Branding, diseño gráfico, gráfica musical, motion, fotografía analógica y arte urbano.</p>
+        <p class="lead">Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.</p>
         <div class="btn-row">
           <a class="btn btn-accent btn-lg" href="/proyectos/">Ver proyectos →</a>
           <a class="btn btn-outline btn-lg" href="/contacto/">Hablemos</a>
@@ -242,7 +256,7 @@ function inicio() {
     </div>
   </section>
 
-  <div class="franja" role="presentation"><div class="franja-in">${franja}</div></div>
+  <nav class="franja" aria-label="Disciplinas"><div class="franja-pista">${franja}</div></nav>
 
   <section class="seccion">
     <div class="wrap">
@@ -294,7 +308,7 @@ function listado() {
     titulo: 'Proyectos',
     activo: 'proyectos',
     imagen: proyectos[0].portada['1280'],
-    descripcion: 'Portafolio de AIRON Studio: identidad de marca, gráfica aplicada, gráfica musical, motion y arte urbano.',
+    descripcion: 'Portafolio de AIRON Studio: identidad de marca, gráfica, diseño web, gráfica musical, motion, arte urbano y fotografía.',
     datos: {
       '@type': 'CollectionPage',
       name: 'Proyectos de AIRON Studio',
@@ -308,7 +322,7 @@ function listado() {
         <span class="kicker mono">Portafolio</span>
         <h1 class="page-title">Proyectos</h1>
       </div>
-      <p class="lead">Trabajos de identidad, gráfica, motion y arte urbano. Filtrá por categoría para ver cada disciplina.</p>
+      <p class="lead">Identidad, gráfica, diseño web, motion, arte urbano y fotografía. Filtrá por categoría para ver cada disciplina.</p>
     </div>
   </section>
   <div class="filtros" hidden>
@@ -407,7 +421,7 @@ function detalle(p, i) {
       headline: `${p.titulo} — ${p.subtitulo}`,
       description: descripcion,
       url: `${SITIO.url}/proyectos/${p.slug}/`,
-      image: p.portada['1280'],
+      image: absoluta(p.portada['1280']),
       genre: catsTexto(p),
       inLanguage: 'es-AR',
       creator: { '@type': 'Organization', name: 'AIRON Studio', url: `${SITIO.url}/` },
@@ -440,7 +454,7 @@ function detalle(p, i) {
     </section>
     <div class="wrap">
       <div class="behance-cta">
-        <p class="behance-title">¿Querés ver todas las imágenes?</p>
+        <p class="behance-title">${esc(p.cta || '¿Querés ver todas las imágenes?')}</p>
         <div class="btn-row">${(Array.isArray(p.behance) ? p.behance : [{ texto: 'Ver en Behance', url: p.behance || SITIO.behance }])
           .map((b) => `<a class="btn btn-accent btn-lg" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.texto)} ↗</a>`)
           .join('')}</div>
@@ -462,8 +476,8 @@ function detalle(p, i) {
 }
 
 function sobreMi() {
-  const disciplinas = ['Identidad & branding', 'Diseño gráfico', 'Comunicación digital', 'Gráfica musical', 'Fotografía analógica', 'Arte urbano']
-    .map((d, i) => `<li class="reveal"><span class="mono num">${num(i)}</span><span>${d}</span></li>`)
+  const disciplinas = SERVICIOS
+    .map((x, i) => `<li class="reveal"><span class="mono num">${num(i)}</span>${x.cat ? `<a href="${enlaceCat(x.cat)}">${esc(x.nombre)}</a>` : `<span>${esc(x.nombre)}</span>`}</li>`)
     .join('');
   const marcas = MARCAS
     .map((m) => `<li>${m}</li>`)
@@ -484,7 +498,7 @@ function sobreMi() {
         <h1 class="page-title page-title--md">Diseño con mirada integral</h1>
         <p class="texto-destacado">Estudio de diseño multimedial fundado en ${FUNDACION}, con base en Buenos Aires y liderado por Matías Gonzalez, Diseñador en Comunicación Visual recibido en la Universidad Nacional de La Plata.</p>
         <p>Desarrollamos proyectos que combinan estrategia, diseño y comunicación, creando identidades y experiencias visuales capaces de conectar marcas con sus públicos.</p>
-        <p>Trabajamos en la intersección entre branding, diseño gráfico, comunicación digital, fotografía analógica y arte urbano, con una mirada integral, contemporánea y experimental.</p>
+        <p>Trabajamos en la intersección entre branding, diseño gráfico, diseño web, comunicación digital, arte urbano y fotografía analógica, con una mirada integral, contemporánea y experimental.</p>
       </div>
     </div>
   </section>
