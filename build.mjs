@@ -1,11 +1,14 @@
 // Genera el sitio estático de AIRON Studio en la carpeta dist/.
 // Uso: node build.mjs   (no necesita instalar nada)
 
-import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, renameSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { createHash } from 'node:crypto';
 
 const OUT = 'dist';
 const SITIO = {
+  // Dirección pública de la web. Cambiarla cuando se conecte el dominio propio.
+  url: 'https://airon-studio-web.laionbeats.workers.dev',
   nombre: 'AIRON STUDIO',
   lema: 'Diseño que construye marcas, ideas y experiencias',
   descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, gráfica musical, motion, fotografía analógica y arte urbano.',
@@ -29,7 +32,7 @@ const SERVICIOS = [
   ['Identidad & branding', 'Logos, sistemas visuales y manuales de marca.'],
   ['Diseño gráfico', 'Catálogos, flyers, piezas impresas y ploteo vehicular.'],
   ['Comunicación digital', 'Redes sociales, web y campañas.'],
-  ['Gráfica musical', 'Portadas y covers para Spotify.'],
+  ['Gráfica musical', 'Portadas, banners y covers para Spotify.'],
   ['Motion graphics', 'Animación para TV y redes.'],
   ['Arte urbano & foto', 'Murales, graffiti y fotografía analógica.'],
 ];
@@ -43,26 +46,55 @@ const esc = (s = '') =>
 const num = (i) => String(i + 1).padStart(2, '0');
 const nombreCat = (id) => CATEGORIAS.find((c) => c.id === id)?.nombre ?? id;
 const catsTexto = (p) => p.categorias.map(nombreCat).join(' / ');
+const recortar = (t, n = 155) => (t.length <= n ? t : t.slice(0, t.lastIndexOf(' ', n - 1)) + '…');
+const anchos = (t) => Object.keys(t).filter((k) => /^\d+$/.test(k)).map(Number).sort((a, b) => a - b);
+const paraVisor = (t) => t[anchos(t).filter((w) => w <= 1920).at(-1) ?? anchos(t)[0]];
 
-function img(tamanos, { alt, sizes, clase = '', eager = false }) {
-  const anchos = Object.keys(tamanos).map(Number).sort((a, b) => a - b);
-  const srcset = anchos.map((w) => `${esc(tamanos[w])} ${w}w`).join(', ');
-  const base = tamanos[anchos.find((w) => w >= 1200) ?? anchos.at(-1)];
+function img(tamanos, { alt, sizes, clase = '', eager = false, dims }) {
+  const ws = anchos(tamanos);
+  const srcset = ws.map((w) => `${esc(tamanos[w])} ${w}w`).join(', ');
+  const base = tamanos[ws.find((w) => w >= 1200) ?? ws.at(-1)];
   const carga = eager ? 'fetchpriority="high"' : 'loading="lazy"';
-  return `<img class="${clase}" src="${esc(base)}" srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}" ${carga} decoding="async">`;
+  const medidas = dims ? ` width="${dims[0]}" height="${dims[1]}"` : '';
+  const cls = clase ? ` class="${clase}"` : '';
+  return `<img${cls} src="${esc(base)}" srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}"${medidas} ${carga} decoding="async">`;
 }
 
-const ICONO_MENU = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="17" y2="7"/><line x1="3" y1="13" x2="17" y2="13"/></svg>';
-
-function redes(clase = '') {
-  return `<a class="${clase}" href="${SITIO.behance}" target="_blank" rel="noopener noreferrer">Behance ↗</a>
-      <a class="${clase}" href="${SITIO.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-      <a class="${clase}" href="${SITIO.instagram}" target="_blank" rel="noopener noreferrer">Instagram ↗</a>`;
+function descripcionDe(p) {
+  const texto = p.bloques.flatMap((b) => [b.destacado, ...(b.parrafos || [])]).find(Boolean);
+  return recortar(texto || `${p.titulo} — ${p.subtitulo}. Proyecto de AIRON Studio.`);
 }
 
-function pagina({ titulo, descripcion = SITIO.descripcion, activo = '', imagen = '', cuerpo }) {
+const ICONOS_MENU =
+  '<svg class="i-abrir" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="17" y2="7"/><line x1="3" y1="13" x2="17" y2="13"/></svg>' +
+  '<svg class="i-cerrar" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg>';
+
+function redes() {
+  return `<a href="${SITIO.behance}" target="_blank" rel="noopener noreferrer">Behance ↗</a>
+      <a href="${SITIO.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="${SITIO.instagram}" target="_blank" rel="noopener noreferrer">Instagram ↗</a>`;
+}
+
+const ORGANIZACION = {
+  '@type': 'Organization',
+  '@id': `${SITIO.url}/#estudio`,
+  name: 'AIRON Studio',
+  url: `${SITIO.url}/`,
+  description: SITIO.descripcion,
+  foundingDate: '2015',
+  founder: { '@type': 'Person', name: 'Matías Gonzalez', jobTitle: 'Diseñador en Comunicación Visual' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Buenos Aires', addressCountry: 'AR' },
+  sameAs: [SITIO.behance, SITIO.linkedin, SITIO.instagram],
+};
+
+// Archivos con "huella" en el nombre: el navegador los guarda y solo los vuelve a bajar si cambian.
+const ASSETS = {};
+
+function pagina({ ruta, titulo, descripcion = SITIO.descripcion, activo = '', imagen = '', datos, cuerpo }) {
   const actual = (id) => (activo === id ? ' aria-current="page"' : '');
   const tituloCompleto = titulo ? `${titulo} — AIRON Studio` : `AIRON Studio — ${SITIO.lema}`;
+  const url = SITIO.url + ruta;
+  const jsonld = datos ? `\n  <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...datos })}</script>` : '';
   return `<!doctype html>
 <html lang="es-AR">
 <head>
@@ -70,25 +102,28 @@ function pagina({ titulo, descripcion = SITIO.descripcion, activo = '', imagen =
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(tituloCompleto)}</title>
   <meta name="description" content="${esc(descripcion)}">
+  <link rel="canonical" href="${url}">
   <meta name="theme-color" content="#F2F0EB">
+  <meta name="color-scheme" content="light">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="AIRON Studio">
+  <meta property="og:url" content="${url}">
   <meta property="og:title" content="${esc(tituloCompleto)}">
   <meta property="og:description" content="${esc(descripcion)}">
-  ${imagen ? `<meta property="og:image" content="${esc(imagen)}">` : ''}
+  ${imagen ? `<meta property="og:image" content="${esc(imagen)}">\n  <meta name="twitter:card" content="summary_large_image">` : '<meta name="twitter:card" content="summary">'}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://cdn.myportfolio.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="/js/main.js" defer></script>
+  <link rel="stylesheet" href="${ASSETS.css}">
+  <script src="${ASSETS.js}" defer></script>${jsonld}
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
   <header class="site-header">
     <div class="wrap header-in">
-      <a class="logo" href="/">AIRON STUDIO</a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">${ICONO_MENU}</button>
+      <a class="logo" href="/" aria-label="AIRON Studio — Inicio">AIRON STUDIO</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">${ICONOS_MENU}</button>
       <nav id="menu" class="nav" aria-label="Principal">
         <a class="nav-link only-menu" href="/"${actual('inicio')}>Inicio</a>
         <a class="nav-link" href="/proyectos/"${actual('proyectos')}>Proyectos</a>
@@ -119,8 +154,8 @@ ${cuerpo}
 }
 
 function tarjeta(p, i, { sizes, destacado = false }) {
-  return `<a class="card${destacado ? ' card--destacado' : ''}" href="/proyectos/${p.slug}/" data-cats="${p.categorias.join(' ')}">
-        <div class="card-img">${img(p.portada, { alt: `Portada del proyecto ${p.titulo}`, sizes })}</div>
+  return `<a class="card reveal${destacado ? ' card--destacado' : ''}" href="/proyectos/${p.slug}/" data-cats="${p.categorias.join(' ')}">
+        <div class="card-img">${img(p.portada, { alt: `Portada del proyecto ${p.titulo}`, sizes, dims: [640, 501] })}</div>
         <div class="card-meta">
           <div class="card-text">
             <span class="card-title">${esc(p.titulo)}</span>
@@ -148,11 +183,13 @@ function inicio() {
     .join('\n      ');
   const franja = SERVICIOS.map(([t]) => `<span>${esc(t)}</span>`).join('<i aria-hidden="true"></i>');
   const servicios = SERVICIOS.map(
-    ([t, d], i) => `<li class="servicio"><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`
+    ([t, d], i) => `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`
   ).join('\n        ');
   return pagina({
+    ruta: '/',
     activo: 'inicio',
     imagen: dest[0]?.portada['1280'],
+    datos: { '@graph': [ORGANIZACION, { '@type': 'WebSite', name: 'AIRON Studio', url: `${SITIO.url}/`, inLanguage: 'es-AR', publisher: { '@id': ORGANIZACION['@id'] } }] },
     cuerpo: `
   <section class="hero">
     <div class="wrap hero-in">
@@ -168,7 +205,7 @@ function inicio() {
     </div>
   </section>
 
-  <div class="franja" aria-label="Servicios"><div class="franja-in">${franja}</div></div>
+  <div class="franja" role="presentation"><div class="franja-in">${franja}</div></div>
 
   <section class="seccion">
     <div class="wrap">
@@ -177,7 +214,7 @@ function inicio() {
           <span class="kicker mono">Selección · 01—${num(dest.length - 1)}</span>
           <h2 class="h2">Proyectos destacados</h2>
         </div>
-        <a class="link-arrow" href="/proyectos/">Ver todos los proyectos →</a>
+        <a class="link-arrow" href="/proyectos/">Ver los ${proyectos.length} proyectos →</a>
       </div>
       <div class="destacados">
       ${cards}
@@ -214,9 +251,17 @@ function listado() {
     .map((p, i) => tarjeta(p, i, { sizes: '(min-width: 900px) 30vw, 50vw' }))
     .join('\n      ');
   return pagina({
+    ruta: '/proyectos/',
     titulo: 'Proyectos',
     activo: 'proyectos',
-    descripcion: 'Trabajos de identidad, gráfica, motion y arte urbano de AIRON Studio.',
+    imagen: proyectos[0].portada['1280'],
+    descripcion: 'Portafolio de AIRON Studio: identidad de marca, gráfica aplicada, gráfica musical, motion y arte urbano.',
+    datos: {
+      '@type': 'CollectionPage',
+      name: 'Proyectos de AIRON Studio',
+      url: `${SITIO.url}/proyectos/`,
+      hasPart: proyectos.map((p) => ({ '@type': 'CreativeWork', name: p.titulo, url: `${SITIO.url}/proyectos/${p.slug}/` })),
+    },
     cuerpo: `
   <section class="page-head">
     <div class="wrap page-head-in">
@@ -247,6 +292,7 @@ function listado() {
 }
 
 function detalle(p, i) {
+  const ant = proyectos[(i - 1 + proyectos.length) % proyectos.length];
   const sig = proyectos[(i + 1) % proyectos.length];
   const ficha = p.ficha
     .map(([k, v]) => `<div class="ficha-item"><dt class="mono">${esc(k)}</dt><dd>${esc(v)}</dd></div>`)
@@ -259,7 +305,7 @@ function detalle(p, i) {
         ? `<ul class="lista-marcas">${b.lista.map(([t, d]) => `<li><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`).join('')}</ul>`
         : '';
       return `<section class="bloque">
-      <div class="wrap bloque-in">
+      <div class="wrap bloque-in reveal">
         <div class="bloque-head"><span class="mono num">${num(j)}</span><h2 class="h3">${esc(b.titulo)}</h2></div>
         <div class="bloque-body">${destacado}${parrafos}${lista}</div>
       </div>
@@ -270,25 +316,52 @@ function detalle(p, i) {
     ? `<div class="videos">${p.videos
         .map(
           (id) =>
-            `<div class="video"><iframe src="https://www-ccv.adobe.io/v1/player/ccv/${esc(id)}/embed?bgcolor=%23111111&lazyLoading=true&api_key=BehancePro2View" title="Video del proyecto ${esc(p.titulo)}" loading="lazy" allowfullscreen></iframe></div>`
+            `<div class="video"><iframe src="https://www-ccv.adobe.io/v1/player/ccv/${esc(id)}/embed?bgcolor=%23111111&lazyLoading=true&api_key=BehancePro2View" title="Video del proyecto ${esc(p.titulo)}" loading="lazy" allow="fullscreen" allowfullscreen></iframe></div>`
         )
         .join('')}</div>`
     : '';
   const galeria = p.galeria.length
     ? `<div class="galeria">${p.galeria
-        .map((g, k) =>
-          `<figure class="${k === 0 ? 'galeria-full' : ''}">${img(g, {
-            alt: `${p.titulo} — imagen ${k + 1}`,
-            sizes: k === 0 ? '100vw' : '(min-width: 900px) 50vw, 100vw',
-          })}</figure>`
-        )
+        .map((g, k) => {
+          const alt = `${p.titulo} — imagen ${k + 1} de ${p.galeria.length}`;
+          const ancho = g._wh && g._wh[0] / g._wh[1] > 1.6;
+          const clase = k === 0 || ancho ? 'galeria-full' : '';
+          return `<figure class="${clase} reveal"><a class="zoom" href="${esc(paraVisor(g))}" data-zoom="${k}" aria-label="Ampliar imagen ${k + 1}">${img(g, {
+            alt,
+            sizes: clase ? '(min-width: 1584px) 1440px, 100vw' : '(min-width: 900px) 50vw, 100vw',
+            dims: g._wh,
+          })}</a></figure>`;
+        })
         .join('')}</div>`
     : '';
+  const visor = p.galeria.length
+    ? `
+  <dialog class="visor" aria-label="Visor de imágenes">
+    <button class="visor-btn visor-cerrar" type="button" aria-label="Cerrar">✕</button>
+    <button class="visor-btn visor-ant" type="button" aria-label="Imagen anterior">←</button>
+    <img class="visor-img" alt="">
+    <button class="visor-btn visor-sig" type="button" aria-label="Imagen siguiente">→</button>
+    <span class="visor-contador mono" aria-live="polite"></span>
+  </dialog>`
+    : '';
+  const descripcion = descripcionDe(p);
   return pagina({
+    ruta: `/proyectos/${p.slug}/`,
     titulo: p.titulo,
     activo: 'proyectos',
-    descripcion: `${p.titulo} — ${p.subtitulo}. Proyecto de AIRON Studio.`,
+    descripcion,
     imagen: p.portada['1280'],
+    datos: {
+      '@type': 'CreativeWork',
+      name: p.titulo,
+      headline: `${p.titulo} — ${p.subtitulo}`,
+      description: descripcion,
+      url: `${SITIO.url}/proyectos/${p.slug}/`,
+      image: p.portada['1280'],
+      genre: catsTexto(p),
+      inLanguage: 'es-AR',
+      creator: { '@type': 'Organization', name: 'AIRON Studio', url: `${SITIO.url}/` },
+    },
     cuerpo: `
   <article>
     <header class="proyecto-head">
@@ -302,7 +375,7 @@ function detalle(p, i) {
       </div>
     </header>
     <div class="wrap">
-      <div class="proyecto-portada">${img(p.portada, { alt: `Portada del proyecto ${p.titulo}`, sizes: '100vw', eager: true })}</div>
+      <div class="proyecto-portada">${img(p.portada, { alt: `Portada del proyecto ${p.titulo}`, sizes: '(min-width: 1584px) 1440px, 100vw', eager: true, dims: [1280, 1001] })}</div>
       <dl class="ficha" aria-label="Ficha del proyecto">
         ${ficha}
       </dl>
@@ -319,27 +392,35 @@ function detalle(p, i) {
         <p class="behance-title">¿Querés ver todas las imágenes?</p>
         <a class="btn btn-accent btn-lg" href="${esc(p.behance || SITIO.behance)}" target="_blank" rel="noopener noreferrer">Ver en Behance ↗</a>
       </div>
-      <a class="siguiente" href="/proyectos/${sig.slug}/">
-        <span class="kicker mono">Siguiente proyecto</span>
-        <span class="siguiente-title">${esc(sig.titulo)} →</span>
-      </a>
+      <nav class="navegacion-proyectos" aria-label="Otros proyectos">
+        <a class="otro otro--ant" href="/proyectos/${ant.slug}/">
+          <span class="kicker mono">← Anterior</span>
+          <span class="otro-title">${esc(ant.titulo)}</span>
+        </a>
+        <a class="otro otro--sig" href="/proyectos/${sig.slug}/">
+          <span class="kicker mono">Siguiente →</span>
+          <span class="otro-title">${esc(sig.titulo)}</span>
+        </a>
+      </nav>
     </div>
-  </article>
+  </article>${visor}
 `,
   });
 }
 
 function sobreMi() {
   const disciplinas = ['Identidad & branding', 'Diseño gráfico', 'Comunicación digital', 'Gráfica musical', 'Fotografía analógica', 'Arte urbano']
-    .map((d, i) => `<li><span class="mono num">${num(i)}</span><span>${d}</span></li>`)
+    .map((d, i) => `<li class="reveal"><span class="mono num">${num(i)}</span><span>${d}</span></li>`)
     .join('');
   const marcas = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Food', 'Blend David', 'Flexy', 'Trust Fund']
     .map((m) => `<li>${m}</li>`)
     .join('');
   return pagina({
+    ruta: '/sobre-mi/',
     titulo: 'Sobre mí',
     activo: 'sobre',
-    descripcion: 'AIRON Studio: estudio de diseño multimedial fundado en 2015 en Buenos Aires.',
+    descripcion: 'AIRON Studio: estudio de diseño multimedial fundado en 2015 en Buenos Aires, liderado por Matías Gonzalez.',
+    datos: { '@type': 'AboutPage', name: 'Sobre AIRON Studio', url: `${SITIO.url}/sobre-mi/`, about: ORGANIZACION },
     cuerpo: `
   <section class="seccion seccion--top">
     <div class="wrap sobre-grid">
@@ -357,7 +438,7 @@ function sobreMi() {
     <div class="wrap datos-in">
       <div><span class="dato">2015</span><span class="mono">Fundación del estudio</span></div>
       <div><span class="dato">UNLP</span><span class="mono">Diseño en Comunicación Visual</span></div>
-      <div><span class="dato">6</span><span class="mono">Disciplinas creativas</span></div>
+      <div><span class="dato">${proyectos.length}</span><span class="mono">Proyectos en el portafolio</span></div>
     </div>
   </section>
   <section class="seccion">
@@ -382,9 +463,11 @@ function contacto() {
     .map((o) => `<option>${o}</option>`)
     .join('');
   return pagina({
+    ruta: '/contacto/',
     titulo: 'Contacto',
     activo: 'contacto',
     descripcion: 'Contame tu proyecto: marca, piezas gráficas, motion, mural o lo que tengas en mente.',
+    datos: { '@type': 'ContactPage', name: 'Contacto — AIRON Studio', url: `${SITIO.url}/contacto/` },
     cuerpo: `
   <section class="seccion seccion--top">
     <div class="wrap contacto-grid">
@@ -428,12 +511,11 @@ function contacto() {
   });
 }
 
-function simple({ titulo, h1, texto, archivo }) {
-  return [
-    archivo,
-    pagina({
-      titulo,
-      cuerpo: `
+function simple({ ruta, titulo, h1, texto }) {
+  return pagina({
+    ruta,
+    titulo,
+    cuerpo: `
   <section class="seccion seccion--top simple">
     <div class="wrap">
       <h1 class="page-title">${h1}</h1>
@@ -442,29 +524,51 @@ function simple({ titulo, h1, texto, archivo }) {
     </div>
   </section>
 `,
-    }),
-  ];
+  });
 }
 
 // ---------- escritura ----------
+const compactar = (html) => html.replace(/\n\s+/g, '\n');
+
 function escribir(ruta, contenido) {
   const destino = join(OUT, ruta);
   mkdirSync(dirname(destino), { recursive: true });
-  writeFileSync(destino, contenido);
+  writeFileSync(destino, ruta.endsWith('.html') ? compactar(contenido) : contenido);
+}
+
+function conHuella(ruta) {
+  const archivo = join(OUT, ruta);
+  const huella = createHash('sha256').update(readFileSync(archivo)).digest('hex').slice(0, 10);
+  const nueva = ruta.replace(/(\.\w+)$/, `.${huella}$1`);
+  renameSync(archivo, join(OUT, nueva));
+  return '/' + nueva;
 }
 
 rmSync(OUT, { recursive: true, force: true });
 cpSync('src/static', OUT, { recursive: true });
-escribir('index.html', inicio());
-escribir('proyectos/index.html', listado());
-proyectos.forEach((p, i) => escribir(`proyectos/${p.slug}/index.html`, detalle(p, i)));
-escribir('sobre-mi/index.html', sobreMi());
-escribir('contacto/index.html', contacto());
-for (const [archivo, html] of [
-  simple({ titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibí tu mensaje. Te voy a responder a la brevedad.', archivo: 'gracias/index.html' }),
-  simple({ titulo: 'Página no encontrada', h1: 'Ups.', texto: 'Esta página no existe o cambió de lugar.', archivo: '404.html' }),
-]) {
-  escribir(archivo, html);
-}
+ASSETS.css = conHuella('css/styles.css');
+ASSETS.js = conHuella('js/main.js');
 
-console.log(`Listo: ${proyectos.length + 6} páginas generadas en ${OUT}/`);
+const paginas = [
+  ['index.html', '/', inicio()],
+  ['proyectos/index.html', '/proyectos/', listado()],
+  ...proyectos.map((p, i) => [`proyectos/${p.slug}/index.html`, `/proyectos/${p.slug}/`, detalle(p, i)]),
+  ['sobre-mi/index.html', '/sobre-mi/', sobreMi()],
+  ['contacto/index.html', '/contacto/', contacto()],
+];
+for (const [archivo, , html] of paginas) escribir(archivo, html);
+escribir('gracias/index.html', simple({ ruta: '/gracias/', titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibí tu mensaje. Te voy a responder a la brevedad.' }));
+escribir('404.html', simple({ ruta: '/404.html', titulo: 'Página no encontrada', h1: 'Ups.', texto: 'Esta página no existe o cambió de lugar.' }));
+
+const hoy = new Date().toISOString().slice(0, 10);
+escribir(
+  'sitemap.xml',
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${paginas.map(([, ruta]) => `  <url><loc>${SITIO.url}${ruta}</loc><lastmod>${hoy}</lastmod></url>`).join('\n')}
+</urlset>
+`
+);
+escribir('robots.txt', `User-agent: *\nAllow: /\nDisallow: /gracias/\n\nSitemap: ${SITIO.url}/sitemap.xml\n`);
+
+console.log(`Listo: ${paginas.length + 2} páginas generadas en ${OUT}/`);

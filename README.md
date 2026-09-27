@@ -13,7 +13,7 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 | `src/static/_headers` | Cabeceras de seguridad. |
 | `wrangler.jsonc` | Configuración de publicación en Cloudflare. |
 
-La carpeta `dist/` se genera sola: no se edita a mano.
+La carpeta `dist/` se genera sola: no se edita a mano. Las tipografías están en `src/static/fonts/` (licencia SIL Open Font License).
 
 ## Ver la web en tu computadora
 
@@ -56,4 +56,4 @@ Por ahora las portadas y galerías se muestran desde los servidores de Adobe Por
 - Foto para "Sobre mí".
 - Enlace de Behance de cada proyecto (hoy apuntan al perfil).
 - Código de Formspree para activar el formulario.
-- Conectar el dominio propio.
+- Conectar el dominio propio (y cambiar `url:` en `build.mjs` por la nueva dirección, para Google y el mapa del sitio).
