@@ -46,17 +46,13 @@ Web publicada: https://airon-studio-web.laionbeats.workers.dev (inglés: `/en/`)
 
 **Qué hace falta de AIRON:** el código de verificación. Conviene hacerlo después de conectar el dominio (punto 1).
 
-## 6. Pasar la web a cuentas propias
+## 6. Cuentas propias — no necesario por ahora
 
-Hoy el código está en el GitHub de **canalcapitales** y la web en el Cloudflare de **Capitales**.
+AIRON y Capitales los maneja la misma persona y nadie más tiene acceso, así que la web sigue en el GitHub de **canalcapitales** y en el Cloudflare de **Capitales**.
 
-- [ ] Crear una cuenta de GitHub con aironstudio.ar@gmail.com (con verificación en dos pasos).
-- [ ] Transferir el repositorio `airon-studio-web` a esa cuenta.
-- [ ] Crear una cuenta de Cloudflare propia (con verificación en dos pasos) y volver a conectar la web.
-- [ ] Quitar el acceso de canal@capitales.com.ar a la carpeta AIRON STUDIO del Drive.
-- [ ] Borrar la carpeta temporal "AIRON STUDIO — ESTRUCTURA (descargar)" del Drive de Capitales.
-
-**Qué hace falta de AIRON:** crear las cuentas.
+- [ ] Tener la verificación en dos pasos activada en GitHub y Cloudflare de Capitales.
+- [ ] (Opcional) Borrar la carpeta temporal "AIRON STUDIO — ESTRUCTURA (descargar)" del Drive de Capitales.
+- Si en el futuro se suma otra persona a Capitales, separar AIRON en cuentas propias.
 
 ---
 
