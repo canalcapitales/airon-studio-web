@@ -79,7 +79,13 @@ ul { padding: 0; list-style: none; }
 .logo { display: block; color: var(--ink); }
 .logo-svg { display: block; height: auto; }
 .logo-header { width: clamp(150px, 16vw, 232px); }
-.logo-estrella { fill: var(--acento); }
+.logo-estrella { fill: var(--acento); transition: fill .25s ease; }
+.logo, .footer-logo { transition: color .25s ease; }
+/* Al pasar el mouse: las letras pasan a rojo y la estrella a negro (en el pie, a blanco) */
+.logo:hover, .logo:focus-visible { color: var(--acento); }
+.logo:hover .logo-estrella, .logo:focus-visible .logo-estrella { fill: var(--ink); }
+.footer-logo:hover, .footer-logo:focus-visible { color: var(--acento); }
+.footer-logo:hover .logo-estrella, .footer-logo:focus-visible .logo-estrella { fill: var(--bg); }
 .nav { display: flex; align-items: center; gap: 40px; margin-left: auto; }
 .idioma { display: flex; align-items: center; gap: 2px; margin-left: 32px; font-size: 13px; }
 .idioma a { display: flex; align-items: center; justify-content: center; min-width: 36px; min-height: 44px; text-decoration: none; color: var(--muted); }
