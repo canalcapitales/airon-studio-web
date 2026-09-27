@@ -245,7 +245,7 @@ function inicio() {
   <section class="hero">
     <div class="wrap hero-in">
       <div class="hero-kicker mono"><span>Estudio de diseño multimedial</span><span>Buenos Aires · desde 2015</span></div>
-      <h1 class="hero-title">${SITIO.lema}</h1>
+      <h1 class="hero-title">${SITIO.lema.split(' ').map((w) => `<span class="palabra">${esc(w)}</span>`).join(' ')}</h1>
       <div class="hero-bottom">
         <p class="lead">Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.</p>
         <div class="btn-row">
