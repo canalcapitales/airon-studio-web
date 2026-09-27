@@ -47,11 +47,10 @@ Usa **Formspree** (plan gratis), que reenvía los mensajes a tu email.
 
 Mientras ese código esté vacío, el formulario muestra un aviso para escribir por redes.
 
-## Imágenes provisorias
+## Imágenes
 
-Por ahora las portadas y galerías se muestran desde los servidores de Adobe Portfolio (`cdn.myportfolio.com`). Cuando estén las imágenes definitivas en Drive (`06_Web-Behance` de cada proyecto), se reemplazan en `src/data/proyectos.json` por archivos propios.
+Todas las imágenes están en la propia web, en `src/static/img/p/<proyecto>/`, en formato WebP y en dos tamaños (640 y 1280 px). Las imágenes para compartir en redes están en `src/static/img/og/`.
 
 ## Pendientes
 
-- Imágenes definitivas de cada proyecto.
 - Conectar el dominio propio (y cambiar `url:` en `build.mjs` por la nueva dirección, para Google y el mapa del sitio).

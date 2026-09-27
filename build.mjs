@@ -244,7 +244,7 @@ const organizacion = (l) => ({
 const ASSETS = {};
 
 // ---------- estructura común de cada página ----------
-function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = '', datos, cuerpo }) {
+function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/img/og/inicio-${l}.jpg`, datos, cuerpo }) {
   const T = TXT[l];
   const R = RUTAS[l];
   const actual = (id) => (activo === id ? ' aria-current="page"' : '');
@@ -276,10 +276,12 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = '',
   <meta property="og:url" content="${url}">
   <meta property="og:title" content="${esc(tituloCompleto)}">
   <meta property="og:description" content="${esc(descripcion)}">
-  ${imagen ? `<meta property="og:image" content="${esc(imagen)}">\n  <meta name="twitter:card" content="summary_large_image">` : '<meta name="twitter:card" content="summary">'}
+  <meta property="og:image" content="${esc(imagen)}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preconnect" href="https://cdn.myportfolio.com">
   <link rel="stylesheet" href="${ASSETS.css}">
   <script src="${ASSETS.vt}"></script>
   <script src="${ASSETS.js}" defer></script>${jsonld}
@@ -426,7 +428,7 @@ function inicio(l, proyectos) {
   return pagina(l, {
     clave: 'inicio',
     activo: 'inicio',
-    imagen: dest[0]?.portada['1280'],
+    imagen: `/img/og/inicio-${l}.jpg`,
     datos: { '@graph': [organizacion(l), { '@type': 'WebSite', name: 'AIRON Studio', url: `${SITIO.url}${R.inicio}`, inLanguage: T.htmlLang, publisher: { '@id': `${SITIO.url}/#estudio` } }] },
     cuerpo: `
   <section class="hero">
@@ -494,7 +496,7 @@ function listado(l, proyectos) {
     clave: 'proyectos',
     titulo: T.proyectos,
     activo: 'proyectos',
-    imagen: proyectos[0].portada['1280'],
+    imagen: `/img/og/inicio-${l}.jpg`,
     descripcion: T.listadoDesc,
     datos: {
       '@type': 'CollectionPage',
@@ -602,7 +604,7 @@ function detalle(l, proyectos, p, i) {
     titulo: p.titulo,
     activo: 'proyectos',
     descripcion,
-    imagen: p.portada['1280'],
+    imagen: `/img/og/${p.slug}-${l}.jpg`,
     datos: {
       '@type': 'CreativeWork',
       name: p.titulo,
@@ -671,7 +673,7 @@ function estudio(l, proyectos) {
     clave: 'estudio',
     titulo: T.estudioTitulo,
     activo: 'estudio',
-    imagen: '/img/foto-perfil-1080.webp',
+    imagen: `/img/og/inicio-${l}.jpg`,
     descripcion: T.estudioDesc,
     datos: { '@type': 'AboutPage', name: `AIRON Studio — ${T.estudioTitulo}`, url: `${SITIO.url}${RUTAS[l].estudio}`, inLanguage: T.htmlLang, about: organizacion(l) },
     cuerpo: `
