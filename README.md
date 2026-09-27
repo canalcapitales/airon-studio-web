@@ -55,5 +55,4 @@ Por ahora las portadas y galerías se muestran desde los servidores de Adobe Por
 - Imágenes definitivas de cada proyecto.
 - Logo con "STUDIO" en curvas (hoy se muestra con Michroma, parecida a Eurostile).
 - Enlace de Behance de cada proyecto (hoy apuntan al perfil).
-- Código de Formspree para activar el formulario.
 - Conectar el dominio propio (y cambiar `url:` en `build.mjs` por la nueva dirección, para Google y el mapa del sitio).

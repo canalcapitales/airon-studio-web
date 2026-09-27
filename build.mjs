@@ -16,7 +16,7 @@ const SITIO = {
   linkedin: 'https://www.linkedin.com/in/aironstudio/',
   instagram: 'https://www.instagram.com/_aironstudio/',
   // Código del formulario en Formspree (ej: 'xyzabcde'). Vacío = formulario en pausa.
-  formspree: '',
+  formspree: 'maenlpzn',
 };
 
 const CATEGORIAS = [
