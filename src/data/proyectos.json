@@ -167,7 +167,7 @@
     "videos": [
       "Ec-weSrJWEi"
     ],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/254183157/GSP-SEGURIDAD-DISENO-Y-EVOLUCION-DE-MARCA"
   },
   {
     "slug": "blend-david",
@@ -290,7 +290,7 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/254262723/BLEND-DAVID-Mural-de-fachada"
   },
   {
     "slug": "zocalo-fox-sports",
@@ -343,7 +343,7 @@
       "9fc-eBkIEDc",
       "-_sfLpzfFVc"
     ],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/236781527/Diseno-y-animacion-de-zocalo-para-TV"
   },
   {
     "slug": "branding-x-airon-studio",
@@ -529,7 +529,7 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/254209773/Branding-x-AIRON-STUDIO"
   },
   {
     "slug": "ploteo-vehicular",
@@ -624,7 +624,16 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": [
+      {
+        "texto": "Hilux 2026 en Behance",
+        "url": "https://www.behance.net/gallery/254285659/Hilux-2026-Diseno-de-Ploteo-Vehicular"
+      },
+      {
+        "texto": "Ford Ka 2022 en Behance",
+        "url": "https://www.behance.net/gallery/254282337/Ford-Ka-2022-Diseno-de-Ploteo-Vehicular"
+      }
+    ]
   },
   {
     "slug": "flexy",
@@ -787,7 +796,7 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/232135163/Manual-de-Marca-Empresa-Flexy"
   },
   {
     "slug": "trust-fund",
@@ -971,7 +980,7 @@
       "Up3QbgkzHvT",
       "VQY7mBxmS_i"
     ],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/232091951/Empresa-Trust-Fund"
   },
   {
     "slug": "empresa-black",
@@ -1125,7 +1134,7 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/232092063/Empresa-Black"
   },
   {
     "slug": "spotify-covers",
@@ -1283,7 +1292,7 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/227766779/Spotify-Covers"
   },
   {
     "slug": "portadas",
@@ -1371,7 +1380,7 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/236792515/Portadas"
   },
   {
     "slug": "flyers",
@@ -1515,7 +1524,7 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/227787733/Flyers"
   },
   {
     "slug": "street-art",
@@ -1672,7 +1681,7 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/247243375/Street-Art-Graffiti"
   },
   {
     "slug": "analogic-photos",
@@ -1849,6 +1858,6 @@
       }
     ],
     "videos": [],
-    "behance": null
+    "behance": "https://www.behance.net/gallery/236734017/-Analogic-Photos"
   }
 ]

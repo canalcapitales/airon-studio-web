@@ -53,5 +53,4 @@ Por ahora las portadas y galerías se muestran desde los servidores de Adobe Por
 ## Pendientes
 
 - Imágenes definitivas de cada proyecto.
-- Enlace de Behance de cada proyecto (hoy apuntan al perfil).
 - Conectar el dominio propio (y cambiar `url:` en `build.mjs` por la nueva dirección, para Google y el mapa del sitio).

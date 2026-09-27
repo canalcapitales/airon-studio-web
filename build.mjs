@@ -398,7 +398,9 @@ function detalle(p, i) {
     <div class="wrap">
       <div class="behance-cta">
         <p class="behance-title">¿Querés ver todas las imágenes?</p>
-        <a class="btn btn-accent btn-lg" href="${esc(p.behance || SITIO.behance)}" target="_blank" rel="noopener noreferrer">Ver en Behance ↗</a>
+        <div class="btn-row">${(Array.isArray(p.behance) ? p.behance : [{ texto: 'Ver en Behance', url: p.behance || SITIO.behance }])
+          .map((b) => `<a class="btn btn-accent btn-lg" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.texto)} ↗</a>`)
+          .join('')}</div>
       </div>
       <nav class="navegacion-proyectos" aria-label="Otros proyectos">
         <a class="otro otro--ant" href="/proyectos/${ant.slug}/">
