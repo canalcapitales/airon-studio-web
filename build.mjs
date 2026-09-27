@@ -47,6 +47,35 @@ const LOGO_SVG = readFileSync('src/static/img/logo-airon.svg', 'utf8')
 const logo = (clase) => LOGO_SVG.replace('<svg', `<svg class="logo-svg ${clase}"`);
 const anio = new Date().getFullYear();
 
+const FUNDACION = 2015;
+const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Food', 'Blend David', 'Flexy', 'Trust Fund'];
+
+// Números del estudio. Solo datos reales. Si `valor` está vacío (null), no se muestra.
+const NUMEROS = [
+  { valor: anio - FUNDACION, texto: 'Años de estudio' },
+  { valor: proyectos.length, texto: 'Proyectos en el portafolio' },
+  { valor: null, prefijo: '+', texto: 'Identidades y logos diseñados' },
+  { valor: MARCAS.length, texto: 'Marcas y medios' },
+  { valor: 47, sufijo: ' m²', texto: 'Nuestro mural más grande' },
+  { valor: 6, texto: 'Disciplinas creativas' },
+];
+
+function numeros(titulo = 'El estudio en números') {
+  const items = NUMEROS.filter((n) => n.valor !== null && n.valor !== undefined)
+    .map(
+      (n) => `<div class="numero reveal"><span class="numero-valor">${n.prefijo || ''}<span data-contar="${n.valor}">${n.valor}</span>${n.sufijo || ''}</span><span class="mono">${n.texto}</span></div>`
+    )
+    .join('\n        ');
+  return `<section class="numeros" aria-label="${titulo}">
+    <div class="wrap">
+      <span class="kicker mono">${titulo}</span>
+      <div class="numeros-grid">
+        ${items}
+      </div>
+    </div>
+  </section>`;
+}
+
 // ---------- utilidades ----------
 const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -230,7 +259,9 @@ function inicio() {
     </div>
   </section>
 
-  <section class="seccion seccion--borde">
+  ${numeros()}
+
+  <section class="seccion">
     <div class="wrap servicios-grid">
       <div>
         <span class="kicker mono">Servicios</span>
@@ -422,7 +453,7 @@ function sobreMi() {
   const disciplinas = ['Identidad & branding', 'Diseño gráfico', 'Comunicación digital', 'Gráfica musical', 'Fotografía analógica', 'Arte urbano']
     .map((d, i) => `<li class="reveal"><span class="mono num">${num(i)}</span><span>${d}</span></li>`)
     .join('');
-  const marcas = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Food', 'Blend David', 'Flexy', 'Trust Fund']
+  const marcas = MARCAS
     .map((m) => `<li>${m}</li>`)
     .join('');
   return pagina({
@@ -439,19 +470,13 @@ function sobreMi() {
       <div class="sobre-texto">
         <span class="kicker mono">El estudio</span>
         <h1 class="page-title page-title--md">Diseño con mirada integral</h1>
-        <p class="texto-destacado">Estudio de diseño multimedial fundado en 2015, con base en Buenos Aires y liderado por Matías Gonzalez, Diseñador en Comunicación Visual recibido en la Universidad Nacional de La Plata.</p>
+        <p class="texto-destacado">Estudio de diseño multimedial fundado en ${FUNDACION}, con base en Buenos Aires y liderado por Matías Gonzalez, Diseñador en Comunicación Visual recibido en la Universidad Nacional de La Plata.</p>
         <p>Desarrollamos proyectos que combinan estrategia, diseño y comunicación, creando identidades y experiencias visuales capaces de conectar marcas con sus públicos.</p>
         <p>Trabajamos en la intersección entre branding, diseño gráfico, comunicación digital, fotografía analógica y arte urbano, con una mirada integral, contemporánea y experimental.</p>
       </div>
     </div>
   </section>
-  <section class="datos" aria-label="Datos">
-    <div class="wrap datos-in">
-      <div><span class="dato">2015</span><span class="mono">Fundación del estudio</span></div>
-      <div><span class="dato">UNLP</span><span class="mono">Diseño en Comunicación Visual</span></div>
-      <div><span class="dato">${proyectos.length}</span><span class="mono">Proyectos en el portafolio</span></div>
-    </div>
-  </section>
+  ${numeros()}
   <section class="seccion">
     <div class="wrap">
       <h2 class="h2">Disciplinas</h2>

@@ -4,6 +4,7 @@ document.documentElement.classList.add('js');
 document.addEventListener('DOMContentLoaded', () => {
   menu();
   apariciones();
+  contadores();
   visor();
   formulario();
   filtros();
@@ -54,6 +55,33 @@ function apariciones() {
     { rootMargin: '0px 0px -8% 0px' }
   );
   items.forEach((el) => obs.observe(el));
+}
+
+// ----- Números que cuentan hacia arriba al aparecer -----
+function contadores() {
+  const nums = document.querySelectorAll('[data-contar]');
+  if (!nums.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const animar = (el) => {
+    const fin = Number(el.dataset.contar);
+    const inicio = performance.now();
+    const paso = (t) => {
+      const p = Math.min((t - inicio) / 1400, 1);
+      el.textContent = Math.round(fin * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(paso);
+    };
+    requestAnimationFrame(paso);
+  };
+  const obs = new IntersectionObserver(
+    (entradas) =>
+      entradas.forEach((en) => {
+        if (en.isIntersecting) {
+          animar(en.target);
+          obs.unobserve(en.target);
+        }
+      }),
+    { threshold: 0.6 }
+  );
+  nums.forEach((el) => obs.observe(el));
 }
 
 // ----- Visor de imágenes a pantalla completa -----

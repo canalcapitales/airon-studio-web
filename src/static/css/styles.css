@@ -299,12 +299,15 @@ ul { padding: 0; list-style: none; }
 .sobre-texto p:not(.texto-destacado) { color: var(--texto-2); line-height: 1.6; }
 @media (max-width: 899px) { .sobre-grid { grid-template-columns: 1fr; } }
 
-.datos { background: var(--ink); color: var(--bg); }
-.datos-in { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 40px; padding-block: clamp(40px, 5vw, 72px); }
-.datos-in div { display: flex; flex-direction: column; gap: 10px; }
-.dato { font-family: var(--f-display); font-size: clamp(56px, 5.6vw, 80px); line-height: 1; color: var(--acento); }
-.datos .mono { color: var(--muted-oscuro); font-size: 12px; }
-@media (max-width: 699px) { .datos-in { grid-template-columns: 1fr; } }
+.numeros { background: var(--ink); color: var(--bg); }
+.numeros .wrap { padding-block: clamp(56px, 8vw, 112px); }
+.numeros .kicker { color: var(--muted-oscuro); margin-bottom: clamp(24px, 3vw, 40px); }
+.numeros-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(32px, 4vw, 56px) 40px; }
+.numero { display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--linea-oscura); padding-top: 20px; }
+.numero-valor { font-family: var(--f-display); font-size: clamp(64px, 7.5vw, 120px); line-height: .9; color: var(--acento); font-variant-numeric: tabular-nums; }
+.numero .mono { color: var(--muted-oscuro); font-size: 12px; }
+@media (max-width: 899px) { .numeros-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 339px) { .numeros-grid { grid-template-columns: 1fr; } }
 
 .disciplinas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 40px; margin-top: 40px; }
 .disciplinas li { display: flex; gap: 16px; align-items: baseline; border-top: 1px solid var(--ink); padding: 18px 0 32px; font-family: var(--f-display); font-size: clamp(22px, 2.2vw, 30px); text-transform: uppercase; }
