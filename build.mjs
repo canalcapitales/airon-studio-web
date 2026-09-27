@@ -38,6 +38,13 @@ const SERVICIOS = [
 ];
 
 const proyectos = JSON.parse(readFileSync('src/data/proyectos.json', 'utf8'));
+
+// Logo en línea: las letras toman el color del texto y la estrella usa el color de acento.
+const LOGO_SVG = readFileSync('src/static/img/logo-airon.svg', 'utf8')
+  .replace(' role="img" aria-label="AIRON Studio"', ' aria-hidden="true" focusable="false"')
+  .replace(/ xmlns="[^"]+"/, '')
+  .replace(/\n/g, '');
+const logo = (clase) => LOGO_SVG.replace('<svg', `<svg class="logo-svg ${clase}"`);
 const anio = new Date().getFullYear();
 
 // ---------- utilidades ----------
@@ -82,7 +89,8 @@ const ORGANIZACION = {
   url: `${SITIO.url}/`,
   description: SITIO.descripcion,
   foundingDate: '2015',
-  founder: { '@type': 'Person', name: 'Matías Gonzalez', jobTitle: 'Diseñador en Comunicación Visual' },
+  logo: `${SITIO.url}/img/logo-airon.svg`,
+  founder: { '@type': 'Person', name: 'Matías Gonzalez', jobTitle: 'Diseñador en Comunicación Visual', image: `${SITIO.url}/img/foto-perfil-1080.webp` },
   address: { '@type': 'PostalAddress', addressLocality: 'Buenos Aires', addressCountry: 'AR' },
   sameAs: [SITIO.behance, SITIO.linkedin, SITIO.instagram],
 };
@@ -114,6 +122,7 @@ function pagina({ ruta, titulo, descripcion = SITIO.descripcion, activo = '', im
   ${imagen ? `<meta property="og:image" content="${esc(imagen)}">\n  <meta name="twitter:card" content="summary_large_image">` : '<meta name="twitter:card" content="summary">'}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/michroma-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://cdn.myportfolio.com">
   <link rel="stylesheet" href="${ASSETS.css}">
   <script src="${ASSETS.js}" defer></script>${jsonld}
@@ -122,7 +131,7 @@ function pagina({ ruta, titulo, descripcion = SITIO.descripcion, activo = '', im
   <a class="skip" href="#contenido">Saltar al contenido</a>
   <header class="site-header">
     <div class="wrap header-in">
-      <a class="logo" href="/" aria-label="AIRON Studio — Inicio">AIRON STUDIO</a>
+      <a class="logo" href="/" aria-label="AIRON Studio — Inicio">${logo('logo-header')}</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">${ICONOS_MENU}</button>
       <nav id="menu" class="nav" aria-label="Principal">
         <a class="nav-link only-menu" href="/"${actual('inicio')}>Inicio</a>
@@ -139,7 +148,7 @@ ${cuerpo}
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-top">
-        <span class="footer-logo">AIRON STUDIO</span>
+        <a class="footer-logo" href="/" aria-label="AIRON Studio — Inicio">${logo('logo-footer')}</a>
         <nav class="footer-redes" aria-label="Redes">${redes()}</nav>
       </div>
       <div class="footer-bottom mono">
@@ -419,12 +428,13 @@ function sobreMi() {
     ruta: '/sobre-mi/',
     titulo: 'Sobre mí',
     activo: 'sobre',
+    imagen: `${SITIO.url}/img/foto-perfil-1080.webp`,
     descripcion: 'AIRON Studio: estudio de diseño multimedial fundado en 2015 en Buenos Aires, liderado por Matías Gonzalez.',
     datos: { '@type': 'AboutPage', name: 'Sobre AIRON Studio', url: `${SITIO.url}/sobre-mi/`, about: ORGANIZACION },
     cuerpo: `
   <section class="seccion seccion--top">
     <div class="wrap sobre-grid">
-      <div class="sobre-visual" aria-hidden="true"><span>AIRON</span><span>STUDIO</span><span class="mono">Est. 2015</span></div>
+      <img class="sobre-foto" src="/img/foto-perfil-1080.webp" srcset="/img/foto-perfil-640.webp 640w, /img/foto-perfil-1080.webp 1080w" sizes="(min-width: 900px) 40vw, 100vw" width="1080" height="1080" alt="Retrato de Matías Gonzalez, fundador de AIRON Studio" fetchpriority="high">
       <div class="sobre-texto">
         <span class="kicker mono">Sobre mí</span>
         <h1 class="page-title page-title--md">Diseño con mirada integral</h1>

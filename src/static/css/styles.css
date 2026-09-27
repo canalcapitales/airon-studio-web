@@ -3,6 +3,7 @@
 /* Tipografías alojadas en el propio sitio (licencia SIL Open Font License) */
 @font-face { font-family: 'Anton'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/anton-400.woff2') format('woff2'); }
 @font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/fonts/instrumentsans-var.woff2') format('woff2'); }
+@font-face { font-family: 'Michroma'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/michroma-400.woff2') format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/plexmono-400.woff2') format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/plexmono-500.woff2') format('woff2'); }
 
@@ -76,7 +77,11 @@ ul { padding: 0; list-style: none; }
 /* ---------- header ---------- */
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--ink); }
 .header-in { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
-.logo { font-family: var(--f-display); font-size: clamp(22px, 2.2vw, 30px); letter-spacing: .02em; text-decoration: none; }
+.logo { display: block; color: var(--ink); }
+.logo-svg { display: block; height: auto; }
+.logo-header { width: clamp(150px, 16vw, 232px); }
+.logo-estrella { fill: var(--acento); }
+.logo-studio { letter-spacing: .75em; }
 .nav { display: flex; align-items: center; gap: 40px; }
 .nav-link { font-size: 17px; font-weight: 500; text-decoration: none; }
 .nav-link[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; font-weight: 600; }
@@ -196,7 +201,8 @@ ul { padding: 0; list-style: none; }
 .site-footer { background: var(--ink); color: var(--bg); }
 .site-footer .wrap { display: flex; flex-direction: column; gap: 48px; padding-block: 64px; }
 .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 24px; }
-.footer-logo { font-family: var(--f-display); font-size: clamp(40px, 4.5vw, 64px); line-height: 1; }
+.footer-logo { display: block; color: var(--bg); }
+.logo-footer { width: clamp(220px, 30vw, 420px); }
 .footer-redes { display: flex; flex-wrap: wrap; gap: 8px 36px; }
 .footer-redes a { min-height: 44px; display: flex; align-items: center; font-weight: 500; font-size: 18px; text-decoration: none; }
 .footer-redes a:hover { color: var(--acento); }
@@ -290,14 +296,10 @@ ul { padding: 0; list-style: none; }
 
 /* ---------- sobre mí ---------- */
 .sobre-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 40px 64px; align-items: start; }
-.sobre-visual {
-  aspect-ratio: 4 / 5; background: var(--ink); color: var(--bg); display: flex; flex-direction: column; justify-content: flex-end;
-  padding: clamp(24px, 3vw, 40px); font-family: var(--f-display); font-size: clamp(64px, 9vw, 140px); line-height: .88;
-}
-.sobre-visual .mono { font-size: 13px; color: var(--acento); margin-top: 20px; line-height: 1; }
+.sobre-foto { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; background: var(--placeholder); }
 .sobre-texto { display: flex; flex-direction: column; gap: 24px; }
 .sobre-texto p:not(.texto-destacado) { color: var(--texto-2); line-height: 1.6; }
-@media (max-width: 899px) { .sobre-grid { grid-template-columns: 1fr; } .sobre-visual { aspect-ratio: 1; } }
+@media (max-width: 899px) { .sobre-grid { grid-template-columns: 1fr; } }
 
 .datos { background: var(--ink); color: var(--bg); }
 .datos-in { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 40px; padding-block: clamp(40px, 5vw, 72px); }
