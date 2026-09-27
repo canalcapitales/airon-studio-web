@@ -53,4 +53,4 @@ Todas las imágenes están en la propia web, en `src/static/img/p/<proyecto>/`, 
 
 ## Pendientes
 
-- Conectar el dominio propio (y cambiar `url:` en `build.mjs` por la nueva dirección, para Google y el mapa del sitio).
+La lista completa de tareas para retomar está en [`PENDIENTES.md`](PENDIENTES.md).
