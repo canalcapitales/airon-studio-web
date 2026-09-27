@@ -12,6 +12,8 @@ const SITIO = {
   behance: 'https://www.behance.net/AIRONSTUDIO',
   linkedin: 'https://www.linkedin.com/in/aironstudio/',
   instagram: 'https://www.instagram.com/_aironstudio/',
+  // Código del formulario en Formspree (ej: 'xyzabcde'). Vacío = formulario en pausa.
+  formspree: '',
 };
 
 const CATEGORIAS = [
@@ -396,9 +398,11 @@ function contacto() {
           <a href="${SITIO.instagram}" target="_blank" rel="noopener noreferrer"><span>Instagram</span><span class="mono">@_aironstudio ↗</span></a>
         </nav>
       </div>
-      <form class="form" name="contacto" method="POST" action="/gracias/" data-netlify="true" netlify-honeypot="empresa-web">
-        <input type="hidden" name="form-name" value="contacto">
-        <p class="oculto"><label>No completar este campo <input name="empresa-web" tabindex="-1" autocomplete="off"></label></p>
+      <form class="form" name="contacto" method="POST" ${
+        SITIO.formspree ? `action="https://formspree.io/f/${esc(SITIO.formspree)}"` : 'data-pendiente'
+      }>
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de AIRON Studio">
+        <p class="oculto"><label>No completar este campo <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
         <div class="campo">
           <label for="nombre" class="mono">Nombre</label>
           <input id="nombre" name="nombre" type="text" autocomplete="name" required maxlength="120">
@@ -416,7 +420,7 @@ function contacto() {
           <textarea id="mensaje" name="mensaje" rows="6" required maxlength="4000"></textarea>
         </div>
         <button class="btn btn-accent btn-lg btn-block" type="submit">Enviar mensaje →</button>
-        <p class="nota">Tus datos solo se usan para responderte.</p>
+        <p class="nota" data-estado role="status">Tus datos solo se usan para responderte.</p>
       </form>
     </div>
   </section>

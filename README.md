@@ -8,9 +8,9 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 |---|---|
 | `src/data/proyectos.json` | **La lista de proyectos**: títulos, textos, categorías, portadas e imágenes. Casi todo lo que cambies va acá. |
 | `src/static/css/styles.css` | Colores, tipografías y diseño. |
-| `src/static/js/main.js` | Menú de celular y filtros de proyectos. |
+| `src/static/js/main.js` | Menú de celular, filtros de proyectos y envío del formulario. |
 | `build.mjs` | Arma todas las páginas a partir de la lista de proyectos. |
-| `netlify.toml` | Configuración de publicación y de seguridad para Netlify. |
+| `src/static/_headers` | Cabeceras de seguridad para Cloudflare Pages. |
 
 La carpeta `dist/` se genera sola: no se edita a mano.
 
@@ -25,13 +25,24 @@ cd dist && python3 -m http.server 8000
 
 Después abrí `http://localhost:8000` en el navegador.
 
-## Publicar en Netlify
+## Publicar en Cloudflare Pages
 
-1. En Netlify: **Add new site → Import an existing project → GitHub** y elegí este repositorio.
-2. Netlify lee `netlify.toml` solo: no hace falta configurar nada más.
-3. Cada vez que se actualiza el repositorio, la web se vuelve a publicar sola.
+1. En Cloudflare: **Workers & Pages → Create → Pages → Connect to Git** y elegí este repositorio.
+2. Completá así:
+   - **Framework preset:** None
+   - **Build command:** `node build.mjs`
+   - **Build output directory:** `dist`
+3. **Save and Deploy.** Cada vez que se actualiza el repositorio, la web se vuelve a publicar sola.
 
-El formulario de contacto usa **Netlify Forms**: los mensajes llegan al panel de Netlify (*Forms*), y desde ahí se pueden reenviar a tu email.
+## Formulario de contacto
+
+Usa **Formspree** (plan gratis), que reenvía los mensajes a tu email.
+
+1. Creá una cuenta en formspree.io y un formulario nuevo.
+2. Formspree te da una dirección como `https://formspree.io/f/xyzabcde`.
+3. Copiá el código final (`xyzabcde`) en `formspree:` dentro de `build.mjs`.
+
+Mientras ese código esté vacío, el formulario muestra un aviso para escribir por redes.
 
 ## Imágenes provisorias
 
@@ -42,4 +53,5 @@ Por ahora las portadas y galerías se muestran desde los servidores de Adobe Por
 - Imágenes definitivas de cada proyecto.
 - Foto para "Sobre mí".
 - Enlace de Behance de cada proyecto (hoy apuntan al perfil).
+- Código de Formspree para activar el formulario.
 - Conectar el dominio propio.

@@ -30,6 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ----- Formulario de contacto (Formspree) -----
+  const form = document.querySelector('form.form');
+  if (form) {
+    const estado = form.querySelector('[data-estado]');
+    const enviar = form.querySelector('[type="submit"]');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (form.hasAttribute('data-pendiente')) {
+        estado.textContent = 'El formulario se activa muy pronto. Mientras tanto, escribime por Instagram o LinkedIn.';
+        return;
+      }
+      enviar.disabled = true;
+      estado.textContent = 'Enviando…';
+      try {
+        const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!r.ok) throw new Error(r.status);
+        location.href = '/gracias/';
+      } catch {
+        estado.textContent = 'No se pudo enviar. Probá de nuevo o escribime por Instagram o LinkedIn.';
+        enviar.disabled = false;
+      }
+    });
+  }
+
   // ----- Filtros de proyectos -----
   const barra = document.querySelector('.filtros');
   if (!barra) return;
