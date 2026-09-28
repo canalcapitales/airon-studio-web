@@ -214,8 +214,25 @@ ul { padding: 0; list-style: none; }
 .franja-sep { width: 10px; height: 10px; background: var(--acento); flex-shrink: 0; }
 @keyframes franja { to { transform: translateX(-50%); } }
 @media (max-width: 699px) { .franja-lista { height: 60px; } .franja-lista a { padding: 0 18px; } .franja-sep { width: 8px; height: 8px; } }
+/* ---------- marquesina de publicidad (movimiento continuo, hacia la derecha) ---------- */
+.anuncios { border-top: 1px solid var(--ink); padding: 28px 0 32px; display: flex; flex-direction: column; gap: 18px; overflow: hidden; }
+.anuncios-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; }
+.anuncios-cta { font-size: 16px; }
+.anuncios-cinta { overflow: hidden; }
+.anuncios-pista { display: flex; width: max-content; margin: 0; padding: 0; list-style: none; animation: anuncios 50s linear infinite; }
+.anuncios-cinta:hover .anuncios-pista, .anuncios-cinta:focus-within .anuncios-pista { animation-play-state: paused; }
+.anuncios-pista li { flex-shrink: 0; padding: 0 10px; }
+/* Fondo blanco fijo: cualquier logo se ve bien, también en modo oscuro */
+.anuncio { display: flex; align-items: center; justify-content: center; width: 200px; height: 88px; padding: 4px 12px; background: #fff; border: 1px solid var(--ink); border-radius: 12px; transition: transform .2s ease, border-color .2s ease; }
+.anuncio img { width: 100%; height: 100%; object-fit: contain; }
+.anuncio:hover, .anuncio:focus-visible { transform: translateY(-3px); border-color: var(--acento); }
+@keyframes anuncios { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@media (max-width: 699px) { .anuncio { width: 150px; height: 66px; } .anuncios-pista li { padding: 0 7px; } }
 @media (prefers-reduced-motion: reduce) {
   .franja { overflow-x: auto; }
+  .anuncios-cinta { overflow-x: auto; }
+  .anuncios-pista { animation: none; }
+  .anuncios-pista .eco { display: none; }
   .franja-pista { animation: none; }
   .franja-lista[aria-hidden="true"] { display: none; }
 }

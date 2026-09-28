@@ -20,7 +20,7 @@ const SITIO = {
 const IDIOMAS = ['es', 'en'];
 const FUNDACION = 2015;
 const anio = new Date().getFullYear();
-const OPCIONES_CLAVE = ['branding', 'grafica', 'web', 'musical', 'motion', 'mural', 'foto', 'otro'];
+const OPCIONES_CLAVE = ['branding', 'grafica', 'web', 'musical', 'motion', 'mural', 'foto', 'publicidad', 'otro'];
 const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Food', 'Blend David', 'Flexy', 'Trust Fund'];
 
 // Direcciones de cada página en cada idioma
@@ -325,6 +325,15 @@ const TXT = {
       botonProyecto: 'Pedí tu mural',
     },
     pie: ['Buenos Aires, Argentina', 'Diseño multimedial desde 2015'],
+    publicidad: {
+      aria: 'Publicidad',
+      kicker: 'Publicidad',
+      titulo: 'Marcas que acompañan',
+      cta: 'Anunciá tu marca acá',
+      ejemplo: 'Espacio disponible para tu marca',
+      abre: 'se abre en otra pestaña',
+      mensaje: 'Hola, me interesa anunciar mi marca en la marquesina de aironstudio.com.ar. ¿Me pasan información?',
+    },
     heroKicker: ['Estudio de diseño multimedial', 'Buenos Aires · desde 2015'],
     heroLead: 'Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
     verProyectos: 'Ver proyectos →', hablemos: 'Hablemos', disciplinasAria: 'Disciplinas',
@@ -363,7 +372,7 @@ const TXT = {
     contactoDesc: 'Contanos tu proyecto: marca, piezas gráficas, web, motion, mural o lo que tengas en mente.',
     asunto: 'Nuevo mensaje desde la web de AIRON Studio', noCompletar: 'No completar este campo',
     campos: { nombre: 'Nombre', email: 'Email', tipo: 'Tipo de proyecto', mensaje: 'Mensaje' },
-    opciones: ['Branding e identidad', 'Diseño gráfico', 'Diseño web', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Otro'],
+    opciones: ['Branding e identidad', 'Diseño gráfico', 'Diseño web', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Publicidad en la web', 'Otro'],
     enviar: 'Enviar mensaje →', privacidad: 'Tus datos solo se usan para responderte.',
     gracias: { titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' },
     volverInicio: 'Volver al inicio',
@@ -672,6 +681,15 @@ const TXT = {
       botonProyecto: 'Get your mural',
     },
     pie: ['Buenos Aires, Argentina', 'Multimedia design since 2015'],
+    publicidad: {
+      aria: 'Advertising',
+      kicker: 'Advertising',
+      titulo: 'Brands that support us',
+      cta: 'Advertise your brand here',
+      ejemplo: 'Space available for your brand',
+      abre: 'opens in a new tab',
+      mensaje: 'Hi, I’m interested in advertising my brand on the aironstudio.com.ar banner. Could you send me more information?',
+    },
     heroKicker: ['Multimedia design studio', 'Buenos Aires · since 2015'],
     heroLead: 'Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
     verProyectos: 'See our work →', hablemos: "Let's talk", disciplinasAria: 'Disciplines',
@@ -710,7 +728,7 @@ const TXT = {
     contactoDesc: 'Tell us about your project: a brand, graphic pieces, a website, motion, a mural or whatever you have in mind.',
     asunto: 'New message from the AIRON Studio website (EN)', noCompletar: 'Do not fill in this field',
     campos: { nombre: 'Name', email: 'Email', tipo: 'Project type', mensaje: 'Message' },
-    opciones: ['Branding and identity', 'Graphic design', 'Web design', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Other'],
+    opciones: ['Branding and identity', 'Graphic design', 'Web design', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Advertising on the site', 'Other'],
     enviar: 'Send message →', privacidad: 'Your details are only used to reply to you.',
     gracias: { titulo: 'Message sent', h1: 'Thank you!', texto: "We received your message. We'll get back to you shortly." },
     volverInicio: 'Back to home',
@@ -734,6 +752,7 @@ const BASE = JSON.parse(readFileSync('src/data/proyectos.json', 'utf8'));
 const EN = JSON.parse(readFileSync('src/data/proyectos.en.json', 'utf8'));
 // Valores del Tarifario Mural (se actualizan en este archivo)
 const TARIFARIO = JSON.parse(readFileSync('src/data/tarifario-murales.json', 'utf8'));
+const PUBLICIDAD = JSON.parse(readFileSync('src/data/publicidad.json', 'utf8'));
 // Tarifario de diseño (Cámara de Diseñadores de Rafaela, adaptado con permiso)
 const TARIFARIO_DISENO = JSON.parse(readFileSync('src/data/tarifario-diseno.json', 'utf8'));
 
@@ -896,6 +915,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
   <main id="contenido">
 ${cuerpo}
   </main>
+${marquesinaPublicidad(l)}
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-top">
@@ -914,6 +934,44 @@ ${cuerpo}
 }
 
 // ---------- piezas reutilizables ----------
+// Marquesina de publicidad: logos de anunciantes con enlace directo (datos en src/data/publicidad.json).
+// Mientras no haya anunciantes vigentes, muestra espacios de ejemplo que llevan a Contacto.
+function marquesinaPublicidad(l) {
+  if (!PUBLICIDAD.activa) return '';
+  const T = TXT[l];
+  const A = T.publicidad;
+  const hoyTexto = new Date().toISOString().slice(0, 10);
+  const contactoPub = `${RUTAS[l].contacto}?tipo=publicidad&mensaje=${encodeURIComponent(A.mensaje)}`;
+  // Se suma una marca de origen al enlace, así cada anunciante ve en sus estadísticas las visitas que le llegan desde acá
+  const conOrigen = (url) => {
+    const u = new URL(url);
+    if (!u.searchParams.has('utm_source')) {
+      u.searchParams.set('utm_source', 'aironstudio.com.ar');
+      u.searchParams.set('utm_medium', 'marquesina');
+    }
+    return u.toString();
+  };
+  const vigentes = PUBLICIDAD.anunciantes.filter((a) => a.url && a.logo && (!a.hasta || a.hasta >= hoyTexto));
+  const items = vigentes.length
+    ? vigentes.map((a) => ({ nombre: a.nombre, logo: a.logo, href: conOrigen(a.url), externo: true }))
+    : PUBLICIDAD.ejemplos[l].map((logo) => ({ nombre: A.ejemplo, logo, href: contactoPub, externo: false }));
+  // Se repiten los logos hasta llenar bien el ancho de una pantalla grande
+  const vueltas = Math.max(1, Math.ceil(8 / items.length));
+  const logo = (it, oculto) =>
+    `<li${oculto ? ' class="eco" aria-hidden="true"' : ''}><a class="anuncio" href="${esc(it.href)}"${it.externo ? ' target="_blank" rel="sponsored noopener noreferrer"' : ''}${oculto ? ' tabindex="-1"' : ''} title="${esc(it.nombre)}${it.externo ? ` (${A.abre})` : ''}"><img src="${esc(it.logo)}" alt="${oculto ? '' : esc(it.nombre)}" width="200" height="80" loading="lazy" decoding="async"></a></li>`;
+  const mitad = (primera) =>
+    Array.from({ length: vueltas }, (_, v) => items.map((it) => logo(it, !primera || v > 0)).join('')).join('');
+  return `  <aside class="anuncios" aria-label="${A.aria}">
+    <div class="wrap anuncios-head">
+      <span class="kicker mono">${A.kicker} · ${A.titulo}</span>
+      <a class="link-arrow anuncios-cta" href="${esc(contactoPub)}">${A.cta} →</a>
+    </div>
+    <div class="anuncios-cinta">
+      <ul class="anuncios-pista">${mitad(true)}${mitad(false)}</ul>
+    </div>
+  </aside>`;
+}
+
 const nombreCat = (l, id) => TXT[l].categorias[id] ?? id;
 const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ');
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
