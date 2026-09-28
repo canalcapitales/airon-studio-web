@@ -3,11 +3,12 @@ document.documentElement.classList.add('js');
 
 const EN = document.documentElement.lang.startsWith('en');
 const MSG = EN
-  ? { abrir: 'Open menu', cerrar: 'Close menu', pausa: 'The form will be available very soon. In the meantime, reach us on Instagram or LinkedIn.', enviando: 'Sending…', error: "Couldn't send. Please try again or reach us on Instagram or LinkedIn." }
-  : { abrir: 'Abrir menú', cerrar: 'Cerrar menú', pausa: 'El formulario se activa muy pronto. Mientras tanto, escribinos por Instagram o LinkedIn.', enviando: 'Enviando…', error: 'No se pudo enviar. Probá de nuevo o escribinos por Instagram o LinkedIn.' };
+  ? { abrir: 'Open menu', cerrar: 'Close menu', temaOscuro: 'Switch to dark mode', temaClaro: 'Switch to light mode', pausa: 'The form will be available very soon. In the meantime, reach us on Instagram or LinkedIn.', enviando: 'Sending…', error: "Couldn't send. Please try again or reach us on Instagram or LinkedIn." }
+  : { abrir: 'Abrir menú', cerrar: 'Cerrar menú', temaOscuro: 'Cambiar a modo oscuro', temaClaro: 'Cambiar a modo claro', pausa: 'El formulario se activa muy pronto. Mientras tanto, escribinos por Instagram o LinkedIn.', enviando: 'Enviando…', error: 'No se pudo enviar. Probá de nuevo o escribinos por Instagram o LinkedIn.' };
 
 document.addEventListener('DOMContentLoaded', () => {
   menu();
+  tema();
   apariciones();
   contadores();
   textosQueSeArman();
@@ -16,6 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
   formulario();
   filtros();
 });
+
+// ----- Modo claro / oscuro -----
+// Si el visitante nunca tocó el botón, la web sigue el modo de su compu o celular.
+function tema() {
+  const html = document.documentElement;
+  const boton = document.querySelector('.tema-btn');
+  if (!boton) return;
+  const sistema = matchMedia('(prefers-color-scheme: dark)');
+  const meta = document.querySelector('meta[name="theme-color"]');
+  const oscuro = () => (html.dataset.tema ? html.dataset.tema === 'oscuro' : sistema.matches);
+  const pintar = () => {
+    const texto = oscuro() ? MSG.temaClaro : MSG.temaOscuro;
+    boton.setAttribute('aria-label', texto);
+    boton.title = texto;
+    if (meta) meta.content = getComputedStyle(html).getPropertyValue('--bg').trim();
+  };
+  boton.addEventListener('click', () => {
+    const nuevo = oscuro() ? 'claro' : 'oscuro';
+    html.dataset.tema = nuevo;
+    try {
+      localStorage.setItem('tema', nuevo);
+    } catch (e) {}
+    pintar();
+  });
+  sistema.addEventListener('change', pintar);
+  pintar();
+}
 
 // ----- Menú de celular -----
 function menu() {
