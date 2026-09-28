@@ -744,11 +744,12 @@ html:not(.js) .calc-salida { display: none; }
 }
 
 /* ---------- sobre mí ---------- */
-.sobre-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 40px 64px; align-items: start; }
+.sobre-grid { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 40px 72px; align-items: start; }
 .sobre-foto { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; background: var(--placeholder); }
 .sobre-texto { display: flex; flex-direction: column; gap: 24px; }
 .sobre-texto p:not(.texto-destacado) { color: var(--texto-2); line-height: 1.6; }
 .sobre-figura { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+@media (max-width: 899px) { .sobre-figura .sobre-foto { max-width: 220px; } }
 .sobre-figura figcaption { display: flex; flex-direction: column; gap: 4px; border-top: 1px solid var(--ink); padding-top: 14px; }
 .sobre-nombre { font-family: var(--f-display); font-size: clamp(26px, 2.4vw, 34px); text-transform: uppercase; line-height: 1.1; }
 .sobre-cargo { color: var(--texto-2); font-size: 15px; }
