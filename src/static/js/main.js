@@ -257,9 +257,17 @@ function calculadora() {
     const boceto = f.get('boceto');
     const evento = f.get('evento') === 'on';
     const jornadas = Math.max(0, parseInt(f.get('asistencia'), 10) || 0);
+    // Viáticos: jornadas de obra × personas × monto por persona y jornada
+    const diasObra = Math.max(0, parseInt(f.get('jornadasObra'), 10) || 0);
+    const personas = Math.max(1, parseInt(f.get('personas'), 10) || 1);
+    const porDia = Math.max(0, parseFloat(f.get('viatico')) || 0);
+    const viaticos = diasObra * personas * porDia;
+    const detalleViaticos = plantilla(X.viaticoDetalle, { j: plantilla(diasObra === 1 ? X.jornada : X.jornadas, { n: diasObra }), p: plantilla(personas === 1 ? X.personaUna : X.personaVarias, { n: personas }), m: pesos(porDia) });
+    form.querySelector('.calc-noincluye').textContent = viaticos ? X.noIncluyeConViaticos : X.noIncluye;
     const datos = [`${X.superficie}: ${numero(ancho)} × ${numero(alto)} m = ${numero(m2)} m²`, `${X.clientes[cliente]} (${cliente})`, X.disenos[diseno], X.bocetos[boceto]];
     if (evento) datos.push(X.eventoCheck);
     if (jornadas) datos.push(`${X.asistencia}: ${jornadas}`);
+    if (viaticos) datos.push(`${X.viaticosTitulo}: ${detalleViaticos}`);
 
     let html;
     let resumen;
@@ -287,11 +295,11 @@ function calculadora() {
       const disenoMin = boceto === 'propio' ? honorarios * T.boceto.min : boceto === 'adaptar' ? honorarios * T.adaptacion : 0;
       const disenoMax = boceto === 'propio' ? honorarios * T.boceto.max : disenoMin;
       const asistencia = jornadas * T.jornadaAsistente;
-      const min = honorarios + disenoMin + asistencia;
-      const max = honorarios + disenoMax + asistencia;
+      const min = honorarios + disenoMin + asistencia + viaticos;
+      const max = honorarios + disenoMax + asistencia + viaticos;
       const desde = i > 0 ? T.tramos[i - 1].hasta : 0;
       const total = min === max ? pesos(min) : `${pesos(min)} – ${pesos(max)}`;
-      const extras = [evento ? X.evento : '', jornadas ? `${X.asistencia}: ${plantilla(jornadas === 1 ? X.jornada : X.jornadas, { n: jornadas })}` : ''].filter(Boolean);
+      const extras = [evento ? X.evento : '', jornadas ? `${X.asistencia}: ${plantilla(jornadas === 1 ? X.jornada : X.jornadas, { n: jornadas })}` : '', viaticos ? `${X.viaticosTitulo}: ${detalleViaticos}` : ''].filter(Boolean);
       estado = {
         medidas: `${numero(ancho)} × ${numero(alto)} m`,
         superficie: `${numero(m2)} m²`,
@@ -302,6 +310,7 @@ function calculadora() {
         filas: [],
         total,
         avisos: [],
+        noIncluye: viaticos ? X.noIncluyeConViaticos : X.noIncluye,
       };
       html = '<dl class="calc-filas">';
       html += fila(X.tramo, desde ? plantilla(X.tramoDesde, { d: desde, h: tramo.hasta }) : plantilla(X.tramoHasta, { h: tramo.hasta }));
@@ -312,6 +321,8 @@ function calculadora() {
       if (boceto === 'propio') html += fila(X.boceto, `${pesos(disenoMin)} – ${pesos(disenoMax)}`);
       if (boceto === 'adaptar') html += fila(X.adaptacion, pesos(disenoMin));
       if (asistencia) html += fila(`${X.asistencia} (${plantilla(jornadas === 1 ? X.jornada : X.jornadas, { n: jornadas })})`, pesos(asistencia));
+      // Cuánto pesan los viáticos en el total (sobre el total mínimo si hay rango)
+      if (viaticos) html += fila(`${X.viaticos} (${detalleViaticos} · ${plantilla(X.delTotal, { p: numero(Math.round((viaticos / min) * 1000) / 10) })})`, pesos(viaticos));
       html += fila(X.total, total, ' calc-total');
       html += '</dl>';
       // Las mismas filas (sin el total) para el documento descargable
@@ -513,7 +524,7 @@ function hojaPresupuesto(d, X, logo, vw, vh, e) {
 
   // Avisos (forma de pago, categoría, mínimo) y aclaraciones
   y += px(48);
-  for (const aviso of [...d.avisos, X.noIncluye, X.doc.validez]) {
+  for (const aviso of [...d.avisos, d.noIncluye, X.doc.validez]) {
     letra(400, 22, SANS);
     const lineas = envolver(aviso, W - M * 2 - 28);
     x.fillStyle = ROJO;

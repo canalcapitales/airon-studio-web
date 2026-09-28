@@ -21,5 +21,6 @@
   "adaptacion": 0.03,
   "evento": 0.20,
   "jornadaAsistente": 300000,
+  "viatico": { "porJornada": 52844, "referencia": "Viático diario Región Metropolitana (Decreto 208/2026, desde mayo 2026): traslado, comida y alojamiento" },
   "pago": { "adelanto": 0.5, "final": 0.5 }
 }
