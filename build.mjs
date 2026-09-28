@@ -19,7 +19,6 @@ const SITIO = {
 const IDIOMAS = ['es', 'en'];
 const FUNDACION = 2015;
 const anio = new Date().getFullYear();
-const DESTACADOS = ['gsp-seguridad', 'blend-david', 'zocalo-fox-sports', 'branding-x-airon-studio'];
 const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Food', 'Blend David', 'Flexy', 'Trust Fund'];
 
 // Direcciones de cada página en cada idioma
@@ -42,7 +41,7 @@ const TXT = {
     heroKicker: ['Estudio de diseño multimedial', 'Buenos Aires · desde 2015'],
     heroLead: 'Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
     verProyectos: 'Ver proyectos →', hablemos: 'Hablemos', disciplinasAria: 'Disciplinas',
-    seleccion: 'Selección', destacados: 'Proyectos destacados', verLos: (n) => `Ver los ${n} proyectos →`,
+    indice: 'Índice', verGrilla: 'Ver con imágenes y filtros →',
     serviciosKicker: 'Servicios', queHacemos: 'Qué hacemos', ctaInicio: '¿Tenés un proyecto en mente?', escribinos: 'Escribinos →',
     numerosTitulo: 'El estudio en números',
     numeros: ['Años de estudio', 'Proyectos en el portafolio', 'Identidades de marca', 'Marcas y medios', 'Nuestro mural más grande', 'Disciplinas creativas'],
@@ -104,7 +103,7 @@ const TXT = {
     heroKicker: ['Multimedia design studio', 'Buenos Aires · since 2015'],
     heroLead: 'Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
     verProyectos: 'See our work →', hablemos: "Let's talk", disciplinasAria: 'Disciplines',
-    seleccion: 'Selection', destacados: 'Featured work', verLos: (n) => `See all ${n} projects →`,
+    indice: 'Index', verGrilla: 'Browse with images and filters →',
     serviciosKicker: 'Services', queHacemos: 'What we do', ctaInicio: 'Have a project in mind?', escribinos: 'Get in touch →',
     numerosTitulo: 'The studio in numbers',
     numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Brands and media', 'Our largest mural', 'Creative disciplines'],
@@ -347,9 +346,9 @@ const vistaPrevia = (p) => {
   return todas[(p.previa || 1) - 1] || todas[0];
 };
 
-function tarjeta(l, p, i, { sizes, destacado = false }) {
+function tarjeta(l, p, i, { sizes }) {
   const previa = vistaPrevia(p);
-  return `<a class="card reveal${destacado ? ' card--destacado' : ''}" href="${rutaDe(l, 'proyecto', p.slug)}" data-cats="${p.categorias.join(' ')}" data-cursor="${TXT[l].verCursor}">
+  return `<a class="card reveal" href="${rutaDe(l, 'proyecto', p.slug)}" data-cats="${p.categorias.join(' ')}" data-cursor="${TXT[l].verCursor}">
         <div class="card-img" data-vt="p-${p.slug}">${img(p.portada, { alt: TXT[l].portadaDe(p.titulo), sizes, dims: [640, 501] })}${
     previa ? img(previa, { alt: '', sizes, clase: 'card-previa' }) : ''
   }</div>
@@ -429,8 +428,17 @@ function clientes(l) {
 function inicio(l, proyectos) {
   const T = TXT[l];
   const R = RUTAS[l];
-  const dest = DESTACADOS.map((s) => proyectos.find((p) => p.slug === s)).filter(Boolean);
-  const cards = dest.map((p, i) => tarjeta(l, p, i, { destacado: true, sizes: '(min-width: 900px) 58vw, 100vw' })).join('\n      ');
+  // Índice con todos los proyectos: en computadora la portada flota junto al mouse; en celular se ve una miniatura
+  const filas = proyectos
+    .map(
+      (p, i) => `<li><a class="indice-link reveal" href="${rutaDe(l, 'proyecto', p.slug)}" data-previa="${esc(p.portada['640'])}" data-vt-previa="p-${p.slug}">
+          <span class="indice-num mono">${num(i)}</span>
+          <span class="indice-texto"><span class="indice-titulo">${esc(p.titulo)}</span><span class="indice-sub">${esc(p.subtitulo)}</span></span>
+          <span class="indice-cat mono">${esc(catsTexto(l, p))}</span>
+          <img class="indice-mini" src="${esc(p.portada['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async" data-vt="p-${p.slug}">
+        </a></li>`
+    )
+    .join('\n        ');
   const conCat = T.servicios.filter(([cat]) => cat);
   const lista = (oculta) =>
     `<ul class="franja-lista"${oculta ? ' aria-hidden="true"' : ''}>${conCat
@@ -468,14 +476,15 @@ function inicio(l, proyectos) {
     <div class="wrap">
       <div class="seccion-head">
         <div>
-          <span class="kicker mono">${T.seleccion} · 01—${num(dest.length - 1)}</span>
-          <h2 class="h2">${T.destacados}</h2>
+          <span class="kicker mono">${T.indice} · 01—${num(proyectos.length - 1)}</span>
+          <h2 class="h2">${T.nav.proyectos}</h2>
         </div>
-        <a class="link-arrow" href="${R.proyectos}">${T.verLos(proyectos.length)}</a>
+        <a class="link-arrow" href="${R.proyectos}">${T.verGrilla}</a>
       </div>
-      <div class="destacados">
-      ${cards}
-      </div>
+      <ol class="indice">
+        ${filas}
+      </ol>
+      <div class="indice-previa" aria-hidden="true"><img alt=""></div>
     </div>
   </section>
 
