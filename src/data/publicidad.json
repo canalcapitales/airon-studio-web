@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Marquesina de publicidad (arriba del pie de todas las páginas). Para sumar un anunciante: guardá su logo en src/static/img/publicidad/ (SVG o PNG con fondo transparente, idealmente 400×160 px) y agregá un bloque en 'anunciantes'. 'hasta' es la fecha en que deja de mostrarse (AAAA-MM-DD, o vacío = sin fin). Mientras 'anunciantes' esté vacío o todos estén vencidos, se muestran los espacios de ejemplo, que llevan a Contacto.",
+  "_ayuda": "Marquesina de publicidad (en el inicio después de los proyectos, debajo del título de cada herramienta y arriba del pie en las demás páginas). Para sumar un anunciante: guardá su logo en src/static/img/publicidad/ (SVG o PNG con fondo transparente, idealmente 400×160 px) y agregá un bloque en 'anunciantes'. 'hasta' es la fecha en que deja de mostrarse (AAAA-MM-DD, o vacío = sin fin). Mientras 'anunciantes' esté vacío o todos estén vencidos, se muestran los espacios de ejemplo, que llevan a Contacto.",
   "activa": true,
   "anunciantes": [
     {

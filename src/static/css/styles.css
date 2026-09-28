@@ -218,6 +218,7 @@ ul { padding: 0; list-style: none; }
 .anuncios { border-top: 1px solid var(--ink); padding: 28px 0 32px; display: flex; flex-direction: column; gap: 18px; overflow: hidden; }
 .anuncios-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; }
 .anuncios-cta { font-size: 16px; }
+.anuncios-corto { display: none; }
 .anuncios-cinta { overflow: hidden; }
 .anuncios-pista { display: flex; width: max-content; margin: 0; padding: 0; list-style: none; animation: anuncios 50s linear infinite; }
 .anuncios-cinta:hover .anuncios-pista, .anuncios-cinta:focus-within .anuncios-pista { animation-play-state: paused; }
@@ -226,8 +227,14 @@ ul { padding: 0; list-style: none; }
 .anuncio { display: flex; align-items: center; justify-content: center; width: 200px; height: 88px; padding: 4px 12px; background: #fff; border: 1px solid var(--ink); border-radius: 12px; transition: transform .2s ease, border-color .2s ease; }
 .anuncio img { width: 100%; height: 100%; object-fit: contain; }
 .anuncio:hover, .anuncio:focus-visible { transform: translateY(-3px); border-color: var(--acento); }
+/* En el inicio: con aire arriba y abajo, entre secciones */
+.anuncios--inicio { border-bottom: 1px solid var(--ink); padding: 36px 0 40px; }
+/* En las herramientas: más finita, debajo del título, para no empujar la herramienta hacia abajo */
+.anuncios--compacta { border-bottom: 1px solid var(--ink); padding: 14px 0 16px; gap: 10px; }
+.anuncios--compacta .anuncio { width: 150px; height: 60px; padding: 3px 10px; border-radius: 10px; }
+.anuncios--compacta .anuncios-cta { font-size: 14px; }
 @keyframes anuncios { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-@media (max-width: 699px) { .anuncio { width: 150px; height: 66px; } .anuncios-pista li { padding: 0 7px; } }
+@media (max-width: 699px) { .anuncio { width: 150px; height: 66px; } .anuncios-pista li { padding: 0 7px; } .anuncios--compacta .anuncio { width: 120px; height: 50px; } .anuncios--compacta .anuncios-head { flex-wrap: nowrap; } .anuncios--compacta .anuncios-largo { display: none; } .anuncios--compacta .anuncios-corto { display: inline; } .anuncios--compacta .anuncios-cta { white-space: nowrap; } }
 @media (prefers-reduced-motion: reduce) {
   .franja { overflow-x: auto; }
   .anuncios-cinta { overflow-x: auto; }
