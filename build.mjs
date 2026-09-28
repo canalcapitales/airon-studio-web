@@ -57,7 +57,6 @@ const TXT = {
       kicker: 'Herramienta gratuita · Tarifario 2026',
       h1: 'Tarifario de diseño',
       lead: 'Aranceles de servicios creativos y digitales para Argentina. Elegí el tipo de cliente, sumá servicios al presupuesto y descargalo en PDF o imagen.',
-      credito: 'Valores del <a href="{url}" target="_blank" rel="noopener noreferrer">Tarifario de la Cámara de Diseñadores de Rafaela y la región ↗</a> ({version}; herramienta original de {desarrollo}). Adaptado por AIRON Studio con permiso de la Cámara.',
       cliente: 'Tipo de cliente',
       clientes: [['0', 'A', 'Empresa'], ['1', 'B', 'PyME'], ['2', 'C', 'Particular']],
       moneda: 'Moneda',
@@ -341,7 +340,6 @@ const TXT = {
       kicker: 'Free tool · 2026 rate guide',
       h1: 'Design rates',
       lead: 'Fees for creative and digital services in Argentina. Pick the client type, add services to the estimate and download it as a PDF or image.',
-      credito: 'Rates from the <a href="{url}" target="_blank" rel="noopener noreferrer">Rate Guide by the Designers’ Chamber of Rafaela and region ↗</a> ({version}; original tool by {desarrollo}). Adapted by AIRON Studio with the Chamber’s permission.',
       cliente: 'Client type',
       clientes: [['0', 'A', 'Company'], ['1', 'B', 'SME'], ['2', 'C', 'Individual']],
       moneda: 'Currency',
@@ -1364,7 +1362,6 @@ function paginaTarifarioDiseno(l) {
   const idioma = l === 'en' ? 'en-US' : 'es-AR';
   const pesos = (v) => new Intl.NumberFormat(idioma, { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(v);
   const inicial = 1; // PyME
-  const credito = D.credito.replace('{url}', TD.url).replace('{version}', esc(TD.version)).replace('{desarrollo}', esc(TD.desarrollo));
   const radios = (nombre, opciones, marcada) =>
     opciones
       .map(([valor, letra, texto]) => `<label class="tar-pill"><input type="radio" name="${nombre}" value="${valor}"${valor === marcada ? ' checked' : ''}><span>${texto ? `<b>${letra}</b> ${esc(texto)}` : esc(letra)}</span></label>`)
@@ -1400,7 +1397,7 @@ function paginaTarifarioDiseno(l) {
     )
     .join('\n        ');
   // Textos que usa el navegador
-  const textos = { ...D, credito: undefined, referencias: undefined, clientes: D.clientes.map(([, l2, t]) => `${l2} · ${t}`), unidades: D.unidades, generando: T.murales.calc.generando };
+  const textos = { ...D, referencias: undefined, clientes: D.clientes.map(([, l2, t]) => `${l2} · ${t}`), unidades: D.unidades, generando: T.murales.calc.generando };
   return pagina(l, {
     clave: 'tarifarioDiseno',
     titulo: D.titulo,
@@ -1427,14 +1424,13 @@ function paginaTarifarioDiseno(l) {
       </div>
       <div class="calc-intro">
         <p class="lead">${D.lead}</p>
-        <p class="tar-credito">${credito}</p>
         ${D.idiomaNota ? `<p class="tar-credito">${D.idiomaNota}</p>` : ''}
       </div>
     </div>
   </section>
 
   <section class="seccion seccion--top" id="tarifario">
-    <div class="wrap tar" data-tarifario="${esc(JSON.stringify({ ...TD, categorias: undefined }))}" data-textos="${esc(JSON.stringify(textos))}">
+    <div class="wrap tar" data-tarifario="${esc(JSON.stringify({ ...TD, categorias: undefined, fuente: undefined, url: undefined, desarrollo: undefined, permiso: undefined }))}" data-textos="${esc(JSON.stringify(textos))}">
       <div class="tar-main">
         <div class="tar-controles">
           <fieldset class="tar-grupo"><legend class="mono">${D.cliente}</legend><div class="tar-pills">${radios('cliente', D.clientes, String(inicial))}</div></fieldset>
