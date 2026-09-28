@@ -21,6 +21,7 @@
   --bloque: #111111;
   --sobre-bloque: #F2F0EB;
   --sobre-acento: #111111;
+  --acento-texto: #FF0000;
 
   --f-display: 'Anton', 'Arial Narrow', sans-serif;
   --f-texto: 'Instrument Sans', system-ui, sans-serif;
@@ -35,13 +36,13 @@
    cuando su compu o celular está en modo oscuro. Los mismos colores van en los dos bloques. */
 :root[data-tema="oscuro"] {
   --bg: #131312; --ink: #EDEBE6; --texto-2: #C8C5BD; --muted: #9B978E; --placeholder: #2A2926;
-  --hover: #FF5A4F; --superficie: #1B1B19; --tenue: #75726B; --bloque: #1F1E1C;
+  --hover: #FF5A4F; --superficie: #1B1B19; --tenue: #75726B; --bloque: #1F1E1C; --acento-texto: #C00000;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema="claro"]) {
     --bg: #131312; --ink: #EDEBE6; --texto-2: #C8C5BD; --muted: #9B978E; --placeholder: #2A2926;
-    --hover: #FF5A4F; --superficie: #1B1B19; --tenue: #75726B; --bloque: #1F1E1C;
+    --hover: #FF5A4F; --superficie: #1B1B19; --tenue: #75726B; --bloque: #1F1E1C; --acento-texto: #C00000;
     color-scheme: dark;
   }
 }
@@ -294,7 +295,7 @@ ul { padding: 0; list-style: none; }
 .pill .mono { font-size: 12px; color: var(--muted); letter-spacing: .02em; }
 .pill:hover { opacity: .8; }
 .pill[aria-pressed="true"] { background: var(--ink); color: var(--bg); font-weight: 600; }
-.pill[aria-pressed="true"] .mono { color: var(--acento); }
+.pill[aria-pressed="true"] .mono { color: var(--acento-texto); }
 .contador { color: var(--muted); flex-shrink: 0; }
 @media (max-width: 899px) {
   .filtros-in { flex-direction: column; align-items: stretch; min-height: 0; gap: 4px; padding-inline: 0; }
