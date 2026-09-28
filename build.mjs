@@ -19,12 +19,13 @@ const SITIO = {
 const IDIOMAS = ['es', 'en'];
 const FUNDACION = 2015;
 const anio = new Date().getFullYear();
+const OPCIONES_CLAVE = ['branding', 'grafica', 'web', 'musical', 'motion', 'mural', 'foto', 'otro'];
 const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Food', 'Blend David', 'Flexy', 'Trust Fund'];
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/' },
+  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -37,6 +38,53 @@ const TXT = {
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
     nav: { inicio: 'Inicio', proyectos: 'Proyectos', estudio: 'Estudio', contacto: 'Hablemos' },
     idiomaAria: 'Idioma', temaOscuro: 'Cambiar a modo oscuro',
+    murales: {
+      titulo: 'Murales para marcas y locales',
+      desc: 'Murales para locales, oficinas y marcas en Buenos Aires y La Plata: fachadas, interiores, persianas y pintura en vivo, diseñados desde la identidad de cada cliente.',
+      kicker: 'Arte urbano · Murales',
+      h1: 'Murales con identidad',
+      lead: 'Diseñamos y pintamos murales para locales, oficinas y marcas. Cada pieza parte de la identidad de quien la encarga —su logo, sus colores, su historia— para convertir una pared en el mejor cartel del lugar.',
+      presupuesto: 'Pedí tu presupuesto →',
+      verCaso: 'Ver Blend David',
+      serviciosKicker: 'Qué pintamos',
+      serviciosTitulo: 'Del frente al salón',
+      servicios: [
+        ['Fachadas y exteriores', 'Frentes de locales, medianeras y paredes que se ven desde la calle, de día y de noche.'],
+        ['Interiores', 'Salones, barras, oficinas, estudios y habitaciones: el mural como parte de la experiencia del lugar.'],
+        ['Persianas y vidrieras', 'Persianas metálicas, vidrieras y carteles pintados a mano que comunican incluso con el local cerrado.'],
+        ['Pintura en vivo', 'Live painting en lanzamientos, fiestas, ferias y activaciones de marca.'],
+      ],
+      esteticasKicker: 'Estéticas',
+      esteticasTitulo: 'Un lenguaje para cada marca',
+      esteticasLead: 'Cada marca pide un lenguaje distinto. Estas son algunas de las estéticas que trabajamos; todas se adaptan al logo, los colores y el espacio de cada cliente.',
+      procesoKicker: 'Método',
+      procesoTitulo: 'Cómo trabajamos',
+      proceso: [
+        ['Relevamiento', 'Visitamos el lugar, medimos, sacamos fotos y escuchamos qué querés transmitir.'],
+        ['Boceto', 'Diseñamos desde tu identidad y te mostramos el boceto sobre una foto de tu pared. Pintamos recién cuando lo aprobás.'],
+        ['Pintura', 'Coordinamos los días de obra con tu horario, con materiales para exterior o interior y una capa final de protección.'],
+        ['Registro', 'Te entregamos fotos y video del proceso y del resultado, listos para tus redes.'],
+      ],
+      casoKicker: 'Caso · La Plata',
+      casoDatos: [['≈47 m²', 'de fachada'], ['7', 'jornadas de obra'], ['3', 'colores sobre negro']],
+      etapas: ['Antes', 'Proceso', 'Después'],
+      verProyecto: 'Ver el proyecto completo →',
+      faqKicker: 'Preguntas frecuentes',
+      faqTitulo: 'Lo que suelen preguntarnos',
+      faq: [
+        ['¿Cuánto cuesta un mural?', 'Cada mural se presupuesta a medida: depende de la superficie, la altura, el estado de la pared y el nivel de detalle del diseño. Mandanos medidas aproximadas y una foto, y te pasamos un presupuesto sin compromiso.'],
+        ['¿Cuánto tarda?', 'Depende del tamaño y de la complejidad. Como referencia, la fachada de Blend David —casi 47 m²— se pintó en 7 jornadas. El diseño y la aprobación del boceto se hacen antes.'],
+        ['¿Tengo que cerrar el local?', 'No necesariamente. Coordinamos los días y horarios de obra con el funcionamiento del lugar.'],
+        ['¿Puedo ver el diseño antes?', 'Sí. Siempre te mostramos un boceto sobre una foto de tu pared, y empezamos a pintar cuando lo aprobás.'],
+        ['¿Qué materiales usan?', 'Pinturas para exterior o interior según el espacio —látex, aerosol, rodillo y pincel— y una capa final de protección para que el color resista mejor el sol y la lluvia. Los materiales están incluidos en el presupuesto.'],
+        ['¿Hacen graffiti?', 'Sí, como una estética más: letras con carácter, color y energía urbana, diseñadas a medida para tu marca y siempre en paredes con autorización de sus dueños.'],
+        ['¿En qué zonas trabajan?', 'Tenemos base en Buenos Aires y pintamos en CABA, La Plata y alrededores. Para otras ciudades, escribinos y lo vemos.'],
+      ],
+      ctaTitulo: '¿Tenés una pared que pide un mural?',
+      nav: 'Murales',
+      ctaProyecto: '¿Querés un mural así para tu marca?',
+      botonProyecto: 'Pedí tu mural',
+    },
     pie: ['Buenos Aires, Argentina', 'Diseño multimedial desde 2015'],
     heroKicker: ['Estudio de diseño multimedial', 'Buenos Aires · desde 2015'],
     heroLead: 'Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
@@ -99,6 +147,53 @@ const TXT = {
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
     nav: { inicio: 'Home', proyectos: 'Work', estudio: 'Studio', contacto: "Let's talk" },
     idiomaAria: 'Language', temaOscuro: 'Switch to dark mode',
+    murales: {
+      titulo: 'Murals for brands and venues',
+      desc: 'Murals for stores, offices and brands in Buenos Aires and La Plata: façades, interiors, shutters and live painting, designed from each client’s identity.',
+      kicker: 'Street art · Murals',
+      h1: 'Murals with identity',
+      lead: 'We design and paint murals for stores, offices and brands. Every piece starts from the identity of whoever commissions it —their logo, their colors, their story— to turn a wall into the best sign in the place.',
+      presupuesto: 'Get a quote →',
+      verCaso: 'See Blend David',
+      serviciosKicker: 'What we paint',
+      serviciosTitulo: 'From the street to the room',
+      servicios: [
+        ['Façades and exteriors', 'Store fronts, side walls and walls seen from the street, by day and by night.'],
+        ['Interiors', 'Dining rooms, bars, offices, studios and bedrooms: the mural as part of the experience of the place.'],
+        ['Shutters and windows', 'Metal shutters, shop windows and hand-painted signs that keep talking even when the store is closed.'],
+        ['Live painting', 'Live painting at launches, parties, fairs and brand activations.'],
+      ],
+      esteticasKicker: 'Styles',
+      esteticasTitulo: 'A language for every brand',
+      esteticasLead: 'Every brand calls for a different language. These are some of the styles we work in; all of them adapt to each client’s logo, colors and space.',
+      procesoKicker: 'Method',
+      procesoTitulo: 'How we work',
+      proceso: [
+        ['Site visit', 'We visit the place, measure, take photos and listen to what you want to say.'],
+        ['Sketch', 'We design from your identity and show you the sketch on a photo of your wall. We only start painting once you approve it.'],
+        ['Painting', 'We schedule the work around your opening hours, with interior or exterior materials and a final protective coat.'],
+        ['Record', 'You get photos and video of the process and the result, ready for your social media.'],
+      ],
+      casoKicker: 'Case study · La Plata',
+      casoDatos: [['≈47 m²', 'of façade'], ['7', 'working days'], ['3', 'colors on black']],
+      etapas: ['Before', 'In progress', 'After'],
+      verProyecto: 'See the full project →',
+      faqKicker: 'FAQ',
+      faqTitulo: 'What people usually ask',
+      faq: [
+        ['How much does a mural cost?', 'Every mural is quoted individually: it depends on the surface, the height, the state of the wall and the level of detail of the design. Send us approximate measurements and a photo and we’ll get back to you with a no-obligation quote.'],
+        ['How long does it take?', 'It depends on size and complexity. For reference, the Blend David façade —almost 47 m²— was painted in 7 working days. Design and sketch approval happen beforehand.'],
+        ['Do I have to close my store?', 'Not necessarily. We schedule working days and hours around how the place runs.'],
+        ['Can I see the design first?', 'Yes. We always show you a sketch on a photo of your wall, and we start painting once you approve it.'],
+        ['What materials do you use?', 'Interior or exterior paints depending on the space —latex, spray paint, roller and brush— and a final protective coat so the colors hold up better against sun and rain. Materials are included in the quote.'],
+        ['Do you do graffiti?', 'Yes, as one more style: lettering with character, color and urban energy, designed for your brand and always on walls authorized by their owners.'],
+        ['Where do you work?', 'We are based in Buenos Aires and paint in the city, La Plata and the surrounding area. For other cities, get in touch and we’ll figure it out.'],
+      ],
+      ctaTitulo: 'Got a wall that needs a mural?',
+      nav: 'Murals',
+      ctaProyecto: 'Want a mural like this for your brand?',
+      botonProyecto: 'Get your mural',
+    },
     pie: ['Buenos Aires, Argentina', 'Multimedia design since 2015'],
     heroKicker: ['Multimedia design studio', 'Buenos Aires · since 2015'],
     heroLead: 'Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
@@ -182,6 +277,7 @@ function proyectosEn(l) {
       ...p,
       titulo: o.titulo ?? p.titulo,
       subtitulo: o.subtitulo ?? p.subtitulo,
+      estetica: o.estetica ?? p.estetica,
       lugar: o.lugar ?? p.lugar,
       cta: o.cta ?? p.cta,
       ficha: o.ficha ?? p.ficha,
@@ -305,6 +401,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
       <nav id="menu" class="nav" aria-label="${T.navPrincipal}">
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
         <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
+        <a class="nav-link" href="${R.murales}"${actual('murales')}>${T.murales.nav}</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
         <a class="nav-link nav-cta" href="${R.contacto}"${actual('contacto')}>${T.nav.contacto}</a>
         <div class="nav-redes only-menu">${redes()}</div>
@@ -338,6 +435,8 @@ ${cuerpo}
 const nombreCat = (l, id) => TXT[l].categorias[id] ?? id;
 const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ');
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
+// Los servicios llevan a su categoría; arte urbano tiene su propia página
+const enlaceServicio = (l, cat) => (cat === 'urbano' ? RUTAS[l].murales : enlaceCat(l, cat));
 
 // Imagen que aparece al pasar el mouse por una tarjeta.
 // Por defecto es la primera de la galería; con "previa" en el proyecto se elige otra (1 = la primera).
@@ -346,7 +445,7 @@ const vistaPrevia = (p) => {
   return todas[(p.previa || 1) - 1] || todas[0];
 };
 
-function tarjeta(l, p, i, { sizes }) {
+function tarjeta(l, p, i, { sizes, etiqueta }) {
   const previa = vistaPrevia(p);
   return `<a class="card reveal" href="${rutaDe(l, 'proyecto', p.slug)}" data-cats="${p.categorias.join(' ')}" data-cursor="${TXT[l].verCursor}">
         <div class="card-img" data-vt="p-${p.slug}">${img(p.portada, { alt: TXT[l].portadaDe(p.titulo), sizes, dims: [640, 501] })}${
@@ -357,16 +456,16 @@ function tarjeta(l, p, i, { sizes }) {
             <span class="card-title">${esc(p.titulo)}</span>
             <span class="card-sub">${esc(p.subtitulo)}</span>
           </div>
-          <span class="card-cat mono">${num(i)} · ${esc(catsTexto(l, p))}</span>
+          <span class="card-cat mono">${num(i)} · ${esc(etiqueta || catsTexto(l, p))}</span>
         </div>
       </a>`;
 }
 
-function ctaBloque(l, titulo) {
+function ctaBloque(l, titulo, href = RUTAS[l].contacto, boton = TXT[l].escribinos) {
   return `<section class="cta">
     <div class="wrap cta-in">
       <h2 class="cta-title">${titulo}</h2>
-      <a class="btn btn-dark btn-lg" href="${RUTAS[l].contacto}">${TXT[l].escribinos}</a>
+      <a class="btn btn-dark btn-lg" href="${href}">${boton}</a>
     </div>
   </section>`;
 }
@@ -442,11 +541,11 @@ function inicio(l, proyectos) {
   const conCat = T.servicios.filter(([cat]) => cat);
   const lista = (oculta) =>
     `<ul class="franja-lista"${oculta ? ' aria-hidden="true"' : ''}>${conCat
-      .map(([cat, nombre]) => `<li><a href="${enlaceCat(l, cat)}"${oculta ? ' tabindex="-1"' : ''}>${esc(nombre)}</a></li><li class="franja-sep" aria-hidden="true"></li>`)
+      .map(([cat, nombre]) => `<li><a href="${enlaceServicio(l, cat)}"${oculta ? ' tabindex="-1"' : ''}>${esc(nombre)}</a></li><li class="franja-sep" aria-hidden="true"></li>`)
       .join('')}</ul>`;
   const servicios = T.servicios
     .map(([cat, nombre, texto], i) => {
-      const titulo = cat ? `<a href="${enlaceCat(l, cat)}">${esc(nombre)} <span aria-hidden="true">→</span></a>` : esc(nombre);
+      const titulo = cat ? `<a href="${enlaceServicio(l, cat)}">${esc(nombre)} <span aria-hidden="true">→</span></a>` : esc(nombre);
       return `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${titulo}</h3><p>${esc(texto)}</p></div></li>`;
     })
     .join('\n        ');
@@ -632,6 +731,10 @@ function detalle(l, proyectos, p, i) {
   const botones = (Array.isArray(p.behance) ? p.behance : [{ texto: T.verBehance, url: p.behance || SITIO.behance }])
     .map((b) => `<a class="btn btn-accent btn-lg" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.texto)} ↗</a>`)
     .join('');
+  // En arte urbano, el cierre invita a pedir un mural
+  const urbano = p.categorias.includes('urbano');
+  const cierre = urbano ? T.murales.ctaProyecto : p.cta || T.ctaProyecto;
+  const botonMural = urbano ? `<a class="btn btn-dark btn-lg" href="${RUTAS[l].murales}">${T.murales.botonProyecto}</a>` : '';
   return pagina(l, {
     clave: 'proyecto',
     slug: p.slug,
@@ -690,8 +793,8 @@ function detalle(l, proyectos, p, i) {
     </section>
     <div class="wrap">
       <div class="behance-cta">
-        <p class="behance-title">${esc(p.cta || T.ctaProyecto)}</p>
-        <div class="btn-row">${botones}</div>
+        <p class="behance-title">${esc(cierre)}</p>
+        <div class="btn-row">${botonMural}${botones}</div>
       </div>
       <nav class="navegacion-proyectos" aria-label="${T.otros}">
         <a class="otro otro--ant" href="${rutaDe(l, 'proyecto', ant.slug)}">
@@ -709,10 +812,144 @@ function detalle(l, proyectos, p, i) {
   });
 }
 
+function murales(l, proyectos) {
+  const T = TXT[l];
+  const M = T.murales;
+  const R = RUTAS[l];
+  const urbanos = proyectos.filter((p) => p.categorias.includes('urbano'));
+  const caso = proyectos.find((p) => p.slug === 'blend-david');
+  const presupuesto = `${R.contacto}?tipo=mural`;
+  const servicios = M.servicios
+    .map(([t, d], i) => `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`)
+    .join('\n        ');
+  const esteticas = urbanos
+    .map((p, i) => tarjeta(l, p, i, { sizes: '(min-width: 900px) 45vw, 100vw', etiqueta: p.estetica }))
+    .join('\n      ');
+  const pasos = M.proceso
+    .map(([t, d], i) => `<li class="paso reveal"><span class="paso-num">${num(i)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`)
+    .join('\n        ');
+  const datosCaso = M.casoDatos
+    .map(([v, t]) => `<div class="caso-dato"><dt class="caso-valor">${esc(v)}</dt><dd class="mono">${esc(t)}</dd></div>`)
+    .join('');
+  // Antes / proceso / después de Blend David (imágenes 2, 4 y 1 de su galería)
+  const etapas = [1, 3, 0]
+    .map((k, i) => `<figure class="etapa"><div class="etapa-img">${img(caso.galeria[k], { alt: `${caso.titulo} — ${M.etapas[i]}`, sizes: '(min-width: 900px) 18vw, 33vw', dims: caso.galeria[k]._wh })}</div><figcaption class="mono">${M.etapas[i]}</figcaption></figure>`)
+    .join('');
+  const faq = M.faq
+    .map(([q, a]) => `<details class="faq-item reveal"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`)
+    .join('\n        ');
+  const url = `${SITIO.url}${R.murales}`;
+  return pagina(l, {
+    clave: 'murales',
+    titulo: M.titulo,
+    activo: 'murales',
+    descripcion: M.desc,
+    imagen: `/img/og/blend-david-${l}.jpg`,
+    datos: {
+      '@graph': [
+        {
+          '@type': 'Service',
+          name: M.titulo,
+          serviceType: M.titulo,
+          description: M.desc,
+          url,
+          inLanguage: T.htmlLang,
+          provider: { '@id': `${SITIO.url}/#estudio` },
+          areaServed: ['Buenos Aires', 'La Plata'],
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: M.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+        },
+      ],
+    },
+    cuerpo: `
+  <section class="page-head">
+    <div class="wrap murales-head">
+      <div class="murales-head-texto">
+        <span class="kicker mono">${M.kicker}</span>
+        <h1 class="page-title page-title--md">${M.h1}</h1>
+        <p class="lead">${M.lead}</p>
+        <div class="btn-row">
+          <a class="btn btn-accent btn-lg" href="${presupuesto}">${M.presupuesto}</a>
+          <a class="btn btn-outline btn-lg" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verCaso}</a>
+        </div>
+      </div>
+      <div class="murales-head-img" data-vt="p-${caso.slug}">${img(caso.portada, { alt: T.portadaDe(caso.titulo), sizes: '(min-width: 900px) 45vw, 100vw', eager: true, dims: [1280, 1001] })}</div>
+    </div>
+  </section>
+
+  <section class="seccion seccion--borde">
+    <div class="wrap servicios-grid">
+      <div>
+        <span class="kicker mono">${M.serviciosKicker}</span>
+        <h2 class="h2">${M.serviciosTitulo}</h2>
+      </div>
+      <ul class="servicios">
+        ${servicios}
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion seccion--borde">
+    <div class="wrap">
+      <div class="seccion-head">
+        <div>
+          <span class="kicker mono">${M.esteticasKicker}</span>
+          <h2 class="h2">${M.esteticasTitulo}</h2>
+        </div>
+        <p class="lead">${M.esteticasLead}</p>
+      </div>
+      <div class="grid-esteticas">
+      ${esteticas}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion--borde">
+    <div class="wrap">
+      <span class="kicker mono">${M.procesoKicker}</span>
+      <h2 class="h2">${M.procesoTitulo}</h2>
+      <ol class="proceso">
+        ${pasos}
+      </ol>
+    </div>
+  </section>
+
+  <section class="numeros caso">
+    <div class="wrap caso-in">
+      <div class="caso-texto">
+        <span class="kicker mono">${M.casoKicker}</span>
+        <h2 class="h2">${esc(caso.titulo)}</h2>
+        <p class="caso-lead">${esc(caso.bloques[0].destacado)}</p>
+        <dl class="caso-datos">${datosCaso}</dl>
+        <a class="link-arrow" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verProyecto}</a>
+      </div>
+      <div class="caso-etapas">${etapas}</div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="kicker mono">${M.faqKicker}</span>
+        <h2 class="h2">${M.faqTitulo}</h2>
+      </div>
+      <div class="faq">
+        ${faq}
+      </div>
+    </div>
+  </section>
+
+  ${ctaBloque(l, M.ctaTitulo, presupuesto, M.presupuesto)}
+`,
+  });
+}
+
 function estudio(l, proyectos) {
   const T = TXT[l];
   const disciplinas = T.servicios
-    .map(([cat, nombre], i) => `<li class="reveal"><span class="mono num">${num(i)}</span>${cat ? `<a href="${enlaceCat(l, cat)}">${esc(nombre)}</a>` : `<span>${esc(nombre)}</span>`}</li>`)
+    .map(([cat, nombre], i) => `<li class="reveal"><span class="mono num">${num(i)}</span>${cat ? `<a href="${enlaceServicio(l, cat)}">${esc(nombre)}</a>` : `<span>${esc(nombre)}</span>`}</li>`)
     .join('');
   const marcas = MARCAS.map((m) => `<li>${m}</li>`).join('');
   return pagina(l, {
@@ -756,7 +993,8 @@ function estudio(l, proyectos) {
 
 function contacto(l) {
   const T = TXT[l];
-  const opciones = T.opciones.map((o) => `<option>${o}</option>`).join('');
+  // data-clave permite elegir la opción desde el enlace (por ejemplo, /contacto/?tipo=mural)
+  const opciones = T.opciones.map((o, i) => `<option data-clave="${OPCIONES_CLAVE[i]}">${o}</option>`).join('');
   return pagina(l, {
     clave: 'contacto',
     titulo: T.contactoTitulo,
@@ -874,6 +1112,7 @@ for (const l of IDIOMAS) {
     [R.inicio, inicio(l, proyectos)],
     [R.proyectos, listado(l, proyectos)],
     ...proyectos.map((p, i) => [rutaDe(l, 'proyecto', p.slug), detalle(l, proyectos, p, i)]),
+    [R.murales, murales(l, proyectos)],
     [R.estudio, estudio(l, proyectos)],
     [R.contacto, contacto(l)],
   ];

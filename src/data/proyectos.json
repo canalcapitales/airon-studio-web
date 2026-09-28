@@ -290,7 +290,8 @@
       }
     ],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/254262723/BLEND-DAVID-Mural-de-fachada"
+    "behance": "https://www.behance.net/gallery/254262723/BLEND-DAVID-Mural-de-fachada",
+    "estetica": "Abstracto orgánico"
   },
   {
     "slug": "zocalo-fox-sports",
@@ -1894,8 +1895,8 @@
   },
   {
     "slug": "street-art",
-    "titulo": "Street Art",
-    "subtitulo": "Graffiti e intervenciones urbanas",
+    "titulo": "Estética Graffiti",
+    "subtitulo": "Lettering, color y energía urbana",
     "categorias": [
       "urbano"
     ],
@@ -1909,15 +1910,37 @@
     },
     "ficha": [
       [
-        "Disciplina",
-        "Graffiti y street art"
+        "Estética",
+        "Graffiti · wildstyle y lettering con volumen"
+      ],
+      [
+        "Aplicaciones",
+        "Fachadas, interiores, persianas y objetos"
+      ],
+      [
+        "Técnica",
+        "Aerosol"
       ]
     ],
     "bloques": [
       {
-        "titulo": "El proyecto",
+        "titulo": "La estética",
+        "destacado": "El graffiti es una de las estéticas que trabajamos: letras con carácter, color saturado y la energía de la cultura urbana, llevadas al diseño.",
         "parrafos": [
-          "En AIRON Studio intervenimos la vía pública y la arquitectura con propuestas de graffiti y street art que integran diseño, identidad y contexto urbano. Creamos piezas que dialogan con el entorno, transformando espacios cotidianos en expresiones visuales con carácter y significado."
+          "Nacido en la calle y convertido hoy en un lenguaje visual reconocido en todo el mundo, el graffiti aporta frescura, movimiento y autenticidad. Letras entrelazadas, volúmenes, degradés, brillos y contornos que convierten un nombre en una pieza que se ve de lejos."
+        ]
+      },
+      {
+        "titulo": "Para quién",
+        "parrafos": [
+          "Es ideal para marcas y espacios que hablan con un público joven o conectado con la cultura urbana: locales de ropa, barberías, bares, estudios de música, skateparks, gimnasios, productoras y eventos."
+        ]
+      },
+      {
+        "titulo": "Cómo lo aplicamos",
+        "parrafos": [
+          "Lo trabajamos como cualquier proyecto de diseño: partimos de la identidad de la marca —su nombre, sus colores, su tono— y lo adaptamos al espacio. Siempre con boceto previo, planificación y en paredes con autorización de sus dueños.",
+          "Las piezas de esta galería muestran el lenguaje en distintos soportes: paredes exteriores, un estudio de música y hasta objetos."
         ]
       }
     ],
@@ -2036,7 +2059,8 @@
       }
     ],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/247243375/Street-Art-Graffiti"
+    "behance": "https://www.behance.net/gallery/247243375/Street-Art-Graffiti",
+    "estetica": "Graffiti"
   },
   {
     "slug": "analogic-photos",

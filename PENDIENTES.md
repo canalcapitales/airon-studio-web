@@ -56,6 +56,16 @@ AIRON y Capitales los maneja la misma persona y nadie más tiene acceso, así qu
 
 ---
 
+## 7. Murales — sumar más estéticas
+
+La página `/murales/` (en inglés `/en/murals/`) muestra automáticamente todos los proyectos con la categoría `urbano`, cada uno con su estética.
+
+- [ ] Pasar más proyectos de murales (fotos del antes, el proceso y el resultado, más los datos: cliente, lugar, medidas, jornadas y técnica).
+- [ ] Para cada uno, elegir el nombre de su estética (por ejemplo "Abstracto orgánico" o "Graffiti"). Va en el campo `"estetica"` del proyecto.
+- [ ] Confirmar la zona de trabajo que figura en las preguntas frecuentes: "CABA, La Plata y alrededores".
+
+**Qué hace falta de AIRON:** fotos y datos de cada mural nuevo.
+
 ## Otros detalles anotados
 
 - **CapiTales (diseño web):** agregarlo cuando se lance (01/04/2027) o antes si hay permiso, con capturas, rol y año.

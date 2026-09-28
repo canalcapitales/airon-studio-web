@@ -10,6 +10,7 @@
   },
   "blend-david": {
     "subtitulo": "Façade mural · 47 m²",
+    "estetica": "Organic abstract",
     "lugar": "Food & drinks market · La Plata",
     "ficha": [["Client", "Blend David — Food & drinks market"], ["Role", "Full execution — AIRON Studio"], ["Location", "Calle 12 No. 1508, La Plata, Argentina"], ["Surface", "5.5 × 8.5 m · ≈47 m²"], ["Timeline", "7 working days"], ["Technique", "Latex paint, spray paint, roller and brush"]],
     "bloques": [
@@ -97,10 +98,14 @@
     ]
   },
   "street-art": {
-    "subtitulo": "Graffiti and urban interventions",
-    "ficha": [["Discipline", "Graffiti and street art"]],
+    "titulo": "Graffiti Style",
+    "subtitulo": "Lettering, color and urban energy",
+    "estetica": "Graffiti",
+    "ficha": [["Style", "Graffiti · wildstyle and 3D lettering"], ["Applications", "Façades, interiors, shutters and objects"], ["Technique", "Spray paint"]],
     "bloques": [
-      { "titulo": "The project", "parrafos": ["At AIRON Studio we intervene public space and architecture with graffiti and street art that bring together design, identity and urban context. We create pieces that talk to their surroundings, turning everyday spaces into visual statements with character and meaning."] }
+      { "titulo": "The style", "destacado": "Graffiti is one of the styles we work in: lettering with character, saturated color and the energy of urban culture, brought into design.", "parrafos": ["Born on the street and now a visual language recognized all over the world, graffiti brings freshness, movement and authenticity. Interlocking letters, volume, gradients, highlights and outlines that turn a name into a piece you can see from far away."] },
+      { "titulo": "Who it’s for", "parrafos": ["It’s ideal for brands and spaces that speak to a young audience or one connected to urban culture: clothing stores, barbershops, bars, music studios, skateparks, gyms, production companies and events."] },
+      { "titulo": "How we apply it", "parrafos": ["We approach it like any design project: we start from the brand’s identity —its name, its colors, its tone— and adapt it to the space. Always with a prior sketch, planning and on walls authorized by their owners.", "The pieces in this gallery show the language on different surfaces: exterior walls, a music studio and even objects."] }
     ]
   },
   "analogic-photos": {
