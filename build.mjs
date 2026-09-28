@@ -45,7 +45,7 @@ const TXT = {
       h1: 'Murales con identidad',
       lead: 'Diseñamos y pintamos murales para locales, oficinas y marcas. Cada pieza parte de la identidad de quien la encarga —su logo, sus colores, su historia— para convertir una pared en el mejor cartel del lugar.',
       calcular: 'Calculá el costo ↓',
-      verCaso: 'Ver Blend David',
+      verTrabajos: 'Ver trabajos ↓',
       serviciosKicker: 'Qué pintamos',
       serviciosTitulo: 'Del frente al salón',
       servicios: [
@@ -254,7 +254,7 @@ const TXT = {
       h1: 'Murals with identity',
       lead: 'We design and paint murals for stores, offices and brands. Every piece starts from the identity of whoever commissions it —their logo, their colors, their story— to turn a wall into the best sign in the place.',
       calcular: 'Estimate the cost ↓',
-      verCaso: 'See Blend David',
+      verTrabajos: 'See our work ↓',
       serviciosKicker: 'What we paint',
       serviciosTitulo: 'From the street to the room',
       servicios: [
@@ -1221,7 +1221,7 @@ function murales(l, proyectos) {
         <p class="lead">${M.lead}</p>
         <div class="btn-row">
           <a class="btn btn-accent btn-lg" href="#calculadora">${M.calcular}</a>
-          <a class="btn btn-outline btn-lg" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verCaso}</a>
+          <a class="btn btn-outline btn-lg" href="#trabajos">${M.verTrabajos}</a>
         </div>
       </div>
       <div class="murales-head-img" data-vt="p-${caso.slug}">${img(caso.portada, { alt: T.portadaDe(caso.titulo), sizes: '(min-width: 900px) 45vw, 100vw', eager: true, dims: [1280, 1001] })}</div>
@@ -1242,7 +1242,7 @@ function murales(l, proyectos) {
     </div>
   </section>
 
-  <section class="seccion seccion--borde">
+  <section class="seccion seccion--borde" id="trabajos">
     <div class="wrap">
       <div class="seccion-head">
         <div>
