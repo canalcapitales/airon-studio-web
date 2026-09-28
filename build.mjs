@@ -8,7 +8,7 @@ import { createHash } from 'node:crypto';
 const OUT = 'dist';
 const SITIO = {
   // Dirección pública de la web. Cambiarla cuando se conecte el dominio propio.
-  url: 'https://airon-studio-web.laionbeats.workers.dev',
+  url: 'https://aironstudio.com.ar',
   behance: 'https://www.behance.net/AIRONSTUDIO',
   linkedin: 'https://www.linkedin.com/in/aironstudio/',
   instagram: 'https://www.instagram.com/_aironstudio/',
