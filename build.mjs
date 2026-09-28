@@ -37,7 +37,7 @@ const TXT = {
     descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
     nav: { inicio: 'Inicio', proyectos: 'Proyectos', estudio: 'Estudio', contacto: 'Hablemos' },
-    idiomaAria: 'Idioma',
+    idiomaAria: 'Idioma', temaOscuro: 'Cambiar a modo oscuro',
     pie: ['Buenos Aires, Argentina', 'Diseño multimedial desde 2015'],
     heroKicker: ['Estudio de diseño multimedial', 'Buenos Aires · desde 2015'],
     heroLead: 'Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
@@ -98,7 +98,7 @@ const TXT = {
     descripcion: 'Multimedia design studio based in Buenos Aires since 2015. Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
     nav: { inicio: 'Home', proyectos: 'Work', estudio: 'Studio', contacto: "Let's talk" },
-    idiomaAria: 'Language',
+    idiomaAria: 'Language', temaOscuro: 'Switch to dark mode',
     pie: ['Buenos Aires, Argentina', 'Multimedia design since 2015'],
     heroKicker: ['Multimedia design studio', 'Buenos Aires · since 2015'],
     heroLead: 'Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
@@ -221,6 +221,11 @@ const ICONOS_MENU =
   '<svg class="i-abrir" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="3" y1="7" x2="17" y2="7"/><line x1="3" y1="13" x2="17" y2="13"/></svg>' +
   '<svg class="i-cerrar" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg>';
 
+// Luna (se ve en modo claro) y sol (se ve en modo oscuro)
+const ICONOS_TEMA =
+  '<svg class="i-luna" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 12.2A7 7 0 0 1 7.8 3.5a7 7 0 1 0 8.7 8.7Z"/></svg>' +
+  '<svg class="i-sol" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.4 1.4M14.6 14.6 16 16M4 16l1.4-1.4M14.6 5.4 16 4"/></svg>';
+
 function redes() {
   return `<a href="${SITIO.behance}" target="_blank" rel="noopener noreferrer">Behance ↗</a>
       <a href="${SITIO.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
@@ -269,7 +274,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
   ${alternas}
   <link rel="alternate" hreflang="x-default" href="${SITIO.url}${rutaDe('es', clave, slug)}">
   <meta name="theme-color" content="#F2F0EB">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="light dark">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="${T.ogLocale}">
   <meta property="og:site_name" content="AIRON Studio">
@@ -283,6 +288,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${ASSETS.css}">
+  <script src="${ASSETS.tema}"></script>
   <script src="${ASSETS.vt}"></script>
   <script src="${ASSETS.js}" defer></script>${jsonld}
 </head>
@@ -299,6 +305,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
         <div class="nav-redes only-menu">${redes()}</div>
       </nav>
       <nav class="idioma mono" aria-label="${T.idiomaAria}">${selector}</nav>
+      <button class="tema-btn" type="button" aria-label="${T.temaOscuro}" title="${T.temaOscuro}">${ICONOS_TEMA}</button>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="${T.abrirMenu}">${ICONOS_MENU}</button>
     </div>
   </header>
@@ -821,6 +828,7 @@ cpSync('src/static', OUT, { recursive: true });
 ASSETS.css = conHuella('css/styles.css');
 ASSETS.js = conHuella('js/main.js');
 ASSETS.vt = conHuella('js/transiciones.js');
+ASSETS.tema = conHuella('js/tema.js');
 
 const archivo = (ruta) => `${ruta.replace(/^\//, '')}index.html`;
 const paraMapa = [];
