@@ -504,7 +504,7 @@
   {
     "slug": "branding-x-airon-studio",
     "titulo": "Branding x AIRON Studio",
-    "subtitulo": "27 identidades de marca",
+    "subtitulo": "21 identidades de marca",
     "categorias": [
       "branding"
     ],
@@ -523,7 +523,7 @@
       ],
       [
         "Identidades",
-        "27 marcas diseñadas"
+        "21 marcas diseñadas"
       ],
       [
         "Rubros",
@@ -701,6 +701,15 @@
             "alt": "iPhone Store SMA — Tienda Apple"
           },
           {
+            "640": "/img/p/branding-x-airon-studio/s2-01-640.webp",
+            "1200": "/img/p/branding-x-airon-studio/s2-01-1200.webp",
+            "_wh": [
+              1200,
+              1200
+            ],
+            "alt": "San Martín de los Andes — Marca destino, versión horizontal"
+          },
+          {
             "640": "/img/p/branding-x-airon-studio/s1-18-640.webp",
             "1200": "/img/p/branding-x-airon-studio/s1-18-1200.webp",
             "_wh": [
@@ -728,7 +737,8 @@
             "alt": "Kaizen — Panadería de autor"
           }
         ],
-        "nota": "20 de 27 identidades"
+        "nota": "21 identidades",
+        "columnas": 7
       },
       {
         "titulo": "San Martín de los Andes — Marca Destino",

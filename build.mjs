@@ -378,7 +378,7 @@ function numeros(l, proyectos) {
   const datos = [
     { valor: anio - FUNDACION },
     { valor: proyectos.length },
-    { valor: 27 },
+    { valor: 21 }, // identidades de marca (el muro de Branding x AIRON Studio)
     { valor: MARCAS.length },
     { valor: 47, sufijo: ' m²' },
     { valor: T.servicios.length },
@@ -577,10 +577,10 @@ function detalle(l, proyectos, p, i) {
         )
         .join('')}</div>`
     : '';
-  const figura = (g, k, total, { full = false, grilla = false } = {}) => {
+  const figura = (g, k, total, { full = false, grilla = false, columnas = 4 } = {}) => {
     const alt = g.alt || T.imagenDe(p.titulo, k + 1, total);
     const clase = full ? 'galeria-full' : '';
-    const sizes = grilla ? '(min-width: 900px) 25vw, 50vw' : full ? '(min-width: 1584px) 1440px, 100vw' : '(min-width: 900px) 50vw, 100vw';
+    const sizes = grilla ? (columnas === 7 ? '(min-width: 1100px) 14vw, 34vw' : '(min-width: 900px) 25vw, 50vw') : full ? '(min-width: 1584px) 1440px, 100vw' : '(min-width: 900px) 50vw, 100vw';
     return `<figure class="${clase} reveal"><a class="zoom" href="${esc(paraVisor(g))}" aria-label="${T.ampliar}: ${esc(alt)}">${img(g, { alt, sizes, dims: g._wh })}</a></figure>`;
   };
   const esAncha = (g) => g._wh && g._wh[0] / g._wh[1] > 1.6;
@@ -590,12 +590,12 @@ function detalle(l, proyectos, p, i) {
   const galerias = (p.galerias || [])
     .map((grupo) => {
       const grilla = grupo.estilo === 'grilla';
-      const figs = grupo.imagenes.map((g, k) => figura(g, k, grupo.imagenes.length, { grilla, full: !grilla && (k === 0 || esAncha(g)) })).join('');
+      const figs = grupo.imagenes.map((g, k) => figura(g, k, grupo.imagenes.length, { grilla, columnas: grupo.columnas, full: !grilla && (k === 0 || esAncha(g)) })).join('');
       return `<div class="galeria-grupo">
           <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${esc(grupo.titulo)}</h3>${grupo.texto ? `<p>${esc(grupo.texto)}</p>` : ''}${
         grupo.nota ? `<span class="mono">${esc(grupo.nota)}</span>` : ''
       }</div>
-          <div class="galeria${grilla ? ' galeria--grilla' : ''}">${figs}</div>
+          <div class="galeria${grilla ? ' galeria--grilla' : ''}${grupo.columnas === 7 ? ' galeria--7' : ''}">${figs}</div>
         </div>`;
     })
     .join('');

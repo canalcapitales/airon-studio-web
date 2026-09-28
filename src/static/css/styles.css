@@ -355,6 +355,9 @@ ul { padding: 0; list-style: none; }
 .galeria-grupo-head .mono { color: var(--muted); grid-column: 2; }
 .galeria--grilla { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .galeria--grilla figure { background: transparent; }
+/* Muro de 21 marcas: 7 columnas como en Behance; 3 en tablet y celular (21 entra justo en los dos casos) */
+.galeria.galeria--grilla.galeria--7 { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 1099px) { .galeria.galeria--grilla.galeria--7 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; } }
 @media (max-width: 899px) {
   .galeria-grupo-head { grid-template-columns: 1fr; }
   .galeria-grupo-head .mono { grid-column: auto; }
