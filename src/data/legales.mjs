@@ -79,6 +79,15 @@ export const LEGALES = {
         ],
       },
       {
+        id: 'publicidad',
+        titulo: 'Publicidad',
+        bloques: [
+          'La franja de logos que aparece arriba del pie de página es un espacio publicitario y está identificada como “Publicidad”. Cada logo lleva al sitio de ese anunciante, que se abre en otra pestaña.',
+          'Esos sitios son de terceros: no controlamos su contenido ni sus políticas de privacidad, y no somos responsables por los productos o servicios que ofrecen. Que una marca anuncie acá no significa que AIRON Studio la recomiende.',
+          'Los enlaces llevan una marca de origen (“utm_source=aironstudio.com.ar”) para que el anunciante sepa que la visita llegó desde esta web. No se usan cookies ni se comparte ningún dato tuyo con los anunciantes.',
+        ],
+      },
+      {
         id: 'cambios',
         titulo: 'Cambios en estos textos',
         bloques: ['Podemos actualizar esta página cuando cambie algo del sitio o de la ley. La fecha de la última actualización figura arriba.'],
@@ -153,6 +162,15 @@ export const LEGALES = {
             '<strong>You need permission</strong> to copy, modify, sell or commercially use the images or texts. Ask through {contacto}.',
           ],
           '<strong>Third-party software and resources.</strong> The AI background remover uses ONNX Runtime Web (Microsoft, MIT license) and the U²-Netp model (Xuebin Qin et al., Apache 2.0 license); see {licencias}. The Anton, Instrument Sans and IBM Plex Mono typefaces are used under the SIL Open Font License.',
+        ],
+      },
+      {
+        id: 'publicidad',
+        titulo: 'Advertising',
+        bloques: [
+          'The strip of logos above the footer is an advertising space and is labeled “Advertising”. Each logo links to that advertiser’s website, which opens in a new tab.',
+          'Those sites belong to third parties: we don’t control their content or privacy policies, and we are not responsible for the products or services they offer. A brand advertising here doesn’t mean AIRON Studio endorses it.',
+          'The links carry a source tag (“utm_source=aironstudio.com.ar”) so the advertiser knows the visit came from this site. No cookies are used and none of your data is shared with advertisers.',
         ],
       },
       {
