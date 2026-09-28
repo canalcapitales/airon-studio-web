@@ -77,8 +77,8 @@ const TXT = {
       },
     },
     png: {
-      titulo: 'Convertir imagen a PNG online gratis — quitar fondo de color',
-      desc: 'Convertí imágenes JPG, WEBP, GIF o SVG a PNG gratis, cambiá el tamaño, quitá un fondo de color para dejarlo transparente y recortá bordes. Sin subir tus archivos.',
+      titulo: 'Convertir imagen a PNG online gratis — quitar fondo con IA',
+      desc: 'Convertí imágenes JPG, WEBP, GIF o SVG a PNG gratis, quitá el fondo con IA o un fondo de color para dejarlo transparente, cambiá el tamaño y recortá bordes. Sin subir tus archivos.',
       kicker: 'Herramienta gratuita',
       h1: 'Convertir a PNG',
       lead: 'Pasá tus imágenes a PNG, con fondo transparente si lo necesitás. Todo se procesa en tu navegador: tus archivos no se suben a ningún servidor.',
@@ -90,6 +90,12 @@ const TXT = {
       tamano: 'Tamaño',
       tamanos: [['original', 'Original'], ['ancho', 'Ancho máximo']],
       anchoMax: 'Ancho máximo (px)',
+      ia: 'Quitar fondo con IA',
+      iaAyuda: 'Para fotos de personas, animales u objetos. La IA funciona en tu navegador: la primera vez descarga unos 19 MB y después queda guardada.',
+      iaDescargando: 'Descargando la IA (unos 19 MB, solo la primera vez)…',
+      iaTrabajando: 'La IA está quitando el fondo…',
+      iaLista: 'IA lista. Si el borde queda con restos, sumá “Quitar fondo de color”.',
+      iaError: 'No se pudo usar la IA en este navegador. Probá con Chrome, Edge, Firefox o Safari actualizados.',
       fondo: 'Quitar fondo de color',
       fondoAyuda: 'Ideal para logos, firmas o dibujos sobre fondo blanco o liso. Tocá la imagen para elegir el color a quitar.',
       color: 'Color a quitar',
@@ -107,7 +113,7 @@ const TXT = {
       resultado: 'PNG',
       error: 'No se pudo abrir este archivo. Probá con JPG, PNG, WEBP, GIF, BMP o SVG.',
       privacidad: 'Privado: las imágenes se procesan en tu dispositivo y nunca salen de él.',
-      limite: 'Para quitar fondos complejos (fotos de personas u objetos) hace falta inteligencia artificial; esta herramienta quita fondos lisos de un color.',
+      limite: 'La IA trabaja mejor cuando el sujeto se distingue bien del fondo. En fotos con muchos elementos puede dejar restos o borrar de más: revisá la vista previa antes de descargar.',
     },
     diseno: {
       titulo: 'Tarifario de diseño 2026 — Aranceles de servicios creativos',
@@ -418,8 +424,8 @@ const TXT = {
       },
     },
     png: {
-      titulo: 'Convert image to PNG online for free — remove solid background',
-      desc: 'Convert JPG, WEBP, GIF or SVG images to PNG for free, resize them, remove a solid background to make it transparent and trim edges. No uploads.',
+      titulo: 'Convert image to PNG online for free — AI background remover',
+      desc: 'Convert JPG, WEBP, GIF or SVG images to PNG for free, remove the background with AI or a solid color to make it transparent, resize them and trim edges. No uploads.',
       kicker: 'Free tool',
       h1: 'Convert to PNG',
       lead: 'Turn your images into PNG, with a transparent background if you need it. Everything is processed in your browser: your files are never uploaded to any server.',
@@ -431,6 +437,12 @@ const TXT = {
       tamano: 'Size',
       tamanos: [['original', 'Original'], ['ancho', 'Max width']],
       anchoMax: 'Max width (px)',
+      ia: 'Remove background with AI',
+      iaAyuda: 'For photos of people, animals or objects. The AI runs in your browser: the first time it downloads about 19 MB and then stays cached.',
+      iaDescargando: 'Downloading the AI (about 19 MB, first time only)…',
+      iaTrabajando: 'The AI is removing the background…',
+      iaLista: 'AI ready. If some background is left around the edges, add “Remove solid background”.',
+      iaError: 'The AI couldn’t run in this browser. Try an up-to-date Chrome, Edge, Firefox or Safari.',
       fondo: 'Remove solid background',
       fondoAyuda: 'Great for logos, signatures or drawings on a white or plain background. Tap the image to pick the color to remove.',
       color: 'Color to remove',
@@ -448,7 +460,7 @@ const TXT = {
       resultado: 'PNG',
       error: 'This file couldn’t be opened. Try JPG, PNG, WEBP, GIF, BMP or SVG.',
       privacidad: 'Private: images are processed on your device and never leave it.',
-      limite: 'Removing complex backgrounds (photos of people or objects) needs artificial intelligence; this tool removes plain, single-color backgrounds.',
+      limite: 'The AI works best when the subject stands out clearly from the background. In busy photos it may leave bits behind or remove too much: check the preview before downloading.',
     },
     diseno: {
       titulo: 'Design rate guide 2026 — Creative services fees in Argentina',
@@ -1665,7 +1677,7 @@ function paginaPng(l) {
   const P = TXT[l].png;
   const R = RUTAS[l];
   const tamanos = P.tamanos.map(([v, t]) => `<label class="tar-pill"><input type="radio" name="tamano" value="${v}"${v === 'original' ? ' checked' : ''}><span>${esc(t)}</span></label>`).join('');
-  const textos = { descargar: P.descargar, quitar: P.quitar, procesando: P.procesando, original: P.original, resultado: P.resultado, error: P.error };
+  const textos = { descargar: P.descargar, quitar: P.quitar, procesando: P.procesando, original: P.original, resultado: P.resultado, error: P.error, iaDescargando: P.iaDescargando, iaTrabajando: P.iaTrabajando, iaLista: P.iaLista, iaError: P.iaError };
   return pagina(l, {
     clave: 'png',
     titulo: P.titulo,
@@ -1689,6 +1701,9 @@ function paginaPng(l) {
           <legend class="calc-legend">${P.ajustes}</legend>
           <div class="tar-grupo"><span class="mono png-etiqueta">${P.tamano}</span><div class="tar-pills">${tamanos}</div></div>
           <div class="campo png-ancho"><label for="png-ancho" class="mono">${P.anchoMax}</label><input id="png-ancho" name="ancho" type="number" inputmode="numeric" min="16" max="8000" step="1" value="1080" disabled></div>
+          <label class="calc-check"><input type="checkbox" name="ia"> <span>${P.ia}</span></label>
+          <p class="nota png-ia-ayuda">${P.iaAyuda}</p>
+          <p class="nota png-ia-estado" role="status" hidden></p>
           <label class="calc-check"><input type="checkbox" name="fondo"> <span>${P.fondo}</span></label>
           <div class="png-fondo" hidden>
             <p class="nota">${P.fondoAyuda}</p>
