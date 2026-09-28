@@ -136,6 +136,29 @@ const TXT = {
         pedir: 'Pedir presupuesto con estos datos →',
         sinJs: 'Para ver la estimación, activá JavaScript en tu navegador.',
         mensaje: 'Hola, quiero un presupuesto para un mural.',
+        proyecto: 'Cliente o proyecto (opcional)',
+        proyectoEjemplo: 'Ej.: Blend David — fachada',
+        descargarPdf: 'Descargar PDF',
+        descargarImagen: 'Descargar imagen',
+        generando: 'Generando…',
+        doc: {
+          titulo: 'Presupuesto orientativo',
+          mural: 'Mural',
+          fecha: 'Fecha',
+          numero: 'N.º',
+          para: 'Para',
+          datos: 'Datos del mural',
+          detalle: 'Detalle de honorarios',
+          medidas: 'Medidas',
+          superficie: 'Superficie',
+          cliente: 'Tipo de cliente',
+          diseno: 'Tipo de diseño',
+          boceto: 'Diseño',
+          extras: 'Extras',
+          ninguno: 'Ninguno',
+          validez: 'Validez: 30 días desde la fecha de emisión.',
+          archivo: 'presupuesto-mural-AIRON',
+        },
       },
       ctaTitulo: '¿Tenés una pared que pide un mural?',
       nav: 'Murales',
@@ -302,6 +325,29 @@ const TXT = {
         pedir: 'Request a quote with these details →',
         sinJs: 'To see the estimate, please enable JavaScript in your browser.',
         mensaje: 'Hi, I’d like a quote for a mural.',
+        proyecto: 'Client or project (optional)',
+        proyectoEjemplo: 'E.g.: Blend David — façade',
+        descargarPdf: 'Download PDF',
+        descargarImagen: 'Download image',
+        generando: 'Generating…',
+        doc: {
+          titulo: 'Estimate',
+          mural: 'Mural',
+          fecha: 'Date',
+          numero: 'No.',
+          para: 'For',
+          datos: 'Mural details',
+          detalle: 'Fee breakdown',
+          medidas: 'Measurements',
+          superficie: 'Surface',
+          cliente: 'Client type',
+          diseno: 'Design type',
+          boceto: 'Design',
+          extras: 'Extras',
+          ninguno: 'None',
+          validez: 'Valid for 30 days from the issue date.',
+          archivo: 'mural-estimate-AIRON',
+        },
       },
       ctaTitulo: 'Got a wall that needs a mural?',
       nav: 'Murals',
@@ -942,7 +988,7 @@ function calculadora(l) {
       )
       .join('\n          ');
   // Textos que usa el navegador para escribir el resultado
-  const textos = { ...C.filas, pasaA: C.pasaA, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, asistencia: C.asistencia };
+  const textos = { ...C.filas, pasaA: C.pasaA, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, asistencia: C.asistencia, doc: C.doc, generando: C.generando, noIncluye: C.noIncluye, fuente: C.fuente };
   return `<section class="seccion seccion--borde" id="calculadora">
     <div class="wrap">
       <div class="seccion-head">
@@ -995,6 +1041,13 @@ function calculadora(l) {
           <span class="kicker mono" id="calc-titulo-resultado">${C.resultado}</span>
           <div class="calc-salida" aria-live="polite"><p class="calc-vacio">${C.vacio}</p></div>
           <p class="nota">${C.noIncluye}</p>
+          <div class="calc-descarga" hidden>
+            <div class="campo"><label for="calc-proyecto" class="mono">${C.proyecto}</label><input id="calc-proyecto" name="proyecto" type="text" maxlength="80" autocomplete="off" placeholder="${esc(C.proyectoEjemplo)}"></div>
+            <div class="calc-botones">
+              <button type="button" class="btn btn-outline calc-bajar" data-formato="pdf">${C.descargarPdf}</button>
+              <button type="button" class="btn btn-outline calc-bajar" data-formato="png">${C.descargarImagen}</button>
+            </div>
+          </div>
           <a class="btn btn-accent btn-lg btn-block calc-pedir" href="${RUTAS[l].contacto}?tipo=mural">${C.pedir}</a>
           <p class="nota calc-fuente">${C.fuente}</p>
           <p class="nota calc-sinjs">${C.sinJs}</p>
