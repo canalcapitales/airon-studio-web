@@ -674,6 +674,7 @@ html:not(.js) .calc-salida { display: none; }
 .png-fondo input[type="color"] { width: 100%; min-height: 48px; padding: 4px; cursor: pointer; }
 .png-fondo input[type="range"] { width: 100%; min-height: 0; padding: 0; border: 0; accent-color: var(--acento); background: none; }
 .png-privado { color: var(--ink); font-weight: 500; }
+.png-ia-estado { color: var(--ink); font-weight: 500; border-left: 3px solid var(--acento-texto); padding-left: 10px; }
 .png-resultados { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .png-barra { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
 .png-barra[hidden], .png-cuadros[hidden] { display: none; }

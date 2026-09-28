@@ -1170,6 +1170,56 @@ function textosUnicode() {
 }
 
 // ----- Convertir a PNG: todo se procesa en el navegador, nada se sube -----
+// Quitar fondo con IA: el motor (ONNX Runtime Web, de Microsoft) y el modelo (U²-Net chico, licencia Apache 2.0)
+// están guardados en /ia/ dentro de la misma web y se descargan solo cuando alguien activa la opción.
+// Todo corre en el navegador: la imagen nunca sale del dispositivo.
+let motorIa;
+const cargarIa = () =>
+  (motorIa ||= (async () => {
+    const ort = await import('/ia/ort.wasm.min.mjs');
+    ort.env.wasm.wasmPaths = '/ia/';
+    ort.env.wasm.numThreads = 1;
+    const sesion = await ort.InferenceSession.create('/ia/u2netp.onnx', { executionProviders: ['wasm'] });
+    return { ort, sesion };
+  })().catch((e) => {
+    motorIa = null; // si falló (por ejemplo, sin conexión), se puede volver a intentar
+    throw e;
+  }));
+
+// Devuelve una máscara de 320×320: opaca donde está el sujeto, transparente donde está el fondo
+const LADO_IA = 320;
+const mascaraIa = async (original) => {
+  const { ort, sesion } = await cargarIa();
+  const L = LADO_IA, N = L * L;
+  const c = document.createElement('canvas');
+  c.width = c.height = L;
+  const x = c.getContext('2d', { willReadFrequently: true });
+  x.imageSmoothingQuality = 'high';
+  x.drawImage(original, 0, 0, L, L);
+  const d = x.getImageData(0, 0, L, L).data;
+  // Preparar la imagen como la espera el modelo: valores de 0 a 1 y normalizados por canal
+  let max = 1;
+  for (let i = 0; i < d.length; i += 4) max = Math.max(max, d[i], d[i + 1], d[i + 2]);
+  const media = [0.485, 0.456, 0.406], desvio = [0.229, 0.224, 0.225];
+  const t = new Float32Array(3 * N);
+  for (let i = 0; i < N; i++) for (let k = 0; k < 3; k++) t[k * N + i] = (d[i * 4 + k] / max - media[k]) / desvio[k];
+  const salida = await sesion.run({ [sesion.inputNames[0]]: new ort.Tensor('float32', t, [1, 3, L, L]) });
+  const o = salida[sesion.outputNames[0]].data;
+  let mi = Infinity, ma = -Infinity;
+  for (let i = 0; i < N; i++) {
+    if (o[i] < mi) mi = o[i];
+    if (o[i] > ma) ma = o[i];
+  }
+  const m = x.createImageData(L, L);
+  for (let i = 0; i < N; i++) {
+    // Un poco de contraste en el borde: menos halo del fondo sin cortar pelos ni sombras suaves
+    const v = ((o[i] - mi) / (ma - mi || 1) - 0.1) / 0.8;
+    m.data[i * 4 + 3] = Math.round(Math.min(1, Math.max(0, v)) * 255);
+  }
+  x.putImageData(m, 0, 0);
+  return c;
+};
+
 function convertidorPng() {
   const raiz = document.querySelector('.png');
   if (!raiz) return;
@@ -1185,6 +1235,7 @@ function convertidorPng() {
 
   const ajustes = () => ({
     ancho: raiz.querySelector('input[name="tamano"]:checked').value === 'ancho' ? Math.max(16, parseInt(campo('ancho').value, 10) || 1080) : 0,
+    ia: campo('ia').checked,
     fondo: campo('fondo').checked,
     color: campo('color').value,
     tolerancia: Number(campo('tolerancia').value),
@@ -1218,7 +1269,7 @@ function convertidorPng() {
     return c;
   };
 
-  const procesar = (original, a) => {
+  const procesar = (original, a, mascara) => {
     // 1. Tamaño
     let w = original.width, h = original.height;
     if (a.ancho && w > a.ancho) {
@@ -1231,7 +1282,13 @@ function convertidorPng() {
     let x = c.getContext('2d', { willReadFrequently: true });
     x.imageSmoothingQuality = 'high';
     x.drawImage(original, 0, 0, w, h);
-    // 2. Quitar el fondo de un color: lo parecido al color elegido se vuelve transparente, con borde suave
+    // 2. Quitar el fondo con IA: la máscara se estira al tamaño final y deja ver solo el sujeto
+    if (a.ia && mascara) {
+      x.globalCompositeOperation = 'destination-in';
+      x.drawImage(mascara, 0, 0, w, h);
+      x.globalCompositeOperation = 'source-over';
+    }
+    // 3. Quitar el fondo de un color: lo parecido al color elegido se vuelve transparente, con borde suave
     if (a.fondo) {
       const r0 = parseInt(a.color.slice(1, 3), 16), g0 = parseInt(a.color.slice(3, 5), 16), b0 = parseInt(a.color.slice(5, 7), 16);
       const datos = x.getImageData(0, 0, w, h);
@@ -1245,7 +1302,7 @@ function convertidorPng() {
       }
       x.putImageData(datos, 0, 0);
     }
-    // 3. Recortar los bordes que quedaron transparentes
+    // 4. Recortar los bordes que quedaron transparentes
     if (a.recortar) {
       const p = x.getImageData(0, 0, w, h).data;
       let arriba = h, abajo = -1, izq = w, der = -1;
@@ -1274,9 +1331,40 @@ function convertidorPng() {
     return c;
   };
 
+  // La IA se prepara una sola vez por imagen y de a una por vez (así no se traba el navegador)
+  const estadoIa = raiz.querySelector('.png-ia-estado');
+  const avisarIa = (texto) => {
+    estadoIa.hidden = !texto;
+    estadoIa.textContent = texto || '';
+  };
+  let colaIa = Promise.resolve();
+  const prepararMascara = (item) =>
+    (item.mascara ||= (colaIa = colaIa.catch(() => {}).then(async () => {
+      if (!motorIa) avisarIa(X.iaDescargando);
+      await cargarIa();
+      avisarIa('');
+      item.li.querySelector('.png-datos').textContent = X.iaTrabajando;
+      await new Promise((r) => setTimeout(r, 30)); // deja que se vea el aviso antes de que la IA ocupe el procesador
+      const m = await mascaraIa(item.original);
+      avisarIa(X.iaLista);
+      return m;
+    })));
+
   const pintar = async (item) => {
     const a = ajustes();
-    item.resultado = procesar(item.original, a);
+    let mascara;
+    if (a.ia) {
+      try {
+        mascara = await prepararMascara(item);
+      } catch (e) {
+        item.mascara = null;
+        campo('ia').checked = false;
+        avisarIa(X.iaError);
+        a.ia = false;
+      }
+    }
+    if (!imagenes.includes(item)) return; // la quitaron mientras la IA trabajaba
+    item.resultado = procesar(item.original, a, mascara);
     const vista = item.li.querySelector('.png-vista');
     // La vista previa se dibuja en un canvas (no hace falta subir ni enlazar la imagen)
     const escala = Math.min(1, 720 / item.resultado.width);
@@ -1344,6 +1432,17 @@ function convertidorPng() {
     const t = e.target;
     if (t.name === 'tamano') campo('ancho').disabled = t.value !== 'ancho';
     if (t.name === 'fondo') raiz.querySelector('.png-fondo').hidden = !t.checked;
+    if (t.name === 'ia') {
+      avisarIa('');
+      // Al activarla se empieza a descargar la IA aunque todavía no haya imágenes
+      if (t.checked && !imagenes.length && !motorIa) {
+        avisarIa(X.iaDescargando);
+        cargarIa().then(() => avisarIa(X.iaLista), () => {
+          campo('ia').checked = false;
+          avisarIa(X.iaError);
+        });
+      }
+    }
     if (t.type === 'range') raiz.querySelector(`output[for="${t.id}"]`).textContent = t.value;
     pintarTodas();
   });
