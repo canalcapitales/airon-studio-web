@@ -95,6 +95,13 @@ Idea: vender el espacio en **dos niveles**, con precios distintos.
 
 **Qué hace falta de AIRON:** los precios y, por cada anunciante, su logo (SVG o PNG con fondo transparente), el link, el nivel contratado y la fecha de fin.
 
+## 11. Sistemas de gestión — cargar proyectos
+
+Ya existe la categoría **Sistemas de gestión** (filtro en Proyectos, servicio en el inicio y opción en el formulario de contacto). Mientras no tenga proyectos, al filtrar muestra "Estamos preparando los proyectos de esta categoría" con un enlace a Contacto.
+
+- [ ] Pasarle a Claude, por cada sistema: nombre, cliente, año, qué resuelve (clientes, turnos, stock, ventas…), capturas de pantalla (sin datos reales de clientes) y el texto en inglés si lo hay.
+- En `src/data/proyectos.json` cada proyecto de esta sección lleva `"categorias": ["sistemas"]` (puede sumar otra, por ejemplo `["sistemas", "web"]`).
+
 ## Otros detalles anotados
 
 - **CapiTales (diseño web):** agregarlo cuando se lance (01/04/2027) o antes si hay permiso, con capturas, rol y año.
