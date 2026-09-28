@@ -53,6 +53,7 @@ const TXT = {
     videoDe: (t) => `Video del proyecto ${t}`, volver: '← Volver a proyectos', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
     ctaProyecto: '¿Querés ver todas las imágenes?', verBehance: 'Ver en Behance', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
     proyectoDe: 'Proyecto de AIRON Studio.',
+    descProyecto: (cats) => `${cats} por AIRON Studio, estudio de diseño multimedial en Buenos Aires.`,
     visor: { aria: 'Visor de imágenes', cerrar: 'Cerrar', ant: 'Imagen anterior', sig: 'Imagen siguiente' },
     estudioTitulo: 'Estudio', elEstudio: 'El estudio', estudioH1: 'Diseño con mirada integral',
     estudioDesc: 'AIRON Studio: estudio de diseño multimedial fundado en 2015 en Buenos Aires, liderado por Matías Gonzalez.',
@@ -114,6 +115,7 @@ const TXT = {
     videoDe: (t) => `Video of the project ${t}`, volver: '← Back to work', fichaAria: 'Project details', imagenesAria: 'Project images',
     ctaProyecto: 'Want to see every image?', verBehance: 'View on Behance', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
     proyectoDe: 'A project by AIRON Studio.',
+    descProyecto: (cats) => `${cats} by AIRON Studio, a multimedia design studio based in Buenos Aires.`,
     visor: { aria: 'Image viewer', cerrar: 'Close', ant: 'Previous image', sig: 'Next image' },
     estudioTitulo: 'Studio', elEstudio: 'The studio', estudioH1: 'Design with an all-round vision',
     estudioDesc: 'AIRON Studio: a multimedia design studio founded in 2015 in Buenos Aires, led by Matías Gonzalez.',
@@ -286,7 +288,9 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/instrumentsans-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${ASSETS.css}">
   <script src="${ASSETS.tema}"></script>
   <script src="${ASSETS.vt}"></script>
@@ -604,15 +608,24 @@ function detalle(l, proyectos, p, i) {
     <span class="visor-contador mono" aria-live="polite"></span>
   </dialog>`
     : '';
-  const texto = p.bloques.flatMap((b) => [b.destacado, ...(b.parrafos || [])]).find(Boolean);
-  const descripcion = recortar(texto || `${p.titulo} — ${p.subtitulo}. ${T.proyectoDe}`);
+  // Descripción para Google: se suman los primeros textos del proyecto hasta tener un largo útil
+  let texto = '';
+  for (const t of p.bloques.flatMap((b) => [b.destacado, ...(b.parrafos || [])]).filter(Boolean)) {
+    if (texto.length >= 120) break;
+    texto += (texto ? ' ' : '') + t;
+  }
+  if (texto.length < 120) {
+    const datosFicha = p.ficha.map(([k, v]) => `${k}: ${v}`).join(' · ');
+    texto = `${p.titulo} — ${p.subtitulo}. ${texto || T.descProyecto(catsTexto(l, p))}${datosFicha ? ' ' + datosFicha + '.' : ''}`;
+  }
+  const descripcion = recortar(texto);
   const botones = (Array.isArray(p.behance) ? p.behance : [{ texto: T.verBehance, url: p.behance || SITIO.behance }])
     .map((b) => `<a class="btn btn-accent btn-lg" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.texto)} ↗</a>`)
     .join('');
   return pagina(l, {
     clave: 'proyecto',
     slug: p.slug,
-    titulo: p.titulo,
+    titulo: `${p.titulo} — ${p.subtitulo}`,
     activo: 'proyectos',
     descripcion,
     imagen: `/img/og/${p.slug}-${l}.jpg`,
