@@ -10,7 +10,8 @@
   <style>
     .demo-colores { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-top: 32px; }
     .demo-colores div { border: 1px solid var(--ink); padding: 16px; min-height: 110px; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; }
-    .tema-btn { width: 44px; height: 44px; border: 1px solid var(--ink); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; font-size: 18px; }
+    /* Ejemplo de segundo acento: azul */
+    :root { --acento-2: #1F3DFF; --acento-2-texto: #1F3DFF; --sobre-acento-2: #F2F0EB; }
   </style>
 </head>
 <body>
@@ -20,17 +21,17 @@
       <div class="btn-row">
         <a class="pill-marca" href="#">Herramientas</a>
         <a class="btn btn-dark" href="#">Contacto</a>
-        <button class="tema-btn" type="button" aria-label="Cambiar modo claro / oscuro">◐</button>
+        <button class="tema-btn tema-btn--borde" type="button" aria-label="Cambiar modo claro / oscuro"><svg class="i-luna" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 12.2A7 7 0 0 1 7.8 3.5a7 7 0 1 0 8.7 8.7Z"/></svg><svg class="i-sol" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.4 1.4M14.6 14.6 16 16M4 16l1.4-1.4M14.6 5.4 16 4"/></svg></button>
       </div>
     </div>
   </header>
 
   <main>
     <!-- Título grande con "ola" roja al cargar -->
-    <section class="wrap seccion--top" style="padding-bottom:48px">
-      <div class="mono num" style="display:flex;justify-content:space-between;margin-bottom:40px"><span>Estudio de diseño</span><span>Buenos Aires · desde 2015</span></div>
+    <section class="wrap hero-in">
+      <div class="hero-kicker mono"><span>Estudio de diseño</span><span>Buenos Aires · desde 2015</span></div>
       <h1 class="hero-title titulo-ola">Diseño que construye marcas</h1>
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:40px">
+      <div class="hero-bottom">
         <p class="lead">El texto de introducción va en Instrument Sans, con un gris cálido y un ancho cómodo de lectura.</p>
         <div class="btn-row"><a class="btn btn-accent btn-lg" href="#">Ver proyectos →</a><a class="btn btn-outline btn-lg" href="#">Contacto</a></div>
       </div>
@@ -49,7 +50,7 @@
     </div></section>
 
     <!-- Índice con hover -->
-    <section class="seccion" style="padding-top:0"><div class="wrap">
+    <section class="seccion seccion--top"><div class="wrap">
       <ol class="indice">
         <li><a class="indice-link reveal" href="#"><span class="mono num">01</span><span class="indice-titulo">Proyecto uno</span><span class="mono num">Branding</span></a></li>
         <li><a class="indice-link reveal" href="#"><span class="mono num">02</span><span class="indice-titulo">Proyecto dos</span><span class="mono num">Web</span></a></li>
@@ -81,12 +82,43 @@
     <!-- Pasos -->
     <section class="seccion seccion--borde"><div class="wrap">
       <span class="kicker mono">Método</span><h2 class="h2">Cómo trabajamos</h2>
-      <ol class="pasos" style="list-style:none;padding:0">
+      <ol class="pasos">
         <li class="paso reveal"><span class="paso-num">01</span><h3>Brief</h3><p>Escuchamos objetivos, público y plazos.</p></li>
         <li class="paso reveal"><span class="paso-num">02</span><h3>Concepto</h3><p>Definimos la idea y la dirección visual.</p></li>
         <li class="paso reveal"><span class="paso-num">03</span><h3>Diseño</h3><p>Desarrollamos y refinamos cada detalle.</p></li>
         <li class="paso reveal"><span class="paso-num">04</span><h3>Entrega</h3><p>Archivos listos y acompañamiento.</p></li>
       </ol>
+    </div></section>
+
+    <!-- Texto largo de lectura + letra de canción -->
+    <section class="seccion seccion--borde"><div class="wrap lista-grid">
+      <div><span class="kicker mono">Texto largo · .prosa</span><h2 class="h3">Bio</h2></div>
+      <div class="prosa">
+        <p>La clase <strong>.prosa</strong> es para leer: 65 caracteres por línea, interlineado de 1,65 y aire parejo entre párrafos. Sirve para bios de prensa, notas y textos de varios párrafos.</p>
+        <p>Los títulos internos vuelven a la tipografía de display y los enlaces llevan un <a href="#">subrayado rojo</a>.</p>
+        <h3>Letra</h3>
+        <div class="verso"><p>Primera línea de la estrofa
+Segunda línea de la estrofa
+Tercera línea</p><p>Otra estrofa, separada
+por más aire</p></div>
+      </div>
+    </div></section>
+
+    <!-- Lista densa en columnas -->
+    <section class="seccion seccion--borde"><div class="wrap pila-6">
+      <div><span class="kicker mono">Lista densa · .lista-densa</span><h2 class="h3">98 nombres</h2></div>
+      <ul class="lista-densa">
+        <li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li><li>Nombre Apellido</li>
+      </ul>
+    </div></section>
+
+    <!-- Segundo acento: el mismo sistema, en azul -->
+    <section class="numeros acento-2"><div class="wrap">
+      <span class="kicker mono">Segundo acento · .acento-2</span>
+      <div class="numeros-grid">
+        <div class="numero"><span class="numero-valor">01</span><span class="mono">Todo lo rojo de adentro pasa a azul</span></div>
+        <div class="numero"><span class="numero-valor">02</span><span class="mono">Mismas clases, otra variable</span></div>
+      </div>
     </div></section>
 
     <!-- Paleta -->
