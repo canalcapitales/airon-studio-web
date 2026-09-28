@@ -66,6 +66,12 @@ La página `/murales/` (en inglés `/en/murals/`) muestra automáticamente todos
 
 **Qué hace falta de AIRON:** fotos y datos de cada mural nuevo.
 
+## 8. Calculadora de murales — actualizar valores
+
+La calculadora de `/murales/` usa los valores de `src/data/tarifario-murales.json` (Tarifario Mural 2026 de la comunidad de muralistas).
+
+- [ ] Cuando salga una actualización del tarifario (el tarifario recomienda actualizar cada mes por inflación), cambiar los números en ese archivo y la fecha en `"actualizado"`. O pasarle las capturas nuevas a Claude.
+
 ## Otros detalles anotados
 
 - **CapiTales (diseño web):** agregarlo cuando se lance (01/04/2027) o antes si hay permiso, con capturas, rol y año.

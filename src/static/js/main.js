@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   contadores();
   textosQueSeArman();
   cursorEstrella();
+  calculadora();
   visor();
   formulario();
   filtros();
@@ -213,6 +214,106 @@ function cursorEstrella() {
   }
 }
 
+// ----- Calculadora de murales (Tarifario Mural) -----
+function calculadora() {
+  const form = document.querySelector('form.calc');
+  if (!form) return;
+  const T = JSON.parse(form.dataset.tarifario);
+  const X = JSON.parse(form.dataset.textos);
+  const idioma = EN ? 'en-US' : 'es-AR';
+  const pesos = (v) => new Intl.NumberFormat(idioma, { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(Math.round(v));
+  const numero = (v) => new Intl.NumberFormat(idioma, { maximumFractionDigits: 2 }).format(v);
+  const plantilla = (t, datos) => t.replace(/\{(\w+)\}/g, (_, k) => datos[k]);
+  const salida = form.querySelector('.calc-salida');
+  const superficie = form.querySelector('output[name="m2"]');
+  const pedir = form.querySelector('.calc-pedir');
+  const base = pedir.getAttribute('href');
+  // Valor por m² de un tramo; si la tabla dice "B" o "A", esa categoría se cotiza como la indicada
+  const valor = (tramo, diseno, cat) => {
+    let c = cat;
+    while (typeof tramo[diseno][c] === 'string') c = tramo[diseno][c];
+    return { valor: tramo[diseno][c], cat: c };
+  };
+  const fila = (nombre, monto, extra = '') => `<div class="calc-fila${extra}"><dt>${nombre}</dt><dd>${monto}</dd></div>`;
+
+  const calcular = () => {
+    const f = new FormData(form);
+    const ancho = parseFloat(f.get('ancho'));
+    const alto = parseFloat(f.get('alto'));
+    const m2 = ancho > 0 && alto > 0 ? Math.round(ancho * alto * 100) / 100 : 0;
+    superficie.textContent = m2 ? `${numero(m2)} m²` : '—';
+    if (!m2) {
+      salida.innerHTML = `<p class="calc-vacio">${X.vacio}</p>`;
+      pedir.href = base;
+      return;
+    }
+    const cliente = f.get('cliente');
+    const diseno = f.get('diseno');
+    const boceto = f.get('boceto');
+    const evento = f.get('evento') === 'on';
+    const jornadas = Math.max(0, parseInt(f.get('asistencia'), 10) || 0);
+    const datos = [`${X.superficie}: ${numero(ancho)} × ${numero(alto)} m = ${numero(m2)} m²`, `${X.clientes[cliente]} (${cliente})`, X.disenos[diseno], X.bocetos[boceto]];
+    if (evento) datos.push(X.eventoCheck);
+    if (jornadas) datos.push(`${X.asistencia}: ${jornadas}`);
+
+    let html;
+    let resumen;
+    if (m2 > T.megamural.desde) {
+      html = `<p class="calc-mega">${X.mega}</p>`;
+      resumen = '';
+    } else {
+      const i = T.tramos.findIndex((t) => m2 <= t.hasta);
+      const tramo = T.tramos[i];
+      const { valor: porM2, cat } = valor(tramo, diseno, cliente);
+      let pintura = m2 * porM2;
+      // Una pared más grande nunca cuesta menos que la más grande del tramo anterior
+      let minimo = false;
+      if (i > 0) {
+        const anterior = T.tramos[i - 1];
+        const piso = anterior.hasta * valor(anterior, diseno, cliente).valor;
+        if (pintura < piso) {
+          pintura = piso;
+          minimo = true;
+        }
+      }
+      const recargo = evento ? pintura * T.evento : 0;
+      const honorarios = pintura + recargo;
+      const disenoMin = boceto === 'propio' ? honorarios * T.boceto.min : boceto === 'adaptar' ? honorarios * T.adaptacion : 0;
+      const disenoMax = boceto === 'propio' ? honorarios * T.boceto.max : disenoMin;
+      const asistencia = jornadas * T.jornadaAsistente;
+      const min = honorarios + disenoMin + asistencia;
+      const max = honorarios + disenoMax + asistencia;
+      const desde = i > 0 ? T.tramos[i - 1].hasta : 0;
+      const total = min === max ? pesos(min) : `${pesos(min)} – ${pesos(max)}`;
+      html = '<dl class="calc-filas">';
+      html += fila(X.tramo, desde ? plantilla(X.tramoDesde, { d: desde, h: tramo.hasta }) : plantilla(X.tramoHasta, { h: tramo.hasta }));
+      html += fila(X.categoria, cat);
+      html += fila(X.valorM2, pesos(porM2));
+      html += fila(X.pintura, pesos(pintura));
+      if (recargo) html += fila(X.evento, pesos(recargo));
+      if (boceto === 'propio') html += fila(X.boceto, `${pesos(disenoMin)} – ${pesos(disenoMax)}`);
+      if (boceto === 'adaptar') html += fila(X.adaptacion, pesos(disenoMin));
+      if (asistencia) html += fila(`${X.asistencia} (${plantilla(jornadas === 1 ? X.jornada : X.jornadas, { n: jornadas })})`, pesos(asistencia));
+      html += fila(X.total, total, ' calc-total');
+      html += '</dl>';
+      const avisos = [];
+      if (cat !== cliente) avisos.push(plantilla(X.pasaA, { de: cliente, a: cat }));
+      if (minimo) avisos.push(X.minimo);
+      avisos.push(X.pago);
+      html += avisos.map((a) => `<p class="calc-aviso">${a}</p>`).join('');
+      resumen = `${X.total}: ${total}`;
+    }
+    salida.innerHTML = html;
+    // El botón lleva los datos al formulario de contacto
+    const mensaje = [X.mensaje, '', ...datos, resumen].filter((l, k) => l || k === 1).join('\n');
+    pedir.href = `${base}&mensaje=${encodeURIComponent(mensaje)}`;
+  };
+  form.addEventListener('input', calcular);
+  form.addEventListener('change', calcular);
+  form.addEventListener('submit', (e) => e.preventDefault());
+  calcular();
+}
+
 // ----- Visor de imágenes a pantalla completa -----
 function visor() {
   const dialogo = document.querySelector('.visor');
@@ -274,6 +375,10 @@ function formulario() {
   const tipo = new URLSearchParams(location.search).get('tipo');
   const opcion = tipo && [...form.querySelectorAll('#tipo option')].find((o) => o.dataset.clave === tipo);
   if (opcion) opcion.selected = true;
+  // Y si viene desde la calculadora de murales, el mensaje llega ya escrito
+  const mensaje = new URLSearchParams(location.search).get('mensaje');
+  const campo = form.querySelector('#mensaje');
+  if (mensaje && campo && !campo.value) campo.value = mensaje.slice(0, 4000);
   const estado = form.querySelector('[data-estado]');
   const enviar = form.querySelector('[type="submit"]');
   form.addEventListener('submit', async (e) => {

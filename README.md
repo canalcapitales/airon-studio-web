@@ -9,6 +9,7 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 | `src/data/proyectos.json` | **La lista de proyectos** en español: títulos, textos, categorías, portadas e imágenes. |
 | `src/data/proyectos.en.json` | **La traducción al inglés** de cada proyecto. |
 | `"previa": 2` (en un proyecto) | Elige qué imagen de la galería aparece al pasar el mouse por su tarjeta (1 = la primera). |
+| `src/data/tarifario-murales.json` | **Valores de la calculadora de murales** (Tarifario Mural): precio por m² según tramo, tipo de cliente y diseño, más boceto, evento y asistencia. |
 | `src/static/css/styles.css` | Colores, tipografías y diseño. Arriba están los colores del modo claro (`:root`) y debajo los del modo oscuro. |
 | `src/static/js/main.js` | Menú de celular, botón de modo claro/oscuro, filtros, visor de imágenes y formulario. |
 | `src/static/js/tema.js` | Aplica el modo (claro u oscuro) que eligió el visitante antes de mostrar la página. |
