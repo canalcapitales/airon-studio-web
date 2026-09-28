@@ -1,0 +1,1397 @@
+{
+ "fuente": "Tarifario de la Cámara de Diseñadores de Rafaela y la región",
+ "version": "Versión online 3.3 — septiembre 2026",
+ "actualizado": "2026-09-11",
+ "url": "https://xn--camaradediseadoresrafaela-koc.com.ar/tarifario-home/",
+ "desarrollo": "Brújula Estudio",
+ "permiso": "Adaptado por AIRON Studio con permiso de la Cámara.",
+ "nota": "Precios de referencia, estimados y con margen de negociación. Cada presupuesto debe hacerse a medida, según el tipo de cliente y la importancia o el rédito del trabajo. No incluyen gastos de materialización (impresión, corte, bordado, colocación, etc.) ni la entrega de archivos editables u originales.",
+ "dolar": 1545,
+ "horaTrabajo": 30000,
+ "adaptacion": 0.5,
+ "gremio": 0.2,
+ "anticipo": 0.3,
+ "redondeo": 100,
+ "categorias": [
+  {
+   "id": "identidad",
+   "nombre": "Identidad",
+   "servicios": [
+    {
+     "id": "nueva-identidad-corporativa",
+     "nombre": "Nueva Identidad Corporativa",
+     "desc": "Nuevo logotipo, Isotipo o Isologotipo + Manual de Uso y hasta 5 aplicaciones.",
+     "unidad": "Proyecto",
+     "precios": [
+      1827200,
+      1353500,
+      879800
+     ]
+    },
+    {
+     "id": "nuevo-logotipo-isotipo-imagotipo-isologo",
+     "nombre": "Nuevo logotipo / isotipo / imagotipo / isologo",
+     "desc": "No incluye Manual de Uso ni aplicaciones.",
+     "unidad": "Proyecto",
+     "precios": [
+      729800,
+      540600,
+      351400
+     ]
+    },
+    {
+     "id": "rediseno-identidad-corporativa",
+     "nombre": "Rediseño Identidad Corporativa",
+     "desc": "Creación de un nuevo logo en reemplazo de uno ya existente + Manual de Uso y hasta 5 aplicaciones.",
+     "unidad": "Proyecto",
+     "precios": [
+      1827200,
+      1353500,
+      879800
+     ]
+    },
+    {
+     "id": "rediseno-logotipo-isotipo-imagotipo-isologo",
+     "nombre": "Rediseño logotipo / isotipo / imagotipo / isologo",
+     "desc": "No incluye Manual de Uso ni aplicaciones.",
+     "unidad": "Proyecto",
+     "precios": [
+      729800,
+      540600,
+      351400
+     ]
+    },
+    {
+     "id": "restyling-identidad-corporativa",
+     "nombre": "Restyling Identidad Corporativa",
+     "desc": "Optimización de un logo ya existente para mejorarlo o modernizarlo + Manual de Uso y hasta 5 aplicaciones.",
+     "unidad": "Proyecto",
+     "precios": [
+      1526400,
+      1130700,
+      734900
+     ]
+    },
+    {
+     "id": "restyling-logotipo-isotipo-imagotipo-isologo",
+     "nombre": "Restyling logotipo / isotipo / imagotipo / isologo",
+     "desc": "No incluye Manual de Uso ni aplicaciones.",
+     "unidad": "Proyecto",
+     "precios": [
+      556600,
+      412300,
+      268000
+     ]
+    },
+    {
+     "id": "manual-de-normas-uso",
+     "nombre": "Manual de normas / uso",
+     "desc": "Para una marca existente.",
+     "unidad": "Proyecto",
+     "precios": [
+      487200,
+      360900,
+      234600
+     ]
+    },
+    {
+     "id": "identidad-efimera",
+     "nombre": "Identidad efímera",
+     "desc": "Identidad original adaptada. Ej: aniversario (uso anual), evento/concurso (uso estacional), etc.",
+     "unidad": "Proyecto",
+     "precios": [
+      602800,
+      446500,
+      290300
+     ]
+    },
+    {
+     "id": "identidad-de-un-producto",
+     "nombre": "Identidad de un producto",
+     "desc": "Consumo masivo.",
+     "unidad": "Proyecto",
+     "precios": [
+      981800,
+      727300,
+      472700
+     ]
+    }
+   ]
+  },
+  {
+   "id": "papeleria",
+   "nombre": "Papelería",
+   "servicios": [
+    {
+     "id": "papeleria-basica",
+     "nombre": "Papelería básica",
+     "desc": "Utilizando marca existente. Aplicación hasta en 5 piezas (tarjeta, sobre, firma mail, etc).",
+     "unidad": "Proyecto",
+     "precios": [
+      588500,
+      435900,
+      283400
+     ]
+    },
+    {
+     "id": "papeleria-comercial",
+     "nombre": "Papelería comercial",
+     "desc": "Factura, recibo, remito, anotadores, formularios, etc. Documento completo, NO solo membrete.",
+     "unidad": "Proyecto",
+     "precios": [
+      291900,
+      216300,
+      140600
+     ]
+    },
+    {
+     "id": "tarjetas-personales",
+     "nombre": "Tarjetas personales",
+     "desc": "Utilizando marca existente o identidad previamente diseñada.",
+     "unidad": "Pieza",
+     "precios": [
+      125700,
+      93200,
+      60600
+     ]
+    },
+    {
+     "id": "hojas-membretadas",
+     "nombre": "Hojas membretadas",
+     "desc": "Utilizando marca existente o identidad previamente diseñada.",
+     "unidad": "Pieza",
+     "precios": [
+      125700,
+      93200,
+      60600
+     ]
+    },
+    {
+     "id": "sobres",
+     "nombre": "Sobres",
+     "desc": "Tipo inglés, bolsa, etc. Utilizando marca existente.",
+     "unidad": "Pieza",
+     "precios": [
+      125700,
+      93200,
+      60600
+     ]
+    },
+    {
+     "id": "firma-o-encabezado-de-e-mail",
+     "nombre": "Firma o encabezado de e-mail",
+     "desc": "Imagen estática. Utilizando marca existente o identidad previamente diseñada.",
+     "unidad": "Pieza",
+     "precios": [
+      125700,
+      93200,
+      60600
+     ]
+    },
+    {
+     "id": "carpeta-empresarial-institucional",
+     "nombre": "Carpeta empresarial / institucional",
+     "desc": "Tipo A3 plegada, con o sin solapas. Utilizando marca existente. No incluye hojas interiores.",
+     "unidad": "Pieza",
+     "precios": [
+      276500,
+      204800,
+      133100
+     ]
+    },
+    {
+     "id": "certificado",
+     "nombre": "Certificado",
+     "desc": "Asistencia a un evento, reconocimiento, adjudicación de un premio, etc.",
+     "unidad": "Pieza",
+     "precios": [
+      259700,
+      192400,
+      125100
+     ]
+    },
+    {
+     "id": "postal",
+     "nombre": "Postal",
+     "desc": "Frente (imagen) y dorso (datos). No incluye costo de fotografía.",
+     "unidad": "Pieza",
+     "precios": [
+      216400,
+      160300,
+      104200
+     ]
+    }
+   ]
+  },
+  {
+   "id": "publicidad",
+   "nombre": "Publicidad",
+   "servicios": [
+    {
+     "id": "volante-flyer-solo-frente",
+     "nombre": "Volante / Flyer sólo frente",
+     "desc": "No incluye costo de fotografías.",
+     "unidad": "Pieza",
+     "precios": [
+      192100,
+      142300,
+      92500
+     ]
+    },
+    {
+     "id": "volante-flyer-frente-y-dorso",
+     "nombre": "Volante / Flyer frente y dorso",
+     "desc": "No incluye costo de fotografías.",
+     "unidad": "Pieza",
+     "precios": [
+      297100,
+      220100,
+      143100
+     ]
+    },
+    {
+     "id": "folleto-diptico",
+     "nombre": "Folleto díptico",
+     "desc": "Frente y dorso, 1 pliegue. No incluye costo de fotografías.",
+     "unidad": "Pieza",
+     "precios": [
+      413100,
+      306000,
+      198900
+     ]
+    },
+    {
+     "id": "folleto-triptico",
+     "nombre": "Folleto tríptico",
+     "desc": "Frente y dorso, 2 pliegues. No incluye costo de fotografías.",
+     "unidad": "Pieza",
+     "precios": [
+      556600,
+      412300,
+      268000
+     ]
+    },
+    {
+     "id": "brochure",
+     "nombre": "Brochure",
+     "desc": "Folleto de alta complejidad. Hasta 10 páginas/pliegos. No incluye costo de fotografías.",
+     "unidad": "Pieza",
+     "precios": [
+      1090400,
+      807700,
+      525000
+     ]
+    },
+    {
+     "id": "aviso-institucional-para-diario-o-revista-1-2-pa",
+     "nombre": "Aviso institucional para diario o revista (1/2 página)",
+     "desc": "1/2 página o menos. Sin redacción.",
+     "unidad": "Pieza",
+     "precios": [
+      167500,
+      124100,
+      80700
+     ]
+    },
+    {
+     "id": "aviso-institucional-para-diario-o-revista-1-pagi",
+     "nombre": "Aviso institucional para diario o revista (1 página)",
+     "desc": "1 página o doble página. Sin redacción.",
+     "unidad": "Pieza",
+     "precios": [
+      255000,
+      188900,
+      122800
+     ]
+    },
+    {
+     "id": "aviso-publicitario-para-diario-o-revista-1-2-pag",
+     "nombre": "Aviso publicitario para diario o revista (1/2 página)",
+     "desc": "1/2 página o menos. Sin redacción.",
+     "unidad": "Pieza",
+     "precios": [
+      297100,
+      220100,
+      143100
+     ]
+    },
+    {
+     "id": "aviso-publicitario-para-diario-o-revista-1-pagin",
+     "nombre": "Aviso publicitario para diario o revista (1 página)",
+     "desc": "1 página o doble página. Sin redacción.",
+     "unidad": "Pieza",
+     "precios": [
+      363300,
+      269100,
+      175000
+     ]
+    }
+   ]
+  },
+  {
+   "id": "community-manager",
+   "nombre": "Community Manager",
+   "servicios": [
+    {
+     "id": "social-media-plan",
+     "nombre": "Social Media Plan",
+     "desc": "Planteo de estrategia de marketing y comunicación en redes sociales.",
+     "unidad": "Proyecto",
+     "precios": [
+      454100,
+      336400,
+      218700
+     ]
+    },
+    {
+     "id": "creacion-de-perfil-fanpage-grupo-evento-etc",
+     "nombre": "Creación de perfil, fanpage, grupo, evento, etc.",
+     "desc": "Incluye avatar, portada, carga de datos y configuración general.",
+     "unidad": "Proyecto",
+     "precios": [
+      229800,
+      170200,
+      110700
+     ]
+    },
+    {
+     "id": "creacion-de-album-productos-evento-etc",
+     "nombre": "Creación de álbum (productos, evento, etc)",
+     "desc": "Subida de al menos 10 imágenes (con logo/marca de agua), videos o textos.",
+     "unidad": "Proyecto",
+     "precios": [
+      73800,
+      54700,
+      35600
+     ]
+    },
+    {
+     "id": "compartir-repost-contenido-de-tercero",
+     "nombre": "Compartir / Repost contenido de tercero",
+     "desc": "Costo por posteo/publicación.",
+     "unidad": "Unidad",
+     "precios": [
+      25700,
+      19000,
+      12400
+     ]
+    },
+    {
+     "id": "administracion-gestion-basica-de-rrss-costo-x-me",
+     "nombre": "Administración / Gestión BÁSICA de RRSS (costo x mes)",
+     "desc": "Entre 2 y 5 posteos mensuales. Incluye el diseño/armado de las piezas gráficas.",
+     "unidad": "Mes",
+     "precios": [
+      303000,
+      224400,
+      145900
+     ]
+    },
+    {
+     "id": "administracion-gestion-estandar-de-rrss-costo-x-",
+     "nombre": "Administración / Gestión ESTÁNDAR de RRSS (costo x mes)",
+     "desc": "Entre 5 y 10 posteos mensuales. Incluye el diseño/armado de las piezas gráficas.",
+     "unidad": "Mes",
+     "precios": [
+      423100,
+      313400,
+      203700
+     ]
+    },
+    {
+     "id": "administracion-gestion-intensiva-de-rrss-costo-x",
+     "nombre": "Administración / Gestión INTENSIVA de RRSS (costo x mes)",
+     "desc": "Entre 10 y 20 posteos mensuales. Incluye el diseño/armado de las piezas gráficas.",
+     "unidad": "Mes",
+     "precios": [
+      545500,
+      404100,
+      262700
+     ]
+    },
+    {
+     "id": "flyers-para-ig",
+     "nombre": "Flyers para IG",
+     "desc": "Precio por pieza. Si es dentro de un plan de redes, descuento del 40% por pieza.",
+     "unidad": "Unidad",
+     "precios": [
+      38800,
+      28700,
+      18700
+     ]
+    }
+   ]
+  },
+  {
+   "id": "editorial",
+   "nombre": "Editorial",
+   "servicios": [
+    {
+     "id": "arte-de-tapa",
+     "nombre": "Arte de tapa",
+     "desc": "Tapa, contratapa y lomo (revista, libro, etc).",
+     "unidad": "Proyecto",
+     "precios": [
+      563300,
+      417300,
+      271300
+     ]
+    },
+    {
+     "id": "armado-de-pagina-simple",
+     "nombre": "Armado de página simple",
+     "desc": "Costo de diseño por página original. Libro, Memoria y Balance, etc.",
+     "unidad": "Página",
+     "precios": [
+      33900,
+      25100,
+      16300
+     ]
+    },
+    {
+     "id": "armado-de-pagina-compuesta",
+     "nombre": "Armado de página compuesta",
+     "desc": "Costo de diseño por página original. Revista, diarios, manuales de estudio, etc.",
+     "unidad": "Página",
+     "precios": [
+      58800,
+      43600,
+      28300
+     ]
+    },
+    {
+     "id": "libro-cuerpo-y-puesta-en-pagina",
+     "nombre": "Libro (cuerpo y puesta en página)",
+     "desc": "Hasta 100 páginas.",
+     "unidad": "Proyecto",
+     "precios": [
+      2502800,
+      1854000,
+      1205100
+     ]
+    },
+    {
+     "id": "revista",
+     "nombre": "Revista",
+     "desc": "Hasta 30 páginas. No incluye armado de publicidades.",
+     "unidad": "Proyecto",
+     "precios": [
+      1127400,
+      835100,
+      542800
+     ]
+    },
+    {
+     "id": "catalogo-de-productos",
+     "nombre": "Catálogo de productos",
+     "desc": "Hasta 20 páginas.",
+     "unidad": "Proyecto",
+     "precios": [
+      1685900,
+      1248900,
+      811800
+     ]
+    },
+    {
+     "id": "menu-carta-para-restaurante",
+     "nombre": "Menú / carta para restaurante",
+     "desc": "Tapa y hasta 6 páginas.",
+     "unidad": "Proyecto",
+     "precios": [
+      454100,
+      336400,
+      218700
+     ]
+    },
+    {
+     "id": "manual-de-instrucciones-costo-x-pagina",
+     "nombre": "Manual de instrucciones (costo x página)",
+     "desc": "Tipo revista (incluye desarrollo de infografía o signos simples).",
+     "unidad": "Página",
+     "precios": [
+      86200,
+      63800,
+      41500
+     ]
+    },
+    {
+     "id": "folleto-instructivo",
+     "nombre": "Folleto instructivo",
+     "desc": "Tipo tríptico A4 con desarrollo de infografía simple o signos.",
+     "unidad": "Proyecto",
+     "precios": [
+      484100,
+      358600,
+      233100
+     ]
+    }
+   ]
+  },
+  {
+   "id": "senalizacion",
+   "nombre": "Señalización",
+   "servicios": [
+    {
+     "id": "ploteado-vehicular",
+     "nombre": "Ploteado vehicular",
+     "desc": "Complemento a identidad corporativa/institucional.",
+     "unidad": "Proyecto",
+     "precios": [
+      411900,
+      305100,
+      198300
+     ]
+    },
+    {
+     "id": "ploteado-vidriera-simple-efimero",
+     "nombre": "Ploteado vidriera simple / efímero",
+     "desc": "Por temporada, liquidaciones, promociones, etc.",
+     "unidad": "Proyecto",
+     "precios": [
+      255000,
+      188900,
+      122800
+     ]
+    },
+    {
+     "id": "ploteado-vidriera-complejo-perdurable",
+     "nombre": "Ploteado vidriera complejo / perdurable",
+     "desc": "Complemento a identidad corporativa/institucional.",
+     "unidad": "Proyecto",
+     "precios": [
+      650200,
+      481600,
+      313100
+     ]
+    },
+    {
+     "id": "cenefa-saltarin-llamador",
+     "nombre": "Cenefa / Saltarín / Llamador",
+     "desc": "Diseño morfológico y gráfico para góndola en punto de venta.",
+     "unidad": "Pieza",
+     "precios": [
+      327000,
+      242200,
+      157400
+     ]
+    },
+    {
+     "id": "afiche",
+     "nombre": "Afiche",
+     "desc": "Eventos, promociones, etc.",
+     "unidad": "Pieza",
+     "precios": [
+      327000,
+      242200,
+      157400
+     ]
+    },
+    {
+     "id": "banner",
+     "nombre": "Banner",
+     "desc": "De pie, colgante, tipo pétalo/gota/wind.",
+     "unidad": "Pieza",
+     "precios": [
+      327000,
+      242200,
+      157400
+     ]
+    },
+    {
+     "id": "cartel-de-fachada",
+     "nombre": "Cartel de fachada",
+     "desc": "Diseño y asesoramiento en materialización.",
+     "unidad": "Proyecto",
+     "precios": [
+      475600,
+      352300,
+      229000
+     ]
+    },
+    {
+     "id": "cartel-para-exteriores",
+     "nombre": "Cartel para exteriores",
+     "desc": "Tipo rutero.",
+     "unidad": "Proyecto",
+     "precios": [
+      517700,
+      383500,
+      249300
+     ]
+    },
+    {
+     "id": "diseno-de-sistema-senaletico-y-su-soporte",
+     "nombre": "Diseño de Sistema señalético y su soporte",
+     "desc": "Hasta 10 piezas (direccionales, locativas, restrictivas, etc.) + manual de aplicación.",
+     "unidad": "Proyecto",
+     "precios": [
+      1975900,
+      1463600,
+      951400
+     ]
+    }
+   ]
+  },
+  {
+   "id": "web",
+   "nombre": "Web",
+   "servicios": [
+    {
+     "id": "modificaciones-a-sitio-web-html-css",
+     "nombre": "Modificaciones a sitio WEB HTML/CSS",
+     "desc": "Actualización básica de datos, textos y fotos. No incluye cambios de diseño.",
+     "unidad": "Proyecto",
+     "precios": [
+      948700,
+      702700,
+      456800
+     ]
+    },
+    {
+     "id": "diseno-sitio-web-pagina-de-aterrizaje",
+     "nombre": "Diseño sitio WEB PÁGINA DE ATERRIZAJE",
+     "desc": "Landing page diseñada para una rápida y eficaz captación, \"sin distracciones\".",
+     "unidad": "Proyecto",
+     "precios": [
+      283400,
+      209900,
+      136500
+     ]
+    },
+    {
+     "id": "maquetacion-sitio-web-pagina-de-aterrizaje",
+     "nombre": "Maquetación sitio WEB PÁGINA DE ATERRIZAJE",
+     "desc": "Maquetación responsive de la landing page.",
+     "unidad": "Proyecto",
+     "precios": [
+      645500,
+      478100,
+      310800
+     ]
+    },
+    {
+     "id": "diseno-sitio-web-one-page",
+     "nombre": "Diseño sitio WEB \"One Page\"",
+     "desc": "Personalización de colores, tipografía, fotos, iconos, etc.",
+     "unidad": "Proyecto",
+     "precios": [
+      404200,
+      299400,
+      194700
+     ]
+    },
+    {
+     "id": "maquetacion-sitio-web-one-page",
+     "nombre": "Maquetación sitio WEB \"One Page\"",
+     "desc": "Hasta 3 minimódulos. Estilo sábana, sección descriptiva, formulario de contacto. Adaptativa.",
+     "unidad": "Proyecto",
+     "precios": [
+      1169700,
+      866500,
+      563200
+     ]
+    },
+    {
+     "id": "diseno-sitio-web-estandar",
+     "nombre": "Diseño sitio WEB \"Estándar\"",
+     "desc": "Personalización de colores, tipografía, fotos, iconos, etc.",
+     "unidad": "Proyecto",
+     "precios": [
+      515200,
+      381600,
+      248100
+     ]
+    },
+    {
+     "id": "maquetacion-sitio-web-estandar",
+     "nombre": "Maquetación sitio WEB \"Estándar\"",
+     "desc": "Hasta 5 secciones, slider animados, mapas de google y conexión a redes sociales.",
+     "unidad": "Proyecto",
+     "precios": [
+      1441500,
+      1067800,
+      694100
+     ]
+    },
+    {
+     "id": "diseno-sitio-web-completo",
+     "nombre": "Diseño sitio WEB \"Completo\"",
+     "desc": "Personalización completa de colores, tipografía, fotos, iconos.",
+     "unidad": "Proyecto",
+     "precios": [
+      622200,
+      460900,
+      299600
+     ]
+    },
+    {
+     "id": "maquetacion-sitio-web-completo",
+     "nombre": "Maquetación sitio WEB \"Completo\"",
+     "desc": "Hasta 14 secciones, slider animados, mapas de google y conexión a redes sociales.",
+     "unidad": "Proyecto",
+     "precios": [
+      1974000,
+      1462200,
+      950500
+     ]
+    },
+    {
+     "id": "desarrollo-web-en-html5-css3-a-medida",
+     "nombre": "Desarrollo WEB en HTML5 CSS3 A MEDIDA",
+     "desc": "Costo adicional a cada opción. Maquetado y diseño desde cero.",
+     "unidad": "Proyecto",
+     "porcentaje": 0.5
+    },
+    {
+     "id": "seccion-adicional-web",
+     "nombre": "Sección adicional WEB",
+     "desc": "Costo de maquetado por cada sección extra al pack original.",
+     "unidad": "Proyecto",
+     "precios": [
+      114600,
+      84900,
+      55200
+     ]
+    },
+    {
+     "id": "sistema-autoadministrable-autogestion",
+     "nombre": "Sistema autoadministrable / autogestión",
+     "desc": "Sistema autoadministrable de noticias o productos.",
+     "unidad": "Proyecto",
+     "precios": [
+      553600,
+      410100,
+      266600
+     ]
+    },
+    {
+     "id": "web-alta-en-google-mi-negocio",
+     "nombre": "WEB Alta en \"Google Mi Negocio\"",
+     "desc": "Activar la visualización del negocio/empresa en Google Maps.",
+     "unidad": "Proyecto",
+     "precios": [
+      249100,
+      184500,
+      120000
+     ]
+    },
+    {
+     "id": "google-analytics",
+     "nombre": "Google Analytics",
+     "desc": "Activación de sistema de reportes online de tráfico e integración con Analytics.",
+     "unidad": "Proyecto",
+     "precios": [
+      249100,
+      184500,
+      120000
+     ]
+    },
+    {
+     "id": "multi-lenguaje",
+     "nombre": "Multi Lenguaje",
+     "desc": "Valor adicional por cada idioma. No incluye costo de traducción.",
+     "unidad": "Proyecto",
+     "porcentaje": 0.7
+    },
+    {
+     "id": "posicionamiento-seo-optimizado",
+     "nombre": "Posicionamiento SEO optimizado",
+     "desc": "Lectura avanzada de la codificación del sitio.",
+     "unidad": "Proyecto",
+     "precios": [
+      271500,
+      201100,
+      130700
+     ]
+    },
+    {
+     "id": "campana-sem-basica",
+     "nombre": "Campaña SEM básica",
+     "desc": "Hasta 500 palabras clave + 1 informe mensual. No incluye inversión en AdWords.",
+     "unidad": "Mes",
+     "precios": [
+      271500,
+      201100,
+      130700
+     ]
+    },
+    {
+     "id": "armado-tienda-web-online-hasta-5-productos",
+     "nombre": "Armado tienda WEB online (hasta 5 productos)",
+     "desc": "Darle formato a las plantillas y carga de hasta 5 productos.",
+     "unidad": "Proyecto",
+     "precios": [
+      563200,
+      417200,
+      271200
+     ]
+    },
+    {
+     "id": "armado-tienda-web-online-hasta-30-productos",
+     "nombre": "Armado tienda WEB online (hasta 30 productos)",
+     "desc": "Darle formato a las plantillas y carga de hasta 30 productos.",
+     "unidad": "Proyecto",
+     "precios": [
+      849200,
+      629000,
+      408900
+     ]
+    },
+    {
+     "id": "diseno-app-ux-experiencia-de-usuario",
+     "nombre": "Diseño APP UX (experiencia de usuario)",
+     "desc": "Hasta 5 pantallas para 1 OS.",
+     "unidad": "Proyecto",
+     "precios": [
+      1273200,
+      943100,
+      613100
+     ]
+    },
+    {
+     "id": "diseno-app-ui-interfase-de-usuario",
+     "nombre": "Diseño APP UI (interfase de usuario)",
+     "desc": "Hasta 5 pantallas para 1 OS.",
+     "unidad": "Proyecto",
+     "precios": [
+      1273200,
+      943100,
+      613100
+     ]
+    },
+    {
+     "id": "maquetacion-app-programacion-hibrida",
+     "nombre": "Maquetación APP (programación Híbrida)",
+     "desc": "Hasta 5 secciones para 1 OS.",
+     "unidad": "Proyecto",
+     "precios": [
+      1273200,
+      943100,
+      613100
+     ]
+    },
+    {
+     "id": "maquetacion-app-programacion-nativa",
+     "nombre": "Maquetación APP (programación Nativa)",
+     "desc": "Hasta 5 pantallas para 1 OS.",
+     "unidad": "Proyecto",
+     "precios": [
+      1910800,
+      1415400,
+      920100
+     ]
+    },
+    {
+     "id": "banner-publicitario-animado",
+     "nombre": "Banner publicitario animado",
+     "desc": "Animación .gif, Javascript o versión reducida Jquery. Hasta 15 segundos.",
+     "unidad": "Pieza",
+     "precios": [
+      320800,
+      237600,
+      154500
+     ]
+    },
+    {
+     "id": "mailing-publicitario-newsletter",
+     "nombre": "Mailing publicitario / Newsletter",
+     "desc": "Diseño y desarrollo. Con vínculos activos.",
+     "unidad": "Pieza",
+     "precios": [
+      280300,
+      207600,
+      135000
+     ]
+    }
+   ]
+  },
+  {
+   "id": "audiovisual",
+   "nombre": "Audiovisual",
+   "servicios": [
+    {
+     "id": "placa-animada-2d",
+     "nombre": "Placa animada 2D",
+     "desc": "Texto, fondo y animación. Hasta 10 segundos.",
+     "unidad": "Pieza",
+     "precios": [
+      186200,
+      138000,
+      89700
+     ]
+    },
+    {
+     "id": "spot-publicitario-animacion-complejidad-baja",
+     "nombre": "Spot publicitario / animación complejidad baja",
+     "desc": "Edición de tomas y placas estáticas. Hasta 10 segundos. NO incluye audio.",
+     "unidad": "Pieza",
+     "precios": [
+      309600,
+      229300,
+      149100
+     ]
+    },
+    {
+     "id": "spot-publicitario-animacion-complejidad-media",
+     "nombre": "Spot publicitario / animación complejidad media",
+     "desc": "Edición de tomas y placas animadas. Hasta 10 segundos. NO incluye audio.",
+     "unidad": "Pieza",
+     "precios": [
+      514600,
+      381200,
+      247800
+     ]
+    },
+    {
+     "id": "spot-publicitario-animacion-complejidad-alta",
+     "nombre": "Spot publicitario / animación complejidad alta",
+     "desc": "Edición de tomas y placas animadas + elementos 3D básicos. Hasta 10 segundos. NO incluye audio.",
+     "unidad": "Pieza",
+     "precios": [
+      824000,
+      610400,
+      396800
+     ]
+    },
+    {
+     "id": "titulos-apertura-tv-youtube-vimeo",
+     "nombre": "Títulos apertura (TV, YouTube, Vimeo)",
+     "desc": "Texto, fondo y animación. Hasta 10 segundos. NO incluye audio.",
+     "unidad": "Pieza",
+     "precios": [
+      309600,
+      229300,
+      149100
+     ]
+    },
+    {
+     "id": "zocalo-tv-youtube-vimeo",
+     "nombre": "Zócalo (TV, YouTube, Vimeo)",
+     "desc": "Texto, fondo y animación. Hasta 10 segundos. NO incluye audio.",
+     "unidad": "Pieza",
+     "precios": [
+      142400,
+      105500,
+      68600
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sonido",
+   "nombre": "Sonido",
+   "servicios": [
+    {
+     "id": "spot-radial",
+     "nombre": "Spot radial",
+     "desc": "Edición/mezcla, hasta 10 segundos. No incluye grabación de audio/locución.",
+     "unidad": "Pieza",
+     "precios": [
+      135000,
+      100000,
+      65000
+     ]
+    },
+    {
+     "id": "composicion-y-grabacion-de-musica-original",
+     "nombre": "Composición y grabación de música original",
+     "desc": "Hasta 1 minuto. No incluye voz/locución.",
+     "unidad": "Pieza",
+     "precios": [
+      514600,
+      381200,
+      247800
+     ]
+    },
+    {
+     "id": "locucion",
+     "nombre": "Locución",
+     "desc": "Para spot de hasta 10 segundos. No incluye edición.",
+     "unidad": "Pieza",
+     "precios": [
+      102800,
+      76200,
+      49500
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fotografia",
+   "nombre": "Fotografía",
+   "servicios": [
+    {
+     "id": "en-estudio-armado-de-set",
+     "nombre": "En estudio: armado de set",
+     "desc": "Sesión hasta 2 horas.",
+     "unidad": "Sesión",
+     "precios": [
+      223200,
+      165300,
+      107500
+     ]
+    },
+    {
+     "id": "en-locacion-sesion-fotografica",
+     "nombre": "En locación: sesión fotográfica",
+     "desc": "Hasta 2 horas, 1 cámara.",
+     "unidad": "Sesión",
+     "precios": [
+      223200,
+      165300,
+      107500
+     ]
+    },
+    {
+     "id": "escaneo-digital",
+     "nombre": "Escaneo digital",
+     "desc": "Costo por unidad. No incluye retoques o restauración.",
+     "unidad": "Unidad",
+     "precios": [
+      15200,
+      11300,
+      7300
+     ]
+    },
+    {
+     "id": "filmacion-costo-x-hora",
+     "nombre": "Filmación (costo x hora)",
+     "desc": "Incluye 1 cámara FullHD + un micrófono (estándar) + 1 luz.",
+     "unidad": "Hora",
+     "precios": [
+      243200,
+      180200,
+      117100
+     ]
+    },
+    {
+     "id": "supervision-de-tomas-fotograficas-costo-x-hora",
+     "nombre": "Supervisión de tomas fotográficas (costo x hora)",
+     "desc": "Asesoramiento en composición de escenas, luz, etc.",
+     "unidad": "Hora",
+     "precios": [
+      39500,
+      29300,
+      19000
+     ]
+    },
+    {
+     "id": "retoque-digital-x-1-hora",
+     "nombre": "Retoque digital (x 1 hora)",
+     "desc": "Fotomontajes, retoque de personas, restauración, etc.",
+     "unidad": "Hora",
+     "precios": [
+      39500,
+      29300,
+      19000
+     ]
+    }
+   ]
+  },
+  {
+   "id": "textil",
+   "nombre": "Textil",
+   "servicios": [
+    {
+     "id": "prenda-unica",
+     "nombre": "Prenda única",
+     "desc": "Remera, chomba, camisa o blusa con estampa/bordado.",
+     "unidad": "Pieza",
+     "precios": [
+      184000,
+      136300,
+      88600
+     ]
+    },
+    {
+     "id": "sistema-de-uniforme-vestuario-completo",
+     "nombre": "Sistema de uniforme / vestuario completo",
+     "desc": "Hasta 4 clases con sus respectivas variables para hombre y mujer.",
+     "unidad": "Proyecto",
+     "precios": [
+      992500,
+      735200,
+      477900
+     ]
+    }
+   ]
+  },
+  {
+   "id": "promocion",
+   "nombre": "Promoción",
+   "servicios": [
+    {
+     "id": "merchandising",
+     "nombre": "Merchandising",
+     "desc": "Hasta 10 piezas (remera, llavero, pin, gorra, calco, lapicera, taza, mousepad, etc).",
+     "unidad": "Proyecto",
+     "precios": [
+      674900,
+      499900,
+      325000
+     ]
+    },
+    {
+     "id": "remeras",
+     "nombre": "Remeras",
+     "desc": "Aplicación de logo simple o identidad previamente diseñada.",
+     "unidad": "Pieza",
+     "precios": [
+      133400,
+      98800,
+      64300
+     ]
+    },
+    {
+     "id": "calcos",
+     "nombre": "Calcos",
+     "desc": "Aplicación de logo simple o identidad previamente diseñada.",
+     "unidad": "Pieza",
+     "precios": [
+      108200,
+      80200,
+      52100
+     ]
+    },
+    {
+     "id": "lapicera-pin-llavero",
+     "nombre": "Lapicera, pin, llavero",
+     "desc": "Aplicación de logo simple o identidad previamente diseñada.",
+     "unidad": "Pieza",
+     "precios": [
+      108200,
+      80200,
+      52100
+     ]
+    },
+    {
+     "id": "pad-funda-celulares-taza",
+     "nombre": "Pad, funda celulares, taza",
+     "desc": "Aplicación de logo simple o identidad previamente diseñada.",
+     "unidad": "Pieza",
+     "precios": [
+      108200,
+      80200,
+      52100
+     ]
+    },
+    {
+     "id": "bandera",
+     "nombre": "Bandera",
+     "desc": "Aplicación de logo simple o identidad previamente diseñada.",
+     "unidad": "Pieza",
+     "precios": [
+      108200,
+      80200,
+      52100
+     ]
+    },
+    {
+     "id": "bolsas-envoltorios",
+     "nombre": "Bolsas / Envoltorios",
+     "desc": "Aplicación de logo simple o identidad previamente diseñada.",
+     "unidad": "Pieza",
+     "precios": [
+      133400,
+      98800,
+      64300
+     ]
+    },
+    {
+     "id": "almanaque-de-pared-tipo-poster",
+     "nombre": "Almanaque de pared tipo \"poster\"",
+     "desc": "Pliego simple. Sólo frente.",
+     "unidad": "Pieza",
+     "precios": [
+      380100,
+      281600,
+      183000
+     ]
+    },
+    {
+     "id": "almanaque-de-pared-tipo-revista-o-con-anillado",
+     "nombre": "Almanaque de pared tipo \"revista\" o \"con anillado\"",
+     "desc": "Hasta 6 pliegos.",
+     "unidad": "Proyecto",
+     "precios": [
+      884300,
+      655100,
+      425800
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ilustracion",
+   "nombre": "Ilustración",
+   "servicios": [
+    {
+     "id": "digitalizacion",
+     "nombre": "Digitalización",
+     "desc": "Escaneado y redibujo (logos, tarjetas, etc.). No incluye cambios.",
+     "unidad": "Pieza",
+     "precios": [
+      104400,
+      77300,
+      50300
+     ]
+    },
+    {
+     "id": "ilustracion-mano-alzada",
+     "nombre": "Ilustración mano alzada",
+     "desc": "Para revista / folleto / web.",
+     "unidad": "Pieza",
+     "precios": [
+      503300,
+      372800,
+      242300
+     ]
+    },
+    {
+     "id": "ilustracion-vectorial",
+     "nombre": "Ilustración vectorial",
+     "desc": "Para revista / folleto / web.",
+     "unidad": "Pieza",
+     "precios": [
+      503300,
+      372800,
+      242300
+     ]
+    },
+    {
+     "id": "ilustracion-modelado-3d",
+     "nombre": "Ilustración / modelado 3D",
+     "desc": "Para revista / folleto / web.",
+     "unidad": "Pieza",
+     "precios": [
+      981800,
+      727300,
+      472700
+     ]
+    },
+    {
+     "id": "animacion-de-personaje-o-escenario",
+     "nombre": "Animación de personaje o escenario",
+     "desc": "Hasta 60 segundos. No incluye creación del personaje/escenario.",
+     "unidad": "Pieza",
+     "precios": [
+      1998600,
+      1480400,
+      962300
+     ]
+    },
+    {
+     "id": "desarrollo-de-sistema-de-signos",
+     "nombre": "Desarrollo de sistema de signos",
+     "desc": "Investigación, análisis, conceptualización y desarrollo de un sistema original y único.",
+     "unidad": "Proyecto",
+     "precios": [
+      1697100,
+      1257100,
+      817200
+     ]
+    },
+    {
+     "id": "infografia",
+     "nombre": "Infografía",
+     "desc": "Desarrollo complejo.",
+     "unidad": "Proyecto",
+     "precios": [
+      2117600,
+      1568600,
+      1019600
+     ]
+    }
+   ]
+  },
+  {
+   "id": "packaging",
+   "nombre": "Packaging",
+   "servicios": [
+    {
+     "id": "pack-digital-presentation",
+     "nombre": "Pack digital presentation",
+     "desc": "Tapas, presentación de USB, Memoria, CD o DVD y booklet interior hasta 3 pliegos.",
+     "unidad": "Proyecto",
+     "precios": [
+      1136800,
+      842100,
+      547400
+     ]
+    },
+    {
+     "id": "etiqueta-simple",
+     "nombre": "Etiqueta simple",
+     "desc": "Etiqueta única aplicada, envoltura simple, impresión sobre envase, bolsa, etc.",
+     "unidad": "Pieza",
+     "precios": [
+      549400,
+      406900,
+      264500
+     ]
+    },
+    {
+     "id": "etiqueta-compuesta",
+     "nombre": "Etiqueta compuesta",
+     "desc": "Ej. vino: etiqueta + contraetiqueta + cápsula + cuello de botella.",
+     "unidad": "Proyecto",
+     "precios": [
+      1635600,
+      1211600,
+      787500
+     ]
+    }
+   ]
+  },
+  {
+   "id": "diseno-industrial",
+   "nombre": "Diseño Industrial",
+   "servicios": [
+    {
+     "id": "envase",
+     "nombre": "Envase",
+     "desc": "Desarrollo morfológico de estuche troquelado, envase PET, brick, etc.",
+     "unidad": "Proyecto",
+     "precios": [
+      1914400,
+      1418100,
+      921800
+     ]
+    },
+    {
+     "id": "modelado-3d-de-envase",
+     "nombre": "Modelado 3D de envase",
+     "desc": "Forma simple (caja, frasco, botella, etc).",
+     "unidad": "Pieza",
+     "precios": [
+      315200,
+      233500,
+      151800
+     ]
+    },
+    {
+     "id": "renderizado-de-modelo-3d",
+     "nombre": "Renderizado de modelo 3D",
+     "desc": "Precio unitario de cada imagen/vista.",
+     "unidad": "Unidad",
+     "precios": [
+      73800,
+      54700,
+      35600
+     ]
+    },
+    {
+     "id": "animacion-de-modelo-3d",
+     "nombre": "Animación de modelo 3D",
+     "desc": "Costo por envase o composición de piezas. Hasta 1000 cuadros.",
+     "unidad": "Pieza",
+     "precios": [
+      745600,
+      552300,
+      359000
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   textosQueSeArman();
   cursorEstrella();
   calculadora();
+  tarifarioDiseno();
   visor();
   formulario();
   filtros();
@@ -551,6 +552,11 @@ function hojaPresupuesto(d, X, logo, vw, vh, e) {
 
 // Arma un PDF de una página A4 con la imagen (JPEG) del presupuesto, sin librerías
 function pdfConImagen(jpeg, ancho, alto, titulo) {
+  return pdfConImagenes([{ jpeg, ancho, alto }], titulo);
+}
+
+// Arma un PDF A4 con una imagen JPEG por página
+function pdfConImagenes(paginas, titulo) {
   const cod = new TextEncoder();
   const partes = [];
   const pos = [];
@@ -565,23 +571,474 @@ function pdfConImagen(jpeg, ancho, alto, titulo) {
     sumar(`${n} 0 obj\n${cuerpo}\nendobj\n`);
   };
   const PW = 595.28, PH = 841.89;
-  sumar('%PDF-1.4\n%\u00e2\u00e3\u00cf\u00d3\n');
+  // Objetos: 1 catálogo, 2 lista de páginas, y por cada página: hoja, imagen y dibujo; al final, los datos del documento
+  const n = paginas.length;
+  const hoja = (i) => 3 + i * 3;
+  const info = 3 + n * 3;
+  sumar('%PDF-1.4\n%âãÏÓ\n');
   objeto(1, '<< /Type /Catalog /Pages 2 0 R >>');
-  objeto(2, '<< /Type /Pages /Kids [3 0 R] /Count 1 >>');
-  objeto(3, `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PW} ${PH}] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>`);
-  pos[4] = largo;
-  sumar(`4 0 obj\n<< /Type /XObject /Subtype /Image /Width ${ancho} /Height ${alto} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpeg.length} >>\nstream\n`);
-  sumar(jpeg);
-  sumar('\nendstream\nendobj\n');
-  const dibujo = `q ${PW} 0 0 ${PH} 0 0 cm /Im0 Do Q`;
-  objeto(5, `<< /Length ${dibujo.length} >>\nstream\n${dibujo}\nendstream`);
-  objeto(6, `<< /Title (${titulo}) /Producer (AIRON Studio) >>`);
+  objeto(2, `<< /Type /Pages /Kids [${paginas.map((_, i) => `${hoja(i)} 0 R`).join(' ')}] /Count ${n} >>`);
+  paginas.forEach(({ jpeg, ancho, alto }, i) => {
+    const h = hoja(i);
+    objeto(h, `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PW} ${PH}] /Resources << /XObject << /Im0 ${h + 1} 0 R >> >> /Contents ${h + 2} 0 R >>`);
+    pos[h + 1] = largo;
+    sumar(`${h + 1} 0 obj\n<< /Type /XObject /Subtype /Image /Width ${ancho} /Height ${alto} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpeg.length} >>\nstream\n`);
+    sumar(jpeg);
+    sumar('\nendstream\nendobj\n');
+    const dibujo = `q ${PW} 0 0 ${PH} 0 0 cm /Im0 Do Q`;
+    objeto(h + 2, `<< /Length ${dibujo.length} >>\nstream\n${dibujo}\nendstream`);
+  });
+  objeto(info, `<< /Title (${titulo}) /Producer (AIRON Studio) >>`);
   const xref = largo;
-  let fin = 'xref\n0 7\n0000000000 65535 f \n';
-  for (let i = 1; i <= 6; i++) fin += `${String(pos[i]).padStart(10, '0')} 00000 n \n`;
-  fin += `trailer\n<< /Size 7 /Root 1 0 R /Info 6 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
+  let fin = `xref\n0 ${info + 1}\n0000000000 65535 f \n`;
+  for (let i = 1; i <= info; i++) fin += `${String(pos[i]).padStart(10, '0')} 00000 n \n`;
+  fin += `trailer\n<< /Size ${info + 1} /Root 1 0 R /Info ${info} 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
   sumar(fin);
   return new Blob(partes, { type: 'application/pdf' });
+}
+
+// ----- Tarifario de diseño: precios por tipo de cliente y generador de presupuesto -----
+function tarifarioDiseno() {
+  const raiz = document.querySelector('.tar');
+  if (!raiz) return;
+  const C = JSON.parse(raiz.dataset.tarifario);
+  const X = JSON.parse(raiz.dataset.textos);
+  const idioma = EN ? 'en-US' : 'es-AR';
+  const plantilla = (t, datos) => t.replace(/\{(\w+)\}/g, (_, k) => datos[k]);
+  const escapar = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+
+  // Los servicios se leen de la lista de la página
+  const catalogo = {};
+  raiz.querySelectorAll('.tar-servicio').forEach((li) => {
+    const precio = li.querySelector('.tar-precio');
+    catalogo[li.dataset.id] = {
+      id: li.dataset.id,
+      nombre: li.querySelector('.tar-nombre').textContent,
+      desc: li.querySelector('.tar-desc')?.textContent || '',
+      unidad: li.querySelector('.tar-unidad').textContent,
+      rubro: li.closest('.tar-rubro').dataset.rubro,
+      precios: precio.dataset.precios ? precio.dataset.precios.split(',').map(Number) : null,
+      pct: precio.dataset.pct ? Number(precio.dataset.pct) : 0,
+      li,
+    };
+  });
+
+  // Estado del presupuesto (se guarda en este navegador)
+  const CLAVE = 'airon-presupuesto-diseno';
+  const estado = { cliente: 1, moneda: 'ARS', items: [], gremio: false, descuento: 0, titulo: '', clienteNombre: '', notas: '', descripciones: true };
+  try {
+    Object.assign(estado, JSON.parse(localStorage.getItem(CLAVE)) || {});
+  } catch (e) {}
+  estado.items = (estado.items || []).filter((it) => catalogo[it.id]);
+  const guardar = () => {
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(estado));
+    } catch (e) {}
+  };
+
+  const redondear = (v) => Math.ceil(v / C.redondeo) * C.redondeo;
+  const dinero = (v) =>
+    estado.moneda === 'USD'
+      ? new Intl.NumberFormat(idioma, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(Math.round(v / C.dolar))
+      : new Intl.NumberFormat(idioma, { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(v);
+  const fijo = (it) => redondear(catalogo[it.id].precios[estado.cliente] * (it.adaptacion ? C.adaptacion : 1)) * it.cantidad;
+  // Los servicios en porcentaje (desarrollo a medida, multi lenguaje) se calculan sobre los servicios web del presupuesto
+  const baseWeb = () => estado.items.filter((it) => !catalogo[it.id].pct && catalogo[it.id].rubro === 'web').reduce((s, it) => s + fijo(it), 0);
+  const monto = (it) => (catalogo[it.id].pct ? redondear(baseWeb() * catalogo[it.id].pct) * it.cantidad : fijo(it));
+  const cuentas = () => {
+    const lineas = estado.items.map((it) => ({ it, s: catalogo[it.id], monto: monto(it) }));
+    const subtotal = lineas.reduce((s, l) => s + l.monto, 0);
+    const gremio = estado.gremio ? Math.round((subtotal * C.gremio) / C.redondeo) * C.redondeo : 0;
+    const descuento = estado.descuento ? Math.round(((subtotal - gremio) * estado.descuento) / 100 / C.redondeo) * C.redondeo : 0;
+    const total = subtotal - gremio - descuento;
+    return { lineas, subtotal, gremio, descuento, total, anticipo: redondear(total * C.anticipo) };
+  };
+
+  const lista = raiz.querySelector('.tar-items');
+  const totales = raiz.querySelector('.tar-totales');
+  const contador = raiz.querySelector('.tar-contador');
+  const botones = raiz.querySelectorAll('.tar-bajar, .tar-vaciar');
+
+  const pintar = () => {
+    // Precios de la lista y hora de trabajo según cliente y moneda
+    raiz.querySelectorAll('.tar-precio[data-precios]').forEach((p) => {
+      p.textContent = dinero(Number(p.dataset.precios.split(',')[estado.cliente]));
+    });
+    raiz.querySelector('[data-ref="hora"]').textContent = dinero(C.horaTrabajo);
+    // Marcar en la lista lo que ya está en el presupuesto
+    const cantidades = Object.fromEntries(estado.items.map((it) => [it.id, it.cantidad]));
+    Object.values(catalogo).forEach((s) => {
+      const n = cantidades[s.id];
+      s.li.classList.toggle('en-presupuesto', !!n);
+      const b = s.li.querySelector('.tar-agregar');
+      b.textContent = n ? `${X.agregado} · ${n}` : X.agregar;
+    });
+    const c = cuentas();
+    contador.textContent = estado.items.length;
+    lista.innerHTML = c.lineas.length
+      ? `<ul class="tar-lineas">${c.lineas
+          .map(
+            ({ it, s, monto: m }) => `<li class="tar-linea" data-id="${s.id}">
+            <div class="tar-linea-cabeza"><span class="tar-linea-nombre">${escapar(s.nombre)}</span><span class="tar-linea-monto">${dinero(m)}</span><button type="button" class="tar-quitar" data-accion="quitar" aria-label="${X.quitar}: ${escapar(s.nombre)}">×</button></div>
+            <div class="tar-linea-controles">
+              <span class="tar-cantidad" role="group" aria-label="${X.cantidad}"><button type="button" data-accion="menos" aria-label="−1">−</button><span>${it.cantidad}</span><button type="button" data-accion="mas" aria-label="+1">+</button></span>
+              <span class="mono tar-linea-unidad">${escapar(s.unidad)}</span>
+              ${s.pct ? '' : `<label class="tar-adapt"><input type="checkbox" data-accion="adaptacion"${it.adaptacion ? ' checked' : ''}> ${X.adaptacion}</label>`}
+            </div>
+          </li>`
+          )
+          .join('')}</ul>`
+      : `<p class="tar-vacio">${X.vacio}</p>`;
+    const fila = (t, v, clase = '') => `<div class="calc-fila${clase}"><dt>${t}</dt><dd>${v}</dd></div>`;
+    totales.innerHTML = c.lineas.length
+      ? fila(X.subtotal, dinero(c.subtotal)) +
+        (c.gremio ? fila(X.gremioFila, `− ${dinero(c.gremio)}`) : '') +
+        (c.descuento ? fila(plantilla(X.descuentoFila, { p: estado.descuento }), `− ${dinero(c.descuento)}`) : '') +
+        fila(X.total, dinero(c.total), ' calc-total') +
+        fila(X.anticipoFila, dinero(c.anticipo))
+      : '';
+    botones.forEach((b) => (b.disabled = !c.lineas.length));
+    guardar();
+  };
+
+  // Cargar en los campos lo que estaba guardado
+  const campo = (n) => raiz.querySelector(`[name="${n}"]`);
+  raiz.querySelector(`input[name="cliente"][value="${estado.cliente}"]`).checked = true;
+  raiz.querySelector(`input[name="moneda"][value="${estado.moneda}"]`).checked = true;
+  campo('gremio').checked = estado.gremio;
+  campo('descuento').value = estado.descuento;
+  campo('titulo').value = estado.titulo;
+  campo('clienteNombre').value = estado.clienteNombre;
+  campo('notas').value = estado.notas;
+  campo('descripciones').checked = estado.descripciones;
+
+  raiz.addEventListener('click', (e) => {
+    const agregar = e.target.closest('.tar-agregar');
+    if (agregar) {
+      const it = estado.items.find((i) => i.id === agregar.dataset.id);
+      if (it) it.cantidad += 1;
+      else estado.items.push({ id: agregar.dataset.id, cantidad: 1, adaptacion: false });
+      pintar();
+      return;
+    }
+    const accion = e.target.closest('[data-accion]');
+    const linea = e.target.closest('.tar-linea');
+    if (accion && linea && accion.dataset.accion !== 'adaptacion') {
+      const i = estado.items.findIndex((it) => it.id === linea.dataset.id);
+      if (accion.dataset.accion === 'mas') estado.items[i].cantidad += 1;
+      if (accion.dataset.accion === 'menos') estado.items[i].cantidad = Math.max(1, estado.items[i].cantidad - 1);
+      if (accion.dataset.accion === 'quitar') estado.items.splice(i, 1);
+      pintar();
+    }
+    if (e.target.closest('.tar-vaciar')) {
+      estado.items = [];
+      pintar();
+    }
+  });
+  raiz.addEventListener('change', (e) => {
+    const t = e.target;
+    if (t.dataset.accion === 'adaptacion') {
+      estado.items.find((it) => it.id === t.closest('.tar-linea').dataset.id).adaptacion = t.checked;
+    } else if (t.name === 'cliente') estado.cliente = Number(t.value);
+    else if (t.name === 'moneda') estado.moneda = t.value;
+    else if (t.name === 'gremio') estado.gremio = t.checked;
+    else if (t.name === 'descripciones') estado.descripciones = t.checked;
+    else return;
+    pintar();
+  });
+  raiz.addEventListener('input', (e) => {
+    const t = e.target;
+    if (t.name === 'descuento') {
+      estado.descuento = Math.min(100, Math.max(0, parseFloat(t.value) || 0));
+      pintar();
+    } else if (['titulo', 'clienteNombre', 'notas'].includes(t.name)) {
+      estado[t.name] = t.value;
+      guardar();
+    }
+  });
+
+  // Filtro por rubro y buscador
+  let rubro = 'todos';
+  const buscador = raiz.querySelector('#tar-buscar');
+  const filtrar = () => {
+    const q = buscador.value.trim().toLowerCase();
+    let visibles = 0;
+    raiz.querySelectorAll('.tar-rubro').forEach((sec) => {
+      let n = 0;
+      sec.querySelectorAll('.tar-servicio').forEach((li) => {
+        const ok = (rubro === 'todos' || sec.dataset.rubro === rubro) && (!q || li.dataset.texto.includes(q));
+        li.hidden = !ok;
+        if (ok) n++;
+      });
+      sec.hidden = !n;
+      visibles += n;
+    });
+    raiz.querySelector('.tar-sin').hidden = visibles > 0;
+  };
+  raiz.querySelectorAll('.tar-rubros .pill').forEach((b) =>
+    b.addEventListener('click', () => {
+      rubro = b.dataset.rubro;
+      raiz.querySelectorAll('.tar-rubros .pill').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      filtrar();
+    })
+  );
+  buscador.addEventListener('input', filtrar);
+
+  // Descargas
+  raiz.querySelectorAll('.tar-bajar').forEach((boton) =>
+    boton.addEventListener('click', async () => {
+      const c = cuentas();
+      if (!c.lineas.length) return;
+      const texto = boton.textContent;
+      boton.disabled = true;
+      boton.textContent = X.generando || '…';
+      try {
+        const ahora = new Date();
+        const dos = (n) => String(n).padStart(2, '0');
+        const dia = `${ahora.getFullYear()}-${dos(ahora.getMonth() + 1)}-${dos(ahora.getDate())}`;
+        const datos = {
+          ...c,
+          dinero,
+          titulo: estado.titulo.trim(),
+          cliente: estado.clienteNombre.trim(),
+          notas: estado.notas.trim(),
+          descripciones: estado.descripciones,
+          tipo: X.clientes[estado.cliente],
+          moneda: estado.moneda,
+          gremioAplicado: estado.gremio,
+          descuentoPct: estado.descuento,
+          fecha: new Intl.DateTimeFormat(idioma, { day: 'numeric', month: 'long', year: 'numeric' }).format(ahora),
+          numero: `AIRON-D-${dia.replace(/-/g, '')}-${dos(ahora.getHours())}${dos(ahora.getMinutes())}`,
+          fuente: plantilla(X.doc.fuente, { version: C.version }),
+        };
+        const hojas = await hojasPresupuestoDiseno(datos, X, C);
+        const nombre = `${X.doc.archivo}-${dia}`;
+        if (boton.dataset.formato === 'pdf') {
+          const paginas = [];
+          for (const h of hojas) paginas.push({ jpeg: new Uint8Array(await (await new Promise((r) => h.toBlob(r, 'image/jpeg', 0.92))).arrayBuffer()), ancho: h.width, alto: h.height });
+          bajarArchivo(pdfConImagenes(paginas, datos.numero), `${nombre}.pdf`);
+        } else {
+          // Una sola imagen con todas las hojas una debajo de la otra
+          const junta = document.createElement('canvas');
+          junta.width = hojas[0].width;
+          junta.height = hojas.reduce((s, h) => s + h.height, 0);
+          let y = 0;
+          for (const h of hojas) {
+            junta.getContext('2d').drawImage(h, 0, y);
+            y += h.height;
+          }
+          bajarArchivo(await new Promise((r) => junta.toBlob(r, 'image/png')), `${nombre}.png`);
+        }
+      } finally {
+        boton.disabled = false;
+        boton.textContent = texto;
+      }
+    })
+  );
+
+  pintar();
+}
+
+// Dibuja el presupuesto de diseño en hojas A4; si no entra, sigue en otra hoja
+async function hojasPresupuestoDiseno(d, X, C) {
+  const plantilla = (t, datos) => t.replace(/\{(\w+)\}/g, (_, k) => datos[k]);
+  await Promise.all(['400 40px Anton', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '400 20px "IBM Plex Mono"', '500 20px "IBM Plex Mono"'].map((f) => document.fonts.load(f)));
+  const svgLogo = document.querySelector('.site-header .logo-svg');
+  const [, , vw, vh] = svgLogo.getAttribute('viewBox').split(' ').map(Number);
+  const logo = new Image();
+  logo.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgLogo.outerHTML.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"').replace(/currentColor/g, '#111111'));
+  await logo.decode();
+
+  const W = 1240, H = 1754, M = 96, PIE = 110, LIMITE = H - PIE - 50;
+  const TINTA = '#111111', FONDO = '#F2F0EB', GRIS = '#5A5750', ROJO = '#FF0000', LINEA = '#D5D1C8';
+  const MONO = '"IBM Plex Mono"', SANS = '"Instrument Sans"';
+  const hojas = [];
+  let x, y;
+  let enTabla = false; // si la tabla sigue en la hoja nueva, se repite su encabezado
+  const letra = (peso, tam, familia, color = TINTA, espacio = 0) => {
+    x.font = `${peso} ${tam}px ${familia}`;
+    x.fillStyle = color;
+    if ('letterSpacing' in x) x.letterSpacing = `${espacio}px`;
+  };
+  const envolver = (t, ancho) => {
+    const lineas = [];
+    let l = '';
+    for (const p of String(t).split(' ')) {
+      const prueba = l ? `${l} ${p}` : p;
+      if (x.measureText(prueba).width > ancho && l) {
+        lineas.push(l);
+        l = p;
+      } else l = prueba;
+    }
+    if (l) lineas.push(l);
+    return lineas;
+  };
+  const raya = (yy, color = TINTA, grosor = 2) => {
+    x.fillStyle = color;
+    x.fillRect(M, yy, W - M * 2, grosor);
+  };
+  const nuevaHoja = () => {
+    const c = document.createElement('canvas');
+    c.width = W;
+    c.height = H;
+    hojas.push(c);
+    x = c.getContext('2d');
+    x.fillStyle = FONDO;
+    x.fillRect(0, 0, W, H);
+    const primera = hojas.length === 1;
+    const ancho = primera ? 380 : 260;
+    x.drawImage(logo, M, M, ancho, (ancho * vh) / vw);
+    x.textAlign = 'right';
+    letra(500, 22, MONO, ROJO, 2);
+    x.fillText(X.doc.titulo.toUpperCase(), W - M, M + 22);
+    letra(400, 22, MONO, GRIS, 1);
+    x.fillText(`${X.doc.fecha}: ${d.fecha}`, W - M, M + 56);
+    x.fillText(`${X.doc.numero} ${d.numero}`, W - M, M + 88);
+    x.textAlign = 'left';
+    raya(M + 124);
+    y = M + 124;
+  };
+  const espacio = (alto) => {
+    if (y + alto > LIMITE) {
+      nuevaHoja();
+      y += 40;
+      if (enTabla) encabezadoTabla();
+    }
+  };
+  const encabezadoTabla = () => {
+    letra(500, 19, MONO, GRIS, 2);
+    x.fillText(X.doc.servicio.toUpperCase(), M, y + 30);
+    x.textAlign = 'right';
+    x.fillText(X.doc.importe.toUpperCase(), W - M, y + 30);
+    x.textAlign = 'left';
+    y += 44;
+    raya(y);
+  };
+
+  nuevaHoja();
+  // Título, cliente y datos generales
+  y += 130;
+  letra(400, 104, 'Anton');
+  const titulo = (d.titulo || X.doc.titulo).toUpperCase();
+  let tam = 104;
+  while (x.measureText(titulo).width > W - M * 2 && tam > 56) {
+    tam -= 4;
+    letra(400, tam, 'Anton');
+  }
+  for (const l of envolver(titulo, W - M * 2).slice(0, 2)) {
+    x.fillText(l, M - 3, y);
+    y += tam * 0.95;
+  }
+  y += 6;
+  if (d.cliente) {
+    letra(600, 32, SANS);
+    for (const l of envolver(`${X.doc.para}: ${d.cliente}`, W - M * 2)) {
+      x.fillText(l, M, y);
+      y += 42;
+    }
+  }
+  letra(400, 20, MONO, GRIS, 1);
+  x.fillText(`${X.cliente.toUpperCase()}: ${d.tipo.toUpperCase()}   ·   ${X.moneda.toUpperCase()}: ${d.moneda}`, M, y + 4);
+  y += 36;
+
+  // Tabla de servicios
+  encabezadoTabla();
+  enTabla = true;
+  for (const { it, s, monto } of d.lineas) {
+    letra(600, 26, SANS);
+    const nombre = envolver(s.nombre, W - M * 2 - 260);
+    letra(400, 18, MONO, GRIS, 0.5);
+    const meta = `${s.unidad.toUpperCase()} × ${it.cantidad}${it.adaptacion ? ` · ${X.adaptacion.toUpperCase()}` : ''}${s.pct ? ` · ${plantilla(X.adicional, { p: Math.round(s.pct * 100) }).toUpperCase()}` : ''}`;
+    letra(400, 20, SANS, GRIS);
+    const desc = d.descripciones && s.desc ? envolver(s.desc, W - M * 2 - 260) : [];
+    const alto = 24 + nombre.length * 34 + 30 + desc.length * 27 + 22;
+    espacio(alto);
+    y += 24;
+    letra(600, 26, SANS);
+    nombre.forEach((l, j) => x.fillText(l, M, y + 26 + j * 34));
+    x.textAlign = 'right';
+    x.fillText(d.dinero(monto), W - M, y + 26);
+    x.textAlign = 'left';
+    y += nombre.length * 34;
+    letra(400, 18, MONO, GRIS, 0.5);
+    x.fillText(meta, M, y + 22);
+    y += 30;
+    letra(400, 20, SANS, GRIS);
+    desc.forEach((l, j) => x.fillText(l, M, y + 22 + j * 27));
+    y += desc.length * 27 + 22;
+    raya(y, LINEA, 1);
+  }
+
+  enTabla = false;
+  // Totales
+  const filaTotal = (t, v) => {
+    espacio(46);
+    y += 42;
+    letra(400, 24, SANS, GRIS);
+    x.fillText(t, M, y);
+    x.textAlign = 'right';
+    letra(600, 24, SANS);
+    x.fillText(v, W - M, y);
+    x.textAlign = 'left';
+  };
+  filaTotal(X.subtotal, d.dinero(d.subtotal));
+  if (d.gremio) filaTotal(X.gremioFila, `− ${d.dinero(d.gremio)}`);
+  if (d.descuento) filaTotal(plantilla(X.descuentoFila, { p: d.descuentoPct }), `− ${d.dinero(d.descuento)}`);
+  espacio(150);
+  y += 70;
+  letra(500, 22, MONO, TINTA, 2);
+  x.fillText(X.total.toUpperCase(), M, y);
+  tam = 96;
+  letra(400, tam, 'Anton', ROJO);
+  while (x.measureText(d.dinero(d.total)).width > W - M * 2 && tam > 44) {
+    tam -= 4;
+    letra(400, tam, 'Anton', ROJO);
+  }
+  y += tam + 4;
+  x.fillText(d.dinero(d.total), M - 2, y);
+  filaTotal(X.anticipoFila, d.dinero(d.anticipo));
+
+  // Notas, aclaraciones y fuente
+  y += 30;
+  const parrafo = (t, cuadro = true) => {
+    letra(400, 22, SANS);
+    const lineas = envolver(t, W - M * 2 - 28);
+    espacio(lineas.length * 29 + 14);
+    y += 14;
+    if (cuadro) {
+      x.fillStyle = ROJO;
+      x.fillRect(M, y + 10, 9, 9);
+    }
+    letra(400, 22, SANS);
+    lineas.forEach((l, j) => x.fillText(l, M + 28, y + 22 + j * 29));
+    y += lineas.length * 29;
+  };
+  if (d.notas) parrafo(`${X.doc.notas}: ${d.notas}`);
+  parrafo(X.nota);
+  parrafo(X.doc.validez);
+  letra(400, 17, MONO, GRIS, 0.5);
+  for (const l of envolver(d.fuente, W - M * 2)) {
+    espacio(26);
+    y += 26;
+    x.fillText(l, M, y + 8);
+  }
+
+  // Pie con contacto y número de página en cada hoja
+  hojas.forEach((h, i) => {
+    const c = h.getContext('2d');
+    c.fillStyle = TINTA;
+    c.fillRect(0, H - PIE, W, PIE);
+    c.fillStyle = ROJO;
+    c.fillRect(M, H - PIE / 2 - 7, 14, 14);
+    c.font = '500 22px "IBM Plex Mono"';
+    if ('letterSpacing' in c) c.letterSpacing = '2px';
+    c.fillStyle = FONDO;
+    c.textAlign = 'left';
+    c.fillText('AIRONSTUDIO.COM.AR', M + 34, H - PIE / 2 + 8);
+    c.textAlign = 'right';
+    c.fillText(hojas.length > 1 ? `${plantilla(X.doc.pagina, { n: i + 1, t: hojas.length }).toUpperCase()}   ·   @_AIRONSTUDIO` : '@_AIRONSTUDIO', W - M, H - PIE / 2 + 8);
+  });
+  return hojas;
 }
 
 // ----- Visor de imágenes a pantalla completa -----

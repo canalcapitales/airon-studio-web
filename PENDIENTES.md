@@ -72,6 +72,13 @@ La calculadora de `/murales/` usa los valores de `src/data/tarifario-murales.jso
 
 - [ ] Cuando salga una actualización del tarifario (el tarifario recomienda actualizar cada mes por inflación), cambiar los números en ese archivo y la fecha en `"actualizado"`. O pasarle las capturas nuevas a Claude.
 
+## 9. Tarifario de diseño — actualizar valores
+
+La herramienta `/tarifario-diseno/` usa los valores de `src/data/tarifario-diseno.json`, adaptados **con permiso** del Tarifario de la Cámara de Diseñadores de Rafaela y la región (versión 3.3, septiembre 2026). La Cámara ajusta los precios según el IPC del INDEC.
+
+- [ ] Cuando la Cámara publique una versión nueva, pedirle a Claude que la vuelva a transcribir (o cambiar los números en ese archivo, junto con `"version"` y `"actualizado"`).
+- Mantener siempre el crédito a la Cámara y a Brújula Estudio, que aparece arriba de la herramienta y en el PDF.
+
 ## Otros detalles anotados
 
 - **CapiTales (diseño web):** agregarlo cuando se lance (01/04/2027) o antes si hay permiso, con capturas, rol y año.
