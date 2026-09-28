@@ -2014,7 +2014,7 @@ function estudio(l, proyectos) {
   <section class="seccion seccion--top">
     <div class="wrap sobre-grid">
       <figure class="sobre-figura">
-        <img class="sobre-foto" src="/img/foto-perfil-1080.webp" srcset="/img/foto-perfil-640.webp 640w, /img/foto-perfil-1080.webp 1080w" sizes="(min-width: 900px) 40vw, 100vw" width="1080" height="1080" alt="${T.retrato}" fetchpriority="high">
+        <img class="sobre-foto" src="/img/foto-perfil-1080.webp" srcset="/img/foto-perfil-640.webp 640w, /img/foto-perfil-1080.webp 1080w" sizes="(min-width: 900px) 360px, 220px" width="1080" height="1080" alt="${T.retrato}" fetchpriority="high">
         <figcaption><span class="sobre-nombre">Matías Gonzalez</span><span class="mono">${T.cargoEstudio}</span><span class="sobre-cargo">${T.cargo} · UNLP</span></figcaption>
       </figure>
       <div class="sobre-texto">
