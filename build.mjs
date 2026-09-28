@@ -107,8 +107,6 @@ const TXT = {
         ],
         extras: '5. Extras',
         evento: 'Es para un evento o una acción publicitaria (+20 %)',
-        asistencia: 'Jornadas de asistencia',
-        asistenciaAyuda: 'Jornada de 8 h de un asistente, sin viáticos.',
         viaticos: 'Viáticos',
         viaticosAyuda: 'Traslado y comida de quienes pintan. Valor sugerido: viático diario oficial para CABA y GBA (Decreto 208/2026). Podés cambiarlo.',
         jornadasObra: 'Jornadas de obra',
@@ -124,7 +122,6 @@ const TXT = {
           evento: 'Evento (+20 %)',
           boceto: 'Boceto (10 % a 15 %)',
           adaptacion: 'Adaptación del diseño (3 %)',
-          asistencia: 'Asistencia',
           viaticos: 'Viáticos',
           total: 'Total estimado',
           pago: 'Forma de pago sugerida: 50 % de adelanto y 50 % al terminar.',
@@ -307,8 +304,6 @@ const TXT = {
         ],
         extras: '5. Extras',
         evento: 'It’s for an event or an advertising action (+20%)',
-        asistencia: 'Assistant days',
-        asistenciaAyuda: 'One assistant, 8-hour day, travel not included.',
         viaticos: 'Travel and meals',
         viaticosAyuda: 'Transport and meals for the painting crew. Suggested value: official daily allowance for Buenos Aires metro area (Decree 208/2026). You can change it.',
         jornadasObra: 'Working days',
@@ -324,7 +319,6 @@ const TXT = {
           evento: 'Event (+20%)',
           boceto: 'Sketch (10% to 15%)',
           adaptacion: 'Design adaptation (3%)',
-          asistencia: 'Assistance',
           viaticos: 'Travel and meals',
           total: 'Estimated total',
           pago: 'Suggested payment: 50% upfront and 50% on completion.',
@@ -1010,7 +1004,7 @@ function calculadora(l) {
       )
       .join('\n          ');
   // Textos que usa el navegador para escribir el resultado
-  const textos = { ...C.filas, pasaA: C.pasaA, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, asistencia: C.asistencia, doc: C.doc, generando: C.generando, noIncluye: C.noIncluye, noIncluyeConViaticos: C.noIncluyeConViaticos, fuente: C.fuente, viaticosTitulo: C.viaticos, jornadasObra: C.jornadasObra, viaticoDetalle: C.viaticoDetalle, delTotal: C.delTotal, personaUna: C.personaUna, personaVarias: C.personaVarias };
+  const textos = { ...C.filas, pasaA: C.pasaA, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, doc: C.doc, generando: C.generando, noIncluye: C.noIncluye, noIncluyeConViaticos: C.noIncluyeConViaticos, fuente: C.fuente, viaticosTitulo: C.viaticos, jornadasObra: C.jornadasObra, viaticoDetalle: C.viaticoDetalle, delTotal: C.delTotal, personaUna: C.personaUna, personaVarias: C.personaVarias };
   return `<section class="seccion seccion--borde" id="calculadora">
     <div class="wrap">
       <div class="seccion-head">
@@ -1052,11 +1046,6 @@ function calculadora(l) {
           <fieldset class="calc-grupo">
             <legend class="calc-legend">${C.extras}</legend>
             <label class="calc-check"><input type="checkbox" name="evento"> <span>${C.evento}</span></label>
-            <div class="campo calc-asistencia">
-              <label for="calc-asistencia" class="mono">${C.asistencia}</label>
-              <input id="calc-asistencia" name="asistencia" type="number" inputmode="numeric" min="0" max="60" step="1" value="0">
-              <span class="nota">${C.asistenciaAyuda}</span>
-            </div>
             <div class="calc-viaticos">
               <span class="calc-sublegend">${C.viaticos}</span>
               <div class="calc-viaticos-campos">

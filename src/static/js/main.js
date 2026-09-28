@@ -256,7 +256,6 @@ function calculadora() {
     const diseno = f.get('diseno');
     const boceto = f.get('boceto');
     const evento = f.get('evento') === 'on';
-    const jornadas = Math.max(0, parseInt(f.get('asistencia'), 10) || 0);
     // Viáticos: jornadas de obra × personas × monto por persona y jornada
     const diasObra = Math.max(0, parseInt(f.get('jornadasObra'), 10) || 0);
     const personas = Math.max(1, parseInt(f.get('personas'), 10) || 1);
@@ -266,7 +265,6 @@ function calculadora() {
     form.querySelector('.calc-noincluye').textContent = viaticos ? X.noIncluyeConViaticos : X.noIncluye;
     const datos = [`${X.superficie}: ${numero(ancho)} × ${numero(alto)} m = ${numero(m2)} m²`, `${X.clientes[cliente]} (${cliente})`, X.disenos[diseno], X.bocetos[boceto]];
     if (evento) datos.push(X.eventoCheck);
-    if (jornadas) datos.push(`${X.asistencia}: ${jornadas}`);
     if (viaticos) datos.push(`${X.viaticosTitulo}: ${detalleViaticos}`);
 
     let html;
@@ -294,12 +292,11 @@ function calculadora() {
       const honorarios = pintura + recargo;
       const disenoMin = boceto === 'propio' ? honorarios * T.boceto.min : boceto === 'adaptar' ? honorarios * T.adaptacion : 0;
       const disenoMax = boceto === 'propio' ? honorarios * T.boceto.max : disenoMin;
-      const asistencia = jornadas * T.jornadaAsistente;
-      const min = honorarios + disenoMin + asistencia + viaticos;
-      const max = honorarios + disenoMax + asistencia + viaticos;
+      const min = honorarios + disenoMin + viaticos;
+      const max = honorarios + disenoMax + viaticos;
       const desde = i > 0 ? T.tramos[i - 1].hasta : 0;
       const total = min === max ? pesos(min) : `${pesos(min)} – ${pesos(max)}`;
-      const extras = [evento ? X.evento : '', jornadas ? `${X.asistencia}: ${plantilla(jornadas === 1 ? X.jornada : X.jornadas, { n: jornadas })}` : '', viaticos ? `${X.viaticosTitulo}: ${detalleViaticos}` : ''].filter(Boolean);
+      const extras = [evento ? X.evento : '', viaticos ? `${X.viaticosTitulo}: ${detalleViaticos}` : ''].filter(Boolean);
       estado = {
         medidas: `${numero(ancho)} × ${numero(alto)} m`,
         superficie: `${numero(m2)} m²`,
@@ -320,7 +317,6 @@ function calculadora() {
       if (recargo) html += fila(X.evento, pesos(recargo));
       if (boceto === 'propio') html += fila(X.boceto, `${pesos(disenoMin)} – ${pesos(disenoMax)}`);
       if (boceto === 'adaptar') html += fila(X.adaptacion, pesos(disenoMin));
-      if (asistencia) html += fila(`${X.asistencia} (${plantilla(jornadas === 1 ? X.jornada : X.jornadas, { n: jornadas })})`, pesos(asistencia));
       // Cuánto pesan los viáticos en el total (sobre el total mínimo si hay rango)
       if (viaticos) html += fila(`${X.viaticos} (${detalleViaticos} · ${plantilla(X.delTotal, { p: numero(Math.round((viaticos / min) * 1000) / 10) })})`, pesos(viaticos));
       html += fila(X.total, total, ' calc-total');
