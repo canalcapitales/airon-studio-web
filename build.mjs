@@ -181,6 +181,7 @@ const TXT = {
         muralesBoton: 'Conocé nuestros murales →',
       },
       nav: 'Murales',
+      navTarifario: 'Tarifario mural',
       ctaProyecto: '¿Querés un mural así para tu marca?',
       botonProyecto: 'Pedí tu mural',
     },
@@ -389,6 +390,7 @@ const TXT = {
         muralesBoton: 'See our murals →',
       },
       nav: 'Murals',
+      navTarifario: 'Mural rates',
       ctaProyecto: 'Want a mural like this for your brand?',
       botonProyecto: 'Get your mural',
     },
@@ -603,6 +605,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
         <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
         <a class="nav-link" href="${R.murales}"${actual('murales')}>${T.murales.nav}</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
+        <a class="nav-link nav-tarifario" href="${R.calculadora}"${actual('tarifario')}>${T.murales.navTarifario}</a>
         <a class="nav-link nav-cta" href="${R.contacto}"${actual('contacto')}>${T.nav.contacto}</a>
         <div class="nav-redes only-menu">${redes()}</div>
       </nav>
@@ -1116,7 +1119,7 @@ function paginaCalculadora(l) {
   return pagina(l, {
     clave: 'calculadora',
     titulo: P.titulo,
-    activo: 'murales',
+    activo: 'tarifario',
     descripcion: P.desc,
     imagen: `/img/og/blend-david-${l}.jpg`,
     datos: {
