@@ -351,7 +351,24 @@ const TXT = {
     descProyecto: (cats) => `${cats} por AIRON Studio, estudio de diseño multimedial en Buenos Aires.`,
     visor: { aria: 'Visor de imágenes', cerrar: 'Cerrar', ant: 'Imagen anterior', sig: 'Imagen siguiente' },
     estudioTitulo: 'Estudio', elEstudio: 'El estudio', estudioH1: 'Diseño con mirada integral',
-    estudioDesc: 'AIRON Studio: estudio de diseño multimedial fundado en 2015 en Buenos Aires, liderado por Matías Gonzalez.',
+    estudioDesc: 'AIRON Studio: estudio de diseño multimedial fundado en 2015 en Buenos Aires, liderado por Matías Gonzalez, con un equipo de diseñadores, ilustradores, programadores, muralistas y más.',
+    cargoEstudio: 'Fundador y director del estudio',
+    equipoKicker: 'Equipo',
+    equipoTitulo: 'Un equipo para cada proyecto',
+    equipoTexto: 'AIRON Studio reúne profesionales de distintas disciplinas. Según lo que necesita cada marca armamos el equipo justo, y Matías Gonzalez coordina el proyecto de principio a fin: es tu contacto directo en cada etapa.',
+    equipo: [
+      ['Dirección creativa', 'Matías Gonzalez, fundador del estudio. Define el concepto, coordina al equipo y cuida que cada pieza cumpla su objetivo.'],
+      ['Diseño gráfico y de marca', 'Identidades, logos, manuales de marca, packaging y piezas gráficas.'],
+      ['Ilustración', 'Personajes, ilustraciones editoriales y para redes, y bocetos para murales.'],
+      ['Muralismo y arte urbano', 'Artistas que pintan fachadas, interiores y persianas, en cualquier escala.'],
+      ['Desarrollo web', 'Programadores que construyen sitios rápidos, seguros y fáciles de mantener.'],
+      ['Diseño UX/UI', 'Interfaces claras para webs y aplicaciones, pensadas para quien las usa.'],
+      ['Community management', 'Planificación de contenidos, gestión de redes y comunicación con tu comunidad.'],
+      ['Motion y video', 'Animación, edición y piezas audiovisuales para redes, TV y eventos.'],
+      ['Fotografía', 'Producto, retrato y fotografía analógica para marcas y artistas.'],
+      ['Redacción y contenidos', 'Textos para webs, redes y campañas, con el tono de cada marca.'],
+      ['Producción gráfica', 'Coordinación de imprenta, ploteo y cartelería para que todo salga igual que en pantalla.'],
+    ],
     estudioTextos: [
       `Estudio de diseño multimedial fundado en ${FUNDACION}, con base en Buenos Aires y liderado por Matías Gonzalez, Diseñador en Comunicación Visual recibido en la Universidad Nacional de La Plata.`,
       'Desarrollamos proyectos que combinan estrategia, diseño y comunicación, creando identidades y experiencias visuales capaces de conectar marcas con sus públicos.',
@@ -707,7 +724,24 @@ const TXT = {
     descProyecto: (cats) => `${cats} by AIRON Studio, a multimedia design studio based in Buenos Aires.`,
     visor: { aria: 'Image viewer', cerrar: 'Close', ant: 'Previous image', sig: 'Next image' },
     estudioTitulo: 'Studio', elEstudio: 'The studio', estudioH1: 'Design with an all-round vision',
-    estudioDesc: 'AIRON Studio: a multimedia design studio founded in 2015 in Buenos Aires, led by Matías Gonzalez.',
+    estudioDesc: 'AIRON Studio: a multimedia design studio founded in 2015 in Buenos Aires, led by Matías Gonzalez, with a team of designers, illustrators, developers, muralists and more.',
+    cargoEstudio: 'Founder and studio director',
+    equipoKicker: 'Team',
+    equipoTitulo: 'A team for every project',
+    equipoTexto: 'AIRON Studio brings together professionals from different disciplines. We build the right team for what each brand needs, and Matías Gonzalez leads the project from start to finish: he is your direct contact at every stage.',
+    equipo: [
+      ['Creative direction', 'Matías Gonzalez, founder of the studio. He defines the concept, leads the team and makes sure every piece meets its goal.'],
+      ['Graphic and brand design', 'Identities, logos, brand guidelines, packaging and graphic pieces.'],
+      ['Illustration', 'Characters, editorial and social media illustrations, and mural sketches.'],
+      ['Murals and street art', 'Artists who paint façades, interiors and shutters, at any scale.'],
+      ['Web development', 'Developers who build fast, secure and easy-to-maintain websites.'],
+      ['UX/UI design', 'Clear interfaces for websites and apps, designed for the people who use them.'],
+      ['Community management', 'Content planning, social media management and communication with your community.'],
+      ['Motion and video', 'Animation, editing and audiovisual pieces for social media, TV and events.'],
+      ['Photography', 'Product, portrait and analog photography for brands and artists.'],
+      ['Copywriting and content', 'Copy for websites, social media and campaigns, in each brand’s voice.'],
+      ['Print production', 'We coordinate printing, vinyl and signage so everything turns out just like on screen.'],
+    ],
     estudioTextos: [
       `A multimedia design studio founded in ${FUNDACION}, based in Buenos Aires and led by Matías Gonzalez, a Visual Communication Designer graduated from the National University of La Plata.`,
       'We develop projects that combine strategy, design and communication, creating identities and visual experiences that connect brands with their audiences.',
@@ -1966,6 +2000,9 @@ function estudio(l, proyectos) {
     .map(([cat, nombre], i) => `<li class="reveal"><span class="mono num">${num(i)}</span>${cat ? `<a href="${enlaceServicio(l, cat)}">${esc(nombre)}</a>` : `<span>${esc(nombre)}</span>`}</li>`)
     .join('');
   const marcas = MARCAS.map((m) => `<li>${m}</li>`).join('');
+  const equipo = T.equipo
+    .map(([rol, texto], i) => `<li class="servicio reveal${i === 0 ? ' servicio--destacado' : ''}"><span class="mono num">${num(i)}</span><div><h3>${esc(rol)}</h3><p>${esc(texto)}</p></div></li>`)
+    .join('\n        ');
   return pagina(l, {
     clave: 'estudio',
     titulo: T.estudioTitulo,
@@ -1976,7 +2013,10 @@ function estudio(l, proyectos) {
     cuerpo: `
   <section class="seccion seccion--top">
     <div class="wrap sobre-grid">
-      <img class="sobre-foto" src="/img/foto-perfil-1080.webp" srcset="/img/foto-perfil-640.webp 640w, /img/foto-perfil-1080.webp 1080w" sizes="(min-width: 900px) 40vw, 100vw" width="1080" height="1080" alt="${T.retrato}" fetchpriority="high">
+      <figure class="sobre-figura">
+        <img class="sobre-foto" src="/img/foto-perfil-1080.webp" srcset="/img/foto-perfil-640.webp 640w, /img/foto-perfil-1080.webp 1080w" sizes="(min-width: 900px) 40vw, 100vw" width="1080" height="1080" alt="${T.retrato}" fetchpriority="high">
+        <figcaption><span class="sobre-nombre">Matías Gonzalez</span><span class="mono">${T.cargoEstudio}</span><span class="sobre-cargo">${T.cargo} · UNLP</span></figcaption>
+      </figure>
       <div class="sobre-texto">
         <span class="kicker mono">${T.elEstudio}</span>
         <h1 class="page-title page-title--md">${T.estudioH1}</h1>
@@ -1984,6 +2024,18 @@ function estudio(l, proyectos) {
         <p>${T.estudioTextos[1]}</p>
         <p>${T.estudioTextos[2]}</p>
       </div>
+    </div>
+  </section>
+  <section class="seccion seccion--borde" id="equipo">
+    <div class="wrap servicios-grid">
+      <div class="equipo-intro">
+        <span class="kicker mono">${T.equipoKicker}</span>
+        <h2 class="h2">${T.equipoTitulo}</h2>
+        <p>${T.equipoTexto}</p>
+      </div>
+      <ul class="servicios">
+        ${equipo}
+      </ul>
     </div>
   </section>
   ${numeros(l, proyectos)}
