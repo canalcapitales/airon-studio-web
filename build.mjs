@@ -37,7 +37,7 @@ const TXT = {
     lema: 'Diseño que construye marcas, ideas y experiencias',
     descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
-    nav: { inicio: 'Inicio', proyectos: 'Proyectos', estudio: 'Nosotros', contacto: 'Hablemos' },
+    nav: { inicio: 'Inicio', proyectos: 'Proyectos', estudio: 'Nosotros', contacto: 'Contacto' },
     idiomaAria: 'Idioma', temaOscuro: 'Cambiar a modo oscuro',
     // ---------- herramientas (página que las reúne), tarifario de diseño, textos Unicode y PNG ----------
     tarifarios: {
@@ -336,7 +336,7 @@ const TXT = {
     },
     heroKicker: ['Estudio de diseño multimedial', 'Buenos Aires · desde 2015'],
     heroLead: 'Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
-    verProyectos: 'Ver proyectos →', hablemos: 'Hablemos', disciplinasAria: 'Disciplinas',
+    verProyectos: 'Ver proyectos →', hablemos: 'Contacto', disciplinasAria: 'Disciplinas',
     indice: 'Índice', verGrilla: 'Ver con imágenes y filtros →',
     serviciosKicker: 'Servicios', queHacemos: 'Qué hacemos', ctaInicio: '¿Tenés un proyecto en mente?', escribinos: 'Escribinos →',
     numerosTitulo: 'El estudio en números',
@@ -384,8 +384,8 @@ const TXT = {
       ['Entrega', 'Archivos finales listos para usar y acompañamiento en la implementación.'],
     ],
     clientesKicker: 'Confiaron en nosotros', verCursor: 'Ver',
-    contactoTitulo: 'Contacto', contactoH1: 'Hablemos.',
-    contactoLead: 'Contanos tu proyecto: una marca, piezas gráficas, una web, motion, un mural o lo que tengas en mente.',
+    contactoTitulo: 'Contacto', contactoKicker: 'Contanos tu idea', contactoH1: 'Contacto.',
+    contactoLead: 'Una marca, piezas gráficas, una web, motion, un mural o lo que tengas en mente: escribinos y te respondemos a la brevedad.',
     contactoDesc: 'Contanos tu proyecto: marca, piezas gráficas, web, motion, mural o lo que tengas en mente.',
     asunto: 'Nuevo mensaje desde la web de AIRON Studio', noCompletar: 'No completar este campo',
     campos: { nombre: 'Nombre', email: 'Email', tipo: 'Tipo de proyecto', mensaje: 'Mensaje' },
@@ -410,7 +410,7 @@ const TXT = {
     lema: 'Design that builds brands, ideas and experiences',
     descripcion: 'Multimedia design studio based in Buenos Aires since 2015. Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
-    nav: { inicio: 'Home', proyectos: 'Work', estudio: 'About us', contacto: "Let's talk" },
+    nav: { inicio: 'Home', proyectos: 'Work', estudio: 'About us', contacto: 'Contact' },
     idiomaAria: 'Language', temaOscuro: 'Switch to dark mode',
     // ---------- rates hub and design rate guide ----------
     tarifarios: {
@@ -709,7 +709,7 @@ const TXT = {
     },
     heroKicker: ['Multimedia design studio', 'Buenos Aires · since 2015'],
     heroLead: 'Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
-    verProyectos: 'See our work →', hablemos: "Let's talk", disciplinasAria: 'Disciplines',
+    verProyectos: 'See our work →', hablemos: 'Contact', disciplinasAria: 'Disciplines',
     indice: 'Index', verGrilla: 'Browse with images and filters →',
     serviciosKicker: 'Services', queHacemos: 'What we do', ctaInicio: 'Have a project in mind?', escribinos: 'Get in touch →',
     numerosTitulo: 'The studio in numbers',
@@ -757,8 +757,8 @@ const TXT = {
       ['Delivery', 'Final files ready to use, and support during implementation.'],
     ],
     clientesKicker: 'They trusted us', verCursor: 'View',
-    contactoTitulo: 'Contact', contactoH1: "Let's talk.",
-    contactoLead: 'Tell us about your project: a brand, graphic pieces, a website, motion, a mural or whatever you have in mind.',
+    contactoTitulo: 'Contact', contactoKicker: 'Tell us your idea', contactoH1: 'Contact.',
+    contactoLead: "A brand, graphic pieces, a website, motion, a mural or whatever you have in mind: write to us and we'll get back to you shortly.",
     contactoDesc: 'Tell us about your project: a brand, graphic pieces, a website, motion, a mural or whatever you have in mind.',
     asunto: 'New message from the AIRON Studio website (EN)', noCompletar: 'Do not fill in this field',
     campos: { nombre: 'Name', email: 'Email', tipo: 'Project type', mensaje: 'Message' },
@@ -2071,7 +2071,7 @@ function contacto(l) {
   <section class="seccion seccion--top">
     <div class="wrap contacto-grid">
       <div class="contacto-info">
-        <span class="kicker mono">${T.contactoTitulo}</span>
+        <span class="kicker mono">${T.contactoKicker}</span>
         <h1 class="page-title">${T.contactoH1}</h1>
         <p class="lead">${T.contactoLead}</p>
         <nav class="redes-lista" aria-label="${T.redes}">
