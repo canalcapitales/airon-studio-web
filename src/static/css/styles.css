@@ -246,9 +246,10 @@ ul { padding: 0; list-style: none; }
 /* ---------- índice de proyectos (inicio) ---------- */
 .indice { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--ink); }
 .indice-link {
-  display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; gap: 6px 24px;
+  display: grid; grid-template-columns: 44px minmax(0, 1fr) auto 176px; align-items: center; gap: 6px 32px;
   padding: 16px 0; border-top: 1px solid var(--ink); text-decoration: none;
 }
+.indice-link > * { transition: opacity .3s ease; }
 .indice-num { color: var(--muted); }
 .indice-texto { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 24px; min-width: 0; }
 .indice-titulo {
@@ -257,29 +258,23 @@ ul { padding: 0; list-style: none; }
 }
 .indice-sub { color: var(--muted); font-size: 16px; }
 .indice-cat { color: var(--muted); font-size: 12px; text-align: right; }
-.indice-mini { display: none; }
-.indice-link > * { transition: opacity .3s ease; }
+.indice-mini { display: block; aspect-ratio: 202 / 158; overflow: hidden; background: var(--placeholder); }
+.indice-mini img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2, .7, .1, 1); }
 .indice-link:focus-visible .indice-titulo { color: var(--acento); }
-/* Al pasar el mouse: el proyecto elegido en rojo y el resto atenuado */
+/* Al pasar el mouse: el proyecto elegido en rojo, su portada crece y el resto se atenúa */
 @media (hover: hover) {
   .indice:hover .indice-link:not(:hover) > * { opacity: .3; }
-  .indice-link:hover .indice-titulo { color: var(--acento); transform: translateX(18px); }
+  .indice-link:hover .indice-titulo { color: var(--acento); transform: translateX(14px); }
+  .indice-link:hover .indice-mini img { transform: scale(1.08); }
 }
-.indice-previa {
-  position: fixed; top: 0; left: 0; z-index: 40; width: clamp(260px, 25vw, 400px); aspect-ratio: 202 / 158;
-  overflow: hidden; background: var(--placeholder); pointer-events: none; opacity: 0; transition: opacity .25s ease;
-}
-.indice-previa.visible { opacity: 1; }
-.indice-previa img { width: 100%; height: 100%; object-fit: cover; }
-@media (hover: none), (max-width: 899px) {
-  .indice-previa { display: none; }
-  .indice-link { grid-template-columns: minmax(0, 1fr) 112px; gap: 4px 16px; padding: 16px 0; }
+@media (max-width: 899px) {
+  .indice-link { grid-template-columns: minmax(0, 1fr) 112px; gap: 4px 16px; }
   .indice-num, .indice-texto, .indice-cat { grid-column: 1; }
   .indice-num { font-size: 11px; }
   .indice-sub { display: none; }
   .indice-titulo { font-size: clamp(28px, 8vw, 44px); }
   .indice-cat { font-size: 11px; text-align: left; }
-  .indice-mini { display: block; grid-column: 2; grid-row: 1 / span 3; width: 112px; height: auto; aspect-ratio: 202 / 158; object-fit: cover; background: var(--placeholder); }
+  .indice-mini { grid-column: 2; grid-row: 1 / span 3; }
 }
 
 /* ---------- servicios ---------- */

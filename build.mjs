@@ -428,14 +428,14 @@ function clientes(l) {
 function inicio(l, proyectos) {
   const T = TXT[l];
   const R = RUTAS[l];
-  // Índice con todos los proyectos: en computadora la portada flota junto al mouse; en celular se ve una miniatura
+  // Índice con todos los proyectos: cada fila con su portada a la derecha
   const filas = proyectos
     .map(
-      (p, i) => `<li><a class="indice-link reveal" href="${rutaDe(l, 'proyecto', p.slug)}" data-previa="${esc(p.portada['640'])}" data-vt-previa="p-${p.slug}">
+      (p, i) => `<li><a class="indice-link reveal" href="${rutaDe(l, 'proyecto', p.slug)}">
           <span class="indice-num mono">${num(i)}</span>
           <span class="indice-texto"><span class="indice-titulo">${esc(p.titulo)}</span><span class="indice-sub">${esc(p.subtitulo)}</span></span>
           <span class="indice-cat mono">${esc(catsTexto(l, p))}</span>
-          <img class="indice-mini" src="${esc(p.portada['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async" data-vt="p-${p.slug}">
+          <span class="indice-mini" data-vt="p-${p.slug}"><img src="${esc(p.portada['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async"></span>
         </a></li>`
     )
     .join('\n        ');
@@ -484,7 +484,6 @@ function inicio(l, proyectos) {
       <ol class="indice">
         ${filas}
       </ol>
-      <div class="indice-previa" aria-hidden="true"><img alt=""></div>
     </div>
   </section>
 

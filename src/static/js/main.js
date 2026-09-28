@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   contadores();
   textosQueSeArman();
   cursorEstrella();
-  indice();
   visor();
   formulario();
   filtros();
@@ -211,45 +210,6 @@ function cursorEstrella() {
   if (visor) {
     new MutationObserver(() => html.classList.toggle('cursor-activo', !visor.open)).observe(visor, { attributes: true, attributeFilter: ['open'] });
   }
-}
-
-// ----- Índice de proyectos: la portada flota junto al mouse (solo en computadora) -----
-function indice() {
-  const lista = document.querySelector('.indice');
-  const previa = document.querySelector('.indice-previa');
-  if (!lista || !previa || !matchMedia('(hover: hover) and (pointer: fine) and (min-width: 900px)').matches) return;
-  const imagen = previa.querySelector('img');
-  let x = 0, y = 0, pendiente = false;
-  const mover = () => {
-    pendiente = false;
-    const w = previa.offsetWidth, h = previa.offsetHeight;
-    // a la derecha del mouse; si no entra, a la izquierda
-    const px = x + 32 + w < innerWidth - 16 ? x + 32 : x - 32 - w;
-    const py = Math.min(Math.max(y - h / 2, 16), innerHeight - h - 16);
-    previa.style.transform = `translate3d(${px}px, ${py}px, 0)`;
-  };
-  lista.addEventListener('pointermove', (e) => {
-    x = e.clientX;
-    y = e.clientY;
-    if (!pendiente) {
-      pendiente = true;
-      requestAnimationFrame(mover);
-    }
-  }, { passive: true });
-  // Las portadas se descargan recién cuando el mouse llega a la lista
-  lista.addEventListener('pointerenter', () => lista.querySelectorAll('.indice-link').forEach((a) => { new Image().src = a.dataset.previa; }), { once: true });
-  lista.querySelectorAll('.indice-link').forEach((a) =>
-    a.addEventListener('pointerenter', () => {
-      imagen.src = a.dataset.previa;
-      // Al hacer clic, esta portada "viaja" hasta la página del proyecto
-      previa.dataset.vt = a.dataset.vtPrevia;
-      previa.classList.add('visible');
-    })
-  );
-  lista.addEventListener('pointerleave', () => {
-    previa.classList.remove('visible');
-    delete previa.dataset.vt;
-  });
 }
 
 // ----- Visor de imágenes a pantalla completa -----
