@@ -60,6 +60,6 @@ AIRON y Capitales los maneja la misma persona y nadie más tiene acceso, así qu
 ## Otros detalles anotados
 
 - **CapiTales (diseño web):** agregarlo cuando se lance (01/04/2027) o antes si hay permiso, con capturas, rol y año.
-- **Branding x AIRON Studio:** el muro muestra 20 de 27 identidades. Faltan las otras 7 (subirlas al Drive).
+- **Branding x AIRON Studio:** ~~faltaban identidades en el muro~~ ✔ El muro ya muestra las 21 identidades, igual que en Behance.
 - **Tarjeta del logo M93:** en la imagen original dice "BRANDY — Pizzas & empanadas". Corregir en Illustrator y en Behance.
 - **Traducción al inglés:** revisarla (`src/data/proyectos.en.json`). Cada proyecto nuevo necesita su texto en inglés.
