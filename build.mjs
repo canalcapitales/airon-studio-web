@@ -24,8 +24,8 @@ const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Fo
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/tarifarios/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/rates/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/' },
+  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', png: '/herramientas/convertir-a-png/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', png: '/en/tools/png-converter/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -38,18 +38,76 @@ const TXT = {
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
     nav: { inicio: 'Inicio', proyectos: 'Proyectos', estudio: 'Estudio', contacto: 'Hablemos' },
     idiomaAria: 'Idioma', temaOscuro: 'Cambiar a modo oscuro',
-    // ---------- tarifarios (página que reúne las herramientas) y tarifario de diseño ----------
+    // ---------- herramientas (página que las reúne), tarifario de diseño, textos Unicode y PNG ----------
     tarifarios: {
-      nav: 'Tarifarios',
-      titulo: 'Tarifarios para trabajos creativos',
-      desc: 'Herramientas gratuitas para calcular y presupuestar murales y trabajos de diseño en Argentina, con descarga del presupuesto en PDF.',
-      kicker: 'Herramientas gratuitas',
-      h1: 'Tarifarios',
-      lead: 'Herramientas para calcular y presupuestar trabajos creativos en Argentina. Pensadas para clientes y para colegas: elegí, sumá y descargá tu presupuesto en PDF.',
+      nav: 'Herramientas',
+      titulo: 'Herramientas gratuitas para creativos',
+      desc: 'Herramientas gratuitas para creativos: tarifario mural, tarifario de diseño, generador de letras Unicode y convertidor de imágenes a PNG.',
+      kicker: 'Gratis · Sin registrarse',
+      h1: 'Herramientas',
+      lead: 'Herramientas gratuitas para diseñadores, muralistas y marcas: calculá y presupuestá trabajos, generá letras especiales para redes y convertí imágenes a PNG. Todo funciona en tu navegador.',
       herramientas: [
         ['calculadora', 'Tarifario mural', 'Calculá el costo de un mural por m² según el Tarifario Mural 2026 de la comunidad de muralistas: medidas, tipo de cliente, diseño, evento y viáticos.', 'Calcular un mural →'],
         ['tarifarioDiseno', 'Tarifario de diseño', '118 servicios de diseño en 15 rubros —identidad, web, redes, editorial, audiovisual y más— con valores por tipo de cliente. Armá el presupuesto sumando servicios.', 'Armar un presupuesto →'],
+        ['unicode', 'Letras Unicode', 'Escribí un texto y copialo en negrita, cursiva, gótica, burbujas y más de 20 estilos para bios, posteos y nombres de Instagram, TikTok o WhatsApp.', 'Crear textos →'],
+        ['png', 'Convertir a PNG', 'Pasá tus imágenes JPG, WEBP, GIF o SVG a PNG, cambiá el tamaño, quitá un fondo de color para dejarlo transparente y recortá los bordes. Sin subir nada.', 'Convertir imágenes →'],
       ],
+    },
+    unicode: {
+      titulo: 'Letras Unicode: generador de textos para Instagram y redes',
+      desc: 'Generador gratuito de letras Unicode: escribí tu texto y copialo en negrita, cursiva, gótica, burbujas y más estilos para Instagram, TikTok y WhatsApp.',
+      kicker: 'Herramienta gratuita',
+      h1: 'Letras Unicode',
+      lead: 'Escribí un texto y copialo en el estilo que quieras. Funciona en bios, posteos, nombres de perfil y mensajes de Instagram, TikTok, WhatsApp, X y más, porque no son tipografías: son caracteres especiales.',
+      campo: 'Tu texto',
+      ejemplo: 'Escribí acá tu texto',
+      inicial: 'AIRON Studio',
+      copiar: 'Copiar',
+      copiado: 'Copiado ✓',
+      limpiar: 'Borrar',
+      estilos: 'estilos',
+      consejoTitulo: 'Tené en cuenta',
+      consejos: [
+        'Los lectores de pantalla (que usan las personas ciegas) pueden leer estos caracteres de forma rara: usalos para destacar, no para textos largos.',
+        'Los buscadores de Instagram y Google no siempre los encuentran: dejá tu nombre en letras comunes en algún lado.',
+        'Algunos estilos no tienen tildes ni números propios: se muestran lo más parecido posible.',
+      ],
+      nombres: {
+        negrita: 'Negrita', cursiva: 'Cursiva', negritaCursiva: 'Negrita cursiva', sans: 'Sans', sansNegrita: 'Sans negrita', sansCursiva: 'Sans cursiva', sansNegritaCursiva: 'Sans negrita cursiva', escritura: 'Escritura', escrituraNegrita: 'Escritura negrita', gotica: 'Gótica', goticaNegrita: 'Gótica negrita', doble: 'Doble trazo', mono: 'Monoespaciada', ancha: 'Ancha', circulos: 'Círculos', circulosNegros: 'Círculos negros', cuadros: 'Cuadrados', cuadrosNegros: 'Cuadrados negros', versalitas: 'Versalitas', superindice: 'Superíndice', invertida: 'Al revés', tachada: 'Tachada', subrayada: 'Subrayada', dobleSubrayado: 'Doble subrayado', barrada: 'Con barra',
+      },
+    },
+    png: {
+      titulo: 'Convertir imagen a PNG online gratis — quitar fondo de color',
+      desc: 'Convertí imágenes JPG, WEBP, GIF o SVG a PNG gratis, cambiá el tamaño, quitá un fondo de color para dejarlo transparente y recortá bordes. Sin subir tus archivos.',
+      kicker: 'Herramienta gratuita',
+      h1: 'Convertir a PNG',
+      lead: 'Pasá tus imágenes a PNG, con fondo transparente si lo necesitás. Todo se procesa en tu navegador: tus archivos no se suben a ningún servidor.',
+      soltar: 'Arrastrá tus imágenes acá',
+      o: 'o',
+      elegir: 'Elegí archivos',
+      formatos: 'JPG, WEBP, GIF, BMP, SVG o PNG · Podés subir varias a la vez.',
+      ajustes: 'Ajustes',
+      tamano: 'Tamaño',
+      tamanos: [['original', 'Original'], ['ancho', 'Ancho máximo']],
+      anchoMax: 'Ancho máximo (px)',
+      fondo: 'Quitar fondo de color',
+      fondoAyuda: 'Ideal para logos, firmas o dibujos sobre fondo blanco o liso. Tocá la imagen para elegir el color a quitar.',
+      color: 'Color a quitar',
+      tolerancia: 'Tolerancia',
+      suavizado: 'Bordes suaves',
+      recortar: 'Recortar bordes transparentes',
+      vista: 'Vista previa',
+      cuadros: 'Los cuadros grises son la parte transparente.',
+      descargar: 'Descargar PNG',
+      descargarTodo: 'Descargar todas',
+      quitar: 'Quitar',
+      vaciar: 'Quitar todas',
+      procesando: 'Procesando…',
+      original: 'Original',
+      resultado: 'PNG',
+      error: 'No se pudo abrir este archivo. Probá con JPG, PNG, WEBP, GIF, BMP o SVG.',
+      privacidad: 'Privado: las imágenes se procesan en tu dispositivo y nunca salen de él.',
+      limite: 'Para quitar fondos complejos (fotos de personas u objetos) hace falta inteligencia artificial; esta herramienta quita fondos lisos de un color.',
     },
     diseno: {
       titulo: 'Tarifario de diseño 2026 — Aranceles de servicios creativos',
@@ -323,16 +381,74 @@ const TXT = {
     idiomaAria: 'Language', temaOscuro: 'Switch to dark mode',
     // ---------- rates hub and design rate guide ----------
     tarifarios: {
-      nav: 'Rates',
-      titulo: 'Rate guides for creative work',
-      desc: 'Free tools to estimate and quote murals and design work in Argentina, with PDF download of the estimate.',
-      kicker: 'Free tools',
-      h1: 'Rates',
-      lead: 'Tools to estimate and quote creative work in Argentina. Made for clients and for fellow creatives: pick, add up and download your estimate as a PDF.',
+      nav: 'Tools',
+      titulo: 'Free tools for creatives',
+      desc: 'Free tools for creatives: mural rates, design rates, Unicode text generator and image to PNG converter.',
+      kicker: 'Free · No sign-up',
+      h1: 'Tools',
+      lead: 'Free tools for designers, muralists and brands: estimate and quote jobs, generate special fonts for social media and convert images to PNG. Everything runs in your browser.',
       herramientas: [
         ['calculadora', 'Mural rates', 'Estimate the cost of a mural per m² based on the 2026 Mural Rate Guide by Argentina’s muralist community: measurements, client type, design, events and travel.', 'Estimate a mural →'],
         ['tarifarioDiseno', 'Design rates', '118 design services in 15 areas —identity, web, social media, editorial, motion and more— with rates by client type. Build an estimate by adding services.', 'Build an estimate →'],
+        ['unicode', 'Unicode fonts', 'Type any text and copy it in bold, italic, gothic, bubbles and 20+ styles for Instagram, TikTok or WhatsApp bios, posts and names.', 'Create text →'],
+        ['png', 'Convert to PNG', 'Turn JPG, WEBP, GIF or SVG images into PNG, resize them, remove a solid background to make it transparent and trim the edges. Nothing gets uploaded.', 'Convert images →'],
       ],
+    },
+    unicode: {
+      titulo: 'Unicode fonts: text generator for Instagram and social media',
+      desc: 'Free Unicode text generator: type your text and copy it in bold, italic, gothic, bubbles and more styles for Instagram, TikTok and WhatsApp.',
+      kicker: 'Free tool',
+      h1: 'Unicode fonts',
+      lead: 'Type some text and copy it in the style you like. It works in bios, posts, profile names and messages on Instagram, TikTok, WhatsApp, X and more, because they aren’t fonts: they’re special characters.',
+      campo: 'Your text',
+      ejemplo: 'Type your text here',
+      inicial: 'AIRON Studio',
+      copiar: 'Copy',
+      copiado: 'Copied ✓',
+      limpiar: 'Clear',
+      estilos: 'styles',
+      consejoTitulo: 'Keep in mind',
+      consejos: [
+        'Screen readers (used by blind people) may read these characters oddly: use them to highlight, not for long texts.',
+        'Instagram and Google search don’t always find them: keep your name in regular letters somewhere.',
+        'Some styles have no accents or numbers of their own: they’re shown as close as possible.',
+      ],
+      nombres: {
+        negrita: 'Bold', cursiva: 'Italic', negritaCursiva: 'Bold italic', sans: 'Sans', sansNegrita: 'Sans bold', sansCursiva: 'Sans italic', sansNegritaCursiva: 'Sans bold italic', escritura: 'Script', escrituraNegrita: 'Bold script', gotica: 'Gothic', goticaNegrita: 'Bold gothic', doble: 'Double-struck', mono: 'Monospace', ancha: 'Wide', circulos: 'Circles', circulosNegros: 'Black circles', cuadros: 'Squares', cuadrosNegros: 'Black squares', versalitas: 'Small caps', superindice: 'Superscript', invertida: 'Upside down', tachada: 'Strikethrough', subrayada: 'Underline', dobleSubrayado: 'Double underline', barrada: 'Slashed',
+      },
+    },
+    png: {
+      titulo: 'Convert image to PNG online for free — remove solid background',
+      desc: 'Convert JPG, WEBP, GIF or SVG images to PNG for free, resize them, remove a solid background to make it transparent and trim edges. No uploads.',
+      kicker: 'Free tool',
+      h1: 'Convert to PNG',
+      lead: 'Turn your images into PNG, with a transparent background if you need it. Everything is processed in your browser: your files are never uploaded to any server.',
+      soltar: 'Drop your images here',
+      o: 'or',
+      elegir: 'Choose files',
+      formatos: 'JPG, WEBP, GIF, BMP, SVG or PNG · You can add several at once.',
+      ajustes: 'Settings',
+      tamano: 'Size',
+      tamanos: [['original', 'Original'], ['ancho', 'Max width']],
+      anchoMax: 'Max width (px)',
+      fondo: 'Remove solid background',
+      fondoAyuda: 'Great for logos, signatures or drawings on a white or plain background. Tap the image to pick the color to remove.',
+      color: 'Color to remove',
+      tolerancia: 'Tolerance',
+      suavizado: 'Soft edges',
+      recortar: 'Trim transparent edges',
+      vista: 'Preview',
+      cuadros: 'The grey checkerboard is the transparent area.',
+      descargar: 'Download PNG',
+      descargarTodo: 'Download all',
+      quitar: 'Remove',
+      vaciar: 'Remove all',
+      procesando: 'Processing…',
+      original: 'Original',
+      resultado: 'PNG',
+      error: 'This file couldn’t be opened. Try JPG, PNG, WEBP, GIF, BMP or SVG.',
+      privacidad: 'Private: images are processed on your device and never leave it.',
+      limite: 'Removing complex backgrounds (photos of people or objects) needs artificial intelligence; this tool removes plain, single-color backgrounds.',
     },
     diseno: {
       titulo: 'Design rate guide 2026 — Creative services fees in Argentina',
@@ -1312,7 +1428,7 @@ function paginaCalculadora(l) {
   });
 }
 
-// Página que reúne las herramientas de tarifarios
+// Página que reúne las herramientas
 function paginaTarifarios(l) {
   const T = TXT[l];
   const P = T.tarifarios;
@@ -1339,7 +1455,7 @@ function paginaTarifarios(l) {
     <div class="wrap page-head-in">
       <div>
         <span class="kicker mono">${P.kicker}</span>
-        <h1 class="page-title">${P.h1}</h1>
+        <h1 class="page-title page-title--md">${P.h1}</h1>
       </div>
       <p class="lead">${P.lead}</p>
     </div>
@@ -1470,6 +1586,132 @@ function paginaTarifarioDiseno(l) {
         <p class="nota">${D.nota}</p>
         <p class="nota calc-sinjs">${D.sinJs}</p>
       </aside>
+    </div>
+  </section>
+`,
+  });
+}
+
+// Cabecera común de las herramientas nuevas
+function cabeceraHerramienta(H) {
+  return `<section class="page-head">
+    <div class="wrap page-head-in">
+      <div>
+        <span class="kicker mono">${H.kicker}</span>
+        <h1 class="page-title page-title--md">${H.h1}</h1>
+      </div>
+      <p class="lead">${H.lead}</p>
+    </div>
+  </section>`;
+}
+const datosHerramienta = (l, H, ruta) => ({
+  '@type': 'WebApplication',
+  name: H.h1,
+  description: H.desc,
+  url: `${SITIO.url}${ruta}`,
+  applicationCategory: 'DesignApplication',
+  operatingSystem: 'Web',
+  inLanguage: TXT[l].htmlLang,
+  offers: { '@type': 'Offer', price: 0, priceCurrency: 'ARS' },
+  provider: { '@id': `${SITIO.url}/#estudio` },
+});
+
+// Letras Unicode: los estilos se calculan en el navegador (main.js)
+const ESTILOS_UNICODE = ['negrita', 'cursiva', 'negritaCursiva', 'sans', 'sansNegrita', 'sansCursiva', 'sansNegritaCursiva', 'escritura', 'escrituraNegrita', 'gotica', 'goticaNegrita', 'doble', 'mono', 'ancha', 'circulos', 'circulosNegros', 'cuadros', 'cuadrosNegros', 'versalitas', 'superindice', 'invertida', 'tachada', 'subrayada', 'dobleSubrayado', 'barrada'];
+function paginaUnicode(l) {
+  const U = TXT[l].unicode;
+  const R = RUTAS[l];
+  const estilos = ESTILOS_UNICODE.map(
+    (id) => `<li class="uni-estilo" data-estilo="${id}">
+          <span class="uni-nombre mono">${esc(U.nombres[id])}</span>
+          <output class="uni-resultado" for="uni-texto"></output>
+          <button type="button" class="uni-copiar">${U.copiar}</button>
+        </li>`
+  ).join('\n        ');
+  return pagina(l, {
+    clave: 'unicode',
+    titulo: U.titulo,
+    activo: 'tarifario',
+    descripcion: U.desc,
+    imagen: `/img/og/inicio-${l}.jpg`,
+    datos: datosHerramienta(l, U, R.unicode),
+    cuerpo: `
+  ${cabeceraHerramienta(U)}
+  <section class="seccion seccion--top">
+    <div class="wrap uni" data-copiado="${esc(U.copiado)}" data-copiar="${esc(U.copiar)}">
+      <div class="uni-entrada">
+        <div class="campo">
+          <label for="uni-texto" class="mono">${U.campo}</label>
+          <textarea id="uni-texto" rows="2" maxlength="500" placeholder="${esc(U.ejemplo)}" spellcheck="false">${esc(U.inicial)}</textarea>
+        </div>
+        <div class="uni-barra"><span class="mono uni-cuenta">${ESTILOS_UNICODE.length} ${U.estilos}</span><button type="button" class="uni-limpiar">${U.limpiar}</button></div>
+      </div>
+      <ul class="uni-lista">
+        ${estilos}
+      </ul>
+      <p class="nota calc-sinjs">${TXT[l].murales.calc.sinJs}</p>
+      <aside class="uni-consejos">
+        <span class="kicker mono">${U.consejoTitulo}</span>
+        <ul>${U.consejos.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
+      </aside>
+    </div>
+  </section>
+`,
+  });
+}
+
+// Convertir a PNG: todo se procesa en el navegador (main.js)
+function paginaPng(l) {
+  const P = TXT[l].png;
+  const R = RUTAS[l];
+  const tamanos = P.tamanos.map(([v, t]) => `<label class="tar-pill"><input type="radio" name="tamano" value="${v}"${v === 'original' ? ' checked' : ''}><span>${esc(t)}</span></label>`).join('');
+  const textos = { descargar: P.descargar, quitar: P.quitar, procesando: P.procesando, original: P.original, resultado: P.resultado, error: P.error };
+  return pagina(l, {
+    clave: 'png',
+    titulo: P.titulo,
+    activo: 'tarifario',
+    descripcion: P.desc,
+    imagen: `/img/og/inicio-${l}.jpg`,
+    datos: datosHerramienta(l, P, R.png),
+    cuerpo: `
+  ${cabeceraHerramienta(P)}
+  <section class="seccion seccion--top">
+    <div class="wrap png" data-textos="${esc(JSON.stringify(textos))}">
+      <div class="png-panel">
+        <label class="png-zona" for="png-archivos">
+          <span class="png-zona-titulo">${P.soltar}</span>
+          <span class="png-zona-o mono">${P.o}</span>
+          <span class="btn btn-dark">${P.elegir}</span>
+          <span class="nota">${P.formatos}</span>
+          <input id="png-archivos" class="oculto" type="file" accept="image/*,.svg" multiple>
+        </label>
+        <fieldset class="png-ajustes">
+          <legend class="calc-legend">${P.ajustes}</legend>
+          <div class="tar-grupo"><span class="mono png-etiqueta">${P.tamano}</span><div class="tar-pills">${tamanos}</div></div>
+          <div class="campo png-ancho"><label for="png-ancho" class="mono">${P.anchoMax}</label><input id="png-ancho" name="ancho" type="number" inputmode="numeric" min="16" max="8000" step="1" value="1080" disabled></div>
+          <label class="calc-check"><input type="checkbox" name="fondo"> <span>${P.fondo}</span></label>
+          <div class="png-fondo" hidden>
+            <p class="nota">${P.fondoAyuda}</p>
+            <div class="png-fondo-campos">
+              <div class="campo"><label for="png-color" class="mono">${P.color}</label><input id="png-color" name="color" type="color" value="#ffffff"></div>
+              <div class="campo"><label for="png-tolerancia" class="mono">${P.tolerancia} <output for="png-tolerancia">12</output></label><input id="png-tolerancia" name="tolerancia" type="range" min="0" max="60" step="1" value="12"></div>
+              <div class="campo"><label for="png-suavizado" class="mono">${P.suavizado} <output for="png-suavizado">10</output></label><input id="png-suavizado" name="suavizado" type="range" min="0" max="40" step="1" value="10"></div>
+            </div>
+          </div>
+          <label class="calc-check"><input type="checkbox" name="recortar"> <span>${P.recortar}</span></label>
+        </fieldset>
+        <p class="nota png-privado">${P.privacidad}</p>
+        <p class="nota">${P.limite}</p>
+      </div>
+      <div class="png-resultados">
+        <div class="png-barra" hidden>
+          <span class="kicker mono">${P.vista}</span>
+          <div class="png-barra-botones"><button type="button" class="btn btn-accent png-todas">${P.descargarTodo}</button><button type="button" class="tar-vaciar png-vaciar">${P.vaciar}</button></div>
+        </div>
+        <p class="nota png-cuadros" hidden>${P.cuadros}</p>
+        <ul class="png-lista" aria-live="polite"></ul>
+        <p class="nota calc-sinjs">${TXT[l].murales.calc.sinJs}</p>
+      </div>
     </div>
   </section>
 `,
@@ -1780,6 +2022,8 @@ for (const l of IDIOMAS) {
     [R.tarifarios, paginaTarifarios(l)],
     [R.calculadora, paginaCalculadora(l)],
     [R.tarifarioDiseno, paginaTarifarioDiseno(l)],
+    [R.unicode, paginaUnicode(l)],
+    [R.png, paginaPng(l)],
     [R.estudio, estudio(l, proyectos)],
     [R.contacto, contacto(l)],
   ];
