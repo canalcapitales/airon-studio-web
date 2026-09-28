@@ -1,0 +1,25 @@
+{
+  "fuente": "Tarifario Mural 2026 — comunidad de muralistas de Argentina",
+  "actualizado": "2026",
+  "moneda": "ARS",
+  "nota": "Honorarios del artista por m². No incluyen materiales, elevación, asistencia, viáticos ni seguros.",
+  "tramos": [
+    { "hasta": 10,  "simple": { "A": 112385, "B": 86450, "C": 66500 }, "complejo": { "A": 168578, "B": 129675, "C": 99750 } },
+    { "hasta": 30,  "simple": { "A": 89908,  "B": 69160, "C": 53200 }, "complejo": { "A": 143291, "B": 110224, "C": 79800 } },
+    { "hasta": 50,  "simple": { "A": 67431,  "B": 51870, "C": "B" },   "complejo": { "A": 101147, "B": 77805,  "C": "B" } },
+    { "hasta": 100, "simple": { "A": 56192,  "B": 43225, "C": "B" },   "complejo": { "A": 84289,  "B": 64837,  "C": "B" } },
+    { "hasta": 300, "simple": { "A": 39335,  "B": 25935, "C": "B" },   "complejo": { "A": 59002,  "B": 38902,  "C": "B" } },
+    { "hasta": 500, "simple": { "A": 28096,  "B": "A",   "C": "A" },   "complejo": { "A": 42144,  "B": "A",    "C": "A" } }
+  ],
+  "megamural": {
+    "desde": 500,
+    "artista": 0.20,
+    "produccion": 0.15,
+    "boceto": 0.10
+  },
+  "boceto": { "min": 0.10, "max": 0.15 },
+  "adaptacion": 0.03,
+  "evento": 0.20,
+  "jornadaAsistente": 300000,
+  "pago": { "adelanto": 0.5, "final": 0.5 }
+}

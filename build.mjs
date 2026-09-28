@@ -45,7 +45,7 @@ const TXT = {
       h1: 'Murales con identidad',
       lead: 'Diseñamos y pintamos murales para locales, oficinas y marcas. Cada pieza parte de la identidad de quien la encarga —su logo, sus colores, su historia— para convertir una pared en el mejor cartel del lugar.',
       presupuesto: 'Pedí tu presupuesto →',
-      verCaso: 'Ver Blend David',
+      calcular: 'Calculá el costo ↓',
       serviciosKicker: 'Qué pintamos',
       serviciosTitulo: 'Del frente al salón',
       servicios: [
@@ -80,6 +80,63 @@ const TXT = {
         ['¿Hacen graffiti?', 'Sí, como una estética más: letras con carácter, color y energía urbana, diseñadas a medida para tu marca y siempre en paredes con autorización de sus dueños.'],
         ['¿En qué zonas trabajan?', 'Tenemos base en Buenos Aires y pintamos en CABA, La Plata y alrededores. Para otras ciudades, escribinos y lo vemos.'],
       ],
+      calc: {
+        kicker: 'Calculadora',
+        titulo: '¿Cuánto cuesta tu mural?',
+        lead: 'Una estimación orientativa según el Tarifario Mural 2026 de la comunidad de muralistas de Argentina. Cargá las medidas, elegí las opciones y mirá el resultado al instante.',
+        medidas: '1. Medidas de la pared',
+        ancho: 'Ancho (m)',
+        alto: 'Alto (m)',
+        superficie: 'Superficie',
+        cliente: '2. Tipo de cliente',
+        clientes: [
+          ['A', 'Grandes empresas', 'Más de 20 empleados, agencias publicitarias, instituciones o espacios de mayor impacto.'],
+          ['B', 'Pymes y comercios', 'Pymes y pequeños comercios, particulares de medianos y grandes ingresos, ONG, instituciones de mediano impacto.'],
+          ['C', 'Organizaciones y particulares', 'Organizaciones barriales sin fines de lucro, particulares de pocos y medianos ingresos, espacios de gestión independiente.'],
+        ],
+        diseno: '3. Tipo de diseño',
+        disenos: [
+          ['simple', 'Simple', 'Formas planas, pocos colores, letras o fondos.'],
+          ['complejo', 'Complejo', 'Figuras, volumen, degradés, mucho detalle.'],
+        ],
+        boceto: '4. Diseño del mural',
+        bocetos: [
+          ['propio', 'Diseño de AIRON Studio', 'Creamos el boceto desde tu identidad (+10 % a 15 %).'],
+          ['adaptar', 'Adaptar un diseño que ya tengo', 'Ajustamos tu diseño al espacio (+3 %).'],
+          ['listo', 'Pintar un diseño final que ya tengo', 'Sin costo de diseño.'],
+        ],
+        extras: '5. Extras',
+        evento: 'Es para un evento o una acción publicitaria (+20 %)',
+        asistencia: 'Jornadas de asistencia',
+        asistenciaAyuda: 'Jornada de 8 h de un asistente, sin viáticos.',
+        resultado: 'Estimación',
+        filas: {
+          tramo: 'Tramo',
+          categoria: 'Categoría aplicada',
+          valorM2: 'Valor por m²',
+          pintura: 'Honorarios de pintura',
+          minimo: 'Se aplica el mínimo del tramo anterior: una pared más grande no puede costar menos que la más grande del tramo previo.',
+          evento: 'Evento (+20 %)',
+          boceto: 'Boceto (10 % a 15 %)',
+          adaptacion: 'Adaptación del diseño (3 %)',
+          asistencia: 'Asistencia',
+          total: 'Total estimado',
+          pago: 'Forma de pago sugerida: 50 % de adelanto y 50 % al terminar.',
+        },
+        // {de}, {a}, {d}, {h} y {n} se reemplazan en el navegador
+        pasaA: 'Para esta superficie, la categoría {de} se cotiza como {a}.',
+        tramoDesde: 'de {d} a {h} m²',
+        tramoHasta: 'hasta {h} m²',
+        jornada: '{n} jornada',
+        jornadas: '{n} jornadas',
+        vacio: 'Cargá el ancho y el alto de la pared para ver la estimación.',
+        mega: 'Más de 500 m² es un megamural: se presupuesta con equipo de producción (honorarios del artista 20 %, producción 15 % y boceto 10 % sobre el costo total de la obra). Escribinos y lo armamos juntos.',
+        noIncluye: 'No incluye materiales, elevación (andamio o plataforma), viáticos ni seguros: se suman en el presupuesto final, después del relevamiento.',
+        fuente: 'Valores orientativos del Tarifario Mural 2026 de la comunidad de muralistas de Argentina, en pesos argentinos.',
+        pedir: 'Pedir presupuesto con estos datos →',
+        sinJs: 'Para ver la estimación, activá JavaScript en tu navegador.',
+        mensaje: 'Hola, quiero un presupuesto para un mural.',
+      },
       ctaTitulo: '¿Tenés una pared que pide un mural?',
       nav: 'Murales',
       ctaProyecto: '¿Querés un mural así para tu marca?',
@@ -154,7 +211,7 @@ const TXT = {
       h1: 'Murals with identity',
       lead: 'We design and paint murals for stores, offices and brands. Every piece starts from the identity of whoever commissions it —their logo, their colors, their story— to turn a wall into the best sign in the place.',
       presupuesto: 'Get a quote →',
-      verCaso: 'See Blend David',
+      calcular: 'Estimate the cost ↓',
       serviciosKicker: 'What we paint',
       serviciosTitulo: 'From the street to the room',
       servicios: [
@@ -189,6 +246,63 @@ const TXT = {
         ['Do you do graffiti?', 'Yes, as one more style: lettering with character, color and urban energy, designed for your brand and always on walls authorized by their owners.'],
         ['Where do you work?', 'We are based in Buenos Aires and paint in the city, La Plata and the surrounding area. For other cities, get in touch and we’ll figure it out.'],
       ],
+      calc: {
+        kicker: 'Calculator',
+        titulo: 'How much does your mural cost?',
+        lead: 'An approximate estimate based on the 2026 Mural Rate Guide by Argentina’s muralist community. Enter the measurements, pick the options and see the result instantly.',
+        medidas: '1. Wall measurements',
+        ancho: 'Width (m)',
+        alto: 'Height (m)',
+        superficie: 'Surface',
+        cliente: '2. Client type',
+        clientes: [
+          ['A', 'Large companies', 'More than 20 employees, advertising agencies, high-impact institutions or spaces.'],
+          ['B', 'SMEs and stores', 'SMEs and small stores, middle- and high-income individuals, NGOs, medium-impact institutions.'],
+          ['C', 'Organizations and individuals', 'Non-profit community organizations, low- and middle-income individuals, independent spaces.'],
+        ],
+        diseno: '3. Design type',
+        disenos: [
+          ['simple', 'Simple', 'Flat shapes, few colors, lettering or backgrounds.'],
+          ['complejo', 'Complex', 'Figures, volume, gradients, lots of detail.'],
+        ],
+        boceto: '4. Mural design',
+        bocetos: [
+          ['propio', 'Designed by AIRON Studio', 'We create the sketch from your identity (+10% to 15%).'],
+          ['adaptar', 'Adapt a design I already have', 'We fit your design to the space (+3%).'],
+          ['listo', 'Paint a final design I already have', 'No design fee.'],
+        ],
+        extras: '5. Extras',
+        evento: 'It’s for an event or an advertising action (+20%)',
+        asistencia: 'Assistant days',
+        asistenciaAyuda: 'One assistant, 8-hour day, travel not included.',
+        resultado: 'Estimate',
+        filas: {
+          tramo: 'Size range',
+          categoria: 'Category applied',
+          valorM2: 'Rate per m²',
+          pintura: 'Painting fees',
+          minimo: 'The previous range’s minimum applies: a larger wall can’t cost less than the largest wall of the previous range.',
+          evento: 'Event (+20%)',
+          boceto: 'Sketch (10% to 15%)',
+          adaptacion: 'Design adaptation (3%)',
+          asistencia: 'Assistance',
+          total: 'Estimated total',
+          pago: 'Suggested payment: 50% upfront and 50% on completion.',
+        },
+        // {de}, {a}, {d}, {h} and {n} are replaced in the browser
+        pasaA: 'For this surface, category {de} is quoted as {a}.',
+        tramoDesde: '{d} to {h} m²',
+        tramoHasta: 'up to {h} m²',
+        jornada: '{n} day',
+        jornadas: '{n} days',
+        vacio: 'Enter the width and height of the wall to see the estimate.',
+        mega: 'Over 500 m² is a mega-mural: it’s quoted with a production team (artist fees 20%, production 15% and sketch 10% of the total cost of the work). Get in touch and we’ll put it together.',
+        noIncluye: 'Materials, lifting equipment (scaffolding or platform), travel and insurance are not included: they’re added to the final quote after the site visit.',
+        fuente: 'Approximate values from the 2026 Mural Rate Guide by Argentina’s muralist community, in Argentine pesos.',
+        pedir: 'Request a quote with these details →',
+        sinJs: 'To see the estimate, please enable JavaScript in your browser.',
+        mensaje: 'Hi, I’d like a quote for a mural.',
+      },
       ctaTitulo: 'Got a wall that needs a mural?',
       nav: 'Murals',
       ctaProyecto: 'Want a mural like this for your brand?',
@@ -255,6 +369,8 @@ const CAT_IDS = Object.keys(TXT.es.categorias);
 // ---------- datos de proyectos por idioma ----------
 const BASE = JSON.parse(readFileSync('src/data/proyectos.json', 'utf8'));
 const EN = JSON.parse(readFileSync('src/data/proyectos.en.json', 'utf8'));
+// Valores del Tarifario Mural (se actualizan en este archivo)
+const TARIFARIO = JSON.parse(readFileSync('src/data/tarifario-murales.json', 'utf8'));
 
 function proyectosEn(l) {
   if (l === 'es') return BASE;
@@ -812,6 +928,82 @@ function detalle(l, proyectos, p, i) {
   });
 }
 
+// Calculadora de murales: el formulario se arma acá y el cálculo lo hace main.js con los valores del tarifario
+function calculadora(l) {
+  const C = TXT[l].murales.calc;
+  const radios = (nombre, opciones, marcada) =>
+    opciones
+      .map(
+        ([valor, titulo, texto]) => `<label class="calc-opcion">
+            <input type="radio" name="${nombre}" value="${valor}"${valor === marcada ? ' checked' : ''}>
+            <span class="calc-opcion-titulo">${nombre === 'cliente' ? `<span class="calc-letra">${valor}</span> ` : ''}${esc(titulo)}</span>
+            <span class="calc-opcion-texto">${esc(texto)}</span>
+          </label>`
+      )
+      .join('\n          ');
+  // Textos que usa el navegador para escribir el resultado
+  const textos = { ...C.filas, pasaA: C.pasaA, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, asistencia: C.asistencia };
+  return `<section class="seccion seccion--borde" id="calculadora">
+    <div class="wrap">
+      <div class="seccion-head">
+        <div>
+          <span class="kicker mono">${C.kicker}</span>
+          <h2 class="h2">${C.titulo}</h2>
+        </div>
+        <p class="lead">${C.lead}</p>
+      </div>
+      <form class="calc" data-tarifario="${esc(JSON.stringify(TARIFARIO))}" data-textos="${esc(JSON.stringify(textos))}" data-contacto="${RUTAS[l].contacto}">
+        <div class="calc-campos">
+          <fieldset class="calc-grupo">
+            <legend class="calc-legend">${C.medidas}</legend>
+            <div class="calc-medidas">
+              <div class="campo"><label for="calc-ancho" class="mono">${C.ancho}</label><input id="calc-ancho" name="ancho" type="number" inputmode="decimal" min="0.5" max="200" step="0.1" placeholder="8.5"></div>
+              <span class="calc-por" aria-hidden="true">×</span>
+              <div class="campo"><label for="calc-alto" class="mono">${C.alto}</label><input id="calc-alto" name="alto" type="number" inputmode="decimal" min="0.5" max="100" step="0.1" placeholder="5.5"></div>
+            </div>
+            <p class="calc-superficie mono">${C.superficie}: <output name="m2" for="calc-ancho calc-alto">—</output></p>
+          </fieldset>
+          <fieldset class="calc-grupo">
+            <legend class="calc-legend">${C.cliente}</legend>
+            <div class="calc-opciones calc-opciones--3">
+          ${radios('cliente', C.clientes, 'B')}
+            </div>
+          </fieldset>
+          <fieldset class="calc-grupo">
+            <legend class="calc-legend">${C.diseno}</legend>
+            <div class="calc-opciones">
+          ${radios('diseno', C.disenos, 'simple')}
+            </div>
+          </fieldset>
+          <fieldset class="calc-grupo">
+            <legend class="calc-legend">${C.boceto}</legend>
+            <div class="calc-opciones calc-opciones--3">
+          ${radios('boceto', C.bocetos, 'propio')}
+            </div>
+          </fieldset>
+          <fieldset class="calc-grupo">
+            <legend class="calc-legend">${C.extras}</legend>
+            <label class="calc-check"><input type="checkbox" name="evento"> <span>${C.evento}</span></label>
+            <div class="campo calc-asistencia">
+              <label for="calc-asistencia" class="mono">${C.asistencia}</label>
+              <input id="calc-asistencia" name="asistencia" type="number" inputmode="numeric" min="0" max="60" step="1" value="0">
+              <span class="nota">${C.asistenciaAyuda}</span>
+            </div>
+          </fieldset>
+        </div>
+        <aside class="calc-resultado" aria-labelledby="calc-titulo-resultado">
+          <span class="kicker mono" id="calc-titulo-resultado">${C.resultado}</span>
+          <div class="calc-salida" aria-live="polite"><p class="calc-vacio">${C.vacio}</p></div>
+          <p class="nota">${C.noIncluye}</p>
+          <a class="btn btn-accent btn-lg btn-block calc-pedir" href="${RUTAS[l].contacto}?tipo=mural">${C.pedir}</a>
+          <p class="nota calc-fuente">${C.fuente}</p>
+          <p class="nota calc-sinjs">${C.sinJs}</p>
+        </aside>
+      </form>
+    </div>
+  </section>`;
+}
+
 function murales(l, proyectos) {
   const T = TXT[l];
   const M = T.murales;
@@ -872,7 +1064,7 @@ function murales(l, proyectos) {
         <p class="lead">${M.lead}</p>
         <div class="btn-row">
           <a class="btn btn-accent btn-lg" href="${presupuesto}">${M.presupuesto}</a>
-          <a class="btn btn-outline btn-lg" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verCaso}</a>
+          <a class="btn btn-outline btn-lg" href="#calculadora">${M.calcular}</a>
         </div>
       </div>
       <div class="murales-head-img" data-vt="p-${caso.slug}">${img(caso.portada, { alt: T.portadaDe(caso.titulo), sizes: '(min-width: 900px) 45vw, 100vw', eager: true, dims: [1280, 1001] })}</div>
@@ -929,7 +1121,9 @@ function murales(l, proyectos) {
     </div>
   </section>
 
-  <section class="seccion">
+  ${calculadora(l)}
+
+  <section class="seccion seccion--borde">
     <div class="wrap faq-grid">
       <div>
         <span class="kicker mono">${M.faqKicker}</span>
