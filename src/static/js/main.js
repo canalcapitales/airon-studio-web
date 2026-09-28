@@ -128,10 +128,18 @@ function textosQueSeArman() {
     const final = el.textContent;
     const inicio = performance.now();
     el.classList.add('armando');
+    // Los lectores de pantalla leen el texto real; las letras al azar son solo visuales
+    el.textContent = '';
+    const real = document.createElement('span');
+    real.className = 'oculto';
+    real.textContent = final;
+    const visual = document.createElement('span');
+    visual.setAttribute('aria-hidden', 'true');
+    el.append(real, visual);
     const paso = (t) => {
       const p = Math.min((t - inicio) / 700, 1);
       const fijos = Math.floor(final.length * p);
-      el.textContent = [...final]
+      visual.textContent = [...final]
         .map((c, i) => (i < fijos || c === ' ' || c === '·' ? c : signos[Math.floor(Math.random() * signos.length)]))
         .join('');
       if (p < 1) requestAnimationFrame(paso);
