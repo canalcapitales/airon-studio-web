@@ -1593,7 +1593,20 @@ function filtros() {
       }
     });
     pills.forEach((p) => p.setAttribute('aria-pressed', String(p.dataset.filter === cat)));
+    // En pantallas chicas la fila de categorías se desliza: centrar la elegida para que se vea
+    const fila = pills[0].parentElement, activa = pills.find((p) => p.dataset.filter === cat);
+    if (fila.scrollWidth > fila.clientWidth) {
+      const r = activa.getBoundingClientRect(), f = fila.getBoundingClientRect();
+      fila.scrollLeft += r.left - f.left - (f.width - r.width) / 2;
+    }
     contador.textContent = visibles;
+    // Categoría sin proyectos todavía: aviso con enlace a Contacto (con ese tipo de proyecto elegido)
+    const vacio = document.querySelector('.sin-proyectos');
+    if (vacio) {
+      vacio.hidden = visibles > 0;
+      const enlace = vacio.querySelector('a');
+      enlace.href = `${enlace.dataset.contacto}?tipo=${{ aplicada: 'grafica', urbano: 'mural' }[cat] || cat}`;
+    }
     const url = new URL(location.href);
     if (cat === 'todos') url.searchParams.delete('categoria');
     else url.searchParams.set('categoria', cat);

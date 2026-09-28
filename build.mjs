@@ -20,7 +20,7 @@ const SITIO = {
 const IDIOMAS = ['es', 'en'];
 const FUNDACION = 2015;
 const anio = new Date().getFullYear();
-const OPCIONES_CLAVE = ['branding', 'grafica', 'web', 'musical', 'motion', 'mural', 'foto', 'publicidad', 'otro'];
+const OPCIONES_CLAVE = ['branding', 'grafica', 'web', 'sistemas', 'musical', 'motion', 'mural', 'foto', 'publicidad', 'otro'];
 const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Food', 'Blend David', 'Flexy', 'Trust Fund'];
 
 // Direcciones de cada página en cada idioma
@@ -335,15 +335,15 @@ const TXT = {
       mensaje: 'Hola, me interesa anunciar mi marca en la marquesina de aironstudio.com.ar. ¿Me pasan información?',
     },
     heroKicker: ['Estudio de diseño multimedial', 'Buenos Aires · desde 2015'],
-    heroLead: 'Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
+    heroLead: 'Branding, diseño gráfico, diseño web, sistemas de gestión, gráfica musical, motion, arte urbano y fotografía analógica.',
     verProyectos: 'Ver proyectos →', hablemos: 'Contacto', disciplinasAria: 'Disciplinas',
     indice: 'Índice', verGrilla: 'Ver con imágenes y filtros →',
     serviciosKicker: 'Servicios', queHacemos: 'Qué hacemos', ctaInicio: '¿Tenés un proyecto en mente?', escribinos: 'Escribinos →',
     numerosTitulo: 'El estudio en números',
     numeros: ['Años de estudio', 'Proyectos en el portafolio', 'Identidades de marca', 'Marcas y medios', 'Nuestro mural más grande', 'Disciplinas creativas'],
-    portafolio: 'Portafolio', proyectos: 'Proyectos', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos',
-    listadoLead: 'Identidad, gráfica, diseño web, motion, arte urbano y fotografía. Filtrá por categoría para ver cada disciplina.',
-    listadoDesc: 'Portafolio de AIRON Studio: identidad de marca, gráfica, diseño web, gráfica musical, motion, arte urbano y fotografía.',
+    portafolio: 'Portafolio', proyectos: 'Proyectos', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
+    listadoLead: 'Identidad, gráfica, diseño web, sistemas de gestión, motion, arte urbano y fotografía. Filtrá por categoría para ver cada disciplina.',
+    listadoDesc: 'Portafolio de AIRON Studio: identidad de marca, gráfica, diseño web, sistemas de gestión, gráfica musical, motion, arte urbano y fotografía.',
     portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar',
     videoDe: (t) => `Video del proyecto ${t}`, volver: '← Volver a proyectos', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
     ctaProyecto: '¿Querés ver todas las imágenes?', verBehance: 'Ver en Behance', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
@@ -389,15 +389,16 @@ const TXT = {
     contactoDesc: 'Contanos tu proyecto: marca, piezas gráficas, web, motion, mural o lo que tengas en mente.',
     asunto: 'Nuevo mensaje desde la web de AIRON Studio', noCompletar: 'No completar este campo',
     campos: { nombre: 'Nombre', email: 'Email', tipo: 'Tipo de proyecto', mensaje: 'Mensaje' },
-    opciones: ['Branding e identidad', 'Diseño gráfico', 'Diseño web', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Publicidad en la web', 'Otro'],
+    opciones: ['Branding e identidad', 'Diseño gráfico', 'Diseño web', 'Sistema de gestión', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Publicidad en la web', 'Otro'],
     enviar: 'Enviar mensaje →', privacidad: 'Tus datos solo se usan para responderte.',
     gracias: { titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' },
     volverInicio: 'Volver al inicio',
-    categorias: { branding: 'Branding', aplicada: 'Gráfica aplicada', web: 'Diseño web', musical: 'Gráfica musical', motion: 'Motion', urbano: 'Arte urbano', foto: 'Fotografía' },
+    categorias: { branding: 'Branding', aplicada: 'Gráfica aplicada', web: 'Diseño web', sistemas: 'Sistemas de gestión', musical: 'Gráfica musical', motion: 'Motion', urbano: 'Arte urbano', foto: 'Fotografía' },
     servicios: [
       ['branding', 'Identidad & branding', 'Logos, sistemas visuales y manuales de marca.'],
       ['aplicada', 'Diseño gráfico', 'Catálogos, flyers, piezas impresas y ploteo vehicular.'],
       ['web', 'Diseño web', 'Sitios a medida: rápidos, seguros y pensados para el celular.'],
+      ['sistemas', 'Sistemas de gestión', 'Plataformas a medida para administrar clientes, turnos, stock y ventas.'],
       ['', 'Comunicación digital', 'Redes sociales y campañas.'],
       ['musical', 'Gráfica musical', 'Portadas, banners y covers para Spotify.'],
       ['motion', 'Motion graphics', 'Animación para TV y redes.'],
@@ -708,15 +709,15 @@ const TXT = {
       mensaje: 'Hi, I’m interested in advertising my brand on the aironstudio.com.ar banner. Could you send me more information?',
     },
     heroKicker: ['Multimedia design studio', 'Buenos Aires · since 2015'],
-    heroLead: 'Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
+    heroLead: 'Branding, graphic design, web design, management systems, music artwork, motion, street art and analog photography.',
     verProyectos: 'See our work →', hablemos: 'Contact', disciplinasAria: 'Disciplines',
     indice: 'Index', verGrilla: 'Browse with images and filters →',
     serviciosKicker: 'Services', queHacemos: 'What we do', ctaInicio: 'Have a project in mind?', escribinos: 'Get in touch →',
     numerosTitulo: 'The studio in numbers',
     numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Brands and media', 'Our largest mural', 'Creative disciplines'],
-    portafolio: 'Portfolio', proyectos: 'Work', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects',
-    listadoLead: 'Identity, graphic design, web, motion, street art and photography. Filter by category to explore each discipline.',
-    listadoDesc: 'AIRON Studio portfolio: brand identity, graphic design, web design, music artwork, motion, street art and photography.',
+    portafolio: 'Portfolio', proyectos: 'Work', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects', sinProyectos: 'We are preparing the projects in this category.', sinProyectosCta: 'Tell us what you need →',
+    listadoLead: 'Identity, graphic design, web, management systems, motion, street art and photography. Filter by category to explore each discipline.',
+    listadoDesc: 'AIRON Studio portfolio: brand identity, graphic design, web design, management systems, music artwork, motion, street art and photography.',
     portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge',
     videoDe: (t) => `Video of the project ${t}`, volver: '← Back to work', fichaAria: 'Project details', imagenesAria: 'Project images',
     ctaProyecto: 'Want to see every image?', verBehance: 'View on Behance', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
@@ -762,15 +763,16 @@ const TXT = {
     contactoDesc: 'Tell us about your project: a brand, graphic pieces, a website, motion, a mural or whatever you have in mind.',
     asunto: 'New message from the AIRON Studio website (EN)', noCompletar: 'Do not fill in this field',
     campos: { nombre: 'Name', email: 'Email', tipo: 'Project type', mensaje: 'Message' },
-    opciones: ['Branding and identity', 'Graphic design', 'Web design', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Advertising on the site', 'Other'],
+    opciones: ['Branding and identity', 'Graphic design', 'Web design', 'Management system', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Advertising on the site', 'Other'],
     enviar: 'Send message →', privacidad: 'Your details are only used to reply to you.',
     gracias: { titulo: 'Message sent', h1: 'Thank you!', texto: "We received your message. We'll get back to you shortly." },
     volverInicio: 'Back to home',
-    categorias: { branding: 'Branding', aplicada: 'Graphic design', web: 'Web design', musical: 'Music artwork', motion: 'Motion', urbano: 'Street art', foto: 'Photography' },
+    categorias: { branding: 'Branding', aplicada: 'Graphic design', web: 'Web design', sistemas: 'Management systems', musical: 'Music artwork', motion: 'Motion', urbano: 'Street art', foto: 'Photography' },
     servicios: [
       ['branding', 'Identity & branding', 'Logos, visual systems and brand manuals.'],
       ['aplicada', 'Graphic design', 'Catalogs, flyers, print pieces and vehicle wraps.'],
       ['web', 'Web design', 'Custom websites: fast, secure and mobile-first.'],
+      ['sistemas', 'Management systems', 'Custom platforms to manage clients, bookings, stock and sales.'],
       ['', 'Digital communication', 'Social media and campaigns.'],
       ['musical', 'Music artwork', 'Album art, banners and Spotify covers.'],
       ['motion', 'Motion graphics', 'Animation for TV and social media.'],
@@ -1230,6 +1232,10 @@ function listado(l, proyectos) {
     <div class="wrap">
       <div class="grid-proyectos">
       ${cards}
+      </div>
+      <div class="sin-proyectos" hidden>
+        <p class="lead">${T.sinProyectos}</p>
+        <a class="link-arrow" data-contacto="${RUTAS[l].contacto}" href="${RUTAS[l].contacto}">${T.sinProyectosCta}</a>
       </div>
     </div>
   </section>
