@@ -25,8 +25,8 @@ const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Fo
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', png: '/herramientas/convertir-a-png/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', png: '/en/tools/png-converter/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/' },
+  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -37,7 +37,7 @@ const TXT = {
     lema: 'Diseño que construye marcas, ideas y experiencias',
     descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
-    nav: { inicio: 'Inicio', proyectos: 'Proyectos', estudio: 'Estudio', contacto: 'Hablemos' },
+    nav: { inicio: 'Inicio', proyectos: 'Proyectos', estudio: 'Nosotros', contacto: 'Hablemos' },
     idiomaAria: 'Idioma', temaOscuro: 'Cambiar a modo oscuro',
     // ---------- herramientas (página que las reúne), tarifario de diseño, textos Unicode y PNG ----------
     tarifarios: {
@@ -350,7 +350,7 @@ const TXT = {
     proyectoDe: 'Proyecto de AIRON Studio.',
     descProyecto: (cats) => `${cats} por AIRON Studio, estudio de diseño multimedial en Buenos Aires.`,
     visor: { aria: 'Visor de imágenes', cerrar: 'Cerrar', ant: 'Imagen anterior', sig: 'Imagen siguiente' },
-    estudioTitulo: 'Estudio', elEstudio: 'El estudio', estudioH1: 'Diseño con mirada integral',
+    estudioTitulo: 'Nosotros', elEstudio: 'El estudio', estudioH1: 'Diseño con mirada integral',
     estudioDesc: 'AIRON Studio: estudio de diseño multimedial fundado en 2015 en Buenos Aires, liderado por Matías Gonzalez, con un equipo de diseñadores, ilustradores, programadores, muralistas y más.',
     cargoEstudio: 'Fundador y director del estudio',
     equipoKicker: 'Equipo',
@@ -410,7 +410,7 @@ const TXT = {
     lema: 'Design that builds brands, ideas and experiences',
     descripcion: 'Multimedia design studio based in Buenos Aires since 2015. Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
-    nav: { inicio: 'Home', proyectos: 'Work', estudio: 'Studio', contacto: "Let's talk" },
+    nav: { inicio: 'Home', proyectos: 'Work', estudio: 'About us', contacto: "Let's talk" },
     idiomaAria: 'Language', temaOscuro: 'Switch to dark mode',
     // ---------- rates hub and design rate guide ----------
     tarifarios: {
@@ -723,7 +723,7 @@ const TXT = {
     proyectoDe: 'A project by AIRON Studio.',
     descProyecto: (cats) => `${cats} by AIRON Studio, a multimedia design studio based in Buenos Aires.`,
     visor: { aria: 'Image viewer', cerrar: 'Close', ant: 'Previous image', sig: 'Next image' },
-    estudioTitulo: 'Studio', elEstudio: 'The studio', estudioH1: 'Design with an all-round vision',
+    estudioTitulo: 'About us', elEstudio: 'The studio', estudioH1: 'Design with an all-round vision',
     estudioDesc: 'AIRON Studio: a multimedia design studio founded in 2015 in Buenos Aires, led by Matías Gonzalez, with a team of designers, illustrators, developers, muralists and more.',
     cargoEstudio: 'Founder and studio director',
     equipoKicker: 'Team',
