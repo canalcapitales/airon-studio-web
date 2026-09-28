@@ -533,6 +533,99 @@ html:not(.js) .calc-salida { display: none; }
 }
 @media (max-width: 499px) { .calc-opciones { grid-template-columns: 1fr; } }
 
+/* ---------- tarifarios ---------- */
+.tar-hub { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.tar-hub-card { display: flex; flex-direction: column; gap: 18px; padding: 28px 0 8px; border-top: 2px solid var(--ink); text-decoration: none; }
+.tar-hub-titulo { font-family: var(--f-display); text-transform: uppercase; line-height: .95; font-size: clamp(44px, 5.4vw, 84px); transition: color .2s ease; }
+.tar-hub-texto { color: var(--texto-2); font-size: 18px; line-height: 1.55; max-width: 32em; }
+.tar-hub-card:hover .tar-hub-titulo { color: var(--hover); }
+@media (max-width: 899px) { .tar-hub { grid-template-columns: 1fr; } }
+
+.tar-credito { font-size: 14px; line-height: 1.5; color: var(--muted); }
+.tar-credito a { color: var(--ink); text-underline-offset: 3px; }
+.tar-credito a:hover { color: var(--hover); }
+.tar { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 400px); gap: 40px 56px; align-items: start; }
+.tar-main { display: flex; flex-direction: column; gap: 36px; min-width: 0; }
+.tar-controles { display: flex; flex-wrap: wrap; gap: 20px 40px; }
+.tar-grupo { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.tar-grupo legend { padding: 0; margin-bottom: 10px; color: var(--muted); }
+.tar-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.tar-pill { position: relative; cursor: pointer; }
+.tar-pill input { position: absolute; opacity: 0; pointer-events: none; }
+.tar-pill span { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid var(--ink); border-radius: 999px; font-weight: 500; }
+.tar-pill span b { font-family: var(--f-mono); font-size: 13px; }
+.tar-pill input:checked + span { background: var(--ink); color: var(--bg); }
+.tar-pill input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
+.tar-refs { margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 24px; }
+.tar-ref { border-top: 1px solid var(--ink); padding-top: 14px; }
+.tar-ref dt { color: var(--muted); font-size: 12px; }
+.tar-ref dd { margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; }
+.tar-ref-valor { font-family: var(--f-display); font-size: clamp(30px, 2.6vw, 40px); line-height: 1; color: var(--acento); }
+.tar-ref-texto { font-size: 14px; line-height: 1.45; color: var(--muted); }
+.tar-filtros { display: flex; flex-direction: column; gap: 12px; position: sticky; top: var(--header-h); z-index: 5; background: var(--bg); padding: 12px 0; border-bottom: 1px solid var(--ink); }
+.tar-buscar { max-width: 420px; }
+.tar-buscar input { min-height: 48px; }
+.tar-rubro + .tar-rubro { margin-top: 40px; }
+.tar-rubro[hidden], .tar-servicio[hidden] { display: none; }
+.tar-rubro-titulo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin: 0 0 8px; font-family: var(--f-display); font-weight: 400; font-size: clamp(30px, 3vw, 44px); text-transform: uppercase; }
+.tar-rubro-titulo .mono { font-size: 12px; color: var(--muted); }
+.tar-servicios { list-style: none; margin: 0; padding: 0; }
+.tar-servicio { display: grid; grid-template-columns: minmax(0, 1fr) 84px 140px auto; gap: 8px 20px; align-items: center; padding: 16px 0; border-top: 1px solid var(--placeholder); }
+.tar-servicio-texto { display: flex; flex-direction: column; gap: 4px; }
+.tar-nombre { font-weight: 600; font-size: 17px; line-height: 1.3; }
+.tar-desc { font-size: 14px; line-height: 1.45; color: var(--muted); }
+.tar-unidad { font-size: 11px; color: var(--muted); }
+.tar-precio { font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+.tar-precio[data-pct] { font-weight: 500; color: var(--muted); font-size: 14px; }
+.tar-agregar { min-height: 40px; padding: 0 16px; border: 1px solid var(--ink); border-radius: 999px; background: transparent; color: var(--ink); font: 600 14px/1 var(--f-texto); cursor: pointer; white-space: nowrap; }
+.tar-agregar:hover { border-color: var(--hover); color: var(--hover); }
+.en-presupuesto .tar-agregar { background: var(--acento); border-color: var(--acento); color: var(--sobre-acento); }
+.tar-sin { padding: 24px 0; color: var(--muted); }
+.tar-presupuesto { position: sticky; top: calc(var(--header-h) + 24px); max-height: calc(100vh - var(--header-h) - 48px); overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding: clamp(22px, 2.6vw, 32px); background: var(--bloque); color: var(--sobre-bloque); }
+.tar-pres-cabeza { display: flex; justify-content: space-between; align-items: center; }
+.tar-pres-cabeza .kicker { color: var(--muted-oscuro); margin: 0; }
+.tar-contador { display: inline-flex; align-items: center; justify-content: center; min-width: 28px; height: 28px; border-radius: 999px; background: var(--acento); color: var(--sobre-acento); font-size: 13px; }
+.tar-vacio { color: var(--muted-oscuro); font-size: 16px; line-height: 1.5; }
+.tar-lineas { list-style: none; margin: 0; padding: 0; }
+.tar-linea { padding: 12px 0; border-top: 1px solid var(--linea-oscura); display: flex; flex-direction: column; gap: 10px; }
+.tar-linea-cabeza { display: flex; align-items: flex-start; gap: 10px; }
+.tar-linea-nombre { flex: 1; }
+.tar-linea-nombre { font-size: 15px; line-height: 1.35; font-weight: 500; }
+.tar-linea-monto { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tar-linea-controles { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 13px; color: var(--muted-oscuro); }
+.tar-cantidad { display: inline-flex; align-items: center; gap: 10px; color: var(--sobre-bloque); }
+.tar-cantidad button, .tar-quitar { width: 32px; height: 32px; border-radius: 999px; border: 1px solid var(--muted-oscuro); background: transparent; color: var(--sobre-bloque); font: 500 17px/1 var(--f-texto); cursor: pointer; }
+.tar-cantidad button:hover, .tar-quitar:hover { border-color: var(--acento); color: var(--acento); }
+.tar-quitar { flex-shrink: 0; width: 28px; height: 28px; font-size: 15px; margin-top: -3px; }
+.tar-adapt { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.tar-adapt input { accent-color: var(--acento); }
+.tar-totales { margin: 0; }
+.tar-totales:empty { display: none; }
+.tar-opciones, .tar-datos { display: flex; flex-direction: column; gap: 12px; padding-top: 14px; border-top: 1px solid var(--linea-oscura); }
+.tar-presupuesto .campo label { color: var(--muted-oscuro); }
+.tar-presupuesto .campo input, .tar-presupuesto .campo textarea { background: transparent; color: var(--sobre-bloque); border-color: var(--muted-oscuro); min-height: 48px; }
+.tar-presupuesto .campo textarea { min-height: 88px; }
+.tar-presupuesto .btn-outline { border-color: var(--sobre-bloque); color: var(--sobre-bloque); }
+.tar-presupuesto .btn-outline:hover { background: var(--sobre-bloque); color: var(--bloque); opacity: 1; }
+.tar-presupuesto .btn:disabled { opacity: .45; cursor: not-allowed; }
+.tar-presupuesto .nota { color: var(--muted-oscuro); }
+.tar-presupuesto .calc-check { font-size: 15px; }
+.tar-vaciar { align-self: flex-start; background: none; border: 0; padding: 0; color: var(--muted-oscuro); font: 400 14px/1.4 var(--f-texto); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.tar-vaciar:disabled { display: none; }
+@media (max-width: 1099px) { .tar-refs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 899px) {
+  .tar { grid-template-columns: 1fr; }
+  .tar-presupuesto { position: static; max-height: none; }
+  .tar-filtros { top: var(--header-h); }
+}
+@media (max-width: 599px) {
+  .tar-servicio { grid-template-columns: 1fr auto; }
+  .tar-servicio-texto { grid-column: 1 / -1; }
+  .tar-unidad { grid-row: 2; }
+  .tar-precio { grid-row: 3; grid-column: 1; text-align: left; font-size: 17px; }
+  .tar-agregar { grid-row: 2 / span 2; grid-column: 2; }
+}
+
 /* ---------- sobre mí ---------- */
 .sobre-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 40px 64px; align-items: start; }
 .sobre-foto { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; background: var(--placeholder); }

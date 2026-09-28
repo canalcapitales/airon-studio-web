@@ -24,8 +24,8 @@ const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Fo
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', calculadora: '/calculadora-murales/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', calculadora: '/en/mural-calculator/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/' },
+  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/tarifarios/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/rates/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -38,6 +38,82 @@ const TXT = {
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
     nav: { inicio: 'Inicio', proyectos: 'Proyectos', estudio: 'Estudio', contacto: 'Hablemos' },
     idiomaAria: 'Idioma', temaOscuro: 'Cambiar a modo oscuro',
+    // ---------- tarifarios (página que reúne las herramientas) y tarifario de diseño ----------
+    tarifarios: {
+      nav: 'Tarifarios',
+      titulo: 'Tarifarios para trabajos creativos',
+      desc: 'Herramientas gratuitas para calcular y presupuestar murales y trabajos de diseño en Argentina, con descarga del presupuesto en PDF.',
+      kicker: 'Herramientas gratuitas',
+      h1: 'Tarifarios',
+      lead: 'Herramientas para calcular y presupuestar trabajos creativos en Argentina. Pensadas para clientes y para colegas: elegí, sumá y descargá tu presupuesto en PDF.',
+      herramientas: [
+        ['calculadora', 'Tarifario mural', 'Calculá el costo de un mural por m² según el Tarifario Mural 2026 de la comunidad de muralistas: medidas, tipo de cliente, diseño, evento y viáticos.', 'Calcular un mural →'],
+        ['tarifarioDiseno', 'Tarifario de diseño', '118 servicios de diseño en 15 rubros —identidad, web, redes, editorial, audiovisual y más— con valores por tipo de cliente. Armá el presupuesto sumando servicios.', 'Armar un presupuesto →'],
+      ],
+    },
+    diseno: {
+      titulo: 'Tarifario de diseño 2026 — Aranceles de servicios creativos',
+      desc: 'Tarifario de diseño 2026: 118 servicios creativos y digitales con valores por tipo de cliente. Armá tu presupuesto y descargalo en PDF.',
+      kicker: 'Herramienta gratuita · Tarifario 2026',
+      h1: 'Tarifario de diseño',
+      lead: 'Aranceles de servicios creativos y digitales para Argentina. Elegí el tipo de cliente, sumá servicios al presupuesto y descargalo en PDF o imagen.',
+      credito: 'Valores del <a href="{url}" target="_blank" rel="noopener noreferrer">Tarifario de la Cámara de Diseñadores de Rafaela y la región ↗</a> ({version}; herramienta original de {desarrollo}). Adaptado por AIRON Studio con permiso de la Cámara.',
+      cliente: 'Tipo de cliente',
+      clientes: [['0', 'A', 'Empresa'], ['1', 'B', 'PyME'], ['2', 'C', 'Particular']],
+      moneda: 'Moneda',
+      monedas: [['ARS', '$ ARS'], ['USD', 'US$ USD']],
+      dolar: '1 USD = {v}',
+      referencias: [
+        ['hora', 'Hora de trabajo', 'Diseño, asesoramiento, consultoría o supervisión.'],
+        ['adaptacion', 'Adaptaciones', 'Del valor de la pieza original.'],
+        ['gremio', 'Gremio', 'Bonificación sugerida para colegas y agencias.'],
+        ['anticipo', 'Anticipo', 'Mínimo sugerido para confirmar el trabajo.'],
+      ],
+      buscar: 'Buscar servicio',
+      buscarEjemplo: 'Ej.: logotipo, flyer, web…',
+      todos: 'Todos',
+      servicios: 'servicios',
+      agregar: '+ Agregar',
+      agregado: 'Agregado',
+      adicional: '{p} % adicional',
+      adicionalAyuda: 'Se calcula sobre los servicios web del presupuesto.',
+      sinResultados: 'No hay servicios con esa búsqueda.',
+      unidades: { Proyecto: 'Proyecto', Pieza: 'Pieza', Unidad: 'Unidad', Mes: 'Mes', 'Página': 'Página', 'Sesión': 'Sesión', Hora: 'Hora' },
+      presupuesto: 'Presupuesto',
+      vacio: 'Agregá servicios desde el tarifario con "+ Agregar".',
+      cantidad: 'Cantidad',
+      quitar: 'Quitar',
+      adaptacion: 'Adaptación (50 %)',
+      gremioCheck: 'Precio de gremio (−20 %)',
+      descuento: 'Descuento (%)',
+      subtotal: 'Subtotal',
+      gremioFila: 'Gremio (−20 %)',
+      descuentoFila: 'Descuento ({p} %)',
+      total: 'Total',
+      anticipoFila: 'Anticipo sugerido (30 %)',
+      tituloCampo: 'Título del presupuesto',
+      tituloEjemplo: 'Ej.: Identidad y web para Kaizen',
+      clienteCampo: 'Cliente',
+      notasCampo: 'Notas',
+      descripciones: 'Incluir las descripciones de los servicios en el PDF',
+      vaciar: 'Vaciar presupuesto',
+      sinJs: 'Para armar el presupuesto, activá JavaScript en tu navegador.',
+      doc: {
+        titulo: 'Presupuesto',
+        numero: 'N.º',
+        fecha: 'Fecha',
+        para: 'Para',
+        servicio: 'Servicio',
+        importe: 'Importe',
+        notas: 'Notas',
+        pagina: 'Página {n} de {t}',
+        validez: 'Validez: 30 días desde la fecha de emisión.',
+        archivo: 'presupuesto-diseno-AIRON',
+        fuente: 'Valores de referencia del Tarifario de la Cámara de Diseñadores de Rafaela y la región ({version}).',
+      },
+      nota: 'Precios de referencia, estimados y con margen de negociación. No incluyen gastos de materialización (impresión, corte, bordado, colocación, etc.) ni la entrega de archivos editables u originales.',
+      idiomaNota: '',
+    },
     murales: {
       titulo: 'Murales para marcas y locales',
       desc: 'Murales para locales, oficinas y marcas en Buenos Aires y La Plata: fachadas, interiores, persianas y pintura en vivo, diseñados desde la identidad de cada cliente.',
@@ -181,7 +257,6 @@ const TXT = {
         muralesBoton: 'Conocé nuestros murales →',
       },
       nav: 'Murales',
-      navTarifario: 'Tarifario mural',
       ctaProyecto: '¿Querés un mural así para tu marca?',
       botonProyecto: 'Pedí tu mural',
     },
@@ -247,6 +322,82 @@ const TXT = {
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
     nav: { inicio: 'Home', proyectos: 'Work', estudio: 'Studio', contacto: "Let's talk" },
     idiomaAria: 'Language', temaOscuro: 'Switch to dark mode',
+    // ---------- rates hub and design rate guide ----------
+    tarifarios: {
+      nav: 'Rates',
+      titulo: 'Rate guides for creative work',
+      desc: 'Free tools to estimate and quote murals and design work in Argentina, with PDF download of the estimate.',
+      kicker: 'Free tools',
+      h1: 'Rates',
+      lead: 'Tools to estimate and quote creative work in Argentina. Made for clients and for fellow creatives: pick, add up and download your estimate as a PDF.',
+      herramientas: [
+        ['calculadora', 'Mural rates', 'Estimate the cost of a mural per m² based on the 2026 Mural Rate Guide by Argentina’s muralist community: measurements, client type, design, events and travel.', 'Estimate a mural →'],
+        ['tarifarioDiseno', 'Design rates', '118 design services in 15 areas —identity, web, social media, editorial, motion and more— with rates by client type. Build an estimate by adding services.', 'Build an estimate →'],
+      ],
+    },
+    diseno: {
+      titulo: 'Design rate guide 2026 — Creative services fees in Argentina',
+      desc: '2026 design rate guide: 118 creative and digital services with fees by client type. Build your estimate and download it as a PDF.',
+      kicker: 'Free tool · 2026 rate guide',
+      h1: 'Design rates',
+      lead: 'Fees for creative and digital services in Argentina. Pick the client type, add services to the estimate and download it as a PDF or image.',
+      credito: 'Rates from the <a href="{url}" target="_blank" rel="noopener noreferrer">Rate Guide by the Designers’ Chamber of Rafaela and region ↗</a> ({version}; original tool by {desarrollo}). Adapted by AIRON Studio with the Chamber’s permission.',
+      cliente: 'Client type',
+      clientes: [['0', 'A', 'Company'], ['1', 'B', 'SME'], ['2', 'C', 'Individual']],
+      moneda: 'Currency',
+      monedas: [['ARS', '$ ARS'], ['USD', 'US$ USD']],
+      dolar: '1 USD = {v}',
+      referencias: [
+        ['hora', 'Working hour', 'Design, advice, consulting or supervision.'],
+        ['adaptacion', 'Adaptations', 'Of the original piece’s fee.'],
+        ['gremio', 'Trade', 'Suggested discount for fellow designers and agencies.'],
+        ['anticipo', 'Deposit', 'Suggested minimum to confirm the job.'],
+      ],
+      buscar: 'Search services',
+      buscarEjemplo: 'E.g.: logotipo, flyer, web…',
+      todos: 'All',
+      servicios: 'services',
+      agregar: '+ Add',
+      agregado: 'Added',
+      adicional: '{p}% extra',
+      adicionalAyuda: 'Calculated on the web services in the estimate.',
+      sinResultados: 'No services match your search.',
+      unidades: { Proyecto: 'Project', Pieza: 'Piece', Unidad: 'Unit', Mes: 'Month', 'Página': 'Page', 'Sesión': 'Session', Hora: 'Hour' },
+      presupuesto: 'Estimate',
+      vacio: 'Add services from the rate guide with "+ Add".',
+      cantidad: 'Quantity',
+      quitar: 'Remove',
+      adaptacion: 'Adaptation (50%)',
+      gremioCheck: 'Trade price (−20%)',
+      descuento: 'Discount (%)',
+      subtotal: 'Subtotal',
+      gremioFila: 'Trade (−20%)',
+      descuentoFila: 'Discount ({p}%)',
+      total: 'Total',
+      anticipoFila: 'Suggested deposit (30%)',
+      tituloCampo: 'Estimate title',
+      tituloEjemplo: 'E.g.: Identity and website for Kaizen',
+      clienteCampo: 'Client',
+      notasCampo: 'Notes',
+      descripciones: 'Include service descriptions in the PDF',
+      vaciar: 'Clear estimate',
+      sinJs: 'To build the estimate, please enable JavaScript in your browser.',
+      doc: {
+        titulo: 'Estimate',
+        numero: 'No.',
+        fecha: 'Date',
+        para: 'For',
+        servicio: 'Service',
+        importe: 'Amount',
+        notas: 'Notes',
+        pagina: 'Page {n} of {t}',
+        validez: 'Valid for 30 days from the issue date.',
+        archivo: 'design-estimate-AIRON',
+        fuente: 'Reference rates from the Rate Guide by the Designers’ Chamber of Rafaela and region ({version}).',
+      },
+      nota: 'Reference prices, estimated and open to negotiation. They don’t include production costs (printing, cutting, embroidery, installation, etc.) or delivery of editable/original files.',
+      idiomaNota: 'Service names and descriptions are shown in Spanish, as in the original rate guide.',
+    },
     murales: {
       titulo: 'Murals for brands and venues',
       desc: 'Murals for stores, offices and brands in Buenos Aires and La Plata: façades, interiors, shutters and live painting, designed from each client’s identity.',
@@ -390,7 +541,6 @@ const TXT = {
         muralesBoton: 'See our murals →',
       },
       nav: 'Murals',
-      navTarifario: 'Mural rates',
       ctaProyecto: 'Want a mural like this for your brand?',
       botonProyecto: 'Get your mural',
     },
@@ -457,6 +607,8 @@ const BASE = JSON.parse(readFileSync('src/data/proyectos.json', 'utf8'));
 const EN = JSON.parse(readFileSync('src/data/proyectos.en.json', 'utf8'));
 // Valores del Tarifario Mural (se actualizan en este archivo)
 const TARIFARIO = JSON.parse(readFileSync('src/data/tarifario-murales.json', 'utf8'));
+// Tarifario de diseño (Cámara de Diseñadores de Rafaela, adaptado con permiso)
+const TARIFARIO_DISENO = JSON.parse(readFileSync('src/data/tarifario-diseno.json', 'utf8'));
 
 function proyectosEn(l) {
   if (l === 'es') return BASE;
@@ -605,7 +757,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
         <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
         <a class="nav-link" href="${R.murales}"${actual('murales')}>${T.murales.nav}</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
-        <a class="nav-link nav-tarifario" href="${R.calculadora}"${actual('tarifario')}>${T.murales.navTarifario}</a>
+        <a class="nav-link nav-tarifario" href="${R.tarifarios}"${actual('tarifario')}>${T.tarifarios.nav}</a>
         <a class="nav-link nav-cta" href="${R.contacto}"${actual('contacto')}>${T.nav.contacto}</a>
         <div class="nav-redes only-menu">${redes()}</div>
       </nav>
@@ -1162,6 +1314,172 @@ function paginaCalculadora(l) {
   });
 }
 
+// Página que reúne las herramientas de tarifarios
+function paginaTarifarios(l) {
+  const T = TXT[l];
+  const P = T.tarifarios;
+  const R = RUTAS[l];
+  const tarjetas = P.herramientas
+    .map(
+      ([ruta, titulo, texto, boton], i) => `<a class="tar-hub-card reveal" href="${R[ruta]}">
+          <span class="mono num">${num(i)}</span>
+          <span class="tar-hub-titulo">${esc(titulo)}</span>
+          <span class="tar-hub-texto">${esc(texto)}</span>
+          <span class="link-arrow">${esc(boton)}</span>
+        </a>`
+    )
+    .join('\n        ');
+  return pagina(l, {
+    clave: 'tarifarios',
+    titulo: P.titulo,
+    activo: 'tarifario',
+    descripcion: P.desc,
+    imagen: `/img/og/blend-david-${l}.jpg`,
+    datos: { '@type': 'CollectionPage', name: P.titulo, description: P.desc, url: `${SITIO.url}${R.tarifarios}`, inLanguage: T.htmlLang },
+    cuerpo: `
+  <section class="page-head">
+    <div class="wrap page-head-in">
+      <div>
+        <span class="kicker mono">${P.kicker}</span>
+        <h1 class="page-title">${P.h1}</h1>
+      </div>
+      <p class="lead">${P.lead}</p>
+    </div>
+  </section>
+  <section class="seccion seccion--top">
+    <div class="wrap tar-hub">
+        ${tarjetas}
+    </div>
+  </section>
+`,
+  });
+}
+
+// Tarifario de diseño: lista de servicios con precios por tipo de cliente y generador de presupuesto (main.js)
+function paginaTarifarioDiseno(l) {
+  const T = TXT[l];
+  const D = T.diseno;
+  const R = RUTAS[l];
+  const TD = TARIFARIO_DISENO;
+  const idioma = l === 'en' ? 'en-US' : 'es-AR';
+  const pesos = (v) => new Intl.NumberFormat(idioma, { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(v);
+  const inicial = 1; // PyME
+  const credito = D.credito.replace('{url}', TD.url).replace('{version}', esc(TD.version)).replace('{desarrollo}', esc(TD.desarrollo));
+  const radios = (nombre, opciones, marcada) =>
+    opciones
+      .map(([valor, letra, texto]) => `<label class="tar-pill"><input type="radio" name="${nombre}" value="${valor}"${valor === marcada ? ' checked' : ''}><span>${texto ? `<b>${letra}</b> ${esc(texto)}` : esc(letra)}</span></label>`)
+      .join('');
+  const refValor = { hora: pesos(TD.horaTrabajo), adaptacion: `${TD.adaptacion * 100} %`, gremio: `${TD.gremio * 100} %`, anticipo: `${TD.anticipo * 100} %` };
+  const referencias = D.referencias
+    .map(([id, titulo, texto]) => `<div class="tar-ref"><dt class="mono">${esc(titulo)}</dt><dd><span class="tar-ref-valor" data-ref="${id}">${refValor[id].replace(' %', l === 'en' ? '%' : ' %')}</span><span class="tar-ref-texto">${esc(texto)}</span></dd></div>`)
+    .join('');
+  const filtros = [`<button type="button" class="pill" data-rubro="todos" aria-pressed="true">${D.todos}<span class="mono">${TD.categorias.reduce((n, c) => n + c.servicios.length, 0)}</span></button>`]
+    .concat(TD.categorias.map((c) => `<button type="button" class="pill" data-rubro="${c.id}" aria-pressed="false">${esc(c.nombre)}<span class="mono">${c.servicios.length}</span></button>`))
+    .join('\n          ');
+  const unidad = (u) => D.unidades[u] || u;
+  const rubros = TD.categorias
+    .map(
+      (c) => `<section class="tar-rubro" data-rubro="${c.id}">
+          <h2 class="tar-rubro-titulo">${esc(c.nombre)} <span class="mono">${c.servicios.length} ${D.servicios}</span></h2>
+          <ul class="tar-servicios">
+            ${c.servicios
+              .map((s) => {
+                const precio = s.porcentaje
+                  ? `<span class="tar-precio" data-pct="${s.porcentaje}" title="${esc(D.adicionalAyuda)}">${D.adicional.replace('{p}', s.porcentaje * 100)}</span>`
+                  : `<span class="tar-precio" data-precios="${s.precios.join(',')}">${pesos(s.precios[inicial])}</span>`;
+                return `<li class="tar-servicio" data-id="${s.id}" data-texto="${esc(`${s.nombre} ${s.desc} ${c.nombre}`.toLowerCase())}">
+              <div class="tar-servicio-texto"><span class="tar-nombre">${esc(s.nombre)}</span>${s.desc ? `<span class="tar-desc">${esc(s.desc)}</span>` : ''}</div>
+              <span class="tar-unidad mono">${esc(unidad(s.unidad))}</span>
+              ${precio}
+              <button type="button" class="tar-agregar" data-id="${s.id}">${D.agregar}</button>
+            </li>`;
+              })
+              .join('\n            ')}
+          </ul>
+        </section>`
+    )
+    .join('\n        ');
+  // Textos que usa el navegador
+  const textos = { ...D, credito: undefined, referencias: undefined, clientes: D.clientes.map(([, l2, t]) => `${l2} · ${t}`), unidades: D.unidades, generando: T.murales.calc.generando };
+  return pagina(l, {
+    clave: 'tarifarioDiseno',
+    titulo: D.titulo,
+    activo: 'tarifario',
+    descripcion: D.desc,
+    imagen: `/img/og/inicio-${l}.jpg`,
+    datos: {
+      '@type': 'WebApplication',
+      name: D.h1,
+      description: D.desc,
+      url: `${SITIO.url}${R.tarifarioDiseno}`,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      inLanguage: T.htmlLang,
+      offers: { '@type': 'Offer', price: 0, priceCurrency: 'ARS' },
+      provider: { '@id': `${SITIO.url}/#estudio` },
+    },
+    cuerpo: `
+  <section class="page-head">
+    <div class="wrap page-head-in">
+      <div>
+        <span class="kicker mono">${D.kicker}</span>
+        <h1 class="page-title page-title--md">${D.h1}</h1>
+      </div>
+      <div class="calc-intro">
+        <p class="lead">${D.lead}</p>
+        <p class="tar-credito">${credito}</p>
+        ${D.idiomaNota ? `<p class="tar-credito">${D.idiomaNota}</p>` : ''}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion--top" id="tarifario">
+    <div class="wrap tar" data-tarifario="${esc(JSON.stringify({ ...TD, categorias: undefined }))}" data-textos="${esc(JSON.stringify(textos))}">
+      <div class="tar-main">
+        <div class="tar-controles">
+          <fieldset class="tar-grupo"><legend class="mono">${D.cliente}</legend><div class="tar-pills">${radios('cliente', D.clientes, String(inicial))}</div></fieldset>
+          <fieldset class="tar-grupo"><legend class="mono">${D.moneda}</legend><div class="tar-pills">${radios('moneda', D.monedas.map(([v, t]) => [v, t]), 'ARS')}</div><span class="nota">${D.dolar.replace('{v}', pesos(TD.dolar))}</span></fieldset>
+        </div>
+        <dl class="tar-refs">${referencias}</dl>
+        <div class="tar-filtros">
+          <div class="campo tar-buscar"><label for="tar-buscar" class="mono">${D.buscar}</label><input id="tar-buscar" type="search" autocomplete="off" placeholder="${esc(D.buscarEjemplo)}"></div>
+          <div class="filtros-pills tar-rubros">
+          ${filtros}
+          </div>
+        </div>
+        <div class="tar-lista">
+        ${rubros}
+          <p class="tar-sin" hidden>${D.sinResultados}</p>
+        </div>
+      </div>
+      <aside class="tar-presupuesto" aria-labelledby="tar-pres-titulo">
+        <div class="tar-pres-cabeza"><span class="kicker mono" id="tar-pres-titulo">${D.presupuesto}</span><span class="tar-contador mono" aria-live="polite">0</span></div>
+        <div class="tar-items" aria-live="polite"><p class="tar-vacio">${D.vacio}</p></div>
+        <div class="tar-opciones">
+          <label class="calc-check"><input type="checkbox" name="gremio"> <span>${D.gremioCheck}</span></label>
+          <div class="campo"><label for="tar-descuento" class="mono">${D.descuento}</label><input id="tar-descuento" name="descuento" type="number" inputmode="numeric" min="0" max="100" step="1" value="0"></div>
+        </div>
+        <dl class="tar-totales"></dl>
+        <div class="tar-datos">
+          <div class="campo"><label for="tar-titulo" class="mono">${D.tituloCampo}</label><input id="tar-titulo" name="titulo" type="text" maxlength="90" autocomplete="off" placeholder="${esc(D.tituloEjemplo)}"></div>
+          <div class="campo"><label for="tar-cliente" class="mono">${D.clienteCampo}</label><input id="tar-cliente" name="clienteNombre" type="text" maxlength="80" autocomplete="off"></div>
+          <div class="campo"><label for="tar-notas" class="mono">${D.notasCampo}</label><textarea id="tar-notas" name="notas" rows="3" maxlength="600"></textarea></div>
+          <label class="calc-check"><input type="checkbox" name="descripciones" checked> <span>${D.descripciones}</span></label>
+        </div>
+        <div class="calc-botones">
+          <button type="button" class="btn btn-outline tar-bajar" data-formato="pdf" disabled>${T.murales.calc.descargarPdf}</button>
+          <button type="button" class="btn btn-outline tar-bajar" data-formato="png" disabled>${T.murales.calc.descargarImagen}</button>
+        </div>
+        <button type="button" class="tar-vaciar" disabled>${D.vaciar}</button>
+        <p class="nota">${D.nota}</p>
+        <p class="nota calc-sinjs">${D.sinJs}</p>
+      </aside>
+    </div>
+  </section>
+`,
+  });
+}
+
 function murales(l, proyectos) {
   const T = TXT[l];
   const M = T.murales;
@@ -1463,7 +1781,9 @@ for (const l of IDIOMAS) {
     [R.proyectos, listado(l, proyectos)],
     ...proyectos.map((p, i) => [rutaDe(l, 'proyecto', p.slug), detalle(l, proyectos, p, i)]),
     [R.murales, murales(l, proyectos)],
+    [R.tarifarios, paginaTarifarios(l)],
     [R.calculadora, paginaCalculadora(l)],
+    [R.tarifarioDiseno, paginaTarifarioDiseno(l)],
     [R.estudio, estudio(l, proyectos)],
     [R.contacto, contacto(l)],
   ];
