@@ -2,18 +2,19 @@
 
 Tareas para retomar. Cada una dice qué hace falta y quién lo hace.
 
-Web publicada: https://airon-studio-web.laionbeats.workers.dev (inglés: `/en/`)
+Web publicada: https://aironstudio.com.ar (inglés: `/en/`)
 
 ---
 
 ## 1. Dominio + email profesional
 
-- [ ] Comprar el dominio (sugerido: `aironstudio.com.ar` en nic.ar; opcional `aironstudio.com`).
-- [ ] Conectarlo en Cloudflare a la web.
+- [x] Comprar el dominio `aironstudio.com.ar` en nic.ar (**vence el 27/09/2027** — renovar antes).
+- [x] Conectarlo en Cloudflare a la web.
+- [x] Cambiar `url:` en `build.mjs` por la nueva dirección (para Google, el mapa del sitio y las imágenes para compartir).
+- [ ] Hacer que `www.aironstudio.com.ar` también funcione (que lleve a `aironstudio.com.ar`).
 - [ ] Crear el email `hola@aironstudio.com.ar` con **Cloudflare Email Routing** (gratis), reenviando a aironstudio.ar@gmail.com.
-- [ ] Cambiar `url:` en `build.mjs` por la nueva dirección (para Google, el mapa del sitio y las imágenes para compartir).
 
-**Qué hace falta de AIRON:** comprar el dominio y avisar cuál es.
+**Qué falta:** configurar `www` y el email `hola@` en Cloudflare.
 
 ## 2. Testimonios de clientes
 
