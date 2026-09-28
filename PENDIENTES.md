@@ -41,11 +41,10 @@ Web publicada: https://aironstudio.com.ar (inglés: `/en/`)
 
 ## 5. Google Search Console
 
-- [ ] Entrar a search.google.com/search-console → **Agregar propiedad → Prefijo de URL** con la dirección de la web.
-- [ ] Elegir el método **"Etiqueta HTML"** y copiar el código de `content="..."`.
-- [ ] Agregar la etiqueta a la web y enviar el mapa del sitio (`/sitemap.xml`).
+- [x] Propiedad de **Dominio** `aironstudio.com.ar` verificada con Cloudflare (registro TXT `google-site-verification`).
+- [x] Mapa del sitio enviado: `https://aironstudio.com.ar/sitemap.xml`. Los datos aparecen a los 2 o 3 días.
 
-**Qué hace falta de AIRON:** el código de verificación. Conviene hacerlo después de conectar el dominio (punto 1).
+**Hecho.** No hizo falta agregar código a la web.
 
 ## 6. Cuentas propias — no necesario por ahora
 
