@@ -24,8 +24,8 @@ const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Fo
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/' },
+  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', calculadora: '/calculadora-murales/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', calculadora: '/en/mural-calculator/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -44,8 +44,8 @@ const TXT = {
       kicker: 'Arte urbano · Murales',
       h1: 'Murales con identidad',
       lead: 'Diseñamos y pintamos murales para locales, oficinas y marcas. Cada pieza parte de la identidad de quien la encarga —su logo, sus colores, su historia— para convertir una pared en el mejor cartel del lugar.',
-      presupuesto: 'Pedí tu presupuesto →',
       calcular: 'Calculá el costo ↓',
+      verCaso: 'Ver Blend David',
       serviciosKicker: 'Qué pintamos',
       serviciosTitulo: 'Del frente al salón',
       servicios: [
@@ -101,7 +101,7 @@ const TXT = {
         ],
         boceto: '4. Diseño del mural',
         bocetos: [
-          ['propio', 'Diseño de AIRON Studio', 'Creamos el boceto desde tu identidad (+10 % a 15 %).'],
+          ['propio', 'Boceto propio del artista', 'El diseño se crea desde la identidad del cliente (+10 % a 15 %).'],
           ['adaptar', 'Adaptar un diseño que ya tengo', 'Ajustamos tu diseño al espacio (+3 %).'],
           ['listo', 'Pintar un diseño final que ya tengo', 'Sin costo de diseño.'],
         ],
@@ -168,7 +168,18 @@ const TXT = {
           archivo: 'presupuesto-mural-AIRON',
         },
       },
-      ctaTitulo: '¿Tenés una pared que pide un mural?',
+      pagina: {
+        titulo: 'Calculadora de murales 2026 — Tarifario Mural Argentina',
+        desc: 'Calculadora gratuita del costo de un mural según el Tarifario Mural 2026 de Argentina. Cargá medidas y opciones, y descargá el presupuesto en PDF.',
+        kicker: 'Herramienta gratuita · Tarifario Mural 2026',
+        h1: 'Calculadora de murales',
+        lead: 'Calculá cuánto cobrar (o cuánto cuesta) un mural según el Tarifario Mural 2026 de la comunidad de muralistas de Argentina. Cargá las medidas, elegí las opciones y descargá el presupuesto en PDF o imagen.',
+        compartir: 'Link directo para compartir la calculadora',
+        muralesKicker: 'AIRON Studio',
+        muralesTitulo: '¿Buscás quién pinte tu mural?',
+        muralesTexto: 'Diseñamos y pintamos murales para locales, oficinas y marcas, desde la identidad de cada cliente.',
+        muralesBoton: 'Conocé nuestros murales →',
+      },
       nav: 'Murales',
       ctaProyecto: '¿Querés un mural así para tu marca?',
       botonProyecto: 'Pedí tu mural',
@@ -241,8 +252,8 @@ const TXT = {
       kicker: 'Street art · Murals',
       h1: 'Murals with identity',
       lead: 'We design and paint murals for stores, offices and brands. Every piece starts from the identity of whoever commissions it —their logo, their colors, their story— to turn a wall into the best sign in the place.',
-      presupuesto: 'Get a quote →',
       calcular: 'Estimate the cost ↓',
+      verCaso: 'See Blend David',
       serviciosKicker: 'What we paint',
       serviciosTitulo: 'From the street to the room',
       servicios: [
@@ -298,7 +309,7 @@ const TXT = {
         ],
         boceto: '4. Mural design',
         bocetos: [
-          ['propio', 'Designed by AIRON Studio', 'We create the sketch from your identity (+10% to 15%).'],
+          ['propio', 'Original sketch by the artist', 'The design is created from the client’s identity (+10% to 15%).'],
           ['adaptar', 'Adapt a design I already have', 'We fit your design to the space (+3%).'],
           ['listo', 'Paint a final design I already have', 'No design fee.'],
         ],
@@ -365,7 +376,18 @@ const TXT = {
           archivo: 'mural-estimate-AIRON',
         },
       },
-      ctaTitulo: 'Got a wall that needs a mural?',
+      pagina: {
+        titulo: 'Mural cost calculator 2026 — Argentina Mural Rate Guide',
+        desc: 'Free mural cost calculator based on Argentina’s 2026 Mural Rate Guide. Enter measurements and options, and download the estimate as a PDF.',
+        kicker: 'Free tool · 2026 Mural Rate Guide',
+        h1: 'Mural calculator',
+        lead: 'Work out how much to charge for (or how much it costs to commission) a mural, based on the 2026 Mural Rate Guide by Argentina’s muralist community. Enter the measurements, pick the options and download the estimate as a PDF or image.',
+        compartir: 'Direct link to share the calculator',
+        muralesKicker: 'AIRON Studio',
+        muralesTitulo: 'Looking for someone to paint your mural?',
+        muralesTexto: 'We design and paint murals for stores, offices and brands, starting from each client’s identity.',
+        muralesBoton: 'See our murals →',
+      },
       nav: 'Murals',
       ctaProyecto: 'Want a mural like this for your brand?',
       botonProyecto: 'Get your mural',
@@ -991,8 +1013,10 @@ function detalle(l, proyectos, p, i) {
 }
 
 // Calculadora de murales: el formulario se arma acá y el cálculo lo hace main.js con los valores del tarifario
-function calculadora(l) {
+function calculadora(l, { compartir = false, titulo = true } = {}) {
   const C = TXT[l].murales.calc;
+  const P = TXT[l].murales.pagina;
+  const enlace = `${SITIO.url}${RUTAS[l].calculadora}`;
   const radios = (nombre, opciones, marcada) =>
     opciones
       .map(
@@ -1005,15 +1029,22 @@ function calculadora(l) {
       .join('\n          ');
   // Textos que usa el navegador para escribir el resultado
   const textos = { ...C.filas, pasaA: C.pasaA, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, doc: C.doc, generando: C.generando, noIncluye: C.noIncluye, noIncluyeConViaticos: C.noIncluyeConViaticos, fuente: C.fuente, viaticosTitulo: C.viaticos, jornadasObra: C.jornadasObra, viaticoDetalle: C.viaticoDetalle, delTotal: C.delTotal, personaUna: C.personaUna, personaVarias: C.personaVarias };
-  return `<section class="seccion seccion--borde" id="calculadora">
-    <div class="wrap">
-      <div class="seccion-head">
+  // En la página propia el título ya está arriba; en murales se muestra con el link para compartir
+  const cabecera = titulo
+    ? `<div class="seccion-head">
         <div>
           <span class="kicker mono">${C.kicker}</span>
           <h2 class="h2">${C.titulo}</h2>
         </div>
-        <p class="lead">${C.lead}</p>
-      </div>
+        <div class="calc-intro">
+          <p class="lead">${C.lead}</p>
+          ${compartir ? `<p class="calc-compartir mono">${P.compartir}: <a href="${RUTAS[l].calculadora}">${enlace.replace('https://', '')}</a></p>` : ''}
+        </div>
+      </div>`
+    : '';
+  return `<section class="seccion ${titulo ? 'seccion--borde' : 'seccion--top'}" id="calculadora">
+    <div class="wrap">
+      ${cabecera}
       <form class="calc" data-tarifario="${esc(JSON.stringify(TARIFARIO))}" data-textos="${esc(JSON.stringify(textos))}" data-contacto="${RUTAS[l].contacto}">
         <div class="calc-campos">
           <fieldset class="calc-grupo">
@@ -1077,13 +1108,63 @@ function calculadora(l) {
   </section>`;
 }
 
+// Página propia de la calculadora, para compartirla con clientes y colegas
+function paginaCalculadora(l) {
+  const T = TXT[l];
+  const P = T.murales.pagina;
+  const R = RUTAS[l];
+  return pagina(l, {
+    clave: 'calculadora',
+    titulo: P.titulo,
+    activo: 'murales',
+    descripcion: P.desc,
+    imagen: `/img/og/blend-david-${l}.jpg`,
+    datos: {
+      '@type': 'WebApplication',
+      name: P.h1,
+      description: P.desc,
+      url: `${SITIO.url}${R.calculadora}`,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      inLanguage: T.htmlLang,
+      offers: { '@type': 'Offer', price: 0, priceCurrency: 'ARS' },
+      provider: { '@id': `${SITIO.url}/#estudio` },
+    },
+    cuerpo: `
+  <section class="page-head">
+    <div class="wrap page-head-in">
+      <div>
+        <span class="kicker mono">${P.kicker}</span>
+        <h1 class="page-title page-title--md">${P.h1}</h1>
+      </div>
+      <p class="lead">${P.lead}</p>
+    </div>
+  </section>
+
+  ${calculadora(l, { titulo: false })}
+
+  <section class="seccion seccion--borde">
+    <div class="wrap calc-murales">
+      <div>
+        <span class="kicker mono">${P.muralesKicker}</span>
+        <h2 class="h2">${P.muralesTitulo}</h2>
+      </div>
+      <div class="calc-murales-texto">
+        <p class="lead">${P.muralesTexto}</p>
+        <a class="btn btn-dark btn-lg" href="${R.murales}">${P.muralesBoton}</a>
+      </div>
+    </div>
+  </section>
+`,
+  });
+}
+
 function murales(l, proyectos) {
   const T = TXT[l];
   const M = T.murales;
   const R = RUTAS[l];
   const urbanos = proyectos.filter((p) => p.categorias.includes('urbano'));
   const caso = proyectos.find((p) => p.slug === 'blend-david');
-  const presupuesto = `${R.contacto}?tipo=mural`;
   const servicios = M.servicios
     .map(([t, d], i) => `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`)
     .join('\n        ');
@@ -1136,13 +1217,15 @@ function murales(l, proyectos) {
         <h1 class="page-title page-title--md">${M.h1}</h1>
         <p class="lead">${M.lead}</p>
         <div class="btn-row">
-          <a class="btn btn-accent btn-lg" href="${presupuesto}">${M.presupuesto}</a>
-          <a class="btn btn-outline btn-lg" href="#calculadora">${M.calcular}</a>
+          <a class="btn btn-accent btn-lg" href="#calculadora">${M.calcular}</a>
+          <a class="btn btn-outline btn-lg" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verCaso}</a>
         </div>
       </div>
       <div class="murales-head-img" data-vt="p-${caso.slug}">${img(caso.portada, { alt: T.portadaDe(caso.titulo), sizes: '(min-width: 900px) 45vw, 100vw', eager: true, dims: [1280, 1001] })}</div>
     </div>
   </section>
+
+  ${calculadora(l, { compartir: true })}
 
   <section class="seccion seccion--borde">
     <div class="wrap servicios-grid">
@@ -1194,8 +1277,6 @@ function murales(l, proyectos) {
     </div>
   </section>
 
-  ${calculadora(l)}
-
   <section class="seccion seccion--borde">
     <div class="wrap faq-grid">
       <div>
@@ -1208,7 +1289,6 @@ function murales(l, proyectos) {
     </div>
   </section>
 
-  ${ctaBloque(l, M.ctaTitulo, presupuesto, M.presupuesto)}
 `,
   });
 }
@@ -1380,6 +1460,7 @@ for (const l of IDIOMAS) {
     [R.proyectos, listado(l, proyectos)],
     ...proyectos.map((p, i) => [rutaDe(l, 'proyecto', p.slug), detalle(l, proyectos, p, i)]),
     [R.murales, murales(l, proyectos)],
+    [R.calculadora, paginaCalculadora(l)],
     [R.estudio, estudio(l, proyectos)],
     [R.contacto, contacto(l)],
   ];

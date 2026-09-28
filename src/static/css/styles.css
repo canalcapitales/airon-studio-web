@@ -507,6 +507,13 @@ ul { padding: 0; list-style: none; }
 .calc-resultado .btn-outline { border-color: var(--sobre-bloque); color: var(--sobre-bloque); }
 .calc-resultado .btn-outline:hover { background: var(--sobre-bloque); color: var(--bloque); opacity: 1; }
 .calc-resultado .btn-outline:disabled { opacity: .6; cursor: progress; }
+.calc-intro { display: flex; flex-direction: column; gap: 12px; max-width: 36em; }
+.calc-compartir { font-size: 12px; color: var(--muted); text-transform: none; letter-spacing: .02em; }
+.calc-compartir a { color: var(--ink); text-underline-offset: 4px; overflow-wrap: anywhere; }
+.calc-compartir a:hover { color: var(--hover); }
+.calc-murales { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; align-items: end; }
+.calc-murales-texto { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+@media (max-width: 899px) { .calc-murales { grid-template-columns: 1fr; } }
 .js .calc-sinjs { display: none; }
 html:not(.js) .calc-salida { display: none; }
 @media (max-width: 1099px) { .calc-opciones--3 { grid-template-columns: 1fr; } }
