@@ -11,10 +11,10 @@ Web publicada: https://aironstudio.com.ar (inglés: `/en/`)
 - [x] Comprar el dominio `aironstudio.com.ar` en nic.ar (**vence el 27/09/2027** — renovar antes).
 - [x] Conectarlo en Cloudflare a la web.
 - [x] Cambiar `url:` en `build.mjs` por la nueva dirección (para Google, el mapa del sitio y las imágenes para compartir).
-- [ ] Hacer que `www.aironstudio.com.ar` también funcione (que lleve a `aironstudio.com.ar`).
-- [ ] Crear el email `hola@aironstudio.com.ar` con **Cloudflare Email Routing** (gratis), reenviando a aironstudio.ar@gmail.com.
+- [x] `www.aironstudio.com.ar` lleva a `aironstudio.com.ar` (regla de redirección en Cloudflare + "Always Use HTTPS" activado).
+- [ ] (Opcional) Crear un email con el dominio (nombre a elegir, por ejemplo `contacto@aironstudio.com.ar`) con **Cloudflare Email Routing** (gratis), reenviando a aironstudio.ar@gmail.com. No hace falta para la web: el formulario usa Formspree.
 
-**Qué falta:** configurar `www` y el email `hola@` en Cloudflare.
+**Qué falta:** solo el email opcional; elegir el nombre de la dirección.
 
 ## 2. Testimonios de clientes
 
