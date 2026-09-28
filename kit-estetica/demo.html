@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kit de estética AIRON — muestra</title>
+  <script src="tema-inicial.js"></script>
+  <link rel="stylesheet" href="estetica.css">
+  <script src="estetica.js" defer></script>
+  <style>
+    .demo-colores { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-top: 32px; }
+    .demo-colores div { border: 1px solid var(--ink); padding: 16px; min-height: 110px; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; }
+    .tema-btn { width: 44px; height: 44px; border: 1px solid var(--ink); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-in">
+      <strong class="mono">Tu marca</strong>
+      <div class="btn-row">
+        <a class="pill-marca" href="#">Herramientas</a>
+        <a class="btn btn-dark" href="#">Contacto</a>
+        <button class="tema-btn" type="button" aria-label="Cambiar modo claro / oscuro">◐</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Título grande con "ola" roja al cargar -->
+    <section class="wrap seccion--top" style="padding-bottom:48px">
+      <div class="mono num" style="display:flex;justify-content:space-between;margin-bottom:40px"><span>Estudio de diseño</span><span>Buenos Aires · desde 2015</span></div>
+      <h1 class="hero-title titulo-ola">Diseño que construye marcas</h1>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:40px">
+        <p class="lead">El texto de introducción va en Instrument Sans, con un gris cálido y un ancho cómodo de lectura.</p>
+        <div class="btn-row"><a class="btn btn-accent btn-lg" href="#">Ver proyectos →</a><a class="btn btn-outline btn-lg" href="#">Contacto</a></div>
+      </div>
+    </section>
+
+    <!-- Franja en movimiento continuo (la lista va dos veces para que el loop no se note) -->
+    <nav class="franja" aria-label="Disciplinas"><div class="franja-pista">
+      <ul class="franja-lista"><li><a href="#">Identidad &amp; branding</a></li><li class="franja-sep"></li><li><a href="#">Diseño gráfico</a></li><li class="franja-sep"></li><li><a href="#">Diseño web</a></li><li class="franja-sep"></li><li><a href="#">Motion</a></li><li class="franja-sep"></li><li><a href="#">Murales</a></li><li class="franja-sep"></li></ul>
+      <ul class="franja-lista" aria-hidden="true"><li><a href="#" tabindex="-1">Identidad &amp; branding</a></li><li class="franja-sep"></li><li><a href="#" tabindex="-1">Diseño gráfico</a></li><li class="franja-sep"></li><li><a href="#" tabindex="-1">Diseño web</a></li><li class="franja-sep"></li><li><a href="#" tabindex="-1">Motion</a></li><li class="franja-sep"></li><li><a href="#" tabindex="-1">Murales</a></li><li class="franja-sep"></li></ul>
+    </div></nav>
+
+    <!-- Encabezado de página: etiqueta que se "arma" + título -->
+    <section class="page-head"><div class="wrap page-head-in">
+      <div><span class="kicker mono">Portafolio · 01—14</span><h2 class="page-title">Proyectos</h2></div>
+      <p class="lead">La etiqueta chica de arriba aparece con caracteres al azar que se van acomodando hasta formar el texto.</p>
+    </div></section>
+
+    <!-- Índice con hover -->
+    <section class="seccion" style="padding-top:0"><div class="wrap">
+      <ol class="indice">
+        <li><a class="indice-link reveal" href="#"><span class="mono num">01</span><span class="indice-titulo">Proyecto uno</span><span class="mono num">Branding</span></a></li>
+        <li><a class="indice-link reveal" href="#"><span class="mono num">02</span><span class="indice-titulo">Proyecto dos</span><span class="mono num">Web</span></a></li>
+        <li><a class="indice-link reveal" href="#" data-cursor="Ver"><span class="mono num">03</span><span class="indice-titulo">Proyecto tres</span><span class="mono num">Mural</span></a></li>
+      </ol>
+    </div></section>
+
+    <!-- Números que cuentan -->
+    <section class="numeros"><div class="wrap">
+      <span class="kicker mono">El estudio en números</span>
+      <div class="numeros-grid">
+        <div class="numero"><span class="numero-valor" data-contar="11">11</span><span class="mono">Años de estudio</span></div>
+        <div class="numero"><span class="numero-valor" data-contar="14">14</span><span class="mono">Proyectos</span></div>
+        <div class="numero"><span class="numero-valor"><span data-contar="47">47</span> m²</span><span class="mono">Mural más grande</span></div>
+      </div>
+    </div></section>
+
+    <!-- Lista numerada en dos columnas -->
+    <section class="seccion"><div class="wrap lista-grid">
+      <div><span class="kicker mono">Servicios</span><h2 class="h2">Qué hacemos</h2></div>
+      <ul class="lista-numerada">
+        <li class="item reveal"><span class="num">01</span><div><h3>Identidad</h3><p>Logos, sistemas visuales y manuales de marca.</p></div></li>
+        <li class="item reveal"><span class="num">02</span><div><h3>Diseño web</h3><p>Sitios rápidos, seguros y pensados para el celular.</p></div></li>
+        <li class="item reveal"><span class="num">03</span><div><h3>Motion</h3><p>Animación para TV y redes.</p></div></li>
+        <li class="item reveal"><span class="num">04</span><div><h3>Murales</h3><p>Arte urbano que transforma espacios.</p></div></li>
+      </ul>
+    </div></section>
+
+    <!-- Pasos -->
+    <section class="seccion seccion--borde"><div class="wrap">
+      <span class="kicker mono">Método</span><h2 class="h2">Cómo trabajamos</h2>
+      <ol class="pasos" style="list-style:none;padding:0">
+        <li class="paso reveal"><span class="paso-num">01</span><h3>Brief</h3><p>Escuchamos objetivos, público y plazos.</p></li>
+        <li class="paso reveal"><span class="paso-num">02</span><h3>Concepto</h3><p>Definimos la idea y la dirección visual.</p></li>
+        <li class="paso reveal"><span class="paso-num">03</span><h3>Diseño</h3><p>Desarrollamos y refinamos cada detalle.</p></li>
+        <li class="paso reveal"><span class="paso-num">04</span><h3>Entrega</h3><p>Archivos listos y acompañamiento.</p></li>
+      </ol>
+    </div></section>
+
+    <!-- Paleta -->
+    <section class="seccion seccion--borde"><div class="wrap">
+      <span class="kicker mono">Paleta</span><h2 class="h3">Colores</h2>
+      <div class="demo-colores">
+        <div style="background:#F2F0EB;color:#111"><b>Hueso</b><span class="mono">#F2F0EB</span></div>
+        <div style="background:#111;color:#F2F0EB"><b>Negro</b><span class="mono">#111111</span></div>
+        <div style="background:#FF0000;color:#111"><b>Rojo</b><span class="mono">#FF0000</span></div>
+        <div style="background:#3A3833;color:#F2F0EB"><b>Texto 2</b><span class="mono">#3A3833</span></div>
+        <div style="background:#131312;color:#EDEBE6"><b>Fondo oscuro</b><span class="mono">#131312</span></div>
+      </div>
+    </div></section>
+
+    <!-- Llamada a la acción roja -->
+    <section class="cta"><div class="wrap cta-in">
+      <h2 class="cta-title">¿Tenés un proyecto en mente?</h2>
+      <a class="btn btn-dark btn-lg" href="#">Escribinos →</a>
+    </div></section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap">
+    <div class="footer-bottom mono"><span>© Tu marca · Buenos Aires</span><span>Kit de estética AIRON</span></div>
+  </div></footer>
+</body>
+</html>

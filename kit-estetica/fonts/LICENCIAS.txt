@@ -1,0 +1,7 @@
+Tipografías incluidas en este kit — todas con licencia SIL Open Font License 1.1 (OFL):
+uso libre, también comercial, y se pueden alojar en cualquier web. No se pueden vender sueltas.
+Texto de la licencia: https://openfontlicense.org
+
+- Anton (anton-400.woff2) — Vernon Adams — https://fonts.google.com/specimen/Anton
+- Instrument Sans (instrumentsans-var.woff2) — Instrument — https://fonts.google.com/specimen/Instrument+Sans
+- IBM Plex Mono (plexmono-400.woff2, plexmono-500.woff2) — IBM — https://github.com/IBM/plex
