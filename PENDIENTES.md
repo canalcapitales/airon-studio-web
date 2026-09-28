@@ -78,6 +78,23 @@ La herramienta `/tarifario-diseno/` usa los valores de `src/data/tarifario-disen
 
 - [ ] Cuando la Cámara publique una versión nueva, pedirle a Claude que la vuelva a transcribir (o cambiar los números en ese archivo, junto con `"version"` y `"actualizado"`).
 
+## 10. Publicidad — dos niveles de anunciantes
+
+Hoy la marquesina de publicidad (`src/data/publicidad.json`) muestra a todos los anunciantes en todos los lugares: en el inicio (después de los proyectos), debajo del título de cada herramienta y arriba del pie en el resto de las páginas. Mientras no haya anunciantes, se ven los espacios de ejemplo "Tu marca acá".
+
+Idea: vender el espacio en **dos niveles**, con precios distintos.
+
+| Nivel | Dónde aparece | Precio |
+|---|---|---|
+| **Destacado en herramientas** | Debajo del título de las herramientas (lo más visible) y en el inicio | Más alto |
+| **General** | Arriba del pie de las demás páginas (Proyectos, Murales, Estudio, Contacto, Legales) | Más bajo |
+
+- [ ] Definir precios de cada nivel (por mes o por trimestre) y qué incluye.
+- [ ] Pedirle a Claude que sume el campo `"nivel"` a cada anunciante en `publicidad.json`, para que cada logo aparezca solo en los lugares que pagó.
+- [ ] Opcional: página "Publicitá con nosotros" con los dos niveles, precios y cómo contratar, para mandarles el link a los interesados.
+
+**Qué hace falta de AIRON:** los precios y, por cada anunciante, su logo (SVG o PNG con fondo transparente), el link, el nivel contratado y la fecha de fin.
+
 ## Otros detalles anotados
 
 - **CapiTales (diseño web):** agregarlo cuando se lance (01/04/2027) o antes si hay permiso, con capturas, rol y año.
