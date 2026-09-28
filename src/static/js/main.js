@@ -270,6 +270,10 @@ function visor() {
 function formulario() {
   const form = document.querySelector('form.form');
   if (!form) return;
+  // Si se llega desde un enlace como /contacto/?tipo=mural, se elige ese tipo de proyecto
+  const tipo = new URLSearchParams(location.search).get('tipo');
+  const opcion = tipo && [...form.querySelectorAll('#tipo option')].find((o) => o.dataset.clave === tipo);
+  if (opcion) opcion.selected = true;
   const estado = form.querySelector('[data-estado]');
   const enviar = form.querySelector('[type="submit"]');
   form.addEventListener('submit', async (e) => {
