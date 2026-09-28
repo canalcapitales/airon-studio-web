@@ -29,6 +29,27 @@ No uses CDNs ni Google Fonts: las fuentes se alojan en el propio sitio. Si el pr
 - El rojo se usa poco y con intención: palabra destacada, número grande, cuadradito separador, hover.
 - Modo oscuro incluido (`#131312`): usá siempre las variables (`var(--ink)`, `var(--bg)`…), nunca colores fijos.
 
+## Espaciado (no uses style="")
+
+Escala fija en variables: `--e-1` 4px · `--e-2` 8px · `--e-3` 12px (etiqueta→título) · `--e-4` 20px (párrafos) · `--e-5` 24–40px (título→bajada, columnas) · `--e-6` 32–56px (título de sección→contenido) · `--e-7` 40–80px · `--e-8` 56–120px (entre secciones).
+
+Clases: `.pila` / `.pila-5` / `.pila-6` separan a sus hijos con `--e-4` / `--e-5` / `--e-6`. `.hero-in`, `.hero-kicker`, `.hero-bottom` y `.seccion-head` ya traen sus huecos. Un `.lead` justo después de un título recibe `--e-5` solo.
+
+## Texto largo y listas densas
+
+- `.prosa`: lectura larga (65ch, interlineado 1.65, aire entre párrafos, subtítulos en display, enlaces con subrayado rojo).
+- `.verso`: letras de canción o poesía; respeta los saltos de línea. Cada estrofa en su `<p>`.
+- `.lista-densa`: muchos ítems en columnas automáticas (mín. 200px), sin cortar un ítem entre columnas. `.lista-densa--mono` para versión técnica.
+- `.ficha`: pares etiqueta/valor (`<dl>` con `dt` mono).
+
+## Segundo acento
+
+Por defecto `--acento-2` es igual a `--acento` (no cambia nada). Para dos colores, definí en `:root` `--acento-2`, `--acento-2-texto` y `--sobre-acento-2` (y sus versiones en el bloque de modo oscuro). Sumá la clase `.acento-2` a cualquier bloque: todo lo que adentro era rojo (números, cuadraditos, hover, glitch, cursor) pasa al segundo color con las mismas clases. `.texto-acento` pinta un texto suelto con el acento del bloque.
+
+## Botón de modo oscuro
+
+`.tema-btn` (44px, sin borde; `.tema-btn--borde` con borde de 1px). Adentro van dos SVG: `.i-luna` y `.i-sol`; el CSS muestra el que corresponde. `estetica.js` guarda la elección.
+
 ## Formas
 
 - Botones y píldoras: completamente redondeados (`border-radius: 999px`), altura mínima 44 px. `.btn-accent` (rojo), `.btn-dark`, `.btn-outline`, `.pill`, `.pill-marca` (con cuadradito rojo).

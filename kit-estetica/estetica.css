@@ -34,6 +34,22 @@
   --gutter: 20px;
   --header-h: 64px;
   --ease-suave: cubic-bezier(.2, .7, .1, 1);
+
+  /* Escala de espaciado (la misma que usa aironstudio.com.ar). Chicos fijos, grandes fluidos. */
+  --e-1: 4px;
+  --e-2: 8px;
+  --e-3: 12px;                          /* etiqueta → título */
+  --e-4: 20px;                          /* entre párrafos, dentro de tarjetas */
+  --e-5: clamp(24px, 3vw, 40px);        /* título → bajada, entre columnas */
+  --e-6: clamp(32px, 4vw, 56px);        /* título de sección → contenido */
+  --e-7: clamp(40px, 6vw, 80px);        /* bloques grandes dentro de una sección */
+  --e-8: clamp(56px, 8vw, 120px);       /* entre secciones */
+
+  /* Segundo acento (opcional). Por defecto es igual al primero: no cambia nada si no se usa.
+     Para dos colores (ej. azul = el sistema, rojo = la resistencia) definí --acento-2 y --acento-2-texto. */
+  --acento-2: var(--acento);
+  --acento-2-texto: var(--acento-texto);
+  --sobre-acento-2: var(--sobre-acento);
   color-scheme: light;
 }
 /* Modo oscuro: con el botón (data-tema="oscuro") o automático según el dispositivo */
@@ -65,7 +81,7 @@ ul { padding: 0; list-style: none; }
 .oculto { position: absolute; left: -9999px; }
 
 .wrap { width: 100%; max-width: 1584px; margin: 0 auto; padding-inline: var(--gutter); }
-.seccion { padding-block: clamp(56px, 8vw, 120px); }
+.seccion { padding-block: var(--e-8); }
 .seccion--top { padding-top: clamp(32px, 5vw, 64px); }
 .seccion--borde { border-top: 1px solid var(--ink); }
 
@@ -79,6 +95,38 @@ ul { padding: 0; list-style: none; }
 .h3 { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; line-height: 1; font-size: clamp(34px, 4vw, 56px); }
 .lead { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.45; color: var(--texto-2); max-width: 36em; }
 .texto-destacado { font-size: clamp(21px, 2.1vw, 30px); line-height: 1.35; color: var(--ink); }
+
+/* Espaciado entre piezas: usá estas en vez de style="" */
+.pila > * + * { margin-top: var(--e-4); }                 /* apila hijos con aire parejo */
+.pila-5 > * + * { margin-top: var(--e-5); }
+.pila-6 > * + * { margin-top: var(--e-6); }
+.hero-in { display: flex; flex-direction: column; justify-content: space-between; gap: var(--e-6); padding-block: var(--e-5) var(--e-6); min-height: min(760px, calc(100svh - var(--header-h))); }
+.hero-kicker { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--e-1) var(--e-5); color: var(--muted); }
+.hero-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--e-5) 48px; }
+.titulo + .lead, .h2 + .lead, .h3 + .lead, .page-title + .lead { margin-top: var(--e-5); }
+.seccion-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--e-4); margin-bottom: var(--e-6); }
+
+/* Texto largo de lectura (letras, bios, notas): medida cómoda e interlineado amplio */
+.prosa { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.65; color: var(--texto-2); max-width: 65ch; }
+.prosa > * + * { margin-top: 1em; }
+.prosa h2, .prosa h3 { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; line-height: 1; color: var(--ink); margin-top: 1.6em; }
+.prosa h2 { font-size: clamp(28px, 3vw, 40px); } .prosa h3 { font-size: clamp(22px, 2.2vw, 28px); }
+.prosa strong { color: var(--ink); font-weight: 600; }
+.prosa a { color: var(--ink); text-decoration-color: var(--acento); text-underline-offset: 3px; }
+.prosa ul, .prosa ol { padding-left: 1.2em; } .prosa ul { list-style: disc; } .prosa li + li { margin-top: .4em; }
+/* Letras de canción / poesía: respeta los saltos de línea del texto y separa estrofas */
+.verso { white-space: pre-line; line-height: 1.7; }
+.verso p + p, .verso .estrofa + .estrofa { margin-top: 1.4em; }
+
+/* Listas densas: muchos nombres en columnas, sin cortar un ítem entre columnas */
+.lista-densa { columns: 4 200px; column-gap: var(--e-5); list-style: none; padding: 0; margin: 0; }
+.lista-densa li { break-inside: avoid; padding: 6px 0; border-top: 1px solid color-mix(in srgb, var(--ink) 15%, transparent); font-size: 15px; line-height: 1.35; }
+.lista-densa--mono li { font-family: var(--f-mono); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+/* Tabla/ficha de datos: etiqueta mono a la izquierda, valor a la derecha */
+.ficha { display: grid; grid-template-columns: minmax(120px, 1fr) 3fr; gap: var(--e-2) var(--e-5); }
+.ficha dt { font-family: var(--f-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.ficha dd { margin: 0; }
+@media (max-width: 599px) { .ficha { grid-template-columns: 1fr; } .ficha dd + dt { margin-top: var(--e-3); } }
 .num { color: var(--muted); }
 
 /* ---------- 5. Botones, enlaces y píldoras ---------- */
@@ -98,6 +146,20 @@ ul { padding: 0; list-style: none; }
 /* Botón con cuadradito rojo (como "Herramientas" del menú) */
 .pill-marca { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border: 1px solid var(--ink); border-radius: 999px; text-decoration: none; }
 .pill-marca::before { content: ''; width: 8px; height: 8px; background: var(--acento); flex-shrink: 0; }
+/* Botón de modo claro/oscuro (el mismo de aironstudio.com.ar). Íconos: .i-luna e .i-sol dentro del botón */
+.tema-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; }
+.tema-btn:hover { color: var(--hover); }
+.tema-btn--borde { border: 1px solid var(--ink); }
+.tema-btn .i-sol, :root[data-tema="oscuro"] .tema-btn .i-luna { display: none; }
+:root[data-tema="oscuro"] .tema-btn .i-sol { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) .tema-btn .i-luna { display: none; }
+  :root:not([data-tema="claro"]) .tema-btn .i-sol { display: block; }
+}
+
+/* Segundo acento: mismas piezas, otro color. Sumá .acento-2 a un bloque y todo lo rojo de adentro pasa a --acento-2 */
+.acento-2 { --acento: var(--acento-2); --acento-texto: var(--acento-2-texto); --sobre-acento: var(--sobre-acento-2); }
+.texto-acento { color: var(--acento-texto); }
 
 /* ---------- 6. Encabezado de página ---------- */
 .page-head-in { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px; padding-block: clamp(32px, 5vw, 64px) clamp(28px, 4vw, 56px); }
