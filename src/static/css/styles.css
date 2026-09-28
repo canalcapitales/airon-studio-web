@@ -224,18 +224,12 @@ ul { padding: 0; list-style: none; }
 .card-meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
 .card-text { display: flex; flex-direction: column; gap: 6px; }
 .card-title { font-family: var(--f-display); font-size: clamp(22px, 2vw, 28px); line-height: 1.05; text-transform: uppercase; }
-.card--destacado .card-title { font-size: clamp(26px, 2.4vw, 34px); }
 .card-sub { font-size: 15px; color: var(--muted); }
 .card-cat { font-size: 12px; color: var(--muted); text-align: right; flex-shrink: 0; max-width: 45%; }
 .card:hover .card-title { color: var(--hover); }
 .card[hidden] { display: none; }
 
-.destacados { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 64px 40px; }
-.destacados .card:nth-child(4n+1), .destacados .card:nth-child(4n) { grid-column: span 7; }
-.destacados .card:nth-child(4n+2), .destacados .card:nth-child(4n+3) { grid-column: span 5; }
 @media (max-width: 899px) {
-  .destacados { grid-template-columns: 1fr; gap: 40px; }
-  .destacados .card:nth-child(n) { grid-column: auto; }
   .card-meta { flex-direction: column-reverse; gap: 6px; }
   .card-cat { text-align: left; max-width: none; }
 }
@@ -247,6 +241,40 @@ ul { padding: 0; list-style: none; }
   .grid-proyectos .card-title { font-size: 19px; }
   .grid-proyectos .card-sub { display: none; }
   .grid-proyectos .card-cat { font-size: 10px; }
+}
+
+/* ---------- índice de proyectos (inicio) ---------- */
+.indice { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--ink); }
+.indice-link {
+  display: grid; grid-template-columns: 44px minmax(0, 1fr) auto 176px; align-items: center; gap: 6px 32px;
+  padding: 16px 0; border-top: 1px solid var(--ink); text-decoration: none;
+}
+.indice-link > * { transition: opacity .3s ease; }
+.indice-num { color: var(--muted); }
+.indice-texto { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 24px; min-width: 0; }
+.indice-titulo {
+  font-family: var(--f-display); text-transform: uppercase; line-height: .95; font-size: clamp(36px, 4.6vw, 72px);
+  transition: color .2s ease, transform .4s cubic-bezier(.2, .7, .1, 1);
+}
+.indice-sub { color: var(--muted); font-size: 16px; }
+.indice-cat { color: var(--muted); font-size: 12px; text-align: right; }
+.indice-mini { display: block; aspect-ratio: 202 / 158; overflow: hidden; background: var(--placeholder); }
+.indice-mini img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2, .7, .1, 1); }
+.indice-link:focus-visible .indice-titulo { color: var(--acento); }
+/* Al pasar el mouse: el proyecto elegido en rojo, su portada crece y el resto se atenúa */
+@media (hover: hover) {
+  .indice:hover .indice-link:not(:hover) > * { opacity: .3; }
+  .indice-link:hover .indice-titulo { color: var(--acento); transform: translateX(14px); }
+  .indice-link:hover .indice-mini img { transform: scale(1.08); }
+}
+@media (max-width: 899px) {
+  .indice-link { grid-template-columns: minmax(0, 1fr) 112px; gap: 4px 16px; }
+  .indice-num, .indice-texto, .indice-cat { grid-column: 1; }
+  .indice-num { font-size: 11px; }
+  .indice-sub { display: none; }
+  .indice-titulo { font-size: clamp(28px, 8vw, 44px); }
+  .indice-cat { font-size: 11px; text-align: left; }
+  .indice-mini { grid-column: 2; grid-row: 1 / span 3; }
 }
 
 /* ---------- servicios ---------- */
