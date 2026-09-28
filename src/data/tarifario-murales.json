@@ -2,7 +2,7 @@
   "fuente": "Tarifario Mural 2026 — comunidad de muralistas de Argentina",
   "actualizado": "2026",
   "moneda": "ARS",
-  "nota": "Honorarios del artista por m². No incluyen materiales, elevación, asistencia, viáticos ni seguros.",
+  "nota": "Honorarios del artista por m². No incluyen materiales, elevación, viáticos ni seguros. La jornada de un ayudante (8 h, $300.000 según el tarifario) es un costo interno del artista y no se suma al presupuesto.",
   "tramos": [
     { "hasta": 10,  "simple": { "A": 112385, "B": 86450, "C": 66500 }, "complejo": { "A": 168578, "B": 129675, "C": 99750 } },
     { "hasta": 30,  "simple": { "A": 89908,  "B": 69160, "C": 53200 }, "complejo": { "A": 143291, "B": 110224, "C": 79800 } },
@@ -20,6 +20,6 @@
   "boceto": { "min": 0.10, "max": 0.15 },
   "adaptacion": 0.03,
   "evento": 0.20,
-  "jornadaAsistente": 300000,
+  "viatico": { "porJornada": 52844, "referencia": "Viático diario Región Metropolitana (Decreto 208/2026, desde mayo 2026): traslado, comida y alojamiento" },
   "pago": { "adelanto": 0.5, "final": 0.5 }
 }

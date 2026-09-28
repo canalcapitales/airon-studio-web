@@ -107,8 +107,11 @@ const TXT = {
         ],
         extras: '5. Extras',
         evento: 'Es para un evento o una acción publicitaria (+20 %)',
-        asistencia: 'Jornadas de asistencia',
-        asistenciaAyuda: 'Jornada de 8 h de un asistente, sin viáticos.',
+        viaticos: 'Viáticos',
+        viaticosAyuda: 'Traslado y comida de quienes pintan. Valor sugerido: viático diario oficial para CABA y GBA (Decreto 208/2026). Podés cambiarlo.',
+        jornadasObra: 'Jornadas de obra',
+        personas: 'Personas en obra',
+        porJornada: 'Viático por persona y jornada ($)',
         resultado: 'Estimación',
         filas: {
           tramo: 'Tramo',
@@ -119,7 +122,7 @@ const TXT = {
           evento: 'Evento (+20 %)',
           boceto: 'Boceto (10 % a 15 %)',
           adaptacion: 'Adaptación del diseño (3 %)',
-          asistencia: 'Asistencia',
+          viaticos: 'Viáticos',
           total: 'Total estimado',
           pago: 'Forma de pago sugerida: 50 % de adelanto y 50 % al terminar.',
         },
@@ -132,6 +135,11 @@ const TXT = {
         vacio: 'Cargá el ancho y el alto de la pared para ver la estimación.',
         mega: 'Más de 500 m² es un megamural: se presupuesta con equipo de producción (honorarios del artista 20 %, producción 15 % y boceto 10 % sobre el costo total de la obra). Escribinos y lo armamos juntos.',
         noIncluye: 'No incluye materiales, elevación (andamio o plataforma), viáticos ni seguros: se suman en el presupuesto final, después del relevamiento.',
+        noIncluyeConViaticos: 'No incluye materiales, elevación (andamio o plataforma) ni seguros: se suman en el presupuesto final, después del relevamiento.',
+        viaticoDetalle: '{j} × {p} × {m}',
+        delTotal: '{p} % del total',
+        personaUna: '{n} persona',
+        personaVarias: '{n} personas',
         fuente: 'Valores orientativos del Tarifario Mural 2026 de la comunidad de muralistas de Argentina, en pesos argentinos.',
         pedir: 'Pedir presupuesto con estos datos →',
         sinJs: 'Para ver la estimación, activá JavaScript en tu navegador.',
@@ -296,8 +304,11 @@ const TXT = {
         ],
         extras: '5. Extras',
         evento: 'It’s for an event or an advertising action (+20%)',
-        asistencia: 'Assistant days',
-        asistenciaAyuda: 'One assistant, 8-hour day, travel not included.',
+        viaticos: 'Travel and meals',
+        viaticosAyuda: 'Transport and meals for the painting crew. Suggested value: official daily allowance for Buenos Aires metro area (Decree 208/2026). You can change it.',
+        jornadasObra: 'Working days',
+        personas: 'People on site',
+        porJornada: 'Allowance per person per day (ARS)',
         resultado: 'Estimate',
         filas: {
           tramo: 'Size range',
@@ -308,7 +319,7 @@ const TXT = {
           evento: 'Event (+20%)',
           boceto: 'Sketch (10% to 15%)',
           adaptacion: 'Design adaptation (3%)',
-          asistencia: 'Assistance',
+          viaticos: 'Travel and meals',
           total: 'Estimated total',
           pago: 'Suggested payment: 50% upfront and 50% on completion.',
         },
@@ -321,6 +332,11 @@ const TXT = {
         vacio: 'Enter the width and height of the wall to see the estimate.',
         mega: 'Over 500 m² is a mega-mural: it’s quoted with a production team (artist fees 20%, production 15% and sketch 10% of the total cost of the work). Get in touch and we’ll put it together.',
         noIncluye: 'Materials, lifting equipment (scaffolding or platform), travel and insurance are not included: they’re added to the final quote after the site visit.',
+        noIncluyeConViaticos: 'Materials, lifting equipment (scaffolding or platform) and insurance are not included: they’re added to the final quote after the site visit.',
+        viaticoDetalle: '{j} × {p} × {m}',
+        delTotal: '{p}% of the total',
+        personaUna: '{n} person',
+        personaVarias: '{n} people',
         fuente: 'Approximate values from the 2026 Mural Rate Guide by Argentina’s muralist community, in Argentine pesos.',
         pedir: 'Request a quote with these details →',
         sinJs: 'To see the estimate, please enable JavaScript in your browser.',
@@ -988,7 +1004,7 @@ function calculadora(l) {
       )
       .join('\n          ');
   // Textos que usa el navegador para escribir el resultado
-  const textos = { ...C.filas, pasaA: C.pasaA, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, asistencia: C.asistencia, doc: C.doc, generando: C.generando, noIncluye: C.noIncluye, fuente: C.fuente };
+  const textos = { ...C.filas, pasaA: C.pasaA, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, doc: C.doc, generando: C.generando, noIncluye: C.noIncluye, noIncluyeConViaticos: C.noIncluyeConViaticos, fuente: C.fuente, viaticosTitulo: C.viaticos, jornadasObra: C.jornadasObra, viaticoDetalle: C.viaticoDetalle, delTotal: C.delTotal, personaUna: C.personaUna, personaVarias: C.personaVarias };
   return `<section class="seccion seccion--borde" id="calculadora">
     <div class="wrap">
       <div class="seccion-head">
@@ -1030,17 +1046,21 @@ function calculadora(l) {
           <fieldset class="calc-grupo">
             <legend class="calc-legend">${C.extras}</legend>
             <label class="calc-check"><input type="checkbox" name="evento"> <span>${C.evento}</span></label>
-            <div class="campo calc-asistencia">
-              <label for="calc-asistencia" class="mono">${C.asistencia}</label>
-              <input id="calc-asistencia" name="asistencia" type="number" inputmode="numeric" min="0" max="60" step="1" value="0">
-              <span class="nota">${C.asistenciaAyuda}</span>
+            <div class="calc-viaticos">
+              <span class="calc-sublegend">${C.viaticos}</span>
+              <div class="calc-viaticos-campos">
+                <div class="campo"><label for="calc-jornadas" class="mono">${C.jornadasObra}</label><input id="calc-jornadas" name="jornadasObra" type="number" inputmode="numeric" min="0" max="120" step="1" value="0"></div>
+                <div class="campo"><label for="calc-personas" class="mono">${C.personas}</label><input id="calc-personas" name="personas" type="number" inputmode="numeric" min="1" max="20" step="1" value="1"></div>
+                <div class="campo"><label for="calc-viatico" class="mono">${C.porJornada}</label><input id="calc-viatico" name="viatico" type="number" inputmode="numeric" min="0" step="500" value="${TARIFARIO.viatico.porJornada}"></div>
+              </div>
+              <span class="nota">${C.viaticosAyuda}</span>
             </div>
           </fieldset>
         </div>
         <aside class="calc-resultado" aria-labelledby="calc-titulo-resultado">
           <span class="kicker mono" id="calc-titulo-resultado">${C.resultado}</span>
           <div class="calc-salida" aria-live="polite"><p class="calc-vacio">${C.vacio}</p></div>
-          <p class="nota">${C.noIncluye}</p>
+          <p class="nota calc-noincluye">${C.noIncluye}</p>
           <div class="calc-descarga" hidden>
             <div class="campo"><label for="calc-proyecto" class="mono">${C.proyecto}</label><input id="calc-proyecto" name="proyecto" type="text" maxlength="80" autocomplete="off" placeholder="${esc(C.proyectoEjemplo)}"></div>
             <div class="calc-botones">
