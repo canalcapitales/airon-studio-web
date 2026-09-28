@@ -286,9 +286,11 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
   <meta property="og:image" content="${esc(imagen)}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${esc(tituloCompleto)}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/instrumentsans-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${ASSETS.css}">
@@ -630,15 +632,27 @@ function detalle(l, proyectos, p, i) {
     descripcion,
     imagen: `/img/og/${p.slug}-${l}.jpg`,
     datos: {
-      '@type': 'CreativeWork',
-      name: p.titulo,
-      headline: `${p.titulo} — ${p.subtitulo}`,
-      description: descripcion,
-      url: `${SITIO.url}${rutaDe(l, 'proyecto', p.slug)}`,
-      image: absoluta(p.portada['1280']),
-      genre: catsTexto(l, p),
-      inLanguage: T.htmlLang,
-      creator: { '@type': 'Organization', name: 'AIRON Studio', url: `${SITIO.url}${RUTAS[l].inicio}` },
+      '@graph': [
+        {
+          '@type': 'CreativeWork',
+          name: p.titulo,
+          headline: `${p.titulo} — ${p.subtitulo}`,
+          description: descripcion,
+          url: `${SITIO.url}${rutaDe(l, 'proyecto', p.slug)}`,
+          image: absoluta(p.portada['1280']),
+          genre: catsTexto(l, p),
+          inLanguage: T.htmlLang,
+          creator: { '@type': 'Organization', name: 'AIRON Studio', url: `${SITIO.url}${RUTAS[l].inicio}` },
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: T.nav.inicio, item: `${SITIO.url}${RUTAS[l].inicio}` },
+            { '@type': 'ListItem', position: 2, name: T.nav.proyectos, item: `${SITIO.url}${RUTAS[l].proyectos}` },
+            { '@type': 'ListItem', position: 3, name: p.titulo, item: `${SITIO.url}${rutaDe(l, 'proyecto', p.slug)}` },
+          ],
+        },
+      ],
     },
     cuerpo: `
   <article>
