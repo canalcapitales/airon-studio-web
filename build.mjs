@@ -4,6 +4,7 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, renameSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
+import { LEGALES, FAQ_HERRAMIENTAS, ACTUALIZADO } from './src/data/legales.mjs';
 
 const OUT = 'dist';
 const SITIO = {
@@ -24,8 +25,8 @@ const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Fo
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', png: '/herramientas/convertir-a-png/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', png: '/en/tools/png-converter/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/' },
+  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', png: '/herramientas/convertir-a-png/', estudio: '/estudio/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', png: '/en/tools/png-converter/', estudio: '/en/studio/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -903,7 +904,7 @@ ${cuerpo}
       </div>
       <div class="footer-bottom mono">
         <span>© ${anio} AIRON Studio · ${T.pie[0]}</span>
-        <span>${T.pie[1]}</span>
+        <span class="footer-legal"><a href="${R.legales}"${actual('legales')}>${LEGALES[l].nav}</a><span aria-hidden="true">·</span><span>${T.pie[1]}</span></span>
       </div>
     </div>
   </footer>
@@ -1445,6 +1446,8 @@ function paginaTarifarios(l) {
   const T = TXT[l];
   const P = T.tarifarios;
   const R = RUTAS[l];
+  const F = FAQ_HERRAMIENTAS[l];
+  const preguntas = F.faq.map(([q, a]) => `<details class="faq-item reveal"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n        ');
   const tarjetas = P.herramientas
     .map(
       ([ruta, titulo, texto, boton], i) => `<a class="tar-hub-card reveal" href="${R[ruta]}">
@@ -1461,7 +1464,12 @@ function paginaTarifarios(l) {
     activo: 'tarifario',
     descripcion: P.desc,
     imagen: `/img/og/blend-david-${l}.jpg`,
-    datos: { '@type': 'CollectionPage', name: P.titulo, description: P.desc, url: `${SITIO.url}${R.tarifarios}`, inLanguage: T.htmlLang },
+    datos: {
+      '@graph': [
+        { '@type': 'CollectionPage', name: P.titulo, description: P.desc, url: `${SITIO.url}${R.tarifarios}`, inLanguage: T.htmlLang },
+        { '@type': 'FAQPage', mainEntity: F.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+      ],
+    },
     cuerpo: `
   <section class="page-head">
     <div class="wrap page-head-in">
@@ -1475,6 +1483,17 @@ function paginaTarifarios(l) {
   <section class="seccion seccion--top">
     <div class="wrap tar-hub">
         ${tarjetas}
+    </div>
+  </section>
+  <section class="seccion">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="kicker mono">${F.kicker}</span>
+        <h2 class="h2">${F.titulo}</h2>
+      </div>
+      <div class="faq">
+        ${preguntas}
+      </div>
     </div>
   </section>
 `,
@@ -1959,7 +1978,53 @@ function contacto(l) {
         </div>
         <button class="btn btn-accent btn-lg btn-block" type="submit">${T.enviar}</button>
         <p class="nota" data-estado role="status">${T.privacidad}</p>
+        <p class="nota form-legal"><a href="${RUTAS[l].legales}#privacidad">${LEGALES[l].verPrivacidad}</a></p>
       </form>
+    </div>
+  </section>
+`,
+  });
+}
+
+// Legales: privacidad, herramientas y derechos de autor (textos en src/data/legales.mjs)
+function paginaLegales(l) {
+  const L = LEGALES[l];
+  const R = RUTAS[l];
+  const atajos = (t) =>
+    t.replace('{contacto}', `<a href="${R.contacto}">${L.contacto}</a>`).replace('{licencias}', `<a href="/ia/LICENCIAS.txt">${L.licencias}</a>`);
+  const bloque = (b) => (Array.isArray(b) ? `<ul>${b.map((x) => `<li>${atajos(x)}</li>`).join('')}</ul>` : `<p>${atajos(b)}</p>`);
+  const indice = L.secciones.map((s) => `<li><a href="#${s.id}">${esc(s.titulo)}</a></li>`).join('');
+  const secciones = L.secciones
+    .map((s, i) => `<section class="legal-seccion" id="${s.id}" aria-labelledby="${s.id}-t">
+        <h2 class="legal-titulo" id="${s.id}-t"><span class="mono num">${num(i)}</span> ${esc(s.titulo)}</h2>
+        ${s.bloques.map(bloque).join('\n        ')}
+      </section>`)
+    .join('\n      ');
+  return pagina(l, {
+    clave: 'legales',
+    titulo: L.titulo,
+    activo: 'legales',
+    descripcion: L.desc,
+    datos: { '@type': 'WebPage', name: L.titulo, description: L.desc, url: `${SITIO.url}${R.legales}`, inLanguage: TXT[l].htmlLang, dateModified: '2026-09-28' },
+    cuerpo: `
+  <section class="page-head">
+    <div class="wrap page-head-in">
+      <div>
+        <span class="kicker mono">${L.kicker}</span>
+        <h1 class="page-title page-title--md">${L.h1}</h1>
+      </div>
+      <p class="lead">${L.lead}<br><span class="nota mono">${L.actualizado}: ${ACTUALIZADO[l]}</span></p>
+    </div>
+  </section>
+  <section class="seccion seccion--top">
+    <div class="wrap legal">
+      <nav class="legal-indice" aria-label="${L.indice}">
+        <span class="kicker mono">${L.indice}</span>
+        <ol>${indice}</ol>
+      </nav>
+      <div class="legal-texto">
+      ${secciones}
+      </div>
     </div>
   </section>
 `,
@@ -2041,6 +2106,7 @@ for (const l of IDIOMAS) {
     [R.png, paginaPng(l)],
     [R.estudio, estudio(l, proyectos)],
     [R.contacto, contacto(l)],
+    [R.legales, paginaLegales(l)],
   ];
   for (const [ruta, html] of paginas) {
     escribir(archivo(ruta), html);
