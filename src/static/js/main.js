@@ -140,7 +140,7 @@ function cursorEstrella() {
   const etiqueta = cursor.querySelector('span');
   html.classList.add('cursor-activo');
 
-  let x = -100, y = -100, cx = x, cy = y;
+  let x = -100, y = -100, sobreUltimo = null, pendiente = false;
   const actualizar = (sobre) => {
     if (!sobre || !sobre.closest) return;
     const tarjeta = sobre.closest('[data-cursor]');
@@ -150,23 +150,25 @@ function cursorEstrella() {
     cursor.classList.toggle('oscuro', !!sobre.closest('.site-footer, .numeros, .franja, .menu-open .nav'));
     if (tarjeta) etiqueta.textContent = tarjeta.dataset.cursor;
   };
+  // La estrella va pegada al mouse y solo se redibuja cuando el mouse se mueve (una vez por cuadro)
+  const dibujar = () => {
+    pendiente = false;
+    cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    actualizar(sobreUltimo);
+  };
   addEventListener('mousemove', (e) => {
     x = e.clientX;
     y = e.clientY;
+    sobreUltimo = e.target;
     cursor.classList.add('visible');
-    actualizar(e.target);
-  });
+    if (!pendiente) {
+      pendiente = true;
+      requestAnimationFrame(dibujar);
+    }
+  }, { passive: true });
   // Al bajar con la rueda, el contenido se mueve debajo del mouse: se vuelve a revisar qué hay debajo
   addEventListener('scroll', () => actualizar(document.elementFromPoint(x, y)), { passive: true });
   document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
-  const mover = () => {
-    cx += (x - cx) * 0.22;
-    cy += (y - cy) * 0.22;
-    cursor.style.transform = `translate(${cx}px, ${cy}px)`;
-    requestAnimationFrame(mover);
-  };
-  requestAnimationFrame(mover);
-
   // Dentro del visor de imágenes se usa el cursor normal
   const visor = document.querySelector('.visor');
   if (visor) {
