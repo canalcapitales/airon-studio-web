@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   cursorEstrella();
   calculadora();
   tarifarioDiseno();
+  textosUnicode();
+  convertidorPng();
   visor();
   formulario();
   filtros();
@@ -1039,6 +1041,349 @@ async function hojasPresupuestoDiseno(d, X, C) {
     c.fillText(hojas.length > 1 ? `${plantilla(X.doc.pagina, { n: i + 1, t: hojas.length }).toUpperCase()}   ·   @_AIRONSTUDIO` : '@_AIRONSTUDIO', W - M, H - PIE / 2 + 8);
   });
   return hojas;
+}
+
+// ----- Letras Unicode: el mismo texto en estilos de caracteres especiales -----
+const ESTILOS_UNICODE = (() => {
+  // Letras matemáticas de Unicode: A-Z, a-z y 0-9 empiezan en un código fijo; algunas letras están en otro lugar
+  const mat = (A, a, d = 0, excepciones = {}) => (c) => {
+    if (excepciones[c]) return excepciones[c];
+    const k = c.codePointAt(0);
+    if (k >= 65 && k <= 90 && A) return String.fromCodePoint(A + k - 65);
+    if (k >= 97 && k <= 122 && a) return String.fromCodePoint(a + k - 97);
+    if (k >= 48 && k <= 57 && d) return String.fromCodePoint(d + k - 48);
+    return c;
+  };
+  const tabla = (de, a) => {
+    const m = {};
+    const hacia = [...a];
+    [...de].forEach((c, i) => (m[c] = hacia[i]));
+    return (c) => m[c] ?? c;
+  };
+  const mayus = (base, cero, uno) => (c) => {
+    const k = c.toUpperCase().codePointAt(0);
+    if (k >= 65 && k <= 90) return String.fromCodePoint(base + k - 65);
+    if (cero && k === 48) return cero;
+    if (uno && k >= 49 && k <= 57) return String.fromCodePoint(uno + k - 49);
+    return c;
+  };
+  const combinar = (marca) => (c) => (/\s/.test(c) ? c : c + marca);
+  const volteo = tabla(
+    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?¡¿\'"()[]{}<>&_;',
+    'ɐqɔpǝɟƃɥᴉɾʞlɯuodbɹsʇnʌʍxʎz∀ꓭƆꓷƎℲ⅁HIſꓘ⅂WNOԀꝹꓤS⊥∩ΛMX⅄Z0ƖᄅƐㄣϛ9ㄥ86˙\'¡¿!?,„)(][}{><⅋‾؛'
+  );
+  const superindice = tabla('abcdefghijklmnoprstuvwxyzABDEGHIJKLMNOPRTUVW0123456789+-=()', 'ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾');
+  const estilos = {
+    negrita: mat(0x1d400, 0x1d41a, 0x1d7ce),
+    cursiva: mat(0x1d434, 0x1d44e, 0, { h: 'ℎ' }),
+    negritaCursiva: mat(0x1d468, 0x1d482, 0x1d7ce),
+    sans: mat(0x1d5a0, 0x1d5ba, 0x1d7e2),
+    sansNegrita: mat(0x1d5d4, 0x1d5ee, 0x1d7ec),
+    sansCursiva: mat(0x1d608, 0x1d622),
+    sansNegritaCursiva: mat(0x1d63c, 0x1d656, 0x1d7ec),
+    escritura: mat(0x1d49c, 0x1d4b6, 0, { B: 'ℬ', E: 'ℰ', F: 'ℱ', H: 'ℋ', I: 'ℐ', L: 'ℒ', M: 'ℳ', R: 'ℛ', e: 'ℯ', g: 'ℊ', o: 'ℴ' }),
+    escrituraNegrita: mat(0x1d4d0, 0x1d4ea),
+    gotica: mat(0x1d504, 0x1d51e, 0, { C: 'ℭ', H: 'ℌ', I: 'ℑ', R: 'ℜ', Z: 'ℨ' }),
+    goticaNegrita: mat(0x1d56c, 0x1d586),
+    doble: mat(0x1d538, 0x1d552, 0x1d7d8, { C: 'ℂ', H: 'ℍ', N: 'ℕ', P: 'ℙ', Q: 'ℚ', R: 'ℝ', Z: 'ℤ' }),
+    mono: mat(0x1d670, 0x1d68a, 0x1d7f6),
+    ancha: (c) => {
+      const k = c.codePointAt(0);
+      if (c === ' ') return '\u3000';
+      return k >= 0x21 && k <= 0x7e ? String.fromCodePoint(k + 0xfee0) : c;
+    },
+    circulos: (c) => {
+      const k = c.codePointAt(0);
+      if (k >= 65 && k <= 90) return String.fromCodePoint(0x24b6 + k - 65);
+      if (k >= 97 && k <= 122) return String.fromCodePoint(0x24d0 + k - 97);
+      if (k === 48) return '⓪';
+      if (k >= 49 && k <= 57) return String.fromCodePoint(0x2460 + k - 49);
+      return c;
+    },
+    circulosNegros: mayus(0x1f150, '⓿', 0x2776),
+    cuadros: mayus(0x1f130),
+    cuadrosNegros: mayus(0x1f170),
+    versalitas: tabla('abcdefghijklmnopqrstuvwxyz', 'ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡxʏᴢ'),
+    superindice,
+    invertida: volteo,
+    tachada: combinar('\u0336'),
+    subrayada: combinar('\u0332'),
+    dobleSubrayado: combinar('\u0333'),
+    barrada: combinar('\u0338'),
+  };
+  // Las tildes se separan de la letra (á = a + ´) para que la letra tome el estilo y la tilde quede encima
+  return (id, texto) => {
+    const f = estilos[id];
+    if (!f) return texto;
+    if (id === 'invertida') return [...texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '')].map(f).reverse().join('');
+    // Tachada y subrayadas: la marca va después de cada letra completa (con su tilde)
+    if (['tachada', 'subrayada', 'dobleSubrayado', 'barrada'].includes(id)) return [...texto.normalize('NFC')].map(f).join('');
+    return [...texto.normalize('NFD')].map((c) => (/[\u0300-\u036f]/.test(c) ? c : f(c))).join('');
+  };
+})();
+
+function textosUnicode() {
+  const raiz = document.querySelector('.uni');
+  if (!raiz) return;
+  const campo = raiz.querySelector('#uni-texto');
+  const pintar = () => {
+    const texto = campo.value || campo.placeholder;
+    raiz.querySelectorAll('.uni-estilo').forEach((li) => {
+      li.querySelector('.uni-resultado').textContent = ESTILOS_UNICODE(li.dataset.estilo, texto);
+    });
+  };
+  const copiar = async (texto) => {
+    try {
+      await navigator.clipboard.writeText(texto);
+    } catch (e) {
+      // Navegadores sin permiso de portapapeles: se copia seleccionando un campo oculto
+      const t = document.createElement('textarea');
+      t.value = texto;
+      t.setAttribute('readonly', '');
+      t.style.position = 'fixed';
+      t.style.opacity = '0';
+      document.body.append(t);
+      t.select();
+      document.execCommand('copy');
+      t.remove();
+    }
+  };
+  raiz.addEventListener('click', async (e) => {
+    const boton = e.target.closest('.uni-copiar');
+    if (boton) {
+      await copiar(boton.closest('.uni-estilo').querySelector('.uni-resultado').textContent);
+      boton.textContent = raiz.dataset.copiado;
+      boton.classList.add('copiado');
+      setTimeout(() => {
+        boton.textContent = raiz.dataset.copiar;
+        boton.classList.remove('copiado');
+      }, 1600);
+    }
+    if (e.target.closest('.uni-limpiar')) {
+      campo.value = '';
+      campo.focus();
+      pintar();
+    }
+  });
+  campo.addEventListener('input', pintar);
+  pintar();
+}
+
+// ----- Convertir a PNG: todo se procesa en el navegador, nada se sube -----
+function convertidorPng() {
+  const raiz = document.querySelector('.png');
+  if (!raiz) return;
+  const X = JSON.parse(raiz.dataset.textos);
+  const entrada = raiz.querySelector('#png-archivos');
+  const zona = raiz.querySelector('.png-zona');
+  const lista = raiz.querySelector('.png-lista');
+  const barra = raiz.querySelector('.png-barra');
+  const aviso = raiz.querySelector('.png-cuadros');
+  const campo = (n) => raiz.querySelector(`[name="${n}"]`);
+  const imagenes = []; // { id, nombre, original (canvas), resultado (canvas), blob, li }
+  let siguiente = 0;
+
+  const ajustes = () => ({
+    ancho: raiz.querySelector('input[name="tamano"]:checked').value === 'ancho' ? Math.max(16, parseInt(campo('ancho').value, 10) || 1080) : 0,
+    fondo: campo('fondo').checked,
+    color: campo('color').value,
+    tolerancia: Number(campo('tolerancia').value),
+    suavizado: Number(campo('suavizado').value),
+    recortar: campo('recortar').checked,
+  });
+  const peso = (b) => (b < 1024 * 1024 ? `${Math.max(1, Math.round(b / 1024))} KB` : `${(b / 1024 / 1024).toFixed(1)} MB`);
+
+  // Abrir cualquier imagen que entienda el navegador; los SVG se dibujan con su tamaño (o 1024 px si no lo tienen)
+  const abrir = async (archivo) => {
+    let fuente;
+    if (archivo.type === 'image/svg+xml' || /\.svg$/i.test(archivo.name)) {
+      const texto = await archivo.text();
+      const img = new Image();
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(texto);
+      await img.decode();
+      // Si el SVG no dice su ancho (solo tiene viewBox), se dibuja a 1024 px manteniendo la proporción
+      const tieneAncho = /<svg[^>]*\swidth=["']?\d/i.test(texto);
+      const proporcion = img.naturalWidth && img.naturalHeight ? img.naturalHeight / img.naturalWidth : 1;
+      const w = tieneAncho && img.naturalWidth ? img.naturalWidth : 1024;
+      const h = tieneAncho && img.naturalHeight ? img.naturalHeight : Math.round(1024 * proporcion);
+      fuente = { dibujo: img, w, h };
+    } else {
+      const bmp = await createImageBitmap(archivo);
+      fuente = { dibujo: bmp, w: bmp.width, h: bmp.height };
+    }
+    const c = document.createElement('canvas');
+    c.width = fuente.w;
+    c.height = fuente.h;
+    c.getContext('2d').drawImage(fuente.dibujo, 0, 0, fuente.w, fuente.h);
+    return c;
+  };
+
+  const procesar = (original, a) => {
+    // 1. Tamaño
+    let w = original.width, h = original.height;
+    if (a.ancho && w > a.ancho) {
+      h = Math.max(1, Math.round((h * a.ancho) / w));
+      w = a.ancho;
+    }
+    let c = document.createElement('canvas');
+    c.width = w;
+    c.height = h;
+    let x = c.getContext('2d', { willReadFrequently: true });
+    x.imageSmoothingQuality = 'high';
+    x.drawImage(original, 0, 0, w, h);
+    // 2. Quitar el fondo de un color: lo parecido al color elegido se vuelve transparente, con borde suave
+    if (a.fondo) {
+      const r0 = parseInt(a.color.slice(1, 3), 16), g0 = parseInt(a.color.slice(3, 5), 16), b0 = parseInt(a.color.slice(5, 7), 16);
+      const datos = x.getImageData(0, 0, w, h);
+      const p = datos.data;
+      const max = Math.sqrt(3 * 255 * 255);
+      const tol = (a.tolerancia / 100) * max, suave = (a.suavizado / 100) * max;
+      for (let i = 0; i < p.length; i += 4) {
+        const d = Math.hypot(p[i] - r0, p[i + 1] - g0, p[i + 2] - b0);
+        if (d <= tol) p[i + 3] = 0;
+        else if (suave && d < tol + suave) p[i + 3] = Math.round(p[i + 3] * ((d - tol) / suave));
+      }
+      x.putImageData(datos, 0, 0);
+    }
+    // 3. Recortar los bordes que quedaron transparentes
+    if (a.recortar) {
+      const p = x.getImageData(0, 0, w, h).data;
+      let arriba = h, abajo = -1, izq = w, der = -1;
+      for (let y = 0; y < h; y++) {
+        for (let xx = 0; xx < w; xx++) {
+          if (p[(y * w + xx) * 4 + 3] > 8) {
+            if (y < arriba) arriba = y;
+            if (y > abajo) abajo = y;
+            if (xx < izq) izq = xx;
+            if (xx > der) der = xx;
+          }
+        }
+      }
+      if (abajo >= 0 && (der - izq + 1 < w || abajo - arriba + 1 < h)) {
+        const r = document.createElement('canvas');
+        r.width = der - izq + 1;
+        r.height = abajo - arriba + 1;
+        r.getContext('2d').drawImage(c, izq, arriba, r.width, r.height, 0, 0, r.width, r.height);
+        c = r;
+        c.corte = [izq, arriba];
+      }
+    }
+    // Para ubicar en el original un punto de la vista previa: cuánto se recortó y a qué escala quedó
+    c.corte = c.corte || [0, 0];
+    c.escala = w / original.width;
+    return c;
+  };
+
+  const pintar = async (item) => {
+    const a = ajustes();
+    item.resultado = procesar(item.original, a);
+    const vista = item.li.querySelector('.png-vista');
+    // La vista previa se dibuja en un canvas (no hace falta subir ni enlazar la imagen)
+    const escala = Math.min(1, 720 / item.resultado.width);
+    vista.width = Math.max(1, Math.round(item.resultado.width * escala));
+    vista.height = Math.max(1, Math.round(item.resultado.height * escala));
+    const vx = vista.getContext('2d');
+    vx.clearRect(0, 0, vista.width, vista.height);
+    vx.drawImage(item.resultado, 0, 0, vista.width, vista.height);
+    item.blob = await new Promise((r) => item.resultado.toBlob(r, 'image/png'));
+    item.li.querySelector('.png-datos').textContent = `${X.original}: ${item.original.width}×${item.original.height} px · ${peso(item.tamano)}  →  ${X.resultado}: ${item.resultado.width}×${item.resultado.height} px · ${peso(item.blob.size)}`;
+    item.li.querySelector('.png-bajar').disabled = false;
+  };
+  let pendiente;
+  const pintarTodas = () => {
+    clearTimeout(pendiente);
+    pendiente = setTimeout(() => imagenes.forEach(pintar), 120);
+  };
+  const actualizarBarra = () => {
+    barra.hidden = !imagenes.length;
+    aviso.hidden = !imagenes.length;
+  };
+  const nombrePng = (n) => `${n.replace(/\.[^.]+$/, '') || 'imagen'}.png`;
+
+  const agregar = async (archivos) => {
+    for (const archivo of archivos) {
+      const li = document.createElement('li');
+      li.className = 'png-item';
+      li.innerHTML = `<canvas class="png-vista" width="1" height="1"></canvas>
+        <div class="png-info"><span class="png-nombre"></span><span class="png-datos mono">${X.procesando}</span>
+        <div class="png-botones"><button type="button" class="btn btn-dark png-bajar" disabled>${X.descargar}</button><button type="button" class="tar-vaciar png-quitar">${X.quitar}</button></div></div>`;
+      li.querySelector('.png-nombre').textContent = archivo.name;
+      lista.append(li);
+      try {
+        const item = { id: siguiente++, nombre: archivo.name, tamano: archivo.size, original: await abrir(archivo), li };
+        li.dataset.id = item.id;
+        imagenes.push(item);
+        await pintar(item);
+      } catch (e) {
+        li.classList.add('png-error');
+        li.querySelector('.png-datos').textContent = X.error;
+        li.querySelector('.png-bajar').remove();
+      }
+      actualizarBarra();
+    }
+  };
+
+  entrada.addEventListener('change', () => {
+    agregar([...entrada.files]);
+    entrada.value = '';
+  });
+  ['dragenter', 'dragover'].forEach((t) =>
+    zona.addEventListener(t, (e) => {
+      e.preventDefault();
+      zona.classList.add('encima');
+    })
+  );
+  ['dragleave', 'drop'].forEach((t) => zona.addEventListener(t, () => zona.classList.remove('encima')));
+  zona.addEventListener('drop', (e) => {
+    e.preventDefault();
+    agregar([...e.dataTransfer.files].filter((f) => f.type.startsWith('image/') || /\.svg$/i.test(f.name)));
+  });
+
+  // Ajustes
+  raiz.querySelector('.png-ajustes').addEventListener('input', (e) => {
+    const t = e.target;
+    if (t.name === 'tamano') campo('ancho').disabled = t.value !== 'ancho';
+    if (t.name === 'fondo') raiz.querySelector('.png-fondo').hidden = !t.checked;
+    if (t.type === 'range') raiz.querySelector(`output[for="${t.id}"]`).textContent = t.value;
+    pintarTodas();
+  });
+
+  lista.addEventListener('click', (e) => {
+    const li = e.target.closest('.png-item');
+    if (!li) return;
+    const i = imagenes.findIndex((it) => String(it.id) === li.dataset.id);
+    if (e.target.closest('.png-bajar') && i >= 0) bajarArchivo(imagenes[i].blob, nombrePng(imagenes[i].nombre));
+    if (e.target.closest('.png-quitar')) {
+      if (i >= 0) imagenes.splice(i, 1);
+      li.remove();
+      actualizarBarra();
+    }
+    // Tocar la vista previa elige el color a quitar (del original, en ese punto)
+    const vista = e.target.closest('.png-vista');
+    if (vista && i >= 0) {
+      const r = vista.getBoundingClientRect();
+      const { original: o, resultado: res } = imagenes[i];
+      const px = Math.floor((((e.clientX - r.left) / r.width) * res.width + res.corte[0]) / res.escala);
+      const py = Math.floor((((e.clientY - r.top) / r.height) * res.height + res.corte[1]) / res.escala);
+      const [cr, cg, cb] = o.getContext('2d').getImageData(Math.min(o.width - 1, Math.max(0, px)), Math.min(o.height - 1, Math.max(0, py)), 1, 1).data;
+      campo('color').value = `#${[cr, cg, cb].map((v) => v.toString(16).padStart(2, '0')).join('')}`;
+      campo('fondo').checked = true;
+      raiz.querySelector('.png-fondo').hidden = false;
+      pintarTodas();
+    }
+  });
+  raiz.querySelector('.png-todas').addEventListener('click', async () => {
+    for (const it of imagenes) {
+      if (!it.blob) continue;
+      bajarArchivo(it.blob, nombrePng(it.nombre));
+      await new Promise((r) => setTimeout(r, 400));
+    }
+  });
+  raiz.querySelector('.png-vaciar').addEventListener('click', () => {
+    imagenes.length = 0;
+    lista.innerHTML = '';
+    actualizarBarra();
+  });
 }
 
 // ----- Visor de imágenes a pantalla completa -----
