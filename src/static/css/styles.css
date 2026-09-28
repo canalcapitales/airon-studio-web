@@ -791,6 +791,8 @@ html:not(.js) .calc-salida { display: none; }
 .campo input:focus, .campo select:focus, .campo textarea:focus { outline: 2px solid var(--ink); outline-offset: 2px; }
 .nota { font-size: 14px; color: var(--muted); }
 @media (max-width: 899px) { .contacto-grid { grid-template-columns: 1fr; } }
+/* Con el formulario al lado, el título se achica para entrar en su columna y no quedar tapado */
+@media (min-width: 900px) { .contacto-info .page-title { font-size: clamp(64px, 8.4vw, 150px); } }
 
 .simple .wrap { display: flex; flex-direction: column; gap: 28px; min-height: 50vh; justify-content: center; }
 
