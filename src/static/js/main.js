@@ -183,7 +183,8 @@ function cursorEstrella() {
     const enlace = sobre.closest('a, button, [role="button"], label, summary');
     cursor.classList.toggle('ver', !!tarjeta);
     cursor.classList.toggle('enlace', !tarjeta && !!enlace);
-    cursor.classList.toggle('oscuro', !!sobre.closest('.site-footer, .numeros, .franja, .menu-open .nav'));
+    // Sobre fondos negros o rojos la estrella se pone clara para que no se pierda
+    cursor.classList.toggle('oscuro', !!sobre.closest('.site-footer, .numeros, .franja, .menu-open .nav, .cta, .btn-accent'));
     if (tarjeta) etiqueta.textContent = tarjeta.dataset.cursor;
   };
   // La estrella va pegada al mouse y solo se redibuja cuando el mouse se mueve (una vez por cuadro)
