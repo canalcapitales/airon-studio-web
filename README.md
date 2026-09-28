@@ -10,6 +10,7 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 | `src/data/proyectos.en.json` | **La traducción al inglés** de cada proyecto. |
 | `"previa": 2` (en un proyecto) | Elige qué imagen de la galería aparece al pasar el mouse por su tarjeta (1 = la primera). |
 | `src/data/tarifario-diseno.json` | **Valores del Tarifario de diseño** (118 servicios por rubro y tipo de cliente), adaptado con permiso de la Cámara de Diseñadores de Rafaela. |
+| `src/data/legales.mjs` | **Textos de la página Legales** (privacidad, herramientas, derechos de autor) y **preguntas frecuentes de Herramientas**, en español e inglés. Si cambiás algo, actualizá también la fecha `ACTUALIZADO`. |
 | `src/data/tarifario-murales.json` | **Valores de la calculadora de murales** (Tarifario Mural): precio por m² según tramo, tipo de cliente y diseño, más boceto, evento y asistencia. |
 | `src/static/css/styles.css` | Colores, tipografías y diseño. Arriba están los colores del modo claro (`:root`) y debajo los del modo oscuro. |
 | `src/static/js/main.js` | Menú de celular, botón de modo claro/oscuro, filtros, visor de imágenes, formulario y las herramientas (calculadora de murales, tarifario de diseño, letras Unicode y convertidor a PNG). Todas funcionan en el navegador, sin servicios externos. |
