@@ -846,7 +846,7 @@ const organizacion = (l) => ({
 const ASSETS = {};
 
 // ---------- estructura común de cada página ----------
-function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/img/og/inicio-${l}.jpg`, datos, cuerpo }) {
+function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/img/og/inicio-${l}.jpg`, datos, cuerpo, publicidadEnPie = true }) {
   const T = TXT[l];
   const R = RUTAS[l];
   const actual = (id) => (activo === id ? ' aria-current="page"' : '');
@@ -915,7 +915,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
   <main id="contenido">
 ${cuerpo}
   </main>
-${marquesinaPublicidad(l)}
+${publicidadEnPie ? marquesinaPublicidad(l) : ''}
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-top">
@@ -936,7 +936,9 @@ ${marquesinaPublicidad(l)}
 // ---------- piezas reutilizables ----------
 // Marquesina de publicidad: logos de anunciantes con enlace directo (datos en src/data/publicidad.json).
 // Mientras no haya anunciantes vigentes, muestra espacios de ejemplo que llevan a Contacto.
-function marquesinaPublicidad(l) {
+// Ubicación: arriba del pie en la mayoría de las páginas; en el inicio, después de la lista de proyectos;
+// en las herramientas, versión compacta debajo del título (ahí no se repite en el pie).
+function marquesinaPublicidad(l, variante = '') {
   if (!PUBLICIDAD.activa) return '';
   const T = TXT[l];
   const A = T.publicidad;
@@ -961,9 +963,9 @@ function marquesinaPublicidad(l) {
     `<li${oculto ? ' class="eco" aria-hidden="true"' : ''}><a class="anuncio" href="${esc(it.href)}"${it.externo ? ' target="_blank" rel="sponsored noopener noreferrer"' : ''}${oculto ? ' tabindex="-1"' : ''} title="${esc(it.nombre)}${it.externo ? ` (${A.abre})` : ''}"><img src="${esc(it.logo)}" alt="${oculto ? '' : esc(it.nombre)}" width="200" height="80" loading="lazy" decoding="async"></a></li>`;
   const mitad = (primera) =>
     Array.from({ length: vueltas }, (_, v) => items.map((it) => logo(it, !primera || v > 0)).join('')).join('');
-  return `  <aside class="anuncios" aria-label="${A.aria}">
+  return `  <aside class="anuncios${variante ? ` anuncios--${variante}` : ''}" aria-label="${A.aria}">
     <div class="wrap anuncios-head">
-      <span class="kicker mono">${A.kicker} · ${A.titulo}</span>
+      <span class="kicker mono anuncios-largo">${A.kicker} · ${A.titulo}</span>${variante === 'compacta' ? `<span class="kicker mono anuncios-corto">${A.kicker}</span>` : ''}
       <a class="link-arrow anuncios-cta" href="${esc(contactoPub)}">${A.cta} →</a>
     </div>
     <div class="anuncios-cinta">
@@ -1091,6 +1093,7 @@ function inicio(l, proyectos) {
     .join('\n        ');
   return pagina(l, {
     clave: 'inicio',
+    publicidadEnPie: false,
     activo: 'inicio',
     imagen: `/img/og/inicio-${l}.jpg`,
     datos: { '@graph': [organizacion(l), { '@type': 'WebSite', name: 'AIRON Studio', url: `${SITIO.url}${R.inicio}`, inLanguage: T.htmlLang, publisher: { '@id': `${SITIO.url}/#estudio` } }] },
@@ -1125,6 +1128,8 @@ function inicio(l, proyectos) {
       </ol>
     </div>
   </section>
+
+${marquesinaPublicidad(l, 'inicio')}
 
   ${numeros(l, proyectos)}
 
@@ -1455,6 +1460,7 @@ function paginaCalculadora(l) {
   const R = RUTAS[l];
   return pagina(l, {
     clave: 'calculadora',
+    publicidadEnPie: false,
     titulo: P.titulo,
     activo: 'tarifario',
     descripcion: P.desc,
@@ -1480,6 +1486,8 @@ function paginaCalculadora(l) {
       <p class="lead">${P.lead}</p>
     </div>
   </section>
+
+  ${marquesinaPublicidad(l, 'compacta')}
 
   ${calculadora(l, { titulo: false })}
 
@@ -1518,6 +1526,7 @@ function paginaTarifarios(l) {
     .join('\n        ');
   return pagina(l, {
     clave: 'tarifarios',
+    publicidadEnPie: false,
     titulo: P.titulo,
     activo: 'tarifario',
     descripcion: P.desc,
@@ -1538,6 +1547,7 @@ function paginaTarifarios(l) {
       <p class="lead">${P.lead}</p>
     </div>
   </section>
+  ${marquesinaPublicidad(l, 'compacta')}
   <section class="seccion seccion--top">
     <div class="wrap tar-hub">
         ${tarjetas}
@@ -1605,6 +1615,7 @@ function paginaTarifarioDiseno(l) {
   const textos = { ...D, referencias: undefined, clientes: D.clientes.map(([, l2, t]) => `${l2} · ${t}`), unidades: D.unidades, generando: T.murales.calc.generando };
   return pagina(l, {
     clave: 'tarifarioDiseno',
+    publicidadEnPie: false,
     titulo: D.titulo,
     activo: 'tarifario',
     descripcion: D.desc,
@@ -1634,6 +1645,7 @@ function paginaTarifarioDiseno(l) {
     </div>
   </section>
 
+  ${marquesinaPublicidad(l, 'compacta')}
   <section class="seccion seccion--top" id="tarifario">
     <div class="wrap tar" data-tarifario="${esc(JSON.stringify({ ...TD, categorias: undefined, fuente: undefined, url: undefined, desarrollo: undefined, permiso: undefined }))}" data-textos="${esc(JSON.stringify(textos))}">
       <div class="tar-main">
@@ -1719,6 +1731,7 @@ function paginaUnicode(l) {
   ).join('\n        ');
   return pagina(l, {
     clave: 'unicode',
+    publicidadEnPie: false,
     titulo: U.titulo,
     activo: 'tarifario',
     descripcion: U.desc,
@@ -1726,6 +1739,7 @@ function paginaUnicode(l) {
     datos: datosHerramienta(l, U, R.unicode),
     cuerpo: `
   ${cabeceraHerramienta(U)}
+  ${marquesinaPublicidad(l, 'compacta')}
   <section class="seccion seccion--top">
     <div class="wrap uni" data-copiado="${esc(U.copiado)}" data-copiar="${esc(U.copiar)}">
       <div class="uni-entrada">
@@ -1757,6 +1771,7 @@ function paginaPng(l) {
   const textos = { descargar: P.descargar, quitar: P.quitar, procesando: P.procesando, original: P.original, resultado: P.resultado, error: P.error, iaDescargando: P.iaDescargando, iaTrabajando: P.iaTrabajando, iaLista: P.iaLista, iaError: P.iaError };
   return pagina(l, {
     clave: 'png',
+    publicidadEnPie: false,
     titulo: P.titulo,
     activo: 'tarifario',
     descripcion: P.desc,
@@ -1764,6 +1779,7 @@ function paginaPng(l) {
     datos: datosHerramienta(l, P, R.png),
     cuerpo: `
   ${cabeceraHerramienta(P)}
+  ${marquesinaPublicidad(l, 'compacta')}
   <section class="seccion seccion--top">
     <div class="wrap png" data-textos="${esc(JSON.stringify(textos))}">
       <div class="png-panel">

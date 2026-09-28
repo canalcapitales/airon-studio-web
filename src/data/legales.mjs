@@ -82,7 +82,7 @@ export const LEGALES = {
         id: 'publicidad',
         titulo: 'Publicidad',
         bloques: [
-          'La franja de logos que aparece arriba del pie de página es un espacio publicitario y está identificada como “Publicidad”. Cada logo lleva al sitio de ese anunciante, que se abre en otra pestaña.',
+          'La franja de logos identificada como “Publicidad” (en el inicio, en las herramientas y arriba del pie de las demás páginas) es un espacio publicitario. Cada logo lleva al sitio de ese anunciante, que se abre en otra pestaña.',
           'Esos sitios son de terceros: no controlamos su contenido ni sus políticas de privacidad, y no somos responsables por los productos o servicios que ofrecen. Que una marca anuncie acá no significa que AIRON Studio la recomiende.',
           'Los enlaces llevan una marca de origen (“utm_source=aironstudio.com.ar”) para que el anunciante sepa que la visita llegó desde esta web. No se usan cookies ni se comparte ningún dato tuyo con los anunciantes.',
         ],
@@ -168,7 +168,7 @@ export const LEGALES = {
         id: 'publicidad',
         titulo: 'Advertising',
         bloques: [
-          'The strip of logos above the footer is an advertising space and is labeled “Advertising”. Each logo links to that advertiser’s website, which opens in a new tab.',
+          'The strip of logos labeled “Advertising” (on the home page, on the tools and above the footer of other pages) is an advertising space. Each logo links to that advertiser’s website, which opens in a new tab.',
           'Those sites belong to third parties: we don’t control their content or privacy policies, and we are not responsible for the products or services they offer. A brand advertising here doesn’t mean AIRON Studio endorses it.',
           'The links carry a source tag (“utm_source=aironstudio.com.ar”) so the advertiser knows the visit came from this site. No cookies are used and none of your data is shared with advertisers.',
         ],
