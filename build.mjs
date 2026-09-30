@@ -346,7 +346,7 @@ const TXT = {
     listadoDesc: 'Portafolio de AIRON Studio: identidad de marca, gráfica, diseño web, sistemas de gestión, gráfica musical, motion, arte urbano y fotografía.',
     portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar', muro: { titulo: 'Muro de marcas', texto: 'Logos diseñados para artistas, comercios, empresas e instituciones. Filtrá por rubro y tocá cada marca para verla en grande.', todas: 'Todas', marcas: 'marcas', rubros: 'rubros', verCaso: 'Ver caso', filtrar: 'Filtrar marcas por rubro' },
     videoDe: (t) => `Video del proyecto ${t}`, volver: '← Volver a proyectos', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
-    ctaProyecto: '¿Querés ver todas las imágenes?', verBehance: 'Ver en Behance', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
+    ctaProyecto: '¿Querés ver todas las imágenes?', verBehance: 'Ver en Behance', ctaSinBehance: '¿Tu marca es la próxima?', botonSinBehance: 'Pedí tu marca →', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
     proyectoDe: 'Proyecto de AIRON Studio.',
     descProyecto: (cats) => `${cats} por AIRON Studio, estudio de diseño multimedial en Buenos Aires.`,
     visor: { aria: 'Visor de imágenes', cerrar: 'Cerrar', ant: 'Imagen anterior', sig: 'Imagen siguiente' },
@@ -720,7 +720,7 @@ const TXT = {
     listadoDesc: 'AIRON Studio portfolio: brand identity, graphic design, web design, management systems, music artwork, motion, street art and photography.',
     portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge', muro: { titulo: 'Brand wall', texto: 'Logos designed for artists, shops, companies and institutions. Filter by industry and tap any brand to see it large.', todas: 'All', marcas: 'brands', rubros: 'industries', verCaso: 'View case', filtrar: 'Filter brands by industry' },
     videoDe: (t) => `Video of the project ${t}`, volver: '← Back to work', fichaAria: 'Project details', imagenesAria: 'Project images',
-    ctaProyecto: 'Want to see every image?', verBehance: 'View on Behance', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
+    ctaProyecto: 'Want to see every image?', verBehance: 'View on Behance', ctaSinBehance: 'Is your brand next?', botonSinBehance: 'Get your brand →', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
     proyectoDe: 'A project by AIRON Studio.',
     descProyecto: (cats) => `${cats} by AIRON Studio, a multimedia design studio based in Buenos Aires.`,
     visor: { aria: 'Image viewer', cerrar: 'Close', ant: 'Previous image', sig: 'Next image' },
@@ -1340,12 +1340,16 @@ function detalle(l, proyectos, p, i) {
     texto = `${p.titulo} — ${p.subtitulo}. ${texto || T.descProyecto(catsTexto(l, p))}${datosFicha ? ' ' + datosFicha + '.' : ''}`;
   }
   const descripcion = recortar(texto);
-  const botones = (Array.isArray(p.behance) ? p.behance : [{ texto: T.verBehance, url: p.behance || SITIO.behance }])
-    .map((b) => `<a class="btn btn-accent btn-lg" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.texto)} ↗</a>`)
-    .join('');
+  // behance: false → sin link a Behance; el cierre invita a pedir una marca
+  const sinBehance = p.behance === false;
+  const botones = sinBehance
+    ? `<a class="btn btn-accent btn-lg" href="${RUTAS[l].contacto}?tipo=${esc(p.categorias[0])}">${T.botonSinBehance}</a>`
+    : (Array.isArray(p.behance) ? p.behance : [{ texto: T.verBehance, url: p.behance || SITIO.behance }])
+      .map((b) => `<a class="btn btn-accent btn-lg" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.texto)} ↗</a>`)
+      .join('');
   // En arte urbano, el cierre invita a pedir un mural
   const urbano = p.categorias.includes('urbano');
-  const cierre = urbano ? T.murales.ctaProyecto : p.cta || T.ctaProyecto;
+  const cierre = urbano ? T.murales.ctaProyecto : p.cta || (sinBehance ? T.ctaSinBehance : T.ctaProyecto);
   const botonMural = urbano ? `<a class="btn btn-dark btn-lg" href="${RUTAS[l].murales}">${T.murales.botonProyecto}</a>` : '';
   return pagina(l, {
     clave: 'proyecto',
