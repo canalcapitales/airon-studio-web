@@ -106,5 +106,5 @@ Ya existe la categoría **Sistemas de gestión** (filtro en Proyectos, servicio 
 
 - **CapiTales (diseño web):** agregarlo cuando se lance (01/04/2027) o antes si hay permiso, con capturas, rol y año.
 - **Branding x AIRON Studio:** ~~faltaban identidades en el muro~~ ✔ El muro ya muestra las 21 identidades, igual que en Behance.
-- **Tarjeta del logo M93:** en la imagen original dice "BRANDY — Pizzas & empanadas". Corregir en Illustrator y en Behance.
+- **Muro de logos:** ✔ Reemplazado por los 25 logos nuevos (`src/data/logos.json`). Para sumar uno: el archivo va en `src/static/img/logos/` y se agrega una línea en ese JSON.
 - **Traducción al inglés:** revisarla (`src/data/proyectos.en.json`). Cada proyecto nuevo necesita su texto en inglés.
