@@ -50,12 +50,6 @@
     "ficha": [["Discipline", "Visual identity and branding"], ["Identities", "25 brands designed"], ["Industries", "Music, food, real estate, retail, industry, culture and tourism"]],
     "bloques": [
       { "titulo": "The selection", "parrafos": ["A collection of brands developed for different projects, industries and disciplines. A journey through different approaches to visual identity, exploring concepts, shapes, typefaces and graphic systems to build unique, recognizable brands.", "Behind every brand there is a geometric and technical study: shapes, proportions, grids and visual construction to create solid, consistent and recognizable identities."] }
-    ],
-    "galerias": [
-      { "titulo": "San Martín de los Andes — Destination Brand", "texto": "A proposal submitted to the contest organized by the Municipality of San Martín de los Andes, exploring the city's identity, landscape and cultural attributes.", "alts": ["San Martín de los Andes — image 1", "San Martín de los Andes — image 2", "San Martín de los Andes — image 3", "San Martín de los Andes — image 4", "San Martín de los Andes — image 5"] },
-      { "titulo": "Franqui Quiroga — Artist Identity", "texto": "Visual identity for a music artist from La Plata: a contemporary, recognizable and adaptable visual system.", "alts": ["Franqui Quiroga — image 1", "Franqui Quiroga — image 2", "Franqui Quiroga — image 3", "Franqui Quiroga — image 4", "Franqui Quiroga — image 5"] },
-      { "titulo": "Laionbeats — Artist Identity", "texto": "Branding for a music artist from San Martín de los Andes based in Buenos Aires, translating his sound into a flexible visual language.", "alts": ["Laionbeats — image 1", "Laionbeats — image 2", "Laionbeats — image 3", "Laionbeats — image 4", "Laionbeats — image 5"] },
-      { "titulo": "Natural Sciences Museum — Identity Redesign", "texto": "A proposal developed at the School of Arts of the National University of La Plata (UNLP), built around the museum's scientific, historical and cultural heritage.", "alts": ["Natural Sciences Museum — image 1", "Natural Sciences Museum — image 2", "Natural Sciences Museum — image 3", "Natural Sciences Museum — image 4", "Natural Sciences Museum — image 5"] }
     ]
   },
   "ploteo-vehicular": {
