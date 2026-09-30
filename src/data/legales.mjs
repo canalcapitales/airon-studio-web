@@ -56,7 +56,7 @@ export const LEGALES = {
         id: 'herramientas',
         titulo: 'Herramientas gratuitas',
         bloques: [
-          'Las herramientas (calculadora de murales, tarifario de diseño, textos Unicode y convertidor a PNG) son gratuitas, no requieren registro y se pueden usar también para trabajos comerciales.',
+          'Las herramientas (calculadora de murales, tarifario de diseño, textos Unicode, mayúsculas y minúsculas y convertidor a PNG) son gratuitas, no requieren registro y se pueden usar también para trabajos comerciales.',
           [
             '<strong>Montos orientativos.</strong> Los valores de la calculadora y del tarifario son una referencia para ayudarte a presupuestar. No son una oferta de AIRON Studio ni un precio obligatorio: cada profesional define su tarifa. Revisá los montos antes de enviar un presupuesto.',
             '<strong>Tus archivos no salen de tu dispositivo.</strong> Las imágenes y los textos se procesan en tu navegador; no llegan a nuestros servidores ni a los de terceros.',
@@ -142,7 +142,7 @@ export const LEGALES = {
         id: 'herramientas',
         titulo: 'Free tools',
         bloques: [
-          'The tools (mural calculator, design rates, Unicode text and PNG converter) are free, need no sign-up and can also be used for commercial work.',
+          'The tools (mural calculator, design rates, Unicode text, case converter and PNG converter) are free, need no sign-up and can also be used for commercial work.',
           [
             '<strong>Reference amounts.</strong> The calculator and rate values are a reference to help you quote. They are not an offer from AIRON Studio or a mandatory price: every professional sets their own rate. Check the amounts before sending a quote.',
             '<strong>Your files never leave your device.</strong> Images and text are processed in your browser; they never reach our servers or anyone else’s.',
@@ -189,7 +189,7 @@ export const FAQ_HERRAMIENTAS = {
     titulo: 'Sobre las herramientas',
     faq: [
       ['¿Las herramientas son gratis?', 'Sí, todas. No hace falta registrarse, no tienen límite de uso y podés usarlas también para trabajos comerciales.'],
-      ['¿Se suben mis imágenes o textos a algún servidor?', 'No. El convertidor a PNG y los textos Unicode funcionan dentro de tu navegador. Incluso la IA para quitar fondos se descarga una sola vez y trabaja en tu dispositivo: tus archivos nunca salen de él.'],
+      ['¿Se suben mis imágenes o textos a algún servidor?', 'No. El convertidor a PNG, los textos Unicode y el convertidor de mayúsculas funcionan dentro de tu navegador. Incluso la IA para quitar fondos se descarga una sola vez y trabaja en tu dispositivo: tus archivos nunca salen de él.'],
       ['¿Puedo usar los PNG y los textos en trabajos comerciales?', 'Sí, lo que generás es tuyo. Solo asegurate de tener derecho a usar la imagen original (por ejemplo, que sea tuya o de tu cliente).'],
       ['¿Los precios del tarifario y de la calculadora son oficiales?', 'Son valores de referencia para ayudarte a presupuestar y se actualizan periódicamente. No son precios obligatorios: cada profesional define su tarifa según su experiencia y el proyecto.'],
       ['¿Por qué la IA no recortó bien mi foto?', 'Funciona mejor cuando la persona u objeto se distingue claramente del fondo. Si quedan restos, activá también “Quitar fondo de color” y tocá la imagen sobre el color que sobra.'],
@@ -201,7 +201,7 @@ export const FAQ_HERRAMIENTAS = {
     titulo: 'About the tools',
     faq: [
       ['Are the tools free?', 'Yes, all of them. No sign-up, no usage limits, and you can use them for commercial work too.'],
-      ['Are my images or texts uploaded to a server?', 'No. The PNG converter and the Unicode text tool run inside your browser. Even the AI background remover is downloaded once and runs on your device: your files never leave it.'],
+      ['Are my images or texts uploaded to a server?', 'No. The PNG converter, the Unicode text tool and the case converter run inside your browser. Even the AI background remover is downloaded once and runs on your device: your files never leave it.'],
       ['Can I use the PNGs and texts in commercial work?', 'Yes, what you create is yours. Just make sure you have the right to use the original image (for example, it’s yours or your client’s).'],
       ['Are the rates and calculator prices official?', 'They are reference values to help you quote, updated periodically. They are not mandatory prices: every professional sets their own rate based on experience and the project.'],
       ['Why didn’t the AI cut out my photo properly?', 'It works best when the person or object stands out clearly from the background. If bits are left, also turn on “Remove solid background” and tap the image on the leftover color.'],

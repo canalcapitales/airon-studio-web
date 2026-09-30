@@ -25,8 +25,8 @@ const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Fo
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/' },
+  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -43,7 +43,7 @@ const TXT = {
     tarifarios: {
       nav: 'Herramientas',
       titulo: 'Herramientas gratuitas para creativos',
-      desc: 'Herramientas gratuitas para creativos: tarifario mural, tarifario de diseño, generador de letras Unicode y convertidor de imágenes a PNG.',
+      desc: 'Herramientas gratuitas para creativos: tarifario mural, tarifario de diseño, generador de letras Unicode, convertidor de mayúsculas y minúsculas y convertidor de imágenes a PNG.',
       kicker: 'Gratis · Sin registrarse',
       h1: 'Herramientas',
       lead: 'Herramientas gratuitas para diseñadores, muralistas y marcas: calculá y presupuestá trabajos, generá letras especiales para redes y convertí imágenes a PNG. Todo funciona en tu navegador.',
@@ -51,6 +51,7 @@ const TXT = {
         ['calculadora', 'Tarifario mural', 'Calculá el costo de un mural por m² según el Tarifario Mural 2026 de la comunidad de muralistas: medidas, tipo de cliente, diseño, evento y viáticos.', 'Calcular un mural →'],
         ['tarifarioDiseno', 'Tarifario de diseño', '118 servicios de diseño en 15 rubros —identidad, web, redes, editorial, audiovisual y más— con valores por tipo de cliente. Armá el presupuesto sumando servicios.', 'Armar un presupuesto →'],
         ['unicode', 'Letras Unicode', 'Escribí un texto y copialo en negrita, cursiva, gótica, burbujas y más de 20 estilos para bios, posteos y nombres de Instagram, TikTok o WhatsApp.', 'Crear textos →'],
+        ['mayusculas', 'Mayúsculas y minúsculas', 'Pegá un texto y pasalo a MAYÚSCULAS, minúsculas, tipo oración, tipo título o Cada Palabra, y copialo con un toque. También quita tildes para archivos y usuarios.', 'Convertir texto →'],
         ['png', 'Convertir a PNG', 'Pasá tus imágenes JPG, WEBP, GIF o SVG a PNG, cambiá el tamaño, quitá un fondo de color para dejarlo transparente y recortá los bordes. Sin subir nada.', 'Convertir imágenes →'],
       ],
     },
@@ -75,6 +76,36 @@ const TXT = {
       ],
       nombres: {
         negrita: 'Negrita', cursiva: 'Cursiva', negritaCursiva: 'Negrita cursiva', sans: 'Sans', sansNegrita: 'Sans negrita', sansCursiva: 'Sans cursiva', sansNegritaCursiva: 'Sans negrita cursiva', escritura: 'Escritura', escrituraNegrita: 'Escritura negrita', gotica: 'Gótica', goticaNegrita: 'Gótica negrita', doble: 'Doble trazo', mono: 'Monoespaciada', ancha: 'Ancha', circulos: 'Círculos', circulosNegros: 'Círculos negros', cuadros: 'Cuadrados', cuadrosNegros: 'Cuadrados negros', versalitas: 'Versalitas', superindice: 'Superíndice', invertida: 'Al revés', tachada: 'Tachada', subrayada: 'Subrayada', dobleSubrayado: 'Doble subrayado', barrada: 'Con barra',
+      },
+    },
+    mayusculas: {
+      titulo: 'Convertir mayúsculas a minúsculas online — y al revés',
+      desc: 'Convertidor gratuito de mayúsculas y minúsculas: pasá tu texto a MAYÚSCULAS, minúsculas, tipo oración, tipo título o Cada Palabra, quitá tildes y copialo con un toque.',
+      kicker: 'Herramienta gratuita',
+      h1: 'Mayúsculas y minúsculas',
+      lead: 'Pegá o escribí un texto y copialo en el formato que necesites: todo en mayúsculas, todo en minúsculas, con mayúscula después de cada punto o con mayúscula en cada palabra. Funciona en tu navegador: el texto no se envía a ningún lado.',
+      campo: 'Tu texto',
+      ejemplo: 'Pegá o escribí acá tu texto',
+      inicial: 'hola. ESTE ES UN TEXTO de ejemplo para AIRON studio.\n¿querés probar con el tuyo?',
+      copiar: 'Copiar',
+      copiado: 'Copiado ✓',
+      limpiar: 'Borrar',
+      cuenta: { caracteres: 'caracteres', palabras: 'palabras', lineas: 'líneas' },
+      consejoTitulo: 'Cuándo usar cada una',
+      consejos: [
+        'Tipo oración: para textos corridos, descripciones y posteos. Revisá después los nombres propios, que quedan en minúscula.',
+        'Tipo título: para títulos de notas, libros o canciones. Deja en minúscula palabras cortas como “de”, “la” o “y”.',
+        'Sin tildes: para nombres de archivos, carpetas, usuarios o mails, donde las tildes y la ñ suelen dar problemas.',
+      ],
+      modos: {
+        oracion: 'Tipo oración',
+        minusculas: 'minúsculas',
+        mayusculas: 'MAYÚSCULAS',
+        palabras: 'Cada Palabra',
+        titulo: 'Tipo Título',
+        invertir: 'iNVERTIR',
+        alternar: 'aLtErNaDo',
+        sinTildes: 'Sin tildes',
       },
     },
     png: {
@@ -417,7 +448,7 @@ const TXT = {
     tarifarios: {
       nav: 'Tools',
       titulo: 'Free tools for creatives',
-      desc: 'Free tools for creatives: mural rates, design rates, Unicode text generator and image to PNG converter.',
+      desc: 'Free tools for creatives: mural rates, design rates, Unicode text generator, case converter and image to PNG converter.',
       kicker: 'Free · No sign-up',
       h1: 'Tools',
       lead: 'Free tools for designers, muralists and brands: estimate and quote jobs, generate special fonts for social media and convert images to PNG. Everything runs in your browser.',
@@ -425,6 +456,7 @@ const TXT = {
         ['calculadora', 'Mural rates', 'Estimate the cost of a mural per m² based on the 2026 Mural Rate Guide by Argentina’s muralist community: measurements, client type, design, events and travel.', 'Estimate a mural →'],
         ['tarifarioDiseno', 'Design rates', '118 design services in 15 areas —identity, web, social media, editorial, motion and more— with rates by client type. Build an estimate by adding services.', 'Build an estimate →'],
         ['unicode', 'Unicode fonts', 'Type any text and copy it in bold, italic, gothic, bubbles and 20+ styles for Instagram, TikTok or WhatsApp bios, posts and names.', 'Create text →'],
+        ['mayusculas', 'Case converter', 'Paste any text and switch it to UPPERCASE, lowercase, sentence case, title case or Each Word, then copy it in one tap. It also strips accents for file names and usernames.', 'Convert text →'],
         ['png', 'Convert to PNG', 'Turn JPG, WEBP, GIF or SVG images into PNG, resize them, remove a solid background to make it transparent and trim the edges. Nothing gets uploaded.', 'Convert images →'],
       ],
     },
@@ -449,6 +481,36 @@ const TXT = {
       ],
       nombres: {
         negrita: 'Bold', cursiva: 'Italic', negritaCursiva: 'Bold italic', sans: 'Sans', sansNegrita: 'Sans bold', sansCursiva: 'Sans italic', sansNegritaCursiva: 'Sans bold italic', escritura: 'Script', escrituraNegrita: 'Bold script', gotica: 'Gothic', goticaNegrita: 'Bold gothic', doble: 'Double-struck', mono: 'Monospace', ancha: 'Wide', circulos: 'Circles', circulosNegros: 'Black circles', cuadros: 'Squares', cuadrosNegros: 'Black squares', versalitas: 'Small caps', superindice: 'Superscript', invertida: 'Upside down', tachada: 'Strikethrough', subrayada: 'Underline', dobleSubrayado: 'Double underline', barrada: 'Slashed',
+      },
+    },
+    mayusculas: {
+      titulo: 'Case converter: uppercase, lowercase, sentence and title case',
+      desc: 'Free online case converter: switch your text to UPPERCASE, lowercase, sentence case, title case or Each Word, remove accents and copy it in one tap.',
+      kicker: 'Free tool',
+      h1: 'Case converter',
+      lead: 'Paste or type any text and copy it in the format you need: all caps, all lowercase, a capital after every full stop or a capital on every word. It runs in your browser: your text is not sent anywhere.',
+      campo: 'Your text',
+      ejemplo: 'Paste or type your text here',
+      inicial: 'hello. THIS IS A SAMPLE text for AIRON studio.\nwant to try yours?',
+      copiar: 'Copy',
+      copiado: 'Copied ✓',
+      limpiar: 'Clear',
+      cuenta: { caracteres: 'characters', palabras: 'words', lineas: 'lines' },
+      consejoTitulo: 'When to use each one',
+      consejos: [
+        'Sentence case: for running text, descriptions and posts. Check proper names afterwards, as they end up in lowercase.',
+        'Title case: for headlines, books or song titles. Short words like “of”, “the” or “and” stay in lowercase.',
+        'No accents: for file and folder names, usernames or emails, where accents often cause trouble.',
+      ],
+      modos: {
+        oracion: 'Sentence case',
+        minusculas: 'lowercase',
+        mayusculas: 'UPPERCASE',
+        palabras: 'Each Word',
+        titulo: 'Title Case',
+        invertir: 'iNVERSE',
+        alternar: 'aLtErNaTe',
+        sinTildes: 'No accents',
       },
     },
     png: {
@@ -1846,6 +1908,52 @@ function paginaUnicode(l) {
   });
 }
 
+// Mayúsculas y minúsculas: las conversiones se hacen en el navegador (main.js)
+const MODOS_MAYUSCULAS = ['oracion', 'minusculas', 'mayusculas', 'palabras', 'titulo', 'invertir', 'alternar', 'sinTildes'];
+function paginaMayusculas(l) {
+  const M = TXT[l].mayusculas;
+  const R = RUTAS[l];
+  const modos = MODOS_MAYUSCULAS.map(
+    (id) => `<li class="uni-estilo" data-modo="${id}">
+          <span class="uni-nombre mono">${esc(M.modos[id])}</span>
+          <output class="uni-resultado may-resultado" for="may-texto"></output>
+          <button type="button" class="uni-copiar">${M.copiar}</button>
+        </li>`
+  ).join('\n        ');
+  return pagina(l, {
+    clave: 'mayusculas',
+    publicidadEnPie: false,
+    titulo: M.titulo,
+    activo: 'tarifario',
+    descripcion: M.desc,
+    imagen: `/img/og/inicio-${l}.jpg`,
+    datos: datosHerramienta(l, M, R.mayusculas),
+    cuerpo: `
+  ${cabeceraHerramienta(M)}
+  ${marquesinaPublicidad(l, 'compacta')}
+  <section class="seccion seccion--top">
+    <div class="wrap uni may" lang="${TXT[l].htmlLang}" data-copiado="${esc(M.copiado)}" data-copiar="${esc(M.copiar)}" data-cuenta="${esc(JSON.stringify(M.cuenta))}">
+      <div class="uni-entrada">
+        <div class="campo">
+          <label for="may-texto" class="mono">${M.campo}</label>
+          <textarea id="may-texto" rows="3" maxlength="20000" placeholder="${esc(M.ejemplo)}" spellcheck="false">${esc(M.inicial)}</textarea>
+        </div>
+        <div class="uni-barra"><span class="mono uni-cuenta may-cuenta" aria-live="polite"></span><button type="button" class="uni-limpiar">${M.limpiar}</button></div>
+      </div>
+      <ul class="uni-lista">
+        ${modos}
+      </ul>
+      <p class="nota calc-sinjs">${TXT[l].murales.calc.sinJs}</p>
+      <aside class="uni-consejos">
+        <span class="kicker mono">${M.consejoTitulo}</span>
+        <ul>${M.consejos.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
+      </aside>
+    </div>
+  </section>
+`,
+  });
+}
+
 // Convertir a PNG: todo se procesa en el navegador (main.js)
 function paginaPng(l) {
   const P = TXT[l].png;
@@ -2278,6 +2386,7 @@ for (const l of IDIOMAS) {
     [R.calculadora, paginaCalculadora(l)],
     [R.tarifarioDiseno, paginaTarifarioDiseno(l)],
     [R.unicode, paginaUnicode(l)],
+    [R.mayusculas, paginaMayusculas(l)],
     [R.png, paginaPng(l)],
     [R.estudio, estudio(l, proyectos)],
     [R.contacto, contacto(l)],
