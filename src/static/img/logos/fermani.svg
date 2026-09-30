@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080">
+  <!-- Generator: Adobe Illustrator 30.7.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 114)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1 {
+        fill: none;
+        stroke: url(#Degradado_sin_nombre_66);
+        stroke-width: 39.22px;
+      }
+
+      .st1, .st2 {
+        stroke-miterlimit: 10;
+      }
+
+      .st2 {
+        stroke: #fff;
+        stroke-width: 6.19px;
+      }
+
+      .st3 {
+        fill: #000200;
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_66" data-name="Degradado sin nombre 66" x1="356.26" y1="242.52" x2="724.43" y2="749.27" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="red"/>
+      <stop offset="1" stop-color="#000200"/>
+    </linearGradient>
+  </defs>
+  <g id="PLENOS">
+    <rect class="st3" width="1080" height="1080"/>
+  </g>
+  <g id="DISEÑOS">
+    <g>
+      <ellipse class="st1" cx="540.35" cy="495.89" rx="293.72" ry="293.47"/>
+      <path class="st2" d="M550.36,929.57c48.24-96.07,96.68-192.27,144.92-288.34l-62.05-123.57h41.37l62.05-123.57h-289.58l123.97,247.15-20.68,41.19-165.64-328.61,434.66-.92,62.05-126.63-682.87.92,351.79,702.4Z"/>
+      <polygon class="st0" points="550.36 847.19 260.91 270.51 819.38 270.51 798.7 311.7 322.97 311.7 550.36 764.81 570.83 722.94 612.54 641.23 508.96 435.26 674.41 435.21 653.91 476.47 611.61 476.37 571.04 476.47 653.73 641.07 550.36 847.19"/>
+    </g>
+  </g>
+</svg>

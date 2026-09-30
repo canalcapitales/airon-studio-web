@@ -11,6 +11,7 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 | `"previa": 2` (en un proyecto) | Elige qué imagen de la galería aparece al pasar el mouse por su tarjeta (1 = la primera). |
 | `src/data/tarifario-diseno.json` | **Valores del Tarifario de diseño** (118 servicios por rubro y tipo de cliente), adaptado con permiso de la Cámara de Diseñadores de Rafaela. |
 | `src/data/legales.mjs` | **Textos de la página Legales** (privacidad, herramientas, derechos de autor) y **preguntas frecuentes de Herramientas**, en español e inglés. Si cambiás algo, actualizá también la fecha `ACTUALIZADO`. |
+| `src/data/logos.json` | **Muro de logos** del proyecto Branding x AIRON Studio: los 25 logos (archivos en `src/static/img/logos/`), con nombre, rubro, grupo para el filtro y, si lo tiene, el proyecto con su caso completo. |
 | `src/data/publicidad.json` | **Marquesina de publicidad** (en el inicio, en cada herramienta y arriba del pie en el resto): anunciantes con logo, enlace y fecha de fin. Los logos van en `src/static/img/publicidad/`. Sin anunciantes vigentes, muestra espacios de ejemplo que llevan a Contacto. |
 | `kit-estetica/` | **Kit de estética** para llevar el diseño de la web a otro proyecto: tipografías, colores, componentes y movimientos, con `demo.html` y una guía para Claude Code. No se publica en la web. |
 | `src/data/tarifario-murales.json` | **Valores de la calculadora de murales** (Tarifario Mural): precio por m² según tramo, tipo de cliente y diseño, más boceto, evento y asistencia. |

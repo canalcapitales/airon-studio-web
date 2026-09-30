@@ -1,0 +1,285 @@
+{
+  "_ayuda": "Muro de logos del proyecto Branding x AIRON Studio. Cada logo: archivo en src/static/img/logos/, nombre, rubro (es/en), grupo (para el filtro) y caso (slug de un proyecto si el logo tiene caso completo; si no, null). El orden de la lista es el orden en la página.",
+  "grupos": {
+    "musica": {
+      "es": "Música",
+      "en": "Music"
+    },
+    "gastronomia": {
+      "es": "Gastronomía",
+      "en": "Food"
+    },
+    "inmobiliarias": {
+      "es": "Inmobiliarias",
+      "en": "Real estate"
+    },
+    "comercio": {
+      "es": "Comercio",
+      "en": "Retail"
+    },
+    "empresas": {
+      "es": "Empresas y servicios",
+      "en": "Business & services"
+    },
+    "cultura": {
+      "es": "Cultura, turismo y deporte",
+      "en": "Culture, tourism & sport"
+    },
+    "creativos": {
+      "es": "Diseño y audiovisual",
+      "en": "Design & film"
+    }
+  },
+  "logos": [
+    {
+      "archivo": "/img/logos/gsp.svg",
+      "nombre": "GSP",
+      "rubro": {
+        "es": "Seguridad y vigilancia",
+        "en": "Security services"
+      },
+      "grupo": "empresas",
+      "caso": "gsp-seguridad"
+    },
+    {
+      "archivo": "/img/logos/laionbeats.webp",
+      "nombre": "Laionbeats",
+      "rubro": {
+        "es": "Productor musical",
+        "en": "Music producer"
+      },
+      "grupo": "musica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/brandy.svg",
+      "nombre": "Brandy",
+      "rubro": {
+        "es": "Pizzas & empanadas",
+        "en": "Pizza & empanadas"
+      },
+      "grupo": "gastronomia",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/maria-rasgido.svg",
+      "nombre": "María Rasgido Propiedades",
+      "rubro": {
+        "es": "Inmobiliaria",
+        "en": "Real estate agency"
+      },
+      "grupo": "inmobiliarias",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/coolsnow.svg",
+      "nombre": "Coolsnow",
+      "rubro": {
+        "es": "Winter supplies",
+        "en": "Winter supplies"
+      },
+      "grupo": "comercio",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/94-cypherground.svg",
+      "nombre": "94 Cypherground",
+      "rubro": {
+        "es": "Grupo musical",
+        "en": "Music group"
+      },
+      "grupo": "musica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/museo-la-plata.svg",
+      "nombre": "Museo de La Plata",
+      "rubro": {
+        "es": "Museo de Ciencias Naturales",
+        "en": "Natural Sciences Museum"
+      },
+      "grupo": "cultura",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/kaizen.svg",
+      "nombre": "Kaizen",
+      "rubro": {
+        "es": "Panadería",
+        "en": "Bakery"
+      },
+      "grupo": "gastronomia",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/laion-prods.svg",
+      "nombre": "Laion Prods",
+      "rubro": {
+        "es": "Productora audiovisual",
+        "en": "Video production company"
+      },
+      "grupo": "creativos",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/plaga-records.webp",
+      "nombre": "Plaga Records",
+      "rubro": {
+        "es": "Sello discográfico",
+        "en": "Record label"
+      },
+      "grupo": "musica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/kinkuro.svg",
+      "nombre": "Kinkuro",
+      "rubro": {
+        "es": "Servicios petroleros",
+        "en": "Oil services"
+      },
+      "grupo": "empresas",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/asa-skate.svg",
+      "nombre": "A.S.A Club",
+      "rubro": {
+        "es": "Asociación de Skate de San Martín de los Andes",
+        "en": "San Martín de los Andes Skate Association"
+      },
+      "grupo": "cultura",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/renacer.webp",
+      "nombre": "Renacer",
+      "rubro": {
+        "es": "Negocios inmobiliarios",
+        "en": "Real estate business"
+      },
+      "grupo": "inmobiliarias",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/meliphone.svg",
+      "nombre": "Meliphone",
+      "rubro": {
+        "es": "iPhone store",
+        "en": "iPhone store"
+      },
+      "grupo": "comercio",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/franqui-quiroga.svg",
+      "nombre": "Franqui Quiroga",
+      "rubro": {
+        "es": "Artista musical",
+        "en": "Music artist"
+      },
+      "grupo": "musica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/sma-marca-destino.svg",
+      "nombre": "San Martín de los Andes",
+      "rubro": {
+        "es": "Marca destino · concurso",
+        "en": "Destination brand · contest"
+      },
+      "grupo": "cultura",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/affum.svg",
+      "nombre": "Affum",
+      "rubro": {
+        "es": "Ahumados & conservas",
+        "en": "Smoked foods & preserves"
+      },
+      "grupo": "gastronomia",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/airon.svg",
+      "nombre": "AIRON Studio",
+      "rubro": {
+        "es": "Estudio de diseño",
+        "en": "Design studio"
+      },
+      "grupo": "creativos",
+      "caso": "web-airon-studio"
+    },
+    {
+      "archivo": "/img/logos/m93.svg",
+      "nombre": "M93",
+      "rubro": {
+        "es": "Indumentaria vintage",
+        "en": "Vintage clothing"
+      },
+      "grupo": "comercio",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/fermani.svg",
+      "nombre": "Fermani",
+      "rubro": {
+        "es": "Artista musical",
+        "en": "Music artist"
+      },
+      "grupo": "musica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/trademat.svg",
+      "nombre": "Trademat",
+      "rubro": {
+        "es": "Comercializadora e importadora",
+        "en": "Trading & import company"
+      },
+      "grupo": "empresas",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/laion-graffiti.webp",
+      "nombre": "Laion",
+      "rubro": {
+        "es": "Artista del graffiti",
+        "en": "Graffiti artist"
+      },
+      "grupo": "creativos",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/iphone-store-sma.svg",
+      "nombre": "iPhone Store SMA",
+      "rubro": {
+        "es": "Apple store",
+        "en": "Apple store"
+      },
+      "grupo": "comercio",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/rac3-design.svg",
+      "nombre": "RAC3 Design",
+      "rubro": {
+        "es": "Estudio de diseño",
+        "en": "Design studio"
+      },
+      "grupo": "creativos",
+      "caso": null
+    },
+    {
+      "archivo": "/img/logos/sma-marca-destino-2.svg",
+      "nombre": "San Martín de los Andes",
+      "rubro": {
+        "es": "Marca destino · versión horizontal",
+        "en": "Destination brand · horizontal version"
+      },
+      "grupo": "cultura",
+      "caso": null
+    }
+  ]
+}
