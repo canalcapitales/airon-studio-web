@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   visor();
   formulario();
   filtros();
+  muroLogos();
 });
 
 // ----- Modo claro / oscuro -----
@@ -1615,4 +1616,22 @@ function filtros() {
 
   pills.forEach((p) => p.addEventListener('click', () => filtrar(p.dataset.filter, true)));
   filtrar(new URLSearchParams(location.search).get('categoria') || 'todos');
+}
+
+// ----- Muro de logos: filtrar por rubro -----
+function muroLogos() {
+  const muro = document.querySelector('.muro-logos');
+  if (!muro) return;
+  const pills = [...muro.querySelectorAll('[data-grupo]')].filter((b) => b.tagName === 'BUTTON');
+  const items = [...muro.querySelectorAll('.logo-item')];
+  pills.forEach((pill) =>
+    pill.addEventListener('click', () => {
+      const g = pill.dataset.grupo;
+      pills.forEach((p) => p.setAttribute('aria-pressed', String(p === pill)));
+      items.forEach((it) => {
+        it.hidden = g !== 'todas' && it.dataset.grupo !== g;
+        if (!it.hidden) it.classList.add('visible');
+      });
+    })
+  );
 }

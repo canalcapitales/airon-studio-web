@@ -344,7 +344,7 @@ const TXT = {
     portafolio: 'Portafolio', proyectos: 'Proyectos', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
     listadoLead: 'Identidad, gráfica, diseño web, sistemas de gestión, motion, arte urbano y fotografía. Filtrá por categoría para ver cada disciplina.',
     listadoDesc: 'Portafolio de AIRON Studio: identidad de marca, gráfica, diseño web, sistemas de gestión, gráfica musical, motion, arte urbano y fotografía.',
-    portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar',
+    portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar', muro: { titulo: 'Muro de marcas', texto: 'Logos diseñados para artistas, comercios, empresas e instituciones. Filtrá por rubro y tocá cada marca para verla en grande.', todas: 'Todas', marcas: 'marcas', rubros: 'rubros', verCaso: 'Ver caso', filtrar: 'Filtrar marcas por rubro' },
     videoDe: (t) => `Video del proyecto ${t}`, volver: '← Volver a proyectos', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
     ctaProyecto: '¿Querés ver todas las imágenes?', verBehance: 'Ver en Behance', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
     proyectoDe: 'Proyecto de AIRON Studio.',
@@ -718,7 +718,7 @@ const TXT = {
     portafolio: 'Portfolio', proyectos: 'Work', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects', sinProyectos: 'We are preparing the projects in this category.', sinProyectosCta: 'Tell us what you need →',
     listadoLead: 'Identity, graphic design, web, management systems, motion, street art and photography. Filter by category to explore each discipline.',
     listadoDesc: 'AIRON Studio portfolio: brand identity, graphic design, web design, management systems, music artwork, motion, street art and photography.',
-    portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge',
+    portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge', muro: { titulo: 'Brand wall', texto: 'Logos designed for artists, shops, companies and institutions. Filter by industry and tap any brand to see it large.', todas: 'All', marcas: 'brands', rubros: 'industries', verCaso: 'View case', filtrar: 'Filter brands by industry' },
     videoDe: (t) => `Video of the project ${t}`, volver: '← Back to work', fichaAria: 'Project details', imagenesAria: 'Project images',
     ctaProyecto: 'Want to see every image?', verBehance: 'View on Behance', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
     proyectoDe: 'A project by AIRON Studio.',
@@ -789,6 +789,7 @@ const EN = JSON.parse(readFileSync('src/data/proyectos.en.json', 'utf8'));
 // Valores del Tarifario Mural (se actualizan en este archivo)
 const TARIFARIO = JSON.parse(readFileSync('src/data/tarifario-murales.json', 'utf8'));
 const PUBLICIDAD = JSON.parse(readFileSync('src/data/publicidad.json', 'utf8'));
+const LOGOS = JSON.parse(readFileSync('src/data/logos.json', 'utf8'));
 // Tarifario de diseño (Cámara de Diseñadores de Rafaela, adaptado con permiso)
 const TARIFARIO_DISENO = JSON.parse(readFileSync('src/data/tarifario-diseno.json', 'utf8'));
 
@@ -1054,7 +1055,7 @@ function numeros(l, proyectos) {
   const datos = [
     { valor: anio - FUNDACION },
     { valor: proyectos.length },
-    { valor: 21 }, // identidades de marca (el muro de Branding x AIRON Studio)
+    { valor: LOGOS.logos.length }, // identidades de marca (el muro de logos, src/data/logos.json)
     { valor: MARCAS.length },
     { valor: 47, sufijo: ' m²' },
     { valor: T.servicios.length },
@@ -1291,7 +1292,33 @@ function detalle(l, proyectos, p, i) {
         </div>`;
     })
     .join('');
-  const hayImagenes = p.galeria.length || (p.galerias || []).length;
+  // Muro de logos interactivo (datos en src/data/logos.json): filtro por rubro, visor y enlace a los casos completos
+  let muro = '';
+  if (p.muroLogos) {
+    const M = T.muro;
+    const conteo = (g) => LOGOS.logos.filter((x) => x.grupo === g).length;
+    const grupos = Object.keys(LOGOS.grupos).filter(conteo);
+    const pills = [`<button type="button" class="pill" data-grupo="todas" aria-pressed="true">${M.todas}<span class="mono">${LOGOS.logos.length}</span></button>`]
+      .concat(grupos.map((g) => `<button type="button" class="pill" data-grupo="${g}" aria-pressed="false">${esc(LOGOS.grupos[g][l])}<span class="mono">${conteo(g)}</span></button>`))
+      .join('');
+    const items = LOGOS.logos
+      .map((x) => {
+        const rubro = x.rubro[l];
+        const alt = `${x.nombre} — ${rubro}`;
+        const imagen = `<img src="${esc(x.archivo)}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async">`;
+        const info = `<span class="logo-info"><span class="logo-nombre">${esc(x.nombre)}</span><span class="mono">${esc(rubro)}</span></span>`;
+        return x.caso
+          ? `<li class="logo-item reveal" data-grupo="${x.grupo}"><a class="logo-tile logo-tile--caso" href="${rutaDe(l, 'proyecto', x.caso)}" data-cursor="${esc(M.verCaso)}">${imagen}<span class="logo-caso mono">${M.verCaso} →</span>${info}</a></li>`
+          : `<li class="logo-item reveal" data-grupo="${x.grupo}"><a class="logo-tile zoom" href="${esc(x.archivo)}" aria-label="${T.ampliar}: ${esc(alt)}">${imagen}${info}</a></li>`;
+      })
+      .join('');
+    muro = `<div class="galeria-grupo muro-logos">
+          <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${M.titulo}</h3><p>${M.texto}</p><span class="mono">${LOGOS.logos.length} ${M.marcas} · ${grupos.length} ${M.rubros}</span></div>
+          <div class="muro-filtros" role="group" aria-label="${M.filtrar}">${pills}</div>
+          <ul class="logos-grid">${items}</ul>
+        </div>`;
+  }
+  const hayImagenes = p.galeria.length || (p.galerias || []).length || p.muroLogos;
   const visor = hayImagenes
     ? `
   <dialog class="visor" aria-label="${T.visor.aria}">
@@ -1373,6 +1400,7 @@ function detalle(l, proyectos, p, i) {
       <div class="wrap">
         ${videos}
         ${galeria}
+        ${muro}
         ${galerias}
       </div>
     </section>

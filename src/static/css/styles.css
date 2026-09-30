@@ -898,3 +898,38 @@ html:not(.js) .calc-salida { display: none; }
   .cursor.ver span { opacity: 1; }
   .cursor.oscuro { color: var(--sobre-bloque); }
 }
+
+/* ---------- muro de logos (Branding x AIRON Studio) ---------- */
+.muro-filtros { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-block: 4px 24px; }
+.muro-filtros::-webkit-scrollbar { display: none; }
+.logos-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.logo-item[hidden] { display: none; }
+.logo-tile { position: relative; display: block; text-decoration: none; aspect-ratio: 1; overflow: hidden; background: #111; outline-offset: 3px; }
+.logo-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-suave, cubic-bezier(.2, .7, .1, 1)), filter .4s ease; }
+.logo-info {
+  position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 2px; padding: 14px 16px;
+  background: #111; color: #F2F0EB; transform: translateY(101%); transition: transform .35s var(--ease-suave, cubic-bezier(.2, .7, .1, 1));
+}
+.logo-nombre { font-family: var(--f-display); font-size: clamp(18px, 1.5vw, 22px); line-height: 1.05; text-transform: uppercase; }
+.logo-info .mono { font-size: 11px; color: #A8A49B; }
+.logo-caso { position: absolute; top: 10px; left: 10px; padding: 6px 10px; background: var(--acento); color: #111; font-size: 11px; font-weight: 500; z-index: 1; }
+@media (hover: hover) {
+  .logos-grid:hover .logo-tile:not(:hover) img { filter: grayscale(1) opacity(.45); }
+  .logo-tile:hover img, .logo-tile:focus-visible img { transform: scale(1.07); }
+  .logo-tile:hover .logo-info, .logo-tile:focus-visible .logo-info { transform: none; }
+}
+/* En pantallas táctiles el nombre queda siempre visible, en chico */
+@media (hover: none) {
+  .logo-tile { overflow: visible; aspect-ratio: auto; background: none; }
+  .logo-tile img { aspect-ratio: 1; height: auto; }
+  .logo-info { position: static; transform: none; padding: 8px 0 4px; background: none; color: var(--ink); }
+  .logo-nombre { font-size: 15px; }
+  .logo-info .mono { font-size: 10px; color: var(--muted); }
+}
+/* Aparición escalonada, fila por fila */
+.logos-grid .logo-item:nth-child(5n+2) { transition-delay: .06s; }
+.logos-grid .logo-item:nth-child(5n+3) { transition-delay: .12s; }
+.logos-grid .logo-item:nth-child(5n+4) { transition-delay: .18s; }
+.logos-grid .logo-item:nth-child(5n+5) { transition-delay: .24s; }
+@media (max-width: 1099px) { .logos-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 599px) { .logos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .logo-caso { top: 6px; left: 6px; font-size: 10px; } }

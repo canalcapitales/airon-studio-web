@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080">
+  <!-- Generator: Adobe Illustrator 30.7.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 114)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1 {
+        filter: url(#outer-glow-1);
+      }
+
+      .st2 {
+        fill: #1d1d1b;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 12.43px;
+      }
+
+      .st3 {
+        fill: #ffec00;
+      }
+    </style>
+    <filter id="outer-glow-1" x="90.59" y="371.27" width="898.8" height="337.44" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="5.03"/>
+      <feFlood flood-color="#000" flood-opacity=".4"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="PLENOS">
+    <rect class="st0" width="1080" height="1080"/>
+  </g>
+  <g id="DISEÑOS">
+    <g>
+      <g class="st1">
+        <path class="st2" d="M936.44,392.77H202.09c-14.31,0-26.81,9.92-30.44,24.15l-58.53,229.76c-5.22,20.51,9.82,40.55,30.44,40.55h737.07c14.44,0,27.03-10.11,30.53-24.51l55.81-229.76c4.96-20.42-10.06-40.19-30.53-40.19Z"/>
+      </g>
+      <g>
+        <path class="st0" d="M231.29,572.66h-1.46l-21.71,81h-44.82c-10.08,0-17.42-9.56-14.81-19.3l50.12-187.11c3.22-12.03,14.12-20.39,26.57-20.39h108.49l23.81,32.4-21.71,81-37.14,24.3,18.83,89.1h-68.85l-17.33-81ZM288.32,475.46h-25.46c-4.1,0-7.68,2.75-8.75,6.7l-11.31,41.9h32.4l13.12-48.6Z"/>
+        <path class="st0" d="M415.73,588.86l-17.33,64.8h-64.8l52.16-194.4,40.99-32.4h97.2l23.81,32.4-52.16,194.4h-64.8l17.33-64.8h-32.4ZM461.26,540.26l17.33-64.8h-25.45c-4.1,0-7.69,2.75-8.74,6.71l-15.54,58.09h32.4Z"/>
+        <path class="st0" d="M668.86,475.46h-25.46c-4.09,0-7.68,2.75-8.74,6.7l-33.03,122.9h32.4l4.37-16.2h64.8l-8.59,32.4-41.15,32.4h-97.2l-23.65-32.4,43.42-162,40.99-32.4h97.2l23.81,32.4-8.75,32.4h-64.8l4.37-16.2Z"/>
+        <path class="st0" d="M928.31,459.26l-23.81-32.4h-97.25l-40.99,32.4-4.33,16.2-4.34,16.12,48.55.25,2.62-9.68c1.07-3.95,4.65-6.69,8.74-6.69h41.63l-10.85,40.5h-48.6l-13.12,48.6h48.6l-10.85,40.5h-48.59l4.38-16.2h-48.63s-4.32,16.2-4.32,16.2h-.05l-4.27,16.2,23.74,32.46,97.17-.06,41.15-32.4,15.07-56.7-17.66-24.3,30.78-24.3,15.23-56.7Z"/>
+      </g>
+      <polygon class="st3" points="686.81 513.42 772.05 513.42 757.18 568.79 672.14 568.67 686.81 513.42"/>
+    </g>
+  </g>
+</svg>

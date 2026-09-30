@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080">
+  <!-- Generator: Adobe Illustrator 30.7.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 114)  -->
+  <defs>
+    <style>
+      .st0 {
+        filter: url(#drop-shadow-2);
+      }
+
+      .st1 {
+        fill: #fff;
+      }
+
+      .st2, .st3 {
+        fill: none;
+      }
+
+      .st4 {
+        filter: url(#drop-shadow-4);
+      }
+
+      .st5 {
+        filter: url(#drop-shadow-1);
+      }
+
+      .st6 {
+        filter: url(#drop-shadow-3);
+      }
+
+      .st7 {
+        clip-path: url(#clippath);
+      }
+
+      .st3 {
+        stroke: #e84e1b;
+        stroke-miterlimit: 10;
+        stroke-width: 18.7px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <circle class="st2" cx="540" cy="540" r="450"/>
+    </clipPath>
+    <filter id="drop-shadow-1" x="119.3" y="234.38" width="801.84" height="706.56" filterUnits="userSpaceOnUse">
+      <feOffset dx="-19.72" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="22.26"/>
+      <feFlood flood-color="#1d1d1b" flood-opacity=".35"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-2" x="119.3" y="234.38" width="801.84" height="706.56" filterUnits="userSpaceOnUse">
+      <feOffset dx="-19.72" dy="0"/>
+      <feGaussianBlur result="blur1" stdDeviation="22.26"/>
+      <feFlood flood-color="#1d1d1b" flood-opacity=".35"/>
+      <feComposite in2="blur1" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-3" x="32.18" y="234.62" width="692.64" height="527.28" filterUnits="userSpaceOnUse">
+      <feOffset dx="-59.15" dy="0"/>
+      <feGaussianBlur result="blur2" stdDeviation="22.26"/>
+      <feFlood flood-color="#1d1d1b" flood-opacity=".35"/>
+      <feComposite in2="blur2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-4" x="32.18" y="234.62" width="692.64" height="527.28" filterUnits="userSpaceOnUse">
+      <feOffset dx="-59.15" dy="0"/>
+      <feGaussianBlur result="blur3" stdDeviation="22.26"/>
+      <feFlood flood-color="#1d1d1b" flood-opacity=".35"/>
+      <feComposite in2="blur3" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="PLENOS">
+    <rect class="st1" width="1080" height="1080"/>
+  </g>
+  <g id="DISEÑOS">
+    <g class="st7">
+      <path class="st1" d="M693.45,836.67l21.54,21.54,143.18.02-82.09-82.08c-24.16,24.17-52.01,44.64-82.63,60.52Z"/>
+      <path class="st1" d="M587.67,587.77h143.08v-95.43h-238.52s-95.42-95.42-95.42-95.42h348.66c-31.11-44.6-76.37-78.59-129.27-95.48l-152.65.04-157.29.04-147.92.04,84.98,84.98,63.03,63.02"/>
+      <circle cx="540" cy="540" r="450"/>
+      <ellipse class="st3" cx="540" cy="540" rx="394.23" ry="393.99"/>
+      <path class="st2" d="M498.29,465h238.52v95.44h-143.08l129.37,129.36c45.31-45.32,73.34-107.92,73.34-177.07,0-53.22-16.6-102.56-44.91-143.13h-348.66l95.42,95.41Z"/>
+      <path class="st2" d="M295.56,512.72c0,138.31,112.13,250.44,250.44,250.44,31.91,0,62.42-5.97,90.48-16.85l-324.07-324.07c-10.88,28.06-16.85,58.57-16.85,90.48Z"/>
+      <g>
+        <path class="st1" d="M693.45,836.67l21.54,21.54,143.18.02-82.09-82.08c-24.16,24.17-52.01,44.64-82.63,60.52Z"/>
+        <path class="st1" d="M396.81,396.92h348.66c-31.11-44.6-76.37-78.59-129.27-95.48l-152.65.04-157.29.04-147.92.04,84.98,84.98,63.03,63.02,324.07,324.07c32.77-12.7,62.21-32.1,86.62-56.52l-129.37-129.36h129.09l.32-95.43h-224.86s-95.42-95.42-95.42-95.42Z"/>
+      </g>
+      <g class="st5">
+        <path class="st1" d="M841.71,396.92c-17.02-35.81-40.21-68.11-68.22-95.52l-157.29.04c52.9,16.89,98.16,50.88,129.27,95.48,28.31,40.57,44.91,89.91,44.91,143.13,0,69.15-28.02,131.75-73.34,177.07-24.41,24.42-53.85,43.82-86.62,56.52-28.06,10.88-58.58,16.85-90.48,16.85-138.31,0-250.44-112.13-250.44-250.44,0-31.91,5.97-62.42,16.85-90.48l-63.03-63.02c-23.83,45.96-37.3,98.16-37.3,153.51,0,184.42,149.5,333.92,333.92,333.92,55.35,0,107.55-13.47,153.51-37.31,30.62-15.88,58.47-36.35,82.63-60.52,60.42-60.43,97.78-143.9,97.78-236.1,0-51.22-11.54-99.75-32.15-143.13Z"/>
+      </g>
+      <polyline class="st1" points="587.67 587.77 716.77 587.77 717.04 492.34 492.23 492.33 396.81 396.92"/>
+      <g class="st0">
+        <path class="st1" d="M841.71,396.92c-17.02-35.81-40.21-68.11-68.22-95.52l-157.29.04c52.9,16.89,98.16,50.88,129.27,95.48,28.31,40.57,44.91,89.91,44.91,143.13,0,69.15-28.02,131.75-73.34,177.07-24.41,24.42-53.85,43.82-86.62,56.52-28.06,10.88-58.58,16.85-90.48,16.85-138.31,0-250.44-112.13-250.44-250.44,0-31.91,5.97-62.42,16.85-90.48l-63.03-63.02c-23.83,45.96-37.3,98.16-37.3,153.51,0,184.42,149.5,333.92,333.92,333.92,55.35,0,107.55-13.47,153.51-37.31,30.62-15.88,58.47-36.35,82.63-60.52,60.42-60.43,97.78-143.9,97.78-236.1,0-51.22-11.54-99.75-32.15-143.13Z"/>
+      </g>
+      <g class="st6">
+        <path class="st1" d="M396.81,396.92h173.35c-31.11-44.6,21.73-78.59-31.17-95.48l-75.45.04-157.29.04-147.92.04,84.98,84.98,63.03,63.02,245.27,245.27c32.77-12.7,44.4-49.91,68.82-74.33l-32.76-32.74h129.37v-95.43h-224.81s-95.42-95.42-95.42-95.42Z"/>
+      </g>
+      <g class="st4">
+        <path class="st1" d="M396.81,396.92h173.35c-31.11-44.6,21.73-78.59-31.17-95.48l-75.45.04-157.29.04-147.92.04,84.98,84.98,63.03,63.02,245.27,245.27c32.77-12.7,44.4-49.91,68.82-74.33l-32.76-32.74h129.37v-95.43h-224.81s-95.42-95.42-95.42-95.42Z"/>
+      </g>
+      <circle class="st2" cx="540" cy="540" r="450"/>
+    </g>
+  </g>
+</svg>

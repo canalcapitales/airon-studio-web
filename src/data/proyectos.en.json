@@ -46,13 +46,12 @@
     "botones": ["Visit the website"]
   },
   "branding-x-airon-studio": {
-    "subtitulo": "21 brand identities",
-    "ficha": [["Discipline", "Visual identity and branding"], ["Identities", "21 brands designed"], ["Industries", "Music, food, real estate, industry, culture and tourism"]],
+    "subtitulo": "25 brand identities",
+    "ficha": [["Discipline", "Visual identity and branding"], ["Identities", "25 brands designed"], ["Industries", "Music, food, real estate, retail, industry, culture and tourism"]],
     "bloques": [
       { "titulo": "The selection", "parrafos": ["A collection of brands developed for different projects, industries and disciplines. A journey through different approaches to visual identity, exploring concepts, shapes, typefaces and graphic systems to build unique, recognizable brands.", "Behind every brand there is a geometric and technical study: shapes, proportions, grids and visual construction to create solid, consistent and recognizable identities."] }
     ],
     "galerias": [
-      { "titulo": "Brand wall", "nota": "21 identities", "alts": ["Laionbeats — Music artist", "Franqui Quiroga — Music artist", "Plaga Records — Record label", "Trademat — Trading and import company", "Kinkuro — Oil services", "94 Cypherground — Music artist", "Coolsnow — Winter supplies", "RAC3 Design — Graphic designer", "Affum — Smoked foods and preserves", "Brandy — Pizzas and empanadas", "A.S.A — San Martín de los Andes Skate Association", "San Martín de los Andes — Destination brand", "Fermani — Music artist", "María Rasgido Propiedades — Real estate", "Museo de La Plata — Natural Sciences Museum", "Laion Prods — Video production company", "iPhone Store SMA — Apple store", "San Martín de los Andes — Destination brand, horizontal version", "Renacer — Real estate business", "M93 — Vintage clothing", "Kaizen — Artisan bakery"] },
       { "titulo": "San Martín de los Andes — Destination Brand", "texto": "A proposal submitted to the contest organized by the Municipality of San Martín de los Andes, exploring the city's identity, landscape and cultural attributes.", "alts": ["San Martín de los Andes — image 1", "San Martín de los Andes — image 2", "San Martín de los Andes — image 3", "San Martín de los Andes — image 4", "San Martín de los Andes — image 5"] },
       { "titulo": "Franqui Quiroga — Artist Identity", "texto": "Visual identity for a music artist from La Plata: a contemporary, recognizable and adaptable visual system.", "alts": ["Franqui Quiroga — image 1", "Franqui Quiroga — image 2", "Franqui Quiroga — image 3", "Franqui Quiroga — image 4", "Franqui Quiroga — image 5"] },
       { "titulo": "Laionbeats — Artist Identity", "texto": "Branding for a music artist from San Martín de los Andes based in Buenos Aires, translating his sound into a flexible visual language.", "alts": ["Laionbeats — image 1", "Laionbeats — image 2", "Laionbeats — image 3", "Laionbeats — image 4", "Laionbeats — image 5"] },
