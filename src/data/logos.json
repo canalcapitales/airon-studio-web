@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Muro de logos del proyecto Branding x AIRON Studio. Cada logo: archivo en src/static/img/logos/, nombre, rubro (es/en), grupo (para el filtro) y caso (slug de un proyecto si el logo tiene caso completo; si no, null). El orden de la lista es el orden en la página.",
+  "_ayuda": "Muro de logos del proyecto Branding x AIRON Studio. Cada logo: archivo en src/static/img/logos/, nombre, rubro (es/en), grupo (para el filtro) y caso (slug de un proyecto si el logo tiene caso completo; si no, null). El orden de la lista es el orden en la página. Fondo: 'claro' u 'oscuro' según la cromática del logo; con eso la página los intercala en damero.",
   "grupos": {
     "musica": {
       "es": "Música",
@@ -39,7 +39,8 @@
         "en": "Security services"
       },
       "grupo": "empresas",
-      "caso": "gsp-seguridad"
+      "caso": "gsp-seguridad",
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/laionbeats.webp",
@@ -49,7 +50,8 @@
         "en": "Music producer"
       },
       "grupo": "musica",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/brandy.svg",
@@ -59,7 +61,8 @@
         "en": "Pizza & empanadas"
       },
       "grupo": "gastronomia",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/maria-rasgido.svg",
@@ -69,7 +72,8 @@
         "en": "Real estate agency"
       },
       "grupo": "inmobiliarias",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/coolsnow.svg",
@@ -79,7 +83,8 @@
         "en": "Winter supplies"
       },
       "grupo": "comercio",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/94-cypherground.svg",
@@ -89,7 +94,8 @@
         "en": "Music group"
       },
       "grupo": "musica",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/museo-la-plata.svg",
@@ -99,7 +105,8 @@
         "en": "Natural Sciences Museum"
       },
       "grupo": "cultura",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/kaizen.svg",
@@ -109,7 +116,8 @@
         "en": "Bakery"
       },
       "grupo": "gastronomia",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/laion-prods.svg",
@@ -119,7 +127,8 @@
         "en": "Video production company"
       },
       "grupo": "creativos",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/plaga-records.webp",
@@ -129,7 +138,8 @@
         "en": "Record label"
       },
       "grupo": "musica",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/kinkuro.svg",
@@ -139,7 +149,8 @@
         "en": "Oil services"
       },
       "grupo": "empresas",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/asa-skate.svg",
@@ -149,7 +160,8 @@
         "en": "San Martín de los Andes Skate Association"
       },
       "grupo": "cultura",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/renacer.webp",
@@ -159,7 +171,8 @@
         "en": "Real estate business"
       },
       "grupo": "inmobiliarias",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/meliphone.svg",
@@ -169,7 +182,8 @@
         "en": "iPhone store"
       },
       "grupo": "comercio",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/franqui-quiroga.svg",
@@ -179,7 +193,8 @@
         "en": "Music artist"
       },
       "grupo": "musica",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/sma-marca-destino.svg",
@@ -189,7 +204,8 @@
         "en": "Destination brand · contest"
       },
       "grupo": "cultura",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/affum.svg",
@@ -199,7 +215,8 @@
         "en": "Smoked foods & preserves"
       },
       "grupo": "gastronomia",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/airon.svg",
@@ -209,7 +226,8 @@
         "en": "Design studio"
       },
       "grupo": "creativos",
-      "caso": "web-airon-studio"
+      "caso": "web-airon-studio",
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/m93.svg",
@@ -219,7 +237,8 @@
         "en": "Vintage clothing"
       },
       "grupo": "comercio",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/fermani.svg",
@@ -229,7 +248,8 @@
         "en": "Music artist"
       },
       "grupo": "musica",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/trademat.svg",
@@ -239,7 +259,8 @@
         "en": "Trading & import company"
       },
       "grupo": "empresas",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/laion-graffiti.webp",
@@ -249,7 +270,8 @@
         "en": "Graffiti artist"
       },
       "grupo": "creativos",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/iphone-store-sma.svg",
@@ -259,7 +281,8 @@
         "en": "Apple store"
       },
       "grupo": "comercio",
-      "caso": null
+      "caso": null,
+      "fondo": "oscuro"
     },
     {
       "archivo": "/img/logos/rac3-design.svg",
@@ -269,7 +292,8 @@
         "en": "Design studio"
       },
       "grupo": "creativos",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     },
     {
       "archivo": "/img/logos/sma-marca-destino-2.svg",
@@ -279,7 +303,8 @@
         "en": "Destination brand · horizontal version"
       },
       "grupo": "cultura",
-      "caso": null
+      "caso": null,
+      "fondo": "claro"
     }
   ]
 }

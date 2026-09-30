@@ -1622,8 +1622,29 @@ function filtros() {
 function muroLogos() {
   const muro = document.querySelector('.muro-logos');
   if (!muro) return;
+  const grilla = muro.querySelector('.logos-grid');
   const pills = [...muro.querySelectorAll('[data-grupo]')].filter((b) => b.tagName === 'BUTTON');
   const items = [...muro.querySelectorAll('.logo-item')];
+  let columnas = 0;
+
+  // Damero: alterna logos de fondo claro y oscuro según las columnas visibles
+  function damero(forzar) {
+    const cols = getComputedStyle(grilla).gridTemplateColumns.split(' ').length;
+    if (!forzar && cols === columnas) return;
+    columnas = cols;
+    const visibles = items.filter((it) => !it.hidden);
+    const colas = {
+      claro: visibles.filter((it) => it.dataset.fondo === 'claro'),
+      oscuro: visibles.filter((it) => it.dataset.fondo !== 'claro'),
+    };
+    const orden = visibles.map((_, i) => {
+      const quiero = (Math.floor(i / cols) + (i % cols)) % 2 === 0 ? 'claro' : 'oscuro';
+      const otro = quiero === 'claro' ? 'oscuro' : 'claro';
+      return (colas[quiero].length ? colas[quiero] : colas[otro]).shift();
+    });
+    [...orden, ...items.filter((it) => it.hidden)].forEach((it) => grilla.appendChild(it));
+  }
+
   pills.forEach((pill) =>
     pill.addEventListener('click', () => {
       const g = pill.dataset.grupo;
@@ -1632,6 +1653,9 @@ function muroLogos() {
         it.hidden = g !== 'todas' && it.dataset.grupo !== g;
         if (!it.hidden) it.classList.add('visible');
       });
+      damero(true);
     })
   );
+  damero(true);
+  window.addEventListener('resize', () => damero(false));
 }

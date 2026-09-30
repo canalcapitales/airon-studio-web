@@ -542,6 +542,16 @@
     ],
     "galeria": [],
     "videos": [],
+    "portadaPagina": {
+      "ancha": {
+        "960": "/img/p/branding-x-airon-studio/ancha-960.webp",
+        "1440": "/img/p/branding-x-airon-studio/ancha-1440.webp"
+      },
+      "movil": {
+        "480": "/img/p/branding-x-airon-studio/movil-480.webp",
+        "800": "/img/p/branding-x-airon-studio/movil-800.webp"
+      }
+    },
     "behance": false,
     "galerias": [],
     "muroLogos": true

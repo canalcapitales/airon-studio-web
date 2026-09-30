@@ -844,6 +844,17 @@ function img(tamanos, { alt, sizes, clase = '', eager = false, dims }) {
   return `<img${cls} src="${esc(base)}" srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}"${medidas} ${carga} decoding="async">`;
 }
 
+// Portada del proyecto. Con "portadaPagina" ({ ancha: 16:9, movil: 4:5 }) cada pantalla usa
+// una versión armada para ese formato y no se recorta; si no, se usa la portada común.
+function portadaPagina(p, T) {
+  const alt = T.portadaDe(p.titulo);
+  const base = img(p.portada, { alt, sizes: '(min-width: 1584px) 1440px, 100vw', eager: true, dims: [1280, 1001] });
+  const v = p.portadaPagina;
+  if (!v) return base;
+  const set = (t) => anchos(t).map((w) => `${esc(t[w])} ${w}w`).join(', ');
+  return `<picture><source media="(max-width: 699px)" srcset="${set(v.movil)}" sizes="100vw"><source srcset="${set(v.ancha)}" sizes="(min-width: 1584px) 1440px, 100vw">${base}</picture>`;
+}
+
 // Logo en línea: las letras toman el color del texto y la estrella usa el color de acento.
 const LOGO_SVG = readFileSync('src/static/img/logo-airon.svg', 'utf8')
   .replace(' role="img" aria-label="AIRON Studio"', ' aria-hidden="true" focusable="false"')
@@ -1308,8 +1319,8 @@ function detalle(l, proyectos, p, i) {
         const imagen = `<img src="${esc(x.archivo)}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async">`;
         const info = `<span class="logo-info"><span class="logo-nombre">${esc(x.nombre)}</span><span class="mono">${esc(rubro)}</span></span>`;
         return x.caso
-          ? `<li class="logo-item reveal" data-grupo="${x.grupo}"><a class="logo-tile logo-tile--caso" href="${rutaDe(l, 'proyecto', x.caso)}" data-cursor="${esc(M.verCaso)}">${imagen}<span class="logo-caso mono">${M.verCaso} →</span>${info}</a></li>`
-          : `<li class="logo-item reveal" data-grupo="${x.grupo}"><a class="logo-tile zoom" href="${esc(x.archivo)}" aria-label="${T.ampliar}: ${esc(alt)}">${imagen}${info}</a></li>`;
+          ? `<li class="logo-item reveal" data-grupo="${x.grupo}" data-fondo="${x.fondo}"><a class="logo-tile logo-tile--caso" href="${rutaDe(l, 'proyecto', x.caso)}" data-cursor="${esc(M.verCaso)}">${imagen}<span class="logo-caso mono">${M.verCaso} →</span>${info}</a></li>`
+          : `<li class="logo-item reveal" data-grupo="${x.grupo}" data-fondo="${x.fondo}"><a class="logo-tile zoom" href="${esc(x.archivo)}" aria-label="${T.ampliar}: ${esc(alt)}">${imagen}${info}</a></li>`;
       })
       .join('');
     muro = `<div class="galeria-grupo muro-logos">
@@ -1394,7 +1405,7 @@ function detalle(l, proyectos, p, i) {
       </div>
     </header>
     <div class="wrap">
-      <div class="proyecto-portada" data-vt="p-${p.slug}">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 1584px) 1440px, 100vw', eager: true, dims: [1280, 1001] })}</div>
+      <div class="proyecto-portada" data-vt="p-${p.slug}">${portadaPagina(p, T)}</div>
       <dl class="ficha" aria-label="${T.fichaAria}">
         ${ficha}
       </dl>
