@@ -16,7 +16,7 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 | `kit-estetica/` | **Kit de estética** para llevar el diseño de la web a otro proyecto: tipografías, colores, componentes y movimientos, con `demo.html` y una guía para Claude Code. No se publica en la web. |
 | `src/data/tarifario-murales.json` | **Valores de la calculadora de murales** (Tarifario Mural): precio por m² según tramo, tipo de cliente y diseño, más boceto, evento y asistencia. |
 | `src/static/css/styles.css` | Colores, tipografías y diseño. Arriba están los colores del modo claro (`:root`) y debajo los del modo oscuro. |
-| `src/static/js/main.js` | Menú de celular, botón de modo claro/oscuro, filtros, visor de imágenes, formulario y las herramientas (calculadora de murales, tarifario de diseño, letras Unicode y convertidor a PNG). Todas funcionan en el navegador, sin servicios externos. |
+| `src/static/js/main.js` | Menú de celular, botón de modo claro/oscuro, filtros, visor de imágenes, formulario y las herramientas (calculadora de murales, tarifario de diseño, letras Unicode, mayúsculas y minúsculas y convertidor a PNG). Todas funcionan en el navegador, sin servicios externos. |
 | `src/static/js/tema.js` | Aplica el modo (claro u oscuro) que eligió el visitante antes de mostrar la página. |
 | `src/static/ia/` | Motor de IA (ONNX Runtime Web, MIT) y modelo U²-Netp (Apache 2.0) para "Quitar fondo con IA" en el convertidor a PNG. Se descargan solo cuando alguien activa esa opción; licencias en `LICENCIAS.txt`. |
 | `src/static/site.webmanifest`, `icon-*.png`, `apple-touch-icon.png` | Nombre e íconos para cuando alguien guarda la web en la pantalla de inicio del celular. |

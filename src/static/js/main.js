@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   calculadora();
   tarifarioDiseno();
   textosUnicode();
+  mayusculasMinusculas();
   convertidorPng();
   visor();
   formulario();
@@ -1124,7 +1125,7 @@ const ESTILOS_UNICODE = (() => {
 })();
 
 function textosUnicode() {
-  const raiz = document.querySelector('.uni');
+  const raiz = document.querySelector('.uni:not(.may)');
   if (!raiz) return;
   const campo = raiz.querySelector('#uni-texto');
   const pintar = () => {
@@ -1133,26 +1134,128 @@ function textosUnicode() {
       li.querySelector('.uni-resultado').textContent = ESTILOS_UNICODE(li.dataset.estilo, texto);
     });
   };
-  const copiar = async (texto) => {
-    try {
-      await navigator.clipboard.writeText(texto);
-    } catch (e) {
-      // Navegadores sin permiso de portapapeles: se copia seleccionando un campo oculto
-      const t = document.createElement('textarea');
-      t.value = texto;
-      t.setAttribute('readonly', '');
-      t.style.position = 'fixed';
-      t.style.opacity = '0';
-      document.body.append(t);
-      t.select();
-      document.execCommand('copy');
-      t.remove();
+  raiz.addEventListener('click', async (e) => {
+    const boton = e.target.closest('.uni-copiar');
+    if (boton) {
+      await copiarTexto(boton.closest('.uni-estilo').querySelector('.uni-resultado').textContent);
+      boton.textContent = raiz.dataset.copiado;
+      boton.classList.add('copiado');
+      setTimeout(() => {
+        boton.textContent = raiz.dataset.copiar;
+        boton.classList.remove('copiado');
+      }, 1600);
     }
+    if (e.target.closest('.uni-limpiar')) {
+      campo.value = '';
+      campo.focus();
+      pintar();
+    }
+  });
+  campo.addEventListener('input', pintar);
+  pintar();
+}
+
+// Copia al portapapeles (lo usan las herramientas de texto)
+async function copiarTexto(texto) {
+  try {
+    await navigator.clipboard.writeText(texto);
+  } catch (e) {
+    // Navegadores sin permiso de portapapeles: se copia seleccionando un campo oculto
+    const t = document.createElement('textarea');
+    t.value = texto;
+    t.setAttribute('readonly', '');
+    t.style.position = 'fixed';
+    t.style.opacity = '0';
+    document.body.append(t);
+    t.select();
+    document.execCommand('copy');
+    t.remove();
+  }
+}
+
+// ----- Mayúsculas y minúsculas: el mismo texto en distintos formatos -----
+const MAYUS = (() => {
+  const letra = /\p{L}/u;
+  // Palabras cortas que en "tipo título" van en minúscula (salvo al empezar)
+  const menores = {
+    es: new Set('a al ante con de del e el en entre la las lo los o para por que se sin sobre su sus u un una unos unas y'.split(' ')),
+    en: new Set('a an and as at but by for from in into nor of on or over per the to up via vs with'.split(' ')),
+  };
+  const oracion = (t, lang) => {
+    let mayus = true;
+    let r = '';
+    for (const c of t.toLocaleLowerCase(lang)) {
+      if (letra.test(c)) {
+        r += mayus ? c.toLocaleUpperCase(lang) : c;
+        mayus = false;
+      } else {
+        r += c;
+        if ('.!?…\n'.includes(c)) mayus = true;
+      }
+    }
+    return r;
+  };
+  const palabras = (t, lang) =>
+    t.toLocaleLowerCase(lang).replace(/(^|[^\p{L}\p{N}'’])(\p{L})/gu, (_, a, b) => a + b.toLocaleUpperCase(lang));
+  const titulo = (t, lang) => {
+    const chicas = menores[lang.slice(0, 2)] || menores.es;
+    let inicio = true;
+    return t
+      .toLocaleLowerCase(lang)
+      .split(/([^\p{L}\p{N}'’]+)/u)
+      .map((parte) => {
+        if (!/\p{L}/u.test(parte)) {
+          if (/[.!?:…\n]/.test(parte)) inicio = true;
+          return parte;
+        }
+        const r = inicio || !chicas.has(parte) ? parte.charAt(0).toLocaleUpperCase(lang) + parte.slice(1) : parte;
+        inicio = false;
+        return r;
+      })
+      .join('');
+  };
+  const invertir = (t, lang) =>
+    [...t].map((c) => (c === c.toLocaleUpperCase(lang) ? c.toLocaleLowerCase(lang) : c.toLocaleUpperCase(lang))).join('');
+  const alternar = (t, lang) => {
+    let i = 0;
+    return [...t].map((c) => (letra.test(c) ? (i++ % 2 ? c.toLocaleUpperCase(lang) : c.toLocaleLowerCase(lang)) : c)).join('');
+  };
+  // Quita tildes y diéresis pero conserva la ñ
+  const sinTildes = (t) => t.normalize('NFD').replace(/(?<![nN])\u0303|[\u0300-\u0302\u0304-\u036f]/g, '').normalize('NFC');
+  return {
+    oracion,
+    minusculas: (t, lang) => t.toLocaleLowerCase(lang),
+    mayusculas: (t, lang) => t.toLocaleUpperCase(lang),
+    palabras,
+    titulo,
+    invertir,
+    alternar,
+    sinTildes,
+  };
+})();
+
+function mayusculasMinusculas() {
+  const raiz = document.querySelector('.uni.may');
+  if (!raiz) return;
+  const campo = raiz.querySelector('#may-texto');
+  const cuenta = raiz.querySelector('.may-cuenta');
+  const T = JSON.parse(raiz.dataset.cuenta);
+  const lang = raiz.lang || 'es';
+  const pintar = () => {
+    const texto = campo.value || campo.placeholder;
+    raiz.querySelectorAll('.uni-estilo').forEach((li) => {
+      li.querySelector('.uni-resultado').textContent = MAYUS[li.dataset.modo](texto, lang);
+    });
+    const v = campo.value;
+    const n = (x) => x.toLocaleString(lang);
+    const palabras = (v.match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu) || []).length;
+    const lineas = v ? v.split('\n').length : 0;
+    cuenta.textContent = `${n([...v].length)} ${T.caracteres} · ${n(palabras)} ${T.palabras} · ${n(lineas)} ${T.lineas}`;
   };
   raiz.addEventListener('click', async (e) => {
     const boton = e.target.closest('.uni-copiar');
     if (boton) {
-      await copiar(boton.closest('.uni-estilo').querySelector('.uni-resultado').textContent);
+      await copiarTexto(boton.closest('.uni-estilo').querySelector('.uni-resultado').textContent);
       boton.textContent = raiz.dataset.copiado;
       boton.classList.add('copiado');
       setTimeout(() => {
