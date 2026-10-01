@@ -1997,6 +1997,14 @@ function paginaEncargos(l, proyectos) {
   const M = T.murales;
   const R = RUTAS[l];
   const urbanos = proyectos.filter((p) => p.categorias.includes('urbano'));
+  const caso = proyectos.find((p) => p.slug === 'blend-david');
+  const datosCaso = M.casoDatos
+    .map(([v, t]) => `<div class="caso-dato"><dt class="caso-valor">${esc(v)}</dt><dd class="mono">${esc(t)}</dd></div>`)
+    .join('');
+  // Antes / proceso / después de Blend David (imágenes 2, 4 y 1 de su galería)
+  const etapas = [1, 3, 0]
+    .map((k, i) => `<figure class="etapa"><div class="etapa-img">${img(caso.galeria[k], { alt: `${caso.titulo} — ${M.etapas[i]}`, sizes: '(min-width: 900px) 18vw, 33vw', dims: caso.galeria[k]._wh })}</div><figcaption class="mono">${M.etapas[i]}</figcaption></figure>`)
+    .join('');
   const tarjetas = urbanos
     .map((p, i) => tarjeta(l, p, i, { sizes: '(min-width: 900px) 45vw, 100vw', etiqueta: p.estetica }))
     .join('\n      ');
@@ -2016,6 +2024,18 @@ function paginaEncargos(l, proyectos) {
         <h1 class="page-title page-title--md">${M.encargosTitulo}</h1>
       </div>
       <p class="lead">${M.encargosLead}</p>
+    </div>
+  </section>
+  <section class="numeros caso">
+    <div class="wrap caso-in">
+      <div class="caso-texto">
+        <span class="kicker mono">${M.casoKicker}</span>
+        <h2 class="h2">${esc(caso.titulo)}</h2>
+        <p class="caso-lead">${esc(caso.bloques[0].destacado)}</p>
+        <dl class="caso-datos">${datosCaso}</dl>
+        <a class="link-arrow" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verProyecto}</a>
+      </div>
+      <div class="caso-etapas">${etapas}</div>
     </div>
   </section>
   <section class="seccion seccion--top">
@@ -2203,13 +2223,6 @@ function murales(l, proyectos) {
   const pasos = M.proceso
     .map(([t, d], i) => `<li class="paso reveal"><span class="paso-num">${num(i)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`)
     .join('\n        ');
-  const datosCaso = M.casoDatos
-    .map(([v, t]) => `<div class="caso-dato"><dt class="caso-valor">${esc(v)}</dt><dd class="mono">${esc(t)}</dd></div>`)
-    .join('');
-  // Antes / proceso / después de Blend David (imágenes 2, 4 y 1 de su galería)
-  const etapas = [1, 3, 0]
-    .map((k, i) => `<figure class="etapa"><div class="etapa-img">${img(caso.galeria[k], { alt: `${caso.titulo} — ${M.etapas[i]}`, sizes: '(min-width: 900px) 18vw, 33vw', dims: caso.galeria[k]._wh })}</div><figcaption class="mono">${M.etapas[i]}</figcaption></figure>`)
-    .join('');
   const faq = M.faq
     .map(([q, a]) => `<details class="faq-item reveal"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`)
     .join('\n        ');
@@ -2301,18 +2314,6 @@ function murales(l, proyectos) {
     </div>
   </section>
 
-  <section class="numeros caso">
-    <div class="wrap caso-in">
-      <div class="caso-texto">
-        <span class="kicker mono">${M.casoKicker}</span>
-        <h2 class="h2">${esc(caso.titulo)}</h2>
-        <p class="caso-lead">${esc(caso.bloques[0].destacado)}</p>
-        <dl class="caso-datos">${datosCaso}</dl>
-        <a class="link-arrow" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verProyecto}</a>
-      </div>
-      <div class="caso-etapas">${etapas}</div>
-    </div>
-  </section>
 
   <section class="seccion seccion--borde">
     <div class="wrap faq-grid">
