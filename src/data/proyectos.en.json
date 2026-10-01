@@ -105,17 +105,6 @@
       }
     ]
   },
-  "street-art": {
-    "titulo": "Graffiti Style",
-    "subtitulo": "Lettering, color and urban energy",
-    "estetica": "Graffiti",
-    "ficha": [["Style", "Graffiti · wildstyle and 3D lettering"], ["Applications", "Façades, interiors, shutters and objects"], ["Technique", "Spray paint"]],
-    "bloques": [
-      { "titulo": "The style", "destacado": "Graffiti is one of the styles we work in: lettering with character, saturated color and the energy of urban culture, brought into design.", "parrafos": ["Born on the street and now a visual language recognized all over the world, graffiti brings freshness, movement and authenticity. Interlocking letters, volume, gradients, highlights and outlines that turn a name into a piece you can see from far away."] },
-      { "titulo": "Who it’s for", "parrafos": ["It’s ideal for brands and spaces that speak to a young audience or one connected to urban culture: clothing stores, barbershops, bars, music studios, skateparks, gyms, production companies and events."] },
-      { "titulo": "How we apply it", "parrafos": ["We approach it like any design project: we start from the brand’s identity —its name, its colors, its tone— and adapt it to the space. Always with a prior sketch, planning and on walls authorized by their owners.", "The pieces in this gallery show the language on different surfaces: exterior walls, a music studio and even objects."] }
-    ]
-  },
   "analogic-photos": {
     "subtitulo": "Analog photography",
     "ficha": [["Discipline", "Analog photography"]]

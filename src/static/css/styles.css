@@ -5,6 +5,8 @@
 @font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/fonts/instrumentsans-var.woff2') format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/plexmono-400.woff2') format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/plexmono-500.woff2') format('woff2'); }
+@font-face { font-family: 'Michroma'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/michroma-400.woff2') format('woff2'); }
+@font-face { font-family: 'Oswald'; font-style: normal; font-weight: 200 700; font-display: swap; src: url('/fonts/oswald-var.woff2') format('woff2'); }
 
 :root {
   --bg: #F2F0EB;
@@ -940,3 +942,93 @@ html:not(.js) .calc-salida { display: none; }
 .logos-grid .logo-item:nth-child(5n+5) { transition-delay: .24s; }
 @media (max-width: 1099px) { .logos-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 599px) { .logos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .logo-caso { top: 6px; left: 6px; font-size: 10px; } }
+
+/* ---------- LAION: página de artista (identidad propia, siempre oscura) ---------- */
+.laion { --l-rojo: #FF0000; --l-rojo-osc: #9E0000; --l-fondo: #000; --l-texto: #F2F0EB; --l-gris: #8C8880; background: var(--l-fondo); color: var(--l-texto); font-family: 'Oswald', 'Arial Narrow', sans-serif; padding-bottom: clamp(56px, 8vw, 120px); }
+.laion ::selection { background: var(--l-rojo); color: #000; }
+.laion :focus-visible { outline: 2px solid var(--l-rojo); outline-offset: 3px; }
+.laion-hero { position: relative; min-height: min(92vh, 980px); display: flex; align-items: stretch; overflow: hidden; isolation: isolate; }
+.laion-hero-fondo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; z-index: -2; filter: saturate(1.1); }
+.laion-hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.45) 35%, rgba(0,0,0,.9) 70%, #000 100%); }
+.laion-hero-in { display: flex; width: 100%; padding-block: clamp(20px, 3vw, 40px); }
+.laion-marco { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(14px, 2vw, 24px); padding: clamp(20px, 4vw, 56px); border: 3px solid var(--l-rojo); border-radius: clamp(20px, 3vw, 40px); }
+.laion-hero-top { position: absolute; top: clamp(18px, 3vw, 36px); left: clamp(20px, 4vw, 56px); right: clamp(20px, 4vw, 56px); display: flex; justify-content: space-between; gap: 16px; font-family: 'Michroma', sans-serif; font-size: clamp(10px, 1vw, 13px); letter-spacing: .14em; text-transform: uppercase; color: var(--l-texto); }
+.laion-wordmark { position: relative; margin: 0; width: fit-content; font-family: 'Michroma', sans-serif; font-weight: 400; font-size: clamp(64px, 18vw, 236px); line-height: .9; letter-spacing: .01em; }
+.laion-wordmark-texto { color: var(--l-rojo); -webkit-text-stroke: .045em var(--l-rojo); paint-order: stroke fill; text-shadow: 0 .06em 0 var(--l-rojo-osc), 0 10px 40px rgba(255,0,0,.45); }
+.laion-estrella { position: absolute; width: .42em; height: .42em; left: 46.5%; top: -.24em; fill: #fff; filter: drop-shadow(0 0 18px rgba(255,255,255,.7)); }
+.laion-bajada { margin: 0; font-size: clamp(20px, 2.4vw, 34px); font-weight: 300; text-transform: uppercase; letter-spacing: .04em; }
+.laion-btn-borde { border: 2px solid var(--l-texto); color: var(--l-texto); background: transparent; }
+.laion-btn-borde:hover { border-color: var(--l-rojo); color: var(--l-rojo); }
+.laion .btn-accent { background: var(--l-rojo); color: #000; }
+.laion-datos-wrap { margin-top: clamp(32px, 5vw, 64px); }
+.laion-datos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; border-top: 2px solid var(--l-rojo); }
+.laion-dato { padding: 20px 16px 0 0; }
+.laion-dato dt { font-family: 'Michroma', sans-serif; font-size: clamp(22px, 3vw, 44px); color: var(--l-rojo); line-height: 1.1; white-space: nowrap; }
+.laion-dato dd { margin: 8px 0 0; font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--l-gris); }
+.laion-seccion { margin-top: clamp(56px, 8vw, 120px); }
+.laion-caja { border: 2px solid var(--l-rojo); border-radius: clamp(16px, 2.4vw, 32px); padding: clamp(20px, 4vw, 56px); }
+.laion-h2 { margin: 0 0 clamp(20px, 3vw, 36px); }
+.laion-h2 span { display: inline-block; padding: .55em 1.1em .5em 1.36em; border: 2px solid var(--l-rojo); border-radius: 12px; font-family: 'Michroma', sans-serif; font-weight: 400; font-size: clamp(18px, 2.6vw, 38px); letter-spacing: .5em; text-transform: uppercase; color: var(--l-rojo); line-height: 1; }
+.laion-columnas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 34%); gap: clamp(24px, 4vw, 64px); align-items: start; }
+.laion-texto { color: var(--l-rojo); font-weight: 300; text-transform: uppercase; font-size: clamp(18px, 1.7vw, 25px); line-height: 1.28; letter-spacing: .01em; }
+.laion-texto p { margin: 0 0 1em; text-align: justify; hyphens: none; }
+.laion-texto p:last-child { margin-bottom: 0; }
+.laion-texto strong { font-weight: 650; }
+.laion-texto--ancho { max-width: 62em; }
+.laion-firma { width: 100%; height: auto; border-radius: 50%; }
+.laion-seccion-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px 40px; align-items: center; margin-bottom: clamp(20px, 3vw, 36px); }
+.laion-seccion-head .laion-h2 { margin: 0; }
+.laion-seccion-head p { margin: 0; color: var(--l-gris); font-size: 18px; max-width: 36em; text-transform: uppercase; letter-spacing: .03em; font-weight: 300; }
+.laion-obras { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.laion-obra { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 10px; background: #111; outline-offset: 3px; }
+.laion-obra img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .1, 1), filter .4s ease; }
+.laion-obra-num { position: absolute; left: 10px; bottom: 8px; font-family: 'Michroma', sans-serif; font-size: 12px; letter-spacing: .1em; color: #fff; text-shadow: 0 1px 6px #000; }
+.laion-obra::after { content: ''; position: absolute; inset: 0; border: 2px solid transparent; border-radius: 10px; transition: border-color .25s ease; pointer-events: none; }
+@media (hover: hover) {
+  .laion-obras:hover .laion-obra:not(:hover) img { filter: brightness(.45) grayscale(.6); }
+  .laion-obra:hover img { transform: scale(1.06); }
+  .laion-obra:hover::after { border-color: var(--l-rojo); }
+}
+.laion-cierre { margin: clamp(40px, 6vw, 88px) 0 0; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; font-size: clamp(44px, 9vw, 150px); line-height: .92; letter-spacing: -.01em; }
+.laion-cierre span { display: block; }
+.laion-cierre span:last-child { color: var(--l-rojo); }
+.laion-hitos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 3vw, 40px); }
+.laion-hito { border-top: 2px solid var(--l-rojo); padding-top: 18px; }
+.laion-hito-anio { text-transform: uppercase; font-family: 'Michroma', sans-serif; font-size: clamp(28px, 3.4vw, 52px); color: var(--l-rojo); }
+.laion-hito h3 { margin: 10px 0 6px; font-size: 24px; font-weight: 500; text-transform: uppercase; letter-spacing: .03em; }
+.laion-hito p { margin: 0; color: var(--l-gris); font-size: 17px; line-height: 1.45; }
+.laion-contacto { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.laion-contacto-titulo { margin: 0; font-family: 'Michroma', sans-serif; font-weight: 400; font-size: clamp(22px, 3.4vw, 48px); line-height: 1.15; text-transform: uppercase; color: var(--l-texto); }
+.laion-contacto p { margin: 0; max-width: 40em; color: var(--l-gris); font-size: 19px; line-height: 1.5; }
+.laion-estudio { margin: 28px 0 0; color: var(--l-gris); font-size: 17px; }
+.laion-estudio a { color: var(--l-texto); text-decoration: underline; text-decoration-color: var(--l-rojo); text-underline-offset: 4px; }
+.laion-estudio a:hover { color: var(--l-rojo); }
+.laion-obras .reveal:nth-child(4n+2) { transition-delay: .06s; }
+.laion-obras .reveal:nth-child(4n+3) { transition-delay: .12s; }
+.laion-obras .reveal:nth-child(4n+4) { transition-delay: .18s; }
+@media (max-width: 1099px) { .laion-obras { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 899px) {
+  .laion-columnas { grid-template-columns: 1fr; }
+  .laion-firma { width: min(72%, 320px); justify-self: center; }
+  .laion-seccion-head { grid-template-columns: 1fr; }
+  .laion-hitos { grid-template-columns: 1fr; }
+  .laion-datos { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; }
+}
+@media (max-width: 599px) {
+  .laion-obras { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .laion-hero { min-height: 86vh; }
+  .laion-hero-top { flex-direction: column; gap: 6px; }
+  .laion-texto p { text-align: left; }
+  .laion-h2 span { letter-spacing: .32em; padding-left: 1.2em; }
+}
+
+/* Bloque de LAION en la página de Murales */
+.laion-promo { margin-top: clamp(32px, 5vw, 56px); display: grid; grid-template-columns: minmax(120px, 220px) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); align-items: center; padding: clamp(18px, 3vw, 32px); background: #000; color: #F2F0EB; border: 2px solid #FF0000; border-radius: clamp(16px, 2.4vw, 28px); text-decoration: none; }
+.laion-promo img { width: 100%; height: auto; border-radius: 50%; }
+.laion-promo-texto { display: flex; flex-direction: column; gap: 10px; }
+.laion-promo-texto .mono { color: #8C8880; }
+.laion-promo-texto strong { font-family: 'Michroma', sans-serif; font-weight: 400; font-size: clamp(32px, 5vw, 64px); line-height: 1; color: #FF0000; }
+.laion-promo-texto span { font-size: 18px; line-height: 1.5; max-width: 36em; }
+.laion-promo-boton { font-weight: 600; color: #FF0000; }
+.laion-promo:hover .laion-promo-boton { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 599px) { .laion-promo { grid-template-columns: 1fr; } .laion-promo img { width: 160px; } }
