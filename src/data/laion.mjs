@@ -1,9 +1,10 @@
 // Página de artista de LAION (/laion/ y /en/laion/).
 // Los textos de biografía y visión son de LAION: **palabra** se muestra destacada.
 // Portada: wordmark de LAION (src/static/img/laion/wordmark-*.webp) sobre negro pleno.
-// Obras: imágenes en src/static/img/laion/obra-NN-700.webp y -1600.webp (vertical 3:4).
+// Obras: imágenes en src/static/img/laion/pieza-NN-700.webp y -1600.webp (vertical).
 
-export const LAION_OBRAS = Array.from({ length: 34 }, (_, i) => `obra-${String(i + 1).padStart(2, '0')}`);
+// El orden es el de los números de los archivos en el Drive de LAION (carpeta HQ COLOR).
+export const LAION_OBRAS = Array.from({ length: 37 }, (_, i) => `pieza-${String(i + 1).padStart(2, '0')}`);
 
 export const LAION = {
   es: {
@@ -17,7 +18,7 @@ export const LAION = {
     datos: [
       ['2008', 'Primera pared'],
       ['15+', 'Años de letras'],
-      ['34', 'Piezas en esta selección'],
+      ['37', 'Piezas en esta selección'],
       ['SMA → BA', 'De la montaña a la ciudad'],
     ],
     biografia: 'Biografía',
@@ -64,7 +65,7 @@ export const LAION = {
     datos: [
       ['2008', 'First wall'],
       ['15+', 'Years of letters'],
-      ['34', 'Pieces in this selection'],
+      ['37', 'Pieces in this selection'],
       ['SMA → BA', 'From the mountains to the city'],
     ],
     biografia: 'Biography',
