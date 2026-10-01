@@ -215,7 +215,7 @@ const TXT = {
       desc: 'Murales para locales, oficinas y marcas en Buenos Aires y La Plata: fachadas, interiores, persianas y pintura en vivo, diseñados desde la identidad de cada cliente.',
       kicker: 'Arte urbano · Murales',
       h1: 'Murales con identidad',
-      lead: 'Diseñamos y pintamos murales para locales, oficinas y marcas. Cada pieza parte de la identidad de quien la encarga —su logo, sus colores, su historia— para convertir una pared en el mejor cartel del lugar.',
+      lead: 'Diseñamos y pintamos murales para locales, oficinas y marcas. Cada pieza parte de la identidad de quien la encarga —su logo, sus colores, su historia— para convertir una pared en el mejor cartel del lugar. La obra personal de LAION, aparte, tiene su propio espacio.',
       calcular: 'Calculá el costo ↓',
       verTrabajos: 'Ver trabajos ↓',
       serviciosKicker: 'Qué pintamos',
@@ -635,7 +635,7 @@ const TXT = {
       desc: 'Murals for stores, offices and brands in Buenos Aires and La Plata: façades, interiors, shutters and live painting, designed from each client’s identity.',
       kicker: 'Street art · Murals',
       h1: 'Murals with identity',
-      lead: 'We design and paint murals for stores, offices and brands. Every piece starts from the identity of whoever commissions it —their logo, their colors, their story— to turn a wall into the best sign in the place.',
+      lead: 'We design and paint murals for stores, offices and brands. Every piece starts from the identity of whoever commissions it —their logo, their colors, their story— to turn a wall into the best sign in the place. LAION’s personal work has a space of its own.',
       calcular: 'Estimate the cost ↓',
       verTrabajos: 'See our work ↓',
       serviciosKicker: 'What we paint',
@@ -1067,7 +1067,7 @@ ${publicidadEnPie ? marquesinaPublicidad(l) : ''}
       </div>
       <div class="footer-bottom mono">
         <span>© ${anio} AIRON Studio · ${T.pie[0]}</span>
-        <span class="footer-legal"><a href="${R.legales}"${actual('legales')}>${LEGALES[l].nav}</a><span aria-hidden="true">·</span><span>${T.pie[1]}</span></span>
+        <span class="footer-legal"><a class="footer-laion" href="${R.laion}"${actual('laion')}>LAION</a><span aria-hidden="true">·</span><a href="${R.legales}"${actual('legales')}>${LEGALES[l].nav}</a><span aria-hidden="true">·</span><span>${T.pie[1]}</span></span>
       </div>
     </div>
   </footer>
@@ -2259,8 +2259,8 @@ function murales(l, proyectos) {
         <h1 class="page-title page-title--md">${M.h1}</h1>
         <p class="lead">${M.lead}</p>
         <div class="btn-row">
-          <a class="btn btn-accent btn-lg" href="#calculadora">${M.calcular}</a>
-          <a class="btn btn-outline btn-lg" href="#trabajos">${M.verTrabajos}</a>
+          <a class="btn btn-accent btn-lg" href="#trabajos">${M.verTrabajos}</a>
+          <a class="btn btn-outline btn-lg" href="#calculadora">${M.calcular}</a>
         </div>
       </div>
       <div class="murales-head-img" data-vt="p-${caso.slug}">${img(caso.portada, { alt: T.portadaDe(caso.titulo), sizes: '(min-width: 900px) 45vw, 100vw', eager: true, dims: [1280, 1001] })}</div>
