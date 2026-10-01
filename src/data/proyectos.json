@@ -510,8 +510,8 @@
       "branding"
     ],
     "portada": {
-      "640": "/img/p/branding-x-airon-studio/portada-640.webp",
-      "1280": "/img/p/branding-x-airon-studio/portada-1280.webp",
+      "640": "/img/p/branding-x-airon-studio/portada-v2-640.webp",
+      "1280": "/img/p/branding-x-airon-studio/portada-v2-1280.webp",
       "_wh": [
         1280,
         1001
@@ -1133,8 +1133,8 @@
       "musical"
     ],
     "portada": {
-      "640": "/img/p/spotify-covers/portada-640.webp",
-      "1280": "/img/p/spotify-covers/portada-1280.webp",
+      "640": "/img/p/spotify-covers/portada-v2-640.webp",
+      "1280": "/img/p/spotify-covers/portada-v2-1280.webp",
       "_wh": [
         1280,
         1001
