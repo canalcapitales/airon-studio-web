@@ -26,8 +26,8 @@ const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Fo
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/', laion: '/laion/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/', laion: '/en/laion/' },
+  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/', laion: '/laion/', encargos: '/murales/encargos/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/', laion: '/en/laion/', encargos: '/en/murals/commissions/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -235,9 +235,11 @@ const TXT = {
       encargoKicker: 'Murales por encargo',
       encargoTitulo: 'Encargos',
       encargoTexto: 'Fachadas, interiores y persianas para marcas, locales y oficinas, diseñados desde la identidad de cada cliente.',
-      encargoBoton: 'Ver clientes y encargos ↓',
+      encargoBoton: 'Ver clientes y encargos →',
       encargosKicker: 'Por encargo',
       encargosTitulo: 'Clientes y encargos',
+      encargosDesc: 'Murales por encargo de AIRON Studio para marcas, locales y oficinas en La Plata y Buenos Aires: fachadas, interiores y persianas.',
+      volverMurales: '← Volver a Murales',
       encargosLead: 'Murales que diseñamos y pintamos para marcas, locales y oficinas. Cada uno parte de la identidad del cliente: su logo, sus colores y su espacio.',
       esteticasKicker: 'Estéticas',
       esteticasTitulo: 'Un lenguaje para cada marca',
@@ -653,9 +655,11 @@ const TXT = {
       encargoKicker: 'Commissioned murals',
       encargoTitulo: 'Commissions',
       encargoTexto: 'Façades, interiors and shutters for brands, venues and offices, designed from each client’s identity.',
-      encargoBoton: 'See clients and commissions ↓',
+      encargoBoton: 'See clients and commissions →',
       encargosKicker: 'Commissioned',
       encargosTitulo: 'Clients and commissions',
+      encargosDesc: 'Commissioned murals by AIRON Studio for brands, venues and offices in La Plata and Buenos Aires: façades, interiors and shutters.',
+      volverMurales: '← Back to Murals',
       encargosLead: 'Murals we design and paint for brands, venues and offices. Each one starts from the client’s identity: their logo, their colors and their space.',
       esteticasKicker: 'Styles',
       esteticasTitulo: 'A language for every brand',
@@ -1987,6 +1991,44 @@ function paginaMayusculas(l) {
   });
 }
 
+// Clientes y encargos: murales comerciales (proyectos con categoría "urbano")
+function paginaEncargos(l, proyectos) {
+  const T = TXT[l];
+  const M = T.murales;
+  const R = RUTAS[l];
+  const urbanos = proyectos.filter((p) => p.categorias.includes('urbano'));
+  const tarjetas = urbanos
+    .map((p, i) => tarjeta(l, p, i, { sizes: '(min-width: 900px) 45vw, 100vw', etiqueta: p.estetica }))
+    .join('\n      ');
+  return pagina(l, {
+    clave: 'encargos',
+    titulo: M.encargosTitulo,
+    activo: 'murales',
+    descripcion: M.encargosDesc,
+    imagen: `/img/og/blend-david-${l}.jpg`,
+    datos: { '@type': 'CollectionPage', name: M.encargosTitulo, description: M.encargosDesc, url: `${SITIO.url}${R.encargos}`, inLanguage: T.htmlLang },
+    cuerpo: `
+  <section class="page-head">
+    <div class="wrap page-head-in">
+      <div>
+        <a class="mono volver-murales" href="${R.murales}">${M.volverMurales}</a>
+        <span class="kicker mono">${M.encargosKicker}</span>
+        <h1 class="page-title page-title--md">${M.encargosTitulo}</h1>
+      </div>
+      <p class="lead">${M.encargosLead}</p>
+    </div>
+  </section>
+  <section class="seccion seccion--top">
+    <div class="wrap">
+      <div class="grid-esteticas">
+      ${tarjetas}
+      </div>
+    </div>
+  </section>
+`,
+  });
+}
+
 // ---------- LAION: página de artista dentro de la web (identidad propia: negro, rojo, Michroma y Oswald) ----------
 const conDestacados = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 function paginaLaion(l) {
@@ -2154,14 +2196,10 @@ function murales(l, proyectos) {
   const T = TXT[l];
   const M = T.murales;
   const R = RUTAS[l];
-  const urbanos = proyectos.filter((p) => p.categorias.includes('urbano'));
   const caso = proyectos.find((p) => p.slug === 'blend-david');
   const servicios = M.servicios
     .map(([t, d], i) => `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`)
     .join('\n        ');
-  const esteticas = urbanos
-    .map((p, i) => tarjeta(l, p, i, { sizes: '(min-width: 900px) 45vw, 100vw', etiqueta: p.estetica }))
-    .join('\n      ');
   const pasos = M.proceso
     .map(([t, d], i) => `<li class="paso reveal"><span class="paso-num">${num(i)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`)
     .join('\n        ');
@@ -2240,7 +2278,7 @@ function murales(l, proyectos) {
         <p class="lead">${M.mundosLead}</p>
       </div>
       <div class="mundos">
-        <a class="laion-promo mundo-encargo reveal" href="#encargos">
+        <a class="laion-promo mundo-encargo reveal" href="${R.encargos}">
           <img src="${esc(caso.portada['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async">
           <span class="laion-promo-texto"><span class="mono">${M.encargoKicker}</span><strong>${M.encargoTitulo}</strong><span>${M.encargoTexto}</span><span class="laion-promo-boton">${M.encargoBoton}</span></span>
         </a>
@@ -2252,20 +2290,6 @@ function murales(l, proyectos) {
     </div>
   </section>
 
-  <section class="seccion seccion--borde" id="encargos">
-    <div class="wrap">
-      <div class="seccion-head">
-        <div>
-          <span class="kicker mono">${M.encargosKicker}</span>
-          <h2 class="h2">${M.encargosTitulo}</h2>
-        </div>
-        <p class="lead">${M.encargosLead}</p>
-      </div>
-      <div class="grid-esteticas">
-      ${esteticas}
-      </div>
-    </div>
-  </section>
 
   <section class="seccion seccion--borde">
     <div class="wrap">
@@ -2547,6 +2571,7 @@ for (const l of IDIOMAS) {
     [R.contacto, contacto(l)],
     [R.legales, paginaLegales(l)],
     [R.laion, paginaLaion(l)],
+    [R.encargos, paginaEncargos(l, proyectos)],
   ];
   for (const [ruta, html] of paginas) {
     escribir(archivo(ruta), html);
