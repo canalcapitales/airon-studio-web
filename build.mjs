@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, renameSync } fr
 import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { LEGALES, FAQ_HERRAMIENTAS, ACTUALIZADO } from './src/data/legales.mjs';
+import { LAION, LAION_OBRAS, LAION_PORTADA } from './src/data/laion.mjs';
 
 const OUT = 'dist';
 const SITIO = {
@@ -25,8 +26,8 @@ const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Fo
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/' },
+  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/', laion: '/laion/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/', laion: '/en/laion/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -225,6 +226,9 @@ const TXT = {
         ['Persianas y vidrieras', 'Persianas metálicas, vidrieras y carteles pintados a mano que comunican incluso con el local cerrado.'],
         ['Pintura en vivo', 'Live painting en lanzamientos, fiestas, ferias y activaciones de marca.'],
       ],
+      laionKicker: 'Dirección artística',
+      laionTexto: 'Detrás de las paredes del estudio está LAION, graffiti writer argentino que pinta desde 2008. Su obra personal tiene su propio espacio.',
+      laionBoton: 'Conocé a LAION →',
       esteticasKicker: 'Estéticas',
       esteticasTitulo: 'Un lenguaje para cada marca',
       esteticasLead: 'Cada marca pide un lenguaje distinto. Estas son algunas de las estéticas que trabajamos; todas se adaptan al logo, los colores y el espacio de cada cliente.',
@@ -630,6 +634,9 @@ const TXT = {
         ['Shutters and windows', 'Metal shutters, shop windows and hand-painted signs that keep talking even when the store is closed.'],
         ['Live painting', 'Live painting at launches, parties, fairs and brand activations.'],
       ],
+      laionKicker: 'Art direction',
+      laionTexto: 'Behind the studio’s walls is LAION, an Argentine graffiti writer painting since 2008. His personal work has a space of its own.',
+      laionBoton: 'Meet LAION →',
       esteticasKicker: 'Styles',
       esteticasTitulo: 'A language for every brand',
       esteticasLead: 'Every brand calls for a different language. These are some of the styles we work in; all of them adapt to each client’s logo, colors and space.',
@@ -1960,6 +1967,108 @@ function paginaMayusculas(l) {
   });
 }
 
+// ---------- LAION: página de artista dentro de la web (identidad propia: negro, rojo, Michroma y Oswald) ----------
+const ESTRELLA_LAION = '<svg class="laion-estrella" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M50 0C53 38 62 47 100 50 62 53 53 62 50 100 47 62 38 53 0 50 38 47 47 38 50 0Z"/></svg>';
+const conDestacados = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+function paginaLaion(l) {
+  const T = TXT[l];
+  const X = LAION[l];
+  const R = RUTAS[l];
+  const datos = X.datos.map(([v, t]) => `<div class="laion-dato reveal"><dt>${esc(v)}</dt><dd>${esc(t)}</dd></div>`).join('');
+  const parrafos = (lista) => lista.map((p) => `<p>${conDestacados(p)}</p>`).join('\n          ');
+  const obras = LAION_OBRAS.map(
+    (id, i) => `<li class="reveal"><a class="laion-obra zoom" href="/img/laion/${id}-1600.webp" aria-label="${T.ampliar}: ${esc(X.pieza(num(i)))}"><img src="/img/laion/${id}-700.webp" alt="${esc(X.pieza(num(i)))}" width="700" height="933" loading="lazy" decoding="async"><span class="laion-obra-num">${num(i)}</span></a></li>`
+  ).join('\n        ');
+  const hitos = X.hitos.map(([a, lugar, d]) => `<li class="laion-hito reveal"><span class="laion-hito-anio">${esc(a)}</span><h3>${esc(lugar)}</h3><p>${esc(d)}</p></li>`).join('');
+  const mensaje = encodeURIComponent(X.contactoMensaje);
+  return pagina(l, {
+    clave: 'laion',
+    publicidadEnPie: false,
+    titulo: X.titulo,
+    activo: 'murales',
+    descripcion: X.desc,
+    imagen: `/img/og/laion-${l}.jpg`,
+    datos: {
+      '@graph': [
+        { '@type': 'ProfilePage', name: X.titulo, description: X.desc, url: `${SITIO.url}${R.laion}`, inLanguage: T.htmlLang, mainEntity: { '@id': `${SITIO.url}/laion/#artista` } },
+        { '@type': 'Person', '@id': `${SITIO.url}/laion/#artista`, name: 'LAION', jobTitle: X.kicker, description: X.desc, image: `${SITIO.url}/img/laion/firma-900.webp`, worksFor: { '@id': `${SITIO.url}/#estudio` }, homeLocation: { '@type': 'Place', name: 'Buenos Aires, Argentina' } },
+      ],
+    },
+    cuerpo: `
+  <div class="laion">
+    <section class="laion-hero">
+      <img class="laion-hero-fondo" src="/img/laion/${LAION_PORTADA}-1600.webp" alt="" width="1200" height="1600" fetchpriority="high" decoding="async">
+      <div class="wrap laion-hero-in">
+        <div class="laion-marco">
+          <div class="laion-hero-top"><span>${X.kicker}</span><span>${X.desde}</span></div>
+          <h1 class="laion-wordmark"><span class="laion-wordmark-texto">LAION</span>${ESTRELLA_LAION}</h1>
+          <p class="laion-bajada">${X.bajada}</p>
+          <div class="btn-row"><a class="btn btn-accent btn-lg" href="#obra">${X.verObra}</a><a class="btn laion-btn-borde btn-lg" href="#contacto-laion">${X.contacto}</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap laion-datos-wrap" aria-label="LAION">
+      <dl class="laion-datos">${datos}</dl>
+    </section>
+
+    <section class="wrap laion-seccion" id="biografia">
+      <div class="laion-caja reveal">
+        <h2 class="laion-h2"><span>${X.biografia}</span></h2>
+        <div class="laion-columnas">
+          <div class="laion-texto">
+          ${parrafos(X.bio)}
+          </div>
+          <img class="laion-firma" src="/img/laion/firma-900.webp" alt="${esc(X.firmaAlt)}" width="900" height="900" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap laion-seccion" id="obra">
+      <div class="laion-seccion-head reveal">
+        <h2 class="laion-h2"><span>${X.obra}</span></h2>
+        <p>${esc(X.obraTexto)}</p>
+      </div>
+      <ul class="laion-obras">
+        ${obras}
+      </ul>
+    </section>
+
+    <section class="wrap laion-seccion" id="vision">
+      <div class="laion-caja reveal">
+        <h2 class="laion-h2"><span>${X.vision}</span></h2>
+        <div class="laion-texto laion-texto--ancho">
+          ${parrafos(X.visionTexto)}
+        </div>
+      </div>
+      <p class="laion-cierre reveal"><span>${esc(X.cierre[0])}</span><span>${esc(X.cierre[1])}</span></p>
+    </section>
+
+    <section class="wrap laion-seccion" id="recorrido">
+      <div class="laion-seccion-head reveal"><h2 class="laion-h2"><span>${X.ruta}</span></h2></div>
+      <ol class="laion-hitos">${hitos}</ol>
+    </section>
+
+    <section class="wrap laion-seccion" id="contacto-laion">
+      <div class="laion-caja laion-contacto reveal">
+        <h2 class="laion-contacto-titulo">${X.contactoTitulo}</h2>
+        <p>${esc(X.contactoTexto)}</p>
+        <a class="btn btn-accent btn-lg" href="${R.contacto}?tipo=mural&amp;mensaje=${mensaje}">${X.contactoBoton}</a>
+      </div>
+      <p class="laion-estudio">${esc(X.estudio)} <a href="${R.estudio}">${X.estudioLink}</a></p>
+    </section>
+  </div>
+  <dialog class="visor" aria-label="${T.visor.aria}">
+    <button class="visor-btn visor-cerrar" type="button" aria-label="${T.visor.cerrar}">✕</button>
+    <button class="visor-btn visor-ant" type="button" aria-label="${T.visor.ant}">←</button>
+    <img class="visor-img" alt="">
+    <button class="visor-btn visor-sig" type="button" aria-label="${T.visor.sig}">→</button>
+    <span class="visor-contador mono" aria-live="polite"></span>
+  </dialog>
+`,
+  });
+}
+
 // Convertir a PNG: todo se procesa en el navegador (main.js)
 function paginaPng(l) {
   const P = TXT[l].png;
@@ -2115,6 +2224,10 @@ function murales(l, proyectos) {
       <div class="grid-esteticas">
       ${esteticas}
       </div>
+      <a class="laion-promo reveal" href="${R.laion}">
+        <img src="/img/laion/firma-900.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
+        <span class="laion-promo-texto"><span class="mono">${M.laionKicker}</span><strong>LAION</strong><span>${M.laionTexto}</span><span class="laion-promo-boton">${M.laionBoton}</span></span>
+      </a>
     </div>
   </section>
 
@@ -2397,6 +2510,7 @@ for (const l of IDIOMAS) {
     [R.estudio, estudio(l, proyectos)],
     [R.contacto, contacto(l)],
     [R.legales, paginaLegales(l)],
+    [R.laion, paginaLaion(l)],
   ];
   for (const [ruta, html] of paginas) {
     escribir(archivo(ruta), html);
