@@ -1036,7 +1036,9 @@ html:not(.js) .calc-salida { display: none; }
 .laion-h2 span { -webkit-text-stroke-width: .05em; }
 /* Murales: los dos mundos (obra personal de LAION / encargos del estudio) */
 .mundos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); }
-.mundos .laion-promo { margin-top: 0; grid-template-columns: 1fr; align-content: start; }
+.mundos .laion-promo { margin-top: 0; grid-template-columns: minmax(0, 1fr); align-content: start; container-type: inline-size; min-width: 0; }
+.mundos .laion-promo-texto { min-width: 0; }
+.mundos .laion-promo-texto strong { font-size: clamp(30px, 11cqi, 64px); }
 .mundos .laion-promo img { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; border-radius: 0; }
 .mundos .mundo-encargo img { object-fit: cover; border-radius: clamp(10px, 1.6vw, 18px); }
 @media (max-width: 599px) { .mundos .laion-promo img { width: 100%; } }
