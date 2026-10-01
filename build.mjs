@@ -2267,20 +2267,6 @@ function murales(l, proyectos) {
     </div>
   </section>
 
-  ${calculadora(l, { compartir: true })}
-
-  <section class="seccion seccion--borde">
-    <div class="wrap servicios-grid">
-      <div>
-        <span class="kicker mono">${M.serviciosKicker}</span>
-        <h2 class="h2">${M.serviciosTitulo}</h2>
-      </div>
-      <ul class="servicios">
-        ${servicios}
-      </ul>
-    </div>
-  </section>
-
   <section class="seccion seccion--borde" id="trabajos">
     <div class="wrap">
       <div class="seccion-head">
@@ -2302,6 +2288,21 @@ function murales(l, proyectos) {
       </div>
     </div>
   </section>
+
+  ${calculadora(l, { compartir: true })}
+
+  <section class="seccion seccion--borde">
+    <div class="wrap servicios-grid">
+      <div>
+        <span class="kicker mono">${M.serviciosKicker}</span>
+        <h2 class="h2">${M.serviciosTitulo}</h2>
+      </div>
+      <ul class="servicios">
+        ${servicios}
+      </ul>
+    </div>
+  </section>
+
 
 
   <section class="seccion seccion--borde">
