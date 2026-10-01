@@ -1050,3 +1050,5 @@ html:not(.js) .calc-salida { display: none; }
 .laion-promo-texto strong { text-transform: uppercase; }
 .volver-murales { display: inline-block; margin-bottom: 20px; font-size: 13px; color: var(--muted); text-decoration: none; }
 .volver-murales:hover { color: var(--hover); }
+.footer-legal .footer-laion { font-family: 'Michroma', sans-serif; color: var(--acento); letter-spacing: .08em; text-decoration: none; }
+.footer-legal .footer-laion:hover, .footer-legal .footer-laion:focus-visible { color: var(--sobre-bloque); }
