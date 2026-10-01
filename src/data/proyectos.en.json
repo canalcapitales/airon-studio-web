@@ -20,13 +20,13 @@
     ]
   },
   "zocalo-fox-sports": {
-    "titulo": "FOX Sports lower third",
-    "subtitulo": "TV design and animation",
-    "ficha": [["Client", "Eleven Games & Ju Base Plant Food"], ["Role", "Motion graphics design and animation"], ["Channel", "FOX Sports"]],
+    "titulo": "TV lower third",
+    "subtitulo": "Eleven Games and JU · aired on FOX Sports",
+    "ficha": [["Clients", "Eleven Games · JU Base Plant Food"], ["Role", "Motion graphics design and animation"], ["Aired on", "FOX Sports (advertising slot)"]],
     "bloques": [
-      { "titulo": "The challenge", "parrafos": ["An animated TV lower third broadcast on FOX Sports, created for Eleven Games and Ju Base Plant Food as part of their advertising campaign on the channel."] },
+      { "titulo": "The challenge", "parrafos": ["An animated TV lower third commissioned by Eleven Games and JU Base Plant Food for their advertising slot, aired during FOX Sports broadcasts."] },
       { "titulo": "The process", "parrafos": ["The work included creating the motion graphics, integrating the visual identity of both brands and adapting it to the dynamic, sporty style of the broadcast."] },
-      { "titulo": "The result", "parrafos": ["A fast, modern piece consistent with the FOX Sports look, designed to catch the audience's attention and boost the advertisers' visibility during the broadcast."] }
+      { "titulo": "The result", "parrafos": ["A fast, modern piece designed to sit with the sporty look of the broadcast, catch the audience's attention and boost the visibility of both brands."] }
     ]
   },
   "web-airon-studio": {
