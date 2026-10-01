@@ -1045,6 +1045,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
         <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
         <a class="nav-link" href="${R.murales}"${actual('murales')}>${T.murales.nav}</a>
+        <a class="nav-link nav-laion" href="${R.laion}"${actual('laion')}>LAION</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
         <a class="nav-link nav-tarifario" href="${R.tarifarios}"${actual('tarifario')}>${T.tarifarios.nav}</a>
         <a class="nav-link nav-cta" href="${R.contacto}"${actual('contacto')}>${T.nav.contacto}</a>
@@ -2066,7 +2067,7 @@ function paginaLaion(l) {
     clave: 'laion',
     publicidadEnPie: false,
     titulo: X.titulo,
-    activo: 'murales',
+    activo: 'laion',
     descripcion: X.desc,
     imagen: `/img/og/laion-${l}.jpg`,
     datos: {

@@ -1052,3 +1052,9 @@ html:not(.js) .calc-salida { display: none; }
 .volver-murales:hover { color: var(--hover); }
 .footer-legal .footer-laion { font-family: 'Michroma', sans-serif; color: var(--acento); letter-spacing: .08em; text-decoration: none; }
 .footer-legal .footer-laion:hover, .footer-legal .footer-laion:focus-visible { color: var(--sobre-bloque); }
+/* LAION en el menú principal: su propia tipografía y color */
+.nav-laion { font-family: 'Michroma', sans-serif; font-weight: 400; font-size: 15px; letter-spacing: .06em; color: var(--acento); -webkit-text-stroke: .04em currentColor; paint-order: stroke fill; }
+.nav-laion:hover { color: var(--ink); }
+.menu-open .nav .nav-laion { font-family: 'Michroma', sans-serif; }
+.menu-open .nav .nav-laion { -webkit-text-stroke-width: .08em; letter-spacing: .02em; }
+@media (min-width: 1100px) and (max-width: 1279px) { .logo-header { width: 140px; } .nav { gap: 18px; padding-left: 24px; } }
