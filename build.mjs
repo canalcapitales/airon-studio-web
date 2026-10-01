@@ -2240,13 +2240,13 @@ function murales(l, proyectos) {
         <p class="lead">${M.mundosLead}</p>
       </div>
       <div class="mundos">
-        <a class="laion-promo reveal" href="${R.laion}">
-          <img src="/img/laion/firma-900.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
-          <span class="laion-promo-texto"><span class="mono">${M.laionKicker}</span><strong>LAION</strong><span>${M.laionTexto}</span><span class="laion-promo-boton">${M.laionBoton}</span></span>
-        </a>
         <a class="laion-promo mundo-encargo reveal" href="#encargos">
           <img src="${esc(caso.portada['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async">
           <span class="laion-promo-texto"><span class="mono">${M.encargoKicker}</span><strong>${M.encargoTitulo}</strong><span>${M.encargoTexto}</span><span class="laion-promo-boton">${M.encargoBoton}</span></span>
+        </a>
+        <a class="laion-promo mundo-laion reveal" href="${R.laion}">
+          <img src="/img/laion/pieza-28-700.webp" alt="" width="525" height="700" loading="lazy" decoding="async">
+          <span class="laion-promo-texto"><span class="mono">${M.laionKicker}</span><strong>LAION</strong><span>${M.laionTexto}</span><span class="laion-promo-boton">${M.laionBoton}</span></span>
         </a>
       </div>
     </div>

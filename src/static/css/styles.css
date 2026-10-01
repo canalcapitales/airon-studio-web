@@ -1039,8 +1039,12 @@ html:not(.js) .calc-salida { display: none; }
 .mundos .laion-promo { margin-top: 0; grid-template-columns: minmax(0, 1fr); align-content: start; container-type: inline-size; min-width: 0; }
 .mundos .laion-promo-texto { min-width: 0; }
 .mundos .laion-promo-texto strong { font-size: clamp(30px, 11cqi, 64px); }
-.mundos .laion-promo img { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; border-radius: 0; }
-.mundos .mundo-encargo img { object-fit: cover; border-radius: clamp(10px, 1.6vw, 18px); }
+.mundos .laion-promo img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: clamp(10px, 1.6vw, 18px); }
+.mundos .mundo-laion img { object-position: center 55%; }
+/* Encargos: rojo con títulos negros (LAION queda negro con títulos rojos) */
+.mundo-encargo { background: #FF0000; color: #000; border-color: #FF0000; }
+.mundo-encargo .laion-promo-texto .mono, .mundo-encargo .laion-promo-texto strong, .mundo-encargo .laion-promo-boton { color: #000; }
+.mundo-encargo img { outline: 2px solid #000; outline-offset: -2px; }
 @media (max-width: 599px) { .mundos .laion-promo img { width: 100%; } }
 @media (max-width: 899px) { .mundos { grid-template-columns: 1fr; } }
 .laion-promo-texto strong { text-transform: uppercase; }
