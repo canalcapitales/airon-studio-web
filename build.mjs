@@ -2289,8 +2289,6 @@ function murales(l, proyectos) {
     </div>
   </section>
 
-  ${calculadora(l, { compartir: true })}
-
   <section class="seccion seccion--borde">
     <div class="wrap servicios-grid">
       <div>
@@ -2315,6 +2313,8 @@ function murales(l, proyectos) {
     </div>
   </section>
 
+
+  ${calculadora(l, { compartir: true })}
 
   <section class="seccion seccion--borde">
     <div class="wrap faq-grid">
