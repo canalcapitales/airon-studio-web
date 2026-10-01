@@ -4,8 +4,8 @@
     "titulo": "GSP Seguridad",
     "subtitulo": "Diseño y evolución de marca",
     "categorias": [
-      "branding",
-      "aplicada"
+      "integral",
+      "branding"
     ],
     "portada": {
       "640": "/img/p/gsp-seguridad/portada-640.webp",
@@ -167,131 +167,58 @@
     "previa": 2
   },
   {
-    "slug": "blend-david",
-    "titulo": "Blend David",
-    "subtitulo": "Mural de fachada · 47 m²",
+    "slug": "branding-x-airon-studio",
+    "titulo": "Branding x AIRON Studio",
+    "subtitulo": "25 identidades de marca",
     "categorias": [
-      "urbano"
+      "branding"
     ],
     "portada": {
-      "640": "/img/p/blend-david/portada-640.webp",
-      "1280": "/img/p/blend-david/portada-1280.webp",
+      "640": "/img/p/branding-x-airon-studio/portada-v2-640.webp",
+      "1280": "/img/p/branding-x-airon-studio/portada-v2-1280.webp",
       "_wh": [
         1280,
         1001
       ]
     },
-    "lugar": "Mercado de sabores · La Plata",
     "ficha": [
       [
-        "Cliente",
-        "Blend David — Mercado de sabores"
+        "Disciplina",
+        "Identidad visual y branding"
       ],
       [
-        "Rol",
-        "Ejecución integral — AIRON Studio"
+        "Identidades",
+        "25 marcas diseñadas"
       ],
       [
-        "Ubicación",
-        "Calle 12 n.º 1508, La Plata"
-      ],
-      [
-        "Superficie",
-        "5,5 × 8,5 m · ≈47 m²"
-      ],
-      [
-        "Plazo",
-        "7 jornadas de obra"
-      ],
-      [
-        "Técnica",
-        "Látex, aerosol, rodillo y pincel"
+        "Rubros",
+        "Música, gastronomía, inmobiliarias, comercio, industria, cultura y turismo"
       ]
     ],
     "bloques": [
       {
-        "titulo": "El reto",
-        "destacado": "Don David venía atravesando una renovación integral: cambios puertas adentro, propuesta comercial redefinida y un nuevo nombre, Blend David. El mural fue la última etapa de ese proceso y la primera que el público iba a ver.",
+        "titulo": "La selección",
         "parrafos": [
-          "El encargo fue intervenir la fachada completa —5,5 metros de alto por 8,5 de ancho, casi 47 m²— y llevar a la calle una transformación que hasta entonces solo existía adentro del local."
-        ]
-      },
-      {
-        "titulo": "El proceso",
-        "parrafos": [
-          "El punto de partida fue la palabra que da nombre al local: blend, la mezcla. De ahí surge un lenguaje abstracto construido a partir de formas fluidas, derrames y masas orgánicas que se entrelazan, como líquidos en movimiento antes de terminar de integrarse.",
-          "Negro profundo como fondo, que sostiene la lectura nocturna del local y hace saltar el resto de los colores. Sobre él, magenta, violeta y amarillo como acento. Tres colores sobre negro: suficiente para lograr impacto a distancia sin saturar la fachada.",
-          "El mural está resuelto en función del cartel: la mancha se abre y se cierra alrededor del logotipo, dejándolo respirar en el centro. La intervención continúa por debajo de la marquesina y baja hasta los paños de planta baja, para que toda la fachada se lea como una sola pieza."
-        ]
-      },
-      {
-        "titulo": "El resultado",
-        "parrafos": [
-          "Siete jornadas de obra, coordinadas con los tiempos de la reapertura. El resultado consolidó el nuevo nombre en el espacio público: hoy la fachada es el principal soporte de identidad de la marca."
+          "Una colección de marcas desarrolladas para distintos proyectos, sectores y disciplinas. Un recorrido por diferentes enfoques de identidad visual, explorando conceptos, formas, tipografías y sistemas gráficos para construir marcas únicas y reconocibles.",
+          "Detrás de cada marca hay un estudio geométrico y técnico: formas, proporciones, retículas y construcción visual para crear identidades sólidas, coherentes y reconocibles."
         ]
       }
     ],
-    "galeria": [
-      {
-        "640": "/img/p/blend-david/g01-640.webp",
-        "1200": "/img/p/blend-david/g01-1200.webp",
-        "_wh": [
-          1200,
-          1607
-        ]
-      },
-      {
-        "640": "/img/p/blend-david/g02-640.webp",
-        "1200": "/img/p/blend-david/g02-1200.webp",
-        "_wh": [
-          1200,
-          1607
-        ]
-      },
-      {
-        "640": "/img/p/blend-david/g03-640.webp",
-        "1200": "/img/p/blend-david/g03-1200.webp",
-        "_wh": [
-          1200,
-          1607
-        ]
-      },
-      {
-        "640": "/img/p/blend-david/g04-640.webp",
-        "1200": "/img/p/blend-david/g04-1200.webp",
-        "_wh": [
-          1200,
-          1607
-        ]
-      },
-      {
-        "640": "/img/p/blend-david/g05-640.webp",
-        "1200": "/img/p/blend-david/g05-1200.webp",
-        "_wh": [
-          1200,
-          1607
-        ]
-      },
-      {
-        "640": "/img/p/blend-david/g06-640.webp",
-        "1200": "/img/p/blend-david/g06-1200.webp",
-        "_wh": [
-          1200,
-          1607
-        ]
-      },
-      {
-        "640": "/img/p/blend-david/g07-640.webp",
-        "1200": "/img/p/blend-david/g07-1200.webp",
-        "_wh": [
-          1200,
-          1607
-        ]
-      }
-    ],
+    "galeria": [],
     "videos": [],
+    "portadaPagina": {
+      "ancha": {
+        "960": "/img/p/branding-x-airon-studio/ancha-960.webp",
+        "1440": "/img/p/branding-x-airon-studio/ancha-1440.webp"
+      },
+      "movil": {
+        "480": "/img/p/branding-x-airon-studio/movil-480.webp",
+        "800": "/img/p/branding-x-airon-studio/movil-800.webp"
+      }
+    },
     "behance": false,
-    "estetica": "Abstracto orgánico"
+    "galerias": [],
+    "muroLogos": true
   },
   {
     "slug": "zocalo-fox-sports",
@@ -350,464 +277,11 @@
     "behance": false
   },
   {
-    "slug": "web-airon-studio",
-    "titulo": "Web AIRON Studio",
-    "subtitulo": "Diseño y desarrollo del sitio",
-    "categorias": [
-      "web"
-    ],
-    "portada": {
-      "640": "/img/proyectos/web-airon/portada-640.webp",
-      "1280": "/img/proyectos/web-airon/portada-1280.webp"
-    },
-    "ficha": [
-      [
-        "Cliente",
-        "AIRON Studio"
-      ],
-      [
-        "Año",
-        "2026"
-      ],
-      [
-        "Rol",
-        "Diseño UX/UI y desarrollo"
-      ],
-      [
-        "Publicación",
-        "Cloudflare"
-      ]
-    ],
-    "bloques": [
-      {
-        "titulo": "El reto",
-        "destacado": "Pasar de un portafolio genérico a una web propia que ordene más de veinte publicaciones de Behance en un sistema claro, con identidad fuerte y pensada primero para el celular.",
-        "parrafos": []
-      },
-      {
-        "titulo": "El proceso",
-        "parrafos": [
-          "Arquitectura de la información por disciplinas, diseño en escritorio y celular, y un sistema visual propio: Anton para los títulos, Instrument Sans para los textos, IBM Plex Mono para los datos y el rojo del logo como único acento.",
-          "Galería con filtros por categoría, visor de imágenes a pantalla completa, contadores animados y una franja de disciplinas en movimiento que lleva a cada sección."
-        ]
-      },
-      {
-        "titulo": "El resultado",
-        "parrafos": [
-          "Un sitio liviano y rápido, con tipografías propias, cabeceras de seguridad, formulario de contacto conectado al mail del estudio y datos estructurados para buscadores. Cada cambio se publica solo en menos de dos minutos."
-        ]
-      }
-    ],
-    "galeria": [],
-    "videos": [],
-    "behance": false,
-    "galerias": [
-      {
-        "titulo": "Escritorio",
-        "imagenes": [
-          {
-            "720": "/img/proyectos/web-airon/d-inicio-720.webp",
-            "1440": "/img/proyectos/web-airon/d-inicio-1440.webp",
-            "_wh": [
-              1440,
-              900
-            ],
-            "alt": "Web AIRON Studio — inicio en escritorio"
-          },
-          {
-            "720": "/img/proyectos/web-airon/d-proyectos-720.webp",
-            "1440": "/img/proyectos/web-airon/d-proyectos-1440.webp",
-            "_wh": [
-              1440,
-              900
-            ],
-            "alt": "Web AIRON Studio — galería de proyectos con filtros"
-          },
-          {
-            "720": "/img/proyectos/web-airon/d-proyecto-720.webp",
-            "1440": "/img/proyectos/web-airon/d-proyecto-1440.webp",
-            "_wh": [
-              1440,
-              900
-            ],
-            "alt": "Web AIRON Studio — página de proyecto"
-          },
-          {
-            "720": "/img/proyectos/web-airon/d-visor-720.webp",
-            "1440": "/img/proyectos/web-airon/d-visor-1440.webp",
-            "_wh": [
-              1440,
-              900
-            ],
-            "alt": "Web AIRON Studio — visor de imágenes a pantalla completa"
-          },
-          {
-            "720": "/img/proyectos/web-airon/d-numeros-720.webp",
-            "1440": "/img/proyectos/web-airon/d-numeros-1440.webp",
-            "_wh": [
-              1440,
-              900
-            ],
-            "alt": "Web AIRON Studio — el estudio en números"
-          }
-        ]
-      },
-      {
-        "titulo": "Celular",
-        "estilo": "grilla",
-        "imagenes": [
-          {
-            "390": "/img/proyectos/web-airon/m-inicio-390.webp",
-            "780": "/img/proyectos/web-airon/m-inicio-780.webp",
-            "_wh": [
-              780,
-              1688
-            ],
-            "alt": "Web AIRON Studio — inicio en celular"
-          },
-          {
-            "390": "/img/proyectos/web-airon/m-menu-390.webp",
-            "780": "/img/proyectos/web-airon/m-menu-780.webp",
-            "_wh": [
-              780,
-              1688
-            ],
-            "alt": "Web AIRON Studio — menú en celular"
-          },
-          {
-            "390": "/img/proyectos/web-airon/m-proyectos-390.webp",
-            "780": "/img/proyectos/web-airon/m-proyectos-780.webp",
-            "_wh": [
-              780,
-              1688
-            ],
-            "alt": "Web AIRON Studio — proyectos en celular"
-          },
-          {
-            "390": "/img/proyectos/web-airon/m-proyecto-390.webp",
-            "780": "/img/proyectos/web-airon/m-proyecto-780.webp",
-            "_wh": [
-              780,
-              1688
-            ],
-            "alt": "Web AIRON Studio — muro de marcas en celular"
-          }
-        ]
-      }
-    ],
-    "cta": "¿Querés verla en vivo?",
-    "enlaces": [
-      {
-        "texto": {
-          "es": "Visitar el sitio",
-          "en": "Visit the website"
-        },
-        "url": "https://aironstudio.com.ar/"
-      }
-    ]
-  },
-  {
-    "slug": "branding-x-airon-studio",
-    "titulo": "Branding x AIRON Studio",
-    "subtitulo": "25 identidades de marca",
-    "categorias": [
-      "branding"
-    ],
-    "portada": {
-      "640": "/img/p/branding-x-airon-studio/portada-v2-640.webp",
-      "1280": "/img/p/branding-x-airon-studio/portada-v2-1280.webp",
-      "_wh": [
-        1280,
-        1001
-      ]
-    },
-    "ficha": [
-      [
-        "Disciplina",
-        "Identidad visual y branding"
-      ],
-      [
-        "Identidades",
-        "25 marcas diseñadas"
-      ],
-      [
-        "Rubros",
-        "Música, gastronomía, inmobiliarias, comercio, industria, cultura y turismo"
-      ]
-    ],
-    "bloques": [
-      {
-        "titulo": "La selección",
-        "parrafos": [
-          "Una colección de marcas desarrolladas para distintos proyectos, sectores y disciplinas. Un recorrido por diferentes enfoques de identidad visual, explorando conceptos, formas, tipografías y sistemas gráficos para construir marcas únicas y reconocibles.",
-          "Detrás de cada marca hay un estudio geométrico y técnico: formas, proporciones, retículas y construcción visual para crear identidades sólidas, coherentes y reconocibles."
-        ]
-      }
-    ],
-    "galeria": [],
-    "videos": [],
-    "portadaPagina": {
-      "ancha": {
-        "960": "/img/p/branding-x-airon-studio/ancha-960.webp",
-        "1440": "/img/p/branding-x-airon-studio/ancha-1440.webp"
-      },
-      "movil": {
-        "480": "/img/p/branding-x-airon-studio/movil-480.webp",
-        "800": "/img/p/branding-x-airon-studio/movil-800.webp"
-      }
-    },
-    "behance": false,
-    "galerias": [],
-    "muroLogos": true
-  },
-  {
-    "slug": "ploteo-vehicular",
-    "titulo": "Ploteo vehicular",
-    "subtitulo": "Hilux 2026 · Ford Ka 2022",
-    "categorias": [
-      "aplicada"
-    ],
-    "portada": {
-      "640": "/img/p/ploteo-vehicular/portada-640.webp",
-      "1280": "/img/p/ploteo-vehicular/portada-1280.webp",
-      "_wh": [
-        1280,
-        1001
-      ]
-    },
-    "ficha": [
-      [
-        "Clientes",
-        "GSP Seguridad · Trust Fund Garantías Inmobiliarias"
-      ],
-      [
-        "Vehículos",
-        "Toyota Hilux 2026 · Ford Ka 2022"
-      ]
-    ],
-    "bloques": [
-      {
-        "titulo": "GSP GEO — Hilux 2026",
-        "parrafos": [
-          "Diseño de ploteo para la Toyota Hilux 2026 de GSP Seguridad, destinada a Operaciones Especiales (GEO). Una propuesta visual para reforzar la identidad de la unidad, transmitir presencia operativa y proyectar una imagen profesional, táctica y de alto impacto."
-        ]
-      },
-      {
-        "titulo": "Trust Fund — Ford Ka 2022",
-        "parrafos": [
-          "Diseño integral del ploteo para el Ford Ka 2022 de Trust Fund Garantías Inmobiliarias, empresa de Grupo del Sud con base en La Plata. Una identidad aplicada al vehículo corporativo, pensada para transformar una unidad de uso cotidiano en un soporte de comunicación visible, profesional y dinámico."
-        ]
-      }
-    ],
-    "galeria": [
-      {
-        "640": "/img/p/ploteo-vehicular/g01-640.webp",
-        "1200": "/img/p/ploteo-vehicular/g01-1200.webp",
-        "_wh": [
-          1200,
-          798
-        ]
-      },
-      {
-        "640": "/img/p/ploteo-vehicular/g02-640.webp",
-        "1200": "/img/p/ploteo-vehicular/g02-1200.webp",
-        "_wh": [
-          1200,
-          798
-        ]
-      },
-      {
-        "640": "/img/p/ploteo-vehicular/g03-640.webp",
-        "1200": "/img/p/ploteo-vehicular/g03-1200.webp",
-        "_wh": [
-          1200,
-          798
-        ]
-      },
-      {
-        "640": "/img/p/ploteo-vehicular/g04-640.webp",
-        "1200": "/img/p/ploteo-vehicular/g04-1200.webp",
-        "_wh": [
-          1200,
-          798
-        ]
-      },
-      {
-        "640": "/img/p/ploteo-vehicular/g05-640.webp",
-        "1200": "/img/p/ploteo-vehicular/g05-1200.webp",
-        "_wh": [
-          1200,
-          798
-        ]
-      },
-      {
-        "640": "/img/p/ploteo-vehicular/g06-640.webp",
-        "1200": "/img/p/ploteo-vehicular/g06-1200.webp",
-        "_wh": [
-          1200,
-          798
-        ]
-      }
-    ],
-    "videos": [],
-    "behance": false
-  },
-  {
-    "slug": "flexy",
-    "titulo": "Flexy",
-    "subtitulo": "Manual de marca",
-    "categorias": [
-      "branding"
-    ],
-    "portada": {
-      "640": "/img/p/flexy/portada-640.webp",
-      "1280": "/img/p/flexy/portada-1280.webp",
-      "_wh": [
-        1280,
-        1001
-      ]
-    },
-    "ficha": [
-      [
-        "Cliente",
-        "Flexy"
-      ],
-      [
-        "Pieza",
-        "Manual de marca"
-      ]
-    ],
-    "bloques": [],
-    "galeria": [
-      {
-        "640": "/img/p/flexy/g01-640.webp",
-        "1200": "/img/p/flexy/g01-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g02-640.webp",
-        "1200": "/img/p/flexy/g02-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g03-640.webp",
-        "1200": "/img/p/flexy/g03-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g04-640.webp",
-        "1200": "/img/p/flexy/g04-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g05-640.webp",
-        "1200": "/img/p/flexy/g05-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g06-640.webp",
-        "1200": "/img/p/flexy/g06-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g07-640.webp",
-        "1200": "/img/p/flexy/g07-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g08-640.webp",
-        "1200": "/img/p/flexy/g08-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g09-640.webp",
-        "1200": "/img/p/flexy/g09-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g10-640.webp",
-        "1200": "/img/p/flexy/g10-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g11-640.webp",
-        "1200": "/img/p/flexy/g11-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g12-640.webp",
-        "1200": "/img/p/flexy/g12-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g13-640.webp",
-        "1200": "/img/p/flexy/g13-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g14-640.webp",
-        "1200": "/img/p/flexy/g14-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/flexy/g15-640.webp",
-        "1200": "/img/p/flexy/g15-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      }
-    ],
-    "videos": [],
-    "behance": false
-  },
-  {
     "slug": "trust-fund",
     "titulo": "Trust Fund",
     "subtitulo": "Manual de marca",
     "categorias": [
+      "integral",
       "branding"
     ],
     "portada": {
@@ -978,6 +452,441 @@
     "behance": false
   },
   {
+    "slug": "blend-david",
+    "titulo": "Blend David",
+    "subtitulo": "Mural de fachada · 47 m²",
+    "categorias": [
+      "urbano"
+    ],
+    "portada": {
+      "640": "/img/p/blend-david/portada-640.webp",
+      "1280": "/img/p/blend-david/portada-1280.webp",
+      "_wh": [
+        1280,
+        1001
+      ]
+    },
+    "lugar": "Mercado de sabores · La Plata",
+    "ficha": [
+      [
+        "Cliente",
+        "Blend David — Mercado de sabores"
+      ],
+      [
+        "Rol",
+        "Ejecución integral — AIRON Studio"
+      ],
+      [
+        "Ubicación",
+        "Calle 12 n.º 1508, La Plata"
+      ],
+      [
+        "Superficie",
+        "5,5 × 8,5 m · ≈47 m²"
+      ],
+      [
+        "Plazo",
+        "7 jornadas de obra"
+      ],
+      [
+        "Técnica",
+        "Látex, aerosol, rodillo y pincel"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El reto",
+        "destacado": "Don David venía atravesando una renovación integral: cambios puertas adentro, propuesta comercial redefinida y un nuevo nombre, Blend David. El mural fue la última etapa de ese proceso y la primera que el público iba a ver.",
+        "parrafos": [
+          "El encargo fue intervenir la fachada completa —5,5 metros de alto por 8,5 de ancho, casi 47 m²— y llevar a la calle una transformación que hasta entonces solo existía adentro del local."
+        ]
+      },
+      {
+        "titulo": "El proceso",
+        "parrafos": [
+          "El punto de partida fue la palabra que da nombre al local: blend, la mezcla. De ahí surge un lenguaje abstracto construido a partir de formas fluidas, derrames y masas orgánicas que se entrelazan, como líquidos en movimiento antes de terminar de integrarse.",
+          "Negro profundo como fondo, que sostiene la lectura nocturna del local y hace saltar el resto de los colores. Sobre él, magenta, violeta y amarillo como acento. Tres colores sobre negro: suficiente para lograr impacto a distancia sin saturar la fachada.",
+          "El mural está resuelto en función del cartel: la mancha se abre y se cierra alrededor del logotipo, dejándolo respirar en el centro. La intervención continúa por debajo de la marquesina y baja hasta los paños de planta baja, para que toda la fachada se lea como una sola pieza."
+        ]
+      },
+      {
+        "titulo": "El resultado",
+        "parrafos": [
+          "Siete jornadas de obra, coordinadas con los tiempos de la reapertura. El resultado consolidó el nuevo nombre en el espacio público: hoy la fachada es el principal soporte de identidad de la marca."
+        ]
+      }
+    ],
+    "galeria": [
+      {
+        "640": "/img/p/blend-david/g01-640.webp",
+        "1200": "/img/p/blend-david/g01-1200.webp",
+        "_wh": [
+          1200,
+          1607
+        ]
+      },
+      {
+        "640": "/img/p/blend-david/g02-640.webp",
+        "1200": "/img/p/blend-david/g02-1200.webp",
+        "_wh": [
+          1200,
+          1607
+        ]
+      },
+      {
+        "640": "/img/p/blend-david/g03-640.webp",
+        "1200": "/img/p/blend-david/g03-1200.webp",
+        "_wh": [
+          1200,
+          1607
+        ]
+      },
+      {
+        "640": "/img/p/blend-david/g04-640.webp",
+        "1200": "/img/p/blend-david/g04-1200.webp",
+        "_wh": [
+          1200,
+          1607
+        ]
+      },
+      {
+        "640": "/img/p/blend-david/g05-640.webp",
+        "1200": "/img/p/blend-david/g05-1200.webp",
+        "_wh": [
+          1200,
+          1607
+        ]
+      },
+      {
+        "640": "/img/p/blend-david/g06-640.webp",
+        "1200": "/img/p/blend-david/g06-1200.webp",
+        "_wh": [
+          1200,
+          1607
+        ]
+      },
+      {
+        "640": "/img/p/blend-david/g07-640.webp",
+        "1200": "/img/p/blend-david/g07-1200.webp",
+        "_wh": [
+          1200,
+          1607
+        ]
+      }
+    ],
+    "videos": [],
+    "behance": false,
+    "estetica": "Abstracto orgánico"
+  },
+  {
+    "slug": "flexy",
+    "titulo": "Flexy",
+    "subtitulo": "Manual de marca",
+    "categorias": [
+      "branding"
+    ],
+    "portada": {
+      "640": "/img/p/flexy/portada-640.webp",
+      "1280": "/img/p/flexy/portada-1280.webp",
+      "_wh": [
+        1280,
+        1001
+      ]
+    },
+    "ficha": [
+      [
+        "Cliente",
+        "Flexy"
+      ],
+      [
+        "Pieza",
+        "Manual de marca"
+      ]
+    ],
+    "bloques": [],
+    "galeria": [
+      {
+        "640": "/img/p/flexy/g01-640.webp",
+        "1200": "/img/p/flexy/g01-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g02-640.webp",
+        "1200": "/img/p/flexy/g02-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g03-640.webp",
+        "1200": "/img/p/flexy/g03-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g04-640.webp",
+        "1200": "/img/p/flexy/g04-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g05-640.webp",
+        "1200": "/img/p/flexy/g05-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g06-640.webp",
+        "1200": "/img/p/flexy/g06-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g07-640.webp",
+        "1200": "/img/p/flexy/g07-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g08-640.webp",
+        "1200": "/img/p/flexy/g08-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g09-640.webp",
+        "1200": "/img/p/flexy/g09-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g10-640.webp",
+        "1200": "/img/p/flexy/g10-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g11-640.webp",
+        "1200": "/img/p/flexy/g11-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g12-640.webp",
+        "1200": "/img/p/flexy/g12-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g13-640.webp",
+        "1200": "/img/p/flexy/g13-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g14-640.webp",
+        "1200": "/img/p/flexy/g14-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      },
+      {
+        "640": "/img/p/flexy/g15-640.webp",
+        "1200": "/img/p/flexy/g15-1200.webp",
+        "_wh": [
+          1200,
+          849
+        ]
+      }
+    ],
+    "videos": [],
+    "behance": false
+  },
+  {
+    "slug": "web-airon-studio",
+    "titulo": "Web AIRON Studio",
+    "subtitulo": "Diseño y desarrollo del sitio",
+    "categorias": [
+      "web"
+    ],
+    "portada": {
+      "640": "/img/proyectos/web-airon/portada-640.webp",
+      "1280": "/img/proyectos/web-airon/portada-1280.webp"
+    },
+    "ficha": [
+      [
+        "Cliente",
+        "AIRON Studio"
+      ],
+      [
+        "Año",
+        "2026"
+      ],
+      [
+        "Rol",
+        "Diseño UX/UI y desarrollo"
+      ],
+      [
+        "Publicación",
+        "Cloudflare"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El reto",
+        "destacado": "Pasar de un portafolio genérico a una web propia que ordene más de veinte publicaciones de Behance en un sistema claro, con identidad fuerte y pensada primero para el celular.",
+        "parrafos": []
+      },
+      {
+        "titulo": "El proceso",
+        "parrafos": [
+          "Arquitectura de la información por disciplinas, diseño en escritorio y celular, y un sistema visual propio: Anton para los títulos, Instrument Sans para los textos, IBM Plex Mono para los datos y el rojo del logo como único acento.",
+          "Galería con filtros por categoría, visor de imágenes a pantalla completa, contadores animados y una franja de disciplinas en movimiento que lleva a cada sección."
+        ]
+      },
+      {
+        "titulo": "El resultado",
+        "parrafos": [
+          "Un sitio liviano y rápido, con tipografías propias, cabeceras de seguridad, formulario de contacto conectado al mail del estudio y datos estructurados para buscadores. Cada cambio se publica solo en menos de dos minutos."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "behance": false,
+    "galerias": [
+      {
+        "titulo": "Escritorio",
+        "imagenes": [
+          {
+            "720": "/img/proyectos/web-airon/d-inicio-720.webp",
+            "1440": "/img/proyectos/web-airon/d-inicio-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — inicio en escritorio"
+          },
+          {
+            "720": "/img/proyectos/web-airon/d-proyectos-720.webp",
+            "1440": "/img/proyectos/web-airon/d-proyectos-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — galería de proyectos con filtros"
+          },
+          {
+            "720": "/img/proyectos/web-airon/d-proyecto-720.webp",
+            "1440": "/img/proyectos/web-airon/d-proyecto-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — página de proyecto"
+          },
+          {
+            "720": "/img/proyectos/web-airon/d-visor-720.webp",
+            "1440": "/img/proyectos/web-airon/d-visor-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — visor de imágenes a pantalla completa"
+          },
+          {
+            "720": "/img/proyectos/web-airon/d-numeros-720.webp",
+            "1440": "/img/proyectos/web-airon/d-numeros-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Web AIRON Studio — el estudio en números"
+          }
+        ]
+      },
+      {
+        "titulo": "Celular",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "390": "/img/proyectos/web-airon/m-inicio-390.webp",
+            "780": "/img/proyectos/web-airon/m-inicio-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Web AIRON Studio — inicio en celular"
+          },
+          {
+            "390": "/img/proyectos/web-airon/m-menu-390.webp",
+            "780": "/img/proyectos/web-airon/m-menu-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Web AIRON Studio — menú en celular"
+          },
+          {
+            "390": "/img/proyectos/web-airon/m-proyectos-390.webp",
+            "780": "/img/proyectos/web-airon/m-proyectos-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Web AIRON Studio — proyectos en celular"
+          },
+          {
+            "390": "/img/proyectos/web-airon/m-proyecto-390.webp",
+            "780": "/img/proyectos/web-airon/m-proyecto-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Web AIRON Studio — muro de marcas en celular"
+          }
+        ]
+      }
+    ],
+    "cta": "¿Querés verla en vivo?",
+    "enlaces": [
+      {
+        "texto": {
+          "es": "Visitar el sitio",
+          "en": "Visit the website"
+        },
+        "url": "https://aironstudio.com.ar/"
+      }
+    ]
+  },
+  {
     "slug": "empresa-black",
     "titulo": "Empresa Black",
     "subtitulo": "Manual de marca",
@@ -1121,6 +1030,98 @@
     "behance": false
   },
   {
+    "slug": "ploteo-vehicular",
+    "titulo": "Ploteo vehicular",
+    "subtitulo": "Hilux 2026 · Ford Ka 2022",
+    "categorias": [
+      "ploteo"
+    ],
+    "portada": {
+      "640": "/img/p/ploteo-vehicular/portada-640.webp",
+      "1280": "/img/p/ploteo-vehicular/portada-1280.webp",
+      "_wh": [
+        1280,
+        1001
+      ]
+    },
+    "ficha": [
+      [
+        "Clientes",
+        "GSP Seguridad · Trust Fund Garantías Inmobiliarias"
+      ],
+      [
+        "Vehículos",
+        "Toyota Hilux 2026 · Ford Ka 2022"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "GSP GEO — Hilux 2026",
+        "parrafos": [
+          "Diseño de ploteo para la Toyota Hilux 2026 de GSP Seguridad, destinada a Operaciones Especiales (GEO). Una propuesta visual para reforzar la identidad de la unidad, transmitir presencia operativa y proyectar una imagen profesional, táctica y de alto impacto."
+        ]
+      },
+      {
+        "titulo": "Trust Fund — Ford Ka 2022",
+        "parrafos": [
+          "Diseño integral del ploteo para el Ford Ka 2022 de Trust Fund Garantías Inmobiliarias, empresa de Grupo del Sud con base en La Plata. Una identidad aplicada al vehículo corporativo, pensada para transformar una unidad de uso cotidiano en un soporte de comunicación visible, profesional y dinámico."
+        ]
+      }
+    ],
+    "galeria": [
+      {
+        "640": "/img/p/ploteo-vehicular/g01-640.webp",
+        "1200": "/img/p/ploteo-vehicular/g01-1200.webp",
+        "_wh": [
+          1200,
+          798
+        ]
+      },
+      {
+        "640": "/img/p/ploteo-vehicular/g02-640.webp",
+        "1200": "/img/p/ploteo-vehicular/g02-1200.webp",
+        "_wh": [
+          1200,
+          798
+        ]
+      },
+      {
+        "640": "/img/p/ploteo-vehicular/g03-640.webp",
+        "1200": "/img/p/ploteo-vehicular/g03-1200.webp",
+        "_wh": [
+          1200,
+          798
+        ]
+      },
+      {
+        "640": "/img/p/ploteo-vehicular/g04-640.webp",
+        "1200": "/img/p/ploteo-vehicular/g04-1200.webp",
+        "_wh": [
+          1200,
+          798
+        ]
+      },
+      {
+        "640": "/img/p/ploteo-vehicular/g05-640.webp",
+        "1200": "/img/p/ploteo-vehicular/g05-1200.webp",
+        "_wh": [
+          1200,
+          798
+        ]
+      },
+      {
+        "640": "/img/p/ploteo-vehicular/g06-640.webp",
+        "1200": "/img/p/ploteo-vehicular/g06-1200.webp",
+        "_wh": [
+          1200,
+          798
+        ]
+      }
+    ],
+    "videos": [],
+    "behance": false
+  },
+  {
     "slug": "spotify-covers",
     "titulo": "Spotify Covers",
     "subtitulo": "26 portadas para singles, EPs y playlists",
@@ -1175,12 +1176,65 @@
     "muro": "portadas"
   },
   {
+    "slug": "flyers",
+    "titulo": "Flyers",
+    "subtitulo": "15 piezas para fiestas, shows y lanzamientos",
+    "categorias": [
+      "aplicada"
+    ],
+    "portada": {
+      "640": "/img/p/flyers/portada-v2-640.webp",
+      "1280": "/img/p/flyers/portada-v2-1280.webp",
+      "_wh": [
+        1280,
+        1001
+      ]
+    },
+    "ficha": [
+      [
+        "Piezas",
+        "Flyers para historias de Instagram (9:16)"
+      ],
+      [
+        "Clientes",
+        "TKNO Radio · Intekno · Kraneando Actividad · Laionbeats"
+      ],
+      [
+        "Eventos",
+        "Fiestas electrónicas, aniversarios, live streams y shows"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El formato",
+        "parrafos": [
+          "Un flyer de historia se mira en dos segundos y con el pulgar listo para pasar. Por eso cada pieza ordena la información en capas: primero la imagen que frena el scroll, después el nombre de la fiesta, y recién al final fecha, line-up y lugar.",
+          "La serie para TKNO Radio e Intekno construye una identidad reconocible entre fechas —logo, marcos, grilla y tipografías que se repiten— mientras cada edición cambia de imagen y de clima."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "portadaPagina": {
+      "ancha": {
+        "960": "/img/p/flyers/ancha-960.webp",
+        "1440": "/img/p/flyers/ancha-1440.webp"
+      },
+      "movil": {
+        "480": "/img/p/flyers/movil-480.webp",
+        "800": "/img/p/flyers/movil-800.webp"
+      }
+    },
+    "behance": false,
+    "galerias": [],
+    "muro": "flyers"
+  },
+  {
     "slug": "portadas",
-    "titulo": "Portadas",
+    "titulo": "Banners para redes",
     "subtitulo": "Banners y portadas para redes",
     "categorias": [
-      "musical",
-      "aplicada"
+      "redes"
     ],
     "portada": {
       "640": "/img/p/portadas/portada-640.webp",
@@ -1257,60 +1311,6 @@
     ],
     "videos": [],
     "behance": false
-  },
-  {
-    "slug": "flyers",
-    "titulo": "Flyers",
-    "subtitulo": "15 piezas para fiestas, shows y lanzamientos",
-    "categorias": [
-      "aplicada"
-    ],
-    "portada": {
-      "640": "/img/p/flyers/portada-v2-640.webp",
-      "1280": "/img/p/flyers/portada-v2-1280.webp",
-      "_wh": [
-        1280,
-        1001
-      ]
-    },
-    "ficha": [
-      [
-        "Piezas",
-        "Flyers para historias de Instagram (9:16)"
-      ],
-      [
-        "Clientes",
-        "TKNO Radio · Intekno · Kraneando Actividad · Laionbeats"
-      ],
-      [
-        "Eventos",
-        "Fiestas electrónicas, aniversarios, live streams y shows"
-      ]
-    ],
-    "bloques": [
-      {
-        "titulo": "El formato",
-        "parrafos": [
-          "Un flyer de historia se mira en dos segundos y con el pulgar listo para pasar. Por eso cada pieza ordena la información en capas: primero la imagen que frena el scroll, después el nombre de la fiesta, y recién al final fecha, line-up y lugar.",
-          "La serie para TKNO Radio e Intekno construye una identidad reconocible entre fechas —logo, marcos, grilla y tipografías que se repiten— mientras cada edición cambia de imagen y de clima."
-        ]
-      }
-    ],
-    "galeria": [],
-    "videos": [],
-    "portadaPagina": {
-      "ancha": {
-        "960": "/img/p/flyers/ancha-960.webp",
-        "1440": "/img/p/flyers/ancha-1440.webp"
-      },
-      "movil": {
-        "480": "/img/p/flyers/movil-480.webp",
-        "800": "/img/p/flyers/movil-800.webp"
-      }
-    },
-    "behance": false,
-    "galerias": [],
-    "muro": "flyers"
   },
   {
     "slug": "analogic-photos",

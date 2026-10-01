@@ -20,7 +20,7 @@ const SITIO = {
 const IDIOMAS = ['es', 'en'];
 const FUNDACION = 2015;
 const anio = new Date().getFullYear();
-const OPCIONES_CLAVE = ['branding', 'grafica', 'web', 'sistemas', 'musical', 'motion', 'mural', 'foto', 'publicidad', 'otro'];
+const OPCIONES_CLAVE = ['branding', 'grafica', 'redes', 'web', 'sistemas', 'musical', 'motion', 'mural', 'foto', 'publicidad', 'otro'];
 const MARCAS = ['GSP Seguridad', 'FOX Sports', 'Eleven Games', 'Ju Base Plant Food', 'Blend David', 'Flexy', 'Trust Fund'];
 
 // Direcciones de cada página en cada idioma
@@ -388,8 +388,8 @@ const TXT = {
     numerosTitulo: 'El estudio en números',
     numeros: ['Años de estudio', 'Proyectos en el portafolio', 'Identidades de marca', 'Marcas y medios', 'Nuestro mural más grande', 'Disciplinas creativas'],
     portafolio: 'Portafolio', proyectos: 'Proyectos', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
-    listadoLead: 'Identidad, gráfica, diseño web, sistemas de gestión, motion, arte urbano y fotografía. Filtrá por categoría para ver cada disciplina.',
-    listadoDesc: 'Portafolio de AIRON Studio: identidad de marca, gráfica, diseño web, sistemas de gestión, gráfica musical, motion, arte urbano y fotografía.',
+    listadoLead: 'Diseño integral, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía. Filtrá por área para ver cada disciplina.',
+    listadoDesc: 'Portafolio de AIRON Studio: diseño integral para empresas, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía.',
     portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar', muro: { titulo: 'Muro de marcas', texto: 'Logos diseñados para artistas, comercios, empresas e instituciones. Filtrá por rubro y tocá cada marca para verla en grande.', todas: 'Todas', marcas: 'marcas', rubros: 'rubros', verCaso: 'Ver caso', filtrar: 'Filtrar marcas por rubro' },
     videoDe: (t) => `Video del proyecto ${t}`, volver: '← Volver a proyectos', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
     ctaProyecto: '¿Querés ver todas las imágenes?', verBehance: 'Ver en Behance', ctaSinBehance: '¿Tu marca es la próxima?', botonSinBehance: 'Pedí tu marca →', ctaProyectoGeneral: '¿Tenés un proyecto en mente?', botonProyecto: 'Pedí tu presupuesto →', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
@@ -435,17 +435,19 @@ const TXT = {
     contactoDesc: 'Contanos tu proyecto: marca, piezas gráficas, web, motion, mural o lo que tengas en mente.',
     asunto: 'Nuevo mensaje desde la web de AIRON Studio', noCompletar: 'No completar este campo',
     campos: { nombre: 'Nombre', email: 'Email', tipo: 'Tipo de proyecto', mensaje: 'Mensaje' },
-    opciones: ['Branding e identidad', 'Diseño gráfico', 'Diseño web', 'Sistema de gestión', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Publicidad en la web', 'Otro'],
+    opciones: ['Branding e identidad', 'Diseño gráfico', 'Redes sociales', 'Diseño web', 'Sistema de gestión', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Publicidad en la web', 'Otro'],
     enviar: 'Enviar mensaje →', privacidad: 'Tus datos solo se usan para responderte.',
     gracias: { titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' },
     volverInicio: 'Volver al inicio',
-    categorias: { branding: 'Branding', aplicada: 'Gráfica aplicada', web: 'Diseño web', sistemas: 'Sistemas de gestión', musical: 'Gráfica musical', motion: 'Motion', urbano: 'Arte urbano', foto: 'Fotografía' },
+    categorias: { integral: 'Diseño integral', branding: 'Branding', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', aplicada: 'Gráfica', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Web y sistemas', urbano: 'Murales', foto: 'Fotografía' },
     servicios: [
+      ['integral', 'Diseño integral', 'Toda la comunicación de una empresa: identidad, papelería, vehículos y redes.'],
       ['branding', 'Identidad & branding', 'Logos, sistemas visuales y manuales de marca.'],
-      ['aplicada', 'Diseño gráfico', 'Catálogos, flyers, piezas impresas y ploteo vehicular.'],
+      ['redes', 'Redes sociales', 'Contenido, plantillas, campañas y banners para redes.'],
+      ['ploteo', 'Ploteo vehicular', 'Diseño de ploteos para flotas y vehículos de empresa.'],
+      ['aplicada', 'Diseño gráfico', 'Catálogos, flyers y piezas impresas.'],
       ['web', 'Diseño web', 'Sitios a medida: rápidos, seguros y pensados para el celular.'],
-      ['sistemas', 'Sistemas de gestión', 'Plataformas a medida para administrar clientes, turnos, stock y ventas.'],
-      ['', 'Comunicación digital', 'Redes sociales y campañas.'],
+      ['web', 'Sistemas de gestión', 'Plataformas a medida para administrar clientes, turnos, stock y ventas.'],
       ['musical', 'Gráfica musical', 'Portadas, banners y covers para Spotify.'],
       ['motion', 'Motion graphics', 'Animación para TV y redes.'],
       ['urbano', 'Arte urbano', 'Murales y graffiti que transforman espacios.'],
@@ -808,8 +810,8 @@ const TXT = {
     numerosTitulo: 'The studio in numbers',
     numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Brands and media', 'Our largest mural', 'Creative disciplines'],
     portafolio: 'Portfolio', proyectos: 'Work', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects', sinProyectos: 'We are preparing the projects in this category.', sinProyectosCta: 'Tell us what you need →',
-    listadoLead: 'Identity, graphic design, web, management systems, motion, street art and photography. Filter by category to explore each discipline.',
-    listadoDesc: 'AIRON Studio portfolio: brand identity, graphic design, web design, management systems, music artwork, motion, street art and photography.',
+    listadoLead: 'Integrated design, branding, social media, vehicle wraps, graphic design, web & systems, motion, murals and photography. Filter by area to explore each discipline.',
+    listadoDesc: 'AIRON Studio portfolio: integrated design for companies, branding, social media, vehicle wraps, graphic design, web & systems, motion, murals and photography.',
     portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge', muro: { titulo: 'Brand wall', texto: 'Logos designed for artists, shops, companies and institutions. Filter by industry and tap any brand to see it large.', todas: 'All', marcas: 'brands', rubros: 'industries', verCaso: 'View case', filtrar: 'Filter brands by industry' },
     videoDe: (t) => `Video of the project ${t}`, volver: '← Back to work', fichaAria: 'Project details', imagenesAria: 'Project images',
     ctaProyecto: 'Want to see every image?', verBehance: 'View on Behance', ctaSinBehance: 'Is your brand next?', botonSinBehance: 'Get your brand →', ctaProyectoGeneral: 'Got a project in mind?', botonProyecto: 'Get a quote →', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
@@ -855,17 +857,19 @@ const TXT = {
     contactoDesc: 'Tell us about your project: a brand, graphic pieces, a website, motion, a mural or whatever you have in mind.',
     asunto: 'New message from the AIRON Studio website (EN)', noCompletar: 'Do not fill in this field',
     campos: { nombre: 'Name', email: 'Email', tipo: 'Project type', mensaje: 'Message' },
-    opciones: ['Branding and identity', 'Graphic design', 'Web design', 'Management system', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Advertising on the site', 'Other'],
+    opciones: ['Branding and identity', 'Graphic design', 'Social media', 'Web design', 'Management system', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Advertising on the site', 'Other'],
     enviar: 'Send message →', privacidad: 'Your details are only used to reply to you.',
     gracias: { titulo: 'Message sent', h1: 'Thank you!', texto: "We received your message. We'll get back to you shortly." },
     volverInicio: 'Back to home',
-    categorias: { branding: 'Branding', aplicada: 'Graphic design', web: 'Web design', sistemas: 'Management systems', musical: 'Music artwork', motion: 'Motion', urbano: 'Street art', foto: 'Photography' },
+    categorias: { integral: 'Integrated design', branding: 'Branding', redes: 'Social media', ploteo: 'Vehicle wraps', aplicada: 'Graphic design', musical: 'Music artwork', motion: 'Motion & video', web: 'Web & systems', urbano: 'Murals', foto: 'Photography' },
     servicios: [
+      ['integral', 'Integrated design', 'A company’s whole communication: identity, stationery, vehicles and social media.'],
       ['branding', 'Identity & branding', 'Logos, visual systems and brand manuals.'],
-      ['aplicada', 'Graphic design', 'Catalogs, flyers, print pieces and vehicle wraps.'],
+      ['redes', 'Social media', 'Content, templates, campaigns and banners for social media.'],
+      ['ploteo', 'Vehicle wraps', 'Wrap design for company fleets and vehicles.'],
+      ['aplicada', 'Graphic design', 'Catalogs, flyers and print pieces.'],
       ['web', 'Web design', 'Custom websites: fast, secure and mobile-first.'],
-      ['sistemas', 'Management systems', 'Custom platforms to manage clients, bookings, stock and sales.'],
-      ['', 'Digital communication', 'Social media and campaigns.'],
+      ['web', 'Management systems', 'Custom platforms to manage clients, bookings, stock and sales.'],
       ['musical', 'Music artwork', 'Album art, banners and Spotify covers.'],
       ['motion', 'Motion graphics', 'Animation for TV and social media.'],
       ['urbano', 'Street art', 'Murals and graffiti that transform spaces.'],
@@ -1118,6 +1122,9 @@ const nombreCat = (l, id) => TXT[l].categorias[id] ?? id;
 const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ');
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 // Los servicios llevan a su categoría; arte urbano tiene su propia página
+// Categoría del proyecto → tipo de proyecto en el formulario de Contacto
+const TIPO_CONTACTO = { aplicada: 'grafica', urbano: 'mural', integral: 'branding', ploteo: 'grafica' };
+const tipoContacto = (cat) => TIPO_CONTACTO[cat] || cat;
 const enlaceServicio = (l, cat) => (cat === 'urbano' ? RUTAS[l].murales : enlaceCat(l, cat));
 
 // Imagen que aparece al pasar el mouse por una tarjeta.
@@ -1455,7 +1462,7 @@ function detalle(l, proyectos, p, i) {
     ? p.enlaces.map((b) => `<a class="btn btn-accent btn-lg" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.texto[l])} ↗</a>`).join('')
     : urbano
       ? ''
-      : `<a class="btn btn-accent btn-lg" href="${RUTAS[l].contacto}?tipo=${esc(p.categorias[0])}">${esMarca ? T.botonSinBehance : T.botonProyecto}</a>`;
+      : `<a class="btn btn-accent btn-lg" href="${RUTAS[l].contacto}?tipo=${esc(tipoContacto(p.categorias[0]))}">${esMarca ? T.botonSinBehance : T.botonProyecto}</a>`;
   const cierre = urbano ? T.murales.ctaProyecto : p.cta || (esMarca ? T.ctaSinBehance : T.ctaProyectoGeneral);
   const botonMural = urbano ? `<a class="btn btn-dark btn-lg" href="${RUTAS[l].murales}">${T.murales.botonProyecto}</a>` : '';
   return pagina(l, {
