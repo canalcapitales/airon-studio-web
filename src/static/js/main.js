@@ -1709,7 +1709,7 @@ function filtros() {
     if (vacio) {
       vacio.hidden = visibles > 0;
       const enlace = vacio.querySelector('a');
-      enlace.href = `${enlace.dataset.contacto}?tipo=${{ aplicada: 'grafica', urbano: 'mural' }[cat] || cat}`;
+      enlace.href = `${enlace.dataset.contacto}?tipo=${{ aplicada: 'grafica', urbano: 'mural', integral: 'branding', ploteo: 'grafica' }[cat] || cat}`;
     }
     const url = new URL(location.href);
     if (cat === 'todos') url.searchParams.delete('categoria');
