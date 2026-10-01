@@ -5,7 +5,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, renameSync } fr
 import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { LEGALES, FAQ_HERRAMIENTAS, ACTUALIZADO } from './src/data/legales.mjs';
-import { LAION, LAION_OBRAS, LAION_PORTADA } from './src/data/laion.mjs';
+import { LAION, LAION_OBRAS } from './src/data/laion.mjs';
 
 const OUT = 'dist';
 const SITIO = {
@@ -1968,7 +1968,6 @@ function paginaMayusculas(l) {
 }
 
 // ---------- LAION: página de artista dentro de la web (identidad propia: negro, rojo, Michroma y Oswald) ----------
-const ESTRELLA_LAION = '<svg class="laion-estrella" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M50 0C53 38 62 47 100 50 62 53 53 62 50 100 47 62 38 53 0 50 38 47 47 38 50 0Z"/></svg>';
 const conDestacados = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 function paginaLaion(l) {
   const T = TXT[l];
@@ -1997,11 +1996,10 @@ function paginaLaion(l) {
     cuerpo: `
   <div class="laion">
     <section class="laion-hero">
-      <img class="laion-hero-fondo" src="/img/laion/${LAION_PORTADA}-1600.webp" alt="" width="1200" height="1600" fetchpriority="high" decoding="async">
       <div class="wrap laion-hero-in">
         <div class="laion-marco">
           <div class="laion-hero-top"><span>${X.kicker}</span><span>${X.desde}</span></div>
-          <h1 class="laion-wordmark"><span class="laion-wordmark-texto">LAION</span>${ESTRELLA_LAION}</h1>
+          <h1 class="laion-wordmark"><img src="/img/laion/wordmark-1000.webp" srcset="/img/laion/wordmark-1000.webp 1000w, /img/laion/wordmark-2000.webp 2000w" sizes="(min-width: 1400px) 1100px, 88vw" alt="LAION" width="2000" height="710" fetchpriority="high" decoding="async"></h1>
           <p class="laion-bajada">${X.bajada}</p>
           <div class="btn-row"><a class="btn btn-accent btn-lg" href="#obra">${X.verObra}</a><a class="btn laion-btn-borde btn-lg" href="#contacto-laion">${X.contacto}</a></div>
         </div>

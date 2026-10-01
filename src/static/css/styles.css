@@ -947,15 +947,13 @@ html:not(.js) .calc-salida { display: none; }
 .laion { --l-rojo: #FF0000; --l-rojo-osc: #9E0000; --l-fondo: #000; --l-texto: #F2F0EB; --l-gris: #8C8880; background: var(--l-fondo); color: var(--l-texto); font-family: 'Oswald', 'Arial Narrow', sans-serif; padding-bottom: clamp(56px, 8vw, 120px); }
 .laion ::selection { background: var(--l-rojo); color: #000; }
 .laion :focus-visible { outline: 2px solid var(--l-rojo); outline-offset: 3px; }
-.laion-hero { position: relative; min-height: min(92vh, 980px); display: flex; align-items: stretch; overflow: hidden; isolation: isolate; }
-.laion-hero-fondo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; z-index: -2; filter: saturate(1.1); }
-.laion-hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.45) 35%, rgba(0,0,0,.9) 70%, #000 100%); }
+.laion-hero { position: relative; min-height: min(88vh, 900px); display: flex; align-items: stretch; background: #000; }
 .laion-hero-in { display: flex; width: 100%; padding-block: clamp(20px, 3vw, 40px); }
-.laion-marco { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(14px, 2vw, 24px); padding: clamp(20px, 4vw, 56px); border: 3px solid var(--l-rojo); border-radius: clamp(20px, 3vw, 40px); }
+.laion-marco { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: clamp(14px, 2vw, 24px); padding: clamp(20px, 4vw, 56px); border: 3px solid var(--l-rojo); border-radius: clamp(20px, 3vw, 40px); }
 .laion-hero-top { position: absolute; top: clamp(18px, 3vw, 36px); left: clamp(20px, 4vw, 56px); right: clamp(20px, 4vw, 56px); display: flex; justify-content: space-between; gap: 16px; font-family: 'Michroma', sans-serif; font-size: clamp(10px, 1vw, 13px); letter-spacing: .14em; text-transform: uppercase; color: var(--l-texto); }
-.laion-wordmark { position: relative; margin: 0; width: fit-content; font-family: 'Michroma', sans-serif; font-weight: 400; font-size: clamp(64px, 18vw, 236px); line-height: .9; letter-spacing: .01em; }
-.laion-wordmark-texto { color: var(--l-rojo); -webkit-text-stroke: .045em var(--l-rojo); paint-order: stroke fill; text-shadow: 0 .06em 0 var(--l-rojo-osc), 0 10px 40px rgba(255,0,0,.45); }
-.laion-estrella { position: absolute; width: .42em; height: .42em; left: 46.5%; top: -.24em; fill: #fff; filter: drop-shadow(0 0 18px rgba(255,255,255,.7)); }
+.laion-wordmark { margin: clamp(40px, 6vw, 72px) 0 0; width: min(100%, 1100px); line-height: 0; }
+.laion-wordmark img { width: 100%; height: auto; }
+.laion-marco .btn-row { justify-content: center; }
 .laion-bajada { margin: 0; font-size: clamp(20px, 2.4vw, 34px); font-weight: 300; text-transform: uppercase; letter-spacing: .04em; }
 .laion-btn-borde { border: 2px solid var(--l-texto); color: var(--l-texto); background: transparent; }
 .laion-btn-borde:hover { border-color: var(--l-rojo); color: var(--l-rojo); }
@@ -1016,7 +1014,8 @@ html:not(.js) .calc-salida { display: none; }
 }
 @media (max-width: 599px) {
   .laion-obras { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
-  .laion-hero { min-height: 86vh; }
+  .laion-hero { min-height: 0; }
+  .laion-marco { padding-block: 104px 48px; }
   .laion-hero-top { flex-direction: column; gap: 6px; }
   .laion-texto p { text-align: left; }
   .laion-h2 span { letter-spacing: .32em; padding-left: 1.2em; }
