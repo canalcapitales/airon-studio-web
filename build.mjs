@@ -313,7 +313,7 @@ const TXT = {
           pago: 'Forma de pago sugerida: 50 % de adelanto y 50 % al terminar.',
         },
         // {de}, {a}, {d}, {h} y {n} se reemplazan en el navegador
-        estimado: 'Valor estimado: el tarifario no fija precio para esta categoría en esta superficie. Se calcula con la misma diferencia entre categorías que en los tramos más chicos.',
+        pasaA: 'Para esta superficie, la categoría {de} se cotiza como {a}.',
         tramoDesde: 'de {d} a {h} m²',
         tramoHasta: 'hasta {h} m²',
         jornada: '{n} jornada',
@@ -733,7 +733,7 @@ const TXT = {
           pago: 'Suggested payment: 50% upfront and 50% on completion.',
         },
         // {de}, {a}, {d}, {h} and {n} are replaced in the browser
-        estimado: 'Estimated value: the rate sheet sets no price for this category at this size. It is calculated with the same gap between categories as in the smaller ranges.',
+        pasaA: 'For this surface, category {de} is quoted as {a}.',
         tramoDesde: '{d} to {h} m²',
         tramoHasta: 'up to {h} m²',
         jornada: '{n} day',
@@ -1552,7 +1552,7 @@ function calculadora(l, { compartir = false, titulo = true } = {}) {
       )
       .join('\n          ');
   // Textos que usa el navegador para escribir el resultado
-  const textos = { ...C.filas, estimado: C.estimado, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, doc: C.doc, generando: C.generando, noIncluye: C.noIncluye, noIncluyeConViaticos: C.noIncluyeConViaticos, fuente: C.fuente, viaticosTitulo: C.viaticos, jornadasObra: C.jornadasObra, viaticoDetalle: C.viaticoDetalle, delTotal: C.delTotal, personaUna: C.personaUna, personaVarias: C.personaVarias };
+  const textos = { ...C.filas, pasaA: C.pasaA, tramoDesde: C.tramoDesde, tramoHasta: C.tramoHasta, jornada: C.jornada, jornadas: C.jornadas, vacio: C.vacio, mega: C.mega, mensaje: C.mensaje, superficie: C.superficie, clientes: Object.fromEntries(C.clientes.map(([k, t]) => [k, t])), disenos: Object.fromEntries(C.disenos.map(([k, t]) => [k, t])), bocetos: Object.fromEntries(C.bocetos.map(([k, t]) => [k, t])), eventoCheck: C.evento, doc: C.doc, generando: C.generando, noIncluye: C.noIncluye, noIncluyeConViaticos: C.noIncluyeConViaticos, fuente: C.fuente, viaticosTitulo: C.viaticos, jornadasObra: C.jornadasObra, viaticoDetalle: C.viaticoDetalle, delTotal: C.delTotal, personaUna: C.personaUna, personaVarias: C.personaVarias };
   // En la página propia el título ya está arriba; en murales se muestra con el link para compartir
   const cabecera = titulo
     ? `<div class="seccion-head">
