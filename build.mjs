@@ -226,9 +226,19 @@ const TXT = {
         ['Persianas y vidrieras', 'Persianas metálicas, vidrieras y carteles pintados a mano que comunican incluso con el local cerrado.'],
         ['Pintura en vivo', 'Live painting en lanzamientos, fiestas, ferias y activaciones de marca.'],
       ],
-      laionKicker: 'Dirección artística',
-      laionTexto: 'Detrás de las paredes del estudio está LAION, graffiti writer argentino que pinta desde 2008. Su obra personal tiene su propio espacio.',
+      mundosKicker: 'Dos mundos',
+      mundosTitulo: 'Obra y encargo',
+      mundosLead: 'LAION pinta su obra personal en la calle; el estudio diseña y pinta murales por encargo para marcas y locales. Son dos caminos distintos, y acá están separados.',
+      laionKicker: 'Obra personal',
+      laionTexto: 'Graffiti writer argentino que pinta desde 2008. Wildstyle, letras y calle: su obra tiene su propio espacio.',
       laionBoton: 'Conocé a LAION →',
+      encargoKicker: 'Murales por encargo',
+      encargoTitulo: 'Encargos',
+      encargoTexto: 'Fachadas, interiores y persianas para marcas, locales y oficinas, diseñados desde la identidad de cada cliente.',
+      encargoBoton: 'Ver clientes y encargos ↓',
+      encargosKicker: 'Por encargo',
+      encargosTitulo: 'Clientes y encargos',
+      encargosLead: 'Murales que diseñamos y pintamos para marcas, locales y oficinas. Cada uno parte de la identidad del cliente: su logo, sus colores y su espacio.',
       esteticasKicker: 'Estéticas',
       esteticasTitulo: 'Un lenguaje para cada marca',
       esteticasLead: 'Cada marca pide un lenguaje distinto. Estas son algunas de las estéticas que trabajamos; todas se adaptan al logo, los colores y el espacio de cada cliente.',
@@ -634,9 +644,19 @@ const TXT = {
         ['Shutters and windows', 'Metal shutters, shop windows and hand-painted signs that keep talking even when the store is closed.'],
         ['Live painting', 'Live painting at launches, parties, fairs and brand activations.'],
       ],
-      laionKicker: 'Art direction',
-      laionTexto: 'Behind the studio’s walls is LAION, an Argentine graffiti writer painting since 2008. His personal work has a space of its own.',
+      mundosKicker: 'Two worlds',
+      mundosTitulo: 'Art and commissions',
+      mundosLead: 'LAION paints his personal work on the street; the studio designs and paints commissioned murals for brands and venues. Two different paths, kept apart here.',
+      laionKicker: 'Personal work',
+      laionTexto: 'Argentine graffiti writer painting since 2008. Wildstyle, letters and streets: his work has a space of its own.',
       laionBoton: 'Meet LAION →',
+      encargoKicker: 'Commissioned murals',
+      encargoTitulo: 'Commissions',
+      encargoTexto: 'Façades, interiors and shutters for brands, venues and offices, designed from each client’s identity.',
+      encargoBoton: 'See clients and commissions ↓',
+      encargosKicker: 'Commissioned',
+      encargosTitulo: 'Clients and commissions',
+      encargosLead: 'Murals we design and paint for brands, venues and offices. Each one starts from the client’s identity: their logo, their colors and their space.',
       esteticasKicker: 'Styles',
       esteticasTitulo: 'A language for every brand',
       esteticasLead: 'Every brand calls for a different language. These are some of the styles we work in; all of them adapt to each client’s logo, colors and space.',
@@ -2214,18 +2234,36 @@ function murales(l, proyectos) {
     <div class="wrap">
       <div class="seccion-head">
         <div>
-          <span class="kicker mono">${M.esteticasKicker}</span>
-          <h2 class="h2">${M.esteticasTitulo}</h2>
+          <span class="kicker mono">${M.mundosKicker}</span>
+          <h2 class="h2">${M.mundosTitulo}</h2>
         </div>
-        <p class="lead">${M.esteticasLead}</p>
+        <p class="lead">${M.mundosLead}</p>
+      </div>
+      <div class="mundos">
+        <a class="laion-promo reveal" href="${R.laion}">
+          <img src="/img/laion/firma-900.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
+          <span class="laion-promo-texto"><span class="mono">${M.laionKicker}</span><strong>LAION</strong><span>${M.laionTexto}</span><span class="laion-promo-boton">${M.laionBoton}</span></span>
+        </a>
+        <a class="laion-promo mundo-encargo reveal" href="#encargos">
+          <img src="${esc(caso.portada['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async">
+          <span class="laion-promo-texto"><span class="mono">${M.encargoKicker}</span><strong>${M.encargoTitulo}</strong><span>${M.encargoTexto}</span><span class="laion-promo-boton">${M.encargoBoton}</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion--borde" id="encargos">
+    <div class="wrap">
+      <div class="seccion-head">
+        <div>
+          <span class="kicker mono">${M.encargosKicker}</span>
+          <h2 class="h2">${M.encargosTitulo}</h2>
+        </div>
+        <p class="lead">${M.encargosLead}</p>
       </div>
       <div class="grid-esteticas">
       ${esteticas}
       </div>
-      <a class="laion-promo reveal" href="${R.laion}">
-        <img src="/img/laion/firma-900.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
-        <span class="laion-promo-texto"><span class="mono">${M.laionKicker}</span><strong>LAION</strong><span>${M.laionTexto}</span><span class="laion-promo-boton">${M.laionBoton}</span></span>
-      </a>
     </div>
   </section>
 
