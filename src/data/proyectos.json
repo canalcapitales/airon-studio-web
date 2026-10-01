@@ -1165,6 +1165,16 @@
     ],
     "galeria": [],
     "videos": [],
+    "portadaPagina": {
+      "ancha": {
+        "960": "/img/p/spotify-covers/ancha-960.webp",
+        "1440": "/img/p/spotify-covers/ancha-1440.webp"
+      },
+      "movil": {
+        "480": "/img/p/spotify-covers/movil-480.webp",
+        "800": "/img/p/spotify-covers/movil-800.webp"
+      }
+    },
     "behance": false,
     "galerias": [],
     "muro": "portadas"
