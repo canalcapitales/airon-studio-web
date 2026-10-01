@@ -1,11 +1,9 @@
 // Página de artista de LAION (/laion/ y /en/laion/).
 // Los textos de biografía y visión son de LAION: **palabra** se muestra destacada.
+// Portada: wordmark de LAION (src/static/img/laion/wordmark-*.webp) sobre negro pleno.
 // Obras: imágenes en src/static/img/laion/obra-NN-700.webp y -1600.webp (vertical 3:4).
 
 export const LAION_OBRAS = Array.from({ length: 34 }, (_, i) => `obra-${String(i + 1).padStart(2, '0')}`);
-
-// Obra que va de fondo en la portada de la página
-export const LAION_PORTADA = 'obra-24';
 
 export const LAION = {
   es: {
