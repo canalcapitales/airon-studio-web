@@ -1031,3 +1031,6 @@ html:not(.js) .calc-salida { display: none; }
 .laion-promo-boton { font-weight: 600; color: #FF0000; }
 .laion-promo:hover .laion-promo-boton { text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 599px) { .laion-promo { grid-template-columns: 1fr; } .laion-promo img { width: 160px; } }
+/* Títulos rojos de LAION en versión gruesa (Michroma engrosada, cercana a Eurostile Extended Black) */
+.laion-h2 span, .laion-dato dt, .laion-hito-anio, .laion-promo-texto strong { -webkit-text-stroke: .06em currentColor; paint-order: stroke fill; }
+.laion-h2 span { -webkit-text-stroke-width: .05em; }
