@@ -75,8 +75,17 @@
     "ficha": [["Client", "Black"], ["Deliverable", "Brand manual"]]
   },
   "spotify-covers": {
-    "subtitulo": "Playlist covers",
-    "ficha": [["Deliverable", "Spotify covers"]]
+    "subtitulo": "26 covers for singles, EPs and playlists",
+    "ficha": [["Deliverables", "Covers for Spotify and music platforms"], ["Formats", "Singles, EPs, LP and playlists"], ["Artists", "Demental, Fazzini, Laionbeats, Franqui Quiroga and more"]],
+    "bloques": [
+      {
+        "titulo": "The format",
+        "parrafos": [
+          "A cover has to work at two sizes: large, on the player’s full screen, and tiny, in a list among hundreds of releases. That is why every design starts from a strong idea that reads at a glance and holds up in a square of just a few pixels.",
+          "Singles, EPs, an LP and playlist series for rap and trap artists and producers: each piece seeks its own identity without losing the artist’s visual thread."
+        ]
+      }
+    ]
   },
   "portadas": {
     "titulo": "Banners",

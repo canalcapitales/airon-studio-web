@@ -1128,7 +1128,7 @@
   {
     "slug": "spotify-covers",
     "titulo": "Spotify Covers",
-    "subtitulo": "Covers para playlists",
+    "subtitulo": "26 portadas para singles, EPs y playlists",
     "categorias": [
       "musical"
     ],
@@ -1142,135 +1142,32 @@
     },
     "ficha": [
       [
-        "Pieza",
-        "Covers para Spotify"
+        "Piezas",
+        "Portadas para Spotify y plataformas de música"
+      ],
+      [
+        "Formatos",
+        "Singles, EPs, LP y playlists"
+      ],
+      [
+        "Artistas",
+        "Demental, Fazzini, Laionbeats, Franqui Quiroga y más"
       ]
     ],
-    "bloques": [],
-    "galeria": [
+    "bloques": [
       {
-        "640": "/img/p/spotify-covers/g01-640.webp",
-        "1200": "/img/p/spotify-covers/g01-1200.webp",
-        "_wh": [
-          1200,
-          1201
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g02-640.webp",
-        "1200": "/img/p/spotify-covers/g02-1200.webp",
-        "_wh": [
-          1200,
-          1201
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g03-640.webp",
-        "1200": "/img/p/spotify-covers/g03-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g04-640.webp",
-        "1200": "/img/p/spotify-covers/g04-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g05-640.webp",
-        "1200": "/img/p/spotify-covers/g05-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g06-640.webp",
-        "1200": "/img/p/spotify-covers/g06-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g07-640.webp",
-        "1200": "/img/p/spotify-covers/g07-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g08-640.webp",
-        "1200": "/img/p/spotify-covers/g08-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g09-640.webp",
-        "1200": "/img/p/spotify-covers/g09-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g10-640.webp",
-        "1200": "/img/p/spotify-covers/g10-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g11-640.webp",
-        "1200": "/img/p/spotify-covers/g11-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g12-640.webp",
-        "1200": "/img/p/spotify-covers/g12-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g13-640.webp",
-        "1200": "/img/p/spotify-covers/g13-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g14-640.webp",
-        "1200": "/img/p/spotify-covers/g14-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/spotify-covers/g15-640.webp",
-        "1200": "/img/p/spotify-covers/g15-1200.webp",
-        "_wh": [
-          1200,
-          1200
+        "titulo": "El formato",
+        "parrafos": [
+          "Una portada tiene que funcionar en dos tamaños: grande, en la pantalla completa del reproductor, y diminuta, en una lista entre cientos de lanzamientos. Por eso cada diseño parte de una idea fuerte que se lee de un vistazo y se sostiene en un cuadrado de pocos píxeles.",
+          "Singles, EPs, un LP y series de playlists para artistas y productores de rap y trap: cada pieza busca una identidad propia sin perder el hilo visual del artista."
         ]
       }
     ],
+    "galeria": [],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/227766779/Spotify-Covers"
+    "behance": false,
+    "galerias": [],
+    "muro": "portadas"
   },
   {
     "slug": "portadas",

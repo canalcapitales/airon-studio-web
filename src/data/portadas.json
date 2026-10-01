@@ -1,0 +1,399 @@
+{
+  "_ayuda": "Portadas del proyecto Spotify Covers. Cada portada: archivo (640 px) y grande (1200 px, para el visor) en src/static/img/portadas/, nombre y rubro (es/en), grupo (para el filtro) y caso (slug de un proyecto o null). El orden de la lista es el orden en la página.",
+  "textos": {
+    "es": {
+      "titulo": "Portadas",
+      "texto": "Portadas de singles, EPs, LP y playlists para artistas y productores. Filtrá por formato y tocá cada portada para verla en grande.",
+      "items": "portadas",
+      "grupos": "formatos",
+      "filtrar": "Filtrar portadas por formato"
+    },
+    "en": {
+      "titulo": "Covers",
+      "texto": "Covers for singles, EPs, LPs and playlists for artists and producers. Filter by format and tap any cover to see it large.",
+      "items": "covers",
+      "grupos": "formats",
+      "filtrar": "Filter covers by format"
+    }
+  },
+  "grupos": {
+    "singles": {
+      "es": "Singles",
+      "en": "Singles"
+    },
+    "discos": {
+      "es": "EPs y LP",
+      "en": "EPs & LP"
+    },
+    "playlists": {
+      "es": "Playlists",
+      "en": "Playlists"
+    }
+  },
+  "logos": [
+    {
+      "archivo": "/img/portadas/playlist-producciones-640.webp",
+      "grande": "/img/portadas/playlist-producciones-1200.webp",
+      "nombre": {
+        "es": "Producciones",
+        "en": "Producciones"
+      },
+      "rubro": {
+        "es": "Playlist · Laionbeats",
+        "en": "Playlist · Laionbeats"
+      },
+      "grupo": "playlists",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/playlist-rap-ingles-640.webp",
+      "grande": "/img/portadas/playlist-rap-ingles-1200.webp",
+      "nombre": {
+        "es": "Rap inglés",
+        "en": "English rap"
+      },
+      "rubro": {
+        "es": "Playlist · Laionbeats",
+        "en": "Playlist · Laionbeats"
+      },
+      "grupo": "playlists",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/playlist-trap-espanol-640.webp",
+      "grande": "/img/portadas/playlist-trap-espanol-1200.webp",
+      "nombre": {
+        "es": "Trap español",
+        "en": "Spanish trap"
+      },
+      "rubro": {
+        "es": "Playlist · Laionbeats",
+        "en": "Playlist · Laionbeats"
+      },
+      "grupo": "playlists",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/playlist-rap-espanol-640.webp",
+      "grande": "/img/portadas/playlist-rap-espanol-1200.webp",
+      "nombre": {
+        "es": "Rap español",
+        "en": "Spanish rap"
+      },
+      "rubro": {
+        "es": "Playlist · Laionbeats",
+        "en": "Playlist · Laionbeats"
+      },
+      "grupo": "playlists",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/playlist-trap-ingles-640.webp",
+      "grande": "/img/portadas/playlist-trap-ingles-1200.webp",
+      "nombre": {
+        "es": "Trap inglés",
+        "en": "English trap"
+      },
+      "rubro": {
+        "es": "Playlist · Laionbeats",
+        "en": "Playlist · Laionbeats"
+      },
+      "grupo": "playlists",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/diamantes-640.webp",
+      "grande": "/img/portadas/diamantes-1200.webp",
+      "nombre": {
+        "es": "Diamantes",
+        "en": "Diamantes"
+      },
+      "rubro": {
+        "es": "Single · Demental",
+        "en": "Single · Demental"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/rangos-640.webp",
+      "grande": "/img/portadas/rangos-1200.webp",
+      "nombre": {
+        "es": "Rangos",
+        "en": "Rangos"
+      },
+      "rubro": {
+        "es": "Single · Demental",
+        "en": "Single · Demental"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/anaciel-nore-640.webp",
+      "grande": "/img/portadas/anaciel-nore-1200.webp",
+      "nombre": {
+        "es": "Anaciel & Nore",
+        "en": "Anaciel & Nore"
+      },
+      "rubro": {
+        "es": "Single · Demental",
+        "en": "Single · Demental"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/zig-zag-640.webp",
+      "grande": "/img/portadas/zig-zag-1200.webp",
+      "nombre": {
+        "es": "Zig Zag",
+        "en": "Zig Zag"
+      },
+      "rubro": {
+        "es": "Single · Demental",
+        "en": "Single · Demental"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/rangos-b-640.webp",
+      "grande": "/img/portadas/rangos-b-1200.webp",
+      "nombre": {
+        "es": "Rangos (B)",
+        "en": "Rangos (B)"
+      },
+      "rubro": {
+        "es": "Single · Demental",
+        "en": "Single · Demental"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/instantes-640.webp",
+      "grande": "/img/portadas/instantes-1200.webp",
+      "nombre": {
+        "es": "Instantes",
+        "en": "Instantes"
+      },
+      "rubro": {
+        "es": "Single · Demental",
+        "en": "Single · Demental"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/zig-zag-b-640.webp",
+      "grande": "/img/portadas/zig-zag-b-1200.webp",
+      "nombre": {
+        "es": "Zig Zag (B)",
+        "en": "Zig Zag (B)"
+      },
+      "rubro": {
+        "es": "Single · Demental",
+        "en": "Single · Demental"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/bendecido-640.webp",
+      "grande": "/img/portadas/bendecido-1200.webp",
+      "nombre": {
+        "es": "Bendecido",
+        "en": "Bendecido"
+      },
+      "rubro": {
+        "es": "Single · Demental",
+        "en": "Single · Demental"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/demasiado-640.webp",
+      "grande": "/img/portadas/demasiado-1200.webp",
+      "nombre": {
+        "es": "Demasiado",
+        "en": "Demasiado"
+      },
+      "rubro": {
+        "es": "Single · Demental",
+        "en": "Single · Demental"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/en-primera-640.webp",
+      "grande": "/img/portadas/en-primera-1200.webp",
+      "nombre": {
+        "es": "En primera",
+        "en": "En primera"
+      },
+      "rubro": {
+        "es": "Single · Demental & Matusho",
+        "en": "Single · Demental & Matusho"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/singles-instrumentales-640.webp",
+      "grande": "/img/portadas/singles-instrumentales-1200.webp",
+      "nombre": {
+        "es": "Singles instrumentales",
+        "en": "Instrumental singles"
+      },
+      "rubro": {
+        "es": "Single · Laionbeats",
+        "en": "Single · Laionbeats"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/3er-dia-640.webp",
+      "grande": "/img/portadas/3er-dia-1200.webp",
+      "nombre": {
+        "es": "3er día",
+        "en": "3er día"
+      },
+      "rubro": {
+        "es": "EP · Fazzini",
+        "en": "EP · Fazzini"
+      },
+      "grupo": "discos",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/sesiones-de-montana-640.webp",
+      "grande": "/img/portadas/sesiones-de-montana-1200.webp",
+      "nombre": {
+        "es": "Sesiones de montaña",
+        "en": "Sesiones de montaña"
+      },
+      "rubro": {
+        "es": "Single · Varios artistas",
+        "en": "Single · Various artists"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/singles-instrumentales-b-640.webp",
+      "grande": "/img/portadas/singles-instrumentales-b-1200.webp",
+      "nombre": {
+        "es": "Singles instrumentales (B)",
+        "en": "Instrumental singles (B)"
+      },
+      "rubro": {
+        "es": "Single · Laionbeats",
+        "en": "Single · Laionbeats"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/malbec-640.webp",
+      "grande": "/img/portadas/malbec-1200.webp",
+      "nombre": {
+        "es": "Malbec",
+        "en": "Malbec"
+      },
+      "rubro": {
+        "es": "Single · Saje, Rei All'a & Laionbeats",
+        "en": "Single · Saje, Rei All'a & Laionbeats"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/good-deals-640.webp",
+      "grande": "/img/portadas/good-deals-1200.webp",
+      "nombre": {
+        "es": "Good Deals",
+        "en": "Good Deals"
+      },
+      "rubro": {
+        "es": "EP · Fazzini",
+        "en": "EP · Fazzini"
+      },
+      "grupo": "discos",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/instrumentales-rap-640.webp",
+      "grande": "/img/portadas/instrumentales-rap-1200.webp",
+      "nombre": {
+        "es": "Instrumentales de rap",
+        "en": "Rap instrumentals"
+      },
+      "rubro": {
+        "es": "Playlist · Laionbeats",
+        "en": "Playlist · Laionbeats"
+      },
+      "grupo": "playlists",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/instrumentales-trap-640.webp",
+      "grande": "/img/portadas/instrumentales-trap-1200.webp",
+      "nombre": {
+        "es": "Instrumentales de trap",
+        "en": "Trap instrumentals"
+      },
+      "rubro": {
+        "es": "Playlist · Laionbeats",
+        "en": "Playlist · Laionbeats"
+      },
+      "grupo": "playlists",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/caramelo-640.webp",
+      "grande": "/img/portadas/caramelo-1200.webp",
+      "nombre": {
+        "es": "Caramelo (instrumental)",
+        "en": "Caramelo (instrumental)"
+      },
+      "rubro": {
+        "es": "Single · Laionbeats",
+        "en": "Single · Laionbeats"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/cincuenta-sincuenta-640.webp",
+      "grande": "/img/portadas/cincuenta-sincuenta-1200.webp",
+      "nombre": {
+        "es": "Cincuenta & Sincuenta",
+        "en": "Cincuenta & Sincuenta"
+      },
+      "rubro": {
+        "es": "LP · Franqui Quiroga & Laionbeats",
+        "en": "LP · Franqui Quiroga & Laionbeats"
+      },
+      "grupo": "discos",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/always-640.webp",
+      "grande": "/img/portadas/always-1200.webp",
+      "nombre": {
+        "es": "Always",
+        "en": "Always"
+      },
+      "rubro": {
+        "es": "EP · Fazzini",
+        "en": "EP · Fazzini"
+      },
+      "grupo": "discos",
+      "caso": null
+    }
+  ]
+}

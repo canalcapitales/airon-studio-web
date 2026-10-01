@@ -852,6 +852,8 @@ const EN = JSON.parse(readFileSync('src/data/proyectos.en.json', 'utf8'));
 const TARIFARIO = JSON.parse(readFileSync('src/data/tarifario-murales.json', 'utf8'));
 const PUBLICIDAD = JSON.parse(readFileSync('src/data/publicidad.json', 'utf8'));
 const LOGOS = JSON.parse(readFileSync('src/data/logos.json', 'utf8'));
+// Muros con filtro: "muroLogos": true usa logos.json; "muro": "portadas" usa src/data/portadas.json
+const MUROS = { logos: LOGOS, portadas: JSON.parse(readFileSync('src/data/portadas.json', 'utf8')) };
 // Tarifario de diseño (Cámara de Diseñadores de Rafaela, adaptado con permiso)
 const TARIFARIO_DISENO = JSON.parse(readFileSync('src/data/tarifario-diseno.json', 'utf8'));
 
@@ -1365,33 +1367,37 @@ function detalle(l, proyectos, p, i) {
         </div>`;
     })
     .join('');
-  // Muro de logos interactivo (datos en src/data/logos.json): filtro por rubro, visor y enlace a los casos completos
+  // Muro interactivo (logos.json o portadas.json): filtro por grupo, visor y enlace a los casos completos
   let muro = '';
-  if (p.muroLogos) {
-    const M = T.muro;
-    const conteo = (g) => LOGOS.logos.filter((x) => x.grupo === g).length;
-    const grupos = Object.keys(LOGOS.grupos).filter(conteo);
-    const pills = [`<button type="button" class="pill" data-grupo="todas" aria-pressed="true">${M.todas}<span class="mono">${LOGOS.logos.length}</span></button>`]
-      .concat(grupos.map((g) => `<button type="button" class="pill" data-grupo="${g}" aria-pressed="false">${esc(LOGOS.grupos[g][l])}<span class="mono">${conteo(g)}</span></button>`))
+  const datosMuro = p.muroLogos ? MUROS.logos : MUROS[p.muro];
+  if (datosMuro) {
+    const D = datosMuro;
+    const M = { ...T.muro, ...(D.textos ? D.textos[l] : { items: T.muro.marcas, grupos: T.muro.rubros }) };
+    const conteo = (g) => D.logos.filter((x) => x.grupo === g).length;
+    const grupos = Object.keys(D.grupos).filter(conteo);
+    const pills = [`<button type="button" class="pill" data-grupo="todas" aria-pressed="true">${M.todas}<span class="mono">${D.logos.length}</span></button>`]
+      .concat(grupos.map((g) => `<button type="button" class="pill" data-grupo="${g}" aria-pressed="false">${esc(D.grupos[g][l])}<span class="mono">${conteo(g)}</span></button>`))
       .join('');
-    const items = LOGOS.logos
+    const items = D.logos
       .map((x) => {
+        const nombre = typeof x.nombre === 'string' ? x.nombre : x.nombre[l];
         const rubro = x.rubro[l];
-        const alt = `${x.nombre} — ${rubro}`;
+        const alt = `${nombre} — ${rubro}`;
         const imagen = `<img src="${esc(x.archivo)}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async">`;
-        const info = `<span class="logo-info"><span class="logo-nombre">${esc(x.nombre)}</span><span class="mono">${esc(rubro)}</span></span>`;
+        const info = `<span class="logo-info"><span class="logo-nombre">${esc(nombre)}</span><span class="mono">${esc(rubro)}</span></span>`;
+        const fondo = x.fondo ? ` data-fondo="${x.fondo}"` : '';
         return x.caso
-          ? `<li class="logo-item reveal" data-grupo="${x.grupo}" data-fondo="${x.fondo}"><a class="logo-tile logo-tile--caso" href="${rutaDe(l, 'proyecto', x.caso)}" data-cursor="${esc(M.verCaso)}">${imagen}<span class="logo-caso mono">${M.verCaso} →</span>${info}</a></li>`
-          : `<li class="logo-item reveal" data-grupo="${x.grupo}" data-fondo="${x.fondo}"><a class="logo-tile zoom" href="${esc(x.archivo)}" aria-label="${T.ampliar}: ${esc(alt)}">${imagen}${info}</a></li>`;
+          ? `<li class="logo-item reveal" data-grupo="${x.grupo}"${fondo}><a class="logo-tile logo-tile--caso" href="${rutaDe(l, 'proyecto', x.caso)}" data-cursor="${esc(M.verCaso)}">${imagen}<span class="logo-caso mono">${M.verCaso} →</span>${info}</a></li>`
+          : `<li class="logo-item reveal" data-grupo="${x.grupo}"${fondo}><a class="logo-tile zoom" href="${esc(x.grande || x.archivo)}" aria-label="${T.ampliar}: ${esc(alt)}">${imagen}${info}</a></li>`;
       })
       .join('');
     muro = `<div class="galeria-grupo muro-logos">
-          <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${M.titulo}</h3><p>${M.texto}</p><span class="mono">${LOGOS.logos.length} ${M.marcas} · ${grupos.length} ${M.rubros}</span></div>
+          <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${M.titulo}</h3><p>${M.texto}</p><span class="mono">${D.logos.length} ${M.items} · ${grupos.length} ${M.grupos}</span></div>
           <div class="muro-filtros" role="group" aria-label="${M.filtrar}">${pills}</div>
           <ul class="logos-grid">${items}</ul>
         </div>`;
   }
-  const hayImagenes = p.galeria.length || (p.galerias || []).length || p.muroLogos;
+  const hayImagenes = p.galeria.length || (p.galerias || []).length || datosMuro;
   const visor = hayImagenes
     ? `
   <dialog class="visor" aria-label="${T.visor.aria}">
