@@ -1048,3 +1048,5 @@ html:not(.js) .calc-salida { display: none; }
 @media (max-width: 599px) { .mundos .laion-promo img { width: 100%; } }
 @media (max-width: 899px) { .mundos { grid-template-columns: 1fr; } }
 .laion-promo-texto strong { text-transform: uppercase; }
+.volver-murales { display: inline-block; margin-bottom: 20px; font-size: 13px; color: var(--muted); text-decoration: none; }
+.volver-murales:hover { color: var(--hover); }
