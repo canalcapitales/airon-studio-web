@@ -421,7 +421,7 @@ const TXT = {
       'Desarrollamos proyectos que combinan estrategia, diseño y comunicación, creando identidades y experiencias visuales capaces de conectar marcas con sus públicos.',
       'Trabajamos en la intersección entre branding, diseño gráfico, diseño web, comunicación digital, arte urbano y fotografía analógica, con una mirada integral, contemporánea y experimental.',
     ],
-    retrato: 'Retrato de Matías Gonzalez, fundador de AIRON Studio', cargo: 'Diseñador en Comunicación Visual',
+    retrato: 'Retrato de Matías Gonzalez, fundador de AIRON Studio', cargo: 'Diseñador en Comunicación Visual', formacionAria: 'Facultad de Artes, Universidad Nacional de La Plata',
     disciplinas: 'Disciplinas', marcasTitulo: 'Marcas y medios con los que trabajamos', ctaEstudio: 'Trabajemos juntos',
     procesoKicker: 'Método', procesoTitulo: 'Cómo trabajamos',
     proceso: [
@@ -841,7 +841,7 @@ const TXT = {
       'We develop projects that combine strategy, design and communication, creating identities and visual experiences that connect brands with their audiences.',
       'We work where branding, graphic design, web design, digital communication, street art and analog photography meet, with an all-round, contemporary and experimental approach.',
     ],
-    retrato: 'Portrait of Matías Gonzalez, founder of AIRON Studio', cargo: 'Visual Communication Designer',
+    retrato: 'Portrait of Matías Gonzalez, founder of AIRON Studio', cargo: 'Visual Communication Designer', formacionAria: 'Faculty of Arts, National University of La Plata',
     disciplinas: 'Disciplines', marcasTitulo: 'Brands and media we have worked with', ctaEstudio: "Let's work together",
     procesoKicker: 'Method', procesoTitulo: 'How we work',
     proceso: [
@@ -2354,7 +2354,7 @@ function estudio(l, proyectos) {
     <div class="wrap sobre-grid">
       <figure class="sobre-figura">
         <img class="sobre-foto" src="/img/foto-perfil-1080.webp" srcset="/img/foto-perfil-640.webp 640w, /img/foto-perfil-1080.webp 1080w" sizes="(min-width: 900px) 360px, 220px" width="1080" height="1080" alt="${T.retrato}" fetchpriority="high">
-        <figcaption><span class="sobre-nombre">Matías Gonzalez</span><span class="mono">${T.cargoEstudio}</span><span class="sobre-cargo">${T.cargo} · UNLP</span></figcaption>
+        <figcaption><span class="sobre-nombre">Matías Gonzalez</span><span class="mono">${T.cargoEstudio}</span><span class="sobre-cargo">${T.cargo} · UNLP</span><span class="formacion-logo" role="img" aria-label="${T.formacionAria}"></span></figcaption>
       </figure>
       <div class="sobre-texto">
         <span class="kicker mono">${T.elEstudio}</span>
