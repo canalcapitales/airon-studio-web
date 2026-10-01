@@ -233,11 +233,21 @@ function calculadora() {
   const superficie = form.querySelector('output[name="m2"]');
   const pedir = form.querySelector('.calc-pedir');
   const base = pedir.getAttribute('href');
-  // Valor por m² de un tramo; si la tabla dice "B" o "A", esa categoría se cotiza como la indicada
+  // Valor por m² de un tramo. El cliente nunca cambia de categoría: si el tarifario no fija precio
+  // para esa categoría en este tramo (la tabla dice "B" o "A"), se estima con la misma proporción
+  // entre categorías que tiene el último tramo donde las dos tienen precio.
+  const proporcion = (diseno, cat, ref) => {
+    for (let k = T.tramos.length - 1; k >= 0; k--) {
+      const t = T.tramos[k][diseno];
+      if (typeof t[cat] === 'number' && typeof t[ref] === 'number') return t[cat] / t[ref];
+    }
+    return 1;
+  };
   const valor = (tramo, diseno, cat) => {
-    let c = cat;
-    while (typeof tramo[diseno][c] === 'string') c = tramo[diseno][c];
-    return { valor: tramo[diseno][c], cat: c };
+    const v = tramo[diseno][cat];
+    if (typeof v === 'number') return { valor: v, cat, estimado: false };
+    const ref = valor(tramo, diseno, v);
+    return { valor: ref.valor * proporcion(diseno, cat, v), cat, estimado: true };
   };
   const fila = (nombre, monto, extra = '') => `<div class="calc-fila${extra}"><dt>${nombre}</dt><dd>${monto}</dd></div>`;
   const descarga = form.querySelector('.calc-descarga');
@@ -281,7 +291,7 @@ function calculadora() {
     } else {
       const i = T.tramos.findIndex((t) => m2 <= t.hasta);
       const tramo = T.tramos[i];
-      const { valor: porM2, cat } = valor(tramo, diseno, cliente);
+      const { valor: porM2, cat, estimado } = valor(tramo, diseno, cliente);
       let pintura = m2 * porM2;
       // Una pared más grande nunca cuesta menos que la más grande del tramo anterior
       let minimo = false;
@@ -329,7 +339,7 @@ function calculadora() {
       // Las mismas filas (sin el total) para el documento descargable
       estado.filas = [...html.matchAll(/<div class="calc-fila"><dt>(.*?)<\/dt><dd>(.*?)<\/dd><\/div>/g)].map((m) => [m[1], m[2]]);
       const avisos = [];
-      if (cat !== cliente) avisos.push(plantilla(X.pasaA, { de: cliente, a: cat }));
+      if (estimado) avisos.push(X.estimado);
       if (minimo) avisos.push(X.minimo);
       avisos.push(X.pago);
       html += avisos.map((a) => `<p class="calc-aviso">${a}</p>`).join('');
