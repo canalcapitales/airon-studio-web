@@ -1266,13 +1266,13 @@
   {
     "slug": "flyers",
     "titulo": "Flyers",
-    "subtitulo": "Piezas para eventos y lanzamientos",
+    "subtitulo": "15 piezas para fiestas, shows y lanzamientos",
     "categorias": [
       "aplicada"
     ],
     "portada": {
-      "640": "/img/p/flyers/portada-640.webp",
-      "1280": "/img/p/flyers/portada-1280.webp",
+      "640": "/img/p/flyers/portada-v2-640.webp",
+      "1280": "/img/p/flyers/portada-v2-1280.webp",
       "_wh": [
         1280,
         1001
@@ -1280,134 +1280,42 @@
     },
     "ficha": [
       [
-        "Pieza",
-        "Flyers"
+        "Piezas",
+        "Flyers para historias de Instagram (9:16)"
+      ],
+      [
+        "Clientes",
+        "TKNO Radio · Intekno · Kraneando Actividad · Laionbeats"
+      ],
+      [
+        "Eventos",
+        "Fiestas electrónicas, aniversarios, live streams y shows"
       ]
     ],
     "bloques": [
       {
-        "titulo": "El proyecto",
+        "titulo": "El formato",
         "parrafos": [
-          "Diseño de piezas gráficas para eventos, lanzamientos y proyectos culturales."
+          "Un flyer de historia se mira en dos segundos y con el pulgar listo para pasar. Por eso cada pieza ordena la información en capas: primero la imagen que frena el scroll, después el nombre de la fiesta, y recién al final fecha, line-up y lugar.",
+          "La serie para TKNO Radio e Intekno construye una identidad reconocible entre fechas —logo, marcos, grilla y tipografías que se repiten— mientras cada edición cambia de imagen y de clima."
         ]
       }
     ],
-    "galeria": [
-      {
-        "640": "/img/p/flyers/g01-640.webp",
-        "1080": "/img/p/flyers/g01-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g02-640.webp",
-        "1080": "/img/p/flyers/g02-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g03-640.webp",
-        "1080": "/img/p/flyers/g03-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g04-640.webp",
-        "1080": "/img/p/flyers/g04-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g05-640.webp",
-        "1080": "/img/p/flyers/g05-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g06-640.webp",
-        "1200": "/img/p/flyers/g06-1200.webp",
-        "_wh": [
-          1200,
-          2133
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g07-640.webp",
-        "1080": "/img/p/flyers/g07-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g08-640.webp",
-        "1080": "/img/p/flyers/g08-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g09-640.webp",
-        "1080": "/img/p/flyers/g09-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g10-640.webp",
-        "1080": "/img/p/flyers/g10-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g11-640.webp",
-        "1080": "/img/p/flyers/g11-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g12-640.webp",
-        "1080": "/img/p/flyers/g12-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g13-640.webp",
-        "1080": "/img/p/flyers/g13-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/flyers/g14-640.webp",
-        "1080": "/img/p/flyers/g14-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      }
-    ],
+    "galeria": [],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/227787733/Flyers"
+    "portadaPagina": {
+      "ancha": {
+        "960": "/img/p/flyers/ancha-960.webp",
+        "1440": "/img/p/flyers/ancha-1440.webp"
+      },
+      "movil": {
+        "480": "/img/p/flyers/movil-480.webp",
+        "800": "/img/p/flyers/movil-800.webp"
+      }
+    },
+    "behance": false,
+    "galerias": [],
+    "muro": "flyers"
   },
   {
     "slug": "street-art",

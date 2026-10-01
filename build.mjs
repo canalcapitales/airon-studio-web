@@ -853,7 +853,7 @@ const TARIFARIO = JSON.parse(readFileSync('src/data/tarifario-murales.json', 'ut
 const PUBLICIDAD = JSON.parse(readFileSync('src/data/publicidad.json', 'utf8'));
 const LOGOS = JSON.parse(readFileSync('src/data/logos.json', 'utf8'));
 // Muros con filtro: "muroLogos": true usa logos.json; "muro": "portadas" usa src/data/portadas.json
-const MUROS = { logos: LOGOS, portadas: JSON.parse(readFileSync('src/data/portadas.json', 'utf8')) };
+const MUROS = { logos: LOGOS, portadas: JSON.parse(readFileSync('src/data/portadas.json', 'utf8')), flyers: JSON.parse(readFileSync('src/data/flyers.json', 'utf8')) };
 // Tarifario de diseño (Cámara de Diseñadores de Rafaela, adaptado con permiso)
 const TARIFARIO_DISENO = JSON.parse(readFileSync('src/data/tarifario-diseno.json', 'utf8'));
 
@@ -1383,7 +1383,7 @@ function detalle(l, proyectos, p, i) {
         const nombre = typeof x.nombre === 'string' ? x.nombre : x.nombre[l];
         const rubro = x.rubro[l];
         const alt = `${nombre} — ${rubro}`;
-        const imagen = `<img src="${esc(x.archivo)}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async">`;
+        const imagen = `<img src="${esc(x.archivo)}" alt="${esc(alt)}" ${D.formato === 'historia' ? 'width="1080" height="1920"' : 'width="1080" height="1080"'} loading="lazy" decoding="async">`;
         const info = `<span class="logo-info"><span class="logo-nombre">${esc(nombre)}</span><span class="mono">${esc(rubro)}</span></span>`;
         const fondo = x.fondo ? ` data-fondo="${x.fondo}"` : '';
         return x.caso
@@ -1394,7 +1394,7 @@ function detalle(l, proyectos, p, i) {
     muro = `<div class="galeria-grupo muro-logos">
           <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${M.titulo}</h3><p>${M.texto}</p><span class="mono">${D.logos.length} ${M.items} · ${grupos.length} ${M.grupos}</span></div>
           <div class="muro-filtros" role="group" aria-label="${M.filtrar}">${pills}</div>
-          <ul class="logos-grid">${items}</ul>
+          <ul class="logos-grid${D.formato === 'historia' ? ' logos-grid--historia' : ''}">${items}</ul>
         </div>`;
   }
   const hayImagenes = p.galeria.length || (p.galerias || []).length || datosMuro;
