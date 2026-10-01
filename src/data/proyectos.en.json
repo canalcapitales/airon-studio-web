@@ -42,8 +42,7 @@
     "galerias": [
       { "titulo": "Desktop", "alts": ["AIRON Studio website — desktop home", "AIRON Studio website — project gallery with filters", "AIRON Studio website — project page", "AIRON Studio website — full-screen image viewer", "AIRON Studio website — the studio in numbers"] },
       { "titulo": "Mobile", "alts": ["AIRON Studio website — mobile home", "AIRON Studio website — mobile menu", "AIRON Studio website — projects on mobile", "AIRON Studio website — brand wall on mobile"] }
-    ],
-    "botones": ["Visit the website"]
+    ]
   },
   "branding-x-airon-studio": {
     "subtitulo": "25 brand identities",
@@ -58,8 +57,7 @@
     "bloques": [
       { "titulo": "GSP GEO — Hilux 2026", "parrafos": ["Wrap design for GSP Seguridad's Toyota Hilux 2026, assigned to its Special Operations Group (GEO). A visual proposal to strengthen the unit's identity, convey operational presence and project a professional, tactical, high-impact image."] },
       { "titulo": "Trust Fund — Ford Ka 2022", "parrafos": ["Full wrap design for the Ford Ka 2022 of Trust Fund Garantías Inmobiliarias, a Grupo del Sud company based in La Plata. An identity applied to the company car, designed to turn an everyday vehicle into a visible, professional and dynamic communication medium."] }
-    ],
-    "botones": ["Hilux 2026 on Behance", "Ford Ka 2022 on Behance"]
+    ]
   },
   "flexy": {
     "subtitulo": "Brand manual",

@@ -163,7 +163,7 @@
     "videos": [
       "Ec-weSrJWEi"
     ],
-    "behance": "https://www.behance.net/gallery/254183157/GSP-SEGURIDAD-DISENO-Y-EVOLUCION-DE-MARCA",
+    "behance": false,
     "previa": 2
   },
   {
@@ -290,7 +290,7 @@
       }
     ],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/254262723/BLEND-DAVID-Mural-de-fachada",
+    "behance": false,
     "estetica": "Abstracto orgánico"
   },
   {
@@ -347,7 +347,7 @@
       "9fc-eBkIEDc",
       "-_sfLpzfFVc"
     ],
-    "behance": "https://www.behance.net/gallery/236781527/Diseno-y-animacion-de-zocalo-para-TV"
+    "behance": false
   },
   {
     "slug": "web-airon-studio",
@@ -400,12 +400,7 @@
     ],
     "galeria": [],
     "videos": [],
-    "behance": [
-      {
-        "texto": "Visitar el sitio",
-        "url": "https://aironstudio.com.ar/"
-      }
-    ],
+    "behance": false,
     "galerias": [
       {
         "titulo": "Escritorio",
@@ -500,7 +495,16 @@
         ]
       }
     ],
-    "cta": "¿Querés verla en vivo?"
+    "cta": "¿Querés verla en vivo?",
+    "enlaces": [
+      {
+        "texto": {
+          "es": "Visitar el sitio",
+          "en": "Visit the website"
+        },
+        "url": "https://aironstudio.com.ar/"
+      }
+    ]
   },
   {
     "slug": "branding-x-airon-studio",
@@ -646,16 +650,7 @@
       }
     ],
     "videos": [],
-    "behance": [
-      {
-        "texto": "Hilux 2026 en Behance",
-        "url": "https://www.behance.net/gallery/254285659/Hilux-2026-Diseno-de-Ploteo-Vehicular"
-      },
-      {
-        "texto": "Ford Ka 2022 en Behance",
-        "url": "https://www.behance.net/gallery/254282337/Ford-Ka-2022-Diseno-de-Ploteo-Vehicular"
-      }
-    ]
+    "behance": false
   },
   {
     "slug": "flexy",
@@ -806,7 +801,7 @@
       }
     ],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/232135163/Manual-de-Marca-Empresa-Flexy"
+    "behance": false
   },
   {
     "slug": "trust-fund",
@@ -980,7 +975,7 @@
       "Up3QbgkzHvT",
       "VQY7mBxmS_i"
     ],
-    "behance": "https://www.behance.net/gallery/232091951/Empresa-Trust-Fund"
+    "behance": false
   },
   {
     "slug": "empresa-black",
@@ -1123,7 +1118,7 @@
       }
     ],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/232092063/Empresa-Black"
+    "behance": false
   },
   {
     "slug": "spotify-covers",
@@ -1261,7 +1256,7 @@
       }
     ],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/236792515/Portadas"
+    "behance": false
   },
   {
     "slug": "flyers",
@@ -1478,6 +1473,6 @@
       }
     ],
     "videos": [],
-    "behance": "https://www.behance.net/gallery/236734017/-Analogic-Photos"
+    "behance": false
   }
 ]
