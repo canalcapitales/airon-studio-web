@@ -2001,13 +2001,23 @@ function paginaLaion(l) {
           <div class="laion-hero-top"><span>${X.kicker}</span><span>${X.desde}</span></div>
           <h1 class="laion-wordmark"><img src="/img/laion/wordmark-1000.webp" srcset="/img/laion/wordmark-1000.webp 1000w, /img/laion/wordmark-2000.webp 2000w" sizes="(min-width: 1400px) 1100px, 88vw" alt="LAION" width="2000" height="710" fetchpriority="high" decoding="async"></h1>
           <p class="laion-bajada">${X.bajada}</p>
-          <div class="btn-row"><a class="btn btn-accent btn-lg" href="#obra">${X.verObra}</a><a class="btn laion-btn-borde btn-lg" href="#contacto-laion">${X.contacto}</a></div>
+          <div class="btn-row"><a class="btn btn-accent btn-lg" href="#obra">${X.verObra}</a><a class="btn laion-btn-borde btn-lg" href="#biografia">${X.biografia}</a><a class="btn laion-btn-borde btn-lg" href="#vision">${X.vision}</a><a class="btn laion-btn-borde btn-lg" href="#contacto-laion">${X.contacto}</a></div>
         </div>
       </div>
     </section>
 
     <section class="wrap laion-datos-wrap" aria-label="LAION">
       <dl class="laion-datos">${datos}</dl>
+    </section>
+
+    <section class="wrap laion-seccion" id="obra">
+      <div class="laion-seccion-head reveal">
+        <h2 class="laion-h2"><span>${X.obra}</span></h2>
+        <p>${esc(X.obraTexto)}</p>
+      </div>
+      <ul class="laion-obras">
+        ${obras}
+      </ul>
     </section>
 
     <section class="wrap laion-seccion" id="biografia">
@@ -2020,16 +2030,6 @@ function paginaLaion(l) {
           <img class="laion-firma" src="/img/laion/firma-900.webp" alt="${esc(X.firmaAlt)}" width="900" height="900" loading="lazy" decoding="async">
         </div>
       </div>
-    </section>
-
-    <section class="wrap laion-seccion" id="obra">
-      <div class="laion-seccion-head reveal">
-        <h2 class="laion-h2"><span>${X.obra}</span></h2>
-        <p>${esc(X.obraTexto)}</p>
-      </div>
-      <ul class="laion-obras">
-        ${obras}
-      </ul>
     </section>
 
     <section class="wrap laion-seccion" id="vision">
