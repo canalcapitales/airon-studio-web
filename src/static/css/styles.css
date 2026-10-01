@@ -1056,3 +1056,5 @@ html:not(.js) .calc-salida { display: none; }
 .nav-laion { color: var(--acento); }
 .nav-laion:hover { color: var(--ink); }
 @media (min-width: 1100px) and (max-width: 1279px) { .logo-header { width: 140px; } .nav { gap: 18px; padding-left: 24px; } }
+/* Formación: logo de la Facultad de Artes y la UNLP en un solo color (toma el color del texto) */
+.formacion-logo { display: block; width: 200px; max-width: 100%; aspect-ratio: 1240 / 240; margin-top: 12px; background: var(--ink); -webkit-mask: url('/img/formacion-fda-unlp.webp') center / contain no-repeat; mask: url('/img/formacion-fda-unlp.webp') center / contain no-repeat; opacity: .85; }
