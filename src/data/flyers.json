@@ -1,0 +1,242 @@
+{
+  "_ayuda": "Flyers del proyecto Flyers. Cada flyer: archivo (540 px de ancho) y grande (1080 px, para el visor) en src/static/img/flyers/, nombre y rubro (es/en), grupo (para el filtro) y caso (slug o null). formato 'historia' = piezas verticales 9:16. El orden de la lista es el orden en la página.",
+  "formato": "historia",
+  "textos": {
+    "es": {
+      "titulo": "Flyers",
+      "texto": "Flyers para fiestas electrónicas, shows y lanzamientos, pensados para historias de Instagram. Filtrá por tipo y tocá cada pieza para verla en grande.",
+      "items": "flyers",
+      "grupos": "series",
+      "filtrar": "Filtrar flyers por serie"
+    },
+    "en": {
+      "titulo": "Flyers",
+      "texto": "Flyers for electronic parties, live shows and releases, designed for Instagram stories. Filter by type and tap any piece to see it large.",
+      "items": "flyers",
+      "grupos": "series",
+      "filtrar": "Filter flyers by series"
+    }
+  },
+  "grupos": {
+    "electronica": {
+      "es": "TKNO Radio · Intekno",
+      "en": "TKNO Radio · Intekno"
+    },
+    "hiphop": {
+      "es": "Hip hop y lanzamientos",
+      "en": "Hip hop & releases"
+    }
+  },
+  "logos": [
+    {
+      "archivo": "/img/flyers/intekno-11-540.webp",
+      "grande": "/img/flyers/intekno-11-1080.webp",
+      "nombre": {
+        "es": "God Save the Rave",
+        "en": "God Save the Rave"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · Intekno",
+        "en": "Electronic party · Intekno"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/kraneando-aktividad-540.webp",
+      "grande": "/img/flyers/kraneando-aktividad-1080.webp",
+      "nombre": {
+        "es": "Kraneando Actividad",
+        "en": "Kraneando Actividad"
+      },
+      "rubro": {
+        "es": "Release party · 2MIL4 Vol. 2",
+        "en": "Release party · 2MIL4 Vol. 2"
+      },
+      "grupo": "hiphop",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-2-540.webp",
+      "grande": "/img/flyers/intekno-2-1080.webp",
+      "nombre": {
+        "es": "TKNO Radio 3er aniversario",
+        "en": "TKNO Radio 3rd anniversary"
+      },
+      "rubro": {
+        "es": "Aniversario · TKNO Radio",
+        "en": "Anniversary · TKNO Radio"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/antuzapien-laionbeats-540.webp",
+      "grande": "/img/flyers/antuzapien-laionbeats-1080.webp",
+      "nombre": {
+        "es": "Antuzapien & Laionbeats",
+        "en": "Antuzapien & Laionbeats"
+      },
+      "rubro": {
+        "es": "Show · La Noche de las Artes",
+        "en": "Show · La Noche de las Artes"
+      },
+      "grupo": "hiphop",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-10-540.webp",
+      "grande": "/img/flyers/intekno-10-1080.webp",
+      "nombre": {
+        "es": "Templo 5° aniversario",
+        "en": "Templo 5th anniversary"
+      },
+      "rubro": {
+        "es": "B/Hardy B-Day · Templo",
+        "en": "B/Hardy B-Day · Templo"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-7-540.webp",
+      "grande": "/img/flyers/intekno-7-1080.webp",
+      "nombre": {
+        "es": "Matt Szein · Felipe Atencio · Milena Adamis",
+        "en": "Matt Szein · Felipe Atencio · Milena Adamis"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · TKNO Radio",
+        "en": "Electronic party · TKNO Radio"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/kraneando-aktividad-2-540.webp",
+      "grande": "/img/flyers/kraneando-aktividad-2-1080.webp",
+      "nombre": {
+        "es": "Kraneando Actividad (Niceto)",
+        "en": "Kraneando Actividad (Niceto)"
+      },
+      "rubro": {
+        "es": "Presentación en vivo · Bar de Niceto",
+        "en": "Live show · Bar de Niceto"
+      },
+      "grupo": "hiphop",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-4-540.webp",
+      "grande": "/img/flyers/intekno-4-1080.webp",
+      "nombre": {
+        "es": "Intekno Live Night",
+        "en": "Intekno Live Night"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · TKNO Radio",
+        "en": "Electronic party · TKNO Radio"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-1-540.webp",
+      "grande": "/img/flyers/intekno-1-1080.webp",
+      "nombre": {
+        "es": "TKNO Radio × Apical Records",
+        "en": "TKNO Radio × Apical Records"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · Apical Records",
+        "en": "Electronic party · Apical Records"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-3a-540.webp",
+      "grande": "/img/flyers/intekno-3a-1080.webp",
+      "nombre": {
+        "es": "Snap Cosmosolar (A)",
+        "en": "Snap Cosmosolar (A)"
+      },
+      "rubro": {
+        "es": "Live stream · TKNO Radio × Pináculo",
+        "en": "Live stream · TKNO Radio × Pináculo"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-3b-540.webp",
+      "grande": "/img/flyers/intekno-3b-1080.webp",
+      "nombre": {
+        "es": "Snap Cosmosolar (B)",
+        "en": "Snap Cosmosolar (B)"
+      },
+      "rubro": {
+        "es": "Live stream · TKNO Radio × Pináculo",
+        "en": "Live stream · TKNO Radio × Pináculo"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-5-540.webp",
+      "grande": "/img/flyers/intekno-5-1080.webp",
+      "nombre": {
+        "es": "Intekno",
+        "en": "Intekno"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · TKNO Radio",
+        "en": "Electronic party · TKNO Radio"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-6-540.webp",
+      "grande": "/img/flyers/intekno-6-1080.webp",
+      "nombre": {
+        "es": "Día del Amigo",
+        "en": "Friendship Day"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · Intekno",
+        "en": "Electronic party · Intekno"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-8-540.webp",
+      "grande": "/img/flyers/intekno-8-1080.webp",
+      "nombre": {
+        "es": "Vinyl Night",
+        "en": "Vinyl Night"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · TKNO Radio",
+        "en": "Electronic party · TKNO Radio"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/intekno-9-540.webp",
+      "grande": "/img/flyers/intekno-9-1080.webp",
+      "nombre": {
+        "es": "Birthday Edition Pool Party",
+        "en": "Birthday Edition Pool Party"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · Intekno",
+        "en": "Electronic party · Intekno"
+      },
+      "grupo": "electronica",
+      "caso": null
+    }
+  ]
+}

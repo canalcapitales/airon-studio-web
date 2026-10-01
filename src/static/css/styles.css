@@ -930,6 +930,9 @@ html:not(.js) .calc-salida { display: none; }
   .logo-nombre { font-size: 15px; }
   .logo-info .mono { font-size: 10px; color: var(--muted); }
 }
+/* Piezas verticales (flyers 9:16) */
+.logos-grid--historia .logo-tile, .logos-grid--historia .logo-tile img { aspect-ratio: 9 / 16; }
+@media (hover: none) { .logos-grid--historia .logo-tile { aspect-ratio: auto; } }
 /* Aparición escalonada, fila por fila */
 .logos-grid .logo-item:nth-child(5n+2) { transition-delay: .06s; }
 .logos-grid .logo-item:nth-child(5n+3) { transition-delay: .12s; }

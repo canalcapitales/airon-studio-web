@@ -93,10 +93,16 @@
     "ficha": [["Deliverable", "Banners and headers for social media and channels"]]
   },
   "flyers": {
-    "subtitulo": "Pieces for events and launches",
-    "ficha": [["Deliverable", "Flyers"]],
+    "subtitulo": "15 pieces for parties, live shows and releases",
+    "ficha": [["Deliverables", "Flyers for Instagram stories (9:16)"], ["Clients", "TKNO Radio · Intekno · Kraneando Actividad · Laionbeats"], ["Events", "Electronic parties, anniversaries, live streams and shows"]],
     "bloques": [
-      { "titulo": "The project", "parrafos": ["Graphic design for events, launches and cultural projects."] }
+      {
+        "titulo": "The format",
+        "parrafos": [
+          "A story flyer gets two seconds of attention, with a thumb ready to swipe. That is why every piece layers the information: first the image that stops the scroll, then the party’s name, and only then date, line-up and venue.",
+          "The series for TKNO Radio and Intekno builds an identity you can recognize from one date to the next —logo, frames, grid and typefaces that repeat— while every edition changes its image and mood."
+        ]
+      }
     ]
   },
   "street-art": {
