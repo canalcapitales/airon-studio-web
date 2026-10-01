@@ -1045,7 +1045,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
         <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
         <a class="nav-link" href="${R.murales}"${actual('murales')}>${T.murales.nav}</a>
-        <a class="nav-link nav-laion" href="${R.laion}"${actual('laion')}>LAION</a>
+        <a class="nav-link" href="${R.laion}"${actual('laion')}>Laion</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
         <a class="nav-link nav-tarifario" href="${R.tarifarios}"${actual('tarifario')}>${T.tarifarios.nav}</a>
         <a class="nav-link nav-cta" href="${R.contacto}"${actual('contacto')}>${T.nav.contacto}</a>
@@ -1068,7 +1068,7 @@ ${publicidadEnPie ? marquesinaPublicidad(l) : ''}
       </div>
       <div class="footer-bottom mono">
         <span>© ${anio} AIRON Studio · ${T.pie[0]}</span>
-        <span class="footer-legal"><a class="footer-laion" href="${R.laion}"${actual('laion')}>LAION</a><span aria-hidden="true">·</span><a href="${R.legales}"${actual('legales')}>${LEGALES[l].nav}</a><span aria-hidden="true">·</span><span>${T.pie[1]}</span></span>
+        <span class="footer-legal"><a href="${R.legales}"${actual('legales')}>${LEGALES[l].nav}</a><span aria-hidden="true">·</span><span>${T.pie[1]}</span></span>
       </div>
     </div>
   </footer>
