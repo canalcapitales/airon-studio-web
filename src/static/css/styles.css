@@ -229,6 +229,13 @@ ul { padding: 0; list-style: none; }
 .anuncio { display: flex; align-items: center; justify-content: center; width: 200px; height: 88px; padding: 4px 12px; background: #fff; border: 1px solid var(--ink); border-radius: 12px; transition: transform .2s ease, border-color .2s ease; }
 .anuncio img { width: 100%; height: 100%; object-fit: contain; }
 .anuncio:hover, .anuncio:focus-visible { transform: translateY(-3px); border-color: var(--acento); }
+.anuncio--marca img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; }
+.anuncios-pista[hidden] { display: none; }
+/* En compu, los sponsors en blanco y negro (todos con el mismo peso); al pasar el mouse, a color. En el celular, siempre a color */
+@media (hover: hover) {
+  .anuncio--marca img { filter: grayscale(1); opacity: .78; transition: filter .25s ease, opacity .25s ease; }
+  .anuncio--marca:hover img, .anuncio--marca:focus-visible img { filter: none; opacity: 1; }
+}
 /* En el inicio: con aire arriba y abajo, entre secciones */
 .anuncios--inicio { border-bottom: 1px solid var(--ink); padding: 36px 0 40px; }
 /* En las herramientas: más finita, debajo del título, para no empujar la herramienta hacia abajo */

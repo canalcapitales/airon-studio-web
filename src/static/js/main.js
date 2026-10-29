@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   formulario();
   filtros();
   muroLogos();
+  sponsors();
 });
 
 // ----- Modo claro / oscuro -----
@@ -1761,4 +1762,37 @@ function muroLogos() {
   );
   damero(true);
   window.addEventListener('resize', () => damero(false));
+}
+
+// ----- Sponsors de la marquesina -----
+// Oculta los sponsors que todavía no empezaron o ya vencieron (según la fecha de hoy del visitante).
+// Si no queda ninguno, muestra los espacios de ejemplo. Si quedan pocos, repite la cinta para que no queden huecos.
+function sponsors() {
+  const d = new Date();
+  const hoy = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  document.querySelectorAll('.anuncios').forEach((aviso) => {
+    const marcas = aviso.querySelector('.anuncios-pista--marcas');
+    if (!marcas) return;
+    marcas.querySelectorAll('li').forEach((li) => {
+      const { desde, hasta } = li.dataset;
+      if ((desde && desde > hoy) || (hasta && hasta < hoy)) li.remove();
+    });
+    if (!marcas.querySelector('li')) {
+      marcas.remove();
+      aviso.querySelector('.anuncios-pista--ejemplos').hidden = false;
+      return;
+    }
+    // La cinta son dos mitades iguales: duplicar todo mantiene el giro sin cortes
+    const cinta = aviso.querySelector('.anuncios-cinta');
+    for (let i = 0; i < 4 && marcas.scrollWidth < cinta.clientWidth * 2; i++) {
+      [...marcas.children].forEach((li) => {
+        const copia = li.cloneNode(true);
+        copia.classList.add('eco');
+        copia.setAttribute('aria-hidden', 'true');
+        copia.querySelector('a').tabIndex = -1;
+        copia.querySelector('img').alt = '';
+        marcas.append(copia);
+      });
+    }
+  });
 }

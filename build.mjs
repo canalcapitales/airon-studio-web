@@ -1078,8 +1078,36 @@ ${publicidadEnPie ? marquesinaPublicidad(l) : ''}
 }
 
 // ---------- piezas reutilizables ----------
-// Marquesina de publicidad: logos de anunciantes con enlace directo (datos en src/data/publicidad.json).
-// Mientras no haya anunciantes vigentes, muestra espacios de ejemplo que llevan a Contacto.
+// Proporción (ancho / alto) de un logo de src/static: viewBox en SVG, cabecera en PNG. null si no se puede leer.
+function proporcionLogo(ruta) {
+  try {
+    const b = readFileSync(join('src/static', ruta));
+    if (ruta.endsWith('.svg')) {
+      const t = b.toString('utf8');
+      const vb = t.match(/viewBox=["']\s*[-\d.]+[\s,]+[-\d.]+[\s,]+([\d.]+)[\s,]+([\d.]+)/);
+      if (vb) return Number(vb[1]) / Number(vb[2]);
+      const w = t.match(/<svg[^>]*\swidth=["']([\d.]+)/), h = t.match(/<svg[^>]*\sheight=["']([\d.]+)/);
+      if (w && h) return Number(w[1]) / Number(h[1]);
+    } else if (b.readUInt32BE(0) === 0x89504e47) return b.readUInt32BE(16) / b.readUInt32BE(20);
+  } catch {}
+  return null;
+}
+
+// Tamaño óptico: todos los logos ocupan una superficie parecida dentro de la tarjeta, sean cuadrados o muy anchos.
+// La altura baja con la raíz de la proporción (un logo cuadrado usa casi todo el alto; uno largo, menos alto pero más ancho).
+const PROPORCION_TARJETA = 2.25;
+function estiloLogo(ruta) {
+  const p = proporcionLogo(ruta);
+  if (!p) return '';
+  let alto = Math.min(100, 90 / Math.sqrt(p));
+  let ancho = (p * alto) / PROPORCION_TARJETA;
+  if (ancho > 100) { alto = (alto * 100) / ancho; ancho = 100; }
+  return ` style="width:${ancho.toFixed(1)}%;height:${alto.toFixed(1)}%"`;
+}
+
+// Marquesina de publicidad: logos de sponsors con enlace directo (datos en src/data/publicidad.json).
+// Cada sponsor tiene 'desde' y 'hasta': el navegador oculta los que todavía no empezaron o ya vencieron, el mismo día,
+// aunque la web no se vuelva a publicar. Si no queda ninguno, aparecen los espacios de ejemplo que llevan a Contacto.
 // Ubicación: arriba del pie en la mayoría de las páginas; en el inicio, después de la lista de proyectos;
 // en las herramientas, versión compacta debajo del título (ahí no se repite en el pie).
 function marquesinaPublicidad(l, variante = '') {
@@ -1088,7 +1116,7 @@ function marquesinaPublicidad(l, variante = '') {
   const A = T.publicidad;
   const hoyTexto = new Date().toISOString().slice(0, 10);
   const contactoPub = `${RUTAS[l].contacto}?tipo=publicidad&mensaje=${encodeURIComponent(A.mensaje)}`;
-  // Se suma una marca de origen al enlace, así cada anunciante ve en sus estadísticas las visitas que le llegan desde acá
+  // Se suma una marca de origen al enlace, así cada sponsor ve en sus estadísticas las visitas que le llegan desde acá
   const conOrigen = (url) => {
     const u = new URL(url);
     if (!u.searchParams.has('utm_source')) {
@@ -1098,22 +1126,24 @@ function marquesinaPublicidad(l, variante = '') {
     return u.toString();
   };
   const vigentes = PUBLICIDAD.anunciantes.filter((a) => a.url && a.logo && (!a.hasta || a.hasta >= hoyTexto));
-  const items = vigentes.length
-    ? vigentes.map((a) => ({ nombre: a.nombre, logo: a.logo, href: conOrigen(a.url), externo: true }))
-    : PUBLICIDAD.ejemplos[l].map((logo) => ({ nombre: A.ejemplo, logo, href: contactoPub, externo: false }));
-  // Se repiten los logos hasta llenar bien el ancho de una pantalla grande
-  const vueltas = Math.max(1, Math.ceil(8 / items.length));
+  const marcas = vigentes.map((a) => ({ nombre: a.nombre, logo: a.logo, href: conOrigen(a.url), externo: true, desde: a.desde, hasta: a.hasta }));
+  const ejemplos = PUBLICIDAD.ejemplos[l].map((logo) => ({ nombre: A.ejemplo, logo, href: contactoPub, externo: false }));
   const logo = (it, oculto) =>
-    `<li${oculto ? ' class="eco" aria-hidden="true"' : ''}><a class="anuncio" href="${esc(it.href)}"${it.externo ? ' target="_blank" rel="sponsored noopener noreferrer"' : ''}${oculto ? ' tabindex="-1"' : ''} title="${esc(it.nombre)}${it.externo ? ` (${A.abre})` : ''}"><img src="${esc(it.logo)}" alt="${oculto ? '' : esc(it.nombre)}" width="200" height="80" loading="lazy" decoding="async"></a></li>`;
-  const mitad = (primera) =>
-    Array.from({ length: vueltas }, (_, v) => items.map((it) => logo(it, !primera || v > 0)).join('')).join('');
+    `<li${oculto ? ' class="eco" aria-hidden="true"' : ''}${it.desde ? ` data-desde="${esc(it.desde)}"` : ''}${it.hasta ? ` data-hasta="${esc(it.hasta)}"` : ''}><a class="anuncio${it.externo ? ' anuncio--marca' : ''}" href="${esc(it.href)}"${it.externo ? ' target="_blank" rel="sponsored noopener noreferrer"' : ''}${oculto ? ' tabindex="-1"' : ''} title="${esc(it.nombre)}${it.externo ? ` (${A.abre})` : ''}"><img src="${esc(it.logo)}" alt="${oculto ? '' : esc(it.nombre)}" width="200" height="80" loading="lazy" decoding="async"${it.externo ? estiloLogo(it.logo) : ''}></a></li>`;
+  // Dos mitades iguales (la segunda es copia decorativa) para que la cinta gire sin cortes.
+  // Se repiten los logos hasta llenar bien el ancho de una pantalla grande.
+  const pista = (items, clase, oculta) => {
+    const vueltas = Math.max(1, Math.ceil(8 / items.length));
+    const mitad = (primera) => Array.from({ length: vueltas }, (_, v) => items.map((it) => logo(it, !primera || v > 0)).join('')).join('');
+    return `<ul class="anuncios-pista anuncios-pista--${clase}"${oculta ? ' hidden' : ''}>${mitad(true)}${mitad(false)}</ul>`;
+  };
   return `  <aside class="anuncios${variante ? ` anuncios--${variante}` : ''}" aria-label="${A.aria}">
     <div class="wrap anuncios-head">
       <span class="kicker mono anuncios-largo">${A.kicker} · ${A.titulo}</span>${variante === 'compacta' ? `<span class="kicker mono anuncios-corto">${A.kicker}</span>` : ''}
       <a class="link-arrow anuncios-cta" href="${esc(contactoPub)}">${A.cta} →</a>
     </div>
     <div class="anuncios-cinta">
-      <ul class="anuncios-pista">${mitad(true)}${mitad(false)}</ul>
+      ${marcas.length ? pista(marcas, 'marcas', false) : ''}${pista(ejemplos, 'ejemplos', marcas.length > 0)}
     </div>
   </aside>`;
 }
