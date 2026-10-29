@@ -1,11 +1,12 @@
 {
-  "_ayuda": "Marquesina de publicidad (en el inicio después de los proyectos, debajo del título de cada herramienta y arriba del pie en las demás páginas). Para sumar un anunciante: guardá su logo en src/static/img/publicidad/ (SVG o PNG con fondo transparente, idealmente 400×160 px) y agregá un bloque en 'anunciantes'. 'hasta' es la fecha en que deja de mostrarse (AAAA-MM-DD, o vacío = sin fin). Mientras 'anunciantes' esté vacío o todos estén vencidos, se muestran los espacios de ejemplo, que llevan a Contacto.",
+  "_ayuda": "Marquesina de sponsors (en el inicio después de los proyectos, debajo del título de cada herramienta y arriba del pie en las demás páginas). Para sumar un sponsor: guardá su logo en src/static/img/publicidad/ (SVG recortado al borde del dibujo, o PNG transparente recortado) y agregá un bloque en 'anunciantes'. 'desde' y 'hasta' (AAAA-MM-DD, o vacío = sin límite) marcan el período: el navegador lo oculta solo fuera de esas fechas. El tamaño de cada logo se calcula solo según su proporción, para que todos tengan el mismo peso visual. Mientras no haya sponsors vigentes, se muestran los espacios de ejemplo, que llevan a Contacto. La carga se coordina desde la carpeta de Drive 'AIRON WEB - Sponsors'.",
   "activa": true,
   "anunciantes": [
     {
       "nombre": "Ejemplo — borrar este bloque",
       "logo": "/img/publicidad/ejemplo-1.svg",
       "url": "https://www.ejemplo.com",
+      "desde": "",
       "hasta": "2000-01-01"
     }
   ],
