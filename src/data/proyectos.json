@@ -884,7 +884,8 @@
     "titulo": "Equilibria",
     "subtitulo": "Identidad, diseño y desarrollo del sitio",
     "categorias": [
-      "web"
+      "web",
+      "integral"
     ],
     "portada": {
       "640": "/img/proyectos/equilibria/portada-640.webp",
