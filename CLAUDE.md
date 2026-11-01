@@ -11,8 +11,8 @@ Web: https://aironstudio.com.ar · Repo: `canalcapitales/airon-studio-web` · De
 ## Cómo se publica
 1. Editar en `src/` o `build.mjs` (nunca en `dist/`, que se genera solo).
 2. Probar: `node build.mjs` y abrir `dist/` con un servidor local (ver README).
-3. Commit y push directo a la rama por defecto **`claude/clever-lamport-hmyyn1`**, con la cuenta `canalcapitales`. El usuario pidió no tener que hacer clics en GitHub, así que no usar PRs que dependan de él.
-4. **Cloudflare Workers Builds publica solo** al hacer push (tarda 1–3 minutos). Verificar en la web en vivo.
+3. Commit en una rama de trabajo, push, PR contra la rama por defecto **`claude/clever-lamport-hmyyn1`** y merge.
+4. **Cloudflare Workers Builds publica solo** al hacer merge (tarda 1–3 minutos). Verificar en la web en vivo.
 
 ## Convenciones
 - Sitio estático bilingüe: `build.mjs` arma ES (`/`) y EN (`/en/`). Textos de interfaz en `TXT`, rutas en `RUTAS`.
