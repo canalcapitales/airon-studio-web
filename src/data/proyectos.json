@@ -882,10 +882,10 @@
   {
     "slug": "equilibria",
     "titulo": "Equilibria",
-    "subtitulo": "Identidad, diseño y desarrollo del sitio",
+    "subtitulo": "Identidad y presencia digital integral",
     "categorias": [
-      "web",
-      "integral"
+      "integral",
+      "web"
     ],
     "portada": {
       "640": "/img/proyectos/equilibria/portada-640.webp",
@@ -902,7 +902,7 @@
       ],
       [
         "Rol",
-        "Identidad visual, diseño, desarrollo y textos"
+        "Identidad, web, Google y Maps, canales de contacto y redes"
       ],
       [
         "Publicación",
@@ -916,16 +916,20 @@
         "parrafos": []
       },
       {
-        "titulo": "El proceso",
+        "titulo": "El alcance",
+        "destacado": "No fue solo una web: diseñamos todo el recorrido del paciente, desde que busca el consultorio hasta que pide un turno.",
         "parrafos": [
-          "Primero definimos la identidad: un isotipo de piedras en equilibrio, una paleta de azul marino y turquesa, y dos tipografías que se usan igual en la web y en las redes. El diseño se pensó primero para celular, con mucho aire y fotos grandes del espacio, para que el consultorio se sintiera cercano antes de la primera visita.",
-          "El sitio es una sola página de 13 secciones, hecha a medida en HTML, CSS y JavaScript, sin plantillas. Reúne los recursos terapéuticos, el consultorio, los horarios, las preguntas frecuentes, la ubicación y un gimnasio con slide de fotos y un bloque para profesores que quieran alquilarlo. Cada consulta tiene su acceso directo a WhatsApp, con el mensaje ya escrito."
+          "Identidad: un isotipo de piedras en equilibrio, una paleta de azul marino y turquesa, y dos tipografías que se usan igual en todos los canales.",
+          "Web: una sola página de 13 secciones, hecha a medida y pensada primero para celular, con el consultorio, los recursos terapéuticos, el gimnasio, la atención a domicilio, los horarios, las preguntas frecuentes y la ubicación.",
+          "Google y Maps: configuración del perfil del negocio, con dirección, horarios, web, teléfono, fotos y publicaciones, para que quien lo busque encuentre la información correcta.",
+          "Contacto: 9 accesos directos a WhatsApp con el mensaje ya escrito, mensajería automática para las primeras consultas y mail con dominio propio.",
+          "Redes: Instagram con la misma identidad, seis historias destacadas con íconos propios y una serie de publicaciones para presentar el espacio, los tratamientos y la forma de trabajo."
         ]
       },
       {
         "titulo": "El resultado",
         "parrafos": [
-          "El sitio está publicado en dominio propio y con conexión segura. Tiene 13 secciones y 9 accesos directos a WhatsApp, y reúne en un solo lugar toda la información que antes no estaba en internet. Además, deja un botón para que los pacientes dejen su opinión en Google."
+          "Un sistema completo y coherente: la marca se reconoce igual en Google, en la web y en Instagram, toda la información está en internet y cada canal lleva a pedir turno en pocos pasos. Además, la web y Google invitan a los pacientes a dejar su opinión."
         ]
       }
     ],
@@ -933,94 +937,214 @@
     "videos": [],
     "galerias": [
       {
-        "titulo": "Escritorio",
+        "titulo": "Web en escritorio",
         "imagenes": [
           {
-            "720": "/img/proyectos/equilibria/d-inicio-720.webp",
-            "1440": "/img/proyectos/equilibria/d-inicio-1440.webp",
+            "720": "/img/proyectos/equilibria-v2/d-inicio-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-inicio-1440.webp",
             "_wh": [
               1440,
               900
             ],
-            "alt": "Equilibria — Inicio del sitio en escritorio, con el título principal y una foto del consultorio."
+            "alt": "Equilibria — Inicio de la web en escritorio."
           },
           {
-            "720": "/img/proyectos/equilibria/d-consultorio-720.webp",
-            "1440": "/img/proyectos/equilibria/d-consultorio-1440.webp",
+            "720": "/img/proyectos/equilibria-v2/d-sobre-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-sobre-1440.webp",
             "_wh": [
               1440,
               900
             ],
-            "alt": "Equilibria — Galería de tres salas del consultorio en escritorio."
+            "alt": "Equilibria — Presentación de la Lic. Verónica Rubilar y cómo trabaja."
           },
           {
-            "720": "/img/proyectos/equilibria/d-recursos-720.webp",
-            "1440": "/img/proyectos/equilibria/d-recursos-1440.webp",
+            "720": "/img/proyectos/equilibria-v2/d-consultorio-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-consultorio-1440.webp",
             "_wh": [
               1440,
               900
             ],
-            "alt": "Equilibria — Tarjetas de los nueve recursos terapéuticos en escritorio."
+            "alt": "Equilibria — Galería del consultorio."
           },
           {
-            "720": "/img/proyectos/equilibria/d-gimnasio-720.webp",
-            "1440": "/img/proyectos/equilibria/d-gimnasio-1440.webp",
+            "720": "/img/proyectos/equilibria-v2/d-recursos-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-recursos-1440.webp",
             "_wh": [
               1440,
               900
             ],
-            "alt": "Equilibria — Sección del gimnasio en escritorio, con etiquetas de equipamiento y slide de fotos."
+            "alt": "Equilibria — Los nueve recursos terapéuticos."
           },
           {
-            "720": "/img/proyectos/equilibria/d-opiniones-720.webp",
-            "1440": "/img/proyectos/equilibria/d-opiniones-1440.webp",
+            "720": "/img/proyectos/equilibria-v2/d-gimnasio-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-gimnasio-1440.webp",
             "_wh": [
               1440,
               900
             ],
-            "alt": "Equilibria — Preguntas frecuentes y sección de opiniones con el puntaje de Google en escritorio."
+            "alt": "Equilibria — Gimnasio de rehabilitación y bloque para profesores."
+          },
+          {
+            "720": "/img/proyectos/equilibria-v2/d-domicilio-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-domicilio-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Rehabilitación a domicilio y alquiler de magnetoterapia."
+          },
+          {
+            "720": "/img/proyectos/equilibria-v2/d-preguntas-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-preguntas-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Preguntas frecuentes."
           }
         ]
       },
       {
-        "titulo": "Celular",
+        "titulo": "Web en celular",
         "estilo": "grilla",
         "imagenes": [
           {
-            "390": "/img/proyectos/equilibria/m-inicio-390.webp",
-            "780": "/img/proyectos/equilibria/m-inicio-780.webp",
+            "390": "/img/proyectos/equilibria-v2/m-inicio-390.webp",
+            "780": "/img/proyectos/equilibria-v2/m-inicio-780.webp",
             "_wh": [
               780,
               1688
             ],
-            "alt": "Equilibria — Inicio del sitio en celular, con el título, los botones y una foto del consultorio."
+            "alt": "Equilibria — Inicio en celular."
           },
           {
-            "390": "/img/proyectos/equilibria/m-consultorio-390.webp",
-            "780": "/img/proyectos/equilibria/m-consultorio-780.webp",
+            "390": "/img/proyectos/equilibria-v2/m-sobre-390.webp",
+            "780": "/img/proyectos/equilibria-v2/m-sobre-780.webp",
             "_wh": [
               780,
               1688
             ],
-            "alt": "Equilibria — Carrusel de fotos del consultorio y primeros recursos terapéuticos en celular."
+            "alt": "Equilibria — Presentación de la kinesióloga en celular."
           },
           {
-            "390": "/img/proyectos/equilibria/m-gimnasio-390.webp",
-            "780": "/img/proyectos/equilibria/m-gimnasio-780.webp",
+            "390": "/img/proyectos/equilibria-v2/m-consultorio-390.webp",
+            "780": "/img/proyectos/equilibria-v2/m-consultorio-780.webp",
             "_wh": [
               780,
               1688
             ],
-            "alt": "Equilibria — Sección del gimnasio en celular, con el slide de fotos y el equipamiento."
+            "alt": "Equilibria — Consultorio en celular."
           },
           {
-            "390": "/img/proyectos/equilibria/m-opiniones-390.webp",
-            "780": "/img/proyectos/equilibria/m-opiniones-780.webp",
+            "390": "/img/proyectos/equilibria-v2/m-recursos-390.webp",
+            "780": "/img/proyectos/equilibria-v2/m-recursos-780.webp",
             "_wh": [
               780,
               1688
             ],
-            "alt": "Equilibria — Sección de opiniones con el puntaje de Google en celular."
+            "alt": "Equilibria — Recursos terapéuticos en celular."
+          },
+          {
+            "390": "/img/proyectos/equilibria-v2/m-gimnasio-390.webp",
+            "780": "/img/proyectos/equilibria-v2/m-gimnasio-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Equilibria — Gimnasio en celular."
+          },
+          {
+            "390": "/img/proyectos/equilibria-v2/m-horarios-390.webp",
+            "780": "/img/proyectos/equilibria-v2/m-horarios-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Equilibria — Horarios en celular."
+          },
+          {
+            "390": "/img/proyectos/equilibria-v2/m-opiniones-390.webp",
+            "780": "/img/proyectos/equilibria-v2/m-opiniones-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Equilibria — Opiniones en celular."
+          },
+          {
+            "390": "/img/proyectos/equilibria-v2/m-ubicacion-390.webp",
+            "780": "/img/proyectos/equilibria-v2/m-ubicacion-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Equilibria — Ubicación en celular."
+          }
+        ]
+      },
+      {
+        "titulo": "Google y Maps",
+        "texto": "El perfil del negocio reúne dirección, horarios, web, teléfono, fotos y publicaciones, y la web lo conecta con el mapa y las opiniones.",
+        "imagenes": [
+          {
+            "720": "/img/proyectos/equilibria-v2/g-maps-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/g-maps-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Perfil del negocio en Google Maps, con dirección, horarios y puntaje."
+          },
+          {
+            "720": "/img/proyectos/equilibria-v2/d-ubicacion-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-ubicacion-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Sección de ubicación con el mapa de Google y el ingreso al complejo."
+          },
+          {
+            "720": "/img/proyectos/equilibria-v2/d-opiniones-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-opiniones-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Sección de opiniones con el puntaje de Google."
+          }
+        ]
+      },
+      {
+        "titulo": "Instagram",
+        "texto": "La misma identidad en el perfil, en las seis destacadas con íconos propios y en las publicaciones.",
+        "imagenes": [
+          {
+            "540": "/img/proyectos/equilibria-v2/ig-perfil-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/ig-perfil-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Equilibria — Perfil de Instagram con historias destacadas y publicaciones."
+          },
+          {
+            "390": "/img/proyectos/equilibria-v2/ig-celular-390.webp",
+            "780": "/img/proyectos/equilibria-v2/ig-celular-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Equilibria — Perfil de Instagram en celular."
+          },
+          {
+            "720": "/img/proyectos/equilibria-v2/d-instagram-720.webp",
+            "1440": "/img/proyectos/equilibria-v2/d-instagram-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Sección de Instagram y datos de contacto en la web."
           }
         ]
       }
@@ -1033,6 +1157,13 @@
           "en": "Visit the website"
         },
         "url": "https://equilibriaweb.com.ar"
+      },
+      {
+        "texto": {
+          "es": "Ver Instagram",
+          "en": "See Instagram"
+        },
+        "url": "https://www.instagram.com/equilibriaweb.com.ar/"
       }
     ]
   },

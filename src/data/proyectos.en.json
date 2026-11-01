@@ -45,7 +45,7 @@
     ]
   },
   "equilibria": {
-    "subtitulo": "Brand identity, website design and development",
+    "subtitulo": "Brand identity and full digital presence",
     "cta": "Want to see it live?",
     "ficha": [
       [
@@ -58,7 +58,7 @@
       ],
       [
         "Role",
-        "Visual identity, design, development and copywriting"
+        "Identity, website, Google and Maps, contact channels and social media"
       ],
       [
         "Hosting",
@@ -72,37 +72,65 @@
         "parrafos": []
       },
       {
-        "titulo": "The process",
+        "titulo": "The scope",
+        "destacado": "It wasn’t just a website: we designed the whole patient journey, from searching for the practice to booking an appointment.",
         "parrafos": [
-          "We started with the identity: a symbol of balancing stones, a navy and turquoise palette, and two typefaces used the same way on the website and on social media. The design was mobile-first, with generous white space and large photos of the space, so the practice would feel close before the first visit.",
-          "The site is a single page with 13 sections, custom-built in HTML, CSS and JavaScript, with no templates. It brings together the treatments, the practice, opening hours, FAQs, the location, and a gym section with a photo slider and a block for instructors who want to rent the space. Each type of inquiry has its own WhatsApp shortcut with the message already written."
+          "Identity: a symbol of balancing stones, a navy and turquoise palette, and two typefaces used the same way across every channel.",
+          "Website: a single custom-built page with 13 sections, designed mobile-first, covering the practice, treatments, gym, home care, opening hours, FAQs and location.",
+          "Google and Maps: a set-up business profile with address, hours, website, phone, photos and posts, so anyone searching finds the right information.",
+          "Contact: 9 WhatsApp shortcuts with the message already written, automated messaging for first inquiries and email on its own domain.",
+          "Social media: Instagram with the same identity, six story highlights with custom icons and a series of posts presenting the space, the treatments and the way of working."
         ]
       },
       {
         "titulo": "The result",
         "parrafos": [
-          "The site is live on its own domain over a secure connection. It has 13 sections and 9 WhatsApp shortcuts, and gathers in one place all the information that wasn’t online before. It also gives patients a button to leave their review on Google."
+          "A complete, consistent system: the brand looks the same on Google, on the website and on Instagram, all the information is online, and every channel leads to booking in just a few steps. The website and Google also invite patients to leave their review."
         ]
       }
     ],
     "galerias": [
       {
-        "titulo": "Desktop",
+        "titulo": "Website on desktop",
         "alts": [
-          "Equilibria — Desktop home screen with the main headline and a photo of the practice.",
-          "Equilibria — Desktop gallery of three treatment rooms.",
-          "Equilibria — Desktop cards for the nine therapeutic treatments.",
-          "Equilibria — Desktop gym section with equipment tags and photo slider.",
-          "Equilibria — Desktop FAQs and reviews section with the Google rating."
+          "Equilibria — Desktop website home.",
+          "Equilibria — Introducing Verónica Rubilar and how she works.",
+          "Equilibria — Gallery of the practice.",
+          "Equilibria — The nine therapeutic treatments.",
+          "Equilibria — Rehabilitation gym and rental block for instructors.",
+          "Equilibria — Home rehabilitation and magnetic therapy rental.",
+          "Equilibria — Frequently asked questions."
         ]
       },
       {
-        "titulo": "Mobile",
+        "titulo": "Website on mobile",
         "alts": [
-          "Equilibria — Mobile home screen with the headline, buttons and a photo of the practice.",
-          "Equilibria — Mobile photo carousel of the practice and first treatments.",
-          "Equilibria — Mobile gym section with photo slider and equipment.",
-          "Equilibria — Mobile reviews section with the Google rating."
+          "Equilibria — Mobile home.",
+          "Equilibria — Introducing the therapist on mobile.",
+          "Equilibria — The practice on mobile.",
+          "Equilibria — Treatments on mobile.",
+          "Equilibria — Gym on mobile.",
+          "Equilibria — Opening hours on mobile.",
+          "Equilibria — Reviews on mobile.",
+          "Equilibria — Location on mobile."
+        ]
+      },
+      {
+        "titulo": "Google and Maps",
+        "texto": "The business profile brings together address, hours, website, phone, photos and posts, and the website connects it to the map and reviews.",
+        "alts": [
+          "Equilibria — Google Maps business profile with address, hours and rating.",
+          "Equilibria — Location section with the Google map and the entrance.",
+          "Equilibria — Reviews section with the Google rating."
+        ]
+      },
+      {
+        "titulo": "Instagram",
+        "texto": "The same identity in the profile, the six highlights with custom icons and the posts.",
+        "alts": [
+          "Equilibria — Instagram profile with story highlights and posts.",
+          "Equilibria — Instagram profile on mobile.",
+          "Equilibria — Instagram section and contact details on the website."
         ]
       }
     ]
