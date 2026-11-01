@@ -97,10 +97,10 @@ Idea: vender el espacio en **dos niveles**, con precios distintos.
 
 ## 11. Sistemas de gestión — cargar proyectos
 
-Ya existe la categoría **Sistemas de gestión** (filtro en Proyectos, servicio en el inicio y opción en el formulario de contacto). Mientras no tenga proyectos, al filtrar muestra "Estamos preparando los proyectos de esta categoría" con un enlace a Contacto.
+Los sistemas de gestión forman parte del área **Web y sistemas** (filtro en Proyectos), con su servicio en el inicio y su opción en el formulario de contacto.
 
 - [ ] Pasarle a Claude, por cada sistema: nombre, cliente, año, qué resuelve (clientes, turnos, stock, ventas…), capturas de pantalla (sin datos reales de clientes) y el texto en inglés si lo hay.
-- En `src/data/proyectos.json` cada proyecto de esta sección lleva `"categorias": ["sistemas"]` (puede sumar otra, por ejemplo `["sistemas", "web"]`).
+- En `src/data/proyectos.json` cada proyecto de esta sección lleva `"categorias": ["web"]`.
 
 ## Otros detalles anotados
 
