@@ -290,8 +290,9 @@ ul { padding: 0; list-style: none; }
 
 /* ---------- áreas del portafolio (inicio): índice con vista previa ---------- */
 .areas-head { margin-bottom: clamp(40px, 6vw, 88px); }
-.areas-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 7vw, 112px); align-items: start; }
-.areas-visor { position: sticky; top: 128px; aspect-ratio: 1280 / 1001; overflow: hidden; background: var(--placeholder); border: 1px solid var(--ink); }
+.areas-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(40px, 7vw, 112px); align-items: start; }
+.areas-visor { order: 2; position: sticky; top: 128px; aspect-ratio: 1280 / 1001; overflow: hidden; background: var(--placeholder); }
+.areas-visor::after { content: ''; position: absolute; inset: 0; border: 1px solid var(--ink); pointer-events: none; }
 .areas-vista { position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease; }
 .areas-vista.activa { opacity: 1; }
 .areas-vista img { width: 100%; height: 100%; object-fit: cover; }
