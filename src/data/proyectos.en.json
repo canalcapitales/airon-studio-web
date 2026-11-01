@@ -46,7 +46,7 @@
   },
   "equilibria": {
     "subtitulo": "Brand identity and full digital presence",
-    "cta": "Want to see it live?",
+    "cta": "Want a system like this for your brand?",
     "ficha": [
       [
         "Client",
@@ -58,48 +58,64 @@
       ],
       [
         "Role",
-        "Identity, website, Google and Maps, contact channels and social media"
+        "Strategy, identity, website, content and digital management"
       ],
       [
-        "Hosting",
-        "Cloudflare Pages, on its own domain"
+        "Scope",
+        "80 final pieces · 5 integrated channels"
       ]
     ],
     "bloques": [
       {
         "titulo": "The challenge",
-        "destacado": "Equilibria is a physical therapy practice in San Martín de los Andes, Argentina, that grew through word of mouth but had no website, no brand identity and no simple way to book an appointment. The goal was that when someone recommended it, the other person could easily find it, get to know it and get in touch.",
-        "parrafos": []
+        "destacado": "The initial request was someone to run social media. But the practice had no website, no identity and no simple way to book: posting without that base was like starting with the roof.",
+        "parrafos": [
+          "Verónica Rubilar has more than 20 years of experience in San Martín de los Andes, Argentina, and a reputation built by word of mouth. So we proposed an integral project with a simple goal: when someone recommends her, the other person can find her, see her work and book easily."
+        ]
       },
       {
-        "titulo": "The scope",
-        "destacado": "It wasn’t just a website: we designed the whole patient journey, from searching for the practice to booking an appointment.",
+        "titulo": "The strategy",
+        "destacado": "One system, five channels and a single destination: the practice’s WhatsApp.",
         "parrafos": [
-          "Identity: a symbol of balancing stones, a navy and turquoise palette, and two typefaces used the same way across every channel.",
-          "Website: a single custom-built page with 13 sections, designed mobile-first, covering the practice, treatments, gym, home care, opening hours, FAQs and location.",
-          "Google and Maps: a set-up business profile with address, hours, website, phone, photos and posts, so anyone searching finds the right information.",
-          "Contact: 9 WhatsApp shortcuts with the message already written, automated messaging for first inquiries and email on its own domain.",
-          "Social media: Instagram with the same identity, six story highlights with custom icons and a series of posts presenting the space, the treatments and the way of working."
+          "In a small town, people search on Google Maps. So we set priorities around the real patient journey: finding the practice on Google, getting to know the space on the website and Instagram, and getting in touch in one tap. The difference isn’t a device or a technique, it’s the care, and all the communication starts there."
+        ]
+      },
+      {
+        "titulo": "What we did",
+        "parrafos": [
+          "Identity: three visual directions, a symbol of balancing stones, a logo in three versions, palette, typefaces and a brand voice for every channel.",
+          "Website: own domain, professional email and a custom 13-section site, designed mobile-first, with 9 WhatsApp shortcuts and local SEO.",
+          "Google and Maps: an optimized business profile, a 9-photo gallery and 14 designed posts, consistent details across channels and a direct link to request reviews.",
+          "WhatsApp Business: profile photo, cover, statuses, automated messages and messages to route and answer inquiries.",
+          "Instagram: 15 posts, 25 stories produced, 6 highlight covers, an optimized bio and an animated story.",
+          "Local promotion: flyers with QR codes in A4 and A6, ready for print, and a campaign for instructors to rent the gym."
         ]
       },
       {
         "titulo": "The result",
         "parrafos": [
-          "A complete, consistent system: the brand looks the same on Google, on the website and on Instagram, all the information is online, and every channel leads to booking in just a few steps. The website and Google also invite patients to leave their review."
+          "In one month, Equilibria went from growing only by word of mouth to a full digital presence: 80 final pieces, 5 active integrated channels and a brand that looks the same on screen, on Google and on the street. Today, anyone searching for physical therapy in San Martín de los Andes can find the practice, get to know the space and book in just a few steps."
         ]
       }
     ],
     "galerias": [
       {
+        "titulo": "Identity",
+        "texto": "A symbol of balancing stones in horizontal, vertical and circular versions, for any background and format.",
+        "alts": [
+          "Equilibria — Logo in horizontal, vertical and circular versions."
+        ]
+      },
+      {
         "titulo": "Website on desktop",
+        "texto": "A custom site that brings everything together and takes every inquiry to WhatsApp.",
         "alts": [
           "Equilibria — Desktop website home.",
           "Equilibria — Introducing Verónica Rubilar and how she works.",
           "Equilibria — Gallery of the practice.",
           "Equilibria — The nine therapeutic treatments.",
           "Equilibria — Rehabilitation gym and rental block for instructors.",
-          "Equilibria — Home rehabilitation and magnetic therapy rental.",
-          "Equilibria — Frequently asked questions."
+          "Equilibria — Home rehabilitation and magnetic therapy rental."
         ]
       },
       {
@@ -107,30 +123,81 @@
         "alts": [
           "Equilibria — Mobile home.",
           "Equilibria — Introducing the therapist on mobile.",
-          "Equilibria — The practice on mobile.",
           "Equilibria — Treatments on mobile.",
-          "Equilibria — Gym on mobile.",
-          "Equilibria — Opening hours on mobile.",
-          "Equilibria — Reviews on mobile.",
           "Equilibria — Location on mobile."
         ]
       },
       {
         "titulo": "Google and Maps",
-        "texto": "The business profile brings together address, hours, website, phone, photos and posts, and the website connects it to the map and reviews.",
+        "texto": "The first place people search in a small town: an optimized profile, photos of the space and details consistent with the website.",
         "alts": [
-          "Equilibria — Google Maps business profile with address, hours and rating.",
-          "Equilibria — Location section with the Google map and the entrance.",
+          "Equilibria — Business profile on Google Maps.",
           "Equilibria — Reviews section with the Google rating."
         ]
       },
       {
-        "titulo": "Instagram",
-        "texto": "The same identity in the profile, the six highlights with custom icons and the posts.",
+        "titulo": "Google posts",
+        "texto": "14 designed graphics for the business profile, with action buttons.",
         "alts": [
-          "Equilibria — Instagram profile with story highlights and posts.",
-          "Equilibria — Instagram profile on mobile.",
-          "Equilibria — Instagram section and contact details on the website."
+          "Equilibria — Introduction graphic for Google.",
+          "Equilibria — Graphic about Verónica for Google.",
+          "Equilibria — How-we-work graphic for Google.",
+          "Equilibria — Treatments graphic for Google.",
+          "Equilibria — Practice graphic for Google.",
+          "Equilibria — Gym graphic for Google.",
+          "Equilibria — Opening hours graphic for Google.",
+          "Equilibria — Booking graphic for Google."
+        ]
+      },
+      {
+        "titulo": "WhatsApp Business",
+        "texto": "Every channel ends here: business profile, cover, statuses and messages to organize each inquiry.",
+        "alts": [
+          "Equilibria — WhatsApp Business cover and profile photo.",
+          "Equilibria — Profile photo proposals for WhatsApp."
+        ]
+      },
+      {
+        "titulo": "Instagram",
+        "texto": "Profile, highlights and posts with the same identity.",
+        "alts": [
+          "Equilibria — Instagram profile with highlights and posts.",
+          "Equilibria — Piece presenting the website on WhatsApp and stories."
+        ]
+      },
+      {
+        "titulo": "Feed",
+        "alts": [
+          "Equilibria — Introduction post.",
+          "Equilibria — Post about Verónica.",
+          "Equilibria — How-we-work post.",
+          "Equilibria — Treatments post.",
+          "Equilibria — Practice post.",
+          "Equilibria — Gym post.",
+          "Equilibria — Rental post for instructors.",
+          "Equilibria — Opening hours post."
+        ]
+      },
+      {
+        "titulo": "Stories",
+        "texto": "Impact, trust, engagement and educational content, with direct links to the website, WhatsApp and Maps.",
+        "alts": [
+          "Equilibria — “Your body speaks” story.",
+          "Equilibria — “Get to know Equilibria” story.",
+          "Equilibria — Story with the review rating.",
+          "Equilibria — “60 minutes just for you” story.",
+          "Equilibria — Myth and reality story.",
+          "Equilibria — Poll story.",
+          "Equilibria — Rental story for instructors.",
+          "Equilibria — Story to book on WhatsApp."
+        ]
+      },
+      {
+        "titulo": "Print",
+        "texto": "The brand on the street too: flyers with QR codes for shops, practices and gyms.",
+        "alts": [
+          "Equilibria — General flyer with QR code.",
+          "Equilibria — Flyer for instructors with QR code."
         ]
       }
     ]
