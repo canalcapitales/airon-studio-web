@@ -888,8 +888,8 @@
       "web"
     ],
     "portada": {
-      "640": "/img/proyectos/equilibria/portada-640.webp",
-      "1280": "/img/proyectos/equilibria/portada-1280.webp"
+      "640": "/img/proyectos/equilibria-v2/portada-640.webp",
+      "1280": "/img/proyectos/equilibria-v2/portada-1280.webp"
     },
     "ficha": [
       [
@@ -902,34 +902,43 @@
       ],
       [
         "Rol",
-        "Identidad, web, Google y Maps, canales de contacto y redes"
+        "Estrategia, identidad, web, contenidos y gestión digital"
       ],
       [
-        "Publicación",
-        "Cloudflare Pages, en dominio propio"
+        "Alcance",
+        "80 piezas finales · 5 canales integrados"
       ]
     ],
     "bloques": [
       {
         "titulo": "El reto",
-        "destacado": "Equilibria es un consultorio de kinesiología de San Martín de los Andes que crecía de boca en boca, pero no tenía web, identidad de marca ni un camino simple para pedir turno. Había que lograr que, cuando alguien lo recomendara, la otra persona pudiera encontrarlo, conocerlo y escribir fácil.",
-        "parrafos": []
+        "destacado": "El pedido inicial fue alguien que manejara las redes. Pero el consultorio no tenía web, identidad ni un camino simple para pedir turno: publicar sin esa base era empezar por el techo.",
+        "parrafos": [
+          "Verónica Rubilar tiene más de 20 años de experiencia en San Martín de los Andes y una reputación construida de boca en boca. Por eso propusimos un trabajo integral con un objetivo simple: que cuando alguien la recomiende, la otra persona pueda encontrarla, verla y pedir turno fácil."
+        ]
       },
       {
-        "titulo": "El alcance",
-        "destacado": "No fue solo una web: diseñamos todo el recorrido del paciente, desde que busca el consultorio hasta que pide un turno.",
+        "titulo": "La estrategia",
+        "destacado": "Un solo sistema, cinco canales y un mismo punto de llegada: el WhatsApp del consultorio.",
         "parrafos": [
-          "Identidad: un isotipo de piedras en equilibrio, una paleta de azul marino y turquesa, y dos tipografías que se usan igual en todos los canales.",
-          "Web: una sola página de 13 secciones, hecha a medida y pensada primero para celular, con el consultorio, los recursos terapéuticos, el gimnasio, la atención a domicilio, los horarios, las preguntas frecuentes y la ubicación.",
-          "Google y Maps: configuración del perfil del negocio, con dirección, horarios, web, teléfono, fotos y publicaciones, para que quien lo busque encuentre la información correcta.",
-          "Contacto: 9 accesos directos a WhatsApp con el mensaje ya escrito, mensajería automática para las primeras consultas y mail con dominio propio.",
-          "Redes: Instagram con la misma identidad, seis historias destacadas con íconos propios y una serie de publicaciones para presentar el espacio, los tratamientos y la forma de trabajo."
+          "En un pueblo, la gente busca en Google Maps. Por eso ordenamos las prioridades según el recorrido real del paciente: que lo encuentren en Google, que conozcan el espacio en la web y en Instagram, y que escriban en un solo toque. El diferencial no es un aparato ni una técnica: es el trato, y toda la comunicación parte de ahí."
+        ]
+      },
+      {
+        "titulo": "Lo que hicimos",
+        "parrafos": [
+          "Identidad: tres direcciones visuales, un isotipo de piedras en equilibrio, logotipo en tres versiones, paleta, tipografías y voz de marca para todos los canales.",
+          "Web: dominio propio, correo institucional y un sitio de 13 secciones hecho a medida, pensado primero para celular, con 9 accesos directos a WhatsApp y posicionamiento local.",
+          "Google y Maps: perfil de negocio optimizado, galería de 9 fotos y 14 publicaciones diseñadas, con datos coherentes en todos los canales y un link directo para pedir reseñas.",
+          "WhatsApp Business: foto de perfil, portada, estados, mensajes automáticos y mensajes para derivar y responder consultas.",
+          "Instagram: 15 publicaciones, 25 historias producidas, 6 portadas de destacadas, biografía optimizada y una historia animada.",
+          "Promoción local: flyers con código QR en A4 y A6 listos para imprenta, y una campaña para que profesores alquilen el gimnasio."
         ]
       },
       {
         "titulo": "El resultado",
         "parrafos": [
-          "Un sistema completo y coherente: la marca se reconoce igual en Google, en la web y en Instagram, toda la información está en internet y cada canal lleva a pedir turno en pocos pasos. Además, la web y Google invitan a los pacientes a dejar su opinión."
+          "En un mes, Equilibria pasó de crecer solo de boca en boca a tener una presencia digital completa: 80 piezas finales, 5 canales activos e integrados y una marca que se reconoce igual en la pantalla, en Google y en la calle. Hoy, quien busca kinesiología en San Martín de los Andes puede encontrar el consultorio, conocer el espacio y pedir turno en pocos pasos."
         ]
       }
     ],
@@ -937,7 +946,23 @@
     "videos": [],
     "galerias": [
       {
+        "titulo": "Identidad",
+        "texto": "Un isotipo de piedras en equilibrio, en versión horizontal, vertical y circular, para cualquier fondo y formato.",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/equilibria-v2/marca-logo-800.webp",
+            "1600": "/img/proyectos/equilibria-v2/marca-logo-1600.webp",
+            "_wh": [
+              1600,
+              1000
+            ],
+            "alt": "Equilibria — Logotipo en versiones horizontal, vertical y circular."
+          }
+        ]
+      },
+      {
         "titulo": "Web en escritorio",
+        "texto": "Un sitio a medida que reúne todo en un solo lugar y lleva cada consulta a WhatsApp.",
         "imagenes": [
           {
             "720": "/img/proyectos/equilibria-v2/d-inicio-720.webp",
@@ -992,15 +1017,6 @@
               900
             ],
             "alt": "Equilibria — Rehabilitación a domicilio y alquiler de magnetoterapia."
-          },
-          {
-            "720": "/img/proyectos/equilibria-v2/d-preguntas-720.webp",
-            "1440": "/img/proyectos/equilibria-v2/d-preguntas-1440.webp",
-            "_wh": [
-              1440,
-              900
-            ],
-            "alt": "Equilibria — Preguntas frecuentes."
           }
         ]
       },
@@ -1027,15 +1043,6 @@
             "alt": "Equilibria — Presentación de la kinesióloga en celular."
           },
           {
-            "390": "/img/proyectos/equilibria-v2/m-consultorio-390.webp",
-            "780": "/img/proyectos/equilibria-v2/m-consultorio-780.webp",
-            "_wh": [
-              780,
-              1688
-            ],
-            "alt": "Equilibria — Consultorio en celular."
-          },
-          {
             "390": "/img/proyectos/equilibria-v2/m-recursos-390.webp",
             "780": "/img/proyectos/equilibria-v2/m-recursos-780.webp",
             "_wh": [
@@ -1043,33 +1050,6 @@
               1688
             ],
             "alt": "Equilibria — Recursos terapéuticos en celular."
-          },
-          {
-            "390": "/img/proyectos/equilibria-v2/m-gimnasio-390.webp",
-            "780": "/img/proyectos/equilibria-v2/m-gimnasio-780.webp",
-            "_wh": [
-              780,
-              1688
-            ],
-            "alt": "Equilibria — Gimnasio en celular."
-          },
-          {
-            "390": "/img/proyectos/equilibria-v2/m-horarios-390.webp",
-            "780": "/img/proyectos/equilibria-v2/m-horarios-780.webp",
-            "_wh": [
-              780,
-              1688
-            ],
-            "alt": "Equilibria — Horarios en celular."
-          },
-          {
-            "390": "/img/proyectos/equilibria-v2/m-opiniones-390.webp",
-            "780": "/img/proyectos/equilibria-v2/m-opiniones-780.webp",
-            "_wh": [
-              780,
-              1688
-            ],
-            "alt": "Equilibria — Opiniones en celular."
           },
           {
             "390": "/img/proyectos/equilibria-v2/m-ubicacion-390.webp",
@@ -1084,7 +1064,7 @@
       },
       {
         "titulo": "Google y Maps",
-        "texto": "El perfil del negocio reúne dirección, horarios, web, teléfono, fotos y publicaciones, y la web lo conecta con el mapa y las opiniones.",
+        "texto": "El primer lugar donde buscan en un pueblo: perfil optimizado, fotos del espacio y datos coherentes con la web.",
         "imagenes": [
           {
             "720": "/img/proyectos/equilibria-v2/g-maps-720.webp",
@@ -1093,16 +1073,7 @@
               1440,
               900
             ],
-            "alt": "Equilibria — Perfil del negocio en Google Maps, con dirección, horarios y puntaje."
-          },
-          {
-            "720": "/img/proyectos/equilibria-v2/d-ubicacion-720.webp",
-            "1440": "/img/proyectos/equilibria-v2/d-ubicacion-1440.webp",
-            "_wh": [
-              1440,
-              900
-            ],
-            "alt": "Equilibria — Sección de ubicación con el mapa de Google y el ingreso al complejo."
+            "alt": "Equilibria — Perfil del negocio en Google Maps."
           },
           {
             "720": "/img/proyectos/equilibria-v2/d-opiniones-720.webp",
@@ -1116,8 +1087,111 @@
         ]
       },
       {
+        "titulo": "Publicaciones en Google",
+        "texto": "14 placas diseñadas para el perfil de negocio, con botones de acción.",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "600": "/img/proyectos/equilibria-v2/google-1-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/google-1-1200.webp",
+            "_wh": [
+              1200,
+              900
+            ],
+            "alt": "Equilibria — Placa de presentación para Google."
+          },
+          {
+            "600": "/img/proyectos/equilibria-v2/google-2-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/google-2-1200.webp",
+            "_wh": [
+              1200,
+              900
+            ],
+            "alt": "Equilibria — Placa sobre Verónica para Google."
+          },
+          {
+            "600": "/img/proyectos/equilibria-v2/google-3-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/google-3-1200.webp",
+            "_wh": [
+              1200,
+              900
+            ],
+            "alt": "Equilibria — Placa de cómo trabajamos para Google."
+          },
+          {
+            "600": "/img/proyectos/equilibria-v2/google-4-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/google-4-1200.webp",
+            "_wh": [
+              1200,
+              900
+            ],
+            "alt": "Equilibria — Placa de recursos terapéuticos para Google."
+          },
+          {
+            "600": "/img/proyectos/equilibria-v2/google-5-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/google-5-1200.webp",
+            "_wh": [
+              1200,
+              900
+            ],
+            "alt": "Equilibria — Placa del consultorio para Google."
+          },
+          {
+            "600": "/img/proyectos/equilibria-v2/google-6-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/google-6-1200.webp",
+            "_wh": [
+              1200,
+              900
+            ],
+            "alt": "Equilibria — Placa del gimnasio para Google."
+          },
+          {
+            "600": "/img/proyectos/equilibria-v2/google-7-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/google-7-1200.webp",
+            "_wh": [
+              1200,
+              900
+            ],
+            "alt": "Equilibria — Placa de horarios para Google."
+          },
+          {
+            "600": "/img/proyectos/equilibria-v2/google-8-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/google-8-1200.webp",
+            "_wh": [
+              1200,
+              900
+            ],
+            "alt": "Equilibria — Placa para pedir turno en Google."
+          }
+        ]
+      },
+      {
+        "titulo": "WhatsApp Business",
+        "texto": "Todos los canales llegan acá: perfil de empresa, portada, estados y mensajes para ordenar cada consulta.",
+        "imagenes": [
+          {
+            "600": "/img/proyectos/equilibria-v2/wa-portada-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/wa-portada-1200.webp",
+            "_wh": [
+              1200,
+              710
+            ],
+            "alt": "Equilibria — Portada y foto de perfil de WhatsApp Business."
+          },
+          {
+            "820": "/img/proyectos/equilibria-v2/wa-perfil-820.webp",
+            "1640": "/img/proyectos/equilibria-v2/wa-perfil-1640.webp",
+            "_wh": [
+              1640,
+              500
+            ],
+            "alt": "Equilibria — Propuestas de foto de perfil para WhatsApp."
+          }
+        ]
+      },
+      {
         "titulo": "Instagram",
-        "texto": "La misma identidad en el perfil, en las seis destacadas con íconos propios y en las publicaciones.",
+        "texto": "Perfil, destacadas y publicaciones con la misma identidad.",
         "imagenes": [
           {
             "540": "/img/proyectos/equilibria-v2/ig-perfil-540.webp",
@@ -1126,30 +1200,202 @@
               1080,
               1350
             ],
-            "alt": "Equilibria — Perfil de Instagram con historias destacadas y publicaciones."
+            "alt": "Equilibria — Perfil de Instagram con destacadas y publicaciones."
           },
           {
-            "390": "/img/proyectos/equilibria-v2/ig-celular-390.webp",
-            "780": "/img/proyectos/equilibria-v2/ig-celular-780.webp",
+            "540": "/img/proyectos/equilibria-v2/wa-estado-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/wa-estado-1080.webp",
             "_wh": [
-              780,
-              1688
+              1080,
+              1920
             ],
-            "alt": "Equilibria — Perfil de Instagram en celular."
+            "alt": "Equilibria — Pieza para presentar la web en WhatsApp e historias."
+          }
+        ]
+      },
+      {
+        "titulo": "Feed",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "506": "/img/proyectos/equilibria-v2/feed-01-506.webp",
+            "1012": "/img/proyectos/equilibria-v2/feed-01-1012.webp",
+            "_wh": [
+              1012,
+              1350
+            ],
+            "alt": "Equilibria — Publicación de presentación."
           },
           {
-            "720": "/img/proyectos/equilibria-v2/d-instagram-720.webp",
-            "1440": "/img/proyectos/equilibria-v2/d-instagram-1440.webp",
+            "506": "/img/proyectos/equilibria-v2/feed-02-506.webp",
+            "1012": "/img/proyectos/equilibria-v2/feed-02-1012.webp",
             "_wh": [
-              1440,
-              900
+              1012,
+              1350
             ],
-            "alt": "Equilibria — Sección de Instagram y datos de contacto en la web."
+            "alt": "Equilibria — Publicación sobre Verónica."
+          },
+          {
+            "506": "/img/proyectos/equilibria-v2/feed-03-506.webp",
+            "1012": "/img/proyectos/equilibria-v2/feed-03-1012.webp",
+            "_wh": [
+              1012,
+              1350
+            ],
+            "alt": "Equilibria — Publicación de cómo trabajamos."
+          },
+          {
+            "506": "/img/proyectos/equilibria-v2/feed-04-506.webp",
+            "1012": "/img/proyectos/equilibria-v2/feed-04-1012.webp",
+            "_wh": [
+              1012,
+              1350
+            ],
+            "alt": "Equilibria — Publicación de recursos terapéuticos."
+          },
+          {
+            "506": "/img/proyectos/equilibria-v2/feed-05-506.webp",
+            "1012": "/img/proyectos/equilibria-v2/feed-05-1012.webp",
+            "_wh": [
+              1012,
+              1350
+            ],
+            "alt": "Equilibria — Publicación del consultorio."
+          },
+          {
+            "506": "/img/proyectos/equilibria-v2/feed-06-506.webp",
+            "1012": "/img/proyectos/equilibria-v2/feed-06-1012.webp",
+            "_wh": [
+              1012,
+              1350
+            ],
+            "alt": "Equilibria — Publicación del gimnasio."
+          },
+          {
+            "506": "/img/proyectos/equilibria-v2/feed-07-506.webp",
+            "1012": "/img/proyectos/equilibria-v2/feed-07-1012.webp",
+            "_wh": [
+              1012,
+              1350
+            ],
+            "alt": "Equilibria — Publicación de alquiler para profesores."
+          },
+          {
+            "506": "/img/proyectos/equilibria-v2/feed-10-506.webp",
+            "1012": "/img/proyectos/equilibria-v2/feed-10-1012.webp",
+            "_wh": [
+              1012,
+              1350
+            ],
+            "alt": "Equilibria — Publicación de horarios."
+          }
+        ]
+      },
+      {
+        "titulo": "Historias",
+        "texto": "Impacto, confianza, participación y contenido educativo, con enlaces directos a la web, WhatsApp y Maps.",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "540": "/img/proyectos/equilibria-v2/historia-1-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/historia-1-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Equilibria — Historia “Tu cuerpo te habla”."
+          },
+          {
+            "540": "/img/proyectos/equilibria-v2/historia-2-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/historia-2-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Equilibria — Historia “Conocé Equilibria”."
+          },
+          {
+            "540": "/img/proyectos/equilibria-v2/historia-3-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/historia-3-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Equilibria — Historia con el puntaje de reseñas."
+          },
+          {
+            "540": "/img/proyectos/equilibria-v2/historia-4-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/historia-4-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Equilibria — Historia “60 minutos solo para vos”."
+          },
+          {
+            "540": "/img/proyectos/equilibria-v2/historia-5-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/historia-5-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Equilibria — Historia de mito y realidad."
+          },
+          {
+            "540": "/img/proyectos/equilibria-v2/historia-6-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/historia-6-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Equilibria — Historia con encuesta."
+          },
+          {
+            "540": "/img/proyectos/equilibria-v2/historia-7-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/historia-7-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Equilibria — Historia de alquiler para profesores."
+          },
+          {
+            "540": "/img/proyectos/equilibria-v2/historia-8-540.webp",
+            "1080": "/img/proyectos/equilibria-v2/historia-8-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Equilibria — Historia para pedir turno por WhatsApp."
+          }
+        ]
+      },
+      {
+        "titulo": "Impresos",
+        "texto": "La marca también en la calle: flyers con código QR para comercios, consultorios y gimnasios.",
+        "imagenes": [
+          {
+            "600": "/img/proyectos/equilibria-v2/flyer-general-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/flyer-general-1200.webp",
+            "_wh": [
+              1200,
+              1687
+            ],
+            "alt": "Equilibria — Flyer general con código QR."
+          },
+          {
+            "600": "/img/proyectos/equilibria-v2/flyer-profesores-600.webp",
+            "1200": "/img/proyectos/equilibria-v2/flyer-profesores-1200.webp",
+            "_wh": [
+              1200,
+              1687
+            ],
+            "alt": "Equilibria — Flyer para profesores con código QR."
           }
         ]
       }
     ],
-    "cta": "¿Querés verla en vivo?",
+    "cta": "¿Querés un sistema así para tu marca?",
     "enlaces": [
       {
         "texto": {
