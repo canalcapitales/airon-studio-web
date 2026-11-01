@@ -163,7 +163,6 @@
     "videos": [
       "Ec-weSrJWEi"
     ],
-    "behance": false,
     "previa": 2
   },
   {
@@ -216,7 +215,6 @@
         "800": "/img/p/branding-x-airon-studio/movil-800.webp"
       }
     },
-    "behance": false,
     "galerias": [],
     "muroLogos": true
   },
@@ -273,8 +271,7 @@
     "videos": [
       "9fc-eBkIEDc",
       "-_sfLpzfFVc"
-    ],
-    "behance": false
+    ]
   },
   {
     "slug": "trust-fund",
@@ -448,8 +445,7 @@
     "videos": [
       "Up3QbgkzHvT",
       "VQY7mBxmS_i"
-    ],
-    "behance": false
+    ]
   },
   {
     "slug": "blend-david",
@@ -575,7 +571,6 @@
       }
     ],
     "videos": [],
-    "behance": false,
     "estetica": "Abstracto orgánico"
   },
   {
@@ -726,8 +721,7 @@
         ]
       }
     ],
-    "videos": [],
-    "behance": false
+    "videos": []
   },
   {
     "slug": "web-airon-studio",
@@ -780,7 +774,6 @@
     ],
     "galeria": [],
     "videos": [],
-    "behance": false,
     "galerias": [
       {
         "titulo": "Escritorio",
@@ -1026,8 +1019,7 @@
         ]
       }
     ],
-    "videos": [],
-    "behance": false
+    "videos": []
   },
   {
     "slug": "ploteo-vehicular",
@@ -1118,8 +1110,7 @@
         ]
       }
     ],
-    "videos": [],
-    "behance": false
+    "videos": []
   },
   {
     "slug": "spotify-covers",
@@ -1171,7 +1162,6 @@
         "800": "/img/p/spotify-covers/movil-800.webp"
       }
     },
-    "behance": false,
     "galerias": [],
     "muro": "portadas"
   },
@@ -1225,7 +1215,6 @@
         "800": "/img/p/flyers/movil-800.webp"
       }
     },
-    "behance": false,
     "galerias": [],
     "muro": "flyers"
   },
@@ -1309,8 +1298,7 @@
         ]
       }
     ],
-    "videos": [],
-    "behance": false
+    "videos": []
   },
   {
     "slug": "analogic-photos",
@@ -1472,7 +1460,6 @@
         ]
       }
     ],
-    "videos": [],
-    "behance": false
+    "videos": []
   }
 ]

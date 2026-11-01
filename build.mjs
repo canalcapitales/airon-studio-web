@@ -43,7 +43,7 @@ const TXT = {
     tarifarios: {
       nav: 'Herramientas',
       titulo: 'Herramientas gratuitas para creativos',
-      desc: 'Herramientas gratuitas para creativos: tarifario mural, tarifario de diseño, generador de letras Unicode, convertidor de mayúsculas y minúsculas y convertidor de imágenes a PNG.',
+      desc: 'Herramientas gratuitas para creativos: tarifario mural y de diseño, letras Unicode, convertidor de mayúsculas y minúsculas y de imágenes a PNG.',
       kicker: 'Gratis · Sin registrarse',
       h1: 'Herramientas',
       lead: 'Herramientas gratuitas para diseñadores, muralistas y marcas: calculá y presupuestá trabajos, generá letras especiales para redes y convertí imágenes a PNG. Todo funciona en tu navegador.',
@@ -80,7 +80,7 @@ const TXT = {
     },
     mayusculas: {
       titulo: 'Convertir mayúsculas a minúsculas online — y al revés',
-      desc: 'Convertidor gratuito de mayúsculas y minúsculas: pasá tu texto a MAYÚSCULAS, minúsculas, tipo oración, tipo título o Cada Palabra, quitá tildes y copialo con un toque.',
+      desc: 'Convertidor gratuito: pasá tu texto a MAYÚSCULAS, minúsculas, tipo oración, tipo título o Cada Palabra, quitá tildes y copialo con un toque.',
       kicker: 'Herramienta gratuita',
       h1: 'Mayúsculas y minúsculas',
       lead: 'Pegá o escribí un texto y copialo en el formato que necesites: todo en mayúsculas, todo en minúsculas, con mayúscula después de cada punto o con mayúscula en cada palabra. Funciona en tu navegador: el texto no se envía a ningún lado.',
@@ -110,7 +110,7 @@ const TXT = {
     },
     png: {
       titulo: 'Convertir imagen a PNG online gratis — quitar fondo con IA',
-      desc: 'Convertí imágenes JPG, WEBP, GIF o SVG a PNG gratis, quitá el fondo con IA o un fondo de color para dejarlo transparente, cambiá el tamaño y recortá bordes. Sin subir tus archivos.',
+      desc: 'Convertí JPG, WEBP, GIF o SVG a PNG gratis, quitá el fondo con IA o un color liso, cambiá el tamaño y recortá bordes. Sin subir tus archivos.',
       kicker: 'Herramienta gratuita',
       h1: 'Convertir a PNG',
       lead: 'Pasá tus imágenes a PNG, con fondo transparente si lo necesitás. Todo se procesa en tu navegador: tus archivos no se suben a ningún servidor.',
@@ -392,12 +392,12 @@ const TXT = {
     listadoDesc: 'Portafolio de AIRON Studio: diseño integral para empresas, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía.',
     portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar', muro: { titulo: 'Muro de marcas', texto: 'Logos diseñados para artistas, comercios, empresas e instituciones. Filtrá por rubro y tocá cada marca para verla en grande.', todas: 'Todas', marcas: 'marcas', rubros: 'rubros', verCaso: 'Ver caso', filtrar: 'Filtrar marcas por rubro' },
     videoDe: (t) => `Video del proyecto ${t}`, volver: '← Volver a proyectos', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
-    ctaProyecto: '¿Querés ver todas las imágenes?', verBehance: 'Ver en Behance', ctaSinBehance: '¿Tu marca es la próxima?', botonSinBehance: 'Pedí tu marca →', ctaProyectoGeneral: '¿Tenés un proyecto en mente?', botonProyecto: 'Pedí tu presupuesto →', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
+    ctaSinBehance: '¿Tu marca es la próxima?', botonSinBehance: 'Pedí tu marca →', ctaProyectoGeneral: '¿Tenés un proyecto en mente?', botonProyecto: 'Pedí tu presupuesto →', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
     proyectoDe: 'Proyecto de AIRON Studio.',
     descProyecto: (cats) => `${cats} por AIRON Studio, estudio de diseño multimedial en Buenos Aires.`,
     visor: { aria: 'Visor de imágenes', cerrar: 'Cerrar', ant: 'Imagen anterior', sig: 'Imagen siguiente' },
     estudioTitulo: 'Nosotros', elEstudio: 'El estudio', estudioH1: 'Diseño con mirada integral',
-    estudioDesc: 'AIRON Studio: estudio de diseño multimedial fundado en 2015 en Buenos Aires, liderado por Matías Gonzalez, con un equipo de diseñadores, ilustradores, programadores, muralistas y más.',
+    estudioDesc: 'Estudio de diseño multimedial fundado en 2015 en Buenos Aires y liderado por Matías Gonzalez, con diseñadores, ilustradores, programadores y muralistas.',
     cargoEstudio: 'Fundador y director del estudio',
     equipoKicker: 'Equipo',
     equipoTitulo: 'Un equipo para cada proyecto',
@@ -814,12 +814,12 @@ const TXT = {
     listadoDesc: 'AIRON Studio portfolio: integrated design for companies, branding, social media, vehicle wraps, graphic design, web & systems, motion, murals and photography.',
     portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge', muro: { titulo: 'Brand wall', texto: 'Logos designed for artists, shops, companies and institutions. Filter by industry and tap any brand to see it large.', todas: 'All', marcas: 'brands', rubros: 'industries', verCaso: 'View case', filtrar: 'Filter brands by industry' },
     videoDe: (t) => `Video of the project ${t}`, volver: '← Back to work', fichaAria: 'Project details', imagenesAria: 'Project images',
-    ctaProyecto: 'Want to see every image?', verBehance: 'View on Behance', ctaSinBehance: 'Is your brand next?', botonSinBehance: 'Get your brand →', ctaProyectoGeneral: 'Got a project in mind?', botonProyecto: 'Get a quote →', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
+    ctaSinBehance: 'Is your brand next?', botonSinBehance: 'Get your brand →', ctaProyectoGeneral: 'Got a project in mind?', botonProyecto: 'Get a quote →', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
     proyectoDe: 'A project by AIRON Studio.',
     descProyecto: (cats) => `${cats} by AIRON Studio, a multimedia design studio based in Buenos Aires.`,
     visor: { aria: 'Image viewer', cerrar: 'Close', ant: 'Previous image', sig: 'Next image' },
     estudioTitulo: 'About us', elEstudio: 'The studio', estudioH1: 'Design with an all-round vision',
-    estudioDesc: 'AIRON Studio: a multimedia design studio founded in 2015 in Buenos Aires, led by Matías Gonzalez, with a team of designers, illustrators, developers, muralists and more.',
+    estudioDesc: 'A multimedia design studio founded in 2015 in Buenos Aires, led by Matías Gonzalez, with designers, illustrators, developers and muralists.',
     cargoEstudio: 'Founder and studio director',
     equipoKicker: 'Team',
     equipoTitulo: 'A team for every project',
@@ -905,7 +905,6 @@ function proyectosEn(l) {
         imagenes: g.imagenes.map((im, k) => ({ ...im, alt: (t.alts || [])[k] ?? im.alt })),
       };
     });
-    const behance = p.behance;
     return {
       ...p,
       titulo: o.titulo ?? p.titulo,
@@ -916,7 +915,6 @@ function proyectosEn(l) {
       ficha: o.ficha ?? p.ficha,
       bloques: o.bloques ?? p.bloques,
       galerias,
-      behance,
     };
   });
 }
@@ -2616,12 +2614,11 @@ for (const l of IDIOMAS) {
 }
 escribir('404.html', noEncontrada());
 
-const hoy = new Date().toISOString().slice(0, 10);
 escribir(
   'sitemap.xml',
   `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${paraMapa.map((ruta) => `  <url><loc>${SITIO.url}${ruta}</loc><lastmod>${hoy}</lastmod></url>`).join('\n')}
+${paraMapa.map((ruta) => `  <url><loc>${SITIO.url}${ruta}</loc></url>`).join('\n')}
 </urlset>
 `
 );

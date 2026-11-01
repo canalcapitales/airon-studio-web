@@ -1,6 +1,6 @@
 # AIRON Studio — Web portafolio
 
-Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proyecto, Sobre mí y Contacto.
+Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proyecto, Murales, LAION, Herramientas, Nosotros y Contacto.
 
 ## Cómo está organizado
 
@@ -18,6 +18,7 @@ Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proy
 | `src/static/css/styles.css` | Colores, tipografías y diseño. Arriba están los colores del modo claro (`:root`) y debajo los del modo oscuro. |
 | `src/static/js/main.js` | Menú de celular, botón de modo claro/oscuro, filtros, visor de imágenes, formulario y las herramientas (calculadora de murales, tarifario de diseño, letras Unicode, mayúsculas y minúsculas y convertidor a PNG). Todas funcionan en el navegador, sin servicios externos. |
 | `src/static/js/tema.js` | Aplica el modo (claro u oscuro) que eligió el visitante antes de mostrar la página. |
+| `src/static/js/transiciones.js` | Transiciones entre páginas. |
 | `src/static/ia/` | Motor de IA (ONNX Runtime Web, MIT) y modelo U²-Netp (Apache 2.0) para "Quitar fondo con IA" en el convertidor a PNG. Se descargan solo cuando alguien activa esa opción; licencias en `LICENCIAS.txt`. |
 | `src/static/site.webmanifest`, `icon-*.png`, `apple-touch-icon.png` | Nombre e íconos para cuando alguien guarda la web en la pantalla de inicio del celular. |
 | `build.mjs` | Arma todas las páginas en español (`/`) e inglés (`/en/`). Los textos de menú, botones y secciones están arriba, en `TXT`. |
@@ -59,7 +60,7 @@ Mientras ese código esté vacío, el formulario muestra un aviso para escribir 
 
 ## Imágenes
 
-Todas las imágenes están en la propia web, en `src/static/img/p/<proyecto>/`, en formato WebP y en dos tamaños (640 y 1280 px). Las imágenes para compartir en redes están en `src/static/img/og/`.
+Todas las imágenes están en la propia web, en `src/static/img/p/<proyecto>/`, en formato WebP y en varios tamaños (el número va en el nombre, por ejemplo `-1200`). Las imágenes para compartir en redes están en `src/static/img/og/`.
 
 ## Pendientes
 
