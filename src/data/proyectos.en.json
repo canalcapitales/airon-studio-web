@@ -44,6 +44,69 @@
       { "titulo": "Mobile", "alts": ["AIRON Studio website — mobile home", "AIRON Studio website — mobile menu", "AIRON Studio website — projects on mobile", "AIRON Studio website — brand wall on mobile"] }
     ]
   },
+  "equilibria": {
+    "subtitulo": "Brand identity, website design and development",
+    "cta": "Want to see it live?",
+    "ficha": [
+      [
+        "Client",
+        "Equilibria · Physical Therapy & Rehabilitation"
+      ],
+      [
+        "Year",
+        "2026"
+      ],
+      [
+        "Role",
+        "Visual identity, design, development and copywriting"
+      ],
+      [
+        "Hosting",
+        "Cloudflare Pages, on its own domain"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The challenge",
+        "destacado": "Equilibria is a physical therapy practice in San Martín de los Andes, Argentina, that grew through word of mouth but had no website, no brand identity and no simple way to book an appointment. The goal was that when someone recommended it, the other person could easily find it, get to know it and get in touch.",
+        "parrafos": []
+      },
+      {
+        "titulo": "The process",
+        "parrafos": [
+          "We started with the identity: a symbol of balancing stones, a navy and turquoise palette, and two typefaces used the same way on the website and on social media. The design was mobile-first, with generous white space and large photos of the space, so the practice would feel close before the first visit.",
+          "The site is a single page with 13 sections, custom-built in HTML, CSS and JavaScript, with no templates. It brings together the treatments, the practice, opening hours, FAQs, the location, and a gym section with a photo slider and a block for instructors who want to rent the space. Each type of inquiry has its own WhatsApp shortcut with the message already written."
+        ]
+      },
+      {
+        "titulo": "The result",
+        "parrafos": [
+          "The site is live on its own domain over a secure connection. It has 13 sections and 9 WhatsApp shortcuts, and gathers in one place all the information that wasn’t online before. It also gives patients a button to leave their review on Google."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "Desktop",
+        "alts": [
+          "Equilibria — Desktop home screen with the main headline and a photo of the practice.",
+          "Equilibria — Desktop gallery of three treatment rooms.",
+          "Equilibria — Desktop cards for the nine therapeutic treatments.",
+          "Equilibria — Desktop gym section with equipment tags and photo slider.",
+          "Equilibria — Desktop FAQs and reviews section with the Google rating."
+        ]
+      },
+      {
+        "titulo": "Mobile",
+        "alts": [
+          "Equilibria — Mobile home screen with the headline, buttons and a photo of the practice.",
+          "Equilibria — Mobile photo carousel of the practice and first treatments.",
+          "Equilibria — Mobile gym section with photo slider and equipment.",
+          "Equilibria — Mobile reviews section with the Google rating."
+        ]
+      }
+    ]
+  },
   "branding-x-airon-studio": {
     "subtitulo": "25 brand identities",
     "ficha": [["Discipline", "Visual identity and branding"], ["Identities", "25 brands designed"], ["Industries", "Music, food, real estate, retail, industry, culture and tourism"]],

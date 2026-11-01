@@ -880,6 +880,162 @@
     ]
   },
   {
+    "slug": "equilibria",
+    "titulo": "Equilibria",
+    "subtitulo": "Identidad, diseño y desarrollo del sitio",
+    "categorias": [
+      "web"
+    ],
+    "portada": {
+      "640": "/img/proyectos/equilibria/portada-640.webp",
+      "1280": "/img/proyectos/equilibria/portada-1280.webp"
+    },
+    "ficha": [
+      [
+        "Cliente",
+        "Equilibria · Kinesiología & Rehabilitación"
+      ],
+      [
+        "Año",
+        "2026"
+      ],
+      [
+        "Rol",
+        "Identidad visual, diseño, desarrollo y textos"
+      ],
+      [
+        "Publicación",
+        "Cloudflare Pages, en dominio propio"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El reto",
+        "destacado": "Equilibria es un consultorio de kinesiología de San Martín de los Andes que crecía de boca en boca, pero no tenía web, identidad de marca ni un camino simple para pedir turno. Había que lograr que, cuando alguien lo recomendara, la otra persona pudiera encontrarlo, conocerlo y escribir fácil.",
+        "parrafos": []
+      },
+      {
+        "titulo": "El proceso",
+        "parrafos": [
+          "Primero definimos la identidad: un isotipo de piedras en equilibrio, una paleta de azul marino y turquesa, y dos tipografías que se usan igual en la web y en las redes. El diseño se pensó primero para celular, con mucho aire y fotos grandes del espacio, para que el consultorio se sintiera cercano antes de la primera visita.",
+          "El sitio es una sola página de 13 secciones, hecha a medida en HTML, CSS y JavaScript, sin plantillas. Reúne los recursos terapéuticos, el consultorio, los horarios, las preguntas frecuentes, la ubicación y un gimnasio con slide de fotos y un bloque para profesores que quieran alquilarlo. Cada consulta tiene su acceso directo a WhatsApp, con el mensaje ya escrito."
+        ]
+      },
+      {
+        "titulo": "El resultado",
+        "parrafos": [
+          "El sitio está publicado en dominio propio y con conexión segura. Tiene 13 secciones y 9 accesos directos a WhatsApp, y reúne en un solo lugar toda la información que antes no estaba en internet. Además, deja un botón para que los pacientes dejen su opinión en Google."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "Escritorio",
+        "imagenes": [
+          {
+            "720": "/img/proyectos/equilibria/d-inicio-720.webp",
+            "1440": "/img/proyectos/equilibria/d-inicio-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Inicio del sitio en escritorio, con el título principal y una foto del consultorio."
+          },
+          {
+            "720": "/img/proyectos/equilibria/d-consultorio-720.webp",
+            "1440": "/img/proyectos/equilibria/d-consultorio-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Galería de tres salas del consultorio en escritorio."
+          },
+          {
+            "720": "/img/proyectos/equilibria/d-recursos-720.webp",
+            "1440": "/img/proyectos/equilibria/d-recursos-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Tarjetas de los nueve recursos terapéuticos en escritorio."
+          },
+          {
+            "720": "/img/proyectos/equilibria/d-gimnasio-720.webp",
+            "1440": "/img/proyectos/equilibria/d-gimnasio-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Sección del gimnasio en escritorio, con etiquetas de equipamiento y slide de fotos."
+          },
+          {
+            "720": "/img/proyectos/equilibria/d-opiniones-720.webp",
+            "1440": "/img/proyectos/equilibria/d-opiniones-1440.webp",
+            "_wh": [
+              1440,
+              900
+            ],
+            "alt": "Equilibria — Preguntas frecuentes y sección de opiniones con el puntaje de Google en escritorio."
+          }
+        ]
+      },
+      {
+        "titulo": "Celular",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "390": "/img/proyectos/equilibria/m-inicio-390.webp",
+            "780": "/img/proyectos/equilibria/m-inicio-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Equilibria — Inicio del sitio en celular, con el título, los botones y una foto del consultorio."
+          },
+          {
+            "390": "/img/proyectos/equilibria/m-consultorio-390.webp",
+            "780": "/img/proyectos/equilibria/m-consultorio-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Equilibria — Carrusel de fotos del consultorio y primeros recursos terapéuticos en celular."
+          },
+          {
+            "390": "/img/proyectos/equilibria/m-gimnasio-390.webp",
+            "780": "/img/proyectos/equilibria/m-gimnasio-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Equilibria — Sección del gimnasio en celular, con el slide de fotos y el equipamiento."
+          },
+          {
+            "390": "/img/proyectos/equilibria/m-opiniones-390.webp",
+            "780": "/img/proyectos/equilibria/m-opiniones-780.webp",
+            "_wh": [
+              780,
+              1688
+            ],
+            "alt": "Equilibria — Sección de opiniones con el puntaje de Google en celular."
+          }
+        ]
+      }
+    ],
+    "cta": "¿Querés verla en vivo?",
+    "enlaces": [
+      {
+        "texto": {
+          "es": "Visitar el sitio",
+          "en": "Visit the website"
+        },
+        "url": "https://equilibriaweb.com.ar"
+      }
+    ]
+  },
+  {
     "slug": "empresa-black",
     "titulo": "Empresa Black",
     "subtitulo": "Manual de marca",
