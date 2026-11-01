@@ -383,7 +383,7 @@ const TXT = {
     heroKicker: ['Estudio de diseño multimedial', 'Buenos Aires · desde 2015'],
     heroLead: 'Branding, diseño gráfico, diseño web, sistemas de gestión, gráfica musical, motion, arte urbano y fotografía analógica.',
     verProyectos: 'Ver proyectos →', hablemos: 'Contacto', disciplinasAria: 'Disciplinas',
-    indice: 'Índice', verGrilla: 'Ver con imágenes y filtros →',
+    areasKicker: 'Elegí un área', verTodos: 'Ver todos los proyectos →', proyectoUno: 'proyecto',
     serviciosKicker: 'Servicios', queHacemos: 'Qué hacemos', ctaInicio: '¿Tenés un proyecto en mente?', escribinos: 'Escribinos →',
     numerosTitulo: 'El estudio en números',
     numeros: ['Años de estudio', 'Proyectos en el portafolio', 'Identidades de marca', 'Marcas y medios', 'Nuestro mural más grande', 'Disciplinas creativas'],
@@ -805,7 +805,7 @@ const TXT = {
     heroKicker: ['Multimedia design studio', 'Buenos Aires · since 2015'],
     heroLead: 'Branding, graphic design, web design, management systems, music artwork, motion, street art and analog photography.',
     verProyectos: 'See our work →', hablemos: 'Contact', disciplinasAria: 'Disciplines',
-    indice: 'Index', verGrilla: 'Browse with images and filters →',
+    areasKicker: 'Choose an area', verTodos: 'See all projects →', proyectoUno: 'project',
     serviciosKicker: 'Services', queHacemos: 'What we do', ctaInicio: 'Have a project in mind?', escribinos: 'Get in touch →',
     numerosTitulo: 'The studio in numbers',
     numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Brands and media', 'Our largest mural', 'Creative disciplines'],
@@ -1244,28 +1244,26 @@ function clientes(l) {
 function inicio(l, proyectos) {
   const T = TXT[l];
   const R = RUTAS[l];
-  // Índice con todos los proyectos: cada fila con su portada a la derecha
-  const filas = proyectos
-    .map(
-      (p, i) => `<li><a class="indice-link reveal" href="${rutaDe(l, 'proyecto', p.slug)}">
-          <span class="indice-num mono">${num(i)}</span>
-          <span class="indice-texto"><span class="indice-titulo">${esc(p.titulo)}</span><span class="indice-sub">${esc(p.subtitulo)}</span></span>
-          <span class="indice-cat mono">${esc(catsTexto(l, p))}</span>
-          <span class="indice-mini" data-vt="p-${p.slug}"><img src="${esc(p.portada['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async"></span>
-        </a></li>`
-    )
+  // Áreas del portafolio: cada una lleva a sus proyectos, con una portada que no se repite
+  const usados = new Set();
+  const areas = CAT_IDS.map((id) => ({ id, delArea: proyectos.filter((p) => p.categorias.includes(id)) }))
+    .filter((a) => a.delArea.length)
+    .map(({ id, delArea }, i) => {
+      const p = delArea.find((x) => !usados.has(x.slug)) || delArea[0];
+      usados.add(p.slug);
+      const n = delArea.length;
+      return `<li><a class="area reveal" href="${enlaceServicio(l, id)}">
+          ${img(p.portada, { alt: '', sizes: '(min-width: 1100px) 19vw, 50vw', dims: [640, 501] })}
+          <span class="area-num mono">${num(i)}</span>
+          <span class="area-info"><span class="area-nombre">${esc(nombreCat(l, id))}</span><span class="area-cuenta mono">${n} ${n === 1 ? T.proyectoUno : T.proyectosCont} <span aria-hidden="true">→</span></span></span>
+        </a></li>`;
+    })
     .join('\n        ');
   const conCat = T.servicios.filter(([cat]) => cat);
   const lista = (oculta) =>
     `<ul class="franja-lista"${oculta ? ' aria-hidden="true"' : ''}>${conCat
       .map(([cat, nombre]) => `<li><a href="${enlaceServicio(l, cat)}"${oculta ? ' tabindex="-1"' : ''}>${esc(nombre)}</a></li><li class="franja-sep" aria-hidden="true"></li>`)
       .join('')}</ul>`;
-  const servicios = T.servicios
-    .map(([cat, nombre, texto], i) => {
-      const titulo = cat ? `<a href="${enlaceServicio(l, cat)}">${esc(nombre)} <span aria-hidden="true">→</span></a>` : esc(nombre);
-      return `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${titulo}</h3><p>${esc(texto)}</p></div></li>`;
-    })
-    .join('\n        ');
   return pagina(l, {
     clave: 'inicio',
     publicidadEnPie: false,
@@ -1289,19 +1287,17 @@ function inicio(l, proyectos) {
 
   <nav class="franja" aria-label="${T.disciplinasAria}"><div class="franja-pista">${lista(false)}${lista(true)}</div></nav>
 
-  <section class="seccion">
-    <div class="wrap">
-      <div class="seccion-head">
-        <div>
-          <span class="kicker mono">${T.indice} · 01—${num(proyectos.length - 1)}</span>
-          <h2 class="h2">${T.nav.proyectos}</h2>
-        </div>
-        <a class="link-arrow" href="${R.proyectos}">${T.verGrilla}</a>
+  <section class="areas-seccion">
+    <div class="wrap seccion-head">
+      <div>
+        <span class="kicker mono">${T.areasKicker}</span>
+        <h2 class="h2">${T.nav.proyectos}</h2>
       </div>
-      <ol class="indice">
-        ${filas}
-      </ol>
+      <a class="link-arrow" href="${R.proyectos}">${T.verTodos}</a>
     </div>
+    <ul class="areas">
+      ${areas}
+    </ul>
   </section>
 
 ${marquesinaPublicidad(l, 'inicio')}
@@ -1309,20 +1305,6 @@ ${marquesinaPublicidad(l, 'inicio')}
   ${numeros(l, proyectos)}
 
   ${clientes(l)}
-
-  <section class="seccion">
-    <div class="wrap servicios-grid">
-      <div>
-        <span class="kicker mono">${T.serviciosKicker}</span>
-        <h2 class="h2">${T.queHacemos}</h2>
-      </div>
-      <ul class="servicios">
-        ${servicios}
-      </ul>
-    </div>
-  </section>
-
-  ${proceso(l)}
 
   ${ctaBloque(l, T.ctaInicio)}
 `,
