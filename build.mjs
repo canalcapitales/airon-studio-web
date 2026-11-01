@@ -397,13 +397,13 @@ const TXT = {
     descProyecto: (cats) => `${cats} por AIRON Studio, estudio de diseño multimedial en Buenos Aires.`,
     visor: { aria: 'Visor de imágenes', cerrar: 'Cerrar', ant: 'Imagen anterior', sig: 'Imagen siguiente' },
     estudioTitulo: 'Nosotros', elEstudio: 'El estudio', estudioH1: 'Diseño con mirada integral',
-    estudioDesc: 'Estudio de diseño multimedial fundado en 2015 en Buenos Aires y liderado por Matías Gonzalez, con diseñadores, ilustradores, programadores y muralistas.',
+    estudioDesc: 'Estudio de diseño multimedial fundado en 2015 en Buenos Aires y liderado por Matías González, con diseñadores, ilustradores, programadores y muralistas.',
     cargoEstudio: 'Fundador y director del estudio',
     equipoKicker: 'Equipo',
     equipoTitulo: 'Un equipo para cada proyecto',
-    equipoTexto: 'AIRON Studio reúne profesionales de distintas disciplinas. Según lo que necesita cada marca armamos el equipo justo, y Matías Gonzalez coordina el proyecto de principio a fin: es tu contacto directo en cada etapa.',
+    equipoTexto: 'AIRON Studio reúne profesionales de distintas disciplinas. Según lo que necesita cada marca armamos el equipo justo, y Matías González coordina el proyecto de principio a fin: es tu contacto directo en cada etapa.',
     equipo: [
-      ['Dirección creativa', 'Matías Gonzalez, fundador del estudio. Define el concepto, coordina al equipo y cuida que cada pieza cumpla su objetivo.'],
+      ['Dirección creativa', 'Matías González, fundador del estudio. Define el concepto, coordina al equipo y cuida que cada pieza cumpla su objetivo.'],
       ['Diseño gráfico y de marca', 'Identidades, logos, manuales de marca, packaging y piezas gráficas.'],
       ['Ilustración', 'Personajes, ilustraciones editoriales y para redes, y bocetos para murales.'],
       ['Muralismo y arte urbano', 'Artistas que pintan fachadas, interiores y persianas, en cualquier escala.'],
@@ -416,11 +416,11 @@ const TXT = {
       ['Producción gráfica', 'Coordinación de imprenta, ploteo y cartelería para que todo salga igual que en pantalla.'],
     ],
     estudioTextos: [
-      `Estudio de diseño multimedial fundado en ${FUNDACION}, con base en Buenos Aires y liderado por Matías Gonzalez, Diseñador en Comunicación Visual recibido en la Universidad Nacional de La Plata.`,
+      `Estudio de diseño multimedial fundado en ${FUNDACION}, con base en Buenos Aires y liderado por Matías González, Diseñador en Comunicación Visual recibido en la Universidad Nacional de La Plata.`,
       'Desarrollamos proyectos que combinan estrategia, diseño y comunicación, creando identidades y experiencias visuales capaces de conectar marcas con sus públicos.',
       'Trabajamos en la intersección entre branding, diseño gráfico, diseño web, comunicación digital, arte urbano y fotografía analógica, con una mirada integral, contemporánea y experimental.',
     ],
-    retrato: 'Retrato de Matías Gonzalez, fundador de AIRON Studio', cargo: 'Diseñador en Comunicación Visual', formacionAria: 'Facultad de Artes, Universidad Nacional de La Plata',
+    retrato: 'Retrato de Matías González, fundador de AIRON Studio', cargo: 'Diseñador en Comunicación Visual', formacionAria: 'Facultad de Artes, Universidad Nacional de La Plata',
     disciplinas: 'Disciplinas', marcasTitulo: 'Marcas y medios con los que trabajamos', ctaEstudio: 'Trabajemos juntos',
     procesoKicker: 'Método', procesoTitulo: 'Cómo trabajamos',
     proceso: [
@@ -819,13 +819,13 @@ const TXT = {
     descProyecto: (cats) => `${cats} by AIRON Studio, a multimedia design studio based in Buenos Aires.`,
     visor: { aria: 'Image viewer', cerrar: 'Close', ant: 'Previous image', sig: 'Next image' },
     estudioTitulo: 'About us', elEstudio: 'The studio', estudioH1: 'Design with an all-round vision',
-    estudioDesc: 'A multimedia design studio founded in 2015 in Buenos Aires, led by Matías Gonzalez, with designers, illustrators, developers and muralists.',
+    estudioDesc: 'A multimedia design studio founded in 2015 in Buenos Aires, led by Matías González, with designers, illustrators, developers and muralists.',
     cargoEstudio: 'Founder and studio director',
     equipoKicker: 'Team',
     equipoTitulo: 'A team for every project',
-    equipoTexto: 'AIRON Studio brings together professionals from different disciplines. We build the right team for what each brand needs, and Matías Gonzalez leads the project from start to finish: he is your direct contact at every stage.',
+    equipoTexto: 'AIRON Studio brings together professionals from different disciplines. We build the right team for what each brand needs, and Matías González leads the project from start to finish: he is your direct contact at every stage.',
     equipo: [
-      ['Creative direction', 'Matías Gonzalez, founder of the studio. He defines the concept, leads the team and makes sure every piece meets its goal.'],
+      ['Creative direction', 'Matías González, founder of the studio. He defines the concept, leads the team and makes sure every piece meets its goal.'],
       ['Graphic and brand design', 'Identities, logos, brand guidelines, packaging and graphic pieces.'],
       ['Illustration', 'Characters, editorial and social media illustrations, and mural sketches.'],
       ['Murals and street art', 'Artists who paint façades, interiors and shutters, at any scale.'],
@@ -838,11 +838,11 @@ const TXT = {
       ['Print production', 'We coordinate printing, vinyl and signage so everything turns out just like on screen.'],
     ],
     estudioTextos: [
-      `A multimedia design studio founded in ${FUNDACION}, based in Buenos Aires and led by Matías Gonzalez, a Visual Communication Designer graduated from the National University of La Plata.`,
+      `A multimedia design studio founded in ${FUNDACION}, based in Buenos Aires and led by Matías González, a Visual Communication Designer graduated from the National University of La Plata.`,
       'We develop projects that combine strategy, design and communication, creating identities and visual experiences that connect brands with their audiences.',
       'We work where branding, graphic design, web design, digital communication, street art and analog photography meet, with an all-round, contemporary and experimental approach.',
     ],
-    retrato: 'Portrait of Matías Gonzalez, founder of AIRON Studio', cargo: 'Visual Communication Designer', formacionAria: 'Faculty of Arts, National University of La Plata',
+    retrato: 'Portrait of Matías González, founder of AIRON Studio', cargo: 'Visual Communication Designer', formacionAria: 'Faculty of Arts, National University of La Plata',
     disciplinas: 'Disciplines', marcasTitulo: 'Brands and media we have worked with', ctaEstudio: "Let's work together",
     procesoKicker: 'Method', procesoTitulo: 'How we work',
     proceso: [
@@ -978,7 +978,7 @@ const organizacion = (l) => ({
   description: TXT[l].descripcion,
   foundingDate: String(FUNDACION),
   logo: `${SITIO.url}/img/logo-airon.svg`,
-  founder: { '@type': 'Person', name: 'Matías Gonzalez', jobTitle: TXT[l].cargo, image: `${SITIO.url}/img/foto-perfil-1080.webp` },
+  founder: { '@type': 'Person', name: 'Matías González', jobTitle: TXT[l].cargo, image: `${SITIO.url}/img/foto-perfil-1080.webp` },
   address: { '@type': 'PostalAddress', addressLocality: 'Buenos Aires', addressCountry: 'AR' },
   sameAs: [SITIO.linkedin, SITIO.instagram],
 });
@@ -2385,7 +2385,7 @@ function estudio(l, proyectos) {
     <div class="wrap sobre-grid">
       <figure class="sobre-figura">
         <img class="sobre-foto" src="/img/foto-perfil-1080.webp" srcset="/img/foto-perfil-640.webp 640w, /img/foto-perfil-1080.webp 1080w" sizes="(min-width: 900px) 360px, 220px" width="1080" height="1080" alt="${T.retrato}" fetchpriority="high">
-        <figcaption><span class="sobre-nombre">Matías Gonzalez</span><span class="mono">${T.cargoEstudio}</span><span class="sobre-cargo">${T.cargo} · UNLP</span><span class="formacion-logo" role="img" aria-label="${T.formacionAria}"></span></figcaption>
+        <figcaption><span class="sobre-nombre">Matías González</span><span class="mono">${T.cargoEstudio}</span><span class="sobre-cargo">${T.cargo} · UNLP</span><span class="formacion-logo" role="img" aria-label="${T.formacionAria}"></span></figcaption>
       </figure>
       <div class="sobre-texto">
         <span class="kicker mono">${T.elEstudio}</span>
