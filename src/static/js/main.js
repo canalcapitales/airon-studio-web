@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   visor();
   formulario();
   filtros();
+  areasInicio();
   muroLogos();
   sponsors();
 });
@@ -1674,6 +1675,22 @@ function formulario() {
       enviar.disabled = false;
     }
   });
+}
+
+// ----- Áreas del inicio: la vista previa sigue al área elegida -----
+function areasInicio() {
+  const enlaces = [...document.querySelectorAll('[data-area]')];
+  const vistas = [...document.querySelectorAll('[data-vista]')];
+  if (!enlaces.length) return;
+  const elegir = (id) => {
+    enlaces.forEach((a) => a.classList.toggle('activa', a.dataset.area === id));
+    vistas.forEach((v) => v.classList.toggle('activa', v.dataset.vista === id));
+  };
+  enlaces.forEach((a) => {
+    a.addEventListener('mouseenter', () => elegir(a.dataset.area));
+    a.addEventListener('focus', () => elegir(a.dataset.area));
+  });
+  elegir('0');
 }
 
 // ----- Filtros de proyectos -----

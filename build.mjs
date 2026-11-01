@@ -1246,18 +1246,24 @@ function inicio(l, proyectos) {
   const R = RUTAS[l];
   // Áreas del portafolio: cada una lleva a sus proyectos, con una portada que no se repite
   const usados = new Set();
-  const areas = CAT_IDS.map((id) => ({ id, delArea: proyectos.filter((p) => p.categorias.includes(id)) }))
+  const datosAreas = CAT_IDS.map((id) => ({ id, delArea: proyectos.filter((p) => p.categorias.includes(id)) }))
     .filter((a) => a.delArea.length)
-    .map(({ id, delArea }, i) => {
+    .map(({ id, delArea }) => {
       const p = delArea.find((x) => !usados.has(x.slug)) || delArea[0];
       usados.add(p.slug);
-      const n = delArea.length;
-      return `<li><a class="area reveal" href="${enlaceServicio(l, id)}">
-          ${img(p.portada, { alt: '', sizes: '(min-width: 1100px) 19vw, 50vw', dims: [640, 501] })}
+      return { id, p, n: delArea.length };
+    });
+  const areas = datosAreas
+    .map(({ id, p, n }, i) => `<li><a class="area reveal" href="${enlaceServicio(l, id)}" data-area="${i}">
+          <span class="area-mini">${img(p.portada, { alt: '', sizes: '112px', dims: [640, 501] })}</span>
           <span class="area-num mono">${num(i)}</span>
-          <span class="area-info"><span class="area-nombre">${esc(nombreCat(l, id))}</span><span class="area-cuenta mono">${n} ${n === 1 ? T.proyectoUno : T.proyectosCont} <span aria-hidden="true">→</span></span></span>
-        </a></li>`;
-    })
+          <span class="area-nombre">${esc(nombreCat(l, id))}</span>
+          <span class="area-cuenta mono">${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}</span>
+          <span class="area-flecha" aria-hidden="true">→</span>
+        </a></li>`)
+    .join('\n        ');
+  const visores = datosAreas
+    .map(({ p }, i) => `<div class="areas-vista${i === 0 ? ' activa' : ''}" data-vista="${i}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501] })}</div>`)
     .join('\n        ');
   const conCat = T.servicios.filter(([cat]) => cat);
   const lista = (oculta) =>
@@ -1287,17 +1293,24 @@ function inicio(l, proyectos) {
 
   <nav class="franja" aria-label="${T.disciplinasAria}"><div class="franja-pista">${lista(false)}${lista(true)}</div></nav>
 
-  <section class="areas-seccion">
-    <div class="wrap seccion-head">
-      <div>
+  <section class="seccion areas-seccion">
+    <div class="wrap">
+      <div class="areas-head">
         <span class="kicker mono">${T.areasKicker}</span>
         <h2 class="h2">${T.nav.proyectos}</h2>
       </div>
-      <a class="link-arrow" href="${R.proyectos}">${T.verTodos}</a>
+      <div class="areas-grid">
+        <div class="areas-visor" aria-hidden="true">
+        ${visores}
+        </div>
+        <div>
+          <ul class="areas">
+        ${areas}
+          </ul>
+          <a class="link-arrow areas-todos" href="${R.proyectos}">${T.verTodos}</a>
+        </div>
+      </div>
     </div>
-    <ul class="areas">
-      ${areas}
-    </ul>
   </section>
 
 ${marquesinaPublicidad(l, 'inicio')}
