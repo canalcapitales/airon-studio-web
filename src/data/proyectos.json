@@ -54,138 +54,42 @@
         ]
       }
     ],
-    "galeria": [
-      {
-        "640": "/img/p/gsp-seguridad/g01-640.webp",
-        "1200": "/img/p/gsp-seguridad/g01-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g02-640.webp",
-        "1200": "/img/p/gsp-seguridad/g02-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g03-640.webp",
-        "1200": "/img/p/gsp-seguridad/g03-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g04-640.webp",
-        "1200": "/img/p/gsp-seguridad/g04-1200.webp",
-        "_wh": [
-          1200,
-          670
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g05-640.webp",
-        "1200": "/img/p/gsp-seguridad/g05-1200.webp",
-        "_wh": [
-          1200,
-          670
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g06-640.webp",
-        "1200": "/img/p/gsp-seguridad/g06-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g07-640.webp",
-        "1080": "/img/p/gsp-seguridad/g07-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g08-640.webp",
-        "1080": "/img/p/gsp-seguridad/g08-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g09-640.webp",
-        "1080": "/img/p/gsp-seguridad/g09-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g10-640.webp",
-        "1080": "/img/p/gsp-seguridad/g10-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g11-640.webp",
-        "1080": "/img/p/gsp-seguridad/g11-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g12-640.webp",
-        "1200": "/img/p/gsp-seguridad/g12-1200.webp",
-        "_wh": [
-          1200,
-          2133
-        ]
-      },
-      {
-        "640": "/img/p/gsp-seguridad/g13-640.webp",
-        "1080": "/img/p/gsp-seguridad/g13-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      }
-    ],
-    "videos": [
-      "Ec-weSrJWEi"
-    ],
+    "galeria": [],
+    "videos": [],
     "previa": 2,
     "galerias": [
       {
         "titulo": "Identidad 2026",
-        "texto": "El escudo actualizado, su versión en negro y las adaptaciones para fotos de perfil.",
+        "texto": "Del escudo anterior a la versión 2026, con la variante negra para el grupo táctico y las adaptaciones para foto de perfil.",
+        "estilo": "grilla",
+        "columnas": 3,
         "imagenes": [
           {
-            "640": "/img/proyectos/gsp-v2/logo-2026-640.webp",
-            "1080": "/img/proyectos/gsp-v2/logo-2026-1080.webp",
-            "_wh": [
-              1080,
-              1201
-            ],
-            "alt": "GSP Seguridad — Escudo 2026."
-          },
-          {
-            "640": "/img/proyectos/gsp-v2/logo-geo-640.webp",
-            "1080": "/img/proyectos/gsp-v2/logo-geo-1080.webp",
+            "640": "/img/proyectos/gsp-v2/logo-comparar-anterior-640.webp",
+            "1080": "/img/proyectos/gsp-v2/logo-comparar-anterior-1080.webp",
             "_wh": [
               1080,
               1080
             ],
-            "alt": "GSP Seguridad — Escudo en versión negra."
+            "alt": "GSP Seguridad — Escudo anterior."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/logo-comparar-2026-640.webp",
+            "1080": "/img/proyectos/gsp-v2/logo-comparar-2026-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "GSP Seguridad — Escudo 2026."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/logo-comparar-tactico-640.webp",
+            "1080": "/img/proyectos/gsp-v2/logo-comparar-tactico-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "GSP Seguridad — Escudo negro del grupo táctico."
           },
           {
             "640": "/img/proyectos/gsp-v2/logo-perfil-1-640.webp",
@@ -194,7 +98,16 @@
               1080,
               1080
             ],
-            "alt": "GSP Seguridad — Logo para foto de perfil, versión roja."
+            "alt": "GSP Seguridad — Foto de perfil, versión roja."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/logo-perfil-2-640.webp",
+            "1080": "/img/proyectos/gsp-v2/logo-perfil-2-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "GSP Seguridad — Foto de perfil, versión azul."
           },
           {
             "640": "/img/proyectos/gsp-v2/logo-perfil-3-640.webp",
@@ -203,10 +116,61 @@
               1080,
               1080
             ],
-            "alt": "GSP Seguridad — Logo para foto de perfil, versión blanca."
+            "alt": "GSP Seguridad — Foto de perfil, versión blanca."
+          }
+        ]
+      },
+      {
+        "titulo": "Flota",
+        "texto": "Ploteo de la Toyota Hilux del Grupo Especial de Operaciones.",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "640": "/img/p/gsp-seguridad/g04-640.webp",
+            "1200": "/img/p/gsp-seguridad/g04-1200.webp",
+            "_wh": [
+              1200,
+              670
+            ],
+            "alt": "GSP Seguridad — Hilux del grupo táctico, vista lateral."
+          },
+          {
+            "640": "/img/p/gsp-seguridad/g05-640.webp",
+            "1200": "/img/p/gsp-seguridad/g05-1200.webp",
+            "_wh": [
+              1200,
+              670
+            ],
+            "alt": "GSP Seguridad — Hilux del grupo táctico, vista trasera."
+          }
+        ]
+      },
+      {
+        "titulo": "Feed de Instagram",
+        "texto": "Una grilla con identidad propia: rojo, azul y fotografía real para servicios, productos y certificaciones.",
+        "imagenes": [
+          {
+            "640": "/img/p/gsp-seguridad/g06-640.webp",
+            "1200": "/img/p/gsp-seguridad/g06-1200.webp",
+            "_wh": [
+              1200,
+              1200
+            ],
+            "alt": "GSP Seguridad — Grilla del feed y perfil de Instagram en celular."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/maqueta-feed-800.webp",
+            "1600": "/img/proyectos/gsp-v2/maqueta-feed-1600.webp",
+            "_wh": [
+              1600,
+              1320
+            ],
+            "alt": "GSP Seguridad — Feed de Instagram en celular."
           }
         ],
-        "estilo": "grilla"
+        "estilo": "grilla",
+        "columnas": 2
       },
       {
         "titulo": "Carruseles",
@@ -281,21 +245,6 @@
               1192
             ],
             "alt": "GSP Seguridad — Carrusel «3 hábitos de quien tiene alarma» en celular y desplegado."
-          }
-        ]
-      },
-      {
-        "titulo": "Feed de Instagram",
-        "texto": "Una grilla con identidad propia: rojo, azul y fotografía real para servicios, productos y certificaciones.",
-        "imagenes": [
-          {
-            "800": "/img/proyectos/gsp-v2/maqueta-feed-800.webp",
-            "1600": "/img/proyectos/gsp-v2/maqueta-feed-1600.webp",
-            "_wh": [
-              1600,
-              1320
-            ],
-            "alt": "GSP Seguridad — Feed de Instagram en celular."
           }
         ]
       },
@@ -418,6 +367,69 @@
         "estilo": "grilla",
         "imagenes": [
           {
+            "640": "/img/p/gsp-seguridad/g07-640.webp",
+            "1080": "/img/p/gsp-seguridad/g07-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia: alarmas GSP."
+          },
+          {
+            "640": "/img/p/gsp-seguridad/g08-640.webp",
+            "1080": "/img/p/gsp-seguridad/g08-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia: kit de alarma sin costo de equipos."
+          },
+          {
+            "640": "/img/p/gsp-seguridad/g09-640.webp",
+            "1080": "/img/p/gsp-seguridad/g09-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia: seguridad en tu campo."
+          },
+          {
+            "640": "/img/p/gsp-seguridad/g10-640.webp",
+            "1080": "/img/p/gsp-seguridad/g10-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia: auditoría de flotas."
+          },
+          {
+            "640": "/img/p/gsp-seguridad/g11-640.webp",
+            "1080": "/img/p/gsp-seguridad/g11-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia: vigilancia y monitoreo."
+          },
+          {
+            "640": "/img/p/gsp-seguridad/g12-640.webp",
+            "1200": "/img/p/gsp-seguridad/g12-1200.webp",
+            "_wh": [
+              1200,
+              2133
+            ],
+            "alt": "GSP Seguridad — Historia: Día del Trabajador."
+          },
+          {
+            "640": "/img/p/gsp-seguridad/g13-640.webp",
+            "1080": "/img/p/gsp-seguridad/g13-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia: conexión inalámbrica."
+          },
+          {
             "640": "/img/proyectos/gsp-v2/historia-05-640.webp",
             "1080": "/img/proyectos/gsp-v2/historia-05-1080.webp",
             "_wh": [
@@ -488,6 +500,15 @@
               1920
             ],
             "alt": "GSP Seguridad — Historia de Instagram 8."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/historia-10-640.webp",
+            "1080": "/img/proyectos/gsp-v2/historia-10-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia de Instagram 9."
           }
         ]
       },
@@ -540,6 +561,13 @@
             ],
             "alt": "GSP Seguridad — Promoción del kit de alarma Pro."
           }
+        ]
+      },
+      {
+        "titulo": "Reels",
+        "texto": "Videos verticales con subtítulos para presentar productos y servicios en redes.",
+        "videos": [
+          "Ec-weSrJWEi"
         ]
       }
     ]

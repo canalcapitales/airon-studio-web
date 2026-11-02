@@ -902,7 +902,7 @@ function proyectosEn(l) {
         titulo: t.titulo ?? g.titulo,
         texto: t.texto ?? g.texto,
         nota: t.nota ?? g.nota,
-        imagenes: g.imagenes.map((im, k) => ({ ...im, alt: (t.alts || [])[k] ?? im.alt })),
+        imagenes: (g.imagenes || []).map((im, k) => ({ ...im, alt: (t.alts || [])[k] ?? im.alt })),
       };
     });
     return {
@@ -1158,7 +1158,7 @@ const enlaceServicio = (l, cat) => (cat === 'urbano' ? RUTAS[l].murales : enlace
 // Imagen que aparece al pasar el mouse por una tarjeta.
 // Por defecto es la primera de la galería; con "previa" en el proyecto se elige otra (1 = la primera).
 const vistaPrevia = (p) => {
-  const todas = [...p.galeria, ...(p.galerias || []).flatMap((g) => g.imagenes)];
+  const todas = [...p.galeria, ...(p.galerias || []).flatMap((g) => g.imagenes || [])];
   return todas[(p.previa || 1) - 1] || todas[0];
 };
 
@@ -1393,18 +1393,19 @@ function detalle(l, proyectos, p, i) {
     </section>`;
     })
     .join('\n    ');
-  const videos = p.videos.length
-    ? `<div class="videos">${p.videos
-        .map(
-          (id) =>
-            `<div class="video"><iframe src="https://www-ccv.adobe.io/v1/player/ccv/${esc(id)}/embed?bgcolor=%23111111&lazyLoading=true&api_key=BehancePro2View" title="${esc(T.videoDe(p.titulo))}" loading="lazy" allow="fullscreen" allowfullscreen></iframe></div>`
-        )
-        .join('')}</div>`
-    : '';
+  const bloqueVideos = (ids) =>
+    `<div class="videos">${ids
+      .map(
+        (id) =>
+          `<div class="video"><iframe src="https://www-ccv.adobe.io/v1/player/ccv/${esc(id)}/embed?bgcolor=%23111111&lazyLoading=true&api_key=BehancePro2View" title="${esc(T.videoDe(p.titulo))}" loading="lazy" allow="fullscreen" allowfullscreen></iframe></div>`
+      )
+      .join('')}</div>`;
+  const videos = p.videos.length ? bloqueVideos(p.videos) : '';
   const figura = (g, k, total, { full = false, grilla = false, columnas = 4 } = {}) => {
     const alt = g.alt || T.imagenDe(p.titulo, k + 1, total);
     const clase = full ? 'galeria-full' : '';
-    const sizes = grilla ? (columnas === 7 ? '(min-width: 1100px) 14vw, 34vw' : '(min-width: 900px) 25vw, 50vw') : full ? '(min-width: 1584px) 1440px, 100vw' : '(min-width: 900px) 50vw, 100vw';
+    const ancho = { 7: '(min-width: 1100px) 14vw, 34vw', 3: '(min-width: 900px) 33vw, 34vw', 2: '50vw' }[columnas] || '(min-width: 900px) 25vw, 50vw';
+    const sizes = grilla ? ancho : full ? '(min-width: 1584px) 1440px, 100vw' : '(min-width: 900px) 50vw, 100vw';
     return `<figure class="${clase} reveal"><a class="zoom" href="${esc(paraVisor(g))}" aria-label="${T.ampliar}: ${esc(alt)}">${img(g, { alt, sizes, dims: g._wh })}</a></figure>`;
   };
   const esAncha = (g) => g._wh && g._wh[0] / g._wh[1] > 1.6;
@@ -1414,12 +1415,17 @@ function detalle(l, proyectos, p, i) {
   const galerias = (p.galerias || [])
     .map((grupo) => {
       const grilla = grupo.estilo === 'grilla';
-      const figs = grupo.imagenes.map((g, k) => figura(g, k, grupo.imagenes.length, { grilla, columnas: grupo.columnas, full: !grilla && (k === 0 || esAncha(g)) })).join('');
+      const imagenes = grupo.imagenes || [];
+      const figs = imagenes.map((g, k) => figura(g, k, imagenes.length, { grilla, columnas: grupo.columnas, full: !grilla && (k === 0 || esAncha(g)) })).join('');
+      // Un grupo puede llevar videos en lugar de imágenes (p. ej. para dejarlos al final)
+      const contenido = grupo.videos
+        ? bloqueVideos(grupo.videos)
+        : `<div class="galeria${grilla ? ' galeria--grilla' : ''}${grupo.columnas ? ` galeria--${grupo.columnas}` : ''}">${figs}</div>`;
       return `<div class="galeria-grupo">
           <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${esc(grupo.titulo)}</h3>${grupo.texto ? `<p>${esc(grupo.texto)}</p>` : ''}${
         grupo.nota ? `<span class="mono">${esc(grupo.nota)}</span>` : ''
       }</div>
-          <div class="galeria${grilla ? ' galeria--grilla' : ''}${grupo.columnas === 7 ? ' galeria--7' : ''}">${figs}</div>
+          ${contenido}
         </div>`;
     })
     .join('');
