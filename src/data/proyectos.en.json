@@ -524,5 +524,94 @@
         ]
       }
     ]
+  },
+  "affum": {
+    "subtitulo": "Identity, packaging and social media",
+    "ficha": [
+      [
+        "Client",
+        "AFFUM — Smoked foods & preserves"
+      ],
+      [
+        "Location",
+        "El Bolsón, Patagonia"
+      ],
+      [
+        "Period",
+        "2022 — 2023"
+      ],
+      [
+        "Role",
+        "Identity, packaging and social media"
+      ],
+      [
+        "Scope",
+        "Logo, jar and lid labels, Instagram"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The challenge",
+        "parrafos": [
+          "AFFUM makes artisanal smoked foods and preserves in El Bolsón, Patagonia: trout, deer and wild boar. It needed a brand and packaging that conveyed Patagonian tradition and quality."
+        ]
+      },
+      {
+        "titulo": "The process",
+        "parrafos": [
+          "We designed the logo, with a red stroke of smoke over the “u”, and built a black-and-white system around it: jar and lid labels with product information and a QR code, and an Instagram feed with black-and-white Patagonian photography."
+        ]
+      },
+      {
+        "titulo": "The result",
+        "parrafos": [
+          "A sober, recognizable identity that works just as well on a jar, a lid or a post, and presents the product as gourmet."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "Identity",
+        "texto": "The logo in positive, negative and on black.",
+        "alts": [
+          "AFFUM — Negative logo.",
+          "AFFUM — Positive logo.",
+          "AFFUM — Logo on black."
+        ]
+      },
+      {
+        "titulo": "Labels",
+        "texto": "Jar and lid labels, with nutrition facts and a QR code.",
+        "alts": [
+          "AFFUM — Lid label.",
+          "AFFUM — Jar label.",
+          "AFFUM — 3 × 4 label.",
+          "AFFUM — 500 g label."
+        ]
+      },
+      {
+        "titulo": "Jars",
+        "alts": [
+          "AFFUM — Labeled jar, view 1.",
+          "AFFUM — Labeled jar, view 2.",
+          "AFFUM — Labeled jar, view 3.",
+          "AFFUM — Labeled jar, view 4.",
+          "AFFUM — Labeled jar, view 5.",
+          "AFFUM — Labeled jar, view 6."
+        ]
+      },
+      {
+        "titulo": "Instagram",
+        "texto": "A black-and-white feed that introduces the three lines: trout, deer and wild boar.",
+        "alts": [
+          "AFFUM — Instagram feed.",
+          "AFFUM — Instagram profile on a phone.",
+          "AFFUM — Feed on a phone.",
+          "AFFUM — Product post: vacuum-packed smoked trout.",
+          "AFFUM — Product post: smoked trout in oil.",
+          "AFFUM — Feed on a phone, another view."
+        ]
+      }
+    ]
   }
 }

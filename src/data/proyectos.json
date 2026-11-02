@@ -2531,6 +2531,272 @@
     "videos": []
   },
   {
+    "slug": "affum",
+    "titulo": "AFFUM",
+    "subtitulo": "Identidad, packaging y redes",
+    "categorias": [
+      "branding",
+      "aplicada",
+      "redes"
+    ],
+    "portada": {
+      "640": "/img/casos/affum-portada-640.webp",
+      "1280": "/img/casos/affum-portada-1280.webp",
+      "1920": "/img/casos/affum-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [
+      [
+        "Cliente",
+        "AFFUM — Ahumados & conservas"
+      ],
+      [
+        "Ubicación",
+        "El Bolsón, Patagonia"
+      ],
+      [
+        "Período",
+        "2022 — 2023"
+      ],
+      [
+        "Rol",
+        "Identidad, packaging y redes"
+      ],
+      [
+        "Alcance",
+        "Logotipo, etiquetas de frascos y tapas, Instagram"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El reto",
+        "parrafos": [
+          "AFFUM elabora ahumados y conservas artesanales en El Bolsón, en la Patagonia: trucha, ciervo y jabalí. Necesitaba una marca y un packaging que transmitieran tradición y calidad patagónica."
+        ]
+      },
+      {
+        "titulo": "El proceso",
+        "parrafos": [
+          "Diseñamos el logotipo, con un trazo rojo de humo sobre la «u», y lo llevamos a un sistema en negro y blanco: etiquetas para frascos y tapas con la información del producto y un código QR, y un feed de Instagram con fotografía patagónica en blanco y negro."
+        ]
+      },
+      {
+        "titulo": "El resultado",
+        "parrafos": [
+          "Una identidad sobria y reconocible, que funciona igual en un frasco, en una tapa o en una publicación, y presenta al producto como gourmet."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "Identidad",
+        "texto": "El logotipo en positivo, en negativo y sobre negro.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "640": "/img/proyectos/affum/logo-negativo-640.webp",
+            "1080": "/img/proyectos/affum/logo-negativo-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "AFFUM — Logo en negativo."
+          },
+          {
+            "640": "/img/proyectos/affum/logo-positivo-640.webp",
+            "1080": "/img/proyectos/affum/logo-positivo-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "AFFUM — Logo en positivo."
+          },
+          {
+            "640": "/img/proyectos/affum/logo-fondo-negro-640.webp",
+            "1080": "/img/proyectos/affum/logo-fondo-negro-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "AFFUM — Logo sobre negro."
+          }
+        ]
+      },
+      {
+        "titulo": "Etiquetas",
+        "texto": "Etiquetas para frascos y tapas, con información nutricional y código QR.",
+        "estilo": "tira",
+        "imagenes": [
+          {
+            "640": "/img/proyectos/affum/etiqueta-tapa-640.webp",
+            "1080": "/img/proyectos/affum/etiqueta-tapa-1080.webp",
+            "_wh": [
+              780,
+              780
+            ],
+            "alt": "AFFUM — Etiqueta de tapa."
+          },
+          {
+            "800": "/img/proyectos/affum/etiqueta-frasco-800.webp",
+            "1600": "/img/proyectos/affum/etiqueta-frasco-1600.webp",
+            "_wh": [
+              1600,
+              731
+            ],
+            "alt": "AFFUM — Etiqueta de frasco."
+          },
+          {
+            "800": "/img/proyectos/affum/etiqueta-3x4-800.webp",
+            "1600": "/img/proyectos/affum/etiqueta-3x4-1600.webp",
+            "_wh": [
+              1600,
+              1318
+            ],
+            "alt": "AFFUM — Etiqueta de 3 × 4."
+          },
+          {
+            "800": "/img/proyectos/affum/etiqueta-500g-800.webp",
+            "1600": "/img/proyectos/affum/etiqueta-500g-1600.webp",
+            "_wh": [
+              1600,
+              731
+            ],
+            "alt": "AFFUM — Etiqueta de 500 g."
+          }
+        ]
+      },
+      {
+        "titulo": "Frascos",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/affum/frasco-1-800.webp",
+            "1600": "/img/proyectos/affum/frasco-1-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "AFFUM — Frasco con etiqueta, vista 1."
+          },
+          {
+            "800": "/img/proyectos/affum/frasco-2-800.webp",
+            "1600": "/img/proyectos/affum/frasco-2-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "AFFUM — Frasco con etiqueta, vista 2."
+          },
+          {
+            "800": "/img/proyectos/affum/frasco-3-800.webp",
+            "1600": "/img/proyectos/affum/frasco-3-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "AFFUM — Frasco con etiqueta, vista 3."
+          },
+          {
+            "800": "/img/proyectos/affum/frasco-4-800.webp",
+            "1600": "/img/proyectos/affum/frasco-4-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "AFFUM — Frasco con etiqueta, vista 4."
+          },
+          {
+            "800": "/img/proyectos/affum/frasco-5-800.webp",
+            "1600": "/img/proyectos/affum/frasco-5-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "AFFUM — Frasco con etiqueta, vista 5."
+          },
+          {
+            "800": "/img/proyectos/affum/frasco-6-800.webp",
+            "1600": "/img/proyectos/affum/frasco-6-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "AFFUM — Frasco con etiqueta, vista 6."
+          }
+        ]
+      },
+      {
+        "titulo": "Instagram",
+        "texto": "Un feed en blanco y negro que presenta las tres líneas: trucha, ciervo y jabalí.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "640": "/img/proyectos/affum/feed-640.webp",
+            "1080": "/img/proyectos/affum/feed-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "AFFUM — Feed de Instagram."
+          },
+          {
+            "640": "/img/proyectos/affum/perfil-640.webp",
+            "1080": "/img/proyectos/affum/perfil-1080.webp",
+            "_wh": [
+              1080,
+              2339
+            ],
+            "alt": "AFFUM — Perfil de Instagram en celular."
+          },
+          {
+            "640": "/img/proyectos/affum/feed-celular-rojo-640.webp",
+            "1080": "/img/proyectos/affum/feed-celular-rojo-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "AFFUM — Feed en celular."
+          },
+          {
+            "640": "/img/proyectos/affum/producto-vacio-640.webp",
+            "1080": "/img/proyectos/affum/producto-vacio-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "AFFUM — Publicación de producto: trucha ahumada al vacío."
+          },
+          {
+            "640": "/img/proyectos/affum/producto-aceite-640.webp",
+            "1080": "/img/proyectos/affum/producto-aceite-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "AFFUM — Publicación de producto: trucha ahumada en aceite."
+          },
+          {
+            "640": "/img/proyectos/affum/feed-celular-gris-640.webp",
+            "1080": "/img/proyectos/affum/feed-celular-gris-1080.webp",
+            "_wh": [
+              1080,
+              810
+            ],
+            "alt": "AFFUM — Feed en celular, otra vista."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "slug": "ploteo-vehicular",
     "titulo": "Ploteo vehicular",
     "subtitulo": "Hilux 2026 · Ford Ka 2022",
