@@ -1317,8 +1317,6 @@ ${marquesinaPublicidad(l, 'inicio')}
 
   ${numeros(l, proyectos)}
 
-  ${clientes(l)}
-
   ${ctaBloque(l, T.ctaInicio)}
 `,
   });
