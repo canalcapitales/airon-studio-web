@@ -1409,9 +1409,34 @@ function detalle(l, proyectos, p, i) {
     return `<figure class="${clase} reveal"><a class="zoom" href="${esc(paraVisor(g))}" aria-label="${T.ampliar}: ${esc(alt)}">${img(g, { alt, sizes, dims: g._wh })}</a></figure>`;
   };
   const esAncha = (g) => g._wh && g._wh[0] / g._wh[1] > 1.6;
-  const galeria = p.galeria.length
+  // Tira deslizable: piezas a una misma altura, con arrastre, flechas y barra de progreso (main.js: tiras)
+  const dos = (n) => String(n).padStart(2, '0');
+  const tira = (imgs, { hero = false } = {}) => {
+    const figs = imgs
+      .map((g, k) => {
+        const alt = g.alt || T.imagenDe(p.titulo, k + 1, imgs.length);
+        const [w, h] = g._wh || [4, 3];
+        return `<figure class="tira-item" style="--r:${(w / h).toFixed(4)}"><a class="zoom" href="${esc(paraVisor(g))}" aria-label="${T.ampliar}: ${esc(alt)}">${img(g, { alt, sizes: hero ? '(min-width: 900px) 60vw, 90vw' : '(min-width: 900px) 40vw, 80vw', dims: g._wh, eager: hero && k < 2 })}</a></figure>`;
+      })
+      .join('');
+    return `<div class="tira${hero ? ' tira--hero' : ''} reveal" data-tira${hero ? ' data-auto' : ''}>
+          <div class="tira-pista" tabindex="0">${figs}</div>
+          <div class="tira-ui"><span class="mono tira-contador">01 / ${dos(imgs.length)}</span><span class="tira-progreso" aria-hidden="true"><i></i></span><button type="button" class="tira-btn tira-ant" aria-label="${T.anterior}">←</button><button type="button" class="tira-btn tira-sig" aria-label="${T.siguiente}">→</button></div>
+        </div>`;
+  };
+  // Las fotos y piezas verticales (historias, publicaciones) se muestran en tira en lugar de grilla grande
+  const vertical = (g) => g._wh && g._wh[1] / g._wh[0] > 1.15;
+  const enTira = (grupo, imgs) => grupo.estilo === 'tira' || (grupo.estilo === 'grilla' && imgs.length >= 6 && imgs.every(vertical));
+  // Si el caso solo tiene una galería simple, va entera en la cabecera y no se repite abajo
+  const soloGaleria = p.galeria.length >= 3 && !(p.galerias || []).some((g) => (g.imagenes || []).length);
+  const galeria = soloGaleria ? '' : p.galeria.length >= 3 ? tira(p.galeria) : p.galeria.length
     ? `<div class="galeria">${p.galeria.map((g, k) => figura(g, k, p.galeria.length, { full: k === 0 || esAncha(g) })).join('')}</div>`
     : '';
+  // Cabecera del caso: una tira con piezas de cada grupo (la portada diseñada queda para las tarjetas)
+  const todasLasPiezas = [p.galeria, ...(p.galerias || []).map((g) => g.imagenes || [])].filter((x) => x.length);
+  const elegidas = [];
+  for (let r = 0; elegidas.length < 10 && todasLasPiezas.some((x) => x[r]); r++) for (const x of todasLasPiezas) if (x[r] && elegidas.length < 10) elegidas.push(x[r]);
+  const cabecera = soloGaleria ? tira(p.galeria, { hero: true }) : elegidas.length >= 3 ? tira(elegidas, { hero: true }) : `<div class="proyecto-portada proyecto-portada--diseno">${portadaPagina(p, T)}</div>`;
   const galerias = (p.galerias || [])
     .map((grupo) => {
       const grilla = grupo.estilo === 'grilla';
@@ -1420,7 +1445,9 @@ function detalle(l, proyectos, p, i) {
       // Un grupo puede llevar videos en lugar de imágenes (p. ej. para dejarlos al final)
       const contenido = grupo.videos
         ? bloqueVideos(grupo.videos)
-        : `<div class="galeria${grilla ? ' galeria--grilla' : ''}${grupo.columnas ? ` galeria--${grupo.columnas}` : ''}">${figs}</div>`;
+        : enTira(grupo, imagenes)
+          ? tira(imagenes)
+          : `<div class="galeria${grilla ? ' galeria--grilla' : ''}${grupo.columnas ? ` galeria--${grupo.columnas}` : ''}">${figs}</div>`;
       return `<div class="galeria-grupo">
           <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${esc(grupo.titulo)}</h3>${grupo.texto ? `<p>${esc(grupo.texto)}</p>` : ''}${
         grupo.nota ? `<span class="mono">${esc(grupo.nota)}</span>` : ''
@@ -1535,20 +1562,20 @@ function detalle(l, proyectos, p, i) {
       </div>
     </header>
     <div class="wrap">
-      <div class="proyecto-portada" data-vt="p-${p.slug}">${portadaPagina(p, T)}</div>
+      <div class="proyecto-cabecera" data-vt="p-${p.slug}">${cabecera}</div>
       <dl class="ficha" aria-label="${T.fichaAria}">
         ${ficha}
       </dl>
     </div>
     ${bloques}
-    <section class="bloque bloque--media" aria-label="${T.imagenesAria}">
+    ${videos || galeria || muro || galerias ? `<section class="bloque bloque--media" aria-label="${T.imagenesAria}">
       <div class="wrap">
         ${videos}
         ${galeria}
         ${muro}
         ${galerias}
       </div>
-    </section>
+    </section>` : ''}
     <div class="wrap">
       <div class="behance-cta">
         <p class="behance-title">${esc(cierre)}</p>

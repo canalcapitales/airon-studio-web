@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   mayusculasMinusculas();
   convertidorPng();
   visor();
+  tiras();
   formulario();
   filtros();
   areasInicio();
@@ -1594,8 +1595,13 @@ function convertidorPng() {
 // ----- Visor de imágenes a pantalla completa -----
 function visor() {
   const dialogo = document.querySelector('.visor');
-  const enlaces = [...document.querySelectorAll('.zoom')];
-  if (!dialogo || !enlaces.length || typeof dialogo.showModal !== 'function') return;
+  const todos = [...document.querySelectorAll('.zoom')];
+  if (!dialogo || !todos.length || typeof dialogo.showModal !== 'function') return;
+  // La cabecera repite piezas de la galería: el visor recorre cada imagen una sola vez, en el orden de la galería
+  const enlaces = [];
+  [...todos.filter((a) => !a.closest('.tira--hero')), ...todos].forEach((a) => {
+    if (!enlaces.some((b) => b.href === a.href)) enlaces.push(a);
+  });
 
   const imagen = dialogo.querySelector('.visor-img');
   const contador = dialogo.querySelector('.visor-contador');
@@ -1610,11 +1616,11 @@ function visor() {
     contador.textContent = `${actual + 1} / ${enlaces.length}`;
   };
 
-  enlaces.forEach((a, i) =>
+  todos.forEach((a) =>
     a.addEventListener('click', (e) => {
       e.preventDefault();
       origen = a;
-      mostrar(i);
+      mostrar(enlaces.findIndex((b) => b.href === a.href));
       dialogo.showModal();
     })
   );
@@ -1645,6 +1651,70 @@ function visor() {
 }
 
 // ----- Formulario de contacto (Formspree) -----
+// ----- Tiras deslizables: arrastre con el mouse, flechas, teclado, contador, progreso y avance automático en la cabecera -----
+function tiras() {
+  const reducir = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-tira]').forEach((t) => {
+    const pista = t.querySelector('.tira-pista');
+    const items = [...pista.children];
+    const contador = t.querySelector('.tira-contador');
+    const barra = t.querySelector('.tira-progreso i');
+    const n = items.length;
+    const dos = (x) => String(x).padStart(2, '0');
+    const max = () => pista.scrollWidth - pista.clientWidth;
+    const alFinal = () => max() - pista.scrollLeft < 4;
+    const actual = () => {
+      if (alFinal()) return n - 1;
+      const i = items.findIndex((it) => it.offsetLeft - items[0].offsetLeft + it.offsetWidth / 2 > pista.scrollLeft);
+      return i < 0 ? n - 1 : i;
+    };
+    const ir = (i) => pista.scrollTo({ left: items[(i + n) % n].offsetLeft - items[0].offsetLeft, behavior: reducir ? 'auto' : 'smooth' });
+    const pintar = () => {
+      barra.style.transform = `scaleX(${max() > 0 ? Math.max(0.04, pista.scrollLeft / max()) : 1})`;
+      contador.textContent = `${dos(actual() + 1)} / ${dos(n)}`;
+    };
+    pista.addEventListener('scroll', () => requestAnimationFrame(pintar), { passive: true });
+    addEventListener('resize', pintar);
+    pintar();
+    const siguiente = () => (alFinal() ? ir(0) : ir(actual() + 1));
+    t.querySelector('.tira-ant').addEventListener('click', () => ir(actual() - 1));
+    t.querySelector('.tira-sig').addEventListener('click', siguiente);
+    pista.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); siguiente(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); ir(actual() - 1); }
+    });
+
+    // Arrastrar con el mouse (en el celular el desplazamiento ya es táctil)
+    let x0 = null, s0 = 0, movio = false;
+    pista.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      x0 = e.clientX; s0 = pista.scrollLeft; movio = false;
+    });
+    addEventListener('pointermove', (e) => {
+      if (x0 === null) return;
+      const dx = e.clientX - x0;
+      if (!movio && Math.abs(dx) > 6) { movio = true; pista.classList.add('arrastrando'); }
+      if (movio) pista.scrollLeft = s0 - dx;
+    });
+    addEventListener('pointerup', () => {
+      if (x0 === null) return;
+      x0 = null;
+      if (movio) { pista.classList.remove('arrastrando'); ir(actual()); }
+    });
+    // Si se arrastró, el clic no abre el visor
+    pista.addEventListener('click', (e) => { if (movio) { e.preventDefault(); e.stopPropagation(); movio = false; } }, true);
+    pista.addEventListener('dragstart', (e) => e.preventDefault());
+
+    // Avance automático en la cabecera (se pausa al pasar el mouse, al tocar o si la pestaña no está visible)
+    if (t.hasAttribute('data-auto') && !reducir) {
+      let pausa = false;
+      ['pointerenter', 'focusin', 'touchstart'].forEach((ev) => t.addEventListener(ev, () => (pausa = true), { passive: true }));
+      ['pointerleave', 'focusout'].forEach((ev) => t.addEventListener(ev, () => (pausa = false)));
+      setInterval(() => { if (!pausa && !document.hidden && t.classList.contains('visible')) siguiente(); }, 3800);
+    }
+  });
+}
+
 function formulario() {
   const form = document.querySelector('form.form');
   if (!form) return;
