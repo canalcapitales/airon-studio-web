@@ -382,16 +382,16 @@ const TXT = {
     },
     heroKicker: ['Estudio de diseño multimedial', 'Buenos Aires · desde 2015'],
     heroLead: 'Branding, diseño gráfico, diseño web, sistemas de gestión, gráfica musical, motion, arte urbano y fotografía analógica.',
-    verProyectos: 'Ver proyectos →', hablemos: 'Contacto', disciplinasAria: 'Disciplinas',
-    areasKicker: 'Explorá nuestros trabajos', areasTitulo: 'Áreas', verTodos: 'Ver todos los proyectos →', proyectoUno: 'proyecto',
+    verProyectos: 'Explorá las áreas →', hablemos: 'Contacto', disciplinasAria: 'Disciplinas',
+    areasKicker: 'Explorá nuestros trabajos', areasTitulo: 'Áreas', verTodos: 'Ver todas las áreas →', proyectoUno: 'proyecto',
     serviciosKicker: 'Servicios', queHacemos: 'Qué hacemos', ctaInicio: '¿Tenés un proyecto en mente?', escribinos: 'Escribinos →',
     numerosTitulo: 'El estudio en números',
     numeros: ['Años de estudio', 'Proyectos en el portafolio', 'Identidades de marca', 'Marcas y medios', 'Nuestro mural más grande', 'Disciplinas creativas'],
-    portafolio: 'Portafolio', proyectos: 'Proyectos', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
+    portafolio: 'Explorá nuestros trabajos', proyectos: 'Áreas', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
     listadoLead: 'Diseño integral, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía. Filtrá por área para ver cada disciplina.',
     listadoDesc: 'Portafolio de AIRON Studio: diseño integral para empresas, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía.',
     portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar', muro: { titulo: 'Muro de marcas', texto: 'Logos diseñados para artistas, comercios, empresas e instituciones. Filtrá por rubro y tocá cada marca para verla en grande.', todas: 'Todas', marcas: 'marcas', rubros: 'rubros', verCaso: 'Ver caso', filtrar: 'Filtrar marcas por rubro' },
-    videoDe: (t) => `Video del proyecto ${t}`, volver: '← Volver a proyectos', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
+    videoDe: (t) => `Video del proyecto ${t}`, volver: '← Volver a áreas', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
     ctaSinBehance: '¿Tu marca es la próxima?', botonSinBehance: 'Pedí tu marca →', ctaProyectoGeneral: '¿Tenés un proyecto en mente?', botonProyecto: 'Pedí tu presupuesto →', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
     proyectoDe: 'Proyecto de AIRON Studio.',
     descProyecto: (cats) => `${cats} por AIRON Studio, estudio de diseño multimedial en Buenos Aires.`,
@@ -804,16 +804,16 @@ const TXT = {
     },
     heroKicker: ['Multimedia design studio', 'Buenos Aires · since 2015'],
     heroLead: 'Branding, graphic design, web design, management systems, music artwork, motion, street art and analog photography.',
-    verProyectos: 'See our work →', hablemos: 'Contact', disciplinasAria: 'Disciplines',
-    areasKicker: 'Explore our work', areasTitulo: 'Areas', verTodos: 'See all projects →', proyectoUno: 'project',
+    verProyectos: 'Explore our areas →', hablemos: 'Contact', disciplinasAria: 'Disciplines',
+    areasKicker: 'Explore our work', areasTitulo: 'Areas', verTodos: 'See all areas →', proyectoUno: 'project',
     serviciosKicker: 'Services', queHacemos: 'What we do', ctaInicio: 'Have a project in mind?', escribinos: 'Get in touch →',
     numerosTitulo: 'The studio in numbers',
     numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Brands and media', 'Our largest mural', 'Creative disciplines'],
-    portafolio: 'Portfolio', proyectos: 'Work', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects', sinProyectos: 'We are preparing the projects in this category.', sinProyectosCta: 'Tell us what you need →',
+    portafolio: 'Explore our work', proyectos: 'Areas', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects', sinProyectos: 'We are preparing the projects in this category.', sinProyectosCta: 'Tell us what you need →',
     listadoLead: 'Integrated design, branding, social media, vehicle wraps, graphic design, web & systems, motion, murals and photography. Filter by area to explore each discipline.',
     listadoDesc: 'AIRON Studio portfolio: integrated design for companies, branding, social media, vehicle wraps, graphic design, web & systems, motion, murals and photography.',
     portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge', muro: { titulo: 'Brand wall', texto: 'Logos designed for artists, shops, companies and institutions. Filter by industry and tap any brand to see it large.', todas: 'All', marcas: 'brands', rubros: 'industries', verCaso: 'View case', filtrar: 'Filter brands by industry' },
-    videoDe: (t) => `Video of the project ${t}`, volver: '← Back to work', fichaAria: 'Project details', imagenesAria: 'Project images',
+    videoDe: (t) => `Video of the project ${t}`, volver: '← Back to areas', fichaAria: 'Project details', imagenesAria: 'Project images',
     ctaSinBehance: 'Is your brand next?', botonSinBehance: 'Get your brand →', ctaProyectoGeneral: 'Got a project in mind?', botonProyecto: 'Get a quote →', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
     proyectoDe: 'A project by AIRON Studio.',
     descProyecto: (cats) => `${cats} by AIRON Studio, a multimedia design studio based in Buenos Aires.`,
@@ -888,6 +888,14 @@ const PUBLICIDAD = JSON.parse(readFileSync('src/data/publicidad.json', 'utf8'));
 const LOGOS = JSON.parse(readFileSync('src/data/logos.json', 'utf8'));
 // Muros con filtro: "muroLogos": true usa logos.json; "muro": "portadas" usa src/data/portadas.json
 const MUROS = { logos: LOGOS, portadas: JSON.parse(readFileSync('src/data/portadas.json', 'utf8')), flyers: JSON.parse(readFileSync('src/data/flyers.json', 'utf8')) };
+// En los casos con muro, "{n}" en los textos se reemplaza por la cantidad real de piezas (así nunca queda desactualizado)
+for (const p of BASE) {
+  const n = p.muroLogos ? LOGOS.logos.length : p.muro ? MUROS[p.muro]?.logos.length : null;
+  if (n == null) continue;
+  const conN = (o) => JSON.parse(JSON.stringify(o).replaceAll('{n}', n));
+  Object.assign(p, conN(p));
+  if (EN[p.slug]) EN[p.slug] = conN(EN[p.slug]);
+}
 // Tarifario de diseño (Cámara de Diseñadores de Rafaela, adaptado con permiso)
 const TARIFARIO_DISENO = JSON.parse(readFileSync('src/data/tarifario-diseno.json', 'utf8'));
 
@@ -1436,7 +1444,9 @@ function detalle(l, proyectos, p, i) {
   const todasLasPiezas = [p.galeria, ...(p.galerias || []).map((g) => g.imagenes || [])].filter((x) => x.length);
   const elegidas = [];
   for (let r = 0; elegidas.length < 10 && todasLasPiezas.some((x) => x[r]); r++) for (const x of todasLasPiezas) if (x[r] && elegidas.length < 10) elegidas.push(x[r]);
-  const cabecera = soloGaleria ? tira(p.galeria, { hero: true }) : elegidas.length >= 3 ? tira(elegidas, { hero: true }) : `<div class="proyecto-portada proyecto-portada--diseno">${portadaPagina(p, T)}</div>`;
+  // Sin piezas para la tira: si hay video va arriba (y no se repite abajo); si no, la portada diseñada entera
+  const videoArriba = !soloGaleria && elegidas.length < 3 && p.videos.length > 0;
+  const cabecera = soloGaleria ? tira(p.galeria, { hero: true }) : elegidas.length >= 3 ? tira(elegidas, { hero: true }) : videoArriba ? videos : `<div class="proyecto-portada proyecto-portada--diseno">${portadaPagina(p, T)}</div>`;
   const galerias = (p.galerias || [])
     .map((grupo) => {
       const grilla = grupo.estilo === 'grilla';
@@ -1568,9 +1578,9 @@ function detalle(l, proyectos, p, i) {
       </dl>
     </div>
     ${bloques}
-    ${videos || galeria || muro || galerias ? `<section class="bloque bloque--media" aria-label="${T.imagenesAria}">
+    ${(!videoArriba && videos) || galeria || muro || galerias ? `<section class="bloque bloque--media" aria-label="${T.imagenesAria}">
       <div class="wrap">
-        ${videos}
+        ${videoArriba ? '' : videos}
         ${galeria}
         ${muro}
         ${galerias}
@@ -2321,7 +2331,7 @@ function murales(l, proyectos) {
           <a class="btn btn-outline btn-lg" href="#calculadora">${M.calcular}</a>
         </div>
       </div>
-      <div class="murales-head-img" data-vt="p-${caso.slug}">${img(caso.portada, { alt: T.portadaDe(caso.titulo), sizes: '(min-width: 900px) 45vw, 100vw', eager: true, dims: [1280, 1001] })}</div>
+      <div class="murales-head-img" data-vt="p-${caso.slug}">${img(caso.portadaFoto || caso.portada, { alt: T.portadaDe(caso.titulo), sizes: '(min-width: 900px) 45vw, 100vw', eager: true, dims: [1280, 1001] })}</div>
     </div>
   </section>
 
@@ -2336,7 +2346,7 @@ function murales(l, proyectos) {
       </div>
       <div class="mundos">
         <a class="laion-promo mundo-encargo reveal" href="${R.encargos}">
-          <img src="${esc(caso.portada['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async">
+          <img src="${esc((caso.portadaFoto || caso.portada)['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async">
           <span class="laion-promo-texto"><span class="mono">${M.encargoKicker}</span><strong>${M.encargoTitulo}</strong><span>${M.encargoTexto}</span><span class="laion-promo-boton">${M.encargoBoton}</span></span>
         </a>
         <a class="laion-promo mundo-laion reveal" href="${R.laion}">

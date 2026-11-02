@@ -45,7 +45,7 @@
     "cta": "Want to see it live?",
     "ficha": [["Client", "AIRON Studio"], ["Year", "2026"], ["Role", "UX/UI design and development"], ["Hosting", "Cloudflare"]],
     "bloques": [
-      { "titulo": "The challenge", "destacado": "Moving from a generic portfolio to a website of our own that organizes more than twenty Behance publications into a clear system, with a strong identity and designed mobile-first.", "parrafos": [] },
+      { "titulo": "The challenge", "destacado": "Moving from a generic portfolio to a website of our own that organizes more than twenty projects into a clear system, with a strong identity and designed mobile-first.", "parrafos": [] },
       { "titulo": "The process", "parrafos": ["Information architecture by discipline, design for desktop and mobile, and a visual system of our own: Anton for headlines, Instrument Sans for text, IBM Plex Mono for data and the logo's red as the only accent.", "A gallery with category filters, a full-screen image viewer, animated counters and a moving strip of disciplines that leads to each section."] },
       { "titulo": "The result", "parrafos": ["A light, fast site with self-hosted fonts, security headers, a contact form connected to the studio's email and structured data for search engines. Every change goes live automatically in under two minutes."] }
     ],
@@ -213,8 +213,8 @@
     ]
   },
   "branding-x-airon-studio": {
-    "subtitulo": "25 brand identities",
-    "ficha": [["Discipline", "Visual identity and branding"], ["Identities", "25 brands designed"], ["Industries", "Music, food, real estate, retail, industry, culture and tourism"]],
+    "subtitulo": "{n} brand identities",
+    "ficha": [["Discipline", "Visual identity and branding"], ["Identities", "{n} brands designed"], ["Industries", "Music, food, real estate, retail, industry, culture and tourism"]],
     "bloques": [
       { "titulo": "The selection", "parrafos": ["A collection of brands developed for different projects, industries and disciplines. A journey through different approaches to visual identity, exploring concepts, shapes, typefaces and graphic systems to build unique, recognizable brands.", "Behind every brand there is a geometric and technical study: shapes, proportions, grids and visual construction to create solid, consistent and recognizable identities."] }
     ]
@@ -407,7 +407,7 @@
     "ficha": [["Client", "Black"], ["Deliverable", "Brand manual"]]
   },
   "spotify-covers": {
-    "subtitulo": "26 covers for singles, EPs and playlists",
+    "subtitulo": "{n} covers for singles, EPs and playlists",
     "ficha": [["Deliverables", "Covers for Spotify and music platforms"], ["Formats", "Singles, EPs, LP and playlists"], ["Artists", "Demental, Fazzini, Laionbeats, Franqui Quiroga and more"]],
     "bloques": [
       {
@@ -425,7 +425,7 @@
     "ficha": [["Deliverable", "Banners and headers for social media and channels"]]
   },
   "flyers": {
-    "subtitulo": "15 pieces for parties, live shows and releases",
+    "subtitulo": "{n} pieces for parties, live shows and releases",
     "ficha": [["Deliverables", "Flyers for Instagram stories (9:16)"], ["Clients", "TKNO Radio · Intekno · Kraneando Actividad · Laionbeats"], ["Events", "Electronic parties, anniversaries, live streams and shows"]],
     "bloques": [
       {

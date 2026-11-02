@@ -576,7 +576,7 @@
   {
     "slug": "branding-x-airon-studio",
     "titulo": "Branding x AIRON Studio",
-    "subtitulo": "25 identidades de marca",
+    "subtitulo": "{n} identidades de marca",
     "categorias": [
       "branding"
     ],
@@ -596,7 +596,7 @@
       ],
       [
         "Identidades",
-        "25 marcas diseñadas"
+        "{n} marcas diseñadas"
       ],
       [
         "Rubros",
@@ -1534,7 +1534,15 @@
       }
     ],
     "videos": [],
-    "estetica": "Abstracto orgánico"
+    "estetica": "Abstracto orgánico",
+    "portadaFoto": {
+      "640": "/img/p/blend-david/portada-640.webp",
+      "1280": "/img/p/blend-david/portada-1280.webp",
+      "_wh": [
+        1280,
+        1001
+      ]
+    }
   },
   {
     "slug": "flexy",
@@ -1724,7 +1732,7 @@
     "bloques": [
       {
         "titulo": "El reto",
-        "destacado": "Pasar de un portafolio genérico a una web propia que ordene más de veinte publicaciones de Behance en un sistema claro, con identidad fuerte y pensada primero para el celular.",
+        "destacado": "Pasar de un portafolio genérico a una web propia que ordene más de veinte proyectos en un sistema claro, con identidad fuerte y pensada primero para el celular.",
         "parrafos": []
       },
       {
@@ -2891,7 +2899,7 @@
   {
     "slug": "spotify-covers",
     "titulo": "Spotify Covers",
-    "subtitulo": "26 portadas para singles, EPs y playlists",
+    "subtitulo": "{n} portadas para singles, EPs y playlists",
     "categorias": [
       "musical"
     ],
@@ -2935,7 +2943,7 @@
   {
     "slug": "flyers",
     "titulo": "Flyers",
-    "subtitulo": "15 piezas para fiestas, shows y lanzamientos",
+    "subtitulo": "{n} piezas para fiestas, shows y lanzamientos",
     "categorias": [
       "aplicada"
     ],
