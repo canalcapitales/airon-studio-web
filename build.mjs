@@ -383,7 +383,7 @@ const TXT = {
     heroKicker: ['Estudio de diseño multimedial', 'Buenos Aires · desde 2015'],
     heroLead: 'Branding, diseño gráfico, diseño web, sistemas de gestión, gráfica musical, motion, arte urbano y fotografía analógica.',
     verProyectos: 'Ver proyectos →', hablemos: 'Contacto', disciplinasAria: 'Disciplinas',
-    areasKicker: 'Elegí un área', verTodos: 'Ver todos los proyectos →', proyectoUno: 'proyecto',
+    areasKicker: 'Explorá nuestros trabajos', areasTitulo: 'Áreas', verTodos: 'Ver todos los proyectos →', proyectoUno: 'proyecto',
     serviciosKicker: 'Servicios', queHacemos: 'Qué hacemos', ctaInicio: '¿Tenés un proyecto en mente?', escribinos: 'Escribinos →',
     numerosTitulo: 'El estudio en números',
     numeros: ['Años de estudio', 'Proyectos en el portafolio', 'Identidades de marca', 'Marcas y medios', 'Nuestro mural más grande', 'Disciplinas creativas'],
@@ -805,7 +805,7 @@ const TXT = {
     heroKicker: ['Multimedia design studio', 'Buenos Aires · since 2015'],
     heroLead: 'Branding, graphic design, web design, management systems, music artwork, motion, street art and analog photography.',
     verProyectos: 'See our work →', hablemos: 'Contact', disciplinasAria: 'Disciplines',
-    areasKicker: 'Choose an area', verTodos: 'See all projects →', proyectoUno: 'project',
+    areasKicker: 'Explore our work', areasTitulo: 'Areas', verTodos: 'See all projects →', proyectoUno: 'project',
     serviciosKicker: 'Services', queHacemos: 'What we do', ctaInicio: 'Have a project in mind?', escribinos: 'Get in touch →',
     numerosTitulo: 'The studio in numbers',
     numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Brands and media', 'Our largest mural', 'Creative disciplines'],
@@ -1297,7 +1297,7 @@ function inicio(l, proyectos) {
     <div class="wrap">
       <div class="areas-head">
         <span class="kicker mono">${T.areasKicker}</span>
-        <h2 class="h2">${T.nav.proyectos}</h2>
+        <h2 class="h2">${T.areasTitulo}</h2>
       </div>
       <div class="areas-grid">
         <div class="areas-visor" aria-hidden="true">
