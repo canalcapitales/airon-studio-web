@@ -232,8 +232,174 @@
     "ficha": [["Client", "Flexy"], ["Deliverable", "Brand manual"]]
   },
   "trust-fund": {
-    "subtitulo": "Brand manual",
-    "ficha": [["Client", "Trust Fund Garantías Inmobiliarias — Grupo del Sud"], ["Location", "La Plata, Argentina"], ["Deliverable", "Brand manual"]]
+    "subtitulo": "Identity and end-to-end communication",
+    "ficha": [
+      [
+        "Client",
+        "Trust Fund Garantías Inmobiliarias — Grupo del Sud"
+      ],
+      [
+        "Location",
+        "La Plata, Argentina"
+      ],
+      [
+        "Period",
+        "2022 — 2023"
+      ],
+      [
+        "Role",
+        "Brand design, communication and content"
+      ],
+      [
+        "Scope",
+        "Brand manual, social media, campaigns, web, newsletter and print"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The challenge",
+        "parrafos": [
+          "Trust Fund, the rental guarantee company of Grupo del Sud, needed a solid identity and consistent communication to reach tenants, landlords and real estate agencies across the country."
+        ]
+      },
+      {
+        "titulo": "The process",
+        "parrafos": [
+          "We designed the brand manual and took it to every touchpoint: Instagram feed, stories and carousels, local campaigns, LinkedIn, newsletter, brochures, business cards and the screens of the website and the application system."
+        ]
+      },
+      {
+        "titulo": "The result",
+        "parrafos": [
+          "A recognizable visual system in blue and white that organized the brand’s communication and gave it a professional, consistent presence on every channel."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "Brand manual",
+        "texto": "Logo, construction, usage, typography, color and imagery.",
+        "alts": [
+          "Trust Fund — Brand manual cover.",
+          "Trust Fund — Logo construction.",
+          "Trust Fund — Incorrect uses.",
+          "Trust Fund — Typography.",
+          "Trust Fund — Brand colors.",
+          "Trust Fund — Image style.",
+          "Trust Fund — Social media applications."
+        ]
+      },
+      {
+        "titulo": "Applications",
+        "alts": [
+          "Trust Fund — Phone and brochure.",
+          "Trust Fund — Car wrap.",
+          "Trust Fund — Billboard.",
+          "Trust Fund — Mug, bottle and calendar.",
+          "Trust Fund — Bus stop.",
+          "Trust Fund — Flag."
+        ]
+      },
+      {
+        "titulo": "Carousels",
+        "texto": "How to get the guarantee in four steps, told in a carousel that reads as a single piece.",
+        "alts": [
+          "Trust Fund — “How do I get my rental guarantee?” carousel on a phone and laid out."
+        ]
+      },
+      {
+        "titulo": "Posts",
+        "alts": [
+          "Trust Fund — Instagram post 1.",
+          "Trust Fund — Instagram post 2.",
+          "Trust Fund — Instagram post 3.",
+          "Trust Fund — Instagram post 4.",
+          "Trust Fund — Instagram post 5.",
+          "Trust Fund — Instagram post 6.",
+          "Trust Fund — Instagram post 7.",
+          "Trust Fund — Instagram post 8.",
+          "Trust Fund — Instagram post 9.",
+          "Trust Fund — Instagram post 10.",
+          "Trust Fund — Instagram post 11.",
+          "Trust Fund — Instagram post 12.",
+          "Trust Fund — Instagram post 13.",
+          "Trust Fund — Instagram post 14.",
+          "Trust Fund — Instagram post 15.",
+          "Trust Fund — Instagram post 16."
+        ]
+      },
+      {
+        "titulo": "Stories",
+        "alts": [
+          "Trust Fund — Instagram story 1.",
+          "Trust Fund — Instagram story 2.",
+          "Trust Fund — Instagram story 3.",
+          "Trust Fund — Instagram story 4.",
+          "Trust Fund — Instagram story 5.",
+          "Trust Fund — Instagram story 6.",
+          "Trust Fund — Instagram story 7.",
+          "Trust Fund — Instagram story 8."
+        ]
+      },
+      {
+        "titulo": "Campaigns",
+        "texto": "Campaigns by city and audience: students, shops and families.",
+        "alts": [
+          "Trust Fund — Campaign piece 1.",
+          "Trust Fund — Campaign piece 2.",
+          "Trust Fund — Campaign piece 3.",
+          "Trust Fund — Campaign piece 4.",
+          "Trust Fund — Campaign piece 5.",
+          "Trust Fund — Campaign piece 6."
+        ]
+      },
+      {
+        "titulo": "LinkedIn",
+        "alts": [
+          "Trust Fund — LinkedIn post 1.",
+          "Trust Fund — LinkedIn post 2.",
+          "Trust Fund — LinkedIn post 3.",
+          "Trust Fund — LinkedIn post 4.",
+          "Trust Fund — LinkedIn post 5.",
+          "Trust Fund — LinkedIn post 6."
+        ]
+      },
+      {
+        "titulo": "Web and platform",
+        "texto": "Guarantee calculator and pre-approved guarantee forms.",
+        "alts": [
+          "Trust Fund — Guarantee calculator.",
+          "Trust Fund — Guarantee calculator, result.",
+          "Trust Fund — Pre-approved guarantee form.",
+          "Trust Fund — Pre-approved guarantee form, second step."
+        ]
+      },
+      {
+        "titulo": "Newsletter",
+        "alts": [
+          "Trust Fund — Newsletter 1.",
+          "Trust Fund — Newsletter 2.",
+          "Trust Fund — Newsletter 3.",
+          "Trust Fund — Newsletter 4.",
+          "Trust Fund — Newsletter 5.",
+          "Trust Fund — Newsletter 6."
+        ]
+      },
+      {
+        "titulo": "Print",
+        "alts": [
+          "Trust Fund — Business cards.",
+          "Trust Fund — Business cards, front and back.",
+          "Trust Fund — Brochure 1, front.",
+          "Trust Fund — Brochure 1, back.",
+          "Trust Fund — Brochure 2, front.",
+          "Trust Fund — Brochure 2, back."
+        ]
+      },
+      {
+        "titulo": "Reels"
+      }
+    ]
   },
   "empresa-black": {
     "titulo": "Black",
@@ -274,5 +440,168 @@
   "analogic-photos": {
     "subtitulo": "Analog photography",
     "ficha": [["Discipline", "Analog photography"]]
+  },
+  "trademat": {
+    "subtitulo": "Identity, product and digital presence",
+    "ficha": [
+      [
+        "Client",
+        "Trademat — Trading and import company"
+      ],
+      [
+        "Year",
+        "2019"
+      ],
+      [
+        "Role",
+        "Identity, product design and communication"
+      ],
+      [
+        "Scope",
+        "Logo, product boards, social media and web"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The challenge",
+        "parrafos": [
+          "Trademat imports and sells magnesium oxide boards (MgO Board), a building material that was new to the local market. It needed a brand and pieces that explained the product clearly."
+        ]
+      },
+      {
+        "titulo": "The process",
+        "parrafos": [
+          "We built the symbol from a geometric diagram and developed a system of boards that communicates each benefit of the material: fire, moisture and impact resistance, and its eco-friendly profile. Then we applied it to Instagram and the website."
+        ]
+      },
+      {
+        "titulo": "The result",
+        "parrafos": [
+          "A clean, technical identity, with pieces ready to introduce a new product on every channel."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "Identity",
+        "texto": "A symbol built from a geometric diagram, on its own and with the full wordmark.",
+        "alts": [
+          "Trademat — Symbol.",
+          "Trademat — Construction diagram.",
+          "Trademat — Full logo."
+        ]
+      },
+      {
+        "titulo": "Instagram",
+        "texto": "The profile header, made of three posts that form a single image.",
+        "alts": [
+          "Trademat — Instagram profile header across three posts."
+        ]
+      },
+      {
+        "titulo": "Product boards",
+        "texto": "One board for each benefit of MgO Board.",
+        "alts": [
+          "Trademat — MgO Board, magnesium oxide boards.",
+          "Trademat — Fire resistant.",
+          "Trademat — Moisture resistant.",
+          "Trademat — Eco-friendly material.",
+          "Trademat — Impact resistant and flexible.",
+          "Trademat — Board composition."
+        ]
+      },
+      {
+        "titulo": "Website",
+        "alts": [
+          "Trademat — Website.",
+          "Trademat — Website, services.",
+          "Trademat — Website, location."
+        ]
+      }
+    ]
+  },
+  "redes-para-marcas": {
+    "titulo": "Social media for brands",
+    "subtitulo": "Content systems for social media",
+    "ficha": [
+      [
+        "Clients",
+        "Surcipres · María Rasgido Propiedades · AFFUM · Rac3 Design · Laionbeats · Trust Fund"
+      ],
+      [
+        "Role",
+        "Social media content design"
+      ],
+      [
+        "Formats",
+        "Feed, stories, covers, listings and cards"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The selection",
+        "parrafos": [
+          "Social media systems developed for brands in different industries: software, real estate, food, design and music. Each one starts from the brand’s identity and turns it into consistent pieces to publish every week."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "Feeds on a phone",
+        "alts": [
+          "Social media for brands — AFFUM feed on a phone.",
+          "Social media for brands — Laionbeats feed on a phone.",
+          "Social media for brands — Rac3 Design feed on a phone.",
+          "Social media for brands — Trust Fund feed on a phone."
+        ]
+      },
+      {
+        "titulo": "Surcipres",
+        "texto": "Software and web development: social media identity, posts for each service and stories with plans and clients.",
+        "alts": [
+          "Social media for brands — Surcipres, logo.",
+          "Social media for brands — Surcipres, Facebook cover."
+        ]
+      },
+      {
+        "titulo": "Surcipres · posts",
+        "alts": [
+          "Social media for brands — Surcipres, post 1.",
+          "Social media for brands — Surcipres, post 2.",
+          "Social media for brands — Surcipres, post 3.",
+          "Social media for brands — Surcipres, post 4.",
+          "Social media for brands — Surcipres, post 5.",
+          "Social media for brands — Surcipres, post 6."
+        ]
+      },
+      {
+        "titulo": "Surcipres · stories",
+        "alts": [
+          "Social media for brands — Surcipres, story 1.",
+          "Social media for brands — Surcipres, story 2.",
+          "Social media for brands — Surcipres, story 3.",
+          "Social media for brands — Surcipres, story 4.",
+          "Social media for brands — Surcipres, story 5.",
+          "Social media for brands — Surcipres, story 6.",
+          "Social media for brands — Surcipres, story 7.",
+          "Social media for brands — Surcipres, story 8."
+        ]
+      },
+      {
+        "titulo": "María Rasgido Propiedades",
+        "texto": "Real estate: boards, cards and property listings with one system.",
+        "alts": [
+          "Social media for brands — María Rasgido Propiedades, board.",
+          "Social media for brands — María Rasgido Propiedades, card.",
+          "Social media for brands — María Rasgido Propiedades, sales agents.",
+          "Social media for brands — María Rasgido Propiedades, property listing 1.",
+          "Social media for brands — María Rasgido Propiedades, property listing 2.",
+          "Social media for brands — María Rasgido Propiedades, property listing 3.",
+          "Social media for brands — María Rasgido Propiedades, property listing 4.",
+          "Social media for brands — María Rasgido Propiedades, property listing 5.",
+          "Social media for brands — María Rasgido Propiedades, property listing 6."
+        ]
+      }
+    ]
   }
 }

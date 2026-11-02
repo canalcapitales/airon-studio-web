@@ -683,10 +683,11 @@
   {
     "slug": "trust-fund",
     "titulo": "Trust Fund",
-    "subtitulo": "Manual de marca",
+    "subtitulo": "Identidad y comunicación integral",
     "categorias": [
       "integral",
-      "branding"
+      "branding",
+      "redes"
     ],
     "portada": {
       "640": "/img/p/trust-fund/portada-640.webp",
@@ -706,152 +707,917 @@
         "La Plata"
       ],
       [
-        "Pieza",
-        "Manual de marca"
+        "Período",
+        "2022 — 2023"
+      ],
+      [
+        "Rol",
+        "Diseño de marca, comunicación y contenidos"
+      ],
+      [
+        "Alcance",
+        "Manual de marca, redes, campañas, web, newsletter e impresos"
       ]
     ],
-    "bloques": [],
-    "galeria": [
+    "bloques": [
       {
-        "640": "/img/p/trust-fund/g01-640.webp",
-        "1200": "/img/p/trust-fund/g01-1200.webp",
-        "_wh": [
-          1200,
-          849
+        "titulo": "El reto",
+        "parrafos": [
+          "Trust Fund, la empresa de garantías de alquiler de Grupo del Sud, necesitaba una identidad sólida y una comunicación constante para llegar a inquilinos, propietarios e inmobiliarias de todo el país."
         ]
       },
       {
-        "640": "/img/p/trust-fund/g02-640.webp",
-        "1200": "/img/p/trust-fund/g02-1200.webp",
-        "_wh": [
-          1200,
-          849
+        "titulo": "El proceso",
+        "parrafos": [
+          "Diseñamos el manual de marca y lo llevamos a cada punto de contacto: feed, historias y carruseles de Instagram, campañas por localidad, LinkedIn, newsletter, folletos, tarjetas y las pantallas de la web y del sistema de solicitudes."
         ]
       },
       {
-        "640": "/img/p/trust-fund/g03-640.webp",
-        "1200": "/img/p/trust-fund/g03-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g04-640.webp",
-        "1200": "/img/p/trust-fund/g04-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g05-640.webp",
-        "1200": "/img/p/trust-fund/g05-1200.webp",
-        "_wh": [
-          1200,
-          849
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g06-640.webp",
-        "1080": "/img/p/trust-fund/g06-1080.webp",
-        "_wh": [
-          1080,
-          1080
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g07-640.webp",
-        "1080": "/img/p/trust-fund/g07-1080.webp",
-        "_wh": [
-          1080,
-          1080
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g08-640.webp",
-        "1080": "/img/p/trust-fund/g08-1080.webp",
-        "_wh": [
-          1080,
-          1080
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g09-640.webp",
-        "1200": "/img/p/trust-fund/g09-1200.webp",
-        "_wh": [
-          1200,
-          628
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g10-640.webp",
-        "1200": "/img/p/trust-fund/g10-1200.webp",
-        "_wh": [
-          1200,
-          628
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g11-640.webp",
-        "1200": "/img/p/trust-fund/g11-1200.webp",
-        "_wh": [
-          1200,
-          800
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g12-640.webp",
-        "1200": "/img/p/trust-fund/g12-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g13-640.webp",
-        "1200": "/img/p/trust-fund/g13-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g14-640.webp",
-        "1200": "/img/p/trust-fund/g14-1200.webp",
-        "_wh": [
-          1200,
-          1200
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g15-640.webp",
-        "1080": "/img/p/trust-fund/g15-1080.webp",
-        "_wh": [
-          1080,
-          1920
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g16-640.webp",
-        "1200": "/img/p/trust-fund/g16-1200.webp",
-        "_wh": [
-          1200,
-          2133
-        ]
-      },
-      {
-        "640": "/img/p/trust-fund/g17-640.webp",
-        "1200": "/img/p/trust-fund/g17-1200.webp",
-        "_wh": [
-          1200,
-          2133
+        "titulo": "El resultado",
+        "parrafos": [
+          "Un sistema visual reconocible, en azul y blanco, que ordenó la comunicación de la marca y le dio una presencia profesional y coherente en cada canal."
         ]
       }
     ],
-    "videos": [
-      "Up3QbgkzHvT",
-      "VQY7mBxmS_i"
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "Manual de marca",
+        "texto": "Logotipo, construcción, usos, tipografía, color e imágenes de la marca.",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/trust-fund-v2/manual-portada-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/manual-portada-1600.webp",
+            "_wh": [
+              1600,
+              1132
+            ],
+            "alt": "Trust Fund — Portada del manual de marca."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/manual-construccion-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/manual-construccion-1600.webp",
+            "_wh": [
+              1600,
+              1132
+            ],
+            "alt": "Trust Fund — Construcción del logotipo."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/manual-usos-no-permitidos-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/manual-usos-no-permitidos-1600.webp",
+            "_wh": [
+              1600,
+              1132
+            ],
+            "alt": "Trust Fund — Usos no permitidos."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/manual-tipografia-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/manual-tipografia-1600.webp",
+            "_wh": [
+              1600,
+              1132
+            ],
+            "alt": "Trust Fund — Tipografía."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/manual-color-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/manual-color-1600.webp",
+            "_wh": [
+              1600,
+              1132
+            ],
+            "alt": "Trust Fund — Color institucional."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/manual-imagenes-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/manual-imagenes-1600.webp",
+            "_wh": [
+              1600,
+              1132
+            ],
+            "alt": "Trust Fund — Estilo de imágenes."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/manual-aplicaciones-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/manual-aplicaciones-1600.webp",
+            "_wh": [
+              1600,
+              1132
+            ],
+            "alt": "Trust Fund — Aplicaciones en redes."
+          }
+        ]
+      },
+      {
+        "titulo": "Aplicaciones",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "640": "/img/proyectos/trust-fund-v2/app-celular-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/app-celular-1080.webp",
+            "_wh": [
+              1080,
+              764
+            ],
+            "alt": "Trust Fund — Aplicación en celular y folleto."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/app-auto-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/app-auto-1080.webp",
+            "_wh": [
+              1080,
+              764
+            ],
+            "alt": "Trust Fund — Ploteo de auto."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/app-cartel-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/app-cartel-1080.webp",
+            "_wh": [
+              1080,
+              764
+            ],
+            "alt": "Trust Fund — Cartel en vía pública."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/app-merch-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/app-merch-1080.webp",
+            "_wh": [
+              1080,
+              764
+            ],
+            "alt": "Trust Fund — Taza, botella y calendario."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/app-parada-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/app-parada-1080.webp",
+            "_wh": [
+              1080,
+              764
+            ],
+            "alt": "Trust Fund — Parada de colectivo."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/app-bandera-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/app-bandera-1080.webp",
+            "_wh": [
+              1080,
+              764
+            ],
+            "alt": "Trust Fund — Bandera."
+          }
+        ]
+      },
+      {
+        "titulo": "Carruseles",
+        "texto": "Cómo sacar la garantía en cuatro pasos, contado en un carrusel que se recorre como una sola pieza.",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/trust-fund-v2/carrusel-como-sacar-tu-garantia-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/carrusel-como-sacar-tu-garantia-1600.webp",
+            "2400": "/img/proyectos/trust-fund-v2/carrusel-como-sacar-tu-garantia-2400.webp",
+            "_wh": [
+              2400,
+              1192
+            ],
+            "alt": "Trust Fund — Carrusel «¿Cómo sacar tu Garantía de Alquiler?» en celular y desplegado."
+          }
+        ]
+      },
+      {
+        "titulo": "Publicaciones",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-01-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-01-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 1."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-02-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-02-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 2."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-03-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-03-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 3."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-04-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-04-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 4."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-05-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-05-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 5."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-06-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-06-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 6."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-07-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-07-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 7."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-08-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-08-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 8."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-09-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-09-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 9."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-10-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-10-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 10."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-11-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-11-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 11."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-12-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-12-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 12."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-13-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-13-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 13."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-14-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-14-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 14."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-15-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-15-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 15."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/feed-16-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/feed-16-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Publicación de Instagram 16."
+          }
+        ]
+      },
+      {
+        "titulo": "Historias",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "640": "/img/proyectos/trust-fund-v2/historia-1-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/historia-1-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Trust Fund — Historia de Instagram 1."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/historia-2-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/historia-2-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Trust Fund — Historia de Instagram 2."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/historia-3-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/historia-3-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Trust Fund — Historia de Instagram 3."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/historia-4-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/historia-4-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Trust Fund — Historia de Instagram 4."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/historia-5-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/historia-5-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Trust Fund — Historia de Instagram 5."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/historia-6-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/historia-6-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Trust Fund — Historia de Instagram 6."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/historia-7-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/historia-7-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Trust Fund — Historia de Instagram 7."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/historia-8-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/historia-8-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Trust Fund — Historia de Instagram 8."
+          }
+        ]
+      },
+      {
+        "titulo": "Campañas",
+        "texto": "Campañas por localidad y por público: estudiantes, comercios y familias.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "640": "/img/proyectos/trust-fund-v2/campana-1-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/campana-1-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Pieza de campaña 1."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/campana-2-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/campana-2-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Pieza de campaña 2."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/campana-3-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/campana-3-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Pieza de campaña 3."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/campana-4-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/campana-4-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Pieza de campaña 4."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/campana-5-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/campana-5-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Pieza de campaña 5."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/campana-6-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/campana-6-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trust Fund — Pieza de campaña 6."
+          }
+        ]
+      },
+      {
+        "titulo": "LinkedIn",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/trust-fund-v2/linkedin-1-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/linkedin-1-1600.webp",
+            "_wh": [
+              1600,
+              1067
+            ],
+            "alt": "Trust Fund — Publicación de LinkedIn 1."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/linkedin-2-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/linkedin-2-1600.webp",
+            "_wh": [
+              1600,
+              1066
+            ],
+            "alt": "Trust Fund — Publicación de LinkedIn 2."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/linkedin-3-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/linkedin-3-1600.webp",
+            "_wh": [
+              1600,
+              1067
+            ],
+            "alt": "Trust Fund — Publicación de LinkedIn 3."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/linkedin-4-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/linkedin-4-1600.webp",
+            "_wh": [
+              1600,
+              1067
+            ],
+            "alt": "Trust Fund — Publicación de LinkedIn 4."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/linkedin-5-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/linkedin-5-1600.webp",
+            "_wh": [
+              1600,
+              1067
+            ],
+            "alt": "Trust Fund — Publicación de LinkedIn 5."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/linkedin-6-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/linkedin-6-1600.webp",
+            "_wh": [
+              1600,
+              1067
+            ],
+            "alt": "Trust Fund — Publicación de LinkedIn 6."
+          }
+        ]
+      },
+      {
+        "titulo": "Web y plataforma",
+        "texto": "Calculador de garantías y formularios de la garantía preaprobada.",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/trust-fund-v2/web-calculador-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/web-calculador-1600.webp",
+            "_wh": [
+              1600,
+              900
+            ],
+            "alt": "Trust Fund — Calculador de garantías."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/web-calculador-2-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/web-calculador-2-1600.webp",
+            "_wh": [
+              1600,
+              900
+            ],
+            "alt": "Trust Fund — Calculador de garantías, resultado."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/web-formulario-1-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/web-formulario-1-1600.webp",
+            "_wh": [
+              1600,
+              900
+            ],
+            "alt": "Trust Fund — Formulario de garantía preaprobada."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/web-formulario-2-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/web-formulario-2-1600.webp",
+            "_wh": [
+              1600,
+              900
+            ],
+            "alt": "Trust Fund — Formulario de garantía preaprobada, segundo paso."
+          }
+        ]
+      },
+      {
+        "titulo": "Newsletter",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "640": "/img/proyectos/trust-fund-v2/newsletter-1-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/newsletter-1-1080.webp",
+            "_wh": [
+              1080,
+              1527
+            ],
+            "alt": "Trust Fund — Newsletter 1."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/newsletter-2-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/newsletter-2-1080.webp",
+            "_wh": [
+              1080,
+              1527
+            ],
+            "alt": "Trust Fund — Newsletter 2."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/newsletter-3-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/newsletter-3-1080.webp",
+            "_wh": [
+              1080,
+              1527
+            ],
+            "alt": "Trust Fund — Newsletter 3."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/newsletter-4-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/newsletter-4-1080.webp",
+            "_wh": [
+              1080,
+              1527
+            ],
+            "alt": "Trust Fund — Newsletter 4."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/newsletter-5-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/newsletter-5-1080.webp",
+            "_wh": [
+              1080,
+              1527
+            ],
+            "alt": "Trust Fund — Newsletter 5."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/newsletter-6-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/newsletter-6-1080.webp",
+            "_wh": [
+              1080,
+              1527
+            ],
+            "alt": "Trust Fund — Newsletter 6."
+          }
+        ]
+      },
+      {
+        "titulo": "Impresos",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/trust-fund-v2/tarjetas-1-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/tarjetas-1-1600.webp",
+            "_wh": [
+              1600,
+              1068
+            ],
+            "alt": "Trust Fund — Tarjetas personales."
+          },
+          {
+            "800": "/img/proyectos/trust-fund-v2/tarjetas-2-800.webp",
+            "1600": "/img/proyectos/trust-fund-v2/tarjetas-2-1600.webp",
+            "_wh": [
+              1600,
+              1068
+            ],
+            "alt": "Trust Fund — Tarjetas personales, frente y dorso."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/folleto-1a-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/folleto-1a-1080.webp",
+            "_wh": [
+              1080,
+              1438
+            ],
+            "alt": "Trust Fund — Folleto 1, frente."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/folleto-1b-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/folleto-1b-1080.webp",
+            "_wh": [
+              1080,
+              1440
+            ],
+            "alt": "Trust Fund — Folleto 1, dorso."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/folleto-2a-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/folleto-2a-1080.webp",
+            "_wh": [
+              1080,
+              1439
+            ],
+            "alt": "Trust Fund — Folleto 2, frente."
+          },
+          {
+            "640": "/img/proyectos/trust-fund-v2/folleto-2b-640.webp",
+            "1080": "/img/proyectos/trust-fund-v2/folleto-2b-1080.webp",
+            "_wh": [
+              1080,
+              1439
+            ],
+            "alt": "Trust Fund — Folleto 2, dorso."
+          }
+        ]
+      },
+      {
+        "titulo": "Reels",
+        "texto": "Videos verticales para redes.",
+        "videos": [
+          "Up3QbgkzHvT",
+          "VQY7mBxmS_i"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "trademat",
+    "titulo": "Trademat",
+    "subtitulo": "Identidad, producto y presencia digital",
+    "categorias": [
+      "integral",
+      "branding",
+      "web"
+    ],
+    "portada": {
+      "640": "/img/proyectos/trademat/portada-640.webp",
+      "1280": "/img/proyectos/trademat/portada-1280.webp",
+      "_wh": [
+        1280,
+        998
+      ]
+    },
+    "ficha": [
+      [
+        "Cliente",
+        "Trademat — Comercializadora e importadora"
+      ],
+      [
+        "Año",
+        "2019"
+      ],
+      [
+        "Rol",
+        "Identidad, diseño de producto y comunicación"
+      ],
+      [
+        "Alcance",
+        "Logotipo, placas de producto, redes y web"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El reto",
+        "parrafos": [
+          "Trademat importa y comercializa placas de óxido de magnesio (MgO Board), un material de construcción nuevo en el mercado local. Necesitaba una marca y piezas que explicaran el producto con claridad."
+        ]
+      },
+      {
+        "titulo": "El proceso",
+        "parrafos": [
+          "Creamos el isotipo a partir de un diagrama geométrico y desarrollamos un sistema de placas que comunica cada beneficio del material: resistencia al fuego, a la humedad y a los golpes, y su perfil ecológico. Después lo aplicamos a Instagram y a la web."
+        ]
+      },
+      {
+        "titulo": "El resultado",
+        "parrafos": [
+          "Una identidad técnica y limpia, con piezas listas para presentar un producto nuevo en cada canal."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "Identidad",
+        "texto": "Un isotipo construido con un diagrama geométrico, en versión sola y con la marca completa.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "640": "/img/proyectos/trademat/isotipo-640.webp",
+            "1080": "/img/proyectos/trademat/isotipo-1080.webp",
+            "_wh": [
+              142,
+              154
+            ],
+            "alt": "Trademat — Isotipo."
+          },
+          {
+            "640": "/img/proyectos/trademat/diagrama-640.webp",
+            "1080": "/img/proyectos/trademat/diagrama-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Trademat — Diagrama de construcción."
+          },
+          {
+            "640": "/img/proyectos/trademat/logo-640.webp",
+            "1080": "/img/proyectos/trademat/logo-1080.webp",
+            "_wh": [
+              1080,
+              664
+            ],
+            "alt": "Trademat — Logotipo completo."
+          }
+        ]
+      },
+      {
+        "titulo": "Instagram",
+        "texto": "La portada del perfil, armada con tres publicaciones que forman una sola imagen.",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/trademat/banner-800.webp",
+            "1600": "/img/proyectos/trademat/banner-1600.webp",
+            "2400": "/img/proyectos/trademat/banner-2400.webp",
+            "_wh": [
+              2400,
+              800
+            ],
+            "alt": "Trademat — Portada del perfil de Instagram en tres publicaciones."
+          }
+        ]
+      },
+      {
+        "titulo": "Placas de producto",
+        "texto": "Una placa por cada beneficio del MgO Board.",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/trademat/placa-mgo-800.webp",
+            "1600": "/img/proyectos/trademat/placa-mgo-1600.webp",
+            "_wh": [
+              1600,
+              1098
+            ],
+            "alt": "Trademat — MgO Board, placas de óxido de magnesio."
+          },
+          {
+            "800": "/img/proyectos/trademat/placa-fuego-800.webp",
+            "1600": "/img/proyectos/trademat/placa-fuego-1600.webp",
+            "_wh": [
+              1600,
+              1097
+            ],
+            "alt": "Trademat — Resistente al fuego."
+          },
+          {
+            "800": "/img/proyectos/trademat/placa-humedad-800.webp",
+            "1600": "/img/proyectos/trademat/placa-humedad-1600.webp",
+            "_wh": [
+              1600,
+              1098
+            ],
+            "alt": "Trademat — Resistente a la humedad."
+          },
+          {
+            "800": "/img/proyectos/trademat/placa-eco-800.webp",
+            "1600": "/img/proyectos/trademat/placa-eco-1600.webp",
+            "_wh": [
+              1600,
+              1098
+            ],
+            "alt": "Trademat — Material ecológico."
+          },
+          {
+            "800": "/img/proyectos/trademat/placa-golpes-800.webp",
+            "1600": "/img/proyectos/trademat/placa-golpes-1600.webp",
+            "_wh": [
+              1600,
+              1098
+            ],
+            "alt": "Trademat — Resiste golpes y es flexible."
+          },
+          {
+            "800": "/img/proyectos/trademat/placa-composicion-800.webp",
+            "1600": "/img/proyectos/trademat/placa-composicion-1600.webp",
+            "_wh": [
+              1600,
+              900
+            ],
+            "alt": "Trademat — Composición de la placa."
+          }
+        ]
+      },
+      {
+        "titulo": "Web",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/trademat/web-1-800.webp",
+            "1600": "/img/proyectos/trademat/web-1-1600.webp",
+            "_wh": [
+              1600,
+              1098
+            ],
+            "alt": "Trademat — Sitio web."
+          },
+          {
+            "800": "/img/proyectos/trademat/web-2-800.webp",
+            "1600": "/img/proyectos/trademat/web-2-1600.webp",
+            "_wh": [
+              1600,
+              1097
+            ],
+            "alt": "Trademat — Sitio web, servicios."
+          },
+          {
+            "800": "/img/proyectos/trademat/web-3-800.webp",
+            "1600": "/img/proyectos/trademat/web-3-1600.webp",
+            "_wh": [
+              1600,
+              1098
+            ],
+            "alt": "Trademat — Sitio web, ubicación."
+          }
+        ]
+      }
     ]
   },
   {
@@ -2158,6 +2924,344 @@
     },
     "galerias": [],
     "muro": "flyers"
+  },
+  {
+    "slug": "redes-para-marcas",
+    "titulo": "Redes para marcas",
+    "subtitulo": "Sistemas de contenido para redes sociales",
+    "categorias": [
+      "redes"
+    ],
+    "portada": {
+      "640": "/img/proyectos/redes-para-marcas/portada-640.webp",
+      "1280": "/img/proyectos/redes-para-marcas/portada-1280.webp",
+      "_wh": [
+        1080,
+        842
+      ]
+    },
+    "ficha": [
+      [
+        "Clientes",
+        "Surcipres · María Rasgido Propiedades · AFFUM · Rac3 Design · Laionbeats · Trust Fund"
+      ],
+      [
+        "Rol",
+        "Diseño de contenidos para redes"
+      ],
+      [
+        "Formatos",
+        "Feed, historias, portadas, fichas y tarjetas"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "La selección",
+        "parrafos": [
+          "Sistemas para redes sociales desarrollados para marcas de distintos rubros: software, inmobiliarias, gastronomía, diseño y música. Cada uno parte de la identidad de la marca y la traduce en piezas consistentes para publicar todas las semanas."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "Feeds en celular",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "640": "/img/proyectos/redes-para-marcas/feed-affum-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/feed-affum-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Feed de AFFUM en celular."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/feed-laionbeats-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/feed-laionbeats-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Feed de Laionbeats en celular."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/feed-rac3-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/feed-rac3-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Feed de Rac3 Design en celular."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/feed-trust-fund-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/feed-trust-fund-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Feed de Trust Fund en celular."
+          }
+        ]
+      },
+      {
+        "titulo": "Surcipres",
+        "texto": "Software y desarrollo web: identidad para redes, publicaciones por servicio e historias con los planes y los clientes.",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/redes-para-marcas/surcipres-logo-800.webp",
+            "1600": "/img/proyectos/redes-para-marcas/surcipres-logo-1600.webp",
+            "_wh": [
+              1600,
+              533
+            ],
+            "alt": "Redes para marcas — Surcipres, logotipo."
+          },
+          {
+            "800": "/img/proyectos/redes-para-marcas/surcipres-portada-facebook-800.webp",
+            "1600": "/img/proyectos/redes-para-marcas/surcipres-portada-facebook-1600.webp",
+            "_wh": [
+              1600,
+              609
+            ],
+            "alt": "Redes para marcas — Surcipres, portada de Facebook."
+          }
+        ]
+      },
+      {
+        "titulo": "Surcipres · publicaciones",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-post-1-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-post-1-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Surcipres, publicación 1."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-post-2-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-post-2-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Surcipres, publicación 2."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-post-3-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-post-3-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Surcipres, publicación 3."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-post-4-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-post-4-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Surcipres, publicación 4."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-post-5-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-post-5-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Surcipres, publicación 5."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-post-6-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-post-6-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "Redes para marcas — Surcipres, publicación 6."
+          }
+        ]
+      },
+      {
+        "titulo": "Surcipres · historias",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-historia-1-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-historia-1-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Redes para marcas — Surcipres, historia 1."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-historia-2-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-historia-2-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Redes para marcas — Surcipres, historia 2."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-historia-3-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-historia-3-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Redes para marcas — Surcipres, historia 3."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-historia-4-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-historia-4-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Redes para marcas — Surcipres, historia 4."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-historia-5-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-historia-5-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Redes para marcas — Surcipres, historia 5."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-historia-6-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-historia-6-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Redes para marcas — Surcipres, historia 6."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-historia-7-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-historia-7-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Redes para marcas — Surcipres, historia 7."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/surcipres-historia-8-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/surcipres-historia-8-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Redes para marcas — Surcipres, historia 8."
+          }
+        ]
+      },
+      {
+        "titulo": "María Rasgido Propiedades",
+        "texto": "Inmobiliaria: placas, tarjetas y fichas de propiedades con un mismo sistema.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/redes-para-marcas/rasgido-placa-800.webp",
+            "1600": "/img/proyectos/redes-para-marcas/rasgido-placa-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Redes para marcas — María Rasgido Propiedades, placa."
+          },
+          {
+            "800": "/img/proyectos/redes-para-marcas/rasgido-tarjeta-800.webp",
+            "1600": "/img/proyectos/redes-para-marcas/rasgido-tarjeta-1600.webp",
+            "_wh": [
+              1063,
+              591
+            ],
+            "alt": "Redes para marcas — María Rasgido Propiedades, tarjeta."
+          },
+          {
+            "800": "/img/proyectos/redes-para-marcas/rasgido-asesores-800.webp",
+            "1600": "/img/proyectos/redes-para-marcas/rasgido-asesores-1600.webp",
+            "_wh": [
+              1063,
+              591
+            ],
+            "alt": "Redes para marcas — María Rasgido Propiedades, asesores comerciales."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/rasgido-ficha-1-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/rasgido-ficha-1-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Redes para marcas — María Rasgido Propiedades, ficha de propiedad 1."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/rasgido-ficha-2-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/rasgido-ficha-2-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Redes para marcas — María Rasgido Propiedades, ficha de propiedad 2."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/rasgido-ficha-3-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/rasgido-ficha-3-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Redes para marcas — María Rasgido Propiedades, ficha de propiedad 3."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/rasgido-ficha-4-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/rasgido-ficha-4-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Redes para marcas — María Rasgido Propiedades, ficha de propiedad 4."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/rasgido-ficha-5-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/rasgido-ficha-5-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Redes para marcas — María Rasgido Propiedades, ficha de propiedad 5."
+          },
+          {
+            "640": "/img/proyectos/redes-para-marcas/rasgido-ficha-6-640.webp",
+            "1080": "/img/proyectos/redes-para-marcas/rasgido-ficha-6-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Redes para marcas — María Rasgido Propiedades, ficha de propiedad 6."
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "portadas",

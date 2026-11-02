@@ -394,6 +394,132 @@
       },
       "grupo": "discos",
       "caso": null
+    },
+    {
+      "archivo": "/img/portadas/playlist-random-640.webp",
+      "grande": "/img/portadas/playlist-random-1200.webp",
+      "nombre": {
+        "es": "Playlist random",
+        "en": "Playlist random"
+      },
+      "rubro": {
+        "es": "Playlist · Laionbeats",
+        "en": "Playlist · Laionbeats"
+      },
+      "grupo": "playlists",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/playlist-random-b-640.webp",
+      "grande": "/img/portadas/playlist-random-b-1200.webp",
+      "nombre": {
+        "es": "Playlist random (B)",
+        "en": "Playlist random (B)"
+      },
+      "rubro": {
+        "es": "Playlist · Laionbeats",
+        "en": "Playlist · Laionbeats"
+      },
+      "grupo": "playlists",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/instrumentales-et-640.webp",
+      "grande": "/img/portadas/instrumentales-et-1200.webp",
+      "nombre": {
+        "es": "Instrumentales",
+        "en": "Instrumentales"
+      },
+      "rubro": {
+        "es": "Single · Laionbeats",
+        "en": "Single · Laionbeats"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/instrumentales-balas-640.webp",
+      "grande": "/img/portadas/instrumentales-balas-1200.webp",
+      "nombre": {
+        "es": "Instrumentales (B)",
+        "en": "Instrumentales (B)"
+      },
+      "rubro": {
+        "es": "Single · Laionbeats",
+        "en": "Single · Laionbeats"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/instrumentales-ciudad-640.webp",
+      "grande": "/img/portadas/instrumentales-ciudad-1200.webp",
+      "nombre": {
+        "es": "Instrumentales (C)",
+        "en": "Instrumentales (C)"
+      },
+      "rubro": {
+        "es": "Single · Laionbeats",
+        "en": "Single · Laionbeats"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/instrumentales-ciudad-b-640.webp",
+      "grande": "/img/portadas/instrumentales-ciudad-b-1200.webp",
+      "nombre": {
+        "es": "Instrumentales (D)",
+        "en": "Instrumentales (D)"
+      },
+      "rubro": {
+        "es": "Single · Laionbeats",
+        "en": "Single · Laionbeats"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/simples-640.webp",
+      "grande": "/img/portadas/simples-1200.webp",
+      "nombre": {
+        "es": "Simple’s",
+        "en": "Simple’s"
+      },
+      "rubro": {
+        "es": "Single · Laionbeats",
+        "en": "Single · Laionbeats"
+      },
+      "grupo": "singles",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/puff-puff-pass-640.webp",
+      "grande": "/img/portadas/puff-puff-pass-1200.webp",
+      "nombre": {
+        "es": "Puff! Puff! Pass!! Vol. 2",
+        "en": "Puff! Puff! Pass!! Vol. 2"
+      },
+      "rubro": {
+        "es": "EP · Varios artistas",
+        "en": "EP · Various artists"
+      },
+      "grupo": "discos",
+      "caso": null
+    },
+    {
+      "archivo": "/img/portadas/pan-plata-640.webp",
+      "grande": "/img/portadas/pan-plata-1200.webp",
+      "nombre": {
+        "es": "Pan Plata",
+        "en": "Pan Plata"
+      },
+      "rubro": {
+        "es": "Single · Varios artistas",
+        "en": "Single · Various artists"
+      },
+      "grupo": "singles",
+      "caso": null
     }
   ]
 }
