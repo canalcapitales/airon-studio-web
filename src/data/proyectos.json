@@ -163,7 +163,386 @@
     "videos": [
       "Ec-weSrJWEi"
     ],
-    "previa": 2
+    "previa": 2,
+    "galerias": [
+      {
+        "titulo": "Identidad 2026",
+        "texto": "El escudo actualizado, su versión en negro y las adaptaciones para fotos de perfil.",
+        "imagenes": [
+          {
+            "640": "/img/proyectos/gsp-v2/logo-2026-640.webp",
+            "1080": "/img/proyectos/gsp-v2/logo-2026-1080.webp",
+            "_wh": [
+              1080,
+              1201
+            ],
+            "alt": "GSP Seguridad — Escudo 2026."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/logo-geo-640.webp",
+            "1080": "/img/proyectos/gsp-v2/logo-geo-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "GSP Seguridad — Escudo en versión negra."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/logo-perfil-1-640.webp",
+            "1080": "/img/proyectos/gsp-v2/logo-perfil-1-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "GSP Seguridad — Logo para foto de perfil, versión roja."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/logo-perfil-3-640.webp",
+            "1080": "/img/proyectos/gsp-v2/logo-perfil-3-1080.webp",
+            "_wh": [
+              1080,
+              1080
+            ],
+            "alt": "GSP Seguridad — Logo para foto de perfil, versión blanca."
+          }
+        ],
+        "estilo": "grilla"
+      },
+      {
+        "titulo": "Carruseles",
+        "texto": "Cada carrusel se diseña como una sola pieza panorámica que se corta en placas: al deslizar en Instagram, la imagen continúa de una placa a la otra.",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/gsp-v2/carrusel-casa-segura-800.webp",
+            "1600": "/img/proyectos/gsp-v2/carrusel-casa-segura-1600.webp",
+            "2400": "/img/proyectos/gsp-v2/carrusel-casa-segura-2400.webp",
+            "_wh": [
+              2400,
+              1014
+            ],
+            "alt": "GSP Seguridad — Carrusel «¿Creés que tu casa está segura?» en celular y desplegado."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/carrusel-que-necesita-tu-casa-800.webp",
+            "1600": "/img/proyectos/gsp-v2/carrusel-que-necesita-tu-casa-1600.webp",
+            "2400": "/img/proyectos/gsp-v2/carrusel-que-necesita-tu-casa-2400.webp",
+            "_wh": [
+              2400,
+              1192
+            ],
+            "alt": "GSP Seguridad — Carrusel «¿Qué necesita tu casa?» en celular y desplegado."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/carrusel-mitos-alarmas-800.webp",
+            "1600": "/img/proyectos/gsp-v2/carrusel-mitos-alarmas-1600.webp",
+            "2400": "/img/proyectos/gsp-v2/carrusel-mitos-alarmas-2400.webp",
+            "_wh": [
+              2400,
+              1192
+            ],
+            "alt": "GSP Seguridad — Carrusel «3 mitos sobre las alarmas» en celular y desplegado."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/carrusel-donde-poner-camaras-800.webp",
+            "1600": "/img/proyectos/gsp-v2/carrusel-donde-poner-camaras-1600.webp",
+            "2400": "/img/proyectos/gsp-v2/carrusel-donde-poner-camaras-2400.webp",
+            "_wh": [
+              2400,
+              1010
+            ],
+            "alt": "GSP Seguridad — Carrusel «¿Dónde conviene poner las cámaras?» en celular y desplegado."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/carrusel-donde-se-guardan-imagenes-800.webp",
+            "1600": "/img/proyectos/gsp-v2/carrusel-donde-se-guardan-imagenes-1600.webp",
+            "2400": "/img/proyectos/gsp-v2/carrusel-donde-se-guardan-imagenes-2400.webp",
+            "_wh": [
+              2400,
+              1010
+            ],
+            "alt": "GSP Seguridad — Carrusel «¿Dónde se guardan las imágenes de tus cámaras?» en celular y desplegado."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/carrusel-oficina-consultorio-800.webp",
+            "1600": "/img/proyectos/gsp-v2/carrusel-oficina-consultorio-1600.webp",
+            "2400": "/img/proyectos/gsp-v2/carrusel-oficina-consultorio-2400.webp",
+            "_wh": [
+              2400,
+              1010
+            ],
+            "alt": "GSP Seguridad — Carrusel «Tu oficina o consultorio también cierra» en celular y desplegado."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/carrusel-habitos-alarma-800.webp",
+            "1600": "/img/proyectos/gsp-v2/carrusel-habitos-alarma-1600.webp",
+            "2400": "/img/proyectos/gsp-v2/carrusel-habitos-alarma-2400.webp",
+            "_wh": [
+              2400,
+              1192
+            ],
+            "alt": "GSP Seguridad — Carrusel «3 hábitos de quien tiene alarma» en celular y desplegado."
+          }
+        ]
+      },
+      {
+        "titulo": "Feed de Instagram",
+        "texto": "Una grilla con identidad propia: rojo, azul y fotografía real para servicios, productos y certificaciones.",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/gsp-v2/maqueta-feed-800.webp",
+            "1600": "/img/proyectos/gsp-v2/maqueta-feed-1600.webp",
+            "_wh": [
+              1600,
+              1320
+            ],
+            "alt": "GSP Seguridad — Feed de Instagram en celular."
+          }
+        ]
+      },
+      {
+        "titulo": "Publicaciones",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "640": "/img/proyectos/gsp-v2/feed-01-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-01-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 1."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-02-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-02-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 2."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-03-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-03-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 3."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-04-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-04-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 4."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-05-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-05-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 5."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-06-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-06-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 6."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-07-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-07-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 7."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-08-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-08-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 8."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-09-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-09-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 9."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-10-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-10-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 10."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-11-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-11-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 11."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/feed-12-640.webp",
+            "1080": "/img/proyectos/gsp-v2/feed-12-1080.webp",
+            "_wh": [
+              1080,
+              1441
+            ],
+            "alt": "GSP Seguridad — Publicación de Instagram 12."
+          }
+        ]
+      },
+      {
+        "titulo": "Historias",
+        "estilo": "grilla",
+        "imagenes": [
+          {
+            "640": "/img/proyectos/gsp-v2/historia-05-640.webp",
+            "1080": "/img/proyectos/gsp-v2/historia-05-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia de Instagram 1."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/historia-06-640.webp",
+            "1080": "/img/proyectos/gsp-v2/historia-06-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia de Instagram 2."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/historia-07-640.webp",
+            "1080": "/img/proyectos/gsp-v2/historia-07-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia de Instagram 3."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/historia-08-640.webp",
+            "1080": "/img/proyectos/gsp-v2/historia-08-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia de Instagram 4."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/historia-09-640.webp",
+            "1080": "/img/proyectos/gsp-v2/historia-09-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia de Instagram 5."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/historia-12-640.webp",
+            "1080": "/img/proyectos/gsp-v2/historia-12-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia de Instagram 6."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/historia-13-640.webp",
+            "1080": "/img/proyectos/gsp-v2/historia-13-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia de Instagram 7."
+          },
+          {
+            "640": "/img/proyectos/gsp-v2/historia-14-640.webp",
+            "1080": "/img/proyectos/gsp-v2/historia-14-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "GSP Seguridad — Historia de Instagram 8."
+          }
+        ]
+      },
+      {
+        "titulo": "Material de ventas",
+        "texto": "Folletos y piezas promocionales que traducen la información técnica en argumentos de venta claros.",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/gsp-v2/seguridad-electronica-1-800.webp",
+            "1600": "/img/proyectos/gsp-v2/seguridad-electronica-1-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "GSP Seguridad — Folleto de seguridad electrónica, maqueta 1."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/seguridad-electronica-2-800.webp",
+            "1600": "/img/proyectos/gsp-v2/seguridad-electronica-2-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "GSP Seguridad — Folleto de seguridad electrónica, maqueta 2."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/seguridad-electronica-3-800.webp",
+            "1600": "/img/proyectos/gsp-v2/seguridad-electronica-3-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "GSP Seguridad — Folleto de seguridad electrónica, maqueta 3."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/promo-kits-1-800.webp",
+            "1600": "/img/proyectos/gsp-v2/promo-kits-1-1600.webp",
+            "_wh": [
+              1600,
+              1600
+            ],
+            "alt": "GSP Seguridad — Promoción del kit de alarma Home."
+          },
+          {
+            "800": "/img/proyectos/gsp-v2/promo-kits-2-800.webp",
+            "1600": "/img/proyectos/gsp-v2/promo-kits-2-1600.webp",
+            "_wh": [
+              1600,
+              1600
+            ],
+            "alt": "GSP Seguridad — Promoción del kit de alarma Pro."
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "branding-x-airon-studio",
