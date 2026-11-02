@@ -432,6 +432,13 @@ ul { padding: 0; list-style: none; }
 /* Muro de 21 marcas: 7 columnas como en Behance; 3 en tablet y celular (21 entra justo en los dos casos) */
 .galeria.galeria--grilla.galeria--7 { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px; }
 @media (max-width: 1099px) { .galeria.galeria--grilla.galeria--7 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; } }
+/* Grillas de 2 y 3 columnas (comparar piezas una al lado de la otra) */
+.galeria.galeria--grilla.galeria--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.galeria.galeria--grilla.galeria--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 699px) { .galeria.galeria--grilla.galeria--2 { grid-template-columns: 1fr; gap: 16px; } }
+/* Videos dentro de un grupo: reels verticales */
+.galeria-grupo .videos { grid-template-columns: repeat(auto-fill, minmax(240px, 360px)); margin-bottom: 0; }
+.galeria-grupo .video { aspect-ratio: 9 / 16; }
 @media (max-width: 899px) {
   .galeria-grupo-head { grid-template-columns: 1fr; }
   .galeria-grupo-head .mono { grid-column: auto; }
