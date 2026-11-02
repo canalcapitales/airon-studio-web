@@ -237,6 +237,34 @@
       },
       "grupo": "electronica",
       "caso": null
+    },
+    {
+      "archivo": "/img/flyers/juani-cosmosolar-540.webp",
+      "grande": "/img/flyers/juani-cosmosolar-1080.webp",
+      "nombre": {
+        "es": "Juani Cosmosolar · Symbiosis",
+        "en": "Juani Cosmosolar · Symbiosis"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · TKNO Radio",
+        "en": "Electronic party · TKNO Radio"
+      },
+      "grupo": "electronica",
+      "caso": null
+    },
+    {
+      "archivo": "/img/flyers/dickens-28-oct-540.webp",
+      "grande": "/img/flyers/dickens-28-oct-1080.webp",
+      "nombre": {
+        "es": "Dickens · 28 Oct",
+        "en": "Dickens · 28 Oct"
+      },
+      "rubro": {
+        "es": "Fiesta electrónica · TKNO Radio",
+        "en": "Electronic party · TKNO Radio"
+      },
+      "grupo": "electronica",
+      "caso": null
     }
   ]
 }
