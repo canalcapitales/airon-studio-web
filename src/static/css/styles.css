@@ -103,7 +103,8 @@ ul { padding: 0; list-style: none; }
 .header-in { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
 .logo { display: block; color: var(--ink); }
 .logo-svg { display: block; height: auto; }
-.logo-header { width: clamp(150px, 16vw, 232px); }
+/* Sube el logo para que la palabra AIRON (no la estrella) quede centrada con el texto del menú */
+.logo-header { width: clamp(150px, 16vw, 232px); transform: translateY(calc(-27% - 2px)); }
 .logo-estrella { fill: var(--acento); transition: fill .25s ease; }
 .logo, .footer-logo { transition: color .25s ease; }
 /* Al pasar el mouse: las letras pasan a rojo y la estrella a negro (en el pie, a blanco) */
@@ -290,6 +291,7 @@ ul { padding: 0; list-style: none; }
 
 /* ---------- áreas del portafolio (inicio): índice con vista previa ---------- */
 .areas-head { margin-bottom: clamp(40px, 6vw, 88px); }
+.areas-head .h2 { padding-top: .16em; } /* aire para la tilde de ÁREAS */
 .areas-grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(40px, 7vw, 112px); align-items: start; }
 .areas-visor { order: 2; position: sticky; top: 128px; aspect-ratio: 1280 / 1001; overflow: hidden; background: var(--placeholder); }
 .areas-visor::after { content: ''; position: absolute; inset: 0; border: 1px solid var(--ink); pointer-events: none; }

@@ -37,7 +37,7 @@ const TXT = {
     lema: 'Diseño que construye marcas, ideas y experiencias',
     descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
-    nav: { inicio: 'Inicio', proyectos: 'Proyectos', estudio: 'Nosotros', contacto: 'Contacto' },
+    nav: { inicio: 'Inicio', proyectos: 'Áreas', estudio: 'Nosotros', contacto: 'Contacto' },
     idiomaAria: 'Idioma', temaOscuro: 'Cambiar a modo oscuro',
     // ---------- herramientas (página que las reúne), tarifario de diseño, textos Unicode y PNG ----------
     tarifarios: {
@@ -459,7 +459,7 @@ const TXT = {
     lema: 'Design that builds brands, ideas and experiences',
     descripcion: 'Multimedia design studio based in Buenos Aires since 2015. Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
-    nav: { inicio: 'Home', proyectos: 'Work', estudio: 'About us', contacto: 'Contact' },
+    nav: { inicio: 'Home', proyectos: 'Areas', estudio: 'About us', contacto: 'Contact' },
     idiomaAria: 'Language', temaOscuro: 'Switch to dark mode',
     // ---------- rates hub and design rate guide ----------
     tarifarios: {
