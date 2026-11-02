@@ -8,11 +8,12 @@
       "branding"
     ],
     "portada": {
-      "640": "/img/p/gsp-seguridad/portada-640.webp",
-      "1280": "/img/p/gsp-seguridad/portada-1280.webp",
+      "640": "/img/casos/gsp-seguridad-portada-640.webp",
+      "1280": "/img/casos/gsp-seguridad-portada-1280.webp",
+      "1920": "/img/casos/gsp-seguridad-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -580,11 +581,12 @@
       "branding"
     ],
     "portada": {
-      "640": "/img/p/branding-x-airon-studio/portada-v2-640.webp",
-      "1280": "/img/p/branding-x-airon-studio/portada-v2-1280.webp",
+      "640": "/img/casos/branding-x-airon-studio-portada-640.webp",
+      "1280": "/img/casos/branding-x-airon-studio-portada-1280.webp",
+      "1920": "/img/casos/branding-x-airon-studio-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -612,16 +614,6 @@
     ],
     "galeria": [],
     "videos": [],
-    "portadaPagina": {
-      "ancha": {
-        "960": "/img/p/branding-x-airon-studio/ancha-960.webp",
-        "1440": "/img/p/branding-x-airon-studio/ancha-1440.webp"
-      },
-      "movil": {
-        "480": "/img/p/branding-x-airon-studio/movil-480.webp",
-        "800": "/img/p/branding-x-airon-studio/movil-800.webp"
-      }
-    },
     "galerias": [],
     "muroLogos": true
   },
@@ -633,11 +625,12 @@
       "motion"
     ],
     "portada": {
-      "640": "/img/p/zocalo-fox-sports/portada-640.webp",
-      "1280": "/img/p/zocalo-fox-sports/portada-1280.webp",
+      "640": "/img/casos/zocalo-fox-sports-portada-640.webp",
+      "1280": "/img/casos/zocalo-fox-sports-portada-1280.webp",
+      "1920": "/img/casos/zocalo-fox-sports-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -690,11 +683,12 @@
       "redes"
     ],
     "portada": {
-      "640": "/img/p/trust-fund/portada-640.webp",
-      "1280": "/img/p/trust-fund/portada-1280.webp",
+      "640": "/img/casos/trust-fund-portada-640.webp",
+      "1280": "/img/casos/trust-fund-portada-1280.webp",
+      "1920": "/img/casos/trust-fund-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -1425,11 +1419,12 @@
       "web"
     ],
     "portada": {
-      "640": "/img/proyectos/trademat/portada-640.webp",
-      "1280": "/img/proyectos/trademat/portada-1280.webp",
+      "640": "/img/casos/trademat-portada-640.webp",
+      "1280": "/img/casos/trademat-portada-1280.webp",
+      "1920": "/img/casos/trademat-portada-1920.webp",
       "_wh": [
-        1280,
-        998
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -1628,11 +1623,12 @@
       "urbano"
     ],
     "portada": {
-      "640": "/img/p/blend-david/portada-640.webp",
-      "1280": "/img/p/blend-david/portada-1280.webp",
+      "640": "/img/casos/blend-david-portada-640.webp",
+      "1280": "/img/casos/blend-david-portada-1280.webp",
+      "1920": "/img/casos/blend-david-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "lugar": "Mercado de sabores · La Plata",
@@ -1754,11 +1750,12 @@
       "branding"
     ],
     "portada": {
-      "640": "/img/p/flexy/portada-640.webp",
-      "1280": "/img/p/flexy/portada-1280.webp",
+      "640": "/img/casos/flexy-portada-640.webp",
+      "1280": "/img/casos/flexy-portada-1280.webp",
+      "1920": "/img/casos/flexy-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -1904,8 +1901,13 @@
       "web"
     ],
     "portada": {
-      "640": "/img/proyectos/web-airon/portada-640.webp",
-      "1280": "/img/proyectos/web-airon/portada-1280.webp"
+      "640": "/img/casos/web-airon-studio-portada-640.webp",
+      "1280": "/img/casos/web-airon-studio-portada-1280.webp",
+      "1920": "/img/casos/web-airon-studio-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
     },
     "ficha": [
       [
@@ -2061,8 +2063,13 @@
       "web"
     ],
     "portada": {
-      "640": "/img/proyectos/equilibria-v2/portada-640.webp",
-      "1280": "/img/proyectos/equilibria-v2/portada-1280.webp"
+      "640": "/img/casos/equilibria-portada-640.webp",
+      "1280": "/img/casos/equilibria-portada-1280.webp",
+      "1920": "/img/casos/equilibria-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
     },
     "ficha": [
       [
@@ -2594,11 +2601,12 @@
       "branding"
     ],
     "portada": {
-      "640": "/img/p/empresa-black/portada-640.webp",
-      "1280": "/img/p/empresa-black/portada-1280.webp",
+      "640": "/img/casos/empresa-black-portada-640.webp",
+      "1280": "/img/casos/empresa-black-portada-1280.webp",
+      "1920": "/img/casos/empresa-black-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -2736,11 +2744,12 @@
       "ploteo"
     ],
     "portada": {
-      "640": "/img/p/ploteo-vehicular/portada-640.webp",
-      "1280": "/img/p/ploteo-vehicular/portada-1280.webp",
+      "640": "/img/casos/ploteo-vehicular-portada-640.webp",
+      "1280": "/img/casos/ploteo-vehicular-portada-1280.webp",
+      "1920": "/img/casos/ploteo-vehicular-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -2827,11 +2836,12 @@
       "musical"
     ],
     "portada": {
-      "640": "/img/p/spotify-covers/portada-v2-640.webp",
-      "1280": "/img/p/spotify-covers/portada-v2-1280.webp",
+      "640": "/img/casos/spotify-covers-portada-640.webp",
+      "1280": "/img/casos/spotify-covers-portada-1280.webp",
+      "1920": "/img/casos/spotify-covers-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -2859,16 +2869,6 @@
     ],
     "galeria": [],
     "videos": [],
-    "portadaPagina": {
-      "ancha": {
-        "960": "/img/p/spotify-covers/ancha-960.webp",
-        "1440": "/img/p/spotify-covers/ancha-1440.webp"
-      },
-      "movil": {
-        "480": "/img/p/spotify-covers/movil-480.webp",
-        "800": "/img/p/spotify-covers/movil-800.webp"
-      }
-    },
     "galerias": [],
     "muro": "portadas"
   },
@@ -2880,11 +2880,12 @@
       "aplicada"
     ],
     "portada": {
-      "640": "/img/p/flyers/portada-v2-640.webp",
-      "1280": "/img/p/flyers/portada-v2-1280.webp",
+      "640": "/img/casos/flyers-portada-640.webp",
+      "1280": "/img/casos/flyers-portada-1280.webp",
+      "1920": "/img/casos/flyers-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -2912,16 +2913,6 @@
     ],
     "galeria": [],
     "videos": [],
-    "portadaPagina": {
-      "ancha": {
-        "960": "/img/p/flyers/ancha-960.webp",
-        "1440": "/img/p/flyers/ancha-1440.webp"
-      },
-      "movil": {
-        "480": "/img/p/flyers/movil-480.webp",
-        "800": "/img/p/flyers/movil-800.webp"
-      }
-    },
     "galerias": [],
     "muro": "flyers"
   },
@@ -2933,11 +2924,12 @@
       "redes"
     ],
     "portada": {
-      "640": "/img/proyectos/redes-para-marcas/portada-640.webp",
-      "1280": "/img/proyectos/redes-para-marcas/portada-1280.webp",
+      "640": "/img/casos/redes-para-marcas-portada-640.webp",
+      "1280": "/img/casos/redes-para-marcas-portada-1280.webp",
+      "1920": "/img/casos/redes-para-marcas-portada-1920.webp",
       "_wh": [
-        1080,
-        842
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -3271,11 +3263,12 @@
       "redes"
     ],
     "portada": {
-      "640": "/img/p/portadas/portada-640.webp",
-      "1280": "/img/p/portadas/portada-1280.webp",
+      "640": "/img/casos/portadas-portada-640.webp",
+      "1280": "/img/casos/portadas-portada-1280.webp",
+      "1920": "/img/casos/portadas-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
@@ -3353,11 +3346,12 @@
       "foto"
     ],
     "portada": {
-      "640": "/img/p/analogic-photos/portada-640.webp",
-      "1280": "/img/p/analogic-photos/portada-1280.webp",
+      "640": "/img/casos/analogic-photos-portada-640.webp",
+      "1280": "/img/casos/analogic-photos-portada-1280.webp",
+      "1920": "/img/casos/analogic-photos-portada-1920.webp",
       "_wh": [
-        1280,
-        1001
+        1920,
+        1502
       ]
     },
     "ficha": [
