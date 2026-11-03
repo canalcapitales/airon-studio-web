@@ -307,61 +307,6 @@
       "fondo": "claro"
     },
     {
-      "archivo": "/img/logos/jave-zavalla-600.webp",
-      "nombre": "Jave Zavalla",
-      "rubro": {
-        "es": "Peluquería masculina",
-        "en": "Barbershop"
-      },
-      "grupo": "comercio",
-      "caso": null,
-      "fondo": "oscuro"
-    },
-    {
-      "archivo": "/img/logos/kamada-600.webp",
-      "nombre": "Kamada",
-      "rubro": {
-        "es": "Artista musical",
-        "en": "Music artist"
-      },
-      "grupo": "musica",
-      "caso": null,
-      "fondo": "oscuro"
-    },
-    {
-      "archivo": "/img/logos/la-sirena-600.webp",
-      "nombre": "La Sirena F. C.",
-      "rubro": {
-        "es": "Club de fútbol",
-        "en": "Football club"
-      },
-      "grupo": "cultura",
-      "caso": null,
-      "fondo": "claro"
-    },
-    {
-      "archivo": "/img/logos/lavanda-600.webp",
-      "nombre": "Lavanda",
-      "rubro": {
-        "es": "Moda y accesorios",
-        "en": "Fashion & accessories"
-      },
-      "grupo": "comercio",
-      "caso": null,
-      "fondo": "claro"
-    },
-    {
-      "archivo": "/img/logos/rincon-de-la-patagonia-600.webp",
-      "nombre": "Rincón de la Patagonia",
-      "rubro": {
-        "es": "Productos regionales",
-        "en": "Regional products"
-      },
-      "grupo": "gastronomia",
-      "caso": null,
-      "fondo": "claro"
-    },
-    {
       "archivo": "/img/logos/southside-sport-600.webp",
       "nombre": "Southside Sport",
       "rubro": {
