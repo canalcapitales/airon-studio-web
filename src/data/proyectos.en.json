@@ -19,6 +19,47 @@
     ]
   },
   "blend-david": {
+    "galerias": [
+      {
+        "titulo": "Proposals",
+        "texto": "The color and composition proposals shown before painting, when the store was still called Don David.",
+        "alts": [
+          "Blend David — First façade proposal.",
+          "Blend David — Alternative proposal with the Don David name.",
+          "Blend David — Another alternative proposal.",
+          "Blend David — Final approved version."
+        ]
+      },
+      {
+        "titulo": "On site",
+        "texto": "Seven days on scaffolding, from the black base coat to the final details.",
+        "alts": [
+          "Blend David — Painting on scaffolding.",
+          "Blend David — Scaffolding on the façade.",
+          "Blend David — The façade halfway through.",
+          "Blend David — Working at night."
+        ]
+      },
+      {
+        "titulo": "Details",
+        "alts": [
+          "Blend David — Detail of the shutter and the “Mercado de bebidas” sign.",
+          "Blend David — Detail of the shapes above the awning.",
+          "Blend David — Detail of the ground floor.",
+          "Blend David — Detail of the full façade."
+        ]
+      },
+      {
+        "titulo": "At night",
+        "texto": "The black background keeps the façade readable at night and makes the sign glow.",
+        "alts": [
+          "Blend David — The façade at night.",
+          "Blend David — The lit sign.",
+          "Blend David — Side view at night.",
+          "Blend David — The façade from across the street."
+        ]
+      }
+    ],
     "subtitulo": "Façade mural · 47 m²",
     "estetica": "Organic abstract",
     "lugar": "Food & drinks market · La Plata",
@@ -610,6 +651,224 @@
           "AFFUM — Product post: vacuum-packed smoked trout.",
           "AFFUM — Product post: smoked trout in oil.",
           "AFFUM — Feed on a phone, another view."
+        ]
+      }
+    ]
+  },
+  "kaizen": {
+    "subtitulo": "Identity, graphic pieces and social media",
+    "ficha": [
+      [
+        "Client",
+        "Kaizen — Artisan bakery"
+      ],
+      [
+        "Location",
+        "San Martín de los Andes, Neuquén"
+      ],
+      [
+        "Period",
+        "2024 — 2026"
+      ],
+      [
+        "Role",
+        "Full design"
+      ],
+      [
+        "Scope",
+        "Logo, graphic pieces, flyer and Instagram stories"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The challenge",
+        "parrafos": [
+          "Kaizen is an artisan bakery in San Martín de los Andes: burger buns, sandwich bread and pizza bases for restaurants, food trucks and events. It needed a brand that matched its product and a clear way to show what it does and how to order."
+        ]
+      },
+      {
+        "titulo": "The process",
+        "parrafos": [
+          "The name comes from Japanese: kaizen means continuous improvement, the idea that small, steady changes add up over time. We designed a simple logo, with an orange dot on the “i”, and an orange-and-black system that carries through the pieces, the flyer and the stories, always with the bread at the center."
+        ]
+      },
+      {
+        "titulo": "The result",
+        "parrafos": [
+          "A warm, recognizable brand that is easy to apply and brings order to how it talks to customers: what Kaizen is, what it makes and how to place an order."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "Identity",
+        "texto": "The logo in orange, in black and in its social media version.",
+        "alts": [
+          "Kaizen — Logo on orange.",
+          "Kaizen — Logo on black.",
+          "Kaizen — Logo with laurels, social media version."
+        ]
+      },
+      {
+        "titulo": "Graphic pieces",
+        "texto": "Posts and flyers that tell the process, the name and the products.",
+        "alts": [
+          "Kaizen — “Fermented” piece.",
+          "Kaizen — “Shaping” piece.",
+          "Kaizen — Piece explaining the name Kaizen.",
+          "Kaizen — “Our products” piece.",
+          "Kaizen — Flyer with a QR code for orders.",
+          "Kaizen — Flyer for event bread."
+        ]
+      },
+      {
+        "titulo": "Instagram stories",
+        "texto": "One story per product and highlights for the profile.",
+        "alts": [
+          "Kaizen — Story: cheese burger bun.",
+          "Kaizen — Story: sesame burger bun.",
+          "Kaizen — Story: plain burger bun.",
+          "Kaizen — Story: about us.",
+          "Kaizen — Highlight: burger buns.",
+          "Kaizen — Highlight: our customers."
+        ]
+      },
+      {
+        "titulo": "The product",
+        "texto": "The bread, in the photos used across the pieces.",
+        "alts": [
+          "Kaizen — Three burger buns.",
+          "Kaizen — Plain bun.",
+          "Kaizen — Sesame bun.",
+          "Kaizen — Black sesame bun.",
+          "Kaizen — Three buns on black.",
+          "Kaizen — Dough balls on the tray before baking."
+        ]
+      }
+    ]
+  },
+  "r5": {
+    "subtitulo": "Mural proposal",
+    "ficha": [
+      [
+        "Client",
+        "R5 — Sports complex"
+      ],
+      [
+        "Period",
+        "2025"
+      ],
+      [
+        "Role",
+        "Mural design"
+      ],
+      [
+        "Scope",
+        "Site survey, measurements, proposal and variations"
+      ],
+      [
+        "Status",
+        "Proposal"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The challenge",
+        "parrafos": [
+          "R5 is a sports complex that was finishing its main hall and wanted a large-format wall to introduce the brand to everyone who walks in."
+        ]
+      },
+      {
+        "titulo": "The process",
+        "parrafos": [
+          "We surveyed the space and measured the wall. Starting from the R5 symbol, we developed a language of arrows and diagonals in violet, green and black that conveys movement and speed, and tested it on a real photo of the site."
+        ]
+      },
+      {
+        "titulo": "The result",
+        "parrafos": [
+          "Six composition variations, from the logo as the hero to a more graphic version, to choose from depending on how the space is used."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "The space",
+        "texto": "The hall before the intervention and the wall plan with measurements.",
+        "alts": [
+          "R5 — The empty hall.",
+          "R5 — The chosen wall.",
+          "R5 — Wall plan with measurements."
+        ]
+      },
+      {
+        "titulo": "The proposal on the wall",
+        "alts": [
+          "R5 — Mural mockup with the large logo.",
+          "R5 — Mural mockup, graphic version."
+        ]
+      },
+      {
+        "titulo": "Variations",
+        "texto": "Six compositions with the same language of arrows and diagonals.",
+        "alts": [
+          "R5 — Design variation 1.",
+          "R5 — Design variation 2.",
+          "R5 — Design variation 3.",
+          "R5 — Design variation 4.",
+          "R5 — Design variation 5.",
+          "R5 — Design variation 6."
+        ]
+      }
+    ]
+  },
+  "tag-integridad": {
+    "subtitulo": "Graffiti lettering for a sticker",
+    "ficha": [
+      [
+        "Piece",
+        "Lettering “Espíritu, integridad y swing” (spirit, integrity and swing)"
+      ],
+      [
+        "Period",
+        "2025"
+      ],
+      [
+        "Role",
+        "Lettering and illustration"
+      ],
+      [
+        "Format",
+        "Print-ready sticker, in two versions"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The challenge",
+        "parrafos": [
+          "Turn a phrase, “Espíritu, integridad y swing” (spirit, integrity and swing), into a sticker with the energy of graffiti."
+        ]
+      },
+      {
+        "titulo": "The process",
+        "parrafos": [
+          "We started from a freehand sketch in tag-style letters, refined the rhythm and the joins between letters, and vectorized it with a thick outline and a drop shadow that make it stand out on any background."
+        ]
+      },
+      {
+        "titulo": "The result",
+        "parrafos": [
+          "Two print-ready versions, in black and in white, that keep the freshness of the hand-drawn stroke."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "From sketch to sticker",
+        "alts": [
+          "Tag Integridad — Freehand sketch.",
+          "Tag Integridad — Final version in black.",
+          "Tag Integridad — Final version in white."
         ]
       }
     ]
