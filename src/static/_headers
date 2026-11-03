@@ -21,3 +21,6 @@
 # Imágenes: 1 hora, así un error pasajero durante una publicación no queda guardado
 /img/*
   Cache-Control: public, max-age=3600
+# Videos: 1 semana (si se reemplaza uno, cambiarle el nombre)
+/video/*
+  Cache-Control: public, max-age=604800

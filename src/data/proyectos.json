@@ -1426,6 +1426,14 @@
       ]
     },
     "lugar": "Mercado de sabores · La Plata",
+    "videoLoop": {
+      "src": "/video/blend-david-mural.mp4",
+      "poster": "/video/blend-david-mural-poster-1280.webp",
+      "_wh": [1280, 720],
+      "titulo": "Del muro negro al mural terminado",
+      "alt": "Video sin sonido: la fachada negra del local se transforma en el mural de Blend David, de día y de noche.",
+      "etapas": [["Antes", 0], ["Boceto", 1.5], ["Pintura", 3.2], ["Terminado", 6.8]]
+    },
     "ficha": [
       [
         "Cliente",

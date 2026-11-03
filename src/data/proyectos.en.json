@@ -19,6 +19,11 @@
     ]
   },
   "blend-david": {
+    "videoLoop": {
+      "titulo": "From a black wall to the finished mural",
+      "alt": "Silent video: the store's black façade turns into the Blend David mural, by day and by night.",
+      "etapas": ["Before", "Sketch", "Painting", "Finished"]
+    },
     "galerias": [
       {
         "titulo": "Proposals",

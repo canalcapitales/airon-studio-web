@@ -503,6 +503,36 @@ ul { padding: 0; list-style: none; }
 .proyecto-portada--diseno img { object-fit: contain; }
 .proyecto-cabecera { margin-bottom: 8px; }
 
+/* ----- Video en loop sin sonido que encabeza un caso (main.js: videosLoop) ----- */
+.video-loop { position: relative; margin: 0 0 28px; aspect-ratio: 16 / 9; max-height: 78vh; width: 100%; overflow: hidden; background: #000; color: #fff; isolation: isolate; }
+.video-loop-media { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.001); }
+.video-loop::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom, rgba(0,0,0,.45), transparent 26%, transparent 58%, rgba(0,0,0,.72)); }
+.video-loop-ui { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(14px, 2.4vw, 28px); padding-right: clamp(72px, 8vw, 96px); pointer-events: none; }
+.video-loop-titulo { align-self: flex-start; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; }
+.video-loop-titulo::before { content: ''; width: 8px; height: 8px; background: var(--acento, #FF0000); flex: none; animation: video-loop-latido 1.6s ease-in-out infinite; }
+.video-loop.en-pausa .video-loop-titulo::before { animation: none; }
+@keyframes video-loop-latido { 50% { opacity: .25; } }
+.video-loop-etapas { list-style: none; margin: 0 0 14px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px clamp(14px, 3vw, 40px); pointer-events: auto; }
+.video-loop-etapas button { all: unset; cursor: pointer; display: inline-flex; align-items: baseline; gap: 8px; font-size: clamp(11px, 1.1vw, 13px); letter-spacing: .12em; text-transform: uppercase; opacity: .5; transition: opacity .3s ease; }
+.video-loop-etapas button span { color: var(--acento, #FF0000); font-size: .85em; }
+.video-loop-etapas li.activa button, .video-loop-etapas button:hover { opacity: 1; }
+.video-loop-etapas button:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.video-loop-barra { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255,255,255,.18); }
+.video-loop-barra i { display: block; height: 100%; background: var(--acento, #FF0000); transform-origin: left; transform: scaleX(0); }
+.video-loop-btn { position: absolute; z-index: 3; right: clamp(14px, 2.4vw, 28px); bottom: clamp(18px, 2.4vw, 30px); width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; background: rgba(0,0,0,.25); color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .2s, border-color .2s, transform .2s; }
+.video-loop-btn:hover { background: var(--acento, #FF0000); border-color: var(--acento, #FF0000); transform: scale(1.06); }
+.video-loop-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+/* Ícono: dos barras (pausa) o triángulo (reproducir) */
+.video-loop-btn span { width: 12px; height: 14px; border-left: 4px solid currentColor; border-right: 4px solid currentColor; box-sizing: border-box; }
+.video-loop.en-pausa .video-loop-btn span { width: 0; height: 0; border: 0; border-left: 12px solid currentColor; border-top: 7px solid transparent; border-bottom: 7px solid transparent; margin-left: 3px; }
+@media (max-width: 699px) {
+  .video-loop { width: auto; margin-inline: calc(-1 * var(--gutter)); aspect-ratio: 4 / 3; }
+  .video-loop-etapas { gap: 4px 12px; }
+  .video-loop-etapas button { letter-spacing: .06em; }
+  .video-loop-etapas button span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .video-loop-titulo::before { animation: none; } }
+
 /* ----- Tiras deslizables (cabecera del caso y galerías largas) ----- */
 html { overflow-x: clip; }
 .tira { --alto: clamp(260px, 46vh, 480px); --linea-tira: color-mix(in srgb, var(--ink) 16%, transparent); }
