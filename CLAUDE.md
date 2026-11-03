@@ -18,6 +18,7 @@ Web: https://aironstudio.com.ar · Repo: `canalcapitales/airon-studio-web` · De
 - Sitio estático bilingüe: `build.mjs` arma ES (`/`) y EN (`/en/`). Textos de interfaz en `TXT`, rutas en `RUTAS`.
 - `src/data/proyectos.json` (ES) y `src/data/proyectos.en.json` (EN): en el inglés hacer **cambios mínimos**, nunca reescribirlo entero.
 - Áreas de proyecto (en este orden): integral (Diseño integral), branding, redes (Redes sociales), ploteo (Ploteo vehicular), aplicada (Gráfica), musical (Gráfica musical), motion (Motion y video), web (Web y sistemas), urbano (Murales), foto (Fotografía).
+- Los trabajos se recorren de **dos formas**: por **Áreas** (`/proyectos/`, según `categorias`) y por **Clientes** (`/clientes/`). Los clientes y sus casos están en `src/data/clientes.json`: al sumar un caso nuevo, agregarlo también a su cliente (o crear el cliente). Si un caso reúne muchos clientes, va en `colecciones`.
 - **LAION** tiene página propia (`/laion/`, datos en `src/data/laion.mjs`), con identidad separada de lo comercial. Las obras son `src/static/img/laion/pieza-NN-700.webp` y `-1600.webp`, ordenadas según la numeración del Drive de LAION. Los murales por encargo van en `/murales/encargos/`.
 - Imágenes en WebP. `/img/*` tiene caché de 1 hora: si se reemplaza una imagen, **cambiarle el nombre** (ej. `portada-v2`) para que se actualice.
 - Tipografías alojadas (licencia OFL): Anton, Instrument Sans, IBM Plex Mono, Michroma (títulos de LAION) y Oswald.

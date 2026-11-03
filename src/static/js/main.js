@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   formulario();
   filtros();
   areasInicio();
+  filtroClientes();
   muroLogos();
   sponsors();
 });
@@ -1759,8 +1760,63 @@ function areasInicio() {
   enlaces.forEach((a) => {
     a.addEventListener('mouseenter', () => elegir(a.dataset.area));
     a.addEventListener('focus', () => elegir(a.dataset.area));
+    // Al desplegar una fila, su vista previa queda elegida
+    a.parentElement.addEventListener('toggle', (e) => { if (e.target.open) elegir(a.dataset.area); });
   });
-  elegir('0');
+  elegir(enlaces[0].dataset.area);
+
+  // Pestañas "Por área / Por cliente": sin JavaScript se ven las dos listas, una debajo de la otra
+  const tabs = document.querySelector('.vista-tabs');
+  if (!tabs) return;
+  const botones = [...tabs.querySelectorAll('[role="tab"]')];
+  const mostrar = (b, foco = false) => {
+    botones.forEach((x) => {
+      const activa = x === b;
+      x.setAttribute('aria-selected', String(activa));
+      x.tabIndex = activa ? 0 : -1;
+      const panel = document.getElementById(x.getAttribute('aria-controls'));
+      panel.hidden = !activa;
+      if (activa) {
+        panel.querySelectorAll('.reveal').forEach((r) => r.classList.add('visible'));
+        const primera = panel.querySelector('[data-area]');
+        if (primera) elegir(primera.dataset.area);
+      }
+    });
+    if (foco) b.focus();
+  };
+  tabs.hidden = false;
+  botones.forEach((b, i) => {
+    b.addEventListener('click', () => mostrar(b));
+    b.addEventListener('keydown', (e) => {
+      const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+      if (d) { e.preventDefault(); mostrar(botones[(i + d + botones.length) % botones.length], true); }
+    });
+  });
+  mostrar(botones[0]);
+}
+
+// ----- Clientes: filtrar por rubro -----
+function filtroClientes() {
+  const barra = document.querySelector('.filtros--clientes');
+  if (!barra) return;
+  barra.hidden = false;
+  const pills = [...barra.querySelectorAll('[data-grupo]')];
+  const filas = [...document.querySelectorAll('.cliente')];
+  const contador = barra.querySelector('[data-count]');
+  const filtrar = (g) => {
+    let n = 0;
+    filas.forEach((f) => {
+      const ver = g === 'todos' || f.dataset.grupo === g;
+      f.hidden = !ver;
+      if (ver) { n++; f.classList.add('visible'); }
+    });
+    pills.forEach((p) => p.setAttribute('aria-pressed', String(p.dataset.grupo === g)));
+    contador.textContent = n;
+  };
+  pills.forEach((p) => p.addEventListener('click', () => filtrar(p.dataset.grupo)));
+  // Si se llega con #cliente, se marca esa fila
+  const destino = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (destino && destino.classList.contains('cliente')) destino.classList.add('cliente--destacado');
 }
 
 // ----- Filtros de proyectos -----

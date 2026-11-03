@@ -25,8 +25,8 @@ const MARCAS = ['GSP Seguridad', 'Eleven Games', 'Ju Base Plant Food', 'Blend Da
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/', laion: '/laion/', encargos: '/murales/encargos/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/', laion: '/en/laion/', encargos: '/en/murals/commissions/' },
+  es: { inicio: '/', proyectos: '/proyectos/', clientes: '/clientes/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/', laion: '/laion/', encargos: '/murales/encargos/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', clientes: '/en/clients/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/', laion: '/en/laion/', encargos: '/en/murals/commissions/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -37,7 +37,21 @@ const TXT = {
     lema: 'Diseño que construye marcas, ideas y experiencias',
     descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
-    nav: { inicio: 'Inicio', proyectos: 'Áreas', estudio: 'Nosotros', contacto: 'Contacto' },
+    nav: { inicio: 'Inicio', proyectos: 'Áreas', clientes: 'Clientes', estudio: 'Nosotros', contacto: 'Contacto' },
+    // Dos formas de recorrer los trabajos: por área (disciplina) y por cliente
+    cli: {
+      titulo: 'Clientes', kicker: 'Explorá nuestros trabajos',
+      lead: 'Las marcas, empresas y artistas con los que trabajamos. Cada cliente reúne todos sus trabajos, de todas las áreas.',
+      desc: 'Clientes de AIRON Studio: empresas, inmobiliarias, gastronomía, comercios y artistas, con todos sus trabajos de branding, redes, gráfica, web y murales.',
+      todos: 'Todos', filtrar: 'Filtrar clientes por rubro', uno: 'cliente', varios: 'clientes', trabajo: 'trabajo', trabajos: 'trabajos',
+      colecciones: 'Colecciones', coleccionesTexto: 'Series que reúnen piezas para muchos clientes: marcas, portadas, flyers y redes.',
+      masMarcas: 'Más marcas que diseñamos', masMarcasTexto: 'Identidades que forman parte del muro de marcas.', verMuro: 'Ver el muro de marcas →',
+      ordenar: 'Ordenar por', porAreas: 'Áreas', porClientes: 'Clientes',
+      homeKicker: 'Explorá por área o por cliente', homeTitulo: 'Trabajos', tabsAria: 'Cómo ordenar los trabajos',
+      tabAreas: 'Por área', tabClientes: 'Por cliente', verArea: 'Ver toda el área →', verMurales: 'Ver murales →', verClientes: 'Ver todos los clientes →', verCliente: 'Ver cliente →',
+      clienteUno: 'Cliente', clientesVarios: 'Clientes', areaUna: 'Área', areasVarias: 'Áreas',
+      masDe: (n) => `Más trabajos para ${n}`,
+    },
     idiomaAria: 'Idioma', temaOscuro: 'Cambiar a modo oscuro',
     // ---------- herramientas (página que las reúne), tarifario de diseño, textos Unicode y PNG ----------
     tarifarios: {
@@ -386,7 +400,7 @@ const TXT = {
     areasKicker: 'Explorá nuestros trabajos', areasTitulo: 'Áreas', verTodos: 'Ver todas las áreas →', proyectoUno: 'proyecto',
     serviciosKicker: 'Servicios', queHacemos: 'Qué hacemos', ctaInicio: '¿Tenés un proyecto en mente?', escribinos: 'Escribinos →',
     numerosTitulo: 'El estudio en números',
-    numeros: ['Años de estudio', 'Proyectos en el portafolio', 'Identidades de marca', 'Marcas y medios', 'Nuestro mural más grande', 'Disciplinas creativas'],
+    numeros: ['Años de estudio', 'Trabajos en el portafolio', 'Identidades de marca', 'Marcas y medios', 'Nuestro mural más grande', 'Disciplinas creativas'],
     portafolio: 'Explorá nuestros trabajos', proyectos: 'Áreas', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
     listadoLead: 'Diseño integral, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía. Filtrá por área para ver cada disciplina.',
     listadoDesc: 'Portafolio de AIRON Studio: diseño integral para empresas, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía.',
@@ -459,7 +473,20 @@ const TXT = {
     lema: 'Design that builds brands, ideas and experiences',
     descripcion: 'Multimedia design studio based in Buenos Aires since 2015. Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
-    nav: { inicio: 'Home', proyectos: 'Areas', estudio: 'About us', contacto: 'Contact' },
+    nav: { inicio: 'Home', proyectos: 'Areas', clientes: 'Clients', estudio: 'About us', contacto: 'Contact' },
+    cli: {
+      titulo: 'Clients', kicker: 'Explore our work',
+      lead: 'The brands, companies and artists we work with. Each client brings together all of their work, across every area.',
+      desc: 'AIRON Studio clients: companies, real estate, food, retail and artists, with all their branding, social media, graphic, web and mural work.',
+      todos: 'All', filtrar: 'Filter clients by sector', uno: 'client', varios: 'clients', trabajo: 'project', trabajos: 'projects',
+      colecciones: 'Collections', coleccionesTexto: 'Series that bring together pieces for many clients: brands, covers, flyers and social media.',
+      masMarcas: 'More brands we designed', masMarcasTexto: 'Identities that are part of the brand wall.', verMuro: 'See the brand wall →',
+      ordenar: 'Sort by', porAreas: 'Areas', porClientes: 'Clients',
+      homeKicker: 'Explore by area or by client', homeTitulo: 'Work', tabsAria: 'How to sort the work',
+      tabAreas: 'By area', tabClientes: 'By client', verArea: 'See the whole area →', verMurales: 'See murals →', verClientes: 'See all clients →', verCliente: 'See client →',
+      clienteUno: 'Client', clientesVarios: 'Clients', areaUna: 'Area', areasVarias: 'Areas',
+      masDe: (n) => `More work for ${n}`,
+    },
     idiomaAria: 'Language', temaOscuro: 'Switch to dark mode',
     // ---------- rates hub and design rate guide ----------
     tarifarios: {
@@ -896,6 +923,10 @@ for (const p of BASE) {
   Object.assign(p, conN(p));
   if (EN[p.slug]) EN[p.slug] = conN(EN[p.slug]);
 }
+// Clientes (página /clientes/): qué casos tiene cada uno. Un caso puede ser de varios clientes.
+const CLIENTES = JSON.parse(readFileSync('src/data/clientes.json', 'utf8'));
+for (const c of CLIENTES.clientes) for (const s of c.casos) if (!BASE.some((p) => p.slug === s)) throw new Error(`clientes.json: "${c.id}" tiene un caso que no existe: ${s}`);
+const clientesDe = (slug) => CLIENTES.clientes.filter((c) => c.casos.includes(slug));
 // Tarifario de diseño (Cámara de Diseñadores de Rafaela, adaptado con permiso)
 const TARIFARIO_DISENO = JSON.parse(readFileSync('src/data/tarifario-diseno.json', 'utf8'));
 
@@ -1054,6 +1085,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
       <nav id="menu" class="nav" aria-label="${T.navPrincipal}">
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
         <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
+        <a class="nav-link" href="${R.clientes}"${actual('clientes')}>${T.nav.clientes}</a>
         <a class="nav-link" href="${R.murales}"${actual('murales')}>${T.murales.nav}</a>
         <a class="nav-link" href="${R.laion}"${actual('laion')}>Laion</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
@@ -1166,6 +1198,47 @@ const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 const TIPO_CONTACTO = { aplicada: 'grafica', urbano: 'mural', integral: 'branding', ploteo: 'grafica' };
 const tipoContacto = (cat) => TIPO_CONTACTO[cat] || cat;
 const enlaceServicio = (l, cat) => (cat === 'urbano' ? RUTAS[l].murales : enlaceCat(l, cat));
+const enlaceCliente = (l, c) => `${RUTAS[l].clientes}#${c.id}`;
+const rubroDe = (l, c) => (c.rubro ? c.rubro[l] : LOGOS.grupos[c.grupo]?.[l] || '');
+// Para mostrar bajo un trabajo: "GSP Seguridad", "GSP Seguridad · Trust Fund" o "Surcipres · AFFUM +4"
+const nombresClientes = (slug) => {
+  const cs = clientesDe(slug).map((c) => c.nombre);
+  return cs.length > 2 ? `${cs.slice(0, 2).join(' · ')} +${cs.length - 2}` : cs.join(' · ');
+};
+// Áreas que reúne un cliente, en el orden de la web
+const areasDeCliente = (proyectos, c) => CAT_IDS.filter((id) => proyectos.some((p) => c.casos.includes(p.slug) && p.categorias.includes(id)));
+
+// Selector "Ordenar por: Áreas · Clientes" de las dos páginas de trabajos
+function ordenVista(l, activo, proyectos) {
+  const C = TXT[l].cli;
+  const op = (id, href, texto, n) => `<a class="orden-op" href="${href}"${activo === id ? ' aria-current="page"' : ''}>${texto}<span class="mono">${n}</span></a>`;
+  const nAreas = CAT_IDS.filter((id) => proyectos.some((p) => p.categorias.includes(id))).length;
+  return `<nav class="orden" aria-label="${C.ordenar}"><span class="mono orden-txt">${C.ordenar}</span>${op('areas', RUTAS[l].proyectos, C.porAreas, nAreas)}${op('clientes', RUTAS[l].clientes, C.porClientes, CLIENTES.clientes.length)}</nav>`;
+}
+
+// Fila desplegable del inicio (un área o un cliente): al abrirla muestra sus trabajos para entrar directo
+function despliegue(l, { id, nombre, cuenta, mini, trabajos, enlace, enlaceTexto, num: n, grupo }) {
+  const items = trabajos
+    .map((p) => `<li><a class="despliegue-item" href="${rutaDe(l, 'proyecto', p.slug)}">
+              <span class="despliegue-mini">${img(p.portada, { alt: '', sizes: '96px', dims: [640, 501] })}</span>
+              <span class="despliegue-texto"><span class="despliegue-titulo">${esc(p.titulo)}</span><span class="mono">${esc(p.sub)}</span></span>
+              <span class="despliegue-flecha" aria-hidden="true">→</span>
+            </a></li>`)
+    .join('');
+  return `<li><details class="despliegue reveal" name="${grupo}">
+          <summary class="area" data-area="${id}">
+            <span class="area-mini">${mini ? img(mini, { alt: '', sizes: '112px', dims: [640, 501] }) : ''}</span>
+            <span class="area-num mono">${n}</span>
+            <span class="area-nombre">${esc(nombre)}</span>
+            <span class="area-cuenta mono">${cuenta}</span>
+            <span class="area-flecha" aria-hidden="true"></span>
+          </summary>
+          <div class="despliegue-panel">
+            <ul class="despliegue-lista">${items}</ul>
+            <a class="link-arrow despliegue-todo" href="${enlace}">${enlaceTexto}</a>
+          </div>
+        </details></li>`;
+}
 
 // Imagen que aparece al pasar el mouse por una tarjeta.
 // Por defecto es la primera de la galería; con "previa" en el proyecto se elige otra (1 = la primera).
@@ -1265,18 +1338,40 @@ function inicio(l, proyectos) {
       usados.add(p.slug);
       return { id, p, n: delArea.length };
     });
+  const C = T.cli;
+  // Cada trabajo del desplegable muestra su cliente (o el subtítulo si es propio o de muchos clientes)
+  // (si el cliente se llama igual que el caso, va el subtítulo para no repetir)
+  const conSub = (p) => {
+    const n = nombresClientes(p.slug);
+    return { ...p, sub: n && !p.titulo.toLowerCase().startsWith(n.toLowerCase().slice(0, 4)) ? n : p.subtitulo };
+  };
   const areas = datosAreas
-    .map(({ id, p, n }, i) => `<li><a class="area reveal" href="${enlaceServicio(l, id)}" data-area="${i}">
-          <span class="area-mini">${img(p.portada, { alt: '', sizes: '112px', dims: [640, 501] })}</span>
-          <span class="area-num mono">${num(i)}</span>
-          <span class="area-nombre">${esc(nombreCat(l, id))}</span>
-          <span class="area-cuenta mono">${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}</span>
-          <span class="area-flecha" aria-hidden="true">→</span>
-        </a></li>`)
+    .map(({ id, p, n }, i) =>
+      despliegue(l, {
+        id: `a${i}`, grupo: 'areas', num: num(i), nombre: nombreCat(l, id), mini: p.portada,
+        cuenta: `${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}`,
+        trabajos: proyectos.filter((x) => x.categorias.includes(id)).map(conSub),
+        enlace: enlaceServicio(l, id), enlaceTexto: id === 'urbano' ? C.verMurales : C.verArea,
+      })
+    )
     .join('\n        ');
-  const visores = datosAreas
-    .map(({ p }, i) => `<div class="areas-vista${i === 0 ? ' activa' : ''}" data-vista="${i}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501] })}</div>`)
+  // Por cliente: los que tienen trabajos propios (sin las colecciones de muchos clientes), en el orden de clientes.json
+  const datosClientes = CLIENTES.clientes
+    .map((c) => ({ c, trabajos: proyectos.filter((p) => c.casos.includes(p.slug)) }))
+    .filter(({ trabajos }) => trabajos.some((p) => !CLIENTES.colecciones.includes(p.slug)))
+    .slice(0, 10);
+  const clientesLista = datosClientes
+    .map(({ c, trabajos }, i) =>
+      despliegue(l, {
+        id: `c${i}`, grupo: 'clientes', num: num(i), nombre: c.nombre, mini: trabajos[0].portada,
+        cuenta: `${trabajos.length} ${trabajos.length === 1 ? C.trabajo : C.trabajos}`,
+        trabajos: trabajos.map((p) => ({ ...p, sub: catsTexto(l, p) })),
+        enlace: enlaceCliente(l, c), enlaceTexto: C.verCliente,
+      })
+    )
     .join('\n        ');
+  const vista = (id, p, activa) => `<div class="areas-vista${activa ? ' activa' : ''}" data-vista="${id}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501] })}</div>`;
+  const visores = [...datosAreas.map(({ p }, i) => vista(`a${i}`, p, i === 0)), ...datosClientes.map(({ trabajos }, i) => vista(`c${i}`, trabajos[0], false))].join('\n        ');
   const conCat = T.servicios.filter(([cat]) => cat);
   const lista = (oculta) =>
     `<ul class="franja-lista"${oculta ? ' aria-hidden="true"' : ''}>${conCat
@@ -1308,18 +1403,30 @@ function inicio(l, proyectos) {
   <section class="seccion areas-seccion">
     <div class="wrap">
       <div class="areas-head">
-        <span class="kicker mono">${T.areasKicker}</span>
-        <h2 class="h2">${T.areasTitulo}</h2>
+        <span class="kicker mono">${C.homeKicker}</span>
+        <h2 class="h2">${C.homeTitulo}</h2>
+        <div class="vista-tabs" role="tablist" aria-label="${C.tabsAria}" hidden>
+          <button type="button" role="tab" id="tab-areas" aria-controls="panel-areas" aria-selected="true">${C.tabAreas}<span class="mono">${datosAreas.length}</span></button>
+          <button type="button" role="tab" id="tab-clientes" aria-controls="panel-clientes" aria-selected="false" tabindex="-1">${C.tabClientes}<span class="mono">${CLIENTES.clientes.length}</span></button>
+        </div>
       </div>
       <div class="areas-grid">
         <div class="areas-visor" aria-hidden="true">
         ${visores}
         </div>
         <div>
-          <ul class="areas">
+          <div class="vista-panel" id="panel-areas" role="tabpanel" aria-labelledby="tab-areas">
+            <ul class="areas">
         ${areas}
-          </ul>
-          <a class="link-arrow areas-todos" href="${R.proyectos}">${T.verTodos}</a>
+            </ul>
+            <a class="link-arrow areas-todos" href="${R.proyectos}">${T.verTodos}</a>
+          </div>
+          <div class="vista-panel" id="panel-clientes" role="tabpanel" aria-labelledby="tab-clientes">
+            <ul class="areas">
+        ${clientesLista}
+            </ul>
+            <a class="link-arrow areas-todos" href="${R.clientes}">${C.verClientes}</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1361,7 +1468,10 @@ function listado(l, proyectos) {
         <span class="kicker mono">${T.portafolio}</span>
         <h1 class="page-title">${T.proyectos}</h1>
       </div>
-      <p class="lead">${T.listadoLead}</p>
+      <div class="page-head-der">
+        <p class="lead">${T.listadoLead}</p>
+        ${ordenVista(l, 'areas', proyectos)}
+      </div>
     </div>
   </section>
   <div class="filtros" hidden>
@@ -1383,6 +1493,125 @@ function listado(l, proyectos) {
       </div>
     </div>
   </section>
+`,
+  });
+}
+
+// Clientes: cada cliente con todos sus trabajos (de cualquier área), filtro por rubro, colecciones y más marcas
+function paginaClientes(l, proyectos) {
+  const T = TXT[l];
+  const C = T.cli;
+  const R = RUTAS[l];
+  const indice = (p) => proyectos.indexOf(p);
+  const iniciales = (n) => n.replace(/[^A-Za-zÁÉÍÓÚÑ0-9 ]/g, '').split(' ').filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+  const filas = CLIENTES.clientes
+    .map((c) => {
+      const trabajos = proyectos.filter((p) => c.casos.includes(p.slug));
+      const logo = c.logo
+        ? `<img src="${esc(c.logo)}" alt="" width="160" height="160" loading="lazy" decoding="async">`
+        : `<span class="cliente-iniciales" aria-hidden="true">${esc(iniciales(c.nombre))}</span>`;
+      const areas = areasDeCliente(proyectos, c)
+        .map((id) => `<li><a class="cliente-area mono" href="${enlaceServicio(l, id)}">${esc(nombreCat(l, id))}</a></li>`)
+        .join('');
+      const items = trabajos
+        .map((p) => `<li><a class="cliente-trabajo" href="${rutaDe(l, 'proyecto', p.slug)}" data-cursor="${T.verCursor}">
+              <span class="cliente-trabajo-img">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 900px) 16vw, 44vw', dims: [640, 501] })}</span>
+              <span class="cliente-trabajo-titulo">${esc(p.titulo)}</span>
+              <span class="mono">${num(indice(p))} · ${esc(catsTexto(l, p))}</span>
+            </a></li>`)
+        .join('');
+      return `<li class="cliente reveal" id="${c.id}" data-grupo="${c.grupo}">
+          <div class="cliente-id">
+            <span class="cliente-logo"${c.fondo ? ` data-fondo="${c.fondo}"` : ''}>${logo}</span>
+            <div class="cliente-datos">
+              <h2 class="cliente-nombre">${esc(c.nombre)}</h2>
+              <span class="mono cliente-rubro">${esc(rubroDe(l, c))} · ${trabajos.length} ${trabajos.length === 1 ? C.trabajo : C.trabajos}</span>
+              <ul class="cliente-areas" aria-label="${trabajos.length > 1 ? C.areasVarias : C.areaUna}">${areas}</ul>
+            </div>
+          </div>
+          <ul class="cliente-trabajos">${items}</ul>
+        </li>`;
+    })
+    .join('\n      ');
+  const conteo = (g) => CLIENTES.clientes.filter((c) => c.grupo === g).length;
+  const grupos = Object.keys(LOGOS.grupos).filter(conteo);
+  const pills = [`<button type="button" class="pill" data-grupo="todos" aria-pressed="true">${C.todos}<span class="mono">${CLIENTES.clientes.length}</span></button>`]
+    .concat(grupos.map((g) => `<button type="button" class="pill" data-grupo="${g}" aria-pressed="false">${esc(LOGOS.grupos[g][l])}<span class="mono">${conteo(g)}</span></button>`))
+    .join('\n        ');
+  const colecciones = CLIENTES.colecciones
+    .map((s) => proyectos.find((p) => p.slug === s))
+    .filter(Boolean)
+    .map((p) => tarjeta(l, p, indice(p), { sizes: '(min-width: 900px) 30vw, 50vw' }))
+    .join('\n      ');
+  // Marcas del muro que no son clientes con trabajos propios: llevan al muro de marcas
+  const muro = proyectos.find((p) => p.muroLogos);
+  const nombres = new Set(CLIENTES.clientes.map((c) => c.nombre.toLowerCase()));
+  const otras = LOGOS.logos.filter((x) => !nombres.has(String(x.nombre).toLowerCase()) && !x.caso);
+  const marcas = otras
+    .map((x) => `<li${x.fondo ? ` data-fondo="${x.fondo}"` : ''}><a href="${rutaDe(l, 'proyecto', muro.slug)}" title="${esc(x.nombre)} — ${esc(x.rubro[l])}"><img src="${esc(x.archivo)}" alt="${esc(x.nombre)}" width="160" height="160" loading="lazy" decoding="async"></a></li>`)
+    .join('');
+  return pagina(l, {
+    clave: 'clientes',
+    titulo: C.titulo,
+    activo: 'clientes',
+    descripcion: C.desc,
+    datos: {
+      '@type': 'CollectionPage',
+      name: `AIRON Studio — ${C.titulo}`,
+      url: `${SITIO.url}${R.clientes}`,
+      inLanguage: T.htmlLang,
+      hasPart: CLIENTES.clientes.map((c) => ({ '@type': 'Organization', name: c.nombre, url: `${SITIO.url}${enlaceCliente(l, c)}` })),
+    },
+    cuerpo: `
+  <section class="page-head">
+    <div class="wrap page-head-in">
+      <div>
+        <span class="kicker mono">${C.kicker}</span>
+        <h1 class="page-title">${C.titulo}</h1>
+      </div>
+      <div class="page-head-der">
+        <p class="lead">${C.lead}</p>
+        ${ordenVista(l, 'clientes', proyectos)}
+      </div>
+    </div>
+  </section>
+  <div class="filtros filtros--clientes" hidden>
+    <div class="wrap filtros-in">
+      <div class="filtros-pills" role="group" aria-label="${C.filtrar}">
+        ${pills}
+      </div>
+      <span class="mono contador" aria-live="polite"><span data-count>${CLIENTES.clientes.length}</span> ${C.varios}</span>
+    </div>
+  </div>
+  <section class="seccion seccion--top">
+    <div class="wrap">
+      <ul class="clientes-grilla">
+      ${filas}
+      </ul>
+    </div>
+  </section>
+  <section class="seccion seccion--borde">
+    <div class="wrap">
+      <div class="seccion-head-fila">
+        <h2 class="h3">${C.colecciones}</h2>
+        <p class="lead">${C.coleccionesTexto}</p>
+      </div>
+      <div class="grid-proyectos">
+      ${colecciones}
+      </div>
+    </div>
+  </section>
+  ${otras.length && muro ? `<section class="seccion seccion--borde">
+    <div class="wrap">
+      <div class="seccion-head-fila">
+        <h2 class="h3">${C.masMarcas}</h2>
+        <p class="lead">${C.masMarcasTexto}</p>
+      </div>
+      <ul class="marcas-mini">${marcas}</ul>
+      <a class="link-arrow areas-todos" href="${rutaDe(l, 'proyecto', muro.slug)}">${C.verMuro}</a>
+    </div>
+  </section>` : ''}
+  ${ctaBloque(l, T.ctaInicio)}
 `,
   });
 }
@@ -1533,6 +1762,22 @@ function detalle(l, proyectos, p, i) {
       : `<a class="btn btn-accent btn-lg" href="${RUTAS[l].contacto}?tipo=${esc(tipoContacto(p.categorias[0]))}">${esMarca ? T.botonSinBehance : T.botonProyecto}</a>`;
   const cierre = urbano ? T.murales.ctaProyecto : p.cta || (esMarca ? T.ctaSinBehance : T.ctaProyectoGeneral);
   const botonMural = urbano ? `<a class="btn btn-dark btn-lg" href="${RUTAS[l].murales}">${T.murales.botonProyecto}</a>` : '';
+  // Dónde está el caso en las dos formas de ordenar: sus áreas y sus clientes, con enlace a cada uno
+  const C = T.cli;
+  const susClientes = clientesDe(p.slug);
+  const enlaces = (xs) => xs.map(([href, t]) => `<a href="${href}">${esc(t)}</a>`).join(' / ');
+  const ubicacion = [
+    `${p.categorias.length > 1 ? C.areasVarias : C.areaUna}: ${enlaces(p.categorias.map((c) => [enlaceServicio(l, c), nombreCat(l, c)]))}`,
+    susClientes.length && susClientes.length <= 3 ? `${susClientes.length > 1 ? C.clientesVarios : C.clienteUno}: ${enlaces(susClientes.map((c) => [enlaceCliente(l, c), c.nombre]))}` : '',
+  ].filter(Boolean).join('<span aria-hidden="true">·</span>');
+  // Más trabajos del mismo cliente (solo si el caso es de un cliente y tiene otros)
+  const otrosDelCliente = susClientes.length === 1 ? proyectos.filter((x) => x !== p && susClientes[0].casos.includes(x.slug)) : [];
+  const masDelCliente = otrosDelCliente.length
+    ? `<section class="mas-cliente">
+        <div class="mas-cliente-head"><h2 class="h3">${esc(C.masDe(susClientes[0].nombre))}</h2><a class="link-arrow" href="${enlaceCliente(l, susClientes[0])}">${C.verCliente}</a></div>
+        <div class="grid-proyectos">${otrosDelCliente.slice(0, 3).map((x) => tarjeta(l, x, proyectos.indexOf(x), { sizes: '(min-width: 900px) 30vw, 50vw' })).join('')}</div>
+      </section>`
+    : '';
   return pagina(l, {
     clave: 'proyecto',
     slug: p.slug,
@@ -1569,7 +1814,7 @@ function detalle(l, proyectos, p, i) {
       <div class="wrap">
         <div class="proyecto-crumbs mono">
           <a href="${RUTAS[l].proyectos}">${T.volver}</a>
-          <span>${T.proyectos} / ${esc(catsTexto(l, p))}</span>
+          <span class="proyecto-ubica">${ubicacion}</span>
         </div>
         <h1 class="proyecto-title">${esc(p.titulo)}</h1>
         <p class="lead">${esc(p.lugar || p.subtitulo)}</p>
@@ -1591,6 +1836,7 @@ function detalle(l, proyectos, p, i) {
       </div>
     </section>` : ''}
     <div class="wrap">
+      ${masDelCliente}
       <div class="behance-cta">
         <p class="behance-title">${esc(cierre)}</p>
         <div class="btn-row">${botonMural}${botones}</div>
@@ -2632,6 +2878,7 @@ for (const l of IDIOMAS) {
   const paginas = [
     [R.inicio, inicio(l, proyectos)],
     [R.proyectos, listado(l, proyectos)],
+    [R.clientes, paginaClientes(l, proyectos)],
     ...proyectos.map((p, i) => [rutaDe(l, 'proyecto', p.slug), detalle(l, proyectos, p, i)]),
     [R.murales, murales(l, proyectos)],
     [R.tarifarios, paginaTarifarios(l)],

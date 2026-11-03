@@ -120,6 +120,9 @@ ul { padding: 0; list-style: none; }
 .idioma span { color: var(--muted); }
 .nav-link { font-size: 17px; font-weight: 500; text-decoration: none; white-space: nowrap; }
 @media (min-width: 1100px) and (max-width: 1279px) { .nav { gap: 24px; } .idioma { margin-left: 20px; } .nav-cta, .nav-tarifario { padding-inline: 14px; } }
+/* Con Áreas y Clientes el menú es más largo: menos espacio entre enlaces para que nunca toque el logo */
+@media (min-width: 1280px) and (max-width: 1499px) { .nav { gap: 26px; padding-left: 32px; } }
+@media (min-width: 1100px) and (max-width: 1279px) { .nav-link { font-size: 15px; } }
 .nav-link[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; font-weight: 600; }
 .nav-cta { padding: 8px 16px; background: var(--ink); color: var(--bg); border-radius: 999px; }
 .nav-cta:hover { color: var(--bg); opacity: .88; }
@@ -318,6 +321,110 @@ ul { padding: 0; list-style: none; }
   .area-nombre, .area.activa .area-nombre { font-size: clamp(24px, 7vw, 34px); align-self: end; transform: none; }
   .area-cuenta { font-size: 12px; align-self: start; }
 }
+
+/* Pestañas "Por área / Por cliente" del inicio */
+.vista-tabs { display: flex; gap: 10px; margin-top: 28px; }
+.vista-tabs[hidden] { display: none; }
+.vista-tabs [role="tab"] {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px;
+  border: 1px solid var(--ink); border-radius: 999px; background: transparent; color: var(--ink);
+  font: 500 16px/1 var(--f-texto); cursor: pointer;
+}
+.vista-tabs [role="tab"] .mono { font-size: 12px; color: var(--muted); letter-spacing: .02em; }
+.vista-tabs [role="tab"][aria-selected="true"] { background: var(--ink); color: var(--bg); font-weight: 600; }
+.vista-tabs [role="tab"][aria-selected="true"] .mono { color: var(--acento-texto); }
+.vista-panel + .vista-panel { margin-top: 56px; } /* sin JavaScript se ven las dos listas */
+.js .vista-panel + .vista-panel { margin-top: 0; }
+.vista-panel[hidden] { display: none; }
+
+/* Filas desplegables (áreas y clientes): al abrirlas muestran sus trabajos */
+.despliegue > summary { list-style: none; cursor: pointer; }
+.despliegue > summary::-webkit-details-marker { display: none; }
+.despliegue .area-flecha { position: relative; width: 22px; height: 22px; opacity: 1; transform: none; align-self: center; }
+.despliegue .area-flecha::before, .despliegue .area-flecha::after { content: ''; position: absolute; left: 50%; top: 50%; width: 16px; height: 2px; margin: -1px 0 0 -8px; background: var(--acento); transition: transform .3s cubic-bezier(.2, .7, .1, 1); }
+.despliegue .area-flecha::after { transform: rotate(90deg); }
+.despliegue[open] .area-flecha::after { transform: rotate(0deg); }
+.despliegue[open] .area-nombre { color: var(--acento-texto); }
+.despliegue-panel { padding: 4px 0 28px 64px; animation: desplegar .35s cubic-bezier(.2, .7, .1, 1); }
+@keyframes desplegar { from { opacity: 0; transform: translateY(-8px); } }
+.despliegue-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; }
+.despliegue-item { display: grid; grid-template-columns: 64px minmax(0, 1fr) 20px; align-items: center; gap: 14px; padding: 8px 0; text-decoration: none; border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.despliegue-mini { aspect-ratio: 1280 / 1001; overflow: hidden; background: var(--placeholder); }
+.despliegue-mini img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.despliegue-texto { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.despliegue-titulo { font-family: var(--f-display); text-transform: uppercase; font-size: 21px; line-height: 1.05; }
+.despliegue-texto .mono { font-size: 11px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.despliegue-flecha { color: var(--acento); opacity: 0; transform: translateX(-6px); transition: opacity .2s ease, transform .3s ease; }
+.despliegue-item:hover .despliegue-titulo, .despliegue-item:focus-visible .despliegue-titulo { color: var(--hover); }
+.despliegue-item:hover .despliegue-flecha, .despliegue-item:focus-visible .despliegue-flecha { opacity: 1; transform: none; }
+.despliegue-item:hover .despliegue-mini img { transform: scale(1.06); }
+.despliegue-todo { display: inline-block; margin-top: 18px; font-size: 16px; }
+@media (prefers-reduced-motion: reduce) { .despliegue-panel { animation: none; } }
+@media (max-width: 899px) {
+  .despliegue .area { grid-template-columns: 96px minmax(0, 1fr) 22px; }
+  .despliegue .area-flecha { display: block; grid-column: 3; grid-row: 1 / span 2; }
+  .despliegue-panel { padding: 0 0 24px; }
+  .despliegue-lista { grid-template-columns: 1fr; }
+  .vista-tabs [role="tab"] { min-height: 44px; padding: 0 18px; font-size: 15px; }
+}
+
+/* Selector "Ordenar por: Áreas · Clientes" de las páginas de trabajos */
+.page-head-der { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.orden { display: inline-flex; align-items: center; gap: 6px; padding: 5px; border: 1px solid var(--ink); border-radius: 999px; }
+.orden-txt { color: var(--muted); font-size: 11px; padding: 0 10px 0 12px; }
+.orden-op { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 18px; border-radius: 999px; text-decoration: none; font-weight: 500; }
+.orden-op .mono { font-size: 11px; color: var(--muted); letter-spacing: .02em; }
+.orden-op:hover { color: var(--hover); }
+.orden-op[aria-current="page"] { background: var(--ink); color: var(--bg); font-weight: 600; }
+.orden-op[aria-current="page"] .mono { color: var(--acento-texto); }
+
+/* Página de clientes */
+.clientes-grilla { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--ink); }
+.cliente { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 24px 48px; padding: 32px 0; border-top: 1px solid var(--ink); scroll-margin-top: calc(var(--header-h) + 24px); }
+.cliente[hidden] { display: none; }
+.cliente--destacado { box-shadow: inset 4px 0 0 var(--acento); padding-left: 20px; }
+.cliente-id { display: flex; gap: 20px; align-items: flex-start; }
+.cliente-logo { flex-shrink: 0; width: 88px; aspect-ratio: 1; display: grid; place-items: center; background: var(--superficie); border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); overflow: hidden; }
+.cliente-logo[data-fondo="oscuro"] { background: #000; }
+.cliente-logo[data-fondo="claro"] { background: #fff; }
+.cliente-logo img { width: 78%; height: 78%; object-fit: contain; }
+.cliente-iniciales { font-family: var(--f-display); font-size: 34px; color: var(--ink); }
+.cliente-datos { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.cliente-nombre { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; line-height: 1; font-size: clamp(30px, 3vw, 44px); }
+.cliente-rubro { color: var(--muted); font-size: 12px; }
+.cliente-areas { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.cliente-area { display: inline-flex; align-items: center; min-height: 30px; padding: 0 12px; border: 1px solid var(--ink); border-radius: 999px; font-size: 11px; text-decoration: none; }
+.cliente-area:hover { background: var(--ink); color: var(--bg); }
+.cliente-trabajos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-content: start; }
+.cliente-trabajo { display: flex; flex-direction: column; gap: 8px; text-decoration: none; }
+.cliente-trabajo-img { aspect-ratio: 1280 / 1001; overflow: hidden; background: var(--placeholder); }
+.cliente-trabajo-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.cliente-trabajo:hover .cliente-trabajo-img img { transform: scale(1.03); }
+.cliente-trabajo-titulo { font-family: var(--f-display); text-transform: uppercase; font-size: 21px; line-height: 1.05; }
+.cliente-trabajo:hover .cliente-trabajo-titulo { color: var(--hover); }
+.cliente-trabajo .mono { font-size: 11px; color: var(--muted); }
+.seccion-head-fila { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 48px; margin-bottom: clamp(32px, 4vw, 56px); }
+.marcas-mini { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 1px; background: color-mix(in srgb, var(--ink) 18%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.marcas-mini li { background: #fff; aspect-ratio: 1; display: grid; place-items: center; }
+.marcas-mini li[data-fondo="oscuro"] { background: #000; }
+.marcas-mini a { display: grid; place-items: center; width: 100%; height: 100%; }
+.marcas-mini img { width: 72%; height: 72%; object-fit: contain; transition: transform .3s ease; }
+.marcas-mini a:hover img { transform: scale(1.08); }
+@media (max-width: 899px) {
+  .cliente { grid-template-columns: 1fr; padding: 24px 0; }
+  .cliente-logo { width: 64px; }
+  .cliente-trabajos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .cliente-trabajo-titulo { font-size: 18px; }
+  .orden { width: 100%; }
+  .orden-op { flex: 1; justify-content: center; }
+}
+
+/* Caso: dónde está en las dos formas de ordenar, y más trabajos del mismo cliente */
+.proyecto-ubica { display: inline-flex; flex-wrap: wrap; gap: 4px 10px; justify-content: flex-end; }
+.proyecto-ubica a { text-underline-offset: 3px; }
+.proyecto-ubica a:hover { color: var(--hover); }
+.mas-cliente { padding-top: clamp(48px, 6vw, 88px); }
+.mas-cliente-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 32px; margin-bottom: 32px; }
 
 /* ---------- servicios ---------- */
 .servicios-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
