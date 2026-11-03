@@ -1753,10 +1753,20 @@ function areasInicio() {
   const enlaces = [...document.querySelectorAll('[data-area]')];
   const vistas = [...document.querySelectorAll('[data-vista]')];
   if (!enlaces.length) return;
+  const ver = (id) => vistas.forEach((v) => v.classList.toggle('activa', v.dataset.vista === id));
+  let actual = '';
   const elegir = (id) => {
+    actual = id;
     enlaces.forEach((a) => a.classList.toggle('activa', a.dataset.area === id));
-    vistas.forEach((v) => v.classList.toggle('activa', v.dataset.vista === id));
+    ver(id);
   };
+  // Dentro de una fila abierta, cada trabajo muestra su propia portada; al salir vuelve la del área o cliente
+  document.querySelectorAll('[data-ver]').forEach((t) => {
+    t.addEventListener('mouseenter', () => ver(t.dataset.ver));
+    t.addEventListener('focus', () => ver(t.dataset.ver));
+    t.addEventListener('mouseleave', () => ver(actual));
+    t.addEventListener('blur', () => ver(actual));
+  });
   enlaces.forEach((a) => {
     a.addEventListener('mouseenter', () => elegir(a.dataset.area));
     a.addEventListener('focus', () => elegir(a.dataset.area));

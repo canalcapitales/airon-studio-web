@@ -1219,7 +1219,7 @@ function ordenVista(l, activo, proyectos) {
 // Fila desplegable del inicio (un área o un cliente): al abrirla muestra sus trabajos para entrar directo
 function despliegue(l, { id, nombre, cuenta, mini, trabajos, enlace, enlaceTexto, num: n, grupo }) {
   const items = trabajos
-    .map((p) => `<li><a class="despliegue-item" href="${rutaDe(l, 'proyecto', p.slug)}">
+    .map((p) => `<li><a class="despliegue-item" href="${rutaDe(l, 'proyecto', p.slug)}" data-ver="t-${p.slug}">
               <span class="despliegue-mini">${img(p.portada, { alt: '', sizes: '96px', dims: [640, 501] })}</span>
               <span class="despliegue-texto"><span class="despliegue-titulo">${esc(p.titulo)}</span><span class="mono">${esc(p.sub)}</span></span>
               <span class="despliegue-flecha" aria-hidden="true">→</span>
@@ -1371,7 +1371,12 @@ function inicio(l, proyectos) {
     )
     .join('\n        ');
   const vista = (id, p, activa) => `<div class="areas-vista${activa ? ' activa' : ''}" data-vista="${id}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501] })}</div>`;
-  const visores = [...datosAreas.map(({ p }, i) => vista(`a${i}`, p, i === 0)), ...datosClientes.map(({ trabajos }, i) => vista(`c${i}`, trabajos[0], false))].join('\n        ');
+  // Además, una vista por trabajo: al pasar por un trabajo del desplegable se ve su portada
+  const visores = [
+    ...datosAreas.map(({ p }, i) => vista(`a${i}`, p, i === 0)),
+    ...datosClientes.map(({ trabajos }, i) => vista(`c${i}`, trabajos[0], false)),
+    ...proyectos.map((p) => vista(`t-${p.slug}`, p, false)),
+  ].join('\n        ');
   const conCat = T.servicios.filter(([cat]) => cat);
   const lista = (oculta) =>
     `<ul class="franja-lista"${oculta ? ' aria-hidden="true"' : ''}>${conCat
