@@ -1557,7 +1557,12 @@ function paginaClientes(l, proyectos) {
   const muro = proyectos.find((p) => p.muroLogos);
   const nombres = new Set(CLIENTES.clientes.map((c) => c.nombre.toLowerCase()));
   const otras = LOGOS.logos.filter((x) => !nombres.has(String(x.nombre).toLowerCase()) && !x.caso);
-  const marcas = otras
+  // Intercaladas: una de fondo negro, una de fondo blanco (las que sobran de un color van al final)
+  const oscuras = otras.filter((x) => x.fondo === 'oscuro');
+  const claras = otras.filter((x) => x.fondo !== 'oscuro');
+  const [primero, segundo] = oscuras.length >= claras.length ? [oscuras, claras] : [claras, oscuras];
+  const intercaladas = primero.flatMap((x, i) => (segundo[i] ? [x, segundo[i]] : [x])).concat(segundo.slice(primero.length));
+  const marcas = intercaladas
     .map((x) => `<li${x.fondo ? ` data-fondo="${x.fondo}"` : ''}><a href="${rutaDe(l, 'proyecto', muro.slug)}" title="${esc(x.nombre)} — ${esc(x.rubro[l])}"><img src="${esc(x.archivo)}" alt="${esc(x.nombre)}" width="160" height="160" loading="lazy" decoding="async"></a></li>`)
     .join('');
   return pagina(l, {
