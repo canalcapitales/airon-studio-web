@@ -1,0 +1,26 @@
+{
+  "_ayuda": "Clientes de la web (página /clientes/). Cada cliente lista los casos (slugs de proyectos.json) donde aparece su trabajo; un caso puede estar en varios clientes. 'grupo' usa los rubros de logos.json. 'logo' es opcional (si falta, se muestran sus iniciales). Los casos que reúnen muchos clientes van en 'colecciones'.",
+  "clientes": [
+    { "id": "gsp-seguridad", "nombre": "GSP Seguridad", "grupo": "empresas", "rubro": { "es": "Seguridad privada", "en": "Private security" }, "logo": "/img/logos/gsp.svg", "fondo": "claro", "casos": ["gsp-seguridad", "ploteo-vehicular"] },
+    { "id": "trust-fund", "nombre": "Trust Fund", "grupo": "inmobiliarias", "rubro": { "es": "Garantías de alquiler", "en": "Rental guarantees" }, "casos": ["trust-fund", "ploteo-vehicular", "redes-para-marcas"] },
+    { "id": "equilibria", "nombre": "Equilibria", "grupo": "empresas", "rubro": { "es": "Kinesiología y rehabilitación", "en": "Physiotherapy & rehabilitation" }, "casos": ["equilibria"] },
+    { "id": "kaizen", "nombre": "Kaizen", "grupo": "gastronomia", "rubro": { "es": "Panadería de autor", "en": "Artisan bakery" }, "logo": "/img/logos/kaizen.svg", "fondo": "oscuro", "casos": ["kaizen"] },
+    { "id": "affum", "nombre": "AFFUM", "grupo": "gastronomia", "rubro": { "es": "Ahumados y conservas", "en": "Smoked foods & preserves" }, "logo": "/img/logos/affum.svg", "fondo": "oscuro", "casos": ["affum", "redes-para-marcas"] },
+    { "id": "blend-david", "nombre": "Blend David", "grupo": "gastronomia", "rubro": { "es": "Mercado de bebidas", "en": "Drinks market" }, "casos": ["blend-david"] },
+    { "id": "flexy", "nombre": "Flexy", "grupo": "inmobiliarias", "rubro": { "es": "Plataforma de alquileres", "en": "Rental platform" }, "casos": ["flexy"] },
+    { "id": "black", "nombre": "Black", "grupo": "empresas", "casos": ["empresa-black"] },
+    { "id": "r5", "nombre": "R5", "grupo": "cultura", "rubro": { "es": "Complejo deportivo", "en": "Sports complex" }, "casos": ["r5"] },
+    { "id": "eleven-games", "nombre": "Eleven Games", "grupo": "empresas", "casos": ["zocalo-fox-sports"] },
+    { "id": "ju", "nombre": "JU Base Plant Food", "grupo": "gastronomia", "rubro": { "es": "Alimentos a base de plantas", "en": "Plant-based food" }, "casos": ["zocalo-fox-sports"] },
+    { "id": "maria-rasgido", "nombre": "María Rasgido Propiedades", "grupo": "inmobiliarias", "rubro": { "es": "Inmobiliaria", "en": "Real estate agency" }, "logo": "/img/logos/maria-rasgido.svg", "fondo": "claro", "casos": ["redes-para-marcas"] },
+    { "id": "surcipres", "nombre": "Surcipres", "grupo": "empresas", "casos": ["redes-para-marcas"] },
+    { "id": "rac3-design", "nombre": "Rac3 Design", "grupo": "creativos", "rubro": { "es": "Estudio de diseño", "en": "Design studio" }, "logo": "/img/logos/rac3-design.svg", "fondo": "claro", "casos": ["redes-para-marcas"] },
+    { "id": "laionbeats", "nombre": "Laionbeats", "grupo": "musica", "rubro": { "es": "Productor musical", "en": "Music producer" }, "logo": "/img/logos/laionbeats.webp", "fondo": "oscuro", "casos": ["spotify-covers", "redes-para-marcas", "portadas", "flyers"] },
+    { "id": "franqui-quiroga", "nombre": "Franqui Quiroga", "grupo": "musica", "rubro": { "es": "Artista", "en": "Artist" }, "logo": "/img/logos/franqui-quiroga.svg", "fondo": "claro", "casos": ["spotify-covers"] },
+    { "id": "intekno", "nombre": "Intekno", "grupo": "musica", "rubro": { "es": "Fiestas electrónicas", "en": "Electronic music events" }, "casos": ["flyers"] },
+    { "id": "tkno-radio", "nombre": "TKNO Radio", "grupo": "musica", "rubro": { "es": "Radio online", "en": "Online radio" }, "casos": ["flyers"] },
+    { "id": "tag-integridad", "nombre": "Tag Integridad", "grupo": "cultura", "casos": ["tag-integridad"] },
+    { "id": "airon-studio", "nombre": "AIRON Studio", "grupo": "creativos", "rubro": { "es": "Trabajos propios", "en": "Our own work" }, "logo": "/img/logos/airon.svg", "fondo": "claro", "casos": ["web-airon-studio", "analogic-photos"] }
+  ],
+  "colecciones": ["branding-x-airon-studio", "spotify-covers", "flyers", "portadas", "redes-para-marcas"]
+}
