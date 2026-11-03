@@ -1694,7 +1694,7 @@ function detalle(l, proyectos, p, i) {
   const vl = p.videoLoop;
   const videoLoop = vl
     ? `<figure class="video-loop reveal" data-video-loop>
-          <video class="video-loop-media" muted loop playsinline autoplay preload="auto" disablepictureinpicture poster="${esc(vl.poster)}" width="${vl._wh[0]}" height="${vl._wh[1]}" aria-label="${esc(vl.alt)}"><source src="${esc(vl.src)}" type="video/mp4"></video>
+          <video class="video-loop-media" muted loop playsinline preload="none" disablepictureinpicture poster="${esc(vl.poster)}" data-src="${esc(vl.src)}" width="${vl._wh[0]}" height="${vl._wh[1]}" aria-label="${esc(vl.alt)}"></video>
           <figcaption class="video-loop-ui">
             <span class="video-loop-titulo mono">${esc(vl.titulo)}</span>
             <ol class="video-loop-etapas mono">${vl.etapas.map(([t, s], k) => `<li data-desde="${s}"${k ? '' : ' class="activa"'}><button type="button"><span>${dos(k + 1)}</span>${esc(t)}</button></li>`).join('')}</ol>
