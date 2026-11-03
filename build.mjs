@@ -405,7 +405,7 @@ const TXT = {
     listadoLead: 'Diseño integral, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía. Filtrá por área para ver cada disciplina.',
     listadoDesc: 'Portafolio de AIRON Studio: diseño integral para empresas, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía.',
     portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar', muro: { titulo: 'Muro de marcas', texto: 'Logos diseñados para artistas, comercios, empresas e instituciones. Filtrá por rubro y tocá cada marca para verla en grande.', todas: 'Todas', marcas: 'marcas', rubros: 'rubros', verCaso: 'Ver caso', filtrar: 'Filtrar marcas por rubro' },
-    videoDe: (t) => `Video del proyecto ${t}`, volver: '← Volver a áreas', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
+    videoDe: (t) => `Video del proyecto ${t}`, videoPausar: 'Pausar video', videoSeguir: 'Reproducir video',volver: '← Volver a áreas', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
     ctaSinBehance: '¿Tu marca es la próxima?', botonSinBehance: 'Pedí tu marca →', ctaProyectoGeneral: '¿Tenés un proyecto en mente?', botonProyecto: 'Pedí tu presupuesto →', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
     proyectoDe: 'Proyecto de AIRON Studio.',
     descProyecto: (cats) => `${cats} por AIRON Studio, estudio de diseño multimedial en Buenos Aires.`,
@@ -840,7 +840,7 @@ const TXT = {
     listadoLead: 'Integrated design, branding, social media, vehicle wraps, graphic design, web & systems, motion, murals and photography. Filter by area to explore each discipline.',
     listadoDesc: 'AIRON Studio portfolio: integrated design for companies, branding, social media, vehicle wraps, graphic design, web & systems, motion, murals and photography.',
     portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge', muro: { titulo: 'Brand wall', texto: 'Logos designed for artists, shops, companies and institutions. Filter by industry and tap any brand to see it large.', todas: 'All', marcas: 'brands', rubros: 'industries', verCaso: 'View case', filtrar: 'Filter brands by industry' },
-    videoDe: (t) => `Video of the project ${t}`, volver: '← Back to areas', fichaAria: 'Project details', imagenesAria: 'Project images',
+    videoDe: (t) => `Video of the project ${t}`, videoPausar: 'Pause video', videoSeguir: 'Play video',volver: '← Back to areas', fichaAria: 'Project details', imagenesAria: 'Project images',
     ctaSinBehance: 'Is your brand next?', botonSinBehance: 'Get your brand →', ctaProyectoGeneral: 'Got a project in mind?', botonProyecto: 'Get a quote →', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
     proyectoDe: 'A project by AIRON Studio.',
     descProyecto: (cats) => `${cats} by AIRON Studio, a multimedia design studio based in Buenos Aires.`,
@@ -956,6 +956,12 @@ function proyectosEn(l) {
       ficha: o.ficha ?? p.ficha,
       bloques: o.bloques ?? p.bloques,
       galerias,
+      videoLoop: p.videoLoop && {
+        ...p.videoLoop,
+        titulo: o.videoLoop?.titulo ?? p.videoLoop.titulo,
+        alt: o.videoLoop?.alt ?? p.videoLoop.alt,
+        etapas: p.videoLoop.etapas.map(([t, s], k) => [(o.videoLoop?.etapas || [])[k] ?? t, s]),
+      },
     };
   });
 }
@@ -1684,6 +1690,19 @@ function detalle(l, proyectos, p, i) {
   // Sin piezas para la tira: si hay video va arriba (y no se repite abajo); si no, la portada diseñada entera
   const videoArriba = !soloGaleria && elegidas.length < 3 && p.videos.length > 0;
   const cabecera = soloGaleria ? tira(p.galeria, { hero: true }) : elegidas.length >= 3 ? tira(elegidas, { hero: true }) : videoArriba ? videos : `<div class="proyecto-portada proyecto-portada--diseno">${portadaPagina(p, T)}</div>`;
+  // Video en loop y sin sonido (como un GIF) que encabeza el caso, con sus etapas marcadas (main.js: videosLoop)
+  const vl = p.videoLoop;
+  const videoLoop = vl
+    ? `<figure class="video-loop reveal" data-video-loop>
+          <video class="video-loop-media" muted loop playsinline autoplay preload="auto" disablepictureinpicture poster="${esc(vl.poster)}" width="${vl._wh[0]}" height="${vl._wh[1]}" aria-label="${esc(vl.alt)}"><source src="${esc(vl.src)}" type="video/mp4"></video>
+          <figcaption class="video-loop-ui">
+            <span class="video-loop-titulo mono">${esc(vl.titulo)}</span>
+            <ol class="video-loop-etapas mono">${vl.etapas.map(([t, s], k) => `<li data-desde="${s}"${k ? '' : ' class="activa"'}><button type="button"><span>${dos(k + 1)}</span>${esc(t)}</button></li>`).join('')}</ol>
+            <span class="video-loop-barra" aria-hidden="true"><i></i></span>
+          </figcaption>
+          <button type="button" class="video-loop-btn" aria-label="${T.videoPausar}" data-pausar="${T.videoPausar}" data-seguir="${T.videoSeguir}"><span aria-hidden="true"></span></button>
+        </figure>`
+    : '';
   const galerias = (p.galerias || [])
     .map((grupo) => {
       const grilla = grupo.estilo === 'grilla';
@@ -1825,6 +1844,7 @@ function detalle(l, proyectos, p, i) {
       </div>
     </header>
     <div class="wrap">
+      ${videoLoop}
       <div class="proyecto-cabecera" data-vt="p-${p.slug}">${cabecera}</div>
       <dl class="ficha" aria-label="${T.fichaAria}">
         ${ficha}

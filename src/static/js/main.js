@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   convertidorPng();
   visor();
   tiras();
+  videosLoop();
   formulario();
   filtros();
   areasInicio();
@@ -1653,6 +1654,47 @@ function visor() {
 
 // ----- Formulario de contacto (Formspree) -----
 // ----- Tiras deslizables: arrastre con el mouse, flechas, teclado, contador, progreso y avance automático en la cabecera -----
+// ----- Video en loop sin sonido que encabeza un caso -----
+// Marca la etapa que se está viendo, llena la barra, se frena fuera de pantalla y respeta "reducir movimiento".
+function videosLoop() {
+  const reducir = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-video-loop]').forEach((fig) => {
+    const v = fig.querySelector('video');
+    const boton = fig.querySelector('.video-loop-btn');
+    const barra = fig.querySelector('.video-loop-barra i');
+    const etapas = [...fig.querySelectorAll('.video-loop-etapas li')];
+    v.muted = true;
+    let quiere = !reducir; // lo que eligió el visitante con el botón
+    let visible = true;
+    const pintar = () => {
+      const t = v.currentTime;
+      if (v.duration) barra.style.transform = `scaleX(${t / v.duration})`;
+      let k = 0;
+      etapas.forEach((li, i) => { if (t >= Number(li.dataset.desde)) k = i; });
+      etapas.forEach((li, i) => li.classList.toggle('activa', i === k));
+    };
+    const cuadro = () => { pintar(); if (!v.paused) requestAnimationFrame(cuadro); };
+    const aplicar = () => {
+      if (quiere && visible) v.play().catch(() => {});
+      else v.pause();
+    };
+    const estadoBoton = () => {
+      fig.classList.toggle('en-pausa', !quiere);
+      boton.setAttribute('aria-label', quiere ? boton.dataset.pausar : boton.dataset.seguir);
+    };
+    v.addEventListener('play', () => requestAnimationFrame(cuadro));
+    v.addEventListener('seeked', pintar);
+    boton.addEventListener('click', () => { quiere = !quiere; estadoBoton(); aplicar(); });
+    // Tocar una etapa lleva el video a ese momento
+    etapas.forEach((li) => li.addEventListener('click', () => { v.currentTime = Number(li.dataset.desde) + 0.05; pintar(); }));
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; aplicar(); }, { threshold: 0.15 }).observe(fig);
+    }
+    estadoBoton();
+    aplicar();
+  });
+}
+
 function tiras() {
   const reducir = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('[data-tira]').forEach((t) => {
