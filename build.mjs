@@ -957,6 +957,10 @@ function portadaPagina(p, T) {
   return `<picture><source media="(max-width: 699px)" srcset="${set(v.movil)}" sizes="100vw"><source srcset="${set(v.ancha)}" sizes="(min-width: 1584px) 1440px, 100vw">${base}</picture>`;
 }
 
+// Los títulos grandes con tilde (ÁREAS, ZÓCALO) llevan más aire arriba para que la tilde no toque el rótulo
+const conTilde = (h) => h.replace(/<h1 class="(page-title|proyecto-title|hero-title)([^"]*)"([^>]*)>([\s\S]*?)<\/h1>/g, (m, c, r, at, txt) =>
+  /[ÁÉÍÓÚÑáéíóúñ]/.test(txt.replace(/<[^>]+>/g, '')) ? `<h1 class="${c}${r} con-tilde"${at}>${txt}</h1>` : m);
+
 // Logo en línea: las letras toman el color del texto y la estrella usa el color de acento.
 const LOGO_SVG = readFileSync('src/static/img/logo-airon.svg', 'utf8')
   .replace(' role="img" aria-label="AIRON Studio"', ' aria-hidden="true" focusable="false"')
@@ -2602,7 +2606,7 @@ const compactar = (html) => html.replace(/\n\s+/g, '\n');
 function escribir(ruta, contenido) {
   const destino = join(OUT, ruta);
   mkdirSync(dirname(destino), { recursive: true });
-  writeFileSync(destino, ruta.endsWith('.html') ? compactar(contenido) : contenido);
+  writeFileSync(destino, ruta.endsWith('.html') ? compactar(conTilde(contenido)) : contenido);
 }
 
 function conHuella(ruta) {
