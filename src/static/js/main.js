@@ -1665,7 +1665,7 @@ function videosLoop() {
     const etapas = [...fig.querySelectorAll('.video-loop-etapas li')];
     v.muted = true;
     let quiere = !reducir; // lo que eligió el visitante con el botón
-    let visible = true;
+    let visible = !('IntersectionObserver' in window);
     const pintar = () => {
       const t = v.currentTime;
       if (v.duration) barra.style.transform = `scaleX(${t / v.duration})`;
@@ -1674,8 +1674,19 @@ function videosLoop() {
       etapas.forEach((li, i) => li.classList.toggle('activa', i === k));
     };
     const cuadro = () => { pintar(); if (!v.paused) requestAnimationFrame(cuadro); };
+    // El servidor no entrega el video por partes (iPhone lo necesita para reproducir y saltar):
+    // se baja entero una sola vez, cuando se va a ver, y se reproduce desde la memoria.
+    let carga = null;
+    const cargar = () =>
+      (carga ||= fetch(v.dataset.src)
+        .then((r) => r.blob())
+        .then((b) => {
+          v.src = URL.createObjectURL(b);
+          return new Promise((ok) => v.addEventListener('loadeddata', ok, { once: true }));
+        })
+        .catch(() => { v.src = v.dataset.src; }));
     const aplicar = () => {
-      if (quiere && visible) v.play().catch(() => {});
+      if (quiere && visible) cargar().then(() => { if (quiere && visible) v.play().catch(() => {}); });
       else v.pause();
     };
     const estadoBoton = () => {
@@ -1686,7 +1697,7 @@ function videosLoop() {
     v.addEventListener('seeked', pintar);
     boton.addEventListener('click', () => { quiere = !quiere; estadoBoton(); aplicar(); });
     // Tocar una etapa lleva el video a ese momento
-    etapas.forEach((li) => li.addEventListener('click', () => { v.currentTime = Number(li.dataset.desde) + 0.05; pintar(); }));
+    etapas.forEach((li) => li.addEventListener('click', () => cargar().then(() => { v.currentTime = Number(li.dataset.desde) + 0.05; pintar(); })));
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([e]) => { visible = e.isIntersecting; aplicar(); }, { threshold: 0.15 }).observe(fig);
     }
