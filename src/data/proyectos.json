@@ -1542,7 +1542,367 @@
         1280,
         1001
       ]
-    }
+    },
+    "galerias": [
+      {
+        "titulo": "Propuestas",
+        "texto": "Las propuestas de color y composición que se mostraron antes de pintar, cuando el local todavía se llamaba Don David.",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/blend-david/boceto-1-800.webp",
+            "1600": "/img/proyectos/blend-david/boceto-1-1600.webp",
+            "_wh": [
+              1199,
+              823
+            ],
+            "alt": "Blend David — Primera propuesta de fachada."
+          },
+          {
+            "800": "/img/proyectos/blend-david/boceto-2-800.webp",
+            "1600": "/img/proyectos/blend-david/boceto-2-1600.webp",
+            "_wh": [
+              951,
+              535
+            ],
+            "alt": "Blend David — Propuesta alternativa con el nombre Don David."
+          },
+          {
+            "800": "/img/proyectos/blend-david/boceto-3-800.webp",
+            "1600": "/img/proyectos/blend-david/boceto-3-1600.webp",
+            "_wh": [
+              1483,
+              737
+            ],
+            "alt": "Blend David — Otra propuesta alternativa."
+          },
+          {
+            "800": "/img/proyectos/blend-david/boceto-final-800.webp",
+            "1600": "/img/proyectos/blend-david/boceto-final-1600.webp",
+            "_wh": [
+              1280,
+              720
+            ],
+            "alt": "Blend David — Versión final aprobada."
+          }
+        ]
+      },
+      {
+        "titulo": "La obra",
+        "texto": "Siete jornadas sobre andamio, de la base negra a los últimos detalles.",
+        "estilo": "tira",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/blend-david/obra-1-800.webp",
+            "1600": "/img/proyectos/blend-david/obra-1-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — Pintando sobre andamio."
+          },
+          {
+            "800": "/img/proyectos/blend-david/obra-2-800.webp",
+            "1600": "/img/proyectos/blend-david/obra-2-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — Andamio sobre la fachada."
+          },
+          {
+            "800": "/img/proyectos/blend-david/obra-3-800.webp",
+            "1600": "/img/proyectos/blend-david/obra-3-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "Blend David — La fachada a mitad de obra."
+          },
+          {
+            "800": "/img/proyectos/blend-david/obra-4-800.webp",
+            "1600": "/img/proyectos/blend-david/obra-4-1600.webp",
+            "_wh": [
+              1600,
+              2844
+            ],
+            "alt": "Blend David — Trabajo de noche."
+          }
+        ]
+      },
+      {
+        "titulo": "Detalles",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/blend-david/detalle-1-800.webp",
+            "1600": "/img/proyectos/blend-david/detalle-1-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — Detalle de la persiana y el cartel «Mercado de bebidas»."
+          },
+          {
+            "800": "/img/proyectos/blend-david/detalle-2-800.webp",
+            "1600": "/img/proyectos/blend-david/detalle-2-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — Detalle de las formas sobre la marquesina."
+          },
+          {
+            "800": "/img/proyectos/blend-david/detalle-3-800.webp",
+            "1600": "/img/proyectos/blend-david/detalle-3-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — Detalle de la planta baja."
+          },
+          {
+            "800": "/img/proyectos/blend-david/detalle-4-800.webp",
+            "1600": "/img/proyectos/blend-david/detalle-4-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — Detalle de la fachada completa."
+          }
+        ]
+      },
+      {
+        "titulo": "De noche",
+        "texto": "El fondo negro sostiene la lectura nocturna y hace brillar el cartel.",
+        "estilo": "tira",
+        "imagenes": [
+          {
+            "800": "/img/proyectos/blend-david/noche-1-800.webp",
+            "1600": "/img/proyectos/blend-david/noche-1-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — La fachada de noche."
+          },
+          {
+            "800": "/img/proyectos/blend-david/noche-2-800.webp",
+            "1600": "/img/proyectos/blend-david/noche-2-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — El cartel iluminado."
+          },
+          {
+            "800": "/img/proyectos/blend-david/noche-3-800.webp",
+            "1600": "/img/proyectos/blend-david/noche-3-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — Vista lateral de noche."
+          },
+          {
+            "800": "/img/proyectos/blend-david/noche-4-800.webp",
+            "1600": "/img/proyectos/blend-david/noche-4-1600.webp",
+            "_wh": [
+              1600,
+              2133
+            ],
+            "alt": "Blend David — La fachada desde la vereda de enfrente."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "r5",
+    "titulo": "R5",
+    "subtitulo": "Propuesta de mural",
+    "categorias": [
+      "urbano"
+    ],
+    "portada": {
+      "640": "/img/casos/r5-portada-640.webp",
+      "1280": "/img/casos/r5-portada-1280.webp",
+      "1920": "/img/casos/r5-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [
+      [
+        "Cliente",
+        "R5 — Complejo deportivo"
+      ],
+      [
+        "Período",
+        "2025"
+      ],
+      [
+        "Rol",
+        "Diseño de mural"
+      ],
+      [
+        "Alcance",
+        "Relevamiento, medidas, propuesta y variantes"
+      ],
+      [
+        "Estado",
+        "Propuesta"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El reto",
+        "parrafos": [
+          "R5 es un complejo deportivo que estaba terminando su nave principal y quería una pared de gran formato que presentara la marca a todo el que entra."
+        ]
+      },
+      {
+        "titulo": "El proceso",
+        "parrafos": [
+          "Relevamos el espacio y tomamos las medidas de la pared. A partir del isotipo de R5 desarrollamos un lenguaje de flechas y diagonales en violeta, verde y negro, que transmite movimiento y velocidad, y lo probamos sobre la foto real del lugar."
+        ]
+      },
+      {
+        "titulo": "El resultado",
+        "parrafos": [
+          "Seis variantes de composición, desde el logo como protagonista hasta una versión más gráfica, para elegir según el uso del espacio."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "El espacio",
+        "texto": "La nave antes de la intervención y el plano con las medidas.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/r5/espacio-1-800.webp",
+            "1600": "/img/proyectos/r5/espacio-1-1600.webp",
+            "_wh": [
+              900,
+              1600
+            ],
+            "alt": "R5 — La nave vacía."
+          },
+          {
+            "800": "/img/proyectos/r5/espacio-2-800.webp",
+            "1600": "/img/proyectos/r5/espacio-2-1600.webp",
+            "_wh": [
+              1080,
+              1498
+            ],
+            "alt": "R5 — La pared elegida."
+          },
+          {
+            "800": "/img/proyectos/r5/medidas-800.webp",
+            "1600": "/img/proyectos/r5/medidas-1600.webp",
+            "_wh": [
+              1288,
+              600
+            ],
+            "alt": "R5 — Plano de la pared con medidas."
+          }
+        ]
+      },
+      {
+        "titulo": "La propuesta en la pared",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/r5/propuesta-1-800.webp",
+            "1600": "/img/proyectos/r5/propuesta-1-1600.webp",
+            "_wh": [
+              1080,
+              1498
+            ],
+            "alt": "R5 — Simulación del mural con el logo grande."
+          },
+          {
+            "800": "/img/proyectos/r5/propuesta-2-800.webp",
+            "1600": "/img/proyectos/r5/propuesta-2-1600.webp",
+            "_wh": [
+              1080,
+              1498
+            ],
+            "alt": "R5 — Simulación del mural en versión gráfica."
+          }
+        ]
+      },
+      {
+        "titulo": "Variantes",
+        "texto": "Seis composiciones con el mismo lenguaje de flechas y diagonales.",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/r5/variante-1-800.webp",
+            "1600": "/img/proyectos/r5/variante-1-1600.webp",
+            "_wh": [
+              1600,
+              922
+            ],
+            "alt": "R5 — Variante 1 del diseño."
+          },
+          {
+            "800": "/img/proyectos/r5/variante-2-800.webp",
+            "1600": "/img/proyectos/r5/variante-2-1600.webp",
+            "_wh": [
+              1600,
+              922
+            ],
+            "alt": "R5 — Variante 2 del diseño."
+          },
+          {
+            "800": "/img/proyectos/r5/variante-3-800.webp",
+            "1600": "/img/proyectos/r5/variante-3-1600.webp",
+            "_wh": [
+              1600,
+              922
+            ],
+            "alt": "R5 — Variante 3 del diseño."
+          },
+          {
+            "800": "/img/proyectos/r5/variante-4-800.webp",
+            "1600": "/img/proyectos/r5/variante-4-1600.webp",
+            "_wh": [
+              1600,
+              922
+            ],
+            "alt": "R5 — Variante 4 del diseño."
+          },
+          {
+            "800": "/img/proyectos/r5/variante-5-800.webp",
+            "1600": "/img/proyectos/r5/variante-5-1600.webp",
+            "_wh": [
+              1600,
+              922
+            ],
+            "alt": "R5 — Variante 5 del diseño."
+          },
+          {
+            "800": "/img/proyectos/r5/variante-6-800.webp",
+            "1600": "/img/proyectos/r5/variante-6-1600.webp",
+            "_wh": [
+              1600,
+              922
+            ],
+            "alt": "R5 — Variante 6 del diseño."
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "flexy",
@@ -2805,6 +3165,291 @@
     ]
   },
   {
+    "slug": "kaizen",
+    "titulo": "Kaizen",
+    "subtitulo": "Identidad, piezas gráficas y redes",
+    "categorias": [
+      "integral",
+      "branding",
+      "redes"
+    ],
+    "portada": {
+      "640": "/img/casos/kaizen-portada-640.webp",
+      "1280": "/img/casos/kaizen-portada-1280.webp",
+      "1920": "/img/casos/kaizen-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [
+      [
+        "Cliente",
+        "Kaizen — Panadería de autor"
+      ],
+      [
+        "Ubicación",
+        "San Martín de los Andes, Neuquén"
+      ],
+      [
+        "Período",
+        "2024 — 2026"
+      ],
+      [
+        "Rol",
+        "Diseño integral"
+      ],
+      [
+        "Alcance",
+        "Logotipo, piezas gráficas, folleto e historias de Instagram"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El reto",
+        "parrafos": [
+          "Kaizen es una panadería de autor de San Martín de los Andes: panes para hamburguesas, pan de molde y prepizzas para restaurantes, food trucks y eventos. Necesitaba una marca a la altura de su producto y una forma clara de mostrar qué hace y cómo pedir."
+        ]
+      },
+      {
+        "titulo": "El proceso",
+        "parrafos": [
+          "El nombre viene del japonés: kaizen es la mejora continua, la idea de que los cambios pequeños y constantes suman a largo plazo. Diseñamos un logotipo simple, con el punto de la «i» en naranja, y un sistema en naranja y negro que se repite en las piezas, el folleto y las historias, siempre con el pan como protagonista."
+        ]
+      },
+      {
+        "titulo": "El resultado",
+        "parrafos": [
+          "Una marca cálida y reconocible, fácil de aplicar, que ordena la comunicación con sus clientes: qué es Kaizen, qué productos tiene y cómo hacer un pedido."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "Identidad",
+        "texto": "El logotipo en naranja, en negro y en su versión para redes.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "640": "/img/proyectos/kaizen/logo-naranja-640.webp",
+            "1080": "/img/proyectos/kaizen/logo-naranja-1080.webp",
+            "_wh": [
+              1080,
+              360
+            ],
+            "alt": "Kaizen — Logo sobre naranja."
+          },
+          {
+            "640": "/img/proyectos/kaizen/logo-negro-640.webp",
+            "1080": "/img/proyectos/kaizen/logo-negro-1080.webp",
+            "_wh": [
+              1080,
+              360
+            ],
+            "alt": "Kaizen — Logo sobre negro."
+          },
+          {
+            "640": "/img/proyectos/kaizen/logo-laureles-640.webp",
+            "1080": "/img/proyectos/kaizen/logo-laureles-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Kaizen — Logo con laureles, versión para redes."
+          }
+        ]
+      },
+      {
+        "titulo": "Piezas gráficas",
+        "texto": "Publicaciones y folletos que cuentan el proceso, el nombre y los productos.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "640": "/img/proyectos/kaizen/pieza-fermentado-640.webp",
+            "1080": "/img/proyectos/kaizen/pieza-fermentado-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Kaizen — Pieza «Fermentado»."
+          },
+          {
+            "640": "/img/proyectos/kaizen/pieza-bollado-640.webp",
+            "1080": "/img/proyectos/kaizen/pieza-bollado-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Kaizen — Pieza «Bollado»."
+          },
+          {
+            "640": "/img/proyectos/kaizen/pieza-nombre-640.webp",
+            "1080": "/img/proyectos/kaizen/pieza-nombre-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Kaizen — Pieza que explica el nombre Kaizen."
+          },
+          {
+            "640": "/img/proyectos/kaizen/pieza-productos-640.webp",
+            "1080": "/img/proyectos/kaizen/pieza-productos-1080.webp",
+            "_wh": [
+              1080,
+              1350
+            ],
+            "alt": "Kaizen — Pieza «Nuestros productos»."
+          },
+          {
+            "640": "/img/proyectos/kaizen/folleto-640.webp",
+            "1080": "/img/proyectos/kaizen/folleto-1080.webp",
+            "_wh": [
+              625,
+              882
+            ],
+            "alt": "Kaizen — Folleto con código QR para pedidos."
+          },
+          {
+            "640": "/img/proyectos/kaizen/flyer-eventos-640.webp",
+            "1080": "/img/proyectos/kaizen/flyer-eventos-1080.webp",
+            "_wh": [
+              1024,
+              1536
+            ],
+            "alt": "Kaizen — Flyer de panes para eventos."
+          }
+        ]
+      },
+      {
+        "titulo": "Historias de Instagram",
+        "texto": "Una historia por producto y destacadas para el perfil.",
+        "estilo": "tira",
+        "imagenes": [
+          {
+            "640": "/img/proyectos/kaizen/historia-burger-queso-640.webp",
+            "1080": "/img/proyectos/kaizen/historia-burger-queso-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Kaizen — Historia: pan de burger con queso."
+          },
+          {
+            "640": "/img/proyectos/kaizen/historia-burger-sesamo-640.webp",
+            "1080": "/img/proyectos/kaizen/historia-burger-sesamo-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Kaizen — Historia: pan de burger con sésamo."
+          },
+          {
+            "640": "/img/proyectos/kaizen/historia-burger-liso-640.webp",
+            "1080": "/img/proyectos/kaizen/historia-burger-liso-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Kaizen — Historia: pan de burger liso."
+          },
+          {
+            "640": "/img/proyectos/kaizen/historia-nosotros-640.webp",
+            "1080": "/img/proyectos/kaizen/historia-nosotros-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Kaizen — Historia: acerca de nosotros."
+          },
+          {
+            "640": "/img/proyectos/kaizen/historia-destacadas-640.webp",
+            "1080": "/img/proyectos/kaizen/historia-destacadas-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Kaizen — Historia destacada: panes de hamburguesa."
+          },
+          {
+            "640": "/img/proyectos/kaizen/historia-clientes-640.webp",
+            "1080": "/img/proyectos/kaizen/historia-clientes-1080.webp",
+            "_wh": [
+              1080,
+              1920
+            ],
+            "alt": "Kaizen — Historia destacada: nuestros clientes."
+          }
+        ]
+      },
+      {
+        "titulo": "El producto",
+        "texto": "Los panes, en las fotos que acompañan las piezas.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/kaizen/foto-trio-800.webp",
+            "1600": "/img/proyectos/kaizen/foto-trio-1600.webp",
+            "_wh": [
+              1600,
+              1064
+            ],
+            "alt": "Kaizen — Tres panes de hamburguesa."
+          },
+          {
+            "800": "/img/proyectos/kaizen/foto-liso-800.webp",
+            "1600": "/img/proyectos/kaizen/foto-liso-1600.webp",
+            "_wh": [
+              1600,
+              1064
+            ],
+            "alt": "Kaizen — Pan liso."
+          },
+          {
+            "800": "/img/proyectos/kaizen/foto-sesamo-800.webp",
+            "1600": "/img/proyectos/kaizen/foto-sesamo-1600.webp",
+            "_wh": [
+              1600,
+              1064
+            ],
+            "alt": "Kaizen — Pan con sésamo."
+          },
+          {
+            "800": "/img/proyectos/kaizen/foto-negro-800.webp",
+            "1600": "/img/proyectos/kaizen/foto-negro-1600.webp",
+            "_wh": [
+              1600,
+              1064
+            ],
+            "alt": "Kaizen — Pan con sésamo negro."
+          },
+          {
+            "800": "/img/proyectos/kaizen/foto-tres-panes-800.webp",
+            "1600": "/img/proyectos/kaizen/foto-tres-panes-1600.webp",
+            "_wh": [
+              1086,
+              1448
+            ],
+            "alt": "Kaizen — Tres panes sobre fondo negro."
+          },
+          {
+            "800": "/img/proyectos/kaizen/foto-bollado-800.webp",
+            "1600": "/img/proyectos/kaizen/foto-bollado-1600.webp",
+            "_wh": [
+              1600,
+              1064
+            ],
+            "alt": "Kaizen — Bollos en la bandeja antes del horno."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "slug": "ploteo-vehicular",
     "titulo": "Ploteo vehicular",
     "subtitulo": "Hilux 2026 · Ford Ka 2022",
@@ -2983,6 +3628,99 @@
     "videos": [],
     "galerias": [],
     "muro": "flyers"
+  },
+  {
+    "slug": "tag-integridad",
+    "titulo": "Tag Integridad",
+    "subtitulo": "Lettering graffiti para sticker",
+    "categorias": [
+      "aplicada"
+    ],
+    "portada": {
+      "640": "/img/casos/tag-integridad-portada-640.webp",
+      "1280": "/img/casos/tag-integridad-portada-1280.webp",
+      "1920": "/img/casos/tag-integridad-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [
+      [
+        "Pieza",
+        "Lettering «Espíritu, integridad y swing»"
+      ],
+      [
+        "Período",
+        "2025"
+      ],
+      [
+        "Rol",
+        "Lettering e ilustración"
+      ],
+      [
+        "Formato",
+        "Sticker para impresión, en dos versiones"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "El reto",
+        "parrafos": [
+          "Convertir una frase, «Espíritu, integridad y swing», en un sticker con la energía del graffiti."
+        ]
+      },
+      {
+        "titulo": "El proceso",
+        "parrafos": [
+          "Partimos de un boceto a mano alzada con letras de tag, ajustamos el ritmo y las uniones entre letras, y lo vectorizamos con un contorno grueso y una sombra que lo despegan de cualquier fondo."
+        ]
+      },
+      {
+        "titulo": "El resultado",
+        "parrafos": [
+          "Dos versiones listas para imprimir, en negro y en blanco, que conservan la frescura del trazo a mano."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "Del boceto al sticker",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "800": "/img/proyectos/tag-integridad/boceto-800.webp",
+            "1600": "/img/proyectos/tag-integridad/boceto-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "Tag Integridad — Boceto a mano alzada."
+          },
+          {
+            "800": "/img/proyectos/tag-integridad/final-negro-800.webp",
+            "1600": "/img/proyectos/tag-integridad/final-negro-1600.webp",
+            "_wh": [
+              1600,
+              1600
+            ],
+            "alt": "Tag Integridad — Versión final en negro."
+          },
+          {
+            "800": "/img/proyectos/tag-integridad/final-blanco-800.webp",
+            "1600": "/img/proyectos/tag-integridad/final-blanco-1600.webp",
+            "_wh": [
+              1600,
+              1600
+            ],
+            "alt": "Tag Integridad — Versión final en blanco."
+          }
+        ]
+      }
+    ]
   },
   {
     "slug": "redes-para-marcas",
