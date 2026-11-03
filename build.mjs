@@ -925,6 +925,8 @@ for (const p of BASE) {
 }
 // Clientes (página /clientes/): qué casos tiene cada uno. Un caso puede ser de varios clientes.
 const CLIENTES = JSON.parse(readFileSync('src/data/clientes.json', 'utf8'));
+// En toda la web los clientes van en orden alfabético
+CLIENTES.clientes.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }));
 for (const c of CLIENTES.clientes) for (const s of c.casos) if (!BASE.some((p) => p.slug === s)) throw new Error(`clientes.json: "${c.id}" tiene un caso que no existe: ${s}`);
 const clientesDe = (slug) => CLIENTES.clientes.filter((c) => c.casos.includes(slug));
 // Tarifario de diseño (Cámara de Diseñadores de Rafaela, adaptado con permiso)
@@ -1355,11 +1357,8 @@ function inicio(l, proyectos) {
       })
     )
     .join('\n        ');
-  // Por cliente: los que tienen trabajos propios (sin las colecciones de muchos clientes), en el orden de clientes.json
-  const datosClientes = CLIENTES.clientes
-    .map((c) => ({ c, trabajos: proyectos.filter((p) => c.casos.includes(p.slug)) }))
-    .filter(({ trabajos }) => trabajos.some((p) => !CLIENTES.colecciones.includes(p.slug)))
-    .slice(0, 10);
+  // Por cliente: todos, en orden alfabético (los mismos que la página de Clientes)
+  const datosClientes = CLIENTES.clientes.map((c) => ({ c, trabajos: proyectos.filter((p) => c.casos.includes(p.slug)) }));
   const clientesLista = datosClientes
     .map(({ c, trabajos }, i) =>
       despliegue(l, {
