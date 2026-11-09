@@ -102,3 +102,41 @@ export const LAION = {
     firmaAlt: 'LAION logo: the word LAION in red with a white star over a dotted map of Argentina',
   },
 };
+
+// Sitio propio de LAION (laion.com.ar): menú, pie y página de la calculadora.
+// Se arma en dist-laion/ con el mismo build.mjs, así la obra y los textos de arriba se actualizan en los dos sitios.
+export const LAION_SITIO = {
+  url: 'https://laion.com.ar',
+  es: {
+    nav: { obra: 'Obra', biografia: 'Biografía', vision: 'Visión', calculadora: 'Calculadora', contacto: 'Contacto' },
+    navAria: 'Secciones',
+    idiomaAria: 'Idioma',
+    inicioAria: 'LAION — inicio',
+    saltar: 'Saltar al contenido',
+    pie: 'Graffiti writer argentino',
+    hechoPor: 'Sitio y calculadora por',
+    calcTitulo: 'Calculadora de murales 2026',
+    calcKicker: 'Herramienta para muralistas · Tarifario Mural 2026',
+    calcH1: 'Calculadora',
+    calcLead: 'Calculá cuánto cobrar (o cuánto cuesta) un mural según el Tarifario Mural 2026 de la comunidad de muralistas de Argentina. Cargá las medidas, elegí las opciones y descargá el presupuesto en PDF o imagen.',
+    calcVolver: '← Volver a la obra de LAION',
+    noEncontrada: 'Esta página no existe o cambió de lugar.',
+    volver: 'Volver al inicio',
+  },
+  en: {
+    nav: { obra: 'Work', biografia: 'Biography', vision: 'Vision', calculadora: 'Calculator', contacto: 'Contact' },
+    navAria: 'Sections',
+    idiomaAria: 'Language',
+    inicioAria: 'LAION — home',
+    saltar: 'Skip to content',
+    pie: 'Argentine graffiti writer',
+    hechoPor: 'Site and calculator by',
+    calcTitulo: 'Mural calculator 2026',
+    calcKicker: 'A tool for muralists · 2026 Mural Rate Guide',
+    calcH1: 'Calculator',
+    calcLead: 'Work out how much to charge for (or how much it costs to commission) a mural, based on the 2026 Mural Rate Guide by Argentina’s muralist community. Enter the measurements, pick the options and download the quote as a PDF or image.',
+    calcVolver: '← Back to LAION’s work',
+    noEncontrada: 'This page doesn’t exist or has moved.',
+    volver: 'Back to home',
+  },
+};
