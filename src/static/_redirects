@@ -8,7 +8,12 @@
 /tarifarios/ /herramientas/ 301
 /en/rates /en/tools/ 301
 /en/rates/ /en/tools/ 301
-/proyectos/street-art /laion/ 301
-/proyectos/street-art/ /laion/ 301
-/en/projects/street-art /en/laion/ 301
-/en/projects/street-art/ /en/laion/ 301
+/proyectos/street-art https://laion.com.ar/ 301
+/proyectos/street-art/ https://laion.com.ar/ 301
+/en/projects/street-art https://laion.com.ar/en/ 301
+/en/projects/street-art/ https://laion.com.ar/en/ 301
+# LAION tiene sitio propio: laion.com.ar
+/laion https://laion.com.ar/ 301
+/laion/ https://laion.com.ar/ 301
+/en/laion https://laion.com.ar/en/ 301
+/en/laion/ https://laion.com.ar/en/ 301
