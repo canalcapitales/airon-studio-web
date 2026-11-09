@@ -5,7 +5,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, renameSync } fr
 import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { LEGALES, FAQ_HERRAMIENTAS, ACTUALIZADO } from './src/data/legales.mjs';
-import { LAION, LAION_OBRAS } from './src/data/laion.mjs';
+import { LAION, LAION_OBRAS, LAION_SITIO } from './src/data/laion.mjs';
 
 const OUT = 'dist';
 const SITIO = {
@@ -2398,7 +2398,8 @@ function paginaEncargos(l, proyectos) {
 
 // ---------- LAION: página de artista dentro de la web (identidad propia: negro, rojo, Michroma y Oswald) ----------
 const conDestacados = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-function paginaLaion(l) {
+// base: '' en aironstudio.com.ar; la dirección completa del estudio cuando la página va en laion.com.ar
+function cuerpoLaion(l, base = '') {
   const T = TXT[l];
   const X = LAION[l];
   const R = RUTAS[l];
@@ -2409,20 +2410,7 @@ function paginaLaion(l) {
   ).join('\n        ');
   const hitos = X.hitos.map(([a, lugar, d]) => `<li class="laion-hito reveal"><span class="laion-hito-anio">${esc(a)}</span><h3>${esc(lugar)}</h3><p>${esc(d)}</p></li>`).join('');
   const mensaje = encodeURIComponent(X.contactoMensaje);
-  return pagina(l, {
-    clave: 'laion',
-    publicidadEnPie: false,
-    titulo: X.titulo,
-    activo: 'laion',
-    descripcion: X.desc,
-    imagen: `/img/og/laion-${l}.jpg`,
-    datos: {
-      '@graph': [
-        { '@type': 'ProfilePage', name: X.titulo, description: X.desc, url: `${SITIO.url}${R.laion}`, inLanguage: T.htmlLang, mainEntity: { '@id': `${SITIO.url}/laion/#artista` } },
-        { '@type': 'Person', '@id': `${SITIO.url}/laion/#artista`, name: 'LAION', jobTitle: X.kicker, description: X.desc, image: `${SITIO.url}/img/laion/firma-900.webp`, worksFor: { '@id': `${SITIO.url}/#estudio` }, homeLocation: { '@type': 'Place', name: 'Buenos Aires, Argentina' } },
-      ],
-    },
-    cuerpo: `
+  return `
   <div class="laion">
     <section class="laion-hero">
       <div class="wrap laion-hero-in">
@@ -2480,9 +2468,9 @@ function paginaLaion(l) {
       <div class="laion-caja laion-contacto reveal">
         <h2 class="laion-contacto-titulo">${X.contactoTitulo}</h2>
         <p>${esc(X.contactoTexto)}</p>
-        <a class="btn btn-accent btn-lg" href="${R.contacto}?tipo=mural&amp;mensaje=${mensaje}">${X.contactoBoton}</a>
+        <a class="btn btn-accent btn-lg" href="${base}${R.contacto}?tipo=mural&amp;mensaje=${mensaje}">${X.contactoBoton}</a>
       </div>
-      <p class="laion-estudio">${esc(X.estudio)} <a href="${R.estudio}">${X.estudioLink}</a></p>
+      <p class="laion-estudio">${esc(X.estudio)} <a href="${base}${R.estudio}">${X.estudioLink}</a></p>
     </section>
   </div>
   <dialog class="visor" aria-label="${T.visor.aria}">
@@ -2492,7 +2480,27 @@ function paginaLaion(l) {
     <button class="visor-btn visor-sig" type="button" aria-label="${T.visor.sig}">→</button>
     <span class="visor-contador mono" aria-live="polite"></span>
   </dialog>
-`,
+`;
+}
+
+function paginaLaion(l) {
+  const X = LAION[l];
+  const R = RUTAS[l];
+  const T = TXT[l];
+  return pagina(l, {
+    clave: 'laion',
+    publicidadEnPie: false,
+    titulo: X.titulo,
+    activo: 'laion',
+    descripcion: X.desc,
+    imagen: `/img/og/laion-${l}.jpg`,
+    datos: {
+      '@graph': [
+        { '@type': 'ProfilePage', name: X.titulo, description: X.desc, url: `${SITIO.url}${R.laion}`, inLanguage: T.htmlLang, mainEntity: { '@id': `${SITIO.url}/laion/#artista` } },
+        { '@type': 'Person', '@id': `${SITIO.url}/laion/#artista`, name: 'LAION', jobTitle: X.kicker, description: X.desc, image: `${SITIO.url}/img/laion/firma-900.webp`, worksFor: { '@id': `${SITIO.url}/#estudio` }, homeLocation: { '@type': 'Place', name: 'Buenos Aires, Argentina' } },
+      ],
+    },
+    cuerpo: cuerpoLaion(l),
   });
 }
 
@@ -2878,8 +2886,8 @@ function noEncontrada() {
 // ---------- escritura ----------
 const compactar = (html) => html.replace(/\n\s+/g, '\n');
 
-function escribir(ruta, contenido) {
-  const destino = join(OUT, ruta);
+function escribir(ruta, contenido, base = OUT) {
+  const destino = join(base, ruta);
   mkdirSync(dirname(destino), { recursive: true });
   writeFileSync(destino, ruta.endsWith('.html') ? compactar(conTilde(contenido)) : contenido);
 }
@@ -2941,3 +2949,170 @@ ${paraMapa.map((ruta) => `  <url><loc>${SITIO.url}${ruta}</loc></url>`).join('\n
 escribir('robots.txt', `User-agent: *\nAllow: /\nDisallow: /gracias/\nDisallow: /en/thanks/\n\nSitemap: ${SITIO.url}/sitemap.xml\n`);
 
 console.log(`Listo: ${paraMapa.length + 3} páginas generadas en ${OUT}/ (español e inglés)`);
+
+// ---------- Sitio propio de LAION (laion.com.ar) ----------
+// Sale en dist-laion/ con los mismos datos, estilos y código que la página /laion/ de AIRON.
+// Lo publica un segundo Worker de Cloudflare (wrangler.laion.jsonc).
+const OUT_LAION = 'dist-laion';
+const RUTAS_LAION = {
+  es: { inicio: '/', calculadora: '/calculadora-murales/' },
+  en: { inicio: '/en/', calculadora: '/en/mural-calculator/' },
+};
+
+function paginaSitioLaion(l, { clave, titulo, descripcion, canonica, datos, cuerpo }) {
+  const S = LAION_SITIO[l];
+  const R = RUTAS_LAION[l];
+  const url = LAION_SITIO.url + R[clave];
+  // La calculadora original está en aironstudio.com.ar: con "canonica" se le avisa a Google para que no compitan
+  const alternas = canonica
+    ? ''
+    : IDIOMAS.map((x) => `<link rel="alternate" hreflang="${TXT[x].htmlLang}" href="${LAION_SITIO.url}${RUTAS_LAION[x][clave]}">`).join('\n  ') +
+      `\n  <link rel="alternate" hreflang="x-default" href="${LAION_SITIO.url}${RUTAS_LAION.es[clave]}">`;
+  const selector = IDIOMAS.map(
+    (x) => `<a href="${RUTAS_LAION[x][clave]}" hreflang="${TXT[x].htmlLang}" lang="${TXT[x].htmlLang}" title="${TXT[x].nombreIdioma}"${x === l ? ' aria-current="true"' : ''}>${x.toUpperCase()}</a>`
+  ).join('<span aria-hidden="true">/</span>');
+  const enlaces = [
+    ['obra', `${R.inicio}#obra`],
+    ['biografia', `${R.inicio}#biografia`],
+    ['vision', `${R.inicio}#vision`],
+    ['calculadora', R.calculadora],
+    ['contacto', `${R.inicio}#contacto-laion`],
+  ]
+    .map(([id, href]) => `<a href="${href}"${id === clave ? ' aria-current="page"' : ''}>${S.nav[id]}</a>`)
+    .join('');
+  const tituloCompleto = titulo || LAION[l].titulo;
+  const jsonld = datos ? `\n  <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...datos })}</script>` : '';
+  return `<!doctype html>
+<html lang="${TXT[l].htmlLang}" class="sitio-laion" data-tema="oscuro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${esc(tituloCompleto)}</title>
+  <meta name="description" content="${esc(descripcion)}">
+  <link rel="canonical" href="${canonica || url}">
+  ${alternas}
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="${TXT[l].ogLocale}">
+  <meta property="og:site_name" content="LAION">
+  <meta property="og:url" content="${url}">
+  <meta property="og:title" content="${esc(tituloCompleto)}">
+  <meta property="og:description" content="${esc(descripcion)}">
+  <meta property="og:image" content="${LAION_SITIO.url}/img/og/laion-${l}.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${esc(tituloCompleto)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/michroma-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/oswald-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="${ASSETS.css}">
+  <script src="${ASSETS.vt}"></script>
+  <script src="${ASSETS.js}" defer></script>${jsonld}
+</head>
+<body>
+  <a class="skip" href="#contenido">${S.saltar}</a>
+  <header class="laion-cab">
+    <div class="wrap laion-cab-in">
+      <a class="laion-cab-logo" href="${R.inicio}" aria-label="${S.inicioAria}"><img src="/img/laion/firma-900.webp" alt="" width="40" height="40">LAION</a>
+      <nav class="laion-cab-nav" aria-label="${S.navAria}">${enlaces}</nav>
+      <nav class="laion-cab-idioma" aria-label="${S.idiomaAria}">${selector}</nav>
+    </div>
+  </header>
+  <main id="contenido">
+${cuerpo}
+  </main>
+  <footer class="laion-pie">
+    <div class="wrap laion-pie-in">
+      <span>© ${anio} LAION · ${S.pie}</span>
+      <a class="laion-pie-airon" href="${SITIO.url}${RUTAS[l].inicio}"><span>${S.hechoPor}</span>${logo('logo-footer')}</a>
+    </div>
+  </footer>
+</body>
+</html>
+`;
+}
+
+function laionInicio(l) {
+  const X = LAION[l];
+  return paginaSitioLaion(l, {
+    clave: 'inicio',
+    descripcion: X.desc,
+    datos: {
+      '@graph': [
+        { '@type': 'ProfilePage', name: X.titulo, description: X.desc, url: `${LAION_SITIO.url}${RUTAS_LAION[l].inicio}`, inLanguage: TXT[l].htmlLang, mainEntity: { '@id': `${LAION_SITIO.url}/#artista` } },
+        { '@type': 'Person', '@id': `${LAION_SITIO.url}/#artista`, name: 'LAION', url: LAION_SITIO.url, jobTitle: X.kicker, description: X.desc, image: `${LAION_SITIO.url}/img/laion/firma-900.webp`, worksFor: { '@type': 'Organization', name: 'AIRON Studio', url: SITIO.url }, homeLocation: { '@type': 'Place', name: 'Buenos Aires, Argentina' } },
+      ],
+    },
+    cuerpo: cuerpoLaion(l, SITIO.url),
+  });
+}
+
+function laionCalculadora(l) {
+  const S = LAION_SITIO[l];
+  const contacto = RUTAS[l].contacto;
+  // El pedido de presupuesto va al formulario de AIRON Studio
+  const calc = calculadora(l, { titulo: false }).replaceAll(`"${contacto}`, `"${SITIO.url}${contacto}`);
+  return paginaSitioLaion(l, {
+    clave: 'calculadora',
+    titulo: `${S.calcTitulo} — LAION`,
+    descripcion: TXT[l].murales.pagina.desc,
+    canonica: `${SITIO.url}${RUTAS[l].calculadora}`,
+    cuerpo: `
+  <div class="laion laion-calc-head">
+    <section class="wrap">
+      <a class="laion-calc-volver" href="${RUTAS_LAION[l].inicio}">${S.calcVolver}</a>
+      <p class="laion-calc-kicker">${S.calcKicker}</p>
+      <h1 class="laion-h2"><span>${S.calcH1}</span></h1>
+      <p class="laion-calc-lead">${S.calcLead}</p>
+    </section>
+  </div>
+  ${calc}
+`,
+  });
+}
+
+function laionNoEncontrada() {
+  const [S, E] = [LAION_SITIO.es, LAION_SITIO.en];
+  return paginaSitioLaion('es', {
+    clave: 'inicio',
+    titulo: 'LAION — 404',
+    descripcion: LAION.es.desc,
+    cuerpo: `
+  <div class="laion laion-calc-head">
+    <section class="wrap">
+      <h1 class="laion-h2"><span>404</span></h1>
+      <p class="laion-calc-lead">${S.noEncontrada}<br><span lang="en">${E.noEncontrada}</span></p>
+      <div class="btn-row"><a class="btn btn-accent btn-lg" href="/">${S.volver}</a><a class="btn laion-btn-borde btn-lg" href="/en/" lang="en">${E.volver}</a></div>
+    </section>
+  </div>
+`,
+  });
+}
+
+rmSync(OUT_LAION, { recursive: true, force: true });
+// Solo lo que usa el sitio de LAION: estilos y código (con huella), tipografías, obra e imágenes para compartir
+for (const r of [ASSETS.css, ASSETS.js, ASSETS.vt, '/fonts', '/img/laion', '/img/og/laion-es.jpg', '/img/og/laion-en.jpg', '/_headers']) {
+  cpSync(join(OUT, r), join(OUT_LAION, r), { recursive: true });
+}
+cpSync('src/laion/favicon.svg', join(OUT_LAION, 'favicon.svg'));
+const paraMapaLaion = [];
+for (const l of IDIOMAS) {
+  const R = RUTAS_LAION[l];
+  escribir(archivo(R.inicio), laionInicio(l), OUT_LAION);
+  escribir(archivo(R.calculadora), laionCalculadora(l), OUT_LAION);
+  paraMapaLaion.push(R.inicio);
+}
+escribir('404.html', laionNoEncontrada(), OUT_LAION);
+escribir(
+  'sitemap.xml',
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${paraMapaLaion.map((ruta) => `  <url><loc>${LAION_SITIO.url}${ruta}</loc></url>`).join('\n')}
+</urlset>
+`,
+  OUT_LAION
+);
+escribir('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${LAION_SITIO.url}/sitemap.xml\n`, OUT_LAION);
+console.log(`Listo: sitio de LAION en ${OUT_LAION}/ (laion.com.ar)`);

@@ -399,7 +399,7 @@ function bajarArchivo(blob, nombre) {
 // Si el contenido no entra, se vuelve a dibujar un poco más chico.
 async function dibujarPresupuesto(d, X) {
   await Promise.all(['400 40px Anton', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '400 20px "IBM Plex Mono"', '500 20px "IBM Plex Mono"'].map((f) => document.fonts.load(f)));
-  const svgLogo = document.querySelector('.site-header .logo-svg');
+  const svgLogo = document.querySelector('.site-header .logo-svg, .laion-pie .logo-svg');
   const [, , vw, vh] = svgLogo.getAttribute('viewBox').split(' ').map(Number);
   const logo = new Image();
   logo.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgLogo.outerHTML.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"').replace(/currentColor/g, '#111111'));
@@ -852,7 +852,7 @@ function tarifarioDiseno() {
 async function hojasPresupuestoDiseno(d, X, C) {
   const plantilla = (t, datos) => t.replace(/\{(\w+)\}/g, (_, k) => datos[k]);
   await Promise.all(['400 40px Anton', '400 20px "Instrument Sans"', '600 20px "Instrument Sans"', '400 20px "IBM Plex Mono"', '500 20px "IBM Plex Mono"'].map((f) => document.fonts.load(f)));
-  const svgLogo = document.querySelector('.site-header .logo-svg');
+  const svgLogo = document.querySelector('.site-header .logo-svg, .laion-pie .logo-svg');
   const [, , vw, vh] = svgLogo.getAttribute('viewBox').split(' ').map(Number);
   const logo = new Image();
   logo.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgLogo.outerHTML.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"').replace(/currentColor/g, '#111111'));
