@@ -1,6 +1,6 @@
 # AIRON Studio — Web portafolio
 
-Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proyecto, Murales, LAION, Herramientas, Nosotros y Contacto.
+Sitio web de AIRON Studio: Inicio, Proyectos (con filtros), una página por proyecto, Murales, Herramientas, Nosotros y Contacto.
 
 ## Cómo está organizado
 
