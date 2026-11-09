@@ -1,7 +1,7 @@
 // Segundo sitio: laion.com.ar. Sale del mismo repo y del mismo build (node build.mjs → dist-laion/).
-// En Cloudflare: Worker "laion-web", comando de deploy: npx wrangler deploy --config wrangler.laion.jsonc
+// En Cloudflare: Worker "laion", comando de deploy: npx wrangler deploy --config wrangler.laion.jsonc
 {
-  "name": "laion-web",
+  "name": "laion",
   "compatibility_date": "2025-09-01",
   "assets": {
     "directory": "./dist-laion",
