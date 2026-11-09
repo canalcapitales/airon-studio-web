@@ -25,8 +25,8 @@ const MARCAS = ['GSP Seguridad', 'Eleven Games', 'Ju Base Plant Food', 'Blend Da
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', clientes: '/clientes/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/', laion: '/laion/', encargos: '/murales/encargos/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', clientes: '/en/clients/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/', laion: '/en/laion/', encargos: '/en/murals/commissions/' },
+  es: { inicio: '/', proyectos: '/proyectos/', clientes: '/clientes/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/', laion: 'https://laion.com.ar/', encargos: '/murales/encargos/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', clientes: '/en/clients/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/', laion: 'https://laion.com.ar/en/', encargos: '/en/murals/commissions/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -2483,27 +2483,6 @@ function cuerpoLaion(l, base = '') {
 `;
 }
 
-function paginaLaion(l) {
-  const X = LAION[l];
-  const R = RUTAS[l];
-  const T = TXT[l];
-  return pagina(l, {
-    clave: 'laion',
-    publicidadEnPie: false,
-    titulo: X.titulo,
-    activo: 'laion',
-    descripcion: X.desc,
-    imagen: `/img/og/laion-${l}.jpg`,
-    datos: {
-      '@graph': [
-        { '@type': 'ProfilePage', name: X.titulo, description: X.desc, url: `${SITIO.url}${R.laion}`, inLanguage: T.htmlLang, mainEntity: { '@id': `${SITIO.url}/laion/#artista` } },
-        { '@type': 'Person', '@id': `${SITIO.url}/laion/#artista`, name: 'LAION', jobTitle: X.kicker, description: X.desc, image: `${SITIO.url}/img/laion/firma-900.webp`, worksFor: { '@id': `${SITIO.url}/#estudio` }, homeLocation: { '@type': 'Place', name: 'Buenos Aires, Argentina' } },
-      ],
-    },
-    cuerpo: cuerpoLaion(l),
-  });
-}
-
 // Convertir a PNG: todo se procesa en el navegador (main.js)
 function paginaPng(l) {
   const P = TXT[l].png;
@@ -2927,7 +2906,6 @@ for (const l of IDIOMAS) {
     [R.estudio, estudio(l, proyectos)],
     [R.contacto, contacto(l)],
     [R.legales, paginaLegales(l)],
-    [R.laion, paginaLaion(l)],
     [R.encargos, paginaEncargos(l, proyectos)],
   ];
   for (const [ruta, html] of paginas) {
@@ -2951,7 +2929,7 @@ escribir('robots.txt', `User-agent: *\nAllow: /\nDisallow: /gracias/\nDisallow: 
 console.log(`Listo: ${paraMapa.length + 3} páginas generadas en ${OUT}/ (español e inglés)`);
 
 // ---------- Sitio propio de LAION (laion.com.ar) ----------
-// Sale en dist-laion/ con los mismos datos, estilos y código que la página /laion/ de AIRON.
+// Sale en dist-laion/ con los mismos estilos y código. LAION es autónomo: AIRON solo tiene botones hacia laion.com.ar.
 // Lo publica un segundo Worker de Cloudflare (wrangler.laion.jsonc).
 const OUT_LAION = 'dist-laion';
 const RUTAS_LAION = {
