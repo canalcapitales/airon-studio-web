@@ -827,6 +827,67 @@
       }
     ]
   },
+  "graffiti": {
+    "subtitulo": "Another style",
+    "ficha": [
+      [
+        "Line",
+        "Graffiti style"
+      ],
+      [
+        "Technique",
+        "Spray paint"
+      ],
+      [
+        "Styles",
+        "Lettering, wildstyle and color pieces"
+      ],
+      [
+        "Formats",
+        "Façades, shutters, side walls and interiors"
+      ],
+      [
+        "Experience",
+        "Painting since 2008"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The proposal",
+        "parrafos": [
+          "Besides the murals we design from each brand’s identity, we offer another style: graffiti. Lettering with character, color and urban energy for those who want their space to speak that language."
+        ]
+      },
+      {
+        "titulo": "How we work",
+        "parrafos": [
+          "We start the same way as with any mural: the space, the brand and what you want to convey. From there we design the letters —the store’s name, a word or the brand— and take them to the wall with spray paint, in the palette that best fits the place."
+        ]
+      },
+      {
+        "titulo": "Where it works",
+        "parrafos": [
+          "Shutters, façades, side walls, clothing stores, barbershops, studios, skateparks and cultural venues: places where urban culture adds identity. Always on walls authorized by their owners."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "Pieces",
+        "texto": "A selection of spray-painted pieces: lettering, wildstyle and color.",
+        "alts": [
+          "Graffiti — Piece in yellow and blue on a neighborhood wall.",
+          "Graffiti — Piece in teal and black.",
+          "Graffiti — Piece in blue and yellow on a teal background.",
+          "Graffiti — Piece in magenta and violet.",
+          "Graffiti — Piece in green, violet and yellow.",
+          "Graffiti — Piece in green on a violet background.",
+          "Graffiti — Piece in yellow and violet, at night.",
+          "Graffiti — Piece in blue on a red wall."
+        ]
+      }
+    ]
+  },
   "tag-integridad": {
     "subtitulo": "Graffiti lettering for a sticker",
     "ficha": [
