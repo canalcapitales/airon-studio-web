@@ -1157,6 +1157,8 @@ function textosUnicode() {
     }
   });
   campo.addEventListener('input', pintar);
+  // La primera vez que se toca el campo, el ejemplo queda seleccionado: al escribir se reemplaza
+  campo.addEventListener('focus', () => { if (campo.value === campo.defaultValue) setTimeout(() => campo.select(), 0); }, { once: true });
   pintar();
 }
 

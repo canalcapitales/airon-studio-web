@@ -74,7 +74,8 @@ const TXT = {
       kicker: 'Herramienta gratuita',
       h1: 'Letras Unicode',
       lead: 'Escribí un texto y copialo en el estilo que quieras. Funciona en bios, posteos, nombres de perfil y mensajes de Instagram, TikTok, WhatsApp, X y más, porque no son tipografías: son caracteres especiales.',
-      campo: 'Tu texto',
+      campo: 'Escribí tu texto',
+      ayuda: 'Borrá el ejemplo, escribí lo que quieras y tocá «Copiar» en el estilo que más te guste.',
       ejemplo: 'Escribí acá tu texto',
       inicial: 'AIRON Studio',
       copiar: 'Copiar',
@@ -497,7 +498,8 @@ const TXT = {
       kicker: 'Free tool',
       h1: 'Unicode fonts',
       lead: 'Type some text and copy it in the style you like. It works in bios, posts, profile names and messages on Instagram, TikTok, WhatsApp, X and more, because they aren’t fonts: they’re special characters.',
-      campo: 'Your text',
+      campo: 'Type your text',
+      ayuda: 'Delete the example, type whatever you want and tap “Copy” on the style you like best.',
       ejemplo: 'Type your text here',
       inicial: 'AIRON Studio',
       copiar: 'Copy',
@@ -2253,7 +2255,8 @@ function paginaUnicode(l) {
       <div class="uni-entrada">
         <div class="campo">
           <label for="uni-texto" class="mono">${U.campo}</label>
-          <textarea id="uni-texto" rows="2" maxlength="500" placeholder="${esc(U.ejemplo)}" spellcheck="false">${esc(U.inicial)}</textarea>
+          <p class="uni-ayuda" id="uni-ayuda">${esc(U.ayuda)}</p>
+          <textarea id="uni-texto" rows="2" maxlength="500" placeholder="${esc(U.ejemplo)}" spellcheck="false" aria-describedby="uni-ayuda">${esc(U.inicial)}</textarea>
         </div>
         <div class="uni-barra"><span class="mono uni-cuenta">${ESTILOS_UNICODE.length} ${U.estilos}</span><button type="button" class="uni-limpiar">${U.limpiar}</button></div>
       </div>

@@ -882,6 +882,7 @@ html:not(.js) .calc-salida { display: none; }
 .uni { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); gap: 32px 56px; align-items: start; }
 .uni-entrada { grid-column: 1 / -1; position: sticky; top: var(--header-h); z-index: 5; background: var(--bg); padding: 12px 0 16px; border-bottom: 1px solid var(--ink); display: flex; flex-direction: column; gap: 10px; }
 .uni-entrada .campo textarea { font-size: 22px; min-height: 64px; height: 72px; }
+.uni-ayuda { margin: 0 0 4px; font-size: 15px; line-height: 1.4; color: var(--muted); }
 .uni-barra { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .uni-cuenta { color: var(--muted); font-size: 12px; }
 .uni-limpiar { background: none; border: 0; padding: 0; color: var(--muted); font: 400 14px/1.4 var(--f-texto); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
