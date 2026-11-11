@@ -24,8 +24,8 @@ const MARCAS = ['GSP Seguridad', 'Eleven Games', 'Ju Base Plant Food', 'Blend Da
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
-  es: { inicio: '/', proyectos: '/proyectos/', clientes: '/clientes/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/', laion: 'https://laion.com.ar/', encargos: '/murales/encargos/' },
-  en: { inicio: '/en/', proyectos: '/en/projects/', clientes: '/en/clients/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/', laion: 'https://laion.com.ar/en/', encargos: '/en/murals/commissions/' },
+  es: { inicio: '/', proyectos: '/proyectos/', clientes: '/clientes/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/' },
+  en: { inicio: '/en/', proyectos: '/en/projects/', clientes: '/en/clients/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/' },
 };
 const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
 
@@ -227,7 +227,7 @@ const TXT = {
       desc: 'Murales para locales, oficinas y marcas en Buenos Aires y La Plata: fachadas, interiores, persianas y pintura en vivo, diseñados desde la identidad de cada cliente.',
       kicker: 'Arte urbano · Murales',
       h1: 'Murales con identidad',
-      lead: 'Diseñamos y pintamos murales para locales, oficinas y marcas. Cada pieza parte de la identidad de quien la encarga —su logo, sus colores, su historia— para convertir una pared en el mejor cartel del lugar. La obra personal de LAION, aparte, tiene su propio espacio.',
+      lead: 'Diseñamos y pintamos murales para locales, oficinas y marcas. Cada pieza parte de la identidad de quien la encarga —su logo, sus colores, su historia— para convertir una pared en el mejor cartel del lugar. Primero está la idea de cada cliente; después, la estética.',
       calcular: 'Calculá el costo ↓',
       verTrabajos: 'Ver trabajos ↓',
       serviciosKicker: 'Qué pintamos',
@@ -238,21 +238,9 @@ const TXT = {
         ['Persianas y vidrieras', 'Persianas metálicas, vidrieras y carteles pintados a mano que comunican incluso con el local cerrado.'],
         ['Pintura en vivo', 'Live painting en lanzamientos, fiestas, ferias y activaciones de marca.'],
       ],
-      mundosKicker: 'Dos mundos',
-      mundosTitulo: 'Obra y encargo',
-      mundosLead: 'LAION pinta su obra personal en la calle; el estudio diseña y pinta murales por encargo para marcas y locales. Son dos caminos distintos, y acá están separados.',
-      laionKicker: 'Obra personal',
-      laionTexto: 'Graffiti writer argentino que pinta desde 2008. Wildstyle, letras y calle: su obra tiene su propio espacio.',
-      laionBoton: 'Conocé a LAION →',
-      encargoKicker: 'Murales por encargo',
-      encargoTitulo: 'Encargos',
-      encargoTexto: 'Fachadas, interiores y persianas para marcas, locales y oficinas, diseñados desde la identidad de cada cliente.',
-      encargoBoton: 'Ver clientes y encargos →',
-      encargosKicker: 'Por encargo',
-      encargosTitulo: 'Clientes y encargos',
-      encargosDesc: 'Murales por encargo de AIRON Studio para marcas, locales y oficinas en La Plata y Buenos Aires: fachadas, interiores y persianas.',
-      volverMurales: '← Volver a Murales',
-      encargosLead: 'Murales que diseñamos y pintamos para marcas, locales y oficinas. Cada uno parte de la identidad del cliente: su logo, sus colores y su espacio.',
+      trabajosKicker: 'Trabajos',
+      trabajosTitulo: 'Cada cliente, su mural',
+      trabajosLead: 'No trabajamos con un único estilo. Como estudio de diseño, cada mural parte del espacio, la identidad y el branding de la marca y las ideas del cliente; desde ahí desarrollamos la propuesta visual. Y si buscás energía urbana, también ofrecemos una estética graffiti.',
       esteticasKicker: 'Estéticas',
       esteticasTitulo: 'Un lenguaje para cada marca',
       esteticasLead: 'Cada marca pide un lenguaje distinto. Estas son algunas de las estéticas que trabajamos; todas se adaptan al logo, los colores y el espacio de cada cliente.',
@@ -662,7 +650,7 @@ const TXT = {
       desc: 'Murals for stores, offices and brands in Buenos Aires and La Plata: façades, interiors, shutters and live painting, designed from each client’s identity.',
       kicker: 'Street art · Murals',
       h1: 'Murals with identity',
-      lead: 'We design and paint murals for stores, offices and brands. Every piece starts from the identity of whoever commissions it —their logo, their colors, their story— to turn a wall into the best sign in the place. LAION’s personal work has a space of its own.',
+      lead: 'We design and paint murals for stores, offices and brands. Every piece starts from the identity of whoever commissions it —their logo, their colors, their story— to turn a wall into the best sign in the place. Each client’s idea comes first; the style comes after.',
       calcular: 'Estimate the cost ↓',
       verTrabajos: 'See our work ↓',
       serviciosKicker: 'What we paint',
@@ -673,21 +661,9 @@ const TXT = {
         ['Shutters and windows', 'Metal shutters, shop windows and hand-painted signs that keep talking even when the store is closed.'],
         ['Live painting', 'Live painting at launches, parties, fairs and brand activations.'],
       ],
-      mundosKicker: 'Two worlds',
-      mundosTitulo: 'Art and commissions',
-      mundosLead: 'LAION paints his personal work on the street; the studio designs and paints commissioned murals for brands and venues. Two different paths, kept apart here.',
-      laionKicker: 'Personal work',
-      laionTexto: 'Argentine graffiti writer painting since 2008. Wildstyle, letters and streets: his work has a space of its own.',
-      laionBoton: 'Meet LAION →',
-      encargoKicker: 'Commissioned murals',
-      encargoTitulo: 'Commissions',
-      encargoTexto: 'Façades, interiors and shutters for brands, venues and offices, designed from each client’s identity.',
-      encargoBoton: 'See clients and commissions →',
-      encargosKicker: 'Commissioned',
-      encargosTitulo: 'Clients and commissions',
-      encargosDesc: 'Commissioned murals by AIRON Studio for brands, venues and offices in La Plata and Buenos Aires: façades, interiors and shutters.',
-      volverMurales: '← Back to Murals',
-      encargosLead: 'Murals we design and paint for brands, venues and offices. Each one starts from the client’s identity: their logo, their colors and their space.',
+      trabajosKicker: 'Work',
+      trabajosTitulo: 'Every client, their own mural',
+      trabajosLead: 'We don’t work with a single style. As a design studio, every mural starts from the space, the brand’s identity and branding, and the client’s ideas; from there we develop the visual proposal. And if you’re after urban energy, we also offer a graffiti style.',
       esteticasKicker: 'Styles',
       esteticasTitulo: 'A language for every brand',
       esteticasLead: 'Every brand calls for a different language. These are some of the styles we work in; all of them adapt to each client’s logo, colors and space.',
@@ -2336,64 +2312,6 @@ function paginaMayusculas(l) {
   });
 }
 
-// Clientes y encargos: murales comerciales (proyectos con categoría "urbano")
-function paginaEncargos(l, proyectos) {
-  const T = TXT[l];
-  const M = T.murales;
-  const R = RUTAS[l];
-  const urbanos = proyectos.filter((p) => p.categorias.includes('urbano'));
-  const caso = proyectos.find((p) => p.slug === 'blend-david');
-  const datosCaso = M.casoDatos
-    .map(([v, t]) => `<div class="caso-dato"><dt class="caso-valor">${esc(v)}</dt><dd class="mono">${esc(t)}</dd></div>`)
-    .join('');
-  // Antes / proceso / después de Blend David (imágenes 2, 4 y 1 de su galería)
-  const etapas = [1, 3, 0]
-    .map((k, i) => `<figure class="etapa"><div class="etapa-img">${img(caso.galeria[k], { alt: `${caso.titulo} — ${M.etapas[i]}`, sizes: '(min-width: 900px) 18vw, 33vw', dims: caso.galeria[k]._wh })}</div><figcaption class="mono">${M.etapas[i]}</figcaption></figure>`)
-    .join('');
-  const tarjetas = urbanos
-    .map((p, i) => tarjeta(l, p, i, { sizes: '(min-width: 900px) 45vw, 100vw', etiqueta: p.estetica }))
-    .join('\n      ');
-  return pagina(l, {
-    clave: 'encargos',
-    titulo: M.encargosTitulo,
-    activo: 'murales',
-    descripcion: M.encargosDesc,
-    imagen: `/img/og/blend-david-${l}.jpg`,
-    datos: { '@type': 'CollectionPage', name: M.encargosTitulo, description: M.encargosDesc, url: `${SITIO.url}${R.encargos}`, inLanguage: T.htmlLang },
-    cuerpo: `
-  <section class="page-head">
-    <div class="wrap page-head-in">
-      <div>
-        <a class="mono volver-murales" href="${R.murales}">${M.volverMurales}</a>
-        <span class="kicker mono">${M.encargosKicker}</span>
-        <h1 class="page-title page-title--md">${M.encargosTitulo}</h1>
-      </div>
-      <p class="lead">${M.encargosLead}</p>
-    </div>
-  </section>
-  <section class="numeros caso">
-    <div class="wrap caso-in">
-      <div class="caso-texto">
-        <span class="kicker mono">${M.casoKicker}</span>
-        <h2 class="h2">${esc(caso.titulo)}</h2>
-        <p class="caso-lead">${esc(caso.bloques[0].destacado)}</p>
-        <dl class="caso-datos">${datosCaso}</dl>
-        <a class="link-arrow" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verProyecto}</a>
-      </div>
-      <div class="caso-etapas">${etapas}</div>
-    </div>
-  </section>
-  <section class="seccion seccion--top">
-    <div class="wrap">
-      <div class="grid-esteticas">
-      ${tarjetas}
-      </div>
-    </div>
-  </section>
-`,
-  });
-}
-
 // Convertir a PNG: todo se procesa en el navegador (main.js)
 function paginaPng(l) {
   const P = TXT[l].png;
@@ -2462,6 +2380,17 @@ function murales(l, proyectos) {
   const M = T.murales;
   const R = RUTAS[l];
   const caso = proyectos.find((p) => p.slug === 'blend-david');
+  const urbanos = proyectos.filter((p) => p.categorias.includes('urbano'));
+  const tarjetas = urbanos
+    .map((p, i) => tarjeta(l, p, i, { sizes: '(min-width: 900px) 45vw, 100vw', etiqueta: p.estetica }))
+    .join('\n      ');
+  const datosCaso = M.casoDatos
+    .map(([v, t]) => `<div class="caso-dato"><dt class="caso-valor">${esc(v)}</dt><dd class="mono">${esc(t)}</dd></div>`)
+    .join('');
+  // Antes / proceso / después de Blend David (imágenes 2, 4 y 1 de su galería)
+  const etapas = [1, 3, 0]
+    .map((k, i) => `<figure class="etapa"><div class="etapa-img">${img(caso.galeria[k], { alt: `${caso.titulo} — ${M.etapas[i]}`, sizes: '(min-width: 900px) 18vw, 33vw', dims: caso.galeria[k]._wh })}</div><figcaption class="mono">${M.etapas[i]}</figcaption></figure>`)
+    .join('');
   const servicios = M.servicios
     .map(([t, d], i) => `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`)
     .join('\n        ');
@@ -2516,21 +2445,26 @@ function murales(l, proyectos) {
     <div class="wrap">
       <div class="seccion-head">
         <div>
-          <span class="kicker mono">${M.mundosKicker}</span>
-          <h2 class="h2">${M.mundosTitulo}</h2>
+          <span class="kicker mono">${M.trabajosKicker}</span>
+          <h2 class="h2">${M.trabajosTitulo}</h2>
         </div>
-        <p class="lead">${M.mundosLead}</p>
+        <p class="lead">${M.trabajosLead}</p>
       </div>
-      <div class="mundos">
-        <a class="laion-promo mundo-encargo reveal" href="${R.encargos}">
-          <img src="${esc((caso.portadaFoto || caso.portada)['640'])}" alt="" width="640" height="501" loading="lazy" decoding="async">
-          <span class="laion-promo-texto"><span class="mono">${M.encargoKicker}</span><strong>${M.encargoTitulo}</strong><span>${M.encargoTexto}</span><span class="laion-promo-boton">${M.encargoBoton}</span></span>
-        </a>
-        <a class="laion-promo mundo-laion reveal" href="${R.laion}">
-          <img src="/img/laion/pieza-28-700.webp" alt="" width="525" height="700" loading="lazy" decoding="async">
-          <span class="laion-promo-texto"><span class="mono">${M.laionKicker}</span><strong>LAION</strong><span>${M.laionTexto}</span><span class="laion-promo-boton">${M.laionBoton}</span></span>
-        </a>
+      <div class="grid-esteticas">
+      ${tarjetas}
       </div>
+    </div>
+  </section>
+  <section class="numeros caso">
+    <div class="wrap caso-in">
+      <div class="caso-texto">
+        <span class="kicker mono">${M.casoKicker}</span>
+        <h2 class="h2">${esc(caso.titulo)}</h2>
+        <p class="caso-lead">${esc(caso.bloques[0].destacado)}</p>
+        <dl class="caso-datos">${datosCaso}</dl>
+        <a class="link-arrow" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verProyecto}</a>
+      </div>
+      <div class="caso-etapas">${etapas}</div>
     </div>
   </section>
 
@@ -2817,7 +2751,6 @@ for (const l of IDIOMAS) {
     [R.estudio, estudio(l, proyectos)],
     [R.contacto, contacto(l)],
     [R.legales, paginaLegales(l)],
-    [R.encargos, paginaEncargos(l, proyectos)],
   ];
   for (const [ruta, html] of paginas) {
     escribir(archivo(ruta), html);

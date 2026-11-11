@@ -1138,35 +1138,6 @@ html:not(.js) .calc-salida { display: none; }
 @media (max-width: 1099px) { .logos-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 599px) { .logos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .logo-caso { top: 6px; left: 6px; font-size: 10px; } }
 
-/* ---------- LAION: página de artista (identidad propia, siempre oscura) ---------- */
-/* Bloque de LAION en la página de Murales */
-.laion-promo { margin-top: clamp(32px, 5vw, 56px); display: grid; grid-template-columns: minmax(120px, 220px) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); align-items: center; padding: clamp(18px, 3vw, 32px); background: #000; color: #F2F0EB; border: 2px solid #FF0000; border-radius: clamp(16px, 2.4vw, 28px); text-decoration: none; }
-.laion-promo img { width: 100%; height: auto; border-radius: 50%; }
-.laion-promo-texto { display: flex; flex-direction: column; gap: 10px; }
-.laion-promo-texto .mono { color: #8C8880; }
-.laion-promo-texto strong { font-family: 'Michroma', sans-serif; font-weight: 400; font-size: clamp(32px, 5vw, 64px); line-height: 1; color: #FF0000; }
-.laion-promo-texto span { font-size: 18px; line-height: 1.5; max-width: 36em; }
-.laion-promo-boton { font-weight: 600; color: #FF0000; }
-.laion-promo:hover .laion-promo-boton { text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 599px) { .laion-promo { grid-template-columns: 1fr; } .laion-promo img { width: 160px; } }
-/* Título rojo de LAION en versión gruesa (Michroma engrosada, cercana a Eurostile Extended Black) */
-.laion-promo-texto strong { -webkit-text-stroke: .06em currentColor; paint-order: stroke fill; }
-/* Murales: los dos mundos (obra personal de LAION / encargos del estudio) */
-.mundos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); }
-.mundos .laion-promo { margin-top: 0; grid-template-columns: minmax(0, 1fr); align-content: start; container-type: inline-size; min-width: 0; }
-.mundos .laion-promo-texto { min-width: 0; }
-.mundos .laion-promo-texto strong { font-size: clamp(30px, 11cqi, 64px); }
-.mundos .laion-promo img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: clamp(10px, 1.6vw, 18px); }
-.mundos .mundo-laion img { object-position: center 55%; }
-/* Encargos: rojo con títulos negros (LAION queda negro con títulos rojos) */
-.mundo-encargo { background: #FF0000; color: #000; border-color: #FF0000; }
-.mundo-encargo .laion-promo-texto .mono, .mundo-encargo .laion-promo-texto strong, .mundo-encargo .laion-promo-boton { color: #000; }
-.mundo-encargo img { outline: 2px solid #000; outline-offset: -2px; }
-@media (max-width: 599px) { .mundos .laion-promo img { width: 100%; } }
-@media (max-width: 899px) { .mundos { grid-template-columns: 1fr; } }
-.laion-promo-texto strong { text-transform: uppercase; }
-.volver-murales { display: inline-block; margin-bottom: 20px; font-size: 13px; color: var(--muted); text-decoration: none; }
-.volver-murales:hover { color: var(--hover); }
 @media (min-width: 1100px) and (max-width: 1279px) { .logo-header { width: 140px; } .nav { gap: 18px; padding-left: 24px; } }
 /* Formación: logo de la Facultad de Artes y la UNLP en un solo color (toma el color del texto) */
 .formacion-logo { display: block; width: 200px; max-width: 100%; aspect-ratio: 1240 / 240; margin-top: 12px; background: var(--ink); -webkit-mask: url('/img/formacion-fda-unlp.webp') center / contain no-repeat; mask: url('/img/formacion-fda-unlp.webp') center / contain no-repeat; opacity: .85; }

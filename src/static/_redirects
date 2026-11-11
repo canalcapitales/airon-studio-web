@@ -17,3 +17,8 @@
 /laion/ https://laion.com.ar/ 301
 /en/laion https://laion.com.ar/en/ 301
 /en/laion/ https://laion.com.ar/en/ 301
+# Los encargos ahora se ven directo en Murales
+/murales/encargos /murales/#trabajos 301
+/murales/encargos/ /murales/#trabajos 301
+/en/murals/commissions /en/murals/#trabajos 301
+/en/murals/commissions/ /en/murals/#trabajos 301

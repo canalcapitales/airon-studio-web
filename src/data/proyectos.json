@@ -1913,6 +1913,149 @@
     ]
   },
   {
+    "slug": "graffiti",
+    "titulo": "Graffiti",
+    "subtitulo": "Otra línea estética",
+    "categorias": [
+      "urbano"
+    ],
+    "portada": {
+      "640": "/img/casos/graffiti-portada-640.webp",
+      "1280": "/img/casos/graffiti-portada-1280.webp",
+      "1920": "/img/casos/graffiti-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [
+      [
+        "Línea",
+        "Estética graffiti"
+      ],
+      [
+        "Técnica",
+        "Aerosol"
+      ],
+      [
+        "Estilos",
+        "Letras, wildstyle y piezas a color"
+      ],
+      [
+        "Formatos",
+        "Fachadas, persianas, medianeras e interiores"
+      ],
+      [
+        "Experiencia",
+        "Pintando desde 2008"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "La propuesta",
+        "parrafos": [
+          "Además de los murales que diseñamos desde la identidad de cada marca, ofrecemos otra línea estética: el graffiti. Letras con carácter, color y energía urbana para quienes buscan que su espacio hable ese idioma."
+        ]
+      },
+      {
+        "titulo": "Cómo lo trabajamos",
+        "parrafos": [
+          "Arrancamos igual que en cualquier mural: el espacio, la marca y lo que querés transmitir. Desde ahí diseñamos las letras —el nombre del local, una palabra o la marca— y las llevamos a la pared con aerosol, en la paleta que mejor dialogue con el lugar."
+        ]
+      },
+      {
+        "titulo": "Dónde funciona",
+        "parrafos": [
+          "Persianas, fachadas, medianeras, locales de ropa, barberías, estudios, skateparks y espacios culturales: lugares donde la cultura urbana suma identidad. Siempre en paredes con autorización de sus dueños."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "Piezas",
+        "texto": "Una selección de piezas pintadas con aerosol: letras, wildstyle y color.",
+        "estilo": "grilla",
+        "columnas": 4,
+        "imagenes": [
+          {
+            "700": "/img/proyectos/graffiti/graffiti-1-700.webp",
+            "1600": "/img/proyectos/graffiti/graffiti-1-1600.webp",
+            "_wh": [
+              1200,
+              1600
+            ],
+            "alt": "Graffiti — Pieza en amarillo y azul sobre pared de barrio."
+          },
+          {
+            "700": "/img/proyectos/graffiti/graffiti-2-700.webp",
+            "1600": "/img/proyectos/graffiti/graffiti-2-1600.webp",
+            "_wh": [
+              1200,
+              1600
+            ],
+            "alt": "Graffiti — Pieza en turquesa y negro."
+          },
+          {
+            "700": "/img/proyectos/graffiti/graffiti-3-700.webp",
+            "1600": "/img/proyectos/graffiti/graffiti-3-1600.webp",
+            "_wh": [
+              750,
+              1000
+            ],
+            "alt": "Graffiti — Pieza en azul y amarillo con fondo turquesa."
+          },
+          {
+            "700": "/img/proyectos/graffiti/graffiti-4-700.webp",
+            "1600": "/img/proyectos/graffiti/graffiti-4-1600.webp",
+            "_wh": [
+              1280,
+              1600
+            ],
+            "alt": "Graffiti — Pieza en magenta y violeta."
+          },
+          {
+            "700": "/img/proyectos/graffiti/graffiti-5-700.webp",
+            "1600": "/img/proyectos/graffiti/graffiti-5-1600.webp",
+            "_wh": [
+              1200,
+              1600
+            ],
+            "alt": "Graffiti — Pieza en verde, violeta y amarillo."
+          },
+          {
+            "700": "/img/proyectos/graffiti/graffiti-6-700.webp",
+            "1600": "/img/proyectos/graffiti/graffiti-6-1600.webp",
+            "_wh": [
+              1200,
+              1600
+            ],
+            "alt": "Graffiti — Pieza en verde sobre fondo violeta."
+          },
+          {
+            "700": "/img/proyectos/graffiti/graffiti-7-700.webp",
+            "1600": "/img/proyectos/graffiti/graffiti-7-1600.webp",
+            "_wh": [
+              1200,
+              1600
+            ],
+            "alt": "Graffiti — Pieza en amarillo y violeta, de noche."
+          },
+          {
+            "700": "/img/proyectos/graffiti/graffiti-8-700.webp",
+            "1600": "/img/proyectos/graffiti/graffiti-8-1600.webp",
+            "_wh": [
+              1200,
+              1600
+            ],
+            "alt": "Graffiti — Pieza en azul sobre pared roja."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "slug": "flexy",
     "titulo": "Flexy",
     "subtitulo": "Manual de marca",
