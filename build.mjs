@@ -1607,8 +1607,20 @@ function paginaClientes(l, proyectos) {
 
 function detalle(l, proyectos, p, i) {
   const T = TXT[l];
-  const ant = proyectos[(i - 1 + proyectos.length) % proyectos.length];
-  const sig = proyectos[(i + 1) % proyectos.length];
+  // Anterior / siguiente dentro de la misma área (la primera del caso); si el área no tiene otros, se recorre todo
+  const area = p.categorias[0];
+  const delArea = proyectos.filter((x) => x.categorias[0] === area);
+  const grupo = delArea.length > 1 ? delArea : proyectos;
+  const j = grupo.indexOf(p);
+  const ant = grupo[(j - 1 + grupo.length) % grupo.length];
+  const sig = grupo[(j + 1) % grupo.length];
+  const otro = (x, clase, rotulo) => `<a class="otro ${clase}" href="${rutaDe(l, 'proyecto', x.slug)}">
+          <span class="otro-img">${img(x.portada, { alt: '', sizes: '(min-width: 900px) 40vw, 100vw', dims: [640, 501] })}</span>
+          <span class="kicker mono">${rotulo} · ${esc(nombreCat(l, x.categorias[0]))}</span>
+          <span class="otro-title">${esc(x.titulo)}</span>
+          <span class="otro-sub">${esc(x.subtitulo)}</span>
+        </a>`;
+  const navegacion = ant === sig ? otro(sig, 'otro--sig', T.siguiente) : otro(ant, 'otro--ant', T.anterior) + otro(sig, 'otro--sig', T.siguiente);
   const ficha = p.ficha.map(([k, v]) => `<div class="ficha-item"><dt class="mono">${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('\n        ');
   const bloques = p.bloques
     .map((b, j) => {
@@ -1845,14 +1857,7 @@ function detalle(l, proyectos, p, i) {
         <div class="btn-row">${botonMural}${botones}</div>
       </div>
       <nav class="navegacion-proyectos" aria-label="${T.otros}">
-        <a class="otro otro--ant" href="${rutaDe(l, 'proyecto', ant.slug)}">
-          <span class="kicker mono">${T.anterior}</span>
-          <span class="otro-title">${esc(ant.titulo)}</span>
-        </a>
-        <a class="otro otro--sig" href="${rutaDe(l, 'proyecto', sig.slug)}">
-          <span class="kicker mono">${T.siguiente}</span>
-          <span class="otro-title">${esc(sig.titulo)}</span>
-        </a>
+        ${navegacion}
       </nav>
     </div>
   </article>${visor}
