@@ -253,10 +253,6 @@ const TXT = {
         ['Pintura', 'Coordinamos los días de obra con tu horario, con materiales para exterior o interior y una capa final de protección.'],
         ['Registro', 'Te entregamos fotos y video del proceso y del resultado, listos para tus redes.'],
       ],
-      casoKicker: 'Caso · La Plata',
-      casoDatos: [['≈47 m²', 'de fachada'], ['7', 'jornadas de obra'], ['3', 'colores sobre negro']],
-      etapas: ['Antes', 'Proceso', 'Después'],
-      verProyecto: 'Ver el proyecto completo →',
       faqKicker: 'Preguntas frecuentes',
       faqTitulo: 'Lo que suelen preguntarnos',
       faq: [
@@ -677,10 +673,6 @@ const TXT = {
         ['Painting', 'We schedule the work around your opening hours, with interior or exterior materials and a final protective coat.'],
         ['Record', 'You get photos and video of the process and the result, ready for your social media.'],
       ],
-      casoKicker: 'Case study · La Plata',
-      casoDatos: [['≈47 m²', 'of façade'], ['7', 'working days'], ['3', 'colors on black']],
-      etapas: ['Before', 'In progress', 'After'],
-      verProyecto: 'See the full project →',
       faqKicker: 'FAQ',
       faqTitulo: 'What people usually ask',
       faq: [
@@ -2392,13 +2384,6 @@ function murales(l, proyectos) {
   const tarjetas = urbanos
     .map((p, i) => tarjeta(l, p, i, { sizes: '(min-width: 900px) 45vw, 100vw', etiqueta: p.estetica }))
     .join('\n      ');
-  const datosCaso = M.casoDatos
-    .map(([v, t]) => `<div class="caso-dato"><dt class="caso-valor">${esc(v)}</dt><dd class="mono">${esc(t)}</dd></div>`)
-    .join('');
-  // Antes / proceso / después de Blend David (imágenes 2, 4 y 1 de su galería)
-  const etapas = [1, 3, 0]
-    .map((k, i) => `<figure class="etapa"><div class="etapa-img">${img(caso.galeria[k], { alt: `${caso.titulo} — ${M.etapas[i]}`, sizes: '(min-width: 900px) 18vw, 33vw', dims: caso.galeria[k]._wh })}</div><figcaption class="mono">${M.etapas[i]}</figcaption></figure>`)
-    .join('');
   const servicios = M.servicios
     .map(([t, d], i) => `<li class="servicio reveal"><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`)
     .join('\n        ');
@@ -2461,18 +2446,6 @@ function murales(l, proyectos) {
       <div class="grid-esteticas">
       ${tarjetas}
       </div>
-    </div>
-  </section>
-  <section class="numeros caso">
-    <div class="wrap caso-in">
-      <div class="caso-texto">
-        <span class="kicker mono">${M.casoKicker}</span>
-        <h2 class="h2">${esc(caso.titulo)}</h2>
-        <p class="caso-lead">${esc(caso.bloques[0].destacado)}</p>
-        <dl class="caso-datos">${datosCaso}</dl>
-        <a class="link-arrow" href="${rutaDe(l, 'proyecto', caso.slug)}">${M.verProyecto}</a>
-      </div>
-      <div class="caso-etapas">${etapas}</div>
     </div>
   </section>
 
