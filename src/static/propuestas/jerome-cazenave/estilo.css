@@ -138,7 +138,7 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
 @media (max-width:860px){
   .stage{grid-template-columns:1fr}
-  .arrow svg{transform:rotate(90deg)}
+  .arrow svg{transform:rotate(90deg);margin-block:16px}
   .flow,.weeks{grid-template-columns:repeat(2,minmax(0,1fr))}
   .flow>div:nth-child(3){padding-left:0;border-left:0}
   .flow>div:nth-child(n+3){border-top:1px solid var(--line);margin-top:20px}
