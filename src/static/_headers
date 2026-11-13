@@ -24,3 +24,7 @@
 # Videos: 1 semana (si se reemplaza uno, cambiarle el nombre)
 /video/*
   Cache-Control: public, max-age=604800
+
+# Propuestas a clientes: fuera de Google
+/propuestas/*
+  X-Robots-Tag: noindex, nofollow
