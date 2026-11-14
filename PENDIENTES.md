@@ -80,14 +80,14 @@ La herramienta `/tarifario-diseno/` usa los valores de `src/data/tarifario-disen
 
 ## 10. Publicidad — dos niveles de anunciantes
 
-Hoy la marquesina de publicidad (`src/data/publicidad.json`) muestra a todos los anunciantes en todos los lugares: en el inicio (después de los proyectos), debajo del título de cada herramienta y arriba del pie en el resto de las páginas. Mientras no haya anunciantes, se ven los espacios de ejemplo "Tu marca acá".
+Hoy la marquesina de publicidad (`src/data/publicidad.json`) muestra a todos los anunciantes en todos los lugares: debajo del título de cada herramienta y arriba del pie en el resto de las páginas (en el inicio también va al final, arriba del pie). Mientras no haya anunciantes, se ven los espacios de ejemplo "Tu marca acá".
 
 Idea: vender el espacio en **dos niveles**, con precios distintos.
 
 | Nivel | Dónde aparece | Precio |
 |---|---|---|
-| **Destacado en herramientas** | Debajo del título de las herramientas (lo más visible) y en el inicio | Más alto |
-| **General** | Arriba del pie de las demás páginas (Proyectos, Murales, Estudio, Contacto, Legales) | Más bajo |
+| **Destacado en herramientas** | Debajo del título de las herramientas (lo más visible) | Más alto |
+| **General** | Arriba del pie de las demás páginas (Inicio, Proyectos, Clientes, Murales, Estudio, Contacto, Legales) | Más bajo |
 
 - [ ] Definir precios de cada nivel (por mes o por trimestre) y qué incluye.
 - [ ] Pedirle a Claude que sume el campo `"nivel"` a cada anunciante en `publicidad.json`, para que cada logo aparezca solo en los lugares que pagó.
@@ -105,6 +105,18 @@ Los sistemas de gestión forman parte del área **Web y sistemas** (filtro en Pr
 ## Otros detalles anotados
 
 - **CapiTales (diseño web):** agregarlo cuando se lance (01/04/2027) o antes si hay permiso, con capturas, rol y año.
-- **Branding x AIRON Studio:** ~~faltaban identidades en el muro~~ ✔ El muro ya muestra las 21 identidades, igual que en Behance.
-- **Muro de logos:** ✔ Reemplazado por los 25 logos nuevos (`src/data/logos.json`). Para sumar uno: el archivo va en `src/static/img/logos/` y se agrega una línea en ese JSON.
+- **Branding x AIRON Studio:** ~~faltaban identidades en el muro~~ ✔ El muro muestra las 26 identidades de `src/data/logos.json` (el número se calcula solo).
+- **Muro de logos:** ✔ Reemplazado por los logos nuevos (hoy 26) (`src/data/logos.json`). Para sumar uno: el archivo va en `src/static/img/logos/` y se agrega una línea en ese JSON.
 - **Traducción al inglés:** revisarla (`src/data/proyectos.en.json`). Cada proyecto nuevo necesita su texto en inglés.
+
+## 12. Contacto — email visible (opcional)
+
+- [ ] Si se crea `contacto@aironstudio.com.ar` (punto 1) o se quiere mostrar un WhatsApp, pasárselo a Claude para sumarlo en Contacto junto a LinkedIn e Instagram. Hoy la web no muestra ningún email ni teléfono.
+
+## 13. Imágenes pesadas
+
+- [ ] Cuatro imágenes pesan más de 400 KB (`blend-david/obra-2-1600`, `obra-4-1600`, `flyers/kraneando-aktividad-2-1080`, `analogic-photos/g08-1200`). Se pueden volver a exportar con más compresión (WebP calidad ~75) y nombre nuevo (ej. `-v2`).
+
+## 14. Medir velocidad
+
+- [ ] Pasar la portada y una ficha por PageSpeed Insights (pagespeed.web.dev) y anotar los resultados, para comparar después de cada cambio grande.

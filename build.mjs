@@ -19,15 +19,17 @@ const SITIO = {
 const IDIOMAS = ['es', 'en'];
 const FUNDACION = 2015;
 const anio = new Date().getFullYear();
-const OPCIONES_CLAVE = ['branding', 'grafica', 'redes', 'web', 'sistemas', 'musical', 'motion', 'mural', 'foto', 'publicidad', 'otro'];
-const MARCAS = ['GSP Seguridad', 'Eleven Games', 'Ju Base Plant Food', 'Blend David', 'Flexy', 'Trust Fund'];
+const OPCIONES_CLAVE = ['integral', 'branding', 'grafica', 'redes', 'ploteo', 'web', 'sistemas', 'musical', 'motion', 'mural', 'foto', 'publicidad', 'otro'];
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
   es: { inicio: '/', proyectos: '/proyectos/', clientes: '/clientes/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/' },
   en: { inicio: '/en/', proyectos: '/en/projects/', clientes: '/en/clients/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/' },
 };
-const rutaDe = (l, clave, slug) => (clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : RUTAS[l][clave]);
+const rutaDe = (l, clave, slug) =>
+  clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : clave === 'cliente' ? `${RUTAS[l].clientes}${slug}/` : RUTAS[l][clave];
+// Proyectos que encabezan el inicio (en este orden). Se eligen por variedad: marca, mural, web, motion y colecciones.
+const DESTACADOS = ['gsp-seguridad', 'blend-david', 'trust-fund', 'equilibria', 'branding-x-airon-studio', 'zocalo-fox-sports'];
 
 // ---------- textos de la interfaz ----------
 const TXT = {
@@ -256,11 +258,11 @@ const TXT = {
       faqKicker: 'Preguntas frecuentes',
       faqTitulo: 'Lo que suelen preguntarnos',
       faq: [
-        ['¿Cuánto cuesta un mural?', 'Cada mural se presupuesta a medida: depende de la superficie, la altura, el estado de la pared y el nivel de detalle del diseño. Mandanos medidas aproximadas y una foto, y te pasamos un presupuesto sin compromiso.'],
+        ['¿Cuánto cuesta un mural?', 'Depende de la superficie, el tipo de cliente y el nivel de detalle del diseño. Con la calculadora de esta página tenés una estimación orientativa al instante, según el Tarifario Mural 2026. El presupuesto final se arma después de ver la pared: ahí se suman materiales, elevación (andamio o plataforma) y seguros si hacen falta. Es sin compromiso.'],
         ['¿Cuánto tarda?', 'Depende del tamaño y de la complejidad. Como referencia, la fachada de Blend David —casi 47 m²— se pintó en 7 jornadas. El diseño y la aprobación del boceto se hacen antes.'],
         ['¿Tengo que cerrar el local?', 'No necesariamente. Coordinamos los días y horarios de obra con el funcionamiento del lugar.'],
         ['¿Puedo ver el diseño antes?', 'Sí. Siempre te mostramos un boceto sobre una foto de tu pared, y empezamos a pintar cuando lo aprobás.'],
-        ['¿Qué materiales usan?', 'Pinturas para exterior o interior según el espacio —látex, aerosol, rodillo y pincel— y una capa final de protección para que el color resista mejor el sol y la lluvia. Los materiales están incluidos en el presupuesto.'],
+        ['¿Qué materiales usan?', 'Pinturas para exterior o interior según el espacio —látex, aerosol, rodillo y pincel— y una capa final de protección para que el color resista mejor el sol y la lluvia. La calculadora no los incluye: se suman en el presupuesto final, después del relevamiento.'],
         ['¿Hacen graffiti?', 'Sí, como una estética más: letras con carácter, color y energía urbana, diseñadas a medida para tu marca y siempre en paredes con autorización de sus dueños.'],
         ['¿En qué zonas trabajan?', 'Tenemos base en Buenos Aires y pintamos en CABA, La Plata y alrededores. Para otras ciudades, escribinos y lo vemos.'],
       ],
@@ -384,7 +386,7 @@ const TXT = {
     areasKicker: 'Explorá nuestros trabajos', areasTitulo: 'Áreas', verTodos: 'Ver todas las áreas →', proyectoUno: 'proyecto',
     serviciosKicker: 'Servicios', queHacemos: 'Qué hacemos', ctaInicio: '¿Tenés un proyecto en mente?', escribinos: 'Escribinos →',
     numerosTitulo: 'El estudio en números',
-    numeros: ['Años de estudio', 'Trabajos en el portafolio', 'Identidades de marca', 'Marcas y medios', 'Nuestro mural más grande', 'Disciplinas creativas'],
+    numeros: ['Años de estudio', 'Trabajos en el portafolio', 'Identidades de marca', 'Clientes', 'Nuestro mural más grande', 'Disciplinas creativas'],
     portafolio: 'Explorá nuestros trabajos', proyectos: 'Áreas', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
     listadoLead: 'Diseño integral, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía. Filtrá por área para ver cada disciplina.',
     listadoDesc: 'Portafolio de AIRON Studio: diseño integral para empresas, branding, redes sociales, ploteo vehicular, gráfica, web y sistemas, motion, murales y fotografía.',
@@ -428,12 +430,43 @@ const TXT = {
       ['Entrega', 'Archivos finales listos para usar y acompañamiento en la implementación.'],
     ],
     clientesKicker: 'Confiaron en nosotros', verCursor: 'Ver',
+    // Inicio: trabajo destacado, presentación breve, clientes y cómo trabajamos
+    destacadosKicker: 'Trabajo seleccionado', destacadosTitulo: 'Proyectos destacados', verTodosProyectos: 'Ver todos los trabajos →',
+    introKicker: 'El estudio',
+    introTitulo: 'Un estudio, todas las piezas de tu marca',
+    introTexto: [
+      `Desde ${FUNDACION} diseñamos identidades, piezas gráficas, redes, webs, ploteos, motion y murales. No como servicios sueltos: pensamos la comunicación completa y la llevamos a cada soporte.`,
+      'Dirige el estudio Matías González, Diseñador en Comunicación Visual (UNLP). Para cada proyecto se suma el equipo justo de especialistas, con un solo contacto de principio a fin.',
+    ],
+    introLink: 'Conocé el estudio →',
+    clientesHomeTitulo: 'Marcas con las que trabajamos', verClientesHome: 'Ver todos los clientes →',
+    comoKicker: 'Cómo trabajamos', comoTitulo: 'Del brief a la entrega', comoTexto: 'Un proceso claro, con tu devolución en cada etapa. Contanos qué necesitás y te proponemos el camino.',
+    marcasClientes: 'Clientes con los que trabajamos',
+    // Ficha del proyecto
+    disciplinasFicha: 'Disciplinas', relacionados: 'Proyectos relacionados',
+    // Página de cada cliente
+    clientePag: {
+      kicker: 'Cliente', trabajosTitulo: 'Trabajos', areasTitulo: 'Áreas involucradas', volver: '← Todos los clientes',
+      desc: (n, r, a) => `${n}${r ? ` (${r})` : ''}: trabajos de ${a} realizados por AIRON Studio, estudio de diseño multimedial.`,
+      resumen: (n, a) => `${n} ${n === 1 ? 'trabajo' : 'trabajos'} en ${a} ${a === 1 ? 'área' : 'áreas'}`,
+      otros: 'Otros clientes', cta: '¿Querés que tu marca sea la próxima?',
+    },
     contactoTitulo: 'Contacto', contactoKicker: 'Contanos tu idea', contactoH1: 'Contacto.',
     contactoLead: 'Una marca, piezas gráficas, una web, motion, un mural o lo que tengas en mente: escribinos y te respondemos a la brevedad.',
     contactoDesc: 'Contanos tu proyecto: marca, piezas gráficas, web, motion, mural o lo que tengas en mente.',
     asunto: 'Nuevo mensaje desde la web de AIRON Studio', noCompletar: 'No completar este campo',
-    campos: { nombre: 'Nombre', email: 'Email', tipo: 'Tipo de proyecto', mensaje: 'Mensaje' },
-    opciones: ['Branding e identidad', 'Diseño gráfico', 'Redes sociales', 'Diseño web', 'Sistema de gestión', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Publicidad en la web', 'Otro'],
+    campos: { nombre: 'Nombre', email: 'Email', tipo: 'Tipo de proyecto', mensaje: 'Contanos qué necesitás', marca: 'Marca o empresa (opcional)', plazo: 'Plazo (opcional)', presupuesto: 'Presupuesto estimado (opcional)', referencias: 'Link a referencias (opcional)' },
+    mensajeAyuda: 'Qué querés lograr, para quién es y si ya tenés algo hecho (logo, web, fotos).',
+    referenciasAyuda: 'Un link de Drive, WeTransfer, Pinterest o Instagram con ideas, fotos o archivos.',
+    presupuestoEjemplo: 'Ej.: un monto aproximado o “todavía no lo sé”',
+    plazos: ['Elegí una opción', 'Lo antes posible', 'En el próximo mes', 'En 1 a 3 meses', 'Sin fecha definida'],
+    pasosTitulo: 'Qué pasa después',
+    pasos: [
+      ['Leemos tu mensaje', 'Te respondemos por email a la brevedad, con preguntas si hace falta.'],
+      ['Charlamos el proyecto', 'Definimos objetivos, público, plazos y presupuesto.'],
+      ['Te enviamos la propuesta', 'Un presupuesto por escrito, sin compromiso, antes de empezar.'],
+    ],
+    opciones: ['Diseño integral', 'Branding e identidad', 'Diseño gráfico', 'Redes sociales', 'Ploteo vehicular', 'Diseño web', 'Sistema de gestión', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Publicidad en la web', 'Otro'],
     enviar: 'Enviar mensaje →', privacidad: 'Tus datos solo se usan para responderte.',
     gracias: { titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' },
     volverInicio: 'Volver al inicio',
@@ -676,11 +709,11 @@ const TXT = {
       faqKicker: 'FAQ',
       faqTitulo: 'What people usually ask',
       faq: [
-        ['How much does a mural cost?', 'Every mural is quoted individually: it depends on the surface, the height, the state of the wall and the level of detail of the design. Send us approximate measurements and a photo and we’ll get back to you with a no-obligation quote.'],
+        ['How much does a mural cost?', 'It depends on the surface, the type of client and the level of detail of the design. The calculator on this page gives you an approximate estimate instantly, based on the 2026 Mural Rate Guide. The final quote is put together after seeing the wall: materials, lifting equipment (scaffolding or platform) and insurance are added there if needed. No obligation.'],
         ['How long does it take?', 'It depends on size and complexity. For reference, the Blend David façade —almost 47 m²— was painted in 7 working days. Design and sketch approval happen beforehand.'],
         ['Do I have to close my store?', 'Not necessarily. We schedule working days and hours around how the place runs.'],
         ['Can I see the design first?', 'Yes. We always show you a sketch on a photo of your wall, and we start painting once you approve it.'],
-        ['What materials do you use?', 'Interior or exterior paints depending on the space —latex, spray paint, roller and brush— and a final protective coat so the colors hold up better against sun and rain. Materials are included in the quote.'],
+        ['What materials do you use?', 'Interior or exterior paints depending on the space —latex, spray paint, roller and brush— and a final protective coat so the colors hold up better against sun and rain. The calculator doesn’t include them: they’re added to the final quote after the site visit.'],
         ['Do you do graffiti?', 'Yes, as one more style: lettering with character, color and urban energy, designed for your brand and always on walls authorized by their owners.'],
         ['Where do you work?', 'We are based in Buenos Aires and paint in the city, La Plata and the surrounding area. For other cities, get in touch and we’ll figure it out.'],
       ],
@@ -804,7 +837,7 @@ const TXT = {
     areasKicker: 'Explore our work', areasTitulo: 'Areas', verTodos: 'See all areas →', proyectoUno: 'project',
     serviciosKicker: 'Services', queHacemos: 'What we do', ctaInicio: 'Have a project in mind?', escribinos: 'Get in touch →',
     numerosTitulo: 'The studio in numbers',
-    numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Brands and media', 'Our largest mural', 'Creative disciplines'],
+    numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Clients', 'Our largest mural', 'Creative disciplines'],
     portafolio: 'Explore our work', proyectos: 'Areas', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects', sinProyectos: 'We are preparing the projects in this category.', sinProyectosCta: 'Tell us what you need →',
     listadoLead: 'Integrated design, branding, social media, vehicle wraps, graphic design, web & systems, motion, murals and photography. Filter by area to explore each discipline.',
     listadoDesc: 'AIRON Studio portfolio: integrated design for companies, branding, social media, vehicle wraps, graphic design, web & systems, motion, murals and photography.',
@@ -848,12 +881,40 @@ const TXT = {
       ['Delivery', 'Final files ready to use, and support during implementation.'],
     ],
     clientesKicker: 'They trusted us', verCursor: 'View',
+    destacadosKicker: 'Selected work', destacadosTitulo: 'Featured projects', verTodosProyectos: 'See all our work →',
+    introKicker: 'The studio',
+    introTitulo: 'One studio, every piece of your brand',
+    introTexto: [
+      `Since ${FUNDACION} we have designed identities, graphic pieces, social media, websites, vehicle wraps, motion and murals. Not as separate services: we think about the whole communication and take it to every medium.`,
+      'The studio is led by Matías González, a Visual Communication Designer (UNLP). Each project brings in the right team of specialists, with a single point of contact from start to finish.',
+    ],
+    introLink: 'Meet the studio →',
+    clientesHomeTitulo: 'Brands we have worked with', verClientesHome: 'See all clients →',
+    comoKicker: 'How we work', comoTitulo: 'From brief to delivery', comoTexto: 'A clear process, with your feedback at every stage. Tell us what you need and we’ll propose the way forward.',
+    marcasClientes: 'Clients we have worked with',
+    disciplinasFicha: 'Disciplines', relacionados: 'Related projects',
+    clientePag: {
+      kicker: 'Client', trabajosTitulo: 'Work', areasTitulo: 'Areas involved', volver: '← All clients',
+      desc: (n, r, a) => `${n}${r ? ` (${r})` : ''}: ${a} work by AIRON Studio, a multimedia design studio.`,
+      resumen: (n, a) => `${n} ${n === 1 ? 'project' : 'projects'} across ${a} ${a === 1 ? 'area' : 'areas'}`,
+      otros: 'Other clients', cta: 'Want your brand to be next?',
+    },
     contactoTitulo: 'Contact', contactoKicker: 'Tell us your idea', contactoH1: 'Contact.',
     contactoLead: "A brand, graphic pieces, a website, motion, a mural or whatever you have in mind: write to us and we'll get back to you shortly.",
     contactoDesc: 'Tell us about your project: a brand, graphic pieces, a website, motion, a mural or whatever you have in mind.',
     asunto: 'New message from the AIRON Studio website (EN)', noCompletar: 'Do not fill in this field',
-    campos: { nombre: 'Name', email: 'Email', tipo: 'Project type', mensaje: 'Message' },
-    opciones: ['Branding and identity', 'Graphic design', 'Social media', 'Web design', 'Management system', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Advertising on the site', 'Other'],
+    campos: { nombre: 'Name', email: 'Email', tipo: 'Project type', mensaje: 'Tell us what you need', marca: 'Brand or company (optional)', plazo: 'Timeline (optional)', presupuesto: 'Estimated budget (optional)', referencias: 'Link to references (optional)' },
+    mensajeAyuda: 'What you want to achieve, who it’s for and whether you already have something (logo, website, photos).',
+    referenciasAyuda: 'A Drive, WeTransfer, Pinterest or Instagram link with ideas, photos or files.',
+    presupuestoEjemplo: 'E.g.: a rough amount or “not sure yet”',
+    plazos: ['Choose an option', 'As soon as possible', 'Within the next month', 'In 1 to 3 months', 'No set date'],
+    pasosTitulo: 'What happens next',
+    pasos: [
+      ['We read your message', 'We reply by email shortly, with questions if needed.'],
+      ['We talk about the project', 'We define goals, audience, timeline and budget.'],
+      ['We send you a proposal', 'A written, no-obligation quote before we start.'],
+    ],
+    opciones: ['Integrated design', 'Branding and identity', 'Graphic design', 'Social media', 'Vehicle wraps', 'Web design', 'Management system', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Advertising on the site', 'Other'],
     enviar: 'Send message →', privacidad: 'Your details are only used to reply to you.',
     gracias: { titulo: 'Message sent', h1: 'Thank you!', texto: "We received your message. We'll get back to you shortly." },
     volverInicio: 'Back to home',
@@ -898,6 +959,8 @@ const CLIENTES = JSON.parse(readFileSync('src/data/clientes.json', 'utf8'));
 CLIENTES.clientes.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }));
 for (const c of CLIENTES.clientes) for (const s of c.casos) if (!BASE.some((p) => p.slug === s)) throw new Error(`clientes.json: "${c.id}" tiene un caso que no existe: ${s}`);
 const clientesDe = (slug) => CLIENTES.clientes.filter((c) => c.casos.includes(slug));
+// Clientes externos (sin contar los trabajos propios del estudio): son los que se cuentan y se muestran como "clientes"
+const CLIENTES_EXTERNOS = CLIENTES.clientes.filter((c) => c.id !== 'airon-studio');
 // Tarifario de diseño (Cámara de Diseñadores de Rafaela, adaptado con permiso)
 const TARIFARIO_DISENO = JSON.parse(readFileSync('src/data/tarifario-diseno.json', 'utf8'));
 
@@ -1126,7 +1189,7 @@ function estiloLogo(ruta) {
 // Marquesina de publicidad: logos de sponsors con enlace directo (datos en src/data/publicidad.json).
 // Cada sponsor tiene 'desde' y 'hasta': el navegador oculta los que todavía no empezaron o ya vencieron, el mismo día,
 // aunque la web no se vuelva a publicar. Si no queda ninguno, aparecen los espacios de ejemplo que llevan a Contacto.
-// Ubicación: arriba del pie en la mayoría de las páginas; en el inicio, después de la lista de proyectos;
+// Ubicación: arriba del pie en todas las páginas (también en el inicio, al final);
 // en las herramientas, versión compacta debajo del título (ahí no se repite en el pie).
 function marquesinaPublicidad(l, variante = '') {
   if (!PUBLICIDAD.activa) return '';
@@ -1171,10 +1234,10 @@ const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ')
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 // Los servicios llevan a su categoría; arte urbano tiene su propia página
 // Categoría del proyecto → tipo de proyecto en el formulario de Contacto
-const TIPO_CONTACTO = { aplicada: 'grafica', urbano: 'mural', integral: 'branding', ploteo: 'grafica' };
+const TIPO_CONTACTO = { aplicada: 'grafica', urbano: 'mural' };
 const tipoContacto = (cat) => TIPO_CONTACTO[cat] || cat;
 const enlaceServicio = (l, cat) => (cat === 'urbano' ? RUTAS[l].murales : enlaceCat(l, cat));
-const enlaceCliente = (l, c) => `${RUTAS[l].clientes}#${c.id}`;
+const enlaceCliente = (l, c) => rutaDe(l, 'cliente', c.id);
 const rubroDe = (l, c) => (c.rubro ? c.rubro[l] : LOGOS.grupos[c.grupo]?.[l] || '');
 // Para mostrar bajo un trabajo: "GSP Seguridad", "GSP Seguridad · Trust Fund" o "Surcipres · AFFUM +4"
 const nombresClientes = (slug) => {
@@ -1255,7 +1318,7 @@ function numeros(l, proyectos) {
     { valor: anio - FUNDACION },
     { valor: proyectos.length },
     { valor: LOGOS.logos.length }, // identidades de marca (el muro de logos, src/data/logos.json)
-    { valor: MARCAS.length },
+    { valor: CLIENTES_EXTERNOS.length }, // clientes de src/data/clientes.json (sin los trabajos propios)
     { valor: 47, sufijo: ' m²' },
     { valor: T.servicios.length },
   ];
@@ -1292,11 +1355,45 @@ function proceso(l) {
   </section>`;
 }
 
-function clientes(l) {
-  return `<section class="clientes" aria-label="${TXT[l].clientesKicker}">
+// Muro de clientes: cada uno lleva a su página. Con logo se muestra el logo (sobre su fondo); si no, el nombre.
+function muroClientes(l) {
+  return `<ul class="muro-clientes">${CLIENTES_EXTERNOS.map((c) => {
+    const contenido = c.logo
+      ? `<img src="${esc(c.logo)}" alt="${esc(c.nombre)}" width="160" height="160" loading="lazy" decoding="async">`
+      : `<span class="muro-clientes-nombre">${esc(c.nombre)}</span>`;
+    return `<li${c.logo && c.fondo ? ` data-fondo="${c.fondo}"` : ''}><a href="${enlaceCliente(l, c)}" title="${esc(c.nombre)}${rubroDe(l, c) ? ` — ${esc(rubroDe(l, c))}` : ''}">${contenido}<span class="muro-clientes-rubro mono" aria-hidden="true">${esc(rubroDe(l, c))}</span></a></li>`;
+  }).join('')}</ul>`;
+}
+
+// Trabajo seleccionado: composición editorial con tamaños alternados. Cada proyecto conserva su portada.
+function destacados(l, proyectos, { primeraRapida = false } = {}) {
+  const T = TXT[l];
+  const elegidos = DESTACADOS.map((s) => proyectos.find((p) => p.slug === s)).filter(Boolean);
+  const items = elegidos
+    .map((p, i) => {
+      const cliente = nombresClientes(p.slug);
+      return `<a class="destacado destacado--${i + 1} reveal" href="${rutaDe(l, 'proyecto', p.slug)}" data-cursor="${T.verCursor}">
+          <span class="destacado-img" data-vt="p-${p.slug}">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: i % 3 === 0 ? '(min-width: 900px) 58vw, 100vw' : '(min-width: 900px) 42vw, 100vw', dims: [640, 501], eager: primeraRapida && i === 0 })}</span>
+          <span class="destacado-meta">
+            <span class="destacado-num mono">${num(i)}</span>
+            <span class="destacado-texto"><span class="destacado-titulo">${esc(p.titulo)}</span><span class="destacado-sub">${esc(p.subtitulo)}</span></span>
+            <span class="destacado-cats mono">${esc(catsTexto(l, p))}${cliente && !p.titulo.toLowerCase().startsWith(cliente.toLowerCase().slice(0, 4)) ? `<br>${esc(cliente)}` : ''}</span>
+          </span>
+        </a>`;
+    })
+    .join('\n        ');
+  return `<section class="seccion destacados-seccion" aria-labelledby="destacados-t">
     <div class="wrap">
-      <span class="kicker mono">${TXT[l].clientesKicker}</span>
-      <ul class="clientes-lista">${MARCAS.map((m) => `<li>${esc(m)}</li>`).join('')}</ul>
+      <div class="seccion-head">
+        <div>
+          <span class="kicker mono">${T.destacadosKicker}</span>
+          <h2 class="h2" id="destacados-t">${T.destacadosTitulo}</h2>
+        </div>
+        <a class="link-arrow" href="${RUTAS[l].proyectos}">${T.verTodosProyectos}</a>
+      </div>
+      <div class="destacados">
+        ${items}
+      </div>
     </div>
   </section>`;
 }
@@ -1355,9 +1452,11 @@ function inicio(l, proyectos) {
     `<ul class="franja-lista"${oculta ? ' aria-hidden="true"' : ''}>${conCat
       .map(([cat, nombre]) => `<li><a href="${enlaceServicio(l, cat)}"${oculta ? ' tabindex="-1"' : ''}>${esc(nombre)}</a></li><li class="franja-sep" aria-hidden="true"></li>`)
       .join('')}</ul>`;
+  const pasos = T.proceso
+    .map(([t, d], i) => `<li class="paso reveal"><span class="paso-num">${num(i)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`)
+    .join('\n        ');
   return pagina(l, {
     clave: 'inicio',
-    publicidadEnPie: false,
     activo: 'inicio',
     imagen: `/img/og/inicio-${l}.jpg`,
     datos: { '@graph': [organizacion(l), { '@type': 'WebSite', name: 'AIRON Studio', url: `${SITIO.url}${R.inicio}`, inLanguage: T.htmlLang, publisher: { '@id': `${SITIO.url}/#estudio` } }] },
@@ -1376,7 +1475,25 @@ function inicio(l, proyectos) {
     </div>
   </section>
 
+  ${destacados(l, proyectos, { primeraRapida: true })}
+
   <nav class="franja" aria-label="${T.disciplinasAria}"><div class="franja-pista">${lista(false)}${lista(true)}</div></nav>
+
+  <section class="seccion intro-estudio" aria-labelledby="intro-t">
+    <div class="wrap intro-grid">
+      <div>
+        <span class="kicker mono">${T.introKicker}</span>
+        <h2 class="h2" id="intro-t">${T.introTitulo}</h2>
+      </div>
+      <div class="intro-texto">
+        <p class="texto-destacado">${T.introTexto[0]}</p>
+        <p>${T.introTexto[1]}</p>
+        <a class="link-arrow" href="${R.estudio}">${T.introLink}</a>
+      </div>
+    </div>
+  </section>
+
+  ${numeros(l, proyectos)}
 
   <section class="seccion areas-seccion">
     <div class="wrap">
@@ -1410,9 +1527,33 @@ function inicio(l, proyectos) {
     </div>
   </section>
 
-${marquesinaPublicidad(l, 'inicio')}
+  <section class="seccion seccion--borde clientes-home" aria-labelledby="clientes-home-t">
+    <div class="wrap">
+      <div class="seccion-head">
+        <div>
+          <span class="kicker mono">${T.clientesKicker}</span>
+          <h2 class="h2" id="clientes-home-t">${T.clientesHomeTitulo}</h2>
+        </div>
+        <a class="link-arrow" href="${R.clientes}">${T.verClientesHome}</a>
+      </div>
+      ${muroClientes(l)}
+    </div>
+  </section>
 
-  ${numeros(l, proyectos)}
+  <section class="seccion seccion--borde" aria-labelledby="como-t">
+    <div class="wrap">
+      <div class="seccion-head">
+        <div>
+          <span class="kicker mono">${T.comoKicker}</span>
+          <h2 class="h2" id="como-t">${T.comoTitulo}</h2>
+        </div>
+        <p class="lead">${T.comoTexto}</p>
+      </div>
+      <ol class="proceso">
+        ${pasos}
+      </ol>
+    </div>
+  </section>
 
   ${ctaBloque(l, T.ctaInicio)}
 `,
@@ -1502,7 +1643,7 @@ function paginaClientes(l, proyectos) {
           <div class="cliente-id">
             <span class="cliente-logo"${c.fondo ? ` data-fondo="${c.fondo}"` : ''}>${logo}</span>
             <div class="cliente-datos">
-              <h2 class="cliente-nombre">${esc(c.nombre)}</h2>
+              <h2 class="cliente-nombre"><a href="${enlaceCliente(l, c)}">${esc(c.nombre)}</a></h2>
               <span class="mono cliente-rubro">${esc(rubroDe(l, c))} · ${trabajos.length} ${trabajos.length === 1 ? C.trabajo : C.trabajos}</span>
               <ul class="cliente-areas" aria-label="${trabajos.length > 1 ? C.areasVarias : C.areaUna}">${areas}</ul>
             </div>
@@ -1599,6 +1740,96 @@ function paginaClientes(l, proyectos) {
   });
 }
 
+// Página propia de cada cliente: su identidad, las áreas que reúne y todos sus trabajos
+function paginaCliente(l, proyectos, c) {
+  const T = TXT[l];
+  const C = T.cli;
+  const P = T.clientePag;
+  const trabajos = proyectos.filter((p) => c.casos.includes(p.slug));
+  const areas = areasDeCliente(proyectos, c);
+  const rubro = rubroDe(l, c);
+  const iniciales = c.nombre.replace(/[^A-Za-zÁÉÍÓÚÑ0-9 ]/g, '').split(' ').filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+  const logo = c.logo
+    ? `<img src="${esc(c.logo)}" alt="${esc(c.nombre)}" width="320" height="320" decoding="async">`
+    : `<span class="cliente-iniciales" aria-hidden="true">${esc(iniciales)}</span>`;
+  const areasLista = areas
+    .map((id) => `<li><a class="cliente-area mono" href="${enlaceServicio(l, id)}">${esc(nombreCat(l, id))}</a></li>`)
+    .join('');
+  const tarjetas = trabajos
+    .map((p) => tarjeta(l, p, proyectos.indexOf(p), { sizes: trabajos.length === 1 ? '(min-width: 900px) 66vw, 100vw' : '(min-width: 900px) 45vw, 100vw' }))
+    .join('\n      ');
+  // Otros clientes del mismo rubro (si no hay, los demás en orden)
+  const mismos = CLIENTES_EXTERNOS.filter((x) => x !== c && x.grupo === c.grupo);
+  const otros = (mismos.length >= 3 ? mismos : mismos.concat(CLIENTES_EXTERNOS.filter((x) => x !== c && x.grupo !== c.grupo))).slice(0, 6);
+  const otrosLista = otros
+    .map((x) => `<li><a href="${enlaceCliente(l, x)}"><span class="otros-clientes-nombre">${esc(x.nombre)}</span><span class="mono">${esc(rubroDe(l, x))}</span></a></li>`)
+    .join('');
+  const nombresAreas = areas.map((id) => nombreCat(l, id).toLowerCase()).join(', ');
+  const tipo = areas.includes('urbano') ? 'mural' : areas.includes('branding') || areas.includes('integral') ? 'branding' : areas[0] === 'web' ? 'web' : 'grafica';
+  return pagina(l, {
+    clave: 'cliente',
+    slug: c.id,
+    titulo: `${c.nombre} — ${C.titulo}`,
+    activo: 'clientes',
+    descripcion: recortar(P.desc(c.nombre, rubro, nombresAreas)),
+    imagen: trabajos[0] ? `/img/og/${trabajos[0].slug}-${l}.jpg` : undefined,
+    datos: {
+      '@graph': [
+        {
+          '@type': 'CollectionPage',
+          name: `${c.nombre} — AIRON Studio`,
+          url: `${SITIO.url}${enlaceCliente(l, c)}`,
+          inLanguage: T.htmlLang,
+          about: { '@type': 'Organization', name: c.nombre },
+          hasPart: trabajos.map((p) => ({ '@type': 'CreativeWork', name: p.titulo, url: `${SITIO.url}${rutaDe(l, 'proyecto', p.slug)}` })),
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: T.nav.inicio, item: `${SITIO.url}${RUTAS[l].inicio}` },
+            { '@type': 'ListItem', position: 2, name: C.titulo, item: `${SITIO.url}${RUTAS[l].clientes}` },
+            { '@type': 'ListItem', position: 3, name: c.nombre, item: `${SITIO.url}${enlaceCliente(l, c)}` },
+          ],
+        },
+      ],
+    },
+    cuerpo: `
+  <section class="page-head cliente-head">
+    <div class="wrap">
+      <div class="proyecto-crumbs mono"><a href="${RUTAS[l].clientes}">${P.volver}</a></div>
+      <div class="cliente-head-in">
+        <span class="cliente-logo cliente-logo--grande"${c.fondo ? ` data-fondo="${c.fondo}"` : ''}>${logo}</span>
+        <div>
+          <span class="kicker mono">${P.kicker}${rubro ? ` · ${esc(rubro)}` : ''}</span>
+          <h1 class="page-title page-title--md">${esc(c.nombre)}</h1>
+          <p class="lead">${P.resumen(trabajos.length, areas.length)}.</p>
+          <ul class="cliente-areas" aria-label="${P.areasTitulo}">${areasLista}</ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="seccion seccion--borde">
+    <div class="wrap">
+      <h2 class="kicker mono">${P.trabajosTitulo}</h2>
+      <div class="grid-cliente grid-cliente--${Math.min(trabajos.length, 3)}">
+      ${tarjetas}
+      </div>
+    </div>
+  </section>
+  <section class="seccion seccion--borde">
+    <div class="wrap">
+      <div class="seccion-head">
+        <h2 class="h3">${P.otros}</h2>
+        <a class="link-arrow" href="${RUTAS[l].clientes}">${C.verClientes}</a>
+      </div>
+      <ul class="otros-clientes">${otrosLista}</ul>
+    </div>
+  </section>
+  ${ctaBloque(l, P.cta, `${RUTAS[l].contacto}?tipo=${tipo === 'mural' ? 'mural' : tipo === 'web' ? 'web' : tipo === 'branding' ? 'branding' : 'grafica'}`)}
+`,
+  });
+}
+
 function detalle(l, proyectos, p, i) {
   const T = TXT[l];
   // Anterior / siguiente dentro de la misma área (la primera del caso); si el área no tiene otros, se recorre todo
@@ -1615,7 +1846,12 @@ function detalle(l, proyectos, p, i) {
           <span class="otro-sub">${esc(x.subtitulo)}</span>
         </a>`;
   const navegacion = ant === sig ? otro(sig, 'otro--sig', T.siguiente) : otro(ant, 'otro--ant', T.anterior) + otro(sig, 'otro--sig', T.siguiente);
-  const ficha = p.ficha.map(([k, v]) => `<div class="ficha-item"><dt class="mono">${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('\n        ');
+  // A la ficha se suman siempre las disciplinas involucradas (las áreas del caso), con enlace a cada una
+  const disciplinasFicha = `<div class="ficha-item"><dt class="mono">${T.disciplinasFicha}</dt><dd>${p.categorias.map((c) => `<a href="${enlaceServicio(l, c)}">${esc(nombreCat(l, c))}</a>`).join(' · ')}</dd></div>`;
+  const ficha = p.ficha.map(([k, v]) => `<div class="ficha-item"><dt class="mono">${esc(k)}</dt><dd>${esc(v)}</dd></div>`).concat(disciplinasFicha).join('\n        ');
+  // Cada tipo de proyecto tiene su propia puesta (styles.css: .proyecto--marca, --mural, --musical, --web, --motion, --foto)
+  const TIPOS = { urbano: 'mural', musical: 'musical', web: 'web', motion: 'motion', foto: 'foto', branding: 'marca', integral: 'marca' };
+  const tipo = TIPOS[p.categorias[0]] || 'grafica';
   const bloques = p.bloques
     .map((b, j) => {
       const destacado = b.destacado ? `<p class="texto-destacado">${esc(b.destacado)}</p>` : '';
@@ -1780,6 +2016,16 @@ function detalle(l, proyectos, p, i) {
   ].filter(Boolean).join('<span aria-hidden="true">·</span>');
   // Más trabajos del mismo cliente (solo si el caso es de un cliente y tiene otros)
   const otrosDelCliente = susClientes.length === 1 ? proyectos.filter((x) => x !== p && susClientes[0].casos.includes(x.slug)) : [];
+  // Proyectos relacionados: comparten alguna área (primero los de la misma área principal), sin repetir los del cliente ni anterior/siguiente
+  const yaVistos = new Set([p, ant, sig, ...otrosDelCliente.slice(0, 3)]);
+  const comparte = (x) => x.categorias.filter((c) => p.categorias.includes(c)).length + (x.categorias[0] === p.categorias[0] ? 2 : 0);
+  const relacionados = proyectos.filter((x) => !yaVistos.has(x) && comparte(x) > 0).sort((a, b) => comparte(b) - comparte(a)).slice(0, 3);
+  const bloqueRelacionados = relacionados.length
+    ? `<section class="mas-cliente relacionados">
+        <div class="mas-cliente-head"><h2 class="h3">${T.relacionados}</h2><a class="link-arrow" href="${RUTAS[l].proyectos}">${T.verTodosProyectos}</a></div>
+        <div class="grid-proyectos">${relacionados.map((x) => tarjeta(l, x, proyectos.indexOf(x), { sizes: '(min-width: 900px) 30vw, 50vw' })).join('')}</div>
+      </section>`
+    : '';
   const masDelCliente = otrosDelCliente.length
     ? `<section class="mas-cliente">
         <div class="mas-cliente-head"><h2 class="h3">${esc(C.masDe(susClientes[0].nombre))}</h2><a class="link-arrow" href="${enlaceCliente(l, susClientes[0])}">${C.verCliente}</a></div>
@@ -1817,7 +2063,7 @@ function detalle(l, proyectos, p, i) {
       ],
     },
     cuerpo: `
-  <article>
+  <article class="proyecto proyecto--${tipo}">
     <header class="proyecto-head">
       <div class="wrap">
         <div class="proyecto-crumbs mono">
@@ -1846,6 +2092,7 @@ function detalle(l, proyectos, p, i) {
     </section>` : ''}
     <div class="wrap">
       ${masDelCliente}
+      ${bloqueRelacionados}
       <div class="behance-cta">
         <p class="behance-title">${esc(cierre)}</p>
         <div class="btn-row">${botonMural}${botones}</div>
@@ -2497,7 +2744,6 @@ function estudio(l, proyectos) {
   const disciplinas = T.servicios
     .map(([cat, nombre], i) => `<li class="reveal"><span class="mono num">${num(i)}</span>${cat ? `<a href="${enlaceServicio(l, cat)}">${esc(nombre)}</a>` : `<span>${esc(nombre)}</span>`}</li>`)
     .join('');
-  const marcas = MARCAS.map((m) => `<li>${m}</li>`).join('');
   const equipo = T.equipo
     .map(([rol, texto], i) => `<li class="servicio reveal${i === 0 ? ' servicio--destacado' : ''}"><span class="mono num">${num(i)}</span><div><h3>${esc(rol)}</h3><p>${esc(texto)}</p></div></li>`)
     .join('\n        ');
@@ -2545,10 +2791,14 @@ function estudio(l, proyectos) {
   </section>
   <section class="seccion seccion--borde">
     <div class="wrap">
-      <span class="kicker mono">${T.marcasTitulo}</span>
-      <ul class="marcas">${marcas}</ul>
+      <div class="seccion-head">
+        <h2 class="h3">${T.marcasClientes}</h2>
+        <a class="link-arrow" href="${RUTAS[l].clientes}">${T.verClientesHome}</a>
+      </div>
+      ${muroClientes(l)}
     </div>
   </section>
+  ${destacados(l, proyectos)}
   ${proceso(l)}
   ${ctaBloque(l, T.ctaEstudio)}
 `,
@@ -2576,6 +2826,10 @@ function contacto(l) {
           <a href="${SITIO.linkedin}" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span class="mono">/in/aironstudio ↗</span></a>
           <a href="${SITIO.instagram}" target="_blank" rel="noopener noreferrer"><span>Instagram</span><span class="mono">@_aironstudio ↗</span></a>
         </nav>
+        <div class="contacto-pasos">
+          <h2 class="kicker mono">${T.pasosTitulo}</h2>
+          <ol>${T.pasos.map(([t, d], i) => `<li><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`).join('')}</ol>
+        </div>
       </div>
       <form class="form" name="contacto" method="POST" data-gracias="${RUTAS[l].gracias}" ${
         SITIO.formspree ? `action="https://formspree.io/f/${esc(SITIO.formspree)}"` : 'data-pendiente'
@@ -2592,12 +2846,32 @@ function contacto(l) {
           <input id="email" name="email" type="email" autocomplete="email" required maxlength="160">
         </div>
         <div class="campo">
+          <label for="marca" class="mono">${T.campos.marca}</label>
+          <input id="marca" name="marca" type="text" autocomplete="organization" maxlength="160">
+        </div>
+        <div class="campo">
           <label for="tipo" class="mono">${T.campos.tipo}</label>
           <select id="tipo" name="tipo">${opciones}</select>
         </div>
         <div class="campo">
           <label for="mensaje" class="mono">${T.campos.mensaje}</label>
-          <textarea id="mensaje" name="mensaje" rows="6" required maxlength="4000"></textarea>
+          <textarea id="mensaje" name="mensaje" rows="6" required maxlength="4000" aria-describedby="mensaje-ayuda"></textarea>
+          <span class="campo-ayuda" id="mensaje-ayuda">${T.mensajeAyuda}</span>
+        </div>
+        <div class="campos-fila">
+          <div class="campo">
+            <label for="plazo" class="mono">${T.campos.plazo}</label>
+            <select id="plazo" name="plazo">${T.plazos.map((o, i) => `<option${i === 0 ? ' value=""' : ''}>${esc(o)}</option>`).join('')}</select>
+          </div>
+          <div class="campo">
+            <label for="presupuesto" class="mono">${T.campos.presupuesto}</label>
+            <input id="presupuesto" name="presupuesto" type="text" maxlength="120" placeholder="${esc(T.presupuestoEjemplo)}">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="referencias" class="mono">${T.campos.referencias}</label>
+          <input id="referencias" name="referencias" type="text" inputmode="url" maxlength="500" placeholder="drive.google.com/…" aria-describedby="referencias-ayuda">
+          <span class="campo-ayuda" id="referencias-ayuda">${T.referenciasAyuda}</span>
         </div>
         <button class="btn btn-accent btn-lg btn-block" type="submit">${T.enviar}</button>
         <p class="nota" data-estado role="status">${T.privacidad}</p>
@@ -2721,6 +2995,7 @@ for (const l of IDIOMAS) {
     [R.inicio, inicio(l, proyectos)],
     [R.proyectos, listado(l, proyectos)],
     [R.clientes, paginaClientes(l, proyectos)],
+    ...CLIENTES.clientes.map((c) => [enlaceCliente(l, c), paginaCliente(l, proyectos, c)]),
     ...proyectos.map((p, i) => [rutaDe(l, 'proyecto', p.slug), detalle(l, proyectos, p, i)]),
     [R.murales, murales(l, proyectos)],
     [R.tarifarios, paginaTarifarios(l)],
