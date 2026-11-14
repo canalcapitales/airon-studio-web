@@ -7,26 +7,10 @@ const MSG = EN
   : { abrir: 'Abrir menú', cerrar: 'Cerrar menú', temaOscuro: 'Cambiar a modo oscuro', temaClaro: 'Cambiar a modo claro', pausa: 'El formulario se activa muy pronto. Mientras tanto, escribinos por Instagram o LinkedIn.', enviando: 'Enviando…', error: 'No se pudo enviar. Probá de nuevo o escribinos por Instagram o LinkedIn.' };
 
 document.addEventListener('DOMContentLoaded', () => {
-  menu();
-  tema();
-  apariciones();
-  contadores();
-  textosQueSeArman();
-  cursorEstrella();
-  calculadora();
-  tarifarioDiseno();
-  textosUnicode();
-  mayusculasMinusculas();
-  convertidorPng();
-  visor();
-  tiras();
-  videosLoop();
-  formulario();
-  filtros();
-  areasInicio();
-  filtroClientes();
-  muroLogos();
-  sponsors();
+  // Cada parte arranca por separado: si una falla, las demás siguen funcionando
+  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, formulario, filtros, areasInicio, filtroClientes, muroLogos, sponsors].forEach((iniciar) => {
+    try { iniciar(); } catch (e) { console.error(e); }
+  });
 });
 
 // ----- Modo claro / oscuro -----
@@ -85,6 +69,17 @@ function menu() {
 
 // ----- Aparición suave de los elementos al bajar -----
 function apariciones() {
+  // Los títulos de sección (no los de arriba de todo) se revelan desde abajo, como una línea que sube
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.h2, .h3, .cta-title').forEach((t) => {
+      if (t.closest('.reveal') || t.getBoundingClientRect().top <= innerHeight) return;
+      const linea = document.createElement('span');
+      linea.className = 'titulo-linea';
+      linea.append(...t.childNodes);
+      t.append(linea);
+      t.classList.add('titulo-revela', 'reveal');
+    });
+  }
   const items = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
     items.forEach((el) => el.classList.add('visible'));
@@ -1886,8 +1881,9 @@ function filtroClientes() {
 
 // ----- Filtros de proyectos -----
 function filtros() {
-  const barra = document.querySelector('.filtros');
-  if (!barra) return;
+  // La barra de Clientes tiene su propio filtro (filtroClientes): acá solo la de proyectos
+  const barra = document.querySelector('.filtros:not(.filtros--clientes)');
+  if (!barra || !barra.querySelector('[data-filter]')) return;
   barra.hidden = false;
 
   const pills = [...barra.querySelectorAll('[data-filter]')];
