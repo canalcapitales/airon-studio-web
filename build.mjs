@@ -2677,7 +2677,7 @@ function murales(l, proyectos) {
           <a class="btn btn-outline btn-lg" href="#calculadora">${M.calcular}</a>
         </div>
       </div>
-      <div class="murales-head-img" data-vt="p-${caso.slug}">${img(caso.portadaFoto || caso.portada, { alt: T.portadaDe(caso.titulo), sizes: '(min-width: 900px) 45vw, 100vw', eager: true, dims: [1280, 1001] })}</div>
+      <div class="murales-head-img">${img(caso.portadaFoto || caso.portada, { alt: T.portadaDe(caso.titulo), sizes: '(min-width: 900px) 45vw, 100vw', eager: true, dims: [1280, 1001] })}</div>
     </div>
   </section>
 
@@ -2965,10 +2965,22 @@ function noEncontrada() {
 // ---------- escritura ----------
 const compactar = (html) => html.replace(/\n\s+/g, '\n');
 
+// Flechas de texto (→ ↗ ←) dentro de enlaces y botones: se envuelven para animarlas al pasar el mouse
+const conFlechas = (h) =>
+  h
+    .replace(/ →(?=<\/a>|<\/button>)/g, ' <span class="flecha" aria-hidden="true">→</span>')
+    .replace(/ ↗(?=<\/span><\/a>|<\/a>)/g, ' <span class="flecha flecha--ext" aria-hidden="true">↗</span>')
+    .replace(/(<a [^>]*>)← /g, '$1<span class="flecha flecha--atras" aria-hidden="true">←</span> ');
+// Cada transición de portada (data-vt) puede aparecer una sola vez por página; si se repite, el navegador la anula
+const sinVtRepetidos = (h) => {
+  const vistos = new Set();
+  return h.replace(/ data-vt="([^"]+)"/g, (m, id) => (vistos.has(id) ? '' : (vistos.add(id), m)));
+};
+
 function escribir(ruta, contenido) {
   const destino = join(OUT, ruta);
   mkdirSync(dirname(destino), { recursive: true });
-  writeFileSync(destino, ruta.endsWith('.html') ? compactar(conTilde(contenido)) : contenido);
+  writeFileSync(destino, ruta.endsWith('.html') ? compactar(sinVtRepetidos(conFlechas(conTilde(contenido)))) : contenido);
 }
 
 function conHuella(ruta) {
