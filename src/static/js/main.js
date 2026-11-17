@@ -2002,11 +2002,14 @@ function sponsors() {
 }
 
 // ----- Escenas con scroll (graffiti) -----
-// La sección mide varias pantallas; mientras se recorre, cada escena se activa, el velo negro baja
-// y la pieza se pinta de izquierda a derecha con una lata de aerosol que sigue el borde.
+// La sección mide varias pantallas; mientras se recorre, cada escena se activa y el velo negro baja.
+// Con mouse: el cursor es una lata de aerosol y la pieza aparece donde se pinta (se completa sola al final de cada escena).
+// En el celular: la pieza se pinta sola de izquierda a derecha al bajar, con la lata siguiendo el borde.
 function escenas() {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const conMouse = matchMedia('(pointer: fine)').matches;
   document.querySelectorAll('[data-graf]').forEach((sec) => {
+    const fijo = sec.querySelector('.graf-fijo');
     const figs = [...sec.querySelectorAll('[data-escena]')];
     const textos = [...sec.querySelectorAll('.graf-textos li')];
     const lata = sec.querySelector('.graf-lata');
@@ -2022,41 +2025,139 @@ function escenas() {
       f.style.setProperty('--oyn', oy / 100);
     });
     const tramo = (t, a, b) => Math.min(1, Math.max(0, (t - a) / (b - a)));
-    let actual = -1, pedido = false;
+    let actual = -1, pedido = false, t = 0;
+
+    // Escala y origen reales del zoom de la escena activa (cambian entre compu y celular)
+    const zoom = (fig) => {
+      const cs = getComputedStyle(fig.querySelector('.graf-pieza'));
+      const z = new DOMMatrix(cs.transform === 'none' ? undefined : cs.transform).a;
+      const [ox, oy] = cs.transformOrigin.split(' ').map(parseFloat);
+      return { z, ox, oy };
+    };
+
+    // ----- Con mouse: una máscara por escena donde se acumula la pintura -----
+    const ESCALA = 0.25; // la máscara va a un cuarto de resolución: alcanza y es liviana
+    const mascaras = figs.map((fig) => {
+      const c = document.createElement('canvas');
+      return { c, x: c.getContext('2d'), sucia: false, llena: false, pz: fig.querySelector('.graf-pieza') };
+    });
+    const medir = () => {
+      mascaras.forEach((m) => {
+        const w = Math.max(1, Math.round(fijo.clientWidth * ESCALA)), h = Math.max(1, Math.round(fijo.clientHeight * ESCALA));
+        if (m.c.width === w && m.c.height === h) return;
+        const viejo = m.c.width > 1 ? m.x.getImageData(0, 0, m.c.width, m.c.height) : null;
+        m.c.width = w; m.c.height = h;
+        if (viejo && m.llena) { m.x.fillStyle = '#000'; m.x.fillRect(0, 0, w, h); }
+        m.sucia = true;
+      });
+    };
+    let ultimo = 0;
+    const volcar = (forzar) => {
+      const ahora = performance.now();
+      if (!forzar && ahora - ultimo < 60) return;
+      ultimo = ahora;
+      mascaras.forEach((m) => {
+        if (!m.sucia) return;
+        m.sucia = false;
+        m.pz.style.setProperty('--m', `url(${m.c.toDataURL()})`);
+      });
+    };
+    // Una pasada de aerosol: un centro suave y puntitos alrededor
+    const rociar = (m, x, y) => {
+      const r = Math.max(10, m.c.width * 0.05);
+      const g = m.x.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0, 'rgba(0,0,0,.55)');
+      g.addColorStop(0.6, 'rgba(0,0,0,.25)');
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      m.x.fillStyle = g;
+      m.x.beginPath(); m.x.arc(x, y, r, 0, Math.PI * 2); m.x.fill();
+      m.x.fillStyle = 'rgba(0,0,0,.8)';
+      for (let k = 0; k < 14; k++) {
+        const a = Math.random() * Math.PI * 2, d = Math.random() ** 0.6 * r * 1.35, s = Math.random() * 1.4 + 0.4;
+        m.x.fillRect(x + Math.cos(a) * d, y + Math.sin(a) * d, s, s);
+      }
+      m.sucia = true;
+    };
+    let px = null, py = null, quieto = 0, adentro = false;
+    const pintarEn = (cx, cy) => {
+      const fig = figs[actual];
+      if (!fig) return;
+      const m = mascaras[actual], caja = fijo.getBoundingClientRect();
+      const { z, ox, oy } = zoom(fig);
+      // Del punto en pantalla al punto en la imagen sin zoom (la máscara vive en ese espacio)
+      const lx = ox + (cx - caja.left - ox) / z, ly = oy + (cy - caja.top - oy) / z;
+      const x = lx * ESCALA, y = ly * ESCALA;
+      if (px !== null) {
+        const pasos = Math.max(1, Math.ceil(Math.hypot(x - px, y - py) / 3));
+        for (let k = 1; k <= pasos; k++) rociar(m, px + (x - px) * k / pasos, py + (y - py) * k / pasos);
+      } else rociar(m, x, y);
+      px = x; py = y;
+      volcar();
+    };
+    if (conMouse) {
+      sec.classList.add('graf--cursor');
+      medir();
+      addEventListener('resize', medir);
+      fijo.addEventListener('pointermove', (e) => {
+        adentro = true;
+        document.documentElement.classList.add('en-graf');
+        lata.style.setProperty('--lx', e.clientX - fijo.getBoundingClientRect().left + 'px');
+        lata.style.setProperty('--ly', e.clientY - fijo.getBoundingClientRect().top + 'px');
+        lata.classList.add('visible', 'pintando');
+        clearTimeout(quieto);
+        quieto = setTimeout(() => lata.classList.remove('pintando'), 140);
+        pintarEn(e.clientX, e.clientY);
+      });
+      fijo.addEventListener('pointerleave', () => {
+        adentro = false; px = py = null;
+        document.documentElement.classList.remove('en-graf');
+        lata.classList.remove('visible', 'pintando');
+        volcar(true);
+      });
+    }
+
     const pintar = () => {
       pedido = false;
       const r = sec.getBoundingClientRect();
-      const total = sec.offsetHeight - innerHeight;
       if (r.bottom < 0 || r.top > innerHeight) return;
+      const total = sec.offsetHeight - innerHeight;
       const p = Math.min(1, Math.max(0, -r.top / total));
       const seg = Math.min(n - 0.0001, p * n);
-      const i = Math.floor(seg), t = seg - i;
+      const i = Math.floor(seg);
+      t = seg - i;
       if (i !== actual) {
         figs.forEach((f, k) => f.classList.toggle('activa', k === i));
         textos.forEach((li, k) => li.classList.toggle('activa', k === i));
-        actual = i;
+        actual = i; px = py = null;
       }
-      const pinta = tramo(t, 0.12, 0.72);
-      const velo = 0.68 - 0.18 * tramo(t, 0, 0.2) - 0.35 * tramo(t, 0.72, 0.9);
       const fig = figs[i];
-      fig.querySelector('.graf-pieza').style.setProperty('--r', pinta.toFixed(4));
-      fig.style.setProperty('--velo', velo.toFixed(3));
+      fig.style.setProperty('--velo', (0.68 - 0.18 * tramo(t, 0, 0.2) - 0.35 * tramo(t, 0.72, 0.9)).toFixed(3));
       fig.style.setProperty('--k', (1 + 0.06 * t).toFixed(4));
       if (barra) barra.style.setProperty('--p', p.toFixed(4));
-      // La lata va sobre el borde de la máscara, a la altura de la pieza
-      // La escala y el origen reales salen del estilo calculado (cambian entre compu y celular)
-      const pz = fig.querySelector('.graf-pieza'), cs = getComputedStyle(pz);
+      if (conMouse) {
+        // Al final de la escena la pieza se completa sola, por si no se pintó todo
+        const m = mascaras[i];
+        if (t > 0.8 && !m.llena) {
+          m.x.fillStyle = `rgba(0,0,0,${(0.04 + 0.5 * tramo(t, 0.8, 1)).toFixed(3)})`;
+          m.x.fillRect(0, 0, m.c.width, m.c.height);
+          if (t > 0.97) m.llena = true;
+          m.sucia = true;
+          volcar();
+        }
+        return;
+      }
+      // Sin mouse: la pieza se descubre de izquierda a derecha y la lata sigue el borde
+      const pinta = tramo(t, 0.12, 0.72);
+      const pz = fig.querySelector('.graf-pieza');
+      pz.style.setProperty('--r', pinta.toFixed(4));
       const y = (parseFloat(pz.dataset.y) || 50) / 100;
-      const z = new DOMMatrix(cs.transform === 'none' ? undefined : cs.transform).a;
-      const [ox, oy] = cs.transformOrigin.split(' ').map(parseFloat);
+      const { z, ox, oy } = zoom(fig);
       const W = innerWidth, H = innerHeight;
-      // Dónde queda la altura de la pieza: con cover ocupa toda la pantalla; con contain (celular parado) va arriba
       const contain = getComputedStyle(fig.querySelector('img')).objectFit === 'contain';
       const alto = contain ? Math.min(H, W / 1.5) : H, arriba = contain ? (H - alto) * 0.34 : 0;
-      const yPx = oy + (arriba + alto * y - oy) * z;
-      const xPx = ox + ((pinta * 1.3 - 0.15) * W - ox) * z;
-      lata.style.setProperty('--lx', xPx.toFixed(1) + 'px');
-      lata.style.setProperty('--ly', (yPx - 40).toFixed(1) + 'px');
+      lata.style.setProperty('--lx', (ox + ((pinta * 1.3 - 0.15) * W - ox) * z).toFixed(1) + 'px');
+      lata.style.setProperty('--ly', (oy + (arriba + alto * y - oy) * z - 40).toFixed(1) + 'px');
+      lata.classList.toggle('visible', pinta > 0.02 && pinta < 0.98);
       lata.classList.toggle('pintando', pinta > 0.02 && pinta < 0.98);
     };
     const pedir = () => { if (!pedido) { pedido = true; requestAnimationFrame(pintar); } };
