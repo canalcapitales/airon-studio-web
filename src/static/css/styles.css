@@ -1347,7 +1347,8 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 .graf-barra i { position: absolute; inset: 0; background: #FF0000; transform-origin: left; transform: scaleX(var(--p, 0)); }
 /* Con mouse: el cursor es la lata y la pieza aparece donde se pinta (máscara en --m, main.js) */
 .graf--cursor .graf-fijo { cursor: none; }
-.graf--cursor .graf-pieza { -webkit-mask-image: var(--m, linear-gradient(transparent, transparent)); mask-image: var(--m, linear-gradient(transparent, transparent)); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+/* Dos capas que se suman: lo pintado con el mouse (--m) y la pasada automática al bajar (--r) */
+.graf--cursor .graf-pieza { --barrido: linear-gradient(90deg, #000 calc(var(--r) * 130% - 30%), transparent calc(var(--r) * 130%)); -webkit-mask-image: var(--m, linear-gradient(transparent, transparent)), var(--barrido); mask-image: var(--m, linear-gradient(transparent, transparent)), var(--barrido); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; mask-composite: add; }
 .graf--cursor .graf-lata { transform: translate(calc(var(--lx, 0px) - 6px), calc(var(--ly, 0px) - 4px)) rotate(-24deg); }
 .en-graf .cursor { opacity: 0 !important; }
 .graf-pintar { display: none; color: #F2F0EB; }
