@@ -1853,7 +1853,8 @@ function detalle(l, proyectos, p, i) {
   const navegacion = ant === sig ? otro(sig, 'otro--sig', T.siguiente) : otro(ant, 'otro--ant', T.anterior) + otro(sig, 'otro--sig', T.siguiente);
   // A la ficha se suman siempre las disciplinas involucradas (las áreas del caso), con enlace a cada una
   const disciplinasFicha = `<div class="ficha-item"><dt class="mono">${T.disciplinasFicha}</dt><dd>${p.categorias.map((c) => `<a href="${enlaceServicio(l, c)}">${esc(nombreCat(l, c))}</a>`).join(' · ')}</dd></div>`;
-  const ficha = p.ficha.map(([k, v]) => `<div class="ficha-item"><dt class="mono">${esc(k)}</dt><dd>${esc(v)}</dd></div>`).concat(disciplinasFicha).join('\n        ');
+  // Una fila de la ficha puede llevar un enlace como tercer dato (p. ej. el Instagram de un colaborador)
+  const ficha = p.ficha.map(([k, v, url]) => `<div class="ficha-item"><dt class="mono">${esc(k)}</dt><dd>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(v)}</a>` : esc(v)}</dd></div>`).concat(disciplinasFicha).join('\n        ');
   // Cada tipo de proyecto tiene su propia puesta (styles.css: .proyecto--marca, --mural, --musical, --web, --motion, --foto)
   const TIPOS = { urbano: 'mural', musical: 'musical', web: 'web', motion: 'motion', foto: 'foto', branding: 'marca', integral: 'marca' };
   const tipo = TIPOS[p.categorias[0]] || 'grafica';
