@@ -2217,68 +2217,123 @@
       },
       {
         "titulo": "Aplicaciones",
-        "texto": "Cómo vive la letra fuera de la pantalla: indumentaria, gráfica de eventos, música y objetos.",
+        "texto": "La misma letra, lista para cada soporte: indumentaria, gráfica de eventos, vehículos y paredes.",
         "nota": "Mockups: propuestas de aplicación",
         "estilo": "grilla",
         "columnas": 3,
         "imagenes": [
           {
-            "700": "/img/proyectos/tags-y-graffiti-digital/aplicacion-remera-700.webp",
-            "1600": "/img/proyectos/tags-y-graffiti-digital/aplicacion-remera-1600.webp",
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-remera-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-remera-1600.webp",
             "_wh": [
               1600,
               1600
             ],
-            "alt": "Tags y graffiti digital — Mockup de remera negra con letras en bloque estampadas."
+            "alt": "Tags y graffiti digital — Mockup: remera negra con bubble rojo estampado."
           },
           {
-            "700": "/img/proyectos/tags-y-graffiti-digital/aplicacion-buzo-700.webp",
-            "1600": "/img/proyectos/tags-y-graffiti-digital/aplicacion-buzo-1600.webp",
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-buzo-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-buzo-1600.webp",
             "_wh": [
               1600,
               1600
             ],
-            "alt": "Tags y graffiti digital — Mockup de buzo crudo con bubble rojo en el pecho."
+            "alt": "Tags y graffiti digital — Mockup: buzo blanco con bubble turquesa estampado."
           },
           {
-            "700": "/img/proyectos/tags-y-graffiti-digital/aplicacion-afiche-700.webp",
-            "1600": "/img/proyectos/tags-y-graffiti-digital/aplicacion-afiche-1600.webp",
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-afiche-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-afiche-1600.webp",
             "_wh": [
               1600,
-              1600
+              1422
             ],
-            "alt": "Tags y graffiti digital — Mockup de afiche de fiesta hip hop pegado en una pared."
+            "alt": "Tags y graffiti digital — Mockup: afiche de fiesta hip hop pegado en una pared."
           },
           {
-            "700": "/img/proyectos/tags-y-graffiti-digital/aplicacion-disco-700.webp",
-            "1600": "/img/proyectos/tags-y-graffiti-digital/aplicacion-disco-1600.webp",
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-camion-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-camion-1600.webp",
             "_wh": [
               1600,
-              1600
+              1067
             ],
-            "alt": "Tags y graffiti digital — Mockup de tapa de disco con collage de letras y vinilo."
+            "alt": "Tags y graffiti digital — Mockup: camión blanco con letras en bloque en la caja."
           },
           {
-            "700": "/img/proyectos/tags-y-graffiti-digital/aplicacion-stickers-700.webp",
-            "1600": "/img/proyectos/tags-y-graffiti-digital/aplicacion-stickers-1600.webp",
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-tren-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-tren-1600.webp",
             "_wh": [
               1600,
-              1600
+              1311
             ],
-            "alt": "Tags y graffiti digital — Mockup de stickers troquelados con cuatro piezas."
+            "alt": "Tags y graffiti digital — Mockup: vagón de carga con bubble turquesa."
           },
           {
-            "700": "/img/proyectos/tags-y-graffiti-digital/aplicacion-tote-700.webp",
-            "1600": "/img/proyectos/tags-y-graffiti-digital/aplicacion-tote-1600.webp",
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-pared-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-pared-1600.webp",
             "_wh": [
               1600,
-              1600
+              838
             ],
-            "alt": "Tags y graffiti digital — Mockup de bolsa de tela con letras en línea negra."
+            "alt": "Tags y graffiti digital — Mockup: wildstyle pintado sobre hormigón."
           }
         ]
       }
-    ]
+    ],
+    "escenas": {
+      "titulo": "Tags y graffiti digital en la calle",
+      "nota": "Mockups sobre fotos reales",
+      "bajar": "Bajá",
+      "items": [
+        {
+          "titulo": "Pared",
+          "texto": "La letra vuelve a donde nació: una pieza a escala de muro, con la textura del hormigón.",
+          "base": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-pared-base-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-pared-base-2400.webp"
+          },
+          "pieza": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-pared-pieza-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-pared-pieza-2400.webp"
+          },
+          "y": 52,
+          "alt": "Mockup: wildstyle blanco y rojo pintado sobre una pared de hormigón."
+        },
+        {
+          "titulo": "Tren",
+          "texto": "Vagones, persianas, cortinas: la pieza viaja y se ve de lejos.",
+          "base": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-tren-base-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-tren-base-2400.webp"
+          },
+          "zoom": 1.9,
+          "ox": 81,
+          "oy": 54,
+          "pieza": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-tren-pieza-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-tren-pieza-2400.webp"
+          },
+          "y": 52,
+          "alt": "Mockup: bubble turquesa y negro pintado en el costado de un vagón de carga."
+        },
+        {
+          "titulo": "Camión",
+          "texto": "Una flota pintada es una valla que recorre la ciudad todos los días.",
+          "base": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-camion-base-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-camion-base-2400.webp"
+          },
+          "zoom": 1.12,
+          "ox": 46,
+          "oy": 48,
+          "pieza": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-camion-pieza-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-camion-pieza-2400.webp"
+          },
+          "y": 48,
+          "alt": "Mockup: letras en bloque negras sobre mancha roja en la caja de un camión blanco."
+        }
+      ]
+    }
   },
   {
     "slug": "flexy",

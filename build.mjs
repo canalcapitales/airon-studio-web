@@ -992,6 +992,7 @@ function proyectosEn(l) {
       ficha: o.ficha ?? p.ficha,
       bloques: o.bloques ?? p.bloques,
       galerias,
+      escenas: p.escenas && { ...p.escenas, ...(o.escenas || {}), items: p.escenas.items.map((e, k) => ({ ...e, ...((o.escenas?.items || [])[k] || {}) })) },
       videoLoop: p.videoLoop && {
         ...p.videoLoop,
         titulo: o.videoLoop?.titulo ?? p.videoLoop.titulo,
@@ -1916,7 +1917,29 @@ function detalle(l, proyectos, p, i) {
   for (let r = 0; elegidas.length < 10 && todasLasPiezas.some((x) => x[r]); r++) for (const x of todasLasPiezas) if (x[r] && elegidas.length < 10) elegidas.push(x[r]);
   // Sin piezas para la tira: si hay video va arriba (y no se repite abajo); si no, la portada diseñada entera
   const videoArriba = !soloGaleria && elegidas.length < 3 && p.videos.length > 0;
-  const cabecera = soloGaleria ? tira(p.galeria, { hero: true }) : elegidas.length >= 3 ? tira(elegidas, { hero: true }) : videoArriba ? videos : `<div class="proyecto-portada proyecto-portada--diseno">${portadaPagina(p, T)}</div>`;
+  const cabecera = p.escenas ? '' : soloGaleria ? tira(p.galeria, { hero: true }) : elegidas.length >= 3 ? tira(elegidas, { hero: true }) : videoArriba ? videos : `<div class="proyecto-portada proyecto-portada--diseno">${portadaPagina(p, T)}</div>`;
+  // Escenas con scroll: una foto real con un velo negro; al bajar, la pieza se pinta de izquierda a derecha (main.js: escenas)
+  const E = p.escenas;
+  const aerosol = '<svg viewBox="0 0 24 48" aria-hidden="true"><rect x="4" y="12" width="16" height="34" rx="3"/><rect x="8" y="5" width="8" height="7" rx="1.5"/><rect x="10" y="1" width="4" height="4"/><path d="M4 22h16M4 38h16" stroke="currentColor" stroke-width="1.5" opacity=".35"/></svg>';
+  const escenas = E
+    ? `<section class="graf" data-graf aria-label="${esc(E.titulo)}" style="--n:${E.items.length}">
+      <div class="graf-fijo">
+        ${E.items
+          .map((e, k) => `<figure class="graf-escena${k ? '' : ' activa'}" data-escena style="--z:${e.zoom ?? 1};--ox:${e.ox ?? 50}%;--oy:${e.oy ?? 50}%;--oyn:${(e.oy ?? 50) / 100}">
+          ${img(e.base, { alt: '', sizes: '100vw', clase: 'graf-base', eager: !k, dims: [2400, 1600] })}
+          <span class="graf-pieza" style="--x:${e.x ?? 50}%;--y:${e.y ?? 50}%">${img(e.pieza, { alt: e.alt, sizes: '100vw', eager: !k, dims: [2400, 1600] })}</span>
+          <span class="graf-velo" aria-hidden="true"></span>
+        </figure>`)
+          .join('')}
+        <span class="graf-lata" aria-hidden="true">${aerosol}<i></i><i></i><i></i></span>
+        <div class="graf-hud wrap">
+          <span class="kicker mono">${esc(E.titulo)}</span>
+          <ol class="graf-textos">${E.items.map((e, k) => `<li class="${k ? '' : 'activa'}"><span class="mono">${dos(k + 1)} / ${dos(E.items.length)}</span><h2 class="graf-titulo">${esc(e.titulo)}</h2><p>${esc(e.texto)}</p></li>`).join('')}</ol>
+          <div class="graf-pie mono"><span class="graf-barra" aria-hidden="true"><i></i></span><span>${esc(E.nota)}</span><span class="graf-bajar" aria-hidden="true">${esc(E.bajar)} ↓</span></div>
+        </div>
+      </div>
+    </section>`
+    : '';
   // Video en loop y sin sonido (como un GIF) que encabeza el caso, con sus etapas marcadas (main.js: videosLoop)
   const vl = p.videoLoop;
   const videoLoop = vl
@@ -2080,9 +2103,10 @@ function detalle(l, proyectos, p, i) {
         <p class="lead">${esc(p.lugar || p.subtitulo)}</p>
       </div>
     </header>
+    ${escenas}
     <div class="wrap">
       ${videoLoop}
-      <div class="proyecto-cabecera" data-vt="p-${p.slug}">${cabecera}</div>
+      ${cabecera ? `<div class="proyecto-cabecera" data-vt="p-${p.slug}">${cabecera}</div>` : ''}
       <dl class="ficha" aria-label="${T.fichaAria}">
         ${ficha}
       </dl>

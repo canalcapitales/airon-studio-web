@@ -8,7 +8,7 @@ const MSG = EN
 
 document.addEventListener('DOMContentLoaded', () => {
   // Cada parte arranca por separado: si una falla, las demás siguen funcionando
-  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, formulario, filtros, areasInicio, filtroClientes, muroLogos, sponsors].forEach((iniciar) => {
+  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, escenas, formulario, filtros, areasInicio, filtroClientes, muroLogos, sponsors].forEach((iniciar) => {
     try { iniciar(); } catch (e) { console.error(e); }
   });
 });
@@ -1998,5 +1998,61 @@ function sponsors() {
         marcas.append(copia);
       });
     }
+  });
+}
+
+// ----- Escenas con scroll (graffiti) -----
+// La sección mide varias pantallas; mientras se recorre, cada escena se activa, el velo negro baja
+// y la pieza se pinta de izquierda a derecha con una lata de aerosol que sigue el borde.
+function escenas() {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('[data-graf]').forEach((sec) => {
+    const figs = [...sec.querySelectorAll('[data-escena]')];
+    const textos = [...sec.querySelectorAll('.graf-textos li')];
+    const lata = sec.querySelector('.graf-lata');
+    const barra = sec.querySelector('.graf-barra');
+    const n = figs.length;
+    const tramo = (t, a, b) => Math.min(1, Math.max(0, (t - a) / (b - a)));
+    let actual = -1, pedido = false;
+    const pintar = () => {
+      pedido = false;
+      const r = sec.getBoundingClientRect();
+      const total = sec.offsetHeight - innerHeight;
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      const p = Math.min(1, Math.max(0, -r.top / total));
+      const seg = Math.min(n - 0.0001, p * n);
+      const i = Math.floor(seg), t = seg - i;
+      if (i !== actual) {
+        figs.forEach((f, k) => f.classList.toggle('activa', k === i));
+        textos.forEach((li, k) => li.classList.toggle('activa', k === i));
+        actual = i;
+      }
+      const pinta = tramo(t, 0.12, 0.72);
+      const velo = 0.9 - 0.35 * tramo(t, 0, 0.2) - 0.4 * tramo(t, 0.72, 0.9);
+      const fig = figs[i];
+      fig.querySelector('.graf-pieza').style.setProperty('--r', pinta.toFixed(4));
+      fig.style.setProperty('--velo', velo.toFixed(3));
+      fig.style.setProperty('--k', (1 + 0.06 * t).toFixed(4));
+      if (barra) barra.style.setProperty('--p', p.toFixed(4));
+      // La lata va sobre el borde de la máscara, a la altura de la pieza
+      // La escala y el origen reales salen del estilo calculado (cambian entre compu y celular)
+      const pz = fig.querySelector('.graf-pieza'), cs = getComputedStyle(pz);
+      const y = (parseFloat(cs.getPropertyValue('--y')) || 50) / 100;
+      const z = new DOMMatrix(cs.transform === 'none' ? undefined : cs.transform).a;
+      const [ox, oy] = cs.transformOrigin.split(' ').map(parseFloat);
+      const W = innerWidth, H = innerHeight;
+      // Dónde queda la altura de la pieza: con cover ocupa toda la pantalla; con contain (celular parado) va arriba
+      const contain = getComputedStyle(fig.querySelector('img')).objectFit === 'contain';
+      const alto = contain ? Math.min(H, W / 1.5) : H, arriba = contain ? (H - alto) * 0.34 : 0;
+      const yPx = oy + (arriba + alto * y - oy) * z;
+      const xPx = ox + ((pinta * 1.3 - 0.15) * W - ox) * z;
+      lata.style.setProperty('--lx', xPx.toFixed(1) + 'px');
+      lata.style.setProperty('--ly', (yPx - 40).toFixed(1) + 'px');
+      lata.classList.toggle('pintando', pinta > 0.02 && pinta < 0.98);
+    };
+    const pedir = () => { if (!pedido) { pedido = true; requestAnimationFrame(pintar); } };
+    addEventListener('scroll', pedir, { passive: true });
+    addEventListener('resize', pedir);
+    pintar();
   });
 }
