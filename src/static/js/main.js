@@ -2012,6 +2012,15 @@ function escenas() {
     const lata = sec.querySelector('.graf-lata');
     const barra = sec.querySelector('.graf-barra');
     const n = figs.length;
+    // La política de seguridad bloquea style="" en el HTML: las variables se cargan desde acá (CSSOM sí está permitido)
+    sec.style.setProperty('--n', n);
+    figs.forEach((f) => {
+      const { z = 1, ox = 50, oy = 50 } = f.dataset;
+      f.style.setProperty('--z', z);
+      f.style.setProperty('--ox', ox + '%');
+      f.style.setProperty('--oy', oy + '%');
+      f.style.setProperty('--oyn', oy / 100);
+    });
     const tramo = (t, a, b) => Math.min(1, Math.max(0, (t - a) / (b - a)));
     let actual = -1, pedido = false;
     const pintar = () => {
@@ -2028,7 +2037,7 @@ function escenas() {
         actual = i;
       }
       const pinta = tramo(t, 0.12, 0.72);
-      const velo = 0.9 - 0.35 * tramo(t, 0, 0.2) - 0.4 * tramo(t, 0.72, 0.9);
+      const velo = 0.68 - 0.18 * tramo(t, 0, 0.2) - 0.35 * tramo(t, 0.72, 0.9);
       const fig = figs[i];
       fig.querySelector('.graf-pieza').style.setProperty('--r', pinta.toFixed(4));
       fig.style.setProperty('--velo', velo.toFixed(3));
@@ -2037,7 +2046,7 @@ function escenas() {
       // La lata va sobre el borde de la máscara, a la altura de la pieza
       // La escala y el origen reales salen del estilo calculado (cambian entre compu y celular)
       const pz = fig.querySelector('.graf-pieza'), cs = getComputedStyle(pz);
-      const y = (parseFloat(cs.getPropertyValue('--y')) || 50) / 100;
+      const y = (parseFloat(pz.dataset.y) || 50) / 100;
       const z = new DOMMatrix(cs.transform === 'none' ? undefined : cs.transform).a;
       const [ox, oy] = cs.transformOrigin.split(' ').map(parseFloat);
       const W = innerWidth, H = innerHeight;
