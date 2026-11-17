@@ -2056,6 +2056,286 @@
     ]
   },
   {
+    "slug": "tags-y-graffiti-digital",
+    "titulo": "Tags y graffiti digital",
+    "subtitulo": "Línea de ilustración",
+    "categorias": [
+      "ilustracion",
+      "musical"
+    ],
+    "portada": {
+      "640": "/img/casos/tags-y-graffiti-digital-portada-640.webp",
+      "1280": "/img/casos/tags-y-graffiti-digital-portada-1280.webp",
+      "1920": "/img/casos/tags-y-graffiti-digital-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [
+      [
+        "Línea",
+        "Ilustración"
+      ],
+      [
+        "Ilustración",
+        "XPRES (@xepresta)",
+        "https://www.instagram.com/xepresta/"
+      ],
+      [
+        "Técnica",
+        "Ilustración digital"
+      ],
+      [
+        "Estilos",
+        "Tags, bubbles, letras en bloque y wildstyle"
+      ],
+      [
+        "Aplicaciones",
+        "Indumentaria, flyers, portadas, stickers y merch"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "La propuesta",
+        "parrafos": [
+          "Una línea de ilustración dedicada a la letra del graffiti, dibujada en digital: tags, bubbles, letras en bloque y wildstyle. Toda la energía de la calle, lista para usar en una marca, un evento o un lanzamiento."
+        ]
+      },
+      {
+        "titulo": "Cómo lo trabajamos",
+        "parrafos": [
+          "Partimos del nombre o la palabra que hay que escribir y lo probamos en muchas firmas a mano alzada. Elegimos la que mejor funciona, la pasamos a boceto en línea y le damos color, volumen y detalles. El resultado se entrega en alta resolución y con fondo transparente, listo para imprimir o animar."
+        ]
+      },
+      {
+        "titulo": "Dónde funciona",
+        "parrafos": [
+          "Logos con actitud urbana, remeras y buzos, flyers y afiches de fiestas, portadas de discos y singles, stickers, packaging y redes. La misma letra se adapta a cada soporte sin perder su carácter."
+        ]
+      }
+    ],
+    "galeria": [],
+    "videos": [],
+    "galerias": [
+      {
+        "titulo": "La letra",
+        "texto": "Piezas originales: la esencia del estilo, sin soporte.",
+        "estilo": "grilla",
+        "columnas": 2,
+        "imagenes": [
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/letra-collage-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/letra-collage-1600.webp",
+            "_wh": [
+              1600,
+              1131
+            ],
+            "alt": "Tags y graffiti digital — Collage de letras superpuestas en verde, rojo, naranja y amarillo."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/letra-wildstyle-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/letra-wildstyle-1600.webp",
+            "_wh": [
+              1600,
+              1000
+            ],
+            "alt": "Tags y graffiti digital — Wildstyle en blanco con fondo rojo y destellos amarillos."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/letra-bubble-turquesa-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/letra-bubble-turquesa-1600.webp",
+            "_wh": [
+              1600,
+              1000
+            ],
+            "alt": "Tags y graffiti digital — Bubble en negro con contorno turquesa."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/letra-bloque-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/letra-bloque-1600.webp",
+            "_wh": [
+              1600,
+              1000
+            ],
+            "alt": "Tags y graffiti digital — Letras en bloque en negro y blanco sobre mancha roja."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/letra-bubble-rojo-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/letra-bubble-rojo-1600.webp",
+            "_wh": [
+              1600,
+              1000
+            ],
+            "alt": "Tags y graffiti digital — Bubble en rojo con contorno blanco y chorreados."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/letra-bubble-amarillo-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/letra-bubble-amarillo-1600.webp",
+            "_wh": [
+              1600,
+              1000
+            ],
+            "alt": "Tags y graffiti digital — Bubble en amarillo con contorno naranja."
+          }
+        ]
+      },
+      {
+        "titulo": "Del tag a la pieza",
+        "texto": "El proceso: muchas firmas a mano alzada, el boceto en línea y la versión final a color.",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/proceso-1-tags-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/proceso-1-tags-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "Tags y graffiti digital — Hoja de pruebas con muchas versiones de la misma firma."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/proceso-2-boceto-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/proceso-2-boceto-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "Tags y graffiti digital — Boceto en línea negra de las letras elegidas."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/proceso-3-color-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/proceso-3-color-1600.webp",
+            "_wh": [
+              1600,
+              1200
+            ],
+            "alt": "Tags y graffiti digital — Versión final en negro y turquesa."
+          }
+        ]
+      },
+      {
+        "titulo": "Aplicaciones",
+        "texto": "La misma letra, lista para cada soporte: indumentaria, gráfica de eventos, vehículos y paredes.",
+        "nota": "Mockups: propuestas de aplicación",
+        "estilo": "grilla",
+        "columnas": 3,
+        "imagenes": [
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-remera-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-remera-1600.webp",
+            "_wh": [
+              1600,
+              1600
+            ],
+            "alt": "Tags y graffiti digital — Mockup: remera negra con bubble rojo estampado."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-buzo-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-buzo-1600.webp",
+            "_wh": [
+              1600,
+              1600
+            ],
+            "alt": "Tags y graffiti digital — Mockup: buzo blanco con bubble turquesa estampado."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-afiche-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-afiche-1600.webp",
+            "_wh": [
+              1600,
+              1422
+            ],
+            "alt": "Tags y graffiti digital — Mockup: afiche de fiesta hip hop pegado en una pared."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-camion-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-camion-1600.webp",
+            "_wh": [
+              1600,
+              1067
+            ],
+            "alt": "Tags y graffiti digital — Mockup: camión blanco con letras en bloque en la caja."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-tren-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-tren-1600.webp",
+            "_wh": [
+              1600,
+              1311
+            ],
+            "alt": "Tags y graffiti digital — Mockup: vagón de carga con bubble turquesa."
+          },
+          {
+            "700": "/img/proyectos/tags-y-graffiti-digital/real-pared-700.webp",
+            "1600": "/img/proyectos/tags-y-graffiti-digital/real-pared-1600.webp",
+            "_wh": [
+              1600,
+              838
+            ],
+            "alt": "Tags y graffiti digital — Mockup: wildstyle pintado sobre hormigón."
+          }
+        ]
+      }
+    ],
+    "escenas": {
+      "titulo": "Tags y graffiti digital en la calle",
+      "nota": "Mockups sobre fotos reales",
+      "bajar": "Bajá",
+      "items": [
+        {
+          "titulo": "Pared",
+          "texto": "La letra vuelve a donde nació: una pieza a escala de muro, con la textura del hormigón.",
+          "base": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-pared-base-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-pared-base-2400.webp"
+          },
+          "pieza": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-pared-pieza-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-pared-pieza-2400.webp"
+          },
+          "y": 52,
+          "alt": "Mockup: wildstyle blanco y rojo pintado sobre una pared de hormigón."
+        },
+        {
+          "titulo": "Tren",
+          "texto": "Vagones, persianas, cortinas: la pieza viaja y se ve de lejos.",
+          "base": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-tren-base-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-tren-base-2400.webp"
+          },
+          "zoom": 1.9,
+          "ox": 81,
+          "oy": 54,
+          "pieza": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-tren-pieza-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-tren-pieza-2400.webp"
+          },
+          "y": 52,
+          "alt": "Mockup: bubble turquesa y negro pintado en el costado de un vagón de carga."
+        },
+        {
+          "titulo": "Camión",
+          "texto": "Una flota pintada es una valla que recorre la ciudad todos los días.",
+          "base": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-camion-base-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-camion-base-2400.webp"
+          },
+          "zoom": 1.12,
+          "ox": 46,
+          "oy": 48,
+          "pieza": {
+            "1200": "/img/proyectos/tags-y-graffiti-digital/escena-camion-pieza-1200.webp",
+            "2400": "/img/proyectos/tags-y-graffiti-digital/escena-camion-pieza-2400.webp"
+          },
+          "y": 48,
+          "alt": "Mockup: letras en bloque negras sobre mancha roja en la caja de un camión blanco."
+        }
+      ]
+    }
+  },
+  {
     "slug": "flexy",
     "titulo": "Flexy",
     "subtitulo": "Manual de marca",
