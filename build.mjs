@@ -1918,16 +1918,17 @@ function detalle(l, proyectos, p, i) {
   // Sin piezas para la tira: si hay video va arriba (y no se repite abajo); si no, la portada diseñada entera
   const videoArriba = !soloGaleria && elegidas.length < 3 && p.videos.length > 0;
   const cabecera = p.escenas ? '' : soloGaleria ? tira(p.galeria, { hero: true }) : elegidas.length >= 3 ? tira(elegidas, { hero: true }) : videoArriba ? videos : `<div class="proyecto-portada proyecto-portada--diseno">${portadaPagina(p, T)}</div>`;
+  // Los datos de cada escena van en data-* (la política de seguridad del sitio no deja usar style="" en el HTML)
   // Escenas con scroll: una foto real con un velo negro; al bajar, la pieza se pinta de izquierda a derecha (main.js: escenas)
   const E = p.escenas;
   const aerosol = '<svg viewBox="0 0 24 48" aria-hidden="true"><rect x="4" y="12" width="16" height="34" rx="3"/><rect x="8" y="5" width="8" height="7" rx="1.5"/><rect x="10" y="1" width="4" height="4"/><path d="M4 22h16M4 38h16" stroke="currentColor" stroke-width="1.5" opacity=".35"/></svg>';
   const escenas = E
-    ? `<section class="graf" data-graf aria-label="${esc(E.titulo)}" style="--n:${E.items.length}">
+    ? `<section class="graf" data-graf aria-label="${esc(E.titulo)}" data-n="${E.items.length}">
       <div class="graf-fijo">
         ${E.items
-          .map((e, k) => `<figure class="graf-escena${k ? '' : ' activa'}" data-escena style="--z:${e.zoom ?? 1};--ox:${e.ox ?? 50}%;--oy:${e.oy ?? 50}%;--oyn:${(e.oy ?? 50) / 100}">
+          .map((e, k) => `<figure class="graf-escena${k ? '' : ' activa'}" data-escena data-z="${e.zoom ?? 1}" data-ox="${e.ox ?? 50}" data-oy="${e.oy ?? 50}">
           ${img(e.base, { alt: '', sizes: '100vw', clase: 'graf-base', eager: !k, dims: [2400, 1600] })}
-          <span class="graf-pieza" style="--x:${e.x ?? 50}%;--y:${e.y ?? 50}%">${img(e.pieza, { alt: e.alt, sizes: '100vw', eager: !k, dims: [2400, 1600] })}</span>
+          <span class="graf-pieza" data-y="${e.y ?? 50}">${img(e.pieza, { alt: e.alt, sizes: '100vw', eager: !k, dims: [2400, 1600] })}</span>
           <span class="graf-velo" aria-hidden="true"></span>
         </figure>`)
           .join('')}
