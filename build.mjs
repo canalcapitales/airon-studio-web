@@ -1935,8 +1935,8 @@ function detalle(l, proyectos, p, i) {
         <span class="graf-lata" aria-hidden="true">${aerosol}<i></i><i></i><i></i></span>
         <div class="graf-hud wrap">
           <span class="kicker mono">${esc(E.titulo)}</span>
-          <ol class="graf-textos">${E.items.map((e, k) => `<li class="${k ? '' : 'activa'}"><span class="mono">${dos(k + 1)} / ${dos(E.items.length)}</span><h2 class="graf-titulo">${esc(e.titulo)}</h2><p>${esc(e.texto)}</p></li>`).join('')}</ol>
-          <div class="graf-pie mono"><span class="graf-barra" aria-hidden="true"><i></i></span><span>${esc(E.nota)}</span><span class="graf-bajar" aria-hidden="true">${esc(E.bajar)} ↓</span></div>
+          <ol class="graf-textos">${E.items.map((e, k) => `<li class="${k ? '' : 'activa'}"><span class="mono">${dos(k + 1)} / ${dos(E.items.length)}</span><p>${esc(e.texto)}</p></li>`).join('')}</ol>
+          <div class="graf-pie mono"><span class="graf-barra" aria-hidden="true"><i></i></span><span>${esc(E.nota)}</span><span class="graf-pintar">${esc(E.pintar)}</span><span class="graf-bajar" aria-hidden="true">${esc(E.bajar)} ↓</span></div>
         </div>
       </div>
     </section>`
