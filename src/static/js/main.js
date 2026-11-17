@@ -2003,7 +2003,7 @@ function sponsors() {
 
 // ----- Escenas con scroll (graffiti) -----
 // La sección mide varias pantallas; mientras se recorre, cada escena se activa y el velo negro baja.
-// Con mouse: el cursor es una lata de aerosol y la pieza aparece donde se pinta (se completa sola al final de cada escena).
+// Con mouse: el cursor es una lata de aerosol y la pieza aparece donde se pinta, además de descubrirse sola al bajar.
 // En el celular: la pieza se pinta sola de izquierda a derecha al bajar, con la lata siguiendo el borde.
 function escenas() {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -2134,22 +2134,12 @@ function escenas() {
       fig.style.setProperty('--velo', (0.68 - 0.18 * tramo(t, 0, 0.2) - 0.35 * tramo(t, 0.72, 0.9)).toFixed(3));
       fig.style.setProperty('--k', (1 + 0.06 * t).toFixed(4));
       if (barra) barra.style.setProperty('--p', p.toFixed(4));
-      if (conMouse) {
-        // Al final de la escena la pieza se completa sola, por si no se pintó todo
-        const m = mascaras[i];
-        if (t > 0.8 && !m.llena) {
-          m.x.fillStyle = `rgba(0,0,0,${(0.04 + 0.5 * tramo(t, 0.8, 1)).toFixed(3)})`;
-          m.x.fillRect(0, 0, m.c.width, m.c.height);
-          if (t > 0.97) m.llena = true;
-          m.sucia = true;
-          volcar();
-        }
-        return;
-      }
-      // Sin mouse: la pieza se descubre de izquierda a derecha y la lata sigue el borde
+      // La pieza se descubre sola de izquierda a derecha al bajar (con mouse, además aparece donde se pinta)
       const pinta = tramo(t, 0.12, 0.72);
       const pz = fig.querySelector('.graf-pieza');
       pz.style.setProperty('--r', pinta.toFixed(4));
+      if (conMouse) return;
+      // Sin mouse: la lata sigue el borde de la pintura
       const y = (parseFloat(pz.dataset.y) || 50) / 100;
       const { z, ox, oy } = zoom(fig);
       const W = innerWidth, H = innerHeight;
