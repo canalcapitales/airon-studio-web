@@ -938,5 +938,83 @@
         ]
       }
     ]
+  },
+  "tags-y-graffiti-digital": {
+    "titulo": "Tags & digital graffiti",
+    "subtitulo": "Illustration line",
+    "ficha": [
+      [
+        "Line",
+        "Illustration"
+      ],
+      [
+        "Technique",
+        "Digital illustration"
+      ],
+      [
+        "Styles",
+        "Tags, bubbles, block letters and wildstyle"
+      ],
+      [
+        "Applications",
+        "Apparel, flyers, covers, stickers and merch"
+      ]
+    ],
+    "bloques": [
+      {
+        "titulo": "The proposal",
+        "parrafos": [
+          "An illustration line devoted to graffiti lettering, drawn digitally: tags, bubbles, block letters and wildstyle. All the energy of the street, ready to use for a brand, an event or a release."
+        ]
+      },
+      {
+        "titulo": "How we work",
+        "parrafos": [
+          "We start from the name or word to be written and try it out in many freehand tags. We pick the one that works best, turn it into a line sketch and add color, volume and details. The result is delivered in high resolution with a transparent background, ready to print or animate."
+        ]
+      },
+      {
+        "titulo": "Where it works",
+        "parrafos": [
+          "Logos with an urban attitude, T-shirts and hoodies, party flyers and posters, album and single covers, stickers, packaging and social media. The same lettering adapts to every medium without losing its character."
+        ]
+      }
+    ],
+    "galerias": [
+      {
+        "titulo": "The lettering",
+        "texto": "Original pieces: the essence of the style, on their own.",
+        "alts": [
+          "Tags & digital graffiti — Collage of overlapping letters in green, red, orange and yellow.",
+          "Tags & digital graffiti — White wildstyle on a red background with yellow sparkles.",
+          "Tags & digital graffiti — Black bubble letters with a teal outline.",
+          "Tags & digital graffiti — Black and white block letters on a red splash.",
+          "Tags & digital graffiti — Red bubble letters with a white outline and drips.",
+          "Tags & digital graffiti — Yellow bubble letters with an orange outline."
+        ]
+      },
+      {
+        "titulo": "From tag to piece",
+        "texto": "The process: many freehand tags, the line sketch and the final color version.",
+        "alts": [
+          "Tags & digital graffiti — Practice sheet with many versions of the same tag.",
+          "Tags & digital graffiti — Black line sketch of the chosen letters.",
+          "Tags & digital graffiti — Final version in black and teal."
+        ]
+      },
+      {
+        "titulo": "Applications",
+        "texto": "How the lettering lives off screen: apparel, event graphics, music and objects.",
+        "nota": "Mockups: application proposals",
+        "alts": [
+          "Tags & digital graffiti — Mockup of a black T-shirt with printed block letters.",
+          "Tags & digital graffiti — Mockup of an off-white hoodie with red bubble letters on the chest.",
+          "Tags & digital graffiti — Mockup of a hip hop party poster on a wall.",
+          "Tags & digital graffiti — Mockup of an album cover with a lettering collage and vinyl.",
+          "Tags & digital graffiti — Mockup of die-cut stickers with four pieces.",
+          "Tags & digital graffiti — Mockup of a tote bag with black line lettering."
+        ]
+      }
+    ]
   }
 }
