@@ -19,7 +19,7 @@ const SITIO = {
 const IDIOMAS = ['es', 'en'];
 const FUNDACION = 2015;
 const anio = new Date().getFullYear();
-const OPCIONES_CLAVE = ['integral', 'branding', 'grafica', 'redes', 'ploteo', 'web', 'sistemas', 'musical', 'motion', 'mural', 'foto', 'publicidad', 'otro'];
+const OPCIONES_CLAVE = ['integral', 'branding', 'grafica', 'redes', 'ploteo', 'web', 'sistemas', 'musical', 'motion', 'mural', 'foto', 'ilustracion', 'publicidad', 'otro'];
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
@@ -405,7 +405,7 @@ const TXT = {
     equipo: [
       ['Dirección creativa', 'Matías González, fundador del estudio. Define el concepto, coordina al equipo y cuida que cada pieza cumpla su objetivo.'],
       ['Diseño gráfico y de marca', 'Identidades, logos, manuales de marca, packaging y piezas gráficas.'],
-      ['Ilustración', 'Personajes, ilustraciones editoriales y para redes, y bocetos para murales.'],
+      ['Ilustración', 'Tags y graffiti digital, personajes, ilustraciones editoriales y para redes, y bocetos para murales.'],
       ['Muralismo y arte urbano', 'Artistas que pintan fachadas, interiores y persianas, en cualquier escala.'],
       ['Desarrollo web', 'Programadores que construyen sitios rápidos, seguros y fáciles de mantener.'],
       ['Diseño UX/UI', 'Interfaces claras para webs y aplicaciones, pensadas para quien las usa.'],
@@ -466,11 +466,11 @@ const TXT = {
       ['Charlamos el proyecto', 'Definimos objetivos, público, plazos y presupuesto.'],
       ['Te enviamos la propuesta', 'Un presupuesto por escrito, sin compromiso, antes de empezar.'],
     ],
-    opciones: ['Diseño integral', 'Branding e identidad', 'Diseño gráfico', 'Redes sociales', 'Ploteo vehicular', 'Diseño web', 'Sistema de gestión', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Publicidad en la web', 'Otro'],
+    opciones: ['Diseño integral', 'Branding e identidad', 'Diseño gráfico', 'Redes sociales', 'Ploteo vehicular', 'Diseño web', 'Sistema de gestión', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Ilustración', 'Publicidad en la web', 'Otro'],
     enviar: 'Enviar mensaje →', privacidad: 'Tus datos solo se usan para responderte.',
     gracias: { titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' },
     volverInicio: 'Volver al inicio',
-    categorias: { integral: 'Diseño integral', branding: 'Branding', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', aplicada: 'Gráfica', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Web y sistemas', urbano: 'Murales', foto: 'Fotografía' },
+    categorias: { integral: 'Diseño integral', branding: 'Branding', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', aplicada: 'Gráfica', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Web y sistemas', urbano: 'Murales', foto: 'Fotografía', ilustracion: 'Ilustración' },
     servicios: [
       ['integral', 'Diseño integral', 'Toda la comunicación de una empresa: identidad, papelería, vehículos y redes.'],
       ['branding', 'Identidad & branding', 'Logos, sistemas visuales y manuales de marca.'],
@@ -483,6 +483,7 @@ const TXT = {
       ['motion', 'Motion graphics', 'Animación para TV y redes.'],
       ['urbano', 'Arte urbano', 'Murales y graffiti que transforman espacios.'],
       ['foto', 'Fotografía analógica', 'Fotografía en película, con mirada de autor.'],
+      ['ilustracion', 'Ilustración', 'Tags y graffiti digital para logos, portadas, flyers, merch y redes.'],
     ],
   },
   en: {
@@ -856,7 +857,7 @@ const TXT = {
     equipo: [
       ['Creative direction', 'Matías González, founder of the studio. He defines the concept, leads the team and makes sure every piece meets its goal.'],
       ['Graphic and brand design', 'Identities, logos, brand guidelines, packaging and graphic pieces.'],
-      ['Illustration', 'Characters, editorial and social media illustrations, and mural sketches.'],
+      ['Illustration', 'Tags and digital graffiti, characters, editorial and social media illustrations, and mural sketches.'],
       ['Murals and street art', 'Artists who paint façades, interiors and shutters, at any scale.'],
       ['Web development', 'Developers who build fast, secure and easy-to-maintain websites.'],
       ['UX/UI design', 'Clear interfaces for websites and apps, designed for the people who use them.'],
@@ -914,11 +915,11 @@ const TXT = {
       ['We talk about the project', 'We define goals, audience, timeline and budget.'],
       ['We send you a proposal', 'A written, no-obligation quote before we start.'],
     ],
-    opciones: ['Integrated design', 'Branding and identity', 'Graphic design', 'Social media', 'Vehicle wraps', 'Web design', 'Management system', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Advertising on the site', 'Other'],
+    opciones: ['Integrated design', 'Branding and identity', 'Graphic design', 'Social media', 'Vehicle wraps', 'Web design', 'Management system', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Illustration', 'Advertising on the site', 'Other'],
     enviar: 'Send message →', privacidad: 'Your details are only used to reply to you.',
     gracias: { titulo: 'Message sent', h1: 'Thank you!', texto: "We received your message. We'll get back to you shortly." },
     volverInicio: 'Back to home',
-    categorias: { integral: 'Integrated design', branding: 'Branding', redes: 'Social media', ploteo: 'Vehicle wraps', aplicada: 'Graphic design', musical: 'Music artwork', motion: 'Motion & video', web: 'Web & systems', urbano: 'Murals', foto: 'Photography' },
+    categorias: { integral: 'Integrated design', branding: 'Branding', redes: 'Social media', ploteo: 'Vehicle wraps', aplicada: 'Graphic design', musical: 'Music artwork', motion: 'Motion & video', web: 'Web & systems', urbano: 'Murals', foto: 'Photography', ilustracion: 'Illustration' },
     servicios: [
       ['integral', 'Integrated design', 'A company’s whole communication: identity, stationery, vehicles and social media.'],
       ['branding', 'Identity & branding', 'Logos, visual systems and brand manuals.'],
@@ -931,6 +932,7 @@ const TXT = {
       ['motion', 'Motion graphics', 'Animation for TV and social media.'],
       ['urbano', 'Street art', 'Murals and graffiti that transform spaces.'],
       ['foto', 'Analog photography', 'Film photography with an author’s eye.'],
+      ['ilustracion', 'Illustration', 'Tags and digital graffiti for logos, covers, flyers, merch and social media.'],
     ],
   },
 };
@@ -938,6 +940,8 @@ const CAT_IDS = Object.keys(TXT.es.categorias);
 
 // ---------- datos de proyectos por idioma ----------
 const BASE = JSON.parse(readFileSync('src/data/proyectos.json', 'utf8'));
+// Áreas que ya tienen trabajos: un área nueva sin trabajos no se linkea ni aparece en los filtros hasta que se cargue el primero
+const CON_TRABAJOS = new Set(BASE.flatMap((p) => p.categorias));
 const EN = JSON.parse(readFileSync('src/data/proyectos.en.json', 'utf8'));
 // Valores del Tarifario Mural (se actualizan en este archivo)
 const TARIFARIO = JSON.parse(readFileSync('src/data/tarifario-murales.json', 'utf8'));
@@ -1447,7 +1451,7 @@ function inicio(l, proyectos) {
     ...datosClientes.map(({ trabajos }, i) => vista(`c${i}`, trabajos[0], false)),
     ...proyectos.map((p) => vista(`t-${p.slug}`, p, false)),
   ].join('\n        ');
-  const conCat = T.servicios.filter(([cat]) => cat);
+  const conCat = T.servicios.filter(([cat]) => cat && CON_TRABAJOS.has(cat));
   const lista = (oculta) =>
     `<ul class="franja-lista"${oculta ? ' aria-hidden="true"' : ''}>${conCat
       .map(([cat, nombre]) => `<li><a href="${enlaceServicio(l, cat)}"${oculta ? ' tabindex="-1"' : ''}>${esc(nombre)}</a></li><li class="franja-sep" aria-hidden="true"></li>`)
@@ -1564,6 +1568,7 @@ function listado(l, proyectos) {
   const T = TXT[l];
   const filtros = [{ id: 'todos', nombre: T.todos, n: proyectos.length }]
     .concat(CAT_IDS.map((id) => ({ id, nombre: nombreCat(l, id), n: proyectos.filter((p) => p.categorias.includes(id)).length })))
+    .filter((c) => c.n > 0)
     .map((c) => `<button type="button" class="pill" data-filter="${c.id}" aria-pressed="${c.id === 'todos'}">${esc(c.nombre)}<span class="mono">${c.n}</span></button>`)
     .join('\n        ');
   const cards = proyectos.map((p, i) => tarjeta(l, p, i, { sizes: '(min-width: 900px) 30vw, 50vw' })).join('\n      ');
@@ -2742,7 +2747,7 @@ function murales(l, proyectos) {
 function estudio(l, proyectos) {
   const T = TXT[l];
   const disciplinas = T.servicios
-    .map(([cat, nombre], i) => `<li class="reveal"><span class="mono num">${num(i)}</span>${cat ? `<a href="${enlaceServicio(l, cat)}">${esc(nombre)}</a>` : `<span>${esc(nombre)}</span>`}</li>`)
+    .map(([cat, nombre], i) => `<li class="reveal"><span class="mono num">${num(i)}</span>${cat && CON_TRABAJOS.has(cat) ? `<a href="${enlaceServicio(l, cat)}">${esc(nombre)}</a>` : `<span>${esc(nombre)}</span>`}</li>`)
     .join('');
   const equipo = T.equipo
     .map(([rol, texto], i) => `<li class="servicio reveal${i === 0 ? ' servicio--destacado' : ''}"><span class="mono num">${num(i)}</span><div><h3>${esc(rol)}</h3><p>${esc(texto)}</p></div></li>`)
