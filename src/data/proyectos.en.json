@@ -85,21 +85,6 @@
       { "titulo": "The result", "parrafos": ["A fast, modern piece designed to sit with the sporty look of the broadcast, catch the audience's attention and boost the visibility of both brands."] }
     ]
   },
-  "web-airon-studio": {
-    "titulo": "AIRON Studio website",
-    "subtitulo": "Website design and development",
-    "cta": "Want to see it live?",
-    "ficha": [["Client", "AIRON Studio"], ["Year", "2026"], ["Role", "UX/UI design and development"], ["Hosting", "Cloudflare"]],
-    "bloques": [
-      { "titulo": "The challenge", "destacado": "Moving from a generic portfolio to a website of our own that organizes more than twenty projects into a clear system, with a strong identity and designed mobile-first.", "parrafos": [] },
-      { "titulo": "The process", "parrafos": ["Information architecture by discipline, design for desktop and mobile, and a visual system of our own: Anton for headlines, Instrument Sans for text, IBM Plex Mono for data and the logo's red as the only accent.", "A gallery with category filters, a full-screen image viewer, animated counters and a moving strip of disciplines that leads to each section."] },
-      { "titulo": "The result", "parrafos": ["A light, fast site with self-hosted fonts, security headers, a contact form connected to the studio's email and structured data for search engines. Every change goes live automatically in under two minutes."] }
-    ],
-    "galerias": [
-      { "titulo": "Desktop", "alts": ["AIRON Studio website — desktop home", "AIRON Studio website — project gallery with filters", "AIRON Studio website — project page", "AIRON Studio website — full-screen image viewer", "AIRON Studio website — the studio in numbers"] },
-      { "titulo": "Mobile", "alts": ["AIRON Studio website — mobile home", "AIRON Studio website — mobile menu", "AIRON Studio website — projects on mobile", "AIRON Studio website — brand wall on mobile"] }
-    ]
-  },
   "equilibria": {
     "subtitulo": "Brand identity and full digital presence",
     "cta": "Want a system like this for your brand?",
