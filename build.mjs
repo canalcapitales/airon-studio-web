@@ -1078,7 +1078,9 @@ const ASSETS = {};
 function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/img/og/inicio-${l}.jpg`, datos, cuerpo, publicidadEnPie = true }) {
   const T = TXT[l];
   const R = RUTAS[l];
-  const actual = (id) => (activo === id ? ' aria-current="page"' : '');
+  // Clientes y Murales ya no están en el menú: desde esas páginas se marca Áreas, que es por donde se llega a los trabajos
+  const marcado = ['clientes', 'murales'].includes(activo) ? 'proyectos' : activo;
+  const actual = (id) => (marcado === id ? ' aria-current="page"' : '');
   const tituloCompleto = titulo ? `${titulo} — AIRON Studio` : `AIRON Studio — ${T.lema}`;
   const url = SITIO.url + rutaDe(l, clave, slug);
   const alternas = IDIOMAS.map((x) => `<link rel="alternate" hreflang="${TXT[x].htmlLang}" href="${SITIO.url}${rutaDe(x, clave, slug)}">`).join('\n  ');
@@ -1130,8 +1132,6 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
       <nav id="menu" class="nav" aria-label="${T.navPrincipal}">
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
         <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
-        <a class="nav-link" href="${R.clientes}"${actual('clientes')}>${T.nav.clientes}</a>
-        <a class="nav-link" href="${R.murales}"${actual('murales')}>${T.murales.nav}</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
         <a class="nav-link nav-tarifario" href="${R.tarifarios}"${actual('tarifario')}>${T.tarifarios.nav}</a>
         <a class="nav-link nav-cta" href="${R.contacto}"${actual('contacto')}>${T.nav.contacto}</a>
