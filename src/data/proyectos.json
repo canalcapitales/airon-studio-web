@@ -2491,9 +2491,9 @@
       "web"
     ],
     "portada": {
-      "640": "/img/casos/web-airon-studio-portada-640.webp",
-      "1280": "/img/casos/web-airon-studio-portada-1280.webp",
-      "1920": "/img/casos/web-airon-studio-portada-1920.webp",
+      "640": "/img/casos/web-airon-studio-portada-v2-640.webp",
+      "1280": "/img/casos/web-airon-studio-portada-v2-1280.webp",
+      "1920": "/img/casos/web-airon-studio-portada-v2-1920.webp",
       "_wh": [
         1920,
         1502
@@ -2643,6 +2643,94 @@
         "url": "https://aironstudio.com.ar/"
       }
     ]
+  },
+  {
+    "slug": "web-equilibria",
+    "titulo": "Equilibria",
+    "subtitulo": "Sitio web · Kinesiología y rehabilitación",
+    "categorias": [
+      "web"
+    ],
+    "externo": "https://www.equilibriaweb.com.ar/",
+    "portada": {
+      "640": "/img/casos/web-equilibria-portada-640.webp",
+      "1280": "/img/casos/web-equilibria-portada-1280.webp",
+      "1920": "/img/casos/web-equilibria-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [],
+    "bloques": [],
+    "galeria": [],
+    "videos": []
+  },
+  {
+    "slug": "web-laion",
+    "titulo": "LAION",
+    "subtitulo": "Sitio web · Graffiti writer",
+    "categorias": [
+      "web"
+    ],
+    "externo": "https://laion.com.ar/",
+    "portada": {
+      "640": "/img/casos/web-laion-portada-640.webp",
+      "1280": "/img/casos/web-laion-portada-1280.webp",
+      "1920": "/img/casos/web-laion-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [],
+    "bloques": [],
+    "galeria": [],
+    "videos": []
+  },
+  {
+    "slug": "web-laionbeats",
+    "titulo": "Laionbeats",
+    "subtitulo": "Sitio web · Productor musical",
+    "categorias": [
+      "web"
+    ],
+    "externo": "https://laionbeats.laionbeats.workers.dev/",
+    "portada": {
+      "640": "/img/casos/web-laionbeats-portada-640.webp",
+      "1280": "/img/casos/web-laionbeats-portada-1280.webp",
+      "1920": "/img/casos/web-laionbeats-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [],
+    "bloques": [],
+    "galeria": [],
+    "videos": []
+  },
+  {
+    "slug": "web-denoche",
+    "titulo": "DENOCHE",
+    "subtitulo": "Plataforma de venta de entradas",
+    "categorias": [
+      "web"
+    ],
+    "externo": "https://argenticket.com.ar/",
+    "portada": {
+      "640": "/img/casos/web-denoche-portada-640.webp",
+      "1280": "/img/casos/web-denoche-portada-1280.webp",
+      "1920": "/img/casos/web-denoche-portada-1920.webp",
+      "_wh": [
+        1920,
+        1502
+      ]
+    },
+    "ficha": [],
+    "bloques": [],
+    "galeria": [],
+    "videos": []
   },
   {
     "slug": "equilibria",
