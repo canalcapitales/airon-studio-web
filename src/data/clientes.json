@@ -20,7 +20,7 @@
     { "id": "intekno", "nombre": "Intekno", "grupo": "musica", "rubro": { "es": "Fiestas electrónicas", "en": "Electronic music events" }, "casos": ["flyers"] },
     { "id": "tkno-radio", "nombre": "TKNO Radio", "grupo": "musica", "rubro": { "es": "Radio online", "en": "Online radio" }, "casos": ["flyers"] },
     { "id": "tag-integridad", "nombre": "Tag Integridad", "grupo": "cultura", "casos": ["tag-integridad"] },
-    { "id": "airon-studio", "nombre": "AIRON Studio", "grupo": "creativos", "rubro": { "es": "Trabajos propios", "en": "Our own work" }, "logo": "/img/logos/airon.svg", "fondo": "claro", "casos": ["web-airon-studio", "analogic-photos"] }
+    { "id": "airon-studio", "nombre": "AIRON Studio", "grupo": "creativos", "rubro": { "es": "Trabajos propios", "en": "Our own work" }, "logo": "/img/logos/airon.svg", "fondo": "claro", "casos": ["analogic-photos"] }
   ],
   "colecciones": ["branding-x-airon-studio", "spotify-covers", "flyers", "portadas", "redes-para-marcas"]
 }
