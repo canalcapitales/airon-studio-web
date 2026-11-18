@@ -3335,8 +3335,8 @@
     "titulo": "AFFUM",
     "subtitulo": "Identidad, packaging y redes",
     "categorias": [
+      "integral",
       "branding",
-      "aplicada",
       "redes"
     ],
     "portada": {
@@ -4022,7 +4022,7 @@
     "titulo": "Flyers",
     "subtitulo": "{n} piezas para fiestas, shows y lanzamientos",
     "categorias": [
-      "aplicada"
+      "flyers"
     ],
     "portada": {
       "640": "/img/casos/flyers-portada-640.webp",
@@ -4066,7 +4066,7 @@
     "titulo": "Tag Integridad",
     "subtitulo": "Lettering graffiti para sticker",
     "categorias": [
-      "aplicada"
+      "ilustracion"
     ],
     "portada": {
       "640": "/img/casos/tag-integridad-portada-640.webp",
