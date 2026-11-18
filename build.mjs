@@ -1135,7 +1135,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
       <a class="logo" href="${R.inicio}" aria-label="${T.inicioAria}">${logo('logo-header')}</a>
       <nav id="menu" class="nav" aria-label="${T.navPrincipal}">
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
-        <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
+        <a class="nav-link" href="${trabajosHome(l)}"${actual('proyectos')}>${T.nav.proyectos}</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
         <a class="nav-link nav-tarifario" href="${R.tarifarios}"${actual('tarifario')}>${T.tarifarios.nav}</a>
         <a class="nav-link nav-cta" href="${R.contacto}"${actual('contacto')}>${T.nav.contacto}</a>
@@ -1240,6 +1240,8 @@ function marquesinaPublicidad(l, variante = '') {
 
 const nombreCat = (l, id) => TXT[l].categorias[id] ?? id;
 const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ');
+// "Áreas" lleva a la sección Trabajos del inicio (la lista de áreas), no a la grilla con todos los proyectos
+const trabajosHome = (l) => `${RUTAS[l].inicio}#trabajos`;
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 // Los servicios llevan a su categoría; arte urbano tiene su propia página
 // Categoría del proyecto → tipo de proyecto en el formulario de Contacto
@@ -1390,7 +1392,7 @@ function destacados(l, proyectos, { primeraRapida = false } = {}) {
           <span class="kicker mono">${T.destacadosKicker}</span>
           <h2 class="h2" id="destacados-t">${T.destacadosTitulo}</h2>
         </div>
-        <a class="link-arrow" href="${RUTAS[l].proyectos}">${T.verTodosProyectos}</a>
+        <a class="link-arrow" href="${trabajosHome(l)}">${T.verTodosProyectos}</a>
       </div>
       <div class="destacados">
         ${items}
@@ -1456,14 +1458,14 @@ function inicio(l, proyectos) {
       <div class="hero-bottom">
         <p class="lead">${T.heroLead}</p>
         <div class="btn-row">
-          <a class="btn btn-accent btn-lg" href="${R.proyectos}">${T.verProyectos}</a>
+          <a class="btn btn-accent btn-lg" href="#trabajos">${T.verProyectos}</a>
           <a class="btn btn-outline btn-lg" href="${R.contacto}">${T.hablemos}</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="seccion areas-seccion">
+  <section class="seccion areas-seccion" id="trabajos">
     <div class="wrap">
       <div class="areas-head">
         <span class="kicker mono">${C.homeKicker}</span>
@@ -1478,7 +1480,6 @@ function inicio(l, proyectos) {
             <ul class="areas">
         ${areas}
             </ul>
-            <a class="link-arrow areas-todos" href="${R.proyectos}">${T.verTodos}</a>
           </div>
         </div>
       </div>
@@ -2024,7 +2025,7 @@ function detalle(l, proyectos, p, i) {
   const relacionados = proyectos.filter((x) => !yaVistos.has(x) && comparte(x) > 0).sort((a, b) => comparte(b) - comparte(a)).slice(0, 3);
   const bloqueRelacionados = relacionados.length
     ? `<section class="mas-cliente relacionados">
-        <div class="mas-cliente-head"><h2 class="h3">${T.relacionados}</h2><a class="link-arrow" href="${RUTAS[l].proyectos}">${T.verTodosProyectos}</a></div>
+        <div class="mas-cliente-head"><h2 class="h3">${T.relacionados}</h2><a class="link-arrow" href="${trabajosHome(l)}">${T.verTodosProyectos}</a></div>
         <div class="grid-proyectos">${relacionados.map((x) => tarjeta(l, x, proyectos.indexOf(x), { sizes: '(min-width: 900px) 30vw, 50vw' })).join('')}</div>
       </section>`
     : '';
@@ -2069,7 +2070,7 @@ function detalle(l, proyectos, p, i) {
     <header class="proyecto-head">
       <div class="wrap">
         <div class="proyecto-crumbs mono">
-          <a href="${RUTAS[l].proyectos}">${T.volver}</a>
+          <a href="${trabajosHome(l)}">${T.volver}</a>
           <span class="proyecto-ubica">${ubicacion}</span>
         </div>
         <h1 class="proyecto-title">${esc(p.titulo)}</h1>
@@ -2941,7 +2942,7 @@ function gracias(l) {
     <div class="wrap">
       <h1 class="page-title">${T.gracias.h1}</h1>
       <p class="lead">${T.gracias.texto}</p>
-      <div class="btn-row"><a class="btn btn-dark btn-lg" href="${RUTAS[l].inicio}">${T.volverInicio}</a><a class="btn btn-outline btn-lg" href="${RUTAS[l].proyectos}">${T.verProyectos}</a></div>
+      <div class="btn-row"><a class="btn btn-dark btn-lg" href="${RUTAS[l].inicio}">${T.volverInicio}</a><a class="btn btn-outline btn-lg" href="${trabajosHome(l)}">${T.verProyectos}</a></div>
     </div>
   </section>
 `,
