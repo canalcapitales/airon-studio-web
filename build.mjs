@@ -1078,7 +1078,9 @@ const ASSETS = {};
 function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/img/og/inicio-${l}.jpg`, datos, cuerpo, publicidadEnPie = true }) {
   const T = TXT[l];
   const R = RUTAS[l];
-  const actual = (id) => (activo === id ? ' aria-current="page"' : '');
+  // Clientes y Murales ya no están en el menú: desde esas páginas se marca Áreas, que es por donde se llega a los trabajos
+  const marcado = ['clientes', 'murales'].includes(activo) ? 'proyectos' : activo;
+  const actual = (id) => (marcado === id ? ' aria-current="page"' : '');
   const tituloCompleto = titulo ? `${titulo} — AIRON Studio` : `AIRON Studio — ${T.lema}`;
   const url = SITIO.url + rutaDe(l, clave, slug);
   const alternas = IDIOMAS.map((x) => `<link rel="alternate" hreflang="${TXT[x].htmlLang}" href="${SITIO.url}${rutaDe(x, clave, slug)}">`).join('\n  ');
@@ -1130,8 +1132,6 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
       <nav id="menu" class="nav" aria-label="${T.navPrincipal}">
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
         <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
-        <a class="nav-link" href="${R.clientes}"${actual('clientes')}>${T.nav.clientes}</a>
-        <a class="nav-link" href="${R.murales}"${actual('murales')}>${T.murales.nav}</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
         <a class="nav-link nav-tarifario" href="${R.tarifarios}"${actual('tarifario')}>${T.tarifarios.nav}</a>
         <a class="nav-link nav-cta" href="${R.contacto}"${actual('contacto')}>${T.nav.contacto}</a>
@@ -1407,7 +1407,7 @@ function destacados(l, proyectos, { primeraRapida = false } = {}) {
 function inicio(l, proyectos) {
   const T = TXT[l];
   const R = RUTAS[l];
-  // Áreas del portafolio: cada una lleva a sus proyectos, con una portada que no se repite
+  // Áreas del portafolio (van primero, apenas abajo del título): cada una lleva a sus proyectos, con una portada que no se repite
   const usados = new Set();
   const datosAreas = CAT_IDS.map((id) => ({ id, delArea: proyectos.filter((p) => p.categorias.includes(id)) }))
     .filter((a) => a.delArea.length)
@@ -1445,7 +1445,7 @@ function inicio(l, proyectos) {
       })
     )
     .join('\n        ');
-  const vista = (id, p, activa) => `<div class="areas-vista${activa ? ' activa' : ''}" data-vista="${id}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501] })}</div>`;
+  const vista = (id, p, activa) => `<div class="areas-vista${activa ? ' activa' : ''}" data-vista="${id}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501], eager: activa })}</div>`;
   // Además, una vista por trabajo: al pasar por un trabajo del desplegable se ve su portada
   const visores = [
     ...datosAreas.map(({ p }, i) => vista(`a${i}`, p, i === 0)),
@@ -1480,26 +1480,6 @@ function inicio(l, proyectos) {
     </div>
   </section>
 
-  ${destacados(l, proyectos, { primeraRapida: true })}
-
-  <nav class="franja" aria-label="${T.disciplinasAria}"><div class="franja-pista">${lista(false)}${lista(true)}</div></nav>
-
-  <section class="seccion intro-estudio" aria-labelledby="intro-t">
-    <div class="wrap intro-grid">
-      <div>
-        <span class="kicker mono">${T.introKicker}</span>
-        <h2 class="h2" id="intro-t">${T.introTitulo}</h2>
-      </div>
-      <div class="intro-texto">
-        <p class="texto-destacado">${T.introTexto[0]}</p>
-        <p>${T.introTexto[1]}</p>
-        <a class="link-arrow" href="${R.estudio}">${T.introLink}</a>
-      </div>
-    </div>
-  </section>
-
-  ${numeros(l, proyectos)}
-
   <section class="seccion areas-seccion">
     <div class="wrap">
       <div class="areas-head">
@@ -1531,6 +1511,27 @@ function inicio(l, proyectos) {
       </div>
     </div>
   </section>
+
+
+  <nav class="franja" aria-label="${T.disciplinasAria}"><div class="franja-pista">${lista(false)}${lista(true)}</div></nav>
+
+  <section class="seccion intro-estudio" aria-labelledby="intro-t">
+    <div class="wrap intro-grid">
+      <div>
+        <span class="kicker mono">${T.introKicker}</span>
+        <h2 class="h2" id="intro-t">${T.introTitulo}</h2>
+      </div>
+      <div class="intro-texto">
+        <p class="texto-destacado">${T.introTexto[0]}</p>
+        <p>${T.introTexto[1]}</p>
+        <a class="link-arrow" href="${R.estudio}">${T.introLink}</a>
+      </div>
+    </div>
+  </section>
+
+  ${numeros(l, proyectos)}
+
+  ${destacados(l, proyectos)}
 
   <section class="seccion seccion--borde clientes-home" aria-labelledby="clientes-home-t">
     <div class="wrap">
