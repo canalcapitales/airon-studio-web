@@ -1044,5 +1044,9 @@
         }
       ]
     }
-  }
+  },
+  "web-equilibria": {"subtitulo":"Website · Physical therapy & rehabilitation"},
+  "web-laion": {"subtitulo":"Website · Graffiti writer"},
+  "web-laionbeats": {"subtitulo":"Website · Music producer"},
+  "web-denoche": {"subtitulo":"Ticketing platform"}
 }

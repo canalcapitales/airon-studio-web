@@ -26,6 +26,10 @@ const RUTAS = {
   es: { inicio: '/', proyectos: '/proyectos/', clientes: '/clientes/', murales: '/murales/', tarifarios: '/herramientas/', calculadora: '/calculadora-murales/', tarifarioDiseno: '/tarifario-diseno/', unicode: '/herramientas/textos-unicode/', mayusculas: '/herramientas/mayusculas-minusculas/', png: '/herramientas/convertir-a-png/', estudio: '/nosotros/', contacto: '/contacto/', gracias: '/gracias/', legales: '/legales/' },
   en: { inicio: '/en/', proyectos: '/en/projects/', clientes: '/en/clients/', murales: '/en/murals/', tarifarios: '/en/tools/', calculadora: '/en/mural-calculator/', tarifarioDiseno: '/en/design-rates/', unicode: '/en/tools/unicode-text/', mayusculas: '/en/tools/case-converter/', png: '/en/tools/png-converter/', estudio: '/en/about/', contacto: '/en/contact/', gracias: '/en/thanks/', legales: '/en/legal/' },
 };
+// Un proyecto con "externo" es un sitio publicado: su tarjeta abre la web en otra pestaña y no tiene página propia
+const hrefP = (l, p) => p.externo || rutaDe(l, 'proyecto', p.slug);
+const abreAfuera = (p) => (p.externo ? ' target="_blank" rel="noopener"' : '');
+const cursorP = (l, p) => (p.externo ? (l === 'es' ? 'Visitar ↗' : 'Visit ↗') : TXT[l].verCursor);
 const rutaDe = (l, clave, slug) =>
   clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : clave === 'cliente' ? `${RUTAS[l].clientes}${slug}/` : RUTAS[l][clave];
 // Proyectos que encabezan el inicio (en este orden). Se eligen por variedad: marca, mural, web, motion y colecciones.
@@ -1263,7 +1267,7 @@ function ordenVista(l, activo, proyectos) {
 // Fila desplegable del inicio (un área o un cliente): al abrirla muestra sus trabajos para entrar directo
 function despliegue(l, { id, nombre, cuenta, mini, trabajos, enlace, enlaceTexto, num: n, grupo }) {
   const items = trabajos
-    .map((p) => `<li><a class="despliegue-item" href="${rutaDe(l, 'proyecto', p.slug)}" data-ver="t-${p.slug}">
+    .map((p) => `<li><a class="despliegue-item" href="${hrefP(l, p)}"${abreAfuera(p)} data-ver="t-${p.slug}">
               <span class="despliegue-mini">${img(p.portada, { alt: '', sizes: '96px', dims: [640, 501] })}</span>
               <span class="despliegue-texto"><span class="despliegue-titulo">${esc(p.titulo)}</span><span class="mono">${esc(p.sub)}</span></span>
               <span class="despliegue-flecha" aria-hidden="true">→</span>
@@ -1293,7 +1297,7 @@ const vistaPrevia = (p) => {
 
 function tarjeta(l, p, i, { sizes, etiqueta }) {
   const previa = vistaPrevia(p);
-  return `<a class="card reveal" href="${rutaDe(l, 'proyecto', p.slug)}" data-cats="${p.categorias.join(' ')}" data-cursor="${TXT[l].verCursor}">
+  return `<a class="card reveal" href="${hrefP(l, p)}"${abreAfuera(p)} data-cats="${p.categorias.join(' ')}" data-cursor="${cursorP(l, p)}">
         <div class="card-img" data-vt="p-${p.slug}">${img(p.portada, { alt: TXT[l].portadaDe(p.titulo), sizes, dims: [640, 501] })}${
     previa ? img(previa, { alt: '', sizes, clase: 'card-previa' }) : ''
   }</div>
@@ -1377,7 +1381,7 @@ function destacados(l, proyectos, { primeraRapida = false } = {}) {
   const items = elegidos
     .map((p, i) => {
       const cliente = nombresClientes(p.slug);
-      return `<a class="destacado destacado--${i + 1} reveal" href="${rutaDe(l, 'proyecto', p.slug)}" data-cursor="${T.verCursor}">
+      return `<a class="destacado destacado--${i + 1} reveal" href="${hrefP(l, p)}"${abreAfuera(p)} data-cursor="${cursorP(l, p)}">
           <span class="destacado-img" data-vt="p-${p.slug}">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: i % 3 === 0 ? '(min-width: 900px) 58vw, 100vw' : '(min-width: 900px) 42vw, 100vw', dims: [640, 501], eager: primeraRapida && i === 0 })}</span>
           <span class="destacado-meta">
             <span class="destacado-num mono">${num(i)}</span>
@@ -1585,7 +1589,7 @@ function listado(l, proyectos) {
       name: `AIRON Studio — ${T.proyectos}`,
       url: `${SITIO.url}${RUTAS[l].proyectos}`,
       inLanguage: T.htmlLang,
-      hasPart: proyectos.map((p) => ({ '@type': 'CreativeWork', name: p.titulo, url: `${SITIO.url}${rutaDe(l, 'proyecto', p.slug)}` })),
+      hasPart: proyectos.map((p) => ({ '@type': 'CreativeWork', name: p.titulo, url: p.externo || `${SITIO.url}${rutaDe(l, 'proyecto', p.slug)}` })),
     },
     cuerpo: `
   <section class="page-head">
@@ -1640,7 +1644,7 @@ function paginaClientes(l, proyectos) {
         .map((id) => `<li><a class="cliente-area mono" href="${enlaceServicio(l, id)}">${esc(nombreCat(l, id))}</a></li>`)
         .join('');
       const items = trabajos
-        .map((p) => `<li><a class="cliente-trabajo" href="${rutaDe(l, 'proyecto', p.slug)}" data-cursor="${T.verCursor}">
+        .map((p) => `<li><a class="cliente-trabajo" href="${hrefP(l, p)}"${abreAfuera(p)} data-cursor="${cursorP(l, p)}">
               <span class="cliente-trabajo-img">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 900px) 16vw, 44vw', dims: [640, 501] })}</span>
               <span class="cliente-trabajo-titulo">${esc(p.titulo)}</span>
               <span class="mono">${num(indice(p))} · ${esc(catsTexto(l, p))}</span>
@@ -1788,7 +1792,7 @@ function paginaCliente(l, proyectos, c) {
           url: `${SITIO.url}${enlaceCliente(l, c)}`,
           inLanguage: T.htmlLang,
           about: { '@type': 'Organization', name: c.nombre },
-          hasPart: trabajos.map((p) => ({ '@type': 'CreativeWork', name: p.titulo, url: `${SITIO.url}${rutaDe(l, 'proyecto', p.slug)}` })),
+          hasPart: trabajos.map((p) => ({ '@type': 'CreativeWork', name: p.titulo, url: p.externo || `${SITIO.url}${rutaDe(l, 'proyecto', p.slug)}` })),
         },
         {
           '@type': 'BreadcrumbList',
@@ -3040,7 +3044,7 @@ for (const l of IDIOMAS) {
     [R.proyectos, listado(l, proyectos)],
     [R.clientes, paginaClientes(l, proyectos)],
     ...CLIENTES.clientes.map((c) => [enlaceCliente(l, c), paginaCliente(l, proyectos, c)]),
-    ...proyectos.map((p, i) => [rutaDe(l, 'proyecto', p.slug), detalle(l, proyectos, p, i)]),
+    ...proyectos.filter((p) => !p.externo).map((p, i, internos) => [rutaDe(l, 'proyecto', p.slug), detalle(l, internos, p, i)]),
     [R.murales, murales(l, proyectos)],
     [R.tarifarios, paginaTarifarios(l)],
     [R.calculadora, paginaCalculadora(l)],
