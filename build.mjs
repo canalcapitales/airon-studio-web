@@ -52,7 +52,7 @@ const TXT = {
       colecciones: 'Colecciones', coleccionesTexto: 'Series que reúnen piezas para muchos clientes: marcas, portadas, flyers y redes.',
       masMarcas: 'Más marcas que diseñamos', masMarcasTexto: 'Identidades que forman parte del muro de marcas.', verMuro: 'Ver el muro de marcas →',
       ordenar: 'Ordenar por', porAreas: 'Áreas', porClientes: 'Clientes',
-      homeKicker: 'Explorá por área', homeTitulo: 'Trabajos', tabsAria: 'Cómo ordenar los trabajos',
+      homeKicker: 'Elegí un área y mirá sus trabajos', homeTitulo: 'Áreas', tabsAria: 'Cómo ordenar los trabajos',
       tabAreas: 'Por área', tabClientes: 'Por cliente', verArea: 'Ver toda el área →', verMurales: 'Ver murales →', verClientes: 'Ver todos los clientes →', verCliente: 'Ver cliente →',
       clienteUno: 'Cliente', clientesVarios: 'Clientes', areaUna: 'Área', areasVarias: 'Áreas',
       masDe: (n) => `Más trabajos para ${n}`,
@@ -504,7 +504,7 @@ const TXT = {
       colecciones: 'Collections', coleccionesTexto: 'Series that bring together pieces for many clients: brands, covers, flyers and social media.',
       masMarcas: 'More brands we designed', masMarcasTexto: 'Identities that are part of the brand wall.', verMuro: 'See the brand wall →',
       ordenar: 'Sort by', porAreas: 'Areas', porClientes: 'Clients',
-      homeKicker: 'Explore by area', homeTitulo: 'Work', tabsAria: 'How to sort the work',
+      homeKicker: 'Pick an area and see the work', homeTitulo: 'Areas', tabsAria: 'How to sort the work',
       tabAreas: 'By area', tabClientes: 'By client', verArea: 'See the whole area →', verMurales: 'See murals →', verClientes: 'See all clients →', verCliente: 'See client →',
       clienteUno: 'Client', clientesVarios: 'Clients', areaUna: 'Area', areasVarias: 'Areas',
       masDe: (n) => `More work for ${n}`,
@@ -1240,8 +1240,8 @@ function marquesinaPublicidad(l, variante = '') {
 
 const nombreCat = (l, id) => TXT[l].categorias[id] ?? id;
 const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ');
-// "Áreas" lleva a la sección Trabajos del inicio (la lista de áreas), no a la grilla con todos los proyectos
-const trabajosHome = (l) => `${RUTAS[l].inicio}#trabajos`;
+// "Áreas" lleva a la sección Áreas del inicio (la lista de áreas), no a la grilla con todos los proyectos
+const trabajosHome = (l) => `${RUTAS[l].inicio}#areas`;
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 // Los servicios llevan a su categoría; arte urbano tiene su propia página
 // Categoría del proyecto → tipo de proyecto en el formulario de Contacto
@@ -1458,14 +1458,14 @@ function inicio(l, proyectos) {
       <div class="hero-bottom">
         <p class="lead">${T.heroLead}</p>
         <div class="btn-row">
-          <a class="btn btn-accent btn-lg" href="#trabajos">${T.verProyectos}</a>
+          <a class="btn btn-accent btn-lg" href="#areas">${T.verProyectos}</a>
           <a class="btn btn-outline btn-lg" href="${R.contacto}">${T.hablemos}</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="seccion areas-seccion" id="trabajos">
+  <section class="seccion areas-seccion" id="areas">
     <div class="wrap">
       <div class="areas-head">
         <span class="kicker mono">${C.homeKicker}</span>
