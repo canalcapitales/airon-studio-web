@@ -52,7 +52,7 @@ const TXT = {
       colecciones: 'Colecciones', coleccionesTexto: 'Series que reúnen piezas para muchos clientes: marcas, portadas, flyers y redes.',
       masMarcas: 'Más marcas que diseñamos', masMarcasTexto: 'Identidades que forman parte del muro de marcas.', verMuro: 'Ver el muro de marcas →',
       ordenar: 'Ordenar por', porAreas: 'Áreas', porClientes: 'Clientes',
-      homeKicker: 'Explorá por área o por cliente', homeTitulo: 'Trabajos', tabsAria: 'Cómo ordenar los trabajos',
+      homeKicker: 'Explorá por área', homeTitulo: 'Trabajos', tabsAria: 'Cómo ordenar los trabajos',
       tabAreas: 'Por área', tabClientes: 'Por cliente', verArea: 'Ver toda el área →', verMurales: 'Ver murales →', verClientes: 'Ver todos los clientes →', verCliente: 'Ver cliente →',
       clienteUno: 'Cliente', clientesVarios: 'Clientes', areaUna: 'Área', areasVarias: 'Áreas',
       masDe: (n) => `Más trabajos para ${n}`,
@@ -504,7 +504,7 @@ const TXT = {
       colecciones: 'Collections', coleccionesTexto: 'Series that bring together pieces for many clients: brands, covers, flyers and social media.',
       masMarcas: 'More brands we designed', masMarcasTexto: 'Identities that are part of the brand wall.', verMuro: 'See the brand wall →',
       ordenar: 'Sort by', porAreas: 'Areas', porClientes: 'Clients',
-      homeKicker: 'Explore by area or by client', homeTitulo: 'Work', tabsAria: 'How to sort the work',
+      homeKicker: 'Explore by area', homeTitulo: 'Work', tabsAria: 'How to sort the work',
       tabAreas: 'By area', tabClientes: 'By client', verArea: 'See the whole area →', verMurales: 'See murals →', verClientes: 'See all clients →', verCliente: 'See client →',
       clienteUno: 'Client', clientesVarios: 'Clients', areaUna: 'Area', areasVarias: 'Areas',
       masDe: (n) => `More work for ${n}`,
@@ -1256,14 +1256,6 @@ const nombresClientes = (slug) => {
 // Áreas que reúne un cliente, en el orden de la web
 const areasDeCliente = (proyectos, c) => CAT_IDS.filter((id) => proyectos.some((p) => c.casos.includes(p.slug) && p.categorias.includes(id)));
 
-// Selector "Ordenar por: Áreas · Clientes" de las dos páginas de trabajos
-function ordenVista(l, activo, proyectos) {
-  const C = TXT[l].cli;
-  const op = (id, href, texto, n) => `<a class="orden-op" href="${href}"${activo === id ? ' aria-current="page"' : ''}>${texto}<span class="mono">${n}</span></a>`;
-  const nAreas = CAT_IDS.filter((id) => proyectos.some((p) => p.categorias.includes(id))).length;
-  return `<nav class="orden" aria-label="${C.ordenar}"><span class="mono orden-txt">${C.ordenar}</span>${op('areas', RUTAS[l].proyectos, C.porAreas, nAreas)}${op('clientes', RUTAS[l].clientes, C.porClientes, CLIENTES.clientes.length)}</nav>`;
-}
-
 // Fila desplegable del inicio (un área o un cliente): al abrirla muestra sus trabajos para entrar directo
 function despliegue(l, { id, nombre, cuenta, mini, trabajos, enlace, enlaceTexto, num: n, grupo }) {
   const items = trabajos
@@ -1437,23 +1429,10 @@ function inicio(l, proyectos) {
       })
     )
     .join('\n        ');
-  // Por cliente: todos, en orden alfabético (los mismos que la página de Clientes)
-  const datosClientes = CLIENTES.clientes.map((c) => ({ c, trabajos: proyectos.filter((p) => c.casos.includes(p.slug)) }));
-  const clientesLista = datosClientes
-    .map(({ c, trabajos }, i) =>
-      despliegue(l, {
-        id: `c${i}`, grupo: 'clientes', num: num(i), nombre: c.nombre, mini: trabajos[0].portada,
-        cuenta: `${trabajos.length} ${trabajos.length === 1 ? C.trabajo : C.trabajos}`,
-        trabajos: trabajos.map((p) => ({ ...p, sub: catsTexto(l, p) })),
-        enlace: enlaceCliente(l, c), enlaceTexto: C.verCliente,
-      })
-    )
-    .join('\n        ');
   const vista = (id, p, activa) => `<div class="areas-vista${activa ? ' activa' : ''}" data-vista="${id}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501], eager: activa })}</div>`;
   // Además, una vista por trabajo: al pasar por un trabajo del desplegable se ve su portada
   const visores = [
     ...datosAreas.map(({ p }, i) => vista(`a${i}`, p, i === 0)),
-    ...datosClientes.map(({ trabajos }, i) => vista(`c${i}`, trabajos[0], false)),
     ...proyectos.map((p) => vista(`t-${p.slug}`, p, false)),
   ].join('\n        ');
   const conCat = T.servicios.filter(([cat]) => cat && CON_TRABAJOS.has(cat));
@@ -1489,27 +1468,17 @@ function inicio(l, proyectos) {
       <div class="areas-head">
         <span class="kicker mono">${C.homeKicker}</span>
         <h2 class="h2">${C.homeTitulo}</h2>
-        <div class="vista-tabs" role="tablist" aria-label="${C.tabsAria}" hidden>
-          <button type="button" role="tab" id="tab-areas" aria-controls="panel-areas" aria-selected="true">${C.tabAreas}<span class="mono">${datosAreas.length}</span></button>
-          <button type="button" role="tab" id="tab-clientes" aria-controls="panel-clientes" aria-selected="false" tabindex="-1">${C.tabClientes}<span class="mono">${CLIENTES.clientes.length}</span></button>
-        </div>
       </div>
       <div class="areas-grid">
         <div class="areas-visor" aria-hidden="true">
         ${visores}
         </div>
         <div>
-          <div class="vista-panel" id="panel-areas" role="tabpanel" aria-labelledby="tab-areas">
+          <div class="vista-panel" id="panel-areas">
             <ul class="areas">
         ${areas}
             </ul>
             <a class="link-arrow areas-todos" href="${R.proyectos}">${T.verTodos}</a>
-          </div>
-          <div class="vista-panel" id="panel-clientes" role="tabpanel" aria-labelledby="tab-clientes">
-            <ul class="areas">
-        ${clientesLista}
-            </ul>
-            <a class="link-arrow areas-todos" href="${R.clientes}">${C.verClientes}</a>
           </div>
         </div>
       </div>
@@ -1600,7 +1569,6 @@ function listado(l, proyectos) {
       </div>
       <div class="page-head-der">
         <p class="lead">${T.listadoLead}</p>
-        ${ordenVista(l, 'areas', proyectos)}
       </div>
     </div>
   </section>
@@ -1706,7 +1674,6 @@ function paginaClientes(l, proyectos) {
       </div>
       <div class="page-head-der">
         <p class="lead">${C.lead}</p>
-        ${ordenVista(l, 'clientes', proyectos)}
       </div>
     </div>
   </section>
