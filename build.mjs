@@ -470,13 +470,12 @@ const TXT = {
     enviar: 'Enviar mensaje →', privacidad: 'Tus datos solo se usan para responderte.',
     gracias: { titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' },
     volverInicio: 'Volver al inicio',
-    categorias: { integral: 'Diseño integral', branding: 'Branding', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', aplicada: 'Gráfica', flyers: 'Flyers', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Web y sistemas', urbano: 'Murales', foto: 'Fotografía', ilustracion: 'Ilustración' },
+    categorias: { integral: 'Diseño integral', branding: 'Branding', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', flyers: 'Flyers', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Web y sistemas', urbano: 'Murales', foto: 'Fotografía', ilustracion: 'Ilustración' },
     servicios: [
       ['integral', 'Diseño integral', 'Toda la comunicación de una empresa: identidad, papelería, vehículos y redes.'],
       ['branding', 'Identidad & branding', 'Logos, sistemas visuales y manuales de marca.'],
       ['redes', 'Redes sociales', 'Contenido, plantillas, campañas y banners para redes.'],
       ['ploteo', 'Ploteo vehicular', 'Diseño de ploteos para flotas y vehículos de empresa.'],
-      ['aplicada', 'Diseño gráfico', 'Catálogos, folletos y piezas impresas.'],
       ['flyers', 'Flyers', 'Flyers para fiestas, eventos, shows y lanzamientos.'],
       ['web', 'Diseño web', 'Sitios a medida: rápidos, seguros y pensados para el celular.'],
       ['web', 'Sistemas de gestión', 'Plataformas a medida para administrar clientes, turnos, stock y ventas.'],
@@ -920,13 +919,12 @@ const TXT = {
     enviar: 'Send message →', privacidad: 'Your details are only used to reply to you.',
     gracias: { titulo: 'Message sent', h1: 'Thank you!', texto: "We received your message. We'll get back to you shortly." },
     volverInicio: 'Back to home',
-    categorias: { integral: 'Integrated design', branding: 'Branding', redes: 'Social media', ploteo: 'Vehicle wraps', aplicada: 'Graphic design', flyers: 'Flyers', musical: 'Music artwork', motion: 'Motion & video', web: 'Web & systems', urbano: 'Murals', foto: 'Photography', ilustracion: 'Illustration' },
+    categorias: { integral: 'Integrated design', branding: 'Branding', redes: 'Social media', ploteo: 'Vehicle wraps', flyers: 'Flyers', musical: 'Music artwork', motion: 'Motion & video', web: 'Web & systems', urbano: 'Murals', foto: 'Photography', ilustracion: 'Illustration' },
     servicios: [
       ['integral', 'Integrated design', 'A company’s whole communication: identity, stationery, vehicles and social media.'],
       ['branding', 'Identity & branding', 'Logos, visual systems and brand manuals.'],
       ['redes', 'Social media', 'Content, templates, campaigns and banners for social media.'],
       ['ploteo', 'Vehicle wraps', 'Wrap design for company fleets and vehicles.'],
-      ['aplicada', 'Graphic design', 'Catalogs, brochures and print pieces.'],
       ['flyers', 'Flyers', 'Flyers for parties, events, shows and releases.'],
       ['web', 'Web design', 'Custom websites: fast, secure and mobile-first.'],
       ['web', 'Management systems', 'Custom platforms to manage clients, bookings, stock and sales.'],
@@ -1241,7 +1239,7 @@ const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ')
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 // Los servicios llevan a su categoría; arte urbano tiene su propia página
 // Categoría del proyecto → tipo de proyecto en el formulario de Contacto
-const TIPO_CONTACTO = { aplicada: 'grafica', flyers: 'grafica', urbano: 'mural' };
+const TIPO_CONTACTO = { flyers: 'grafica', urbano: 'mural' };
 const tipoContacto = (cat) => TIPO_CONTACTO[cat] || cat;
 const enlaceServicio = (l, cat) => (cat === 'urbano' ? RUTAS[l].murales : enlaceCat(l, cat));
 const enlaceCliente = (l, c) => rutaDe(l, 'cliente', c.id);
