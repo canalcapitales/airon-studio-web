@@ -1407,7 +1407,7 @@ function destacados(l, proyectos, { primeraRapida = false } = {}) {
 function inicio(l, proyectos) {
   const T = TXT[l];
   const R = RUTAS[l];
-  // Áreas del portafolio: cada una lleva a sus proyectos, con una portada que no se repite
+  // Áreas del portafolio (van primero, apenas abajo del título): cada una lleva a sus proyectos, con una portada que no se repite
   const usados = new Set();
   const datosAreas = CAT_IDS.map((id) => ({ id, delArea: proyectos.filter((p) => p.categorias.includes(id)) }))
     .filter((a) => a.delArea.length)
@@ -1445,7 +1445,7 @@ function inicio(l, proyectos) {
       })
     )
     .join('\n        ');
-  const vista = (id, p, activa) => `<div class="areas-vista${activa ? ' activa' : ''}" data-vista="${id}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501] })}</div>`;
+  const vista = (id, p, activa) => `<div class="areas-vista${activa ? ' activa' : ''}" data-vista="${id}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501], eager: activa })}</div>`;
   // Además, una vista por trabajo: al pasar por un trabajo del desplegable se ve su portada
   const visores = [
     ...datosAreas.map(({ p }, i) => vista(`a${i}`, p, i === 0)),
@@ -1480,26 +1480,6 @@ function inicio(l, proyectos) {
     </div>
   </section>
 
-  ${destacados(l, proyectos, { primeraRapida: true })}
-
-  <nav class="franja" aria-label="${T.disciplinasAria}"><div class="franja-pista">${lista(false)}${lista(true)}</div></nav>
-
-  <section class="seccion intro-estudio" aria-labelledby="intro-t">
-    <div class="wrap intro-grid">
-      <div>
-        <span class="kicker mono">${T.introKicker}</span>
-        <h2 class="h2" id="intro-t">${T.introTitulo}</h2>
-      </div>
-      <div class="intro-texto">
-        <p class="texto-destacado">${T.introTexto[0]}</p>
-        <p>${T.introTexto[1]}</p>
-        <a class="link-arrow" href="${R.estudio}">${T.introLink}</a>
-      </div>
-    </div>
-  </section>
-
-  ${numeros(l, proyectos)}
-
   <section class="seccion areas-seccion">
     <div class="wrap">
       <div class="areas-head">
@@ -1531,6 +1511,27 @@ function inicio(l, proyectos) {
       </div>
     </div>
   </section>
+
+
+  <nav class="franja" aria-label="${T.disciplinasAria}"><div class="franja-pista">${lista(false)}${lista(true)}</div></nav>
+
+  <section class="seccion intro-estudio" aria-labelledby="intro-t">
+    <div class="wrap intro-grid">
+      <div>
+        <span class="kicker mono">${T.introKicker}</span>
+        <h2 class="h2" id="intro-t">${T.introTitulo}</h2>
+      </div>
+      <div class="intro-texto">
+        <p class="texto-destacado">${T.introTexto[0]}</p>
+        <p>${T.introTexto[1]}</p>
+        <a class="link-arrow" href="${R.estudio}">${T.introLink}</a>
+      </div>
+    </div>
+  </section>
+
+  ${numeros(l, proyectos)}
+
+  ${destacados(l, proyectos)}
 
   <section class="seccion seccion--borde clientes-home" aria-labelledby="clientes-home-t">
     <div class="wrap">
