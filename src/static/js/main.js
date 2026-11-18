@@ -1880,8 +1880,24 @@ function filtroClientes() {
 }
 
 // ----- Filtros de proyectos -----
+// Columnas de una grilla de trabajos según cuántos se ven: 4 van en 2 filas de 2, y con más se elige
+// 3 o 4 columnas para que la última fila quede lo más completa posible (empate: 3)
+function columnasPara(n) {
+  if (n <= 2) return 2;
+  if (n === 3) return 3;
+  if (n === 4) return 2;
+  const vacios = (c) => (c - (n % c)) % c;
+  return vacios(4) < vacios(3) ? 4 : 3;
+}
+function ajustarGrilla(grilla) {
+  const n = [...grilla.children].filter((c) => !c.hidden).length;
+  grilla.dataset.cols = columnasPara(n);
+}
+
 function filtros() {
   // La barra de Clientes tiene su propio filtro (filtroClientes): acá solo la de proyectos
+  // Toda grilla de trabajos se ajusta, aunque la página no tenga filtros (relacionados, más del cliente)
+  document.querySelectorAll('.grid-proyectos').forEach(ajustarGrilla);
   const barra = document.querySelector('.filtros:not(.filtros--clientes)');
   if (!barra || !barra.querySelector('[data-filter]')) return;
   barra.hidden = false;
@@ -1909,6 +1925,7 @@ function filtros() {
       fila.scrollLeft += r.left - f.left - (f.width - r.width) / 2;
     }
     contador.textContent = visibles;
+    document.querySelectorAll('.grid-proyectos').forEach(ajustarGrilla);
     // Categoría sin proyectos todavía: aviso con enlace a Contacto (con ese tipo de proyecto elegido)
     const vacio = document.querySelector('.sin-proyectos');
     if (vacio) {
