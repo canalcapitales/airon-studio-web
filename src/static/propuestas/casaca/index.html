@@ -14,78 +14,188 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="estilo.css">
+<script src="casaca.js" defer></script>
 </head>
-<body><div class="wrap">
+<body>
+<!-- Íconos: trazos de Lucide (licencia ISC) y la estrella de Casaca -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-estrella" viewBox="0 0 24 24"><path d="M12 1.5c0 5.2 3.5 9 8 10.5-4.5 1.5-8 5.3-8 10.5 0-5.2-3.5-9-8-10.5 4.5-1.5 8-5.3 8-10.5Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></symbol>
+  <symbol id="i-vinilo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><path d="M6 12c0-1.7.7-3.2 1.8-4.2"/><path d="M18 12c0 1.7-.7 3.2-1.8 4.2"/></symbol>
+  <symbol id="i-baile" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><path d="m9 20 3-6 3 6"/><path d="m6 8 6 2 6-2"/><path d="M12 10v4"/></symbol>
+  <symbol id="i-aerosol" viewBox="0 0 24 24"><path d="M3 3h.01"/><path d="M7 5h.01"/><path d="M11 7h.01"/><path d="M3 7h.01"/><path d="M7 9h.01"/><path d="M3 11h.01"/><rect width="4" height="4" x="15" y="5"/><path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2"/><path d="m13 14 8-2"/><path d="m13 19 8-2"/></symbol>
+  <symbol id="i-musica" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+  <symbol id="i-bolsa" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="i-grupo" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-calendario" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></symbol>
+  <symbol id="i-calendario-ok" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+  <symbol id="i-trofeo" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+  <symbol id="i-saludo" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol>
+  <symbol id="i-birrete" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+  <symbol id="i-megafono" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+  <symbol id="i-casa" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .71-1.53l7-6a2 2 0 0 1 2.58 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-casaca" viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></symbol>
+  <symbol id="i-repetir" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+  <symbol id="i-carpa" viewBox="0 0 24 24"><path d="M3.5 21 14 3"/><path d="M20.5 21 10 3"/><path d="M15.5 21 12 15l-3.5 6"/><path d="M2 21h20"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  <symbol id="i-paquete" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-abajo" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+</svg>
+
+<div class="progreso" aria-hidden="true"><span></span></div>
+
+<div class="wrap">
   <div class="top mono">
     <span><span class="sq"></span>Casaca · Centro cultural · La Plata</span>
     <span>Propuesta para sponsors · Noviembre 2026</span>
   </div>
 
   <header class="hero">
-    <figure class="hero-logo"><img src="img/casaca-logo.svg" alt="Logo de Casaca" width="425" height="427"></figure>
+    <figure class="hero-logo" data-parallax="0.06">
+      <img src="img/casaca-logo.svg" alt="Logo de Casaca" width="425" height="427">
+      <span class="marca-esq marca-esq--a" aria-hidden="true"></span>
+      <span class="marca-esq marca-esq--b" aria-hidden="true"></span>
+      <figcaption class="mono"><svg class="ic ic--s"><use href="#i-pin"/></svg>La Plata · Centro cultural</figcaption>
+    </figure>
     <div class="hero-texto">
-    <span class="mono muted">Juebless presenta</span>
-    <h1><span class="tag">Una casa para la cultura Hip Hop</span>Ponete la <span class="red">casaca</span></h1>
-    <p class="lead">Después de cinco años y 50 ediciones de Juebless, abrimos nuestro propio centro cultural en La Plata. Buscamos marcas, empresas y emprendimientos que quieran sumarse a esta nueva etapa y acompañar el crecimiento del espacio.</p>
-    <div class="meta mono">
-      <span class="pill">50 ediciones</span>
-      <span class="pill">5 años en La Plata</span>
-      <span class="pill">Talleres · Sala de ensayo · Feria</span>
-      <span class="pill">Abierto toda la semana</span>
-    </div>
+      <span class="mono muted hero-paso">Juebless presenta</span>
+      <h1>
+        <span class="tag hero-paso"><span class="cinta">Una casa para la cultura Hip Hop</span></span>
+        <span class="palabra">Ponete</span> <span class="palabra">la</span> <span class="palabra"><span class="red">casaca</span></span>
+      </h1>
+      <p class="lead hero-paso">Después de cinco años y 50 ediciones de Juebless, abrimos nuestro propio centro cultural en La Plata. Buscamos marcas, empresas y emprendimientos que quieran sumarse a esta nueva etapa y acompañar el crecimiento del espacio.</p>
+      <div class="sellos hero-paso" aria-label="Trayectoria">
+        <div class="sello"><b>50</b><span class="mono">Ediciones<br>de Juebless</span></div>
+        <div class="sello"><b>5</b><span class="mono">Años en<br>La Plata</span></div>
+      </div>
+      <div class="meta mono hero-paso">
+        <span class="pill">50 ediciones</span>
+        <span class="pill">5 años en La Plata</span>
+        <span class="pill">Talleres · Sala de ensayo · Feria</span>
+        <span class="pill">Abierto toda la semana</span>
+      </div>
+      <a class="scroll mono hero-paso" href="#numeros"><span class="scroll-ic"><svg class="ic"><use href="#i-abajo"/></svg></span>Conocé la propuesta</a>
     </div>
   </header>
 </div>
 
-<section class="numeros">
+<div class="franja" aria-hidden="true">
+  <div class="franja-pista">
+    <ul><li>Rap y escritura</li><li>DJ</li><li>Breakdance</li><li>Graffiti</li><li>Sala de ensayo</li><li>Feria de emprendedores</li><li>Comunidad</li></ul>
+    <ul><li>Rap y escritura</li><li>DJ</li><li>Breakdance</li><li>Graffiti</li><li>Sala de ensayo</li><li>Feria de emprendedores</li><li>Comunidad</li></ul>
+  </div>
+</div>
+
+<section class="numeros" id="numeros">
   <div class="wrap">
-    <div class="grid">
-      <div><b>50</b><span class="mono muted">Ediciones de Juebless</span></div>
-      <div><b>5</b><span class="mono muted">Años generando espacios</span></div>
-      <div><b>4</b><span class="mono muted">Disciplinas en talleres: rap, DJ, breakdance y graffiti</span></div>
-      <div><b>1</b><span class="mono muted">Casa propia: Casaca</span></div>
+    <div class="grid" data-stagger>
+      <div class="dato" data-reveal>
+        <svg class="ic ic--m"><use href="#i-calendario"/></svg>
+        <b data-contar="50">50</b><i class="dato-linea" aria-hidden="true"></i>
+        <span class="mono muted">Ediciones de Juebless</span>
+      </div>
+      <div class="dato" data-reveal>
+        <svg class="ic ic--m"><use href="#i-trofeo"/></svg>
+        <b data-contar="5">5</b><i class="dato-linea" aria-hidden="true"></i>
+        <span class="mono muted">Años generando espacios</span>
+      </div>
+      <div class="dato" data-reveal>
+        <svg class="ic ic--m"><use href="#i-birrete"/></svg>
+        <b data-contar="4">4</b><i class="dato-linea" aria-hidden="true"></i>
+        <span class="mono muted">Disciplinas en talleres: rap, DJ, breakdance y graffiti</span>
+      </div>
+      <div class="dato" data-reveal>
+        <svg class="ic ic--m"><use href="#i-casa"/></svg>
+        <b data-contar="1">1</b><i class="dato-linea" aria-hidden="true"></i>
+        <span class="mono muted">Casa propia: Casaca</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
+<section data-linea>
   <div class="wrap split">
-    <div class="head">
-      <span class="mono"><span class="sq"></span>De dónde venimos</span>
-      <h2>50 ediciones construyendo cultura</h2>
+    <div class="head historia-head">
+      <span class="mono" data-reveal><span class="sq"></span>De dónde venimos</span>
+      <h2 data-reveal>50 ediciones construyendo cultura</h2>
+      <p class="historia-intro" data-reveal>Hace cinco años empezamos Juebless en La Plata con una idea: generar espacios para que la cultura Hip Hop pudiera encontrarse, expresarse y crecer.</p>
+      <svg class="estrella-deco" data-parallax="-0.08" aria-hidden="true"><use href="#i-estrella"/></svg>
     </div>
-    <div class="prosa">
-      <p>Hace cinco años empezamos Juebless en La Plata con una idea: generar espacios para que la cultura Hip Hop pudiera encontrarse, expresarse y crecer.</p>
-      <p class="muted">Edición tras edición armamos un recorrido de 50 encuentros. Empezamos dando lugar a artistas emergentes y proyectos independientes, y este último año compartimos escenario con referentes y leyendas del Hip Hop latinoamericano. Toda esa historia se puede recorrer en los 50 flyers de nuestro Instagram.</p>
-      <span class="mono muted">Pasaron por nuestros escenarios</span>
-      <ul class="artistas">
-        <li>Rxnde Akozta</li><li>Jonas Sanche</li><li>Kamada</li><li>Urbanse</li><li>Frane</li><li>Fianru</li><li>Cerounno</li><li>Mir Nicolás</li><li>Ze Pequeña</li><li>Brapis</li><li>Rflakk</li><li class="mas">Y muchos más</li>
-      </ul>
-    </div>
+    <ol class="linea-tiempo" data-stagger>
+      <li data-reveal>
+        <span class="hito-tag mono">Hace 5 años</span>
+        <h3>Nace Juebless</h3>
+        <p class="muted">El primer encuentro en La Plata, con una idea: que la cultura Hip Hop tuviera dónde encontrarse.</p>
+      </li>
+      <li data-reveal>
+        <span class="hito-tag mono">Los comienzos</span>
+        <h3>Lugar para lo emergente</h3>
+        <p class="muted">Edición tras edición, dimos lugar a artistas emergentes y proyectos independientes.</p>
+      </li>
+      <li data-reveal>
+        <span class="hito-tag mono">En la ciudad</span>
+        <h3>Más allá del escenario</h3>
+        <p class="muted">Festivales gratuitos al aire libre y actividades con instituciones como el club de fútbol infantil Julián Aguirre.</p>
+      </li>
+      <li data-reveal>
+        <span class="hito-tag mono">2026</span>
+        <h3>Referentes y leyendas</h3>
+        <p class="muted">Este último año compartimos escenario con referentes y leyendas del Hip Hop latinoamericano.</p>
+      </li>
+      <li data-reveal class="hito-final">
+        <span class="hito-tag mono">Hoy</span>
+        <h3>50 ediciones y una casa propia</h3>
+        <p class="muted">Un recorrido de 50 encuentros que se puede ver en los 50 flyers de nuestro Instagram. Lo que sigue es Casaca.</p>
+      </li>
+    </ol>
+  </div>
+  <div class="wrap artistas-bloque">
+    <span class="mono muted" data-reveal>Pasaron por nuestros escenarios</span>
+    <ul class="artistas" data-stagger>
+      <li data-reveal>Rxnde Akozta</li><li data-reveal>Jonas Sanche</li><li data-reveal>Kamada</li><li data-reveal>Urbanse</li><li data-reveal>Frane</li><li data-reveal>Fianru</li><li data-reveal>Cerounno</li><li data-reveal>Mir Nicolás</li><li data-reveal>Ze Pequeña</li><li data-reveal>Brapis</li><li data-reveal>Rflakk</li><li data-reveal class="mas mono">Y muchos más</li>
+    </ul>
   </div>
 </section>
 
-<section>
+<section data-linea>
   <div class="wrap">
     <div class="head">
-      <span class="mono"><span class="sq"></span>Fechas destacadas</span>
-      <h2>Referentes del Hip Hop en La Plata</h2>
-      <p class="lead">Dos fechas de este año que muestran el nivel de producción y el público que convoca cada encuentro.</p>
+      <span class="mono" data-reveal><span class="sq"></span>Fechas destacadas</span>
+      <h2 data-reveal>Referentes del Hip Hop en La Plata</h2>
+      <p class="lead" data-reveal>Dos fechas de este año que muestran el nivel de producción y el público que convoca cada encuentro.</p>
     </div>
-    <div class="fechas">
-      <figure>
-        <img src="img/flyer-rxnde-akozta.jpg" alt="Flyer de Juebless: Rxnde Akozta junto a DJ Destroy, 24 de septiembre a las 20 h en Ciudad de Gatos, calle 17 y 71. Invitados Rei All'a, Pol Zuco y DJ Perro, Bera No Duerme y Alessvndra. DJ sets de Lombo y Santo Uno y expo de feriantes La Plata Sport." width="1080" height="1350" loading="lazy">
+    <div class="fechas" data-stagger>
+      <figure class="fecha fecha--realizada" data-reveal>
+        <div class="fecha-img">
+          <img src="img/flyer-rxnde-akozta.jpg" alt="Flyer de Juebless: Rxnde Akozta junto a DJ Destroy, 24 de septiembre a las 20 h en Ciudad de Gatos, calle 17 y 71. Invitados Rei All'a, Pol Zuco y DJ Perro, Bera No Duerme y Alessvndra. DJ sets de Lombo y Santo Uno y expo de feriantes La Plata Sport." width="1080" height="1350" loading="lazy">
+          <span class="estado estado--hecha mono"><svg class="ic ic--s"><use href="#i-calendario-ok"/></svg>Realizada</span>
+        </div>
         <figcaption>
-          <div class="fila mono"><span>24 de septiembre · Ciudad de Gatos</span><span class="muted">Realizada</span></div>
-          <h3>Rxnde Akozta junto a DJ Destroy</h3>
+          <div class="ticket">
+            <div class="ticket-dia"><b>24</b><span class="mono">Sep</span></div>
+            <div class="ticket-info">
+              <span class="mono muted">Ciudad de Gatos · La Plata</span>
+              <h3>Rxnde Akozta <span class="junto">junto a DJ Destroy</span></h3>
+            </div>
+          </div>
           <p class="muted">Por primera vez en La Plata. Cinco invitados especiales, dos DJ sets y expo de feriantes con La Plata Sport.</p>
         </figcaption>
       </figure>
-      <figure>
-        <img src="img/flyer-kamada.jpg" alt="Flyer de Kamada: 26 de noviembre en La Plata, Ciudad de Gatos. Apertura de Franqui Quiroga. Producen Lunfardo Producciones, Ciudad de Gatos y Juebless." width="1080" height="1350" loading="lazy">
+      <figure class="fecha fecha--proxima" data-reveal>
+        <div class="fecha-img">
+          <img src="img/flyer-kamada.jpg" alt="Flyer de Kamada: 26 de noviembre en La Plata, Ciudad de Gatos. Apertura de Franqui Quiroga. Producen Lunfardo Producciones, Ciudad de Gatos y Juebless." width="1080" height="1350" loading="lazy">
+          <span class="estado estado--proxima mono"><svg class="ic ic--s"><use href="#i-calendario"/></svg>Próxima fecha</span>
+        </div>
         <figcaption>
-          <div class="fila mono"><span>26 de noviembre · Ciudad de Gatos</span><span class="estado">Próxima fecha</span></div>
-          <h3>Kamada</h3>
+          <div class="ticket">
+            <div class="ticket-dia"><b>26</b><span class="mono">Nov</span></div>
+            <div class="ticket-info">
+              <span class="mono muted">Ciudad de Gatos · La Plata</span>
+              <h3>Kamada</h3>
+            </div>
+          </div>
           <p class="muted">Con apertura de Franqui Quiroga. Producción junto a Lunfardo Producciones y Ciudad de Gatos.</p>
         </figcaption>
       </figure>
@@ -93,92 +203,123 @@
   </div>
 </section>
 
-<section>
+<section data-linea>
   <div class="wrap">
     <div class="head">
-      <span class="mono"><span class="sq"></span>Más que eventos</span>
-      <h2>La cultura también se comparte</h2>
+      <span class="mono" data-reveal><span class="sq"></span>Más que eventos</span>
+      <h2 data-reveal>La cultura también se comparte</h2>
     </div>
-    <div class="cols">
-      <div>
+    <div class="cols" data-stagger>
+      <div class="col-ic" data-reveal>
+        <span class="marco"><svg class="ic ic--m"><use href="#i-carpa"/></svg></span>
         <h3>Festivales gratuitos al aire libre</h3>
         <p class="muted">Llevamos la cultura a otros espacios y a otras personas, con encuentros abiertos y sin entrada.</p>
       </div>
-      <div>
+      <div class="col-ic" data-reveal>
+        <span class="marco"><svg class="ic ic--m"><use href="#i-escudo"/></svg></span>
         <h3>Trabajo con instituciones de la ciudad</h3>
         <p class="muted">Desarrollamos actividades junto al club de fútbol infantil Julián Aguirre, generando oportunidades y fortaleciendo los vínculos del barrio.</p>
       </div>
     </div>
-    <p class="lead nota">Un trabajo independiente, sostenido con esfuerzo y compromiso, que ayudó a darle visibilidad, continuidad y nuevos espacios al Hip Hop en La Plata.</p>
+    <p class="lead nota cita" data-reveal>Un trabajo independiente, sostenido con esfuerzo y compromiso, que ayudó a darle visibilidad, continuidad y nuevos espacios al Hip Hop en La Plata.</p>
   </div>
 </section>
 
-<section class="casa">
+<section class="casa" data-linea>
   <div class="wrap">
     <div class="head">
-      <span class="mono"><span class="sq"></span>Nace Casaca</span>
-      <h2>Una casa para <span class="red">todo lo que viene</span></h2>
-      <p class="lead">Casaca es nuestro propio centro cultural: un lugar de referencia permanente para el Hip Hop, abierto también a otras expresiones artísticas. Un espacio activo toda la semana, donde la cultura se aprende, se practica, se produce y se comparte.</p>
+      <span class="mono" data-reveal><span class="sq"></span>Nace Casaca</span>
+      <h2 data-reveal>Una casa para <span class="red">todo lo que viene</span></h2>
+      <p class="lead" data-reveal>Casaca es nuestro propio centro cultural: un lugar de referencia permanente para el Hip Hop, abierto también a otras expresiones artísticas. Un espacio activo toda la semana, donde la cultura se aprende, se practica, se produce y se comparte.</p>
     </div>
-    <div class="cols cols4">
-      <div>
+    <div class="modulos" data-stagger>
+      <article class="mod mod--talleres" data-reveal>
+        <div class="mod-top"><span class="marco marco--claro"><svg class="ic ic--m"><use href="#i-birrete"/></svg></span><span class="mono">Formación</span></div>
         <h3>Talleres de Hip Hop</h3>
         <p class="muted">Formación en las disciplinas de nuestra cultura.</p>
-        <div class="chips mono"><span>Rap y escritura</span><span>DJ</span><span>Breakdance</span><span>Graffiti</span></div>
-      </div>
-      <div>
+        <ul class="disciplinas">
+          <li><svg class="ic"><use href="#i-mic"/></svg><span>Rap y escritura</span></li>
+          <li><svg class="ic"><use href="#i-vinilo"/></svg><span>DJ</span></li>
+          <li><svg class="ic"><use href="#i-baile"/></svg><span>Breakdance</span></li>
+          <li><svg class="ic"><use href="#i-aerosol"/></svg><span>Graffiti</span></li>
+        </ul>
+      </article>
+      <article class="mod mod--sala" data-reveal>
+        <div class="mod-top"><span class="marco"><svg class="ic ic--m"><use href="#i-musica"/></svg></span><span class="mono muted">Producción</span></div>
         <h3>Sala de ensayo y producción</h3>
         <p class="muted">Para que artistas y bandas preparen sus shows en vivo, trabajen su sonido y crezcan técnicamente.</p>
-      </div>
-      <div>
+      </article>
+      <article class="mod mod--feria" data-reveal>
+        <div class="mod-top"><span class="marco marco--oscuro"><svg class="ic ic--m"><use href="#i-bolsa"/></svg></span><span class="mono">Moda urbana</span></div>
         <h3>Feria de emprendedores</h3>
-        <p class="muted">Punto de encuentro para marcas textiles, diseñadores y emprendimientos de moda urbana e identidad Hip Hop.</p>
-      </div>
-      <div>
+        <p>Punto de encuentro para marcas textiles, diseñadores y emprendimientos de moda urbana e identidad Hip Hop.</p>
+      </article>
+      <article class="mod mod--comunidad" data-reveal>
+        <div class="mod-top"><span class="marco"><svg class="ic ic--m"><use href="#i-grupo"/></svg></span><span class="mono muted">Comunidad</span></div>
         <h3>Encuentro y comunidad</h3>
         <p class="muted">Lugar de referencia para artistas, DJs, bailarines, escritores, productores, grafiteros y emprendedores, de todas las generaciones.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="beneficios" data-linea>
+  <div class="wrap">
+    <div class="head">
+      <span class="mono" data-reveal><span class="sq"></span>Por qué sumarse</span>
+      <h2 data-reveal>Apoyar la cultura es invertir en comunidad</h2>
+    </div>
+    <div class="benef" data-stagger>
+      <div class="ben" data-reveal>
+        <span class="ben-clave" aria-hidden="true">Continuidad</span>
+        <div class="ben-cuerpo">
+          <span class="marco"><svg class="ic ic--m"><use href="#i-repetir"/></svg></span>
+          <h3>Presencia todo el año</h3>
+          <p class="muted">Tu marca no aparece en una sola noche: está en una casa que funciona toda la semana, con talleres, ensayos, ferias y eventos.</p>
+        </div>
+      </div>
+      <div class="ben" data-reveal>
+        <span class="ben-clave" aria-hidden="true">Comunidad</span>
+        <div class="ben-cuerpo">
+          <span class="marco"><svg class="ic ic--m"><use href="#i-grupo"/></svg></span>
+          <h3>Una comunidad que ya existe</h3>
+          <p class="muted">Cinco años y 50 ediciones de trabajo sostenido con artistas, público, feriantes y organizaciones de La Plata.</p>
+        </div>
+      </div>
+      <div class="ben" data-reveal>
+        <span class="ben-clave" aria-hidden="true">Identidad</span>
+        <div class="ben-cuerpo">
+          <span class="marco"><svg class="ic ic--m"><use href="#i-casaca"/></svg></span>
+          <h3>Identidad, no solo un logo</h3>
+          <p class="muted">Te asociás a la formación de jóvenes, a la escena independiente y a artistas referentes del Hip Hop latinoamericano.</p>
+        </div>
+      </div>
+      <div class="ben" data-reveal>
+        <span class="ben-clave" aria-hidden="true">Visibilidad</span>
+        <div class="ben-cuerpo">
+          <span class="marco"><svg class="ic ic--m"><use href="#i-megafono"/></svg></span>
+          <h3>Contenido para tus redes</h3>
+          <p class="muted">Cada fecha y cada taller generan fotos, videos y flyers donde tu marca acompaña de forma natural.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section data-linea>
   <div class="wrap">
     <div class="head">
-      <span class="mono"><span class="sq"></span>Por qué sumarse</span>
-      <h2>Apoyar la cultura es invertir en comunidad</h2>
+      <span class="mono" data-reveal><span class="sq"></span>Formas de sumarse</span>
+      <h2 data-reveal>Elegí tu casaca</h2>
+      <p class="lead" data-reveal>Tres niveles de acompañamiento como punto de partida. Los armamos a medida de cada marca, empresa o emprendimiento.</p>
     </div>
-    <div class="cols">
-      <div>
-        <h3>Presencia todo el año</h3>
-        <p class="muted">Tu marca no aparece en una sola noche: está en una casa que funciona toda la semana, con talleres, ensayos, ferias y eventos.</p>
-      </div>
-      <div>
-        <h3>Una comunidad que ya existe</h3>
-        <p class="muted">Cinco años y 50 ediciones de trabajo sostenido con artistas, público, feriantes y organizaciones de La Plata.</p>
-      </div>
-      <div>
-        <h3>Identidad, no solo un logo</h3>
-        <p class="muted">Te asociás a la formación de jóvenes, a la escena independiente y a artistas referentes del Hip Hop latinoamericano.</p>
-      </div>
-      <div>
-        <h3>Contenido para tus redes</h3>
-        <p class="muted">Cada fecha y cada taller generan fotos, videos y flyers donde tu marca acompaña de forma natural.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="head">
-      <span class="mono"><span class="sq"></span>Formas de sumarse</span>
-      <h2>Elegí tu casaca</h2>
-      <p class="lead">Tres niveles de acompañamiento como punto de partida. Los armamos a medida de cada marca, empresa o emprendimiento.</p>
-    </div>
-    <div class="niveles">
-      <div class="nivel destacado">
-        <span class="mono red">Nivel 1</span>
+    <div class="niveles" data-stagger>
+      <article class="nivel nivel--titular" data-reveal>
+        <div class="nivel-top">
+          <span class="mono">Nivel 1</span>
+          <span class="nivel-chapa mono">Mayor presencia</span>
+        </div>
+        <span class="marco marco--amarillo"><svg class="ic ic--l"><use href="#i-casaca"/></svg></span>
         <h3>Casaca titular</h3>
         <p class="muted">Para la marca que quiere ser parte de la casa.</p>
         <ul>
@@ -188,9 +329,11 @@
           <li>Stand o activación en eventos y ferias</li>
           <li>Publicaciones y menciones en nuestras redes</li>
         </ul>
-      </div>
-      <div class="nivel">
-        <span class="mono red">Nivel 2</span>
+        <a class="btn btn--amarillo" href="#sumate">Conversemos esta modalidad<svg class="ic ic--s"><use href="#i-flecha"/></svg></a>
+      </article>
+      <article class="nivel" data-reveal>
+        <div class="nivel-top"><span class="mono">Nivel 2</span></div>
+        <span class="marco"><svg class="ic ic--l"><use href="#i-birrete"/></svg></span>
         <h3>Padrino de taller</h3>
         <p class="muted">Para acompañar la formación.</p>
         <ul>
@@ -199,9 +342,11 @@
           <li>Posibilidad de becas con tu nombre</li>
           <li>Contenido del proceso y la muestra final</li>
         </ul>
-      </div>
-      <div class="nivel">
-        <span class="mono red">Nivel 3</span>
+        <a class="btn" href="#sumate">Conversemos esta modalidad<svg class="ic ic--s"><use href="#i-flecha"/></svg></a>
+      </article>
+      <article class="nivel" data-reveal>
+        <div class="nivel-top"><span class="mono">Nivel 3</span></div>
+        <span class="marco"><svg class="ic ic--l"><use href="#i-saludo"/></svg></span>
         <h3>Aliado de la casa</h3>
         <p class="muted">Para emprendimientos que quieren estar cerca.</p>
         <ul>
@@ -209,26 +354,36 @@
           <li>Lugar en la feria de emprendedores</li>
           <li>Mención en redes</li>
         </ul>
-      </div>
+        <a class="btn" href="#sumate">Conversemos esta modalidad<svg class="ic ic--s"><use href="#i-flecha"/></svg></a>
+      </article>
     </div>
-    <div class="canje">
-      <span class="mono"><span class="sq"></span>También por canje</span>
-      <p class="muted">Equipamiento de sonido, materiales para los talleres (aerosoles, papel, vinilos), bebidas, indumentaria o servicios. Todo suma para poner en marcha la casa.</p>
+    <div class="canje" data-reveal>
+      <span class="marco"><svg class="ic ic--m"><use href="#i-paquete"/></svg></span>
+      <div>
+        <span class="mono"><span class="sq"></span>También por canje</span>
+        <p class="muted">Equipamiento de sonido, materiales para los talleres (aerosoles, papel, vinilos), bebidas, indumentaria o servicios. Todo suma para poner en marcha la casa.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta">
-  <div class="wrap grid">
-    <div class="head">
-      <span class="mono">Juebless × Casaca</span>
-      <h2>La cultura se construye entre todos</h2>
-      <p class="lead">Queremos que Casaca sea una casa donde todos tengan un lugar. Hablemos y armamos juntos la forma de sumarte.</p>
-    </div>
-    <div class="contacto mono">
-      <div><span>Casaca</span><b>Centro cultural</b></div>
-      <div><span>Ciudad</span><b>La Plata</b></div>
-      <div><span>Propuesta</span><b>Noviembre 2026</b></div>
+<section class="cta" id="sumate">
+  <svg class="cta-estrella cta-estrella--a" data-parallax="0.1" aria-hidden="true"><use href="#i-estrella"/></svg>
+  <svg class="cta-estrella cta-estrella--b" data-parallax="-0.06" aria-hidden="true"><use href="#i-estrella"/></svg>
+  <div class="wrap">
+    <span class="mono cta-kicker" data-reveal><svg class="ic ic--s"><use href="#i-saludo"/></svg>Juebless × Casaca</span>
+    <h2 class="cta-titulo" data-stagger>
+      <span class="linea" data-reveal>La cultura</span>
+      <span class="linea" data-reveal>se construye</span>
+      <span class="linea linea--negra" data-reveal>entre todos</span>
+    </h2>
+    <div class="cta-pie">
+      <p class="lead" data-reveal>Queremos que Casaca sea una casa donde todos tengan un lugar. Hablemos y armamos juntos la forma de sumarte.</p>
+      <div class="contacto mono" data-reveal>
+        <div><span>Casaca</span><b>Centro cultural</b></div>
+        <div><span>Ciudad</span><b>La Plata</b></div>
+        <div><span>Propuesta</span><b>Noviembre 2026</b></div>
+      </div>
     </div>
   </div>
 </section>
