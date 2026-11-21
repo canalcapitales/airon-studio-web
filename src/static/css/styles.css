@@ -358,6 +358,7 @@ ul { padding: 0; list-style: none; }
 .despliegue[open] .area-nombre { color: var(--acento-texto); }
 .despliegue-panel { padding: 4px 0 28px 64px; animation: desplegar var(--dur-ui) var(--ease-out); }
 @keyframes desplegar { from { opacity: 0; transform: translateY(-8px); } }
+.despliegue-lista:empty { display: none; }
 .despliegue-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; }
 .despliegue-item { display: grid; grid-template-columns: 64px minmax(0, 1fr) 20px; align-items: center; gap: 14px; padding: 8px 0; text-decoration: none; border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
 .despliegue-mini { aspect-ratio: 1280 / 1001; overflow: hidden; background: var(--placeholder); }
@@ -1473,4 +1474,13 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
   .web-home-head { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
   .vitrina { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(32px, 4vw, 72px); align-items: center; }
   .vitrina-col, .vitrina-pantalla { order: 0; }
+}
+
+/* ----- Inicio: 3 proyectos destacados (2026-11-21) ----- */
+@media (min-width: 900px) {
+  .destacados--3 .destacado { grid-column: span 4; margin-top: 0; }
+  .destacados--3 .destacado--2 { margin-top: clamp(40px, 6vw, 96px); }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .destacados--3 .destacado--1 { grid-column: 1 / -1; }
 }

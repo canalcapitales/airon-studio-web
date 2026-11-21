@@ -33,7 +33,8 @@ const cursorP = (l, p) => (p.externo ? (l === 'es' ? 'Visitar ↗' : 'Visit ↗'
 const rutaDe = (l, clave, slug) =>
   clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : clave === 'cliente' ? `${RUTAS[l].clientes}${slug}/` : RUTAS[l][clave];
 // Proyectos que encabezan el inicio (en este orden). Se eligen por variedad: marca, mural, web, motion y colecciones.
-const DESTACADOS = ['gsp-seguridad', 'blend-david', 'trust-fund', 'equilibria', 'branding-x-airon-studio', 'zocalo-fox-sports'];
+// En el inicio van 3, de áreas distintas (todos los trabajos ya están en la sección Áreas)
+const DESTACADOS = ['gsp-seguridad', 'blend-david', 'branding-x-airon-studio'];
 
 // ---------- textos de la interfaz ----------
 const TXT = {
@@ -42,7 +43,7 @@ const TXT = {
     lema: 'Diseño que construye marcas, ideas y experiencias',
     descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
-    nav: { inicio: 'Inicio', proyectos: 'Áreas', web: 'Diseño web', clientes: 'Clientes', estudio: 'Nosotros', contacto: 'Contacto' },
+    nav: { inicio: 'Inicio', proyectos: 'Trabajos', web: 'Diseño web', clientes: 'Clientes', estudio: 'Nosotros', contacto: 'Contacto' },
     // Sección Diseño web del inicio (#diseno-web): muestra las webs publicadas y lleva al formulario con "web" elegido
     webHome: {
       kicker: 'Webs a medida', titulo: 'Diseño <em>web</em>',
@@ -60,7 +61,7 @@ const TXT = {
       masMarcas: 'Más marcas que diseñamos', masMarcasTexto: 'Identidades que forman parte del muro de marcas.', verMuro: 'Ver el muro de marcas →',
       ordenar: 'Ordenar por', porAreas: 'Áreas', porClientes: 'Clientes',
       homeKicker: 'Elegí un área y mirá sus trabajos', homeTitulo: 'Áreas', tabsAria: 'Cómo ordenar los trabajos',
-      tabAreas: 'Por área', tabClientes: 'Por cliente', verArea: 'Ver toda el área →', verMurales: 'Ver murales →', verClientes: 'Ver todos los clientes →', verCliente: 'Ver cliente →',
+      tabAreas: 'Por área', tabClientes: 'Por cliente', verArea: 'Ver toda el área →', verMurales: 'Ver murales →', verWebs: 'Ver las webs ↓', verClientes: 'Ver todos los clientes →', verCliente: 'Ver cliente →',
       clienteUno: 'Cliente', clientesVarios: 'Clientes', areaUna: 'Área', areasVarias: 'Áreas',
       masDe: (n) => `Más trabajos para ${n}`,
     },
@@ -398,11 +399,11 @@ const TXT = {
     serviciosKicker: 'Servicios', queHacemos: 'Qué hacemos', ctaInicio: '¿Tenés un proyecto en mente?', escribinos: 'Escribinos →',
     numerosTitulo: 'El estudio en números',
     numeros: ['Años de estudio', 'Trabajos en el portafolio', 'Identidades de marca', 'Clientes', 'Nuestro mural más grande', 'Disciplinas creativas'],
-    portafolio: 'Explorá nuestros trabajos', proyectos: 'Áreas', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
+    portafolio: 'Explorá nuestros trabajos', proyectos: 'Trabajos', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
     listadoLead: 'Diseño integral, branding, redes sociales, ploteo vehicular, flyers, gráfica musical, motion, web y sistemas, murales, fotografía e ilustración. Cada proyecto está en su área principal.',
     listadoDesc: 'Portafolio de AIRON Studio: diseño integral para empresas, branding, redes sociales, ploteo vehicular, flyers, gráfica musical, motion, web y sistemas, murales, fotografía e ilustración.',
     portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar', muro: { titulo: 'Muro de marcas', texto: 'Logos diseñados para artistas, comercios, empresas e instituciones. Filtrá por rubro y tocá cada marca para verla en grande.', todas: 'Todas', marcas: 'marcas', rubros: 'rubros', verCaso: 'Ver caso', filtrar: 'Filtrar marcas por rubro' },
-    videoDe: (t) => `Video del proyecto ${t}`, videoPausar: 'Pausar video', videoSeguir: 'Reproducir video',volver: '← Volver a áreas', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
+    videoDe: (t) => `Video del proyecto ${t}`, videoPausar: 'Pausar video', videoSeguir: 'Reproducir video',volver: '← Todos los trabajos', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
     ctaSinBehance: '¿Tu marca es la próxima?', botonSinBehance: 'Pedí tu marca →', ctaProyectoGeneral: '¿Tenés un proyecto en mente?', botonProyecto: 'Pedí tu presupuesto →', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
     proyectoDe: 'Proyecto de AIRON Studio.',
     descProyecto: (cats) => `${cats} por AIRON Studio, estudio de diseño multimedial en Buenos Aires.`,
@@ -502,7 +503,7 @@ const TXT = {
     lema: 'Design that builds brands, ideas and experiences',
     descripcion: 'Multimedia design studio based in Buenos Aires since 2015. Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
-    nav: { inicio: 'Home', proyectos: 'Areas', web: 'Web design', clientes: 'Clients', estudio: 'About us', contacto: 'Contact' },
+    nav: { inicio: 'Home', proyectos: 'Work', web: 'Web design', clientes: 'Clients', estudio: 'About us', contacto: 'Contact' },
     webHome: {
       kicker: 'Custom websites', titulo: '<em>Web</em> design',
       lead: 'We design and build custom websites with your brand identity: fast, secure and mobile-first. A website that looks good, can be found on Google and gets people to contact you.',
@@ -518,7 +519,7 @@ const TXT = {
       masMarcas: 'More brands we designed', masMarcasTexto: 'Identities that are part of the brand wall.', verMuro: 'See the brand wall →',
       ordenar: 'Sort by', porAreas: 'Areas', porClientes: 'Clients',
       homeKicker: 'Pick an area and see the work', homeTitulo: 'Areas', tabsAria: 'How to sort the work',
-      tabAreas: 'By area', tabClientes: 'By client', verArea: 'See the whole area →', verMurales: 'See murals →', verClientes: 'See all clients →', verCliente: 'See client →',
+      tabAreas: 'By area', tabClientes: 'By client', verArea: 'See the whole area →', verMurales: 'See murals →', verWebs: 'See the websites ↓', verClientes: 'See all clients →', verCliente: 'See client →',
       clienteUno: 'Client', clientesVarios: 'Clients', areaUna: 'Area', areasVarias: 'Areas',
       masDe: (n) => `More work for ${n}`,
     },
@@ -856,11 +857,11 @@ const TXT = {
     serviciosKicker: 'Services', queHacemos: 'What we do', ctaInicio: 'Have a project in mind?', escribinos: 'Get in touch →',
     numerosTitulo: 'The studio in numbers',
     numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Clients', 'Our largest mural', 'Creative disciplines'],
-    portafolio: 'Explore our work', proyectos: 'Areas', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects', sinProyectos: 'We are preparing the projects in this category.', sinProyectosCta: 'Tell us what you need →',
+    portafolio: 'Explore our work', proyectos: 'Work', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects', sinProyectos: 'We are preparing the projects in this category.', sinProyectosCta: 'Tell us what you need →',
     listadoLead: 'Integrated design, branding, social media, vehicle wraps, flyers, music artwork, motion, web & systems, murals, photography and illustration. Each project sits in its main area.',
     listadoDesc: 'AIRON Studio portfolio: integrated design for companies, branding, social media, vehicle wraps, flyers, music artwork, motion, web & systems, murals, photography and illustration.',
     portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge', muro: { titulo: 'Brand wall', texto: 'Logos designed for artists, shops, companies and institutions. Filter by industry and tap any brand to see it large.', todas: 'All', marcas: 'brands', rubros: 'industries', verCaso: 'View case', filtrar: 'Filter brands by industry' },
-    videoDe: (t) => `Video of the project ${t}`, videoPausar: 'Pause video', videoSeguir: 'Play video',volver: '← Back to areas', fichaAria: 'Project details', imagenesAria: 'Project images',
+    videoDe: (t) => `Video of the project ${t}`, videoPausar: 'Pause video', videoSeguir: 'Play video',volver: '← All work', fichaAria: 'Project details', imagenesAria: 'Project images',
     ctaSinBehance: 'Is your brand next?', botonSinBehance: 'Get your brand →', ctaProyectoGeneral: 'Got a project in mind?', botonProyecto: 'Get a quote →', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
     proyectoDe: 'A project by AIRON Studio.',
     descProyecto: (cats) => `${cats} by AIRON Studio, a multimedia design studio based in Buenos Aires.`,
@@ -1095,8 +1096,8 @@ const ASSETS = {};
 function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/img/og/inicio-${l}.jpg`, datos, cuerpo, publicidadEnPie = true }) {
   const T = TXT[l];
   const R = RUTAS[l];
-  // Clientes y Murales ya no están en el menú: desde esas páginas se marca Áreas, que es por donde se llega a los trabajos
-  const marcado = ['clientes', 'murales'].includes(activo) ? 'proyectos' : activo;
+  // Murales no está en el menú: desde esa página se marca Trabajos
+  const marcado = activo === 'murales' ? 'proyectos' : activo;
   const actual = (id) => (marcado === id ? ' aria-current="page"' : '');
   const tituloCompleto = titulo ? `${titulo} — AIRON Studio` : `AIRON Studio — ${T.lema}`;
   const url = SITIO.url + rutaDe(l, clave, slug);
@@ -1148,7 +1149,8 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
       <a class="logo" href="${R.inicio}" aria-label="${T.inicioAria}">${logo('logo-header')}</a>
       <nav id="menu" class="nav" aria-label="${T.navPrincipal}">
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
-        <a class="nav-link" href="${trabajosHome(l)}"${actual('proyectos')}>${T.nav.proyectos}</a>
+        <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
+        <a class="nav-link" href="${R.clientes}"${actual('clientes')}>${T.nav.clientes}</a>
         <a class="nav-link" href="${R.inicio}#diseno-web">${T.nav.web}</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
         <a class="nav-link nav-tarifario" href="${R.tarifarios}"${actual('tarifario')}>${T.tarifarios.nav}</a>
@@ -1255,7 +1257,7 @@ function marquesinaPublicidad(l, variante = '') {
 const nombreCat = (l, id) => TXT[l].categorias[id] ?? id;
 const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ');
 // "Áreas" lleva a la sección Áreas del inicio (la lista de áreas), no a la grilla con todos los proyectos
-const trabajosHome = (l) => `${RUTAS[l].inicio}#areas`;
+const trabajosHome = (l) => RUTAS[l].proyectos;
 const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 // Los servicios llevan a su categoría; arte urbano tiene su propia página
 // Categoría del proyecto → tipo de proyecto en el formulario de Contacto
@@ -1408,7 +1410,7 @@ function destacados(l, proyectos, { primeraRapida = false } = {}) {
         </div>
         <a class="link-arrow" href="${trabajosHome(l)}">${T.verTodosProyectos}</a>
       </div>
-      <div class="destacados">
+      <div class="destacados destacados--${elegidos.length}">
         ${items}
       </div>
     </div>
@@ -1500,8 +1502,9 @@ function inicio(l, proyectos) {
       despliegue(l, {
         id: `a${i}`, grupo: 'areas', num: num(i), nombre: nombreCat(l, id), mini: p.portada,
         cuenta: `${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}`,
-        trabajos: proyectos.filter((x) => x.categorias.includes(id)).map(conSub),
-        enlace: enlaceServicio(l, id), enlaceTexto: id === 'urbano' ? C.verMurales : C.verArea,
+        // Las webs no se listan acá: están justo abajo, en la vitrina de Diseño web
+        trabajos: id === 'web' ? [] : proyectos.filter((x) => x.categorias.includes(id)).map(conSub),
+        enlace: id === 'web' ? '#diseno-web' : enlaceServicio(l, id), enlaceTexto: id === 'urbano' ? C.verMurales : id === 'web' ? C.verWebs : C.verArea,
       })
     )
     .join('\n        ');
@@ -1511,11 +1514,6 @@ function inicio(l, proyectos) {
     ...datosAreas.map(({ p }, i) => vista(`a${i}`, p, i === 0)),
     ...proyectos.map((p) => vista(`t-${p.slug}`, p, false)),
   ].join('\n        ');
-  const conCat = T.servicios.filter(([cat]) => cat && CON_TRABAJOS.has(cat));
-  const lista = (oculta) =>
-    `<ul class="franja-lista"${oculta ? ' aria-hidden="true"' : ''}>${conCat
-      .map(([cat, nombre]) => `<li><a href="${enlaceServicio(l, cat)}"${oculta ? ' tabindex="-1"' : ''}>${esc(nombre)}</a></li><li class="franja-sep" aria-hidden="true"></li>`)
-      .join('')}</ul>`;
   const pasos = T.proceso
     .map(([t, d], i) => `<li class="paso reveal"><span class="paso-num">${num(i)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`)
     .join('\n        ');
@@ -1561,8 +1559,6 @@ function inicio(l, proyectos) {
   </section>
 
   ${disenoWeb(l, proyectos)}
-
-  <nav class="franja" aria-label="${T.disciplinasAria}"><div class="franja-pista">${lista(false)}${lista(true)}</div></nav>
 
   <section class="seccion intro-estudio" aria-labelledby="intro-t">
     <div class="wrap intro-grid">
@@ -2820,9 +2816,6 @@ function murales(l, proyectos) {
 
 function estudio(l, proyectos) {
   const T = TXT[l];
-  const disciplinas = T.servicios
-    .map(([cat, nombre], i) => `<li class="reveal"><span class="mono num">${num(i)}</span>${cat && CON_TRABAJOS.has(cat) ? `<a href="${enlaceServicio(l, cat)}">${esc(nombre)}</a>` : `<span>${esc(nombre)}</span>`}</li>`)
-    .join('');
   const equipo = T.equipo
     .map(([rol, texto], i) => `<li class="servicio reveal${i === 0 ? ' servicio--destacado' : ''}"><span class="mono num">${num(i)}</span><div><h3>${esc(rol)}</h3><p>${esc(texto)}</p></div></li>`)
     .join('\n        ');
@@ -2862,22 +2855,6 @@ function estudio(l, proyectos) {
     </div>
   </section>
   ${numeros(l, proyectos)}
-  <section class="seccion">
-    <div class="wrap">
-      <h2 class="h2">${T.disciplinas}</h2>
-      <ul class="disciplinas">${disciplinas}</ul>
-    </div>
-  </section>
-  <section class="seccion seccion--borde">
-    <div class="wrap">
-      <div class="seccion-head">
-        <h2 class="h3">${T.marcasClientes}</h2>
-        <a class="link-arrow" href="${RUTAS[l].clientes}">${T.verClientesHome}</a>
-      </div>
-      ${muroClientes(l)}
-    </div>
-  </section>
-  ${destacados(l, proyectos)}
   ${proceso(l)}
   ${ctaBloque(l, T.ctaEstudio)}
 `,
