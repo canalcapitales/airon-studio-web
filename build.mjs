@@ -2193,7 +2193,7 @@ function detalle(l, proyectos, p, i) {
       ],
     },
     cuerpo: `
-  <article class="proyecto proyecto--${tipo}">
+  <article class="proyecto proyecto--${tipo}${p.carruselArriba ? ' proyecto--carrusel' : ''}">
     <header class="proyecto-head">
       <div class="wrap">
         <div class="proyecto-crumbs mono">
