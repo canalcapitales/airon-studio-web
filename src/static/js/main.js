@@ -1647,10 +1647,16 @@ function visor() {
   const todos = [...document.querySelectorAll('.zoom')];
   if (!dialogo || !todos.length || typeof dialogo.showModal !== 'function') return;
   // La cabecera repite piezas de la galería: el visor recorre cada imagen una sola vez, en el orden de la galería
-  const enlaces = [];
-  [...todos.filter((a) => !a.closest('.tira--hero')), ...todos].forEach((a) => {
-    if (!enlaces.some((b) => b.href === a.href)) enlaces.push(a);
-  });
+  // Con varios muros en la página (Trabajos, Inicio), el visor recorre solo las piezas del muro que se tocó
+  let enlaces = [];
+  const armar = (desde) => {
+    const muro = desde.closest('.muro-logos');
+    const grupo = muro ? todos.filter((a) => muro.contains(a)) : todos.filter((a) => !a.closest('.muro-logos'));
+    enlaces = [];
+    [...grupo.filter((a) => !a.closest('.tira--hero')), ...grupo].forEach((a) => {
+      if (!enlaces.some((b) => b.href === a.href)) enlaces.push(a);
+    });
+  };
 
   const imagen = dialogo.querySelector('.visor-img');
   const contador = dialogo.querySelector('.visor-contador');
@@ -1669,6 +1675,7 @@ function visor() {
     a.addEventListener('click', (e) => {
       e.preventDefault();
       origen = a;
+      armar(a);
       mostrar(enlaces.findIndex((b) => b.href === a.href));
       dialogo.showModal();
     })

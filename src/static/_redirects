@@ -31,3 +31,16 @@
 /clientes/* /proyectos/ 301
 /en/clients /en/projects/ 301
 /en/clients/* /en/projects/ 301
+# Desde 2026-11-21 los muros (logos, flyers, portadas) no tienen ficha: se ven directo en Trabajos
+/proyectos/branding-x-airon-studio /proyectos/#muro-branding-x-airon-studio 301
+/proyectos/branding-x-airon-studio/ /proyectos/#muro-branding-x-airon-studio 301
+/proyectos/flyers /proyectos/#muro-flyers 301
+/proyectos/flyers/ /proyectos/#muro-flyers 301
+/proyectos/spotify-covers /proyectos/#muro-spotify-covers 301
+/proyectos/spotify-covers/ /proyectos/#muro-spotify-covers 301
+/en/projects/branding-x-airon-studio /en/projects/#muro-branding-x-airon-studio 301
+/en/projects/branding-x-airon-studio/ /en/projects/#muro-branding-x-airon-studio 301
+/en/projects/flyers /en/projects/#muro-flyers 301
+/en/projects/flyers/ /en/projects/#muro-flyers 301
+/en/projects/spotify-covers /en/projects/#muro-spotify-covers 301
+/en/projects/spotify-covers/ /en/projects/#muro-spotify-covers 301
