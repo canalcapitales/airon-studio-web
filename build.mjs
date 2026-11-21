@@ -1503,6 +1503,12 @@ function inicio(l, proyectos) {
       })
     )
     .join('');
+  // Fondo de la portada (como laion.com.ar): un mosaico oscurecido de los trabajos destacados que se mueve lento
+  const fondoPortada = destacados
+    .concat(destacados)
+    .slice(0, 16)
+    .map(({ p }, i) => `<span>${img(p.portada, { alt: '', sizes: '25vw', dims: [640, 501], eager: i < 8 })}</span>`)
+    .join('');
   const piezasAreas = portadaAreas
     .map(({ id, p, n }, i) => {
       // Web y sistemas lleva a la vitrina de Diseño web, que está justo abajo
@@ -1523,14 +1529,29 @@ function inicio(l, proyectos) {
     imagen: `/img/og/inicio-${l}.jpg`,
     datos: { '@graph': [organizacion(l), { '@type': 'WebSite', name: 'AIRON Studio', url: `${SITIO.url}${R.inicio}`, inLanguage: T.htmlLang, publisher: { '@id': `${SITIO.url}/#estudio` } }] },
     cuerpo: `
+  <section class="portada-inicio">
+    <div class="portada-fondo" aria-hidden="true">${fondoPortada}</div>
+    <div class="foco" aria-hidden="true"></div>
+    <span class="portada-esquina portada-esquina--1" aria-hidden="true"></span><span class="portada-esquina portada-esquina--2" aria-hidden="true"></span><span class="portada-esquina portada-esquina--3" aria-hidden="true"></span><span class="portada-esquina portada-esquina--4" aria-hidden="true"></span>
+    <div class="wrap portada-in">
+      <div class="portada-kicker mono"><span>${T.heroKicker[0]}</span><span>${T.heroKicker[1]}</span></div>
+      <h1 class="portada-logo"><span class="oculto">AIRON Studio — ${esc(T.lema)}</span>${logo('logo-portada')}</h1>
+      <div class="portada-pie">
+        <p class="portada-lema">${esc(T.lema)}.</p>
+        <p class="portada-sub">${T.heroLead}</p>
+        <div class="btn-row portada-botones">
+          <a class="btn btn-accent btn-lg" href="#areas" data-magnetic>${T.verProyectos}</a>
+          <a class="btn btn-outline-claro btn-lg" href="${R.contacto}" data-magnetic>${T.hablemos}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="inicio-carrusel inicio-carrusel--hero">
-    <h1 class="oculto">${esc(T.lema)}</h1>
     <div class="wrap">
       ${carruselHTML(l, {
         area: 'inicio', formato: 'apaisado', piezas: piezasHero, total: destacados.length,
-        kicker: `[★] ${T.heroKicker[0]} · ${T.heroKicker[1]}`, titulo: '', texto: T.heroLead,
-        acciones: `<a class="btn btn-accent btn-lg" href="#areas" data-magnetic>${T.verProyectos}</a><a class="btn btn-outline-claro btn-lg" href="${R.contacto}" data-magnetic>${T.hablemos}</a>`,
-        extra: '<div class="foco" aria-hidden="true"></div>',
+        kicker: `[★] / ${l === 'en' ? 'Featured work' : 'Trabajos destacados'}`, titulo: '',
       })}
     </div>
   </section>
