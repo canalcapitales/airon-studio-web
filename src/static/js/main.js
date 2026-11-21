@@ -2190,6 +2190,7 @@ function vitrinaWeb() {
   let actual = 0;
   let enVista = false;
   let encima = false;
+  let vigia;
 
   if (!quieto && videos.every(Boolean)) v.classList.add('con-video');
   const conVideo = () => v.classList.contains('con-video');
@@ -2203,6 +2204,10 @@ function vitrinaWeb() {
     if (!vid) return;
     if (!vid.src) { vid.src = vid.dataset.src; vid.load(); }
     if (!encima) vid.play().catch(() => {});
+    // Respaldo: si en unos segundos no arrancó (por ejemplo, un navegador que no puede pedir el video por partes),
+    // la vitrina vuelve a la captura que baja sola, para que nunca quede congelada
+    clearTimeout(vigia);
+    vigia = setTimeout(() => { if (enVista && !encima && vid.paused && !vid.classList.contains('listo')) { v.classList.remove('con-video'); pararTodos(); } }, 6000);
   };
 
   const mostrar = (i, desdeCero = true) => {
