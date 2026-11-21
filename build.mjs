@@ -1503,12 +1503,15 @@ function inicio(l, proyectos) {
       })
     )
     .join('');
-  // Fondo de la portada (como laion.com.ar): un mosaico oscurecido de los trabajos destacados que se mueve lento
-  const fondoPortada = destacados
-    .concat(destacados)
-    .slice(0, 16)
-    .map(({ p }, i) => `<span>${img(p.portada, { alt: '', sizes: '25vw', dims: [640, 501], eager: i < 8 })}</span>`)
-    .join('');
+  // Fondo de la portada (como laion.com.ar, pedido del usuario 2026-11-21): tres cintas inclinadas con las marcas
+  // de logos.json que corren sin parar. Cada cinta arranca en otro logo y va dos veces seguida para que el loop no se corte.
+  const marcas = LOGOS.logos;
+  const cinta = (desde) => {
+    const orden = marcas.slice(desde).concat(marcas.slice(0, desde));
+    const tiras = orden.concat(orden).map((x, i) => `<span data-fondo="${x.fondo}"><img src="${esc(x.archivo)}" alt="" width="1080" height="1080" ${i < 8 ? '' : 'loading="lazy" '}decoding="async"></span>`).join('');
+    return `<div class="portada-cinta">${tiras}</div>`;
+  };
+  const fondoPortada = [0, 9, 18].map(cinta).join('');
   const piezasAreas = portadaAreas
     .map(({ id, p, n }, i) => {
       // Web y sistemas lleva a la vitrina de Diseño web, que está justo abajo

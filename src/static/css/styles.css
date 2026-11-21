@@ -1542,14 +1542,19 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 .portada-lema { margin: 0; font-family: var(--f-display); font-weight: 400; text-transform: uppercase; letter-spacing: .02em; line-height: 1; font-size: clamp(26px, 3.6vw, 52px); }
 .portada-sub { margin: 0; max-width: 46em; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.5; color: color-mix(in srgb, #F2F0EB 72%, transparent); }
 .portada-botones { justify-content: center; margin-top: 8px; }
-/* Mosaico de trabajos detrás, oscurecido y girado, que se mueve lento */
-.portada-fondo { position: absolute; z-index: -2; inset: -18% -12%; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.4vw, 20px); align-content: center;
-  transform: rotate(-7deg); opacity: .24; filter: saturate(.8); animation: portada-deriva 60s linear infinite alternate; }
-.portada-fondo span { display: block; aspect-ratio: 640 / 501; overflow: hidden; border-radius: 10px; }
-.portada-fondo img, .portada-fondo picture { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Detrás: tres cintas inclinadas con las marcas (logos.json) que corren sin parar, como laion.com.ar.
+   Cada cinta tiene los logos dos veces seguidas: al llegar a la mitad vuelve al principio sin que se note. */
+.portada-fondo { position: absolute; z-index: -2; inset: -20% -15%; display: flex; flex-direction: column; justify-content: center; gap: clamp(12px, 1.6vw, 22px);
+  transform: rotate(-7deg); opacity: .26; }
+.portada-cinta { display: flex; gap: clamp(12px, 1.6vw, 22px); padding-right: clamp(12px, 1.6vw, 22px); width: max-content; animation: portada-correr 140s linear infinite; }
+.portada-cinta:nth-child(2) { animation-duration: 170s; animation-direction: reverse; }
+.portada-cinta:nth-child(3) { animation-duration: 155s; }
+.portada-cinta span { flex: none; width: clamp(110px, 13vw, 200px); aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #000; }
+.portada-cinta span[data-fondo="claro"] { background: #fff; }
+.portada-cinta img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@keyframes portada-correr { to { transform: translateX(-50%); } }
 .portada-inicio::after { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none;
   background: radial-gradient(ellipse at 50% 45%, rgb(17 17 17 / .2), rgb(17 17 17 / .85) 75%), linear-gradient(to bottom, rgb(17 17 17 / .6), transparent 25%, transparent 70%, #111); }
-@keyframes portada-deriva { from { translate: 0 0; } to { translate: -6% -10%; } }
 /* Marcas rojas en las esquinas */
 .portada-esquina { position: absolute; width: clamp(18px, 2.4vw, 30px); aspect-ratio: 1; border: 0 solid #FF0000; pointer-events: none; }
 .portada-esquina--1 { top: 14px; left: 14px; border-top-width: 2px; border-left-width: 2px; }
@@ -1566,11 +1571,11 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 @media (max-width: 700px) {
   .portada-in { min-height: min(720px, calc(100svh - var(--header-h))); }
   .portada-kicker { flex-direction: column; }
-  .portada-fondo { grid-template-columns: repeat(3, 1fr); inset: -10% -40%; }
+  .portada-fondo { inset: -10% -40%; }
   .portada-botones { width: 100%; flex-direction: column; }
   .portada-botones .btn { width: 100%; }
 }
-@media (prefers-reduced-motion: reduce) { .portada-fondo, .logo-portada, .logo-portada .logo-estrella, .portada-pie { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .portada-cinta, .logo-portada, .logo-portada .logo-estrella, .portada-pie { animation: none; } }
 .inicio-carrusel #areas, .inicio-carrusel[id] { scroll-margin-top: var(--header-h); }
 @media (max-width: 600px) { .carrusel-acciones .btn { flex: 1 1 auto; } }
 .carrusel[data-area="redes"], .carrusel[data-area="musical"], .carrusel[data-area="web"], .carrusel[data-area="ilustracion"] {
