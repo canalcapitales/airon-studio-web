@@ -32,9 +32,6 @@ const abreAfuera = (p) => (p.externo ? ' target="_blank" rel="noopener"' : '');
 const cursorP = (l, p) => (p.externo ? (l === 'es' ? 'Visitar ↗' : 'Visit ↗') : TXT[l].verCursor);
 const rutaDe = (l, clave, slug) =>
   clave === 'proyecto' ? `${RUTAS[l].proyectos}${slug}/` : clave === 'cliente' ? `${RUTAS[l].clientes}${slug}/` : RUTAS[l][clave];
-// Proyectos que encabezan el inicio (en este orden). Se eligen por variedad: marca, mural, web, motion y colecciones.
-// En el inicio van 3, de áreas distintas (todos los trabajos ya están en la sección Áreas)
-const DESTACADOS = ['gsp-seguridad', 'blend-david', 'branding-x-airon-studio'];
 
 // ---------- textos de la interfaz ----------
 const TXT = {
@@ -1421,48 +1418,6 @@ function proceso(l) {
 }
 
 // Muro de clientes: cada uno lleva a su página. Con logo se muestra el logo (sobre su fondo); si no, el nombre.
-function muroClientes(l) {
-  return `<ul class="muro-clientes">${CLIENTES_EXTERNOS.map((c) => {
-    const contenido = c.logo
-      ? `<img src="${esc(c.logo)}" alt="${esc(c.nombre)}" width="160" height="160" loading="lazy" decoding="async">`
-      : `<span class="muro-clientes-nombre">${esc(c.nombre)}</span>`;
-    return `<li${c.logo && c.fondo ? ` data-fondo="${c.fondo}"` : ''}><a href="${enlaceCliente(l, c)}" title="${esc(c.nombre)}${rubroDe(l, c) ? ` — ${esc(rubroDe(l, c))}` : ''}">${contenido}<span class="muro-clientes-rubro mono" aria-hidden="true">${esc(rubroDe(l, c))}</span></a></li>`;
-  }).join('')}</ul>`;
-}
-
-// Trabajo seleccionado: composición editorial con tamaños alternados. Cada proyecto conserva su portada.
-function destacados(l, proyectos, { primeraRapida = false } = {}) {
-  const T = TXT[l];
-  const elegidos = DESTACADOS.map((s) => proyectos.find((p) => p.slug === s)).filter(Boolean);
-  const items = elegidos
-    .map((p, i) => {
-      const cliente = nombresClientes(p.slug);
-      return `<a class="destacado destacado--${i + 1} reveal" href="${hrefP(l, p)}"${abreAfuera(p)} data-cursor="${cursorP(l, p)}">
-          <span class="destacado-img" data-vt="p-${p.slug}">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: i % 3 === 0 ? '(min-width: 900px) 58vw, 100vw' : '(min-width: 900px) 42vw, 100vw', dims: [640, 501], eager: primeraRapida && i === 0 })}</span>
-          <span class="destacado-meta">
-            <span class="destacado-num mono">${num(i)}</span>
-            <span class="destacado-texto"><span class="destacado-titulo">${esc(p.titulo)}</span><span class="destacado-sub">${esc(p.subtitulo)}</span></span>
-            <span class="destacado-cats mono">${esc(catsTexto(l, p))}${cliente && !p.titulo.toLowerCase().startsWith(cliente.toLowerCase().slice(0, 4)) ? `<br>${esc(cliente)}` : ''}</span>
-          </span>
-        </a>`;
-    })
-    .join('\n        ');
-  return `<section class="seccion destacados-seccion" aria-labelledby="destacados-t">
-    <div class="wrap">
-      <div class="seccion-head">
-        <div>
-          <span class="kicker mono">${T.destacadosKicker}</span>
-          <h2 class="h2" id="destacados-t">${T.destacadosTitulo}</h2>
-        </div>
-        <a class="link-arrow" href="${trabajosHome(l)}">${T.verTodosProyectos}</a>
-      </div>
-      <div class="destacados destacados--${elegidos.length}">
-        ${items}
-      </div>
-    </div>
-  </section>`;
-}
-
 // Diseño web: vitrina con las webs publicadas. A la izquierda la lista; a la derecha una ventana de navegador
 // que muestra un video real recorriendo la web elegida (/video/<slug>-recorrido-v2.mp4) y pasa sola a la siguiente.
 // Sin JavaScript o con "reducir movimiento" queda la captura completa (/img/casos/<slug>-scroll.webp).
@@ -1607,21 +1562,6 @@ function inicio(l, proyectos) {
   ${disenoWeb(l, proyectos)}
 
   ${numeros(l, proyectos, { intro: true })}
-
-  ${destacados(l, proyectos)}
-
-  <section class="seccion seccion--borde clientes-home" aria-labelledby="clientes-home-t">
-    <div class="wrap">
-      <div class="seccion-head">
-        <div>
-          <span class="kicker mono">${T.clientesKicker}</span>
-          <h2 class="h2" id="clientes-home-t">${T.clientesHomeTitulo}</h2>
-        </div>
-        <a class="link-arrow" href="${R.clientes}">${T.verClientesHome}</a>
-      </div>
-      ${muroClientes(l)}
-    </div>
-  </section>
 
   <section class="seccion seccion--borde" aria-labelledby="como-t">
     <div class="wrap">
