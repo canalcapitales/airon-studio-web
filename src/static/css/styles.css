@@ -1507,7 +1507,7 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
    --pleno-acento (etiquetas, número y botón) y --pleno-sobre-acento (texto sobre el acento).
    El fondo llega al borde de la pantalla sin cambiar el ancho del contenido. */
 .carrusel { --pleno: #111; --pleno-tinta: #F2F0EB; --pleno-acento: #FF0000; --pleno-sobre-acento: #111; --ancho: clamp(220px, 26vw, 330px); --proporcion: 1;
-  position: relative; isolation: isolate; color: var(--pleno-tinta); padding-block: clamp(40px, 6vw, 72px) clamp(48px, 6vw, 80px); }
+  position: relative; isolation: isolate; color: var(--pleno-tinta); padding-block: clamp(32px, 4vw, 52px) clamp(32px, 4vw, 52px); }
 .carrusel::before { content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: var(--pleno); }
 /* Tres plenos de la marca, alternados para que dos áreas seguidas nunca repitan color */
 .carrusel[data-area="branding"], .carrusel[data-area="ploteo"], .carrusel[data-area="motion"], .carrusel[data-area="foto"] {
@@ -1523,8 +1523,8 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 .carrusel-kicker { color: var(--pleno-acento); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
 .carrusel-contador { font-size: 12px; color: color-mix(in srgb, var(--pleno-tinta) 70%, transparent); }
 .carrusel-contador b { color: var(--pleno-tinta); font-weight: 500; }
-.carrusel-texto { max-width: 40em; margin: 14px 0 0; font-size: 17px; line-height: 1.5; color: var(--pleno-tinta); }
-.carrusel-filtros { padding-block: 20px 8px; }
+.carrusel-texto { max-width: 40em; margin: 10px 0 0; font-size: 17px; line-height: 1.5; color: var(--pleno-tinta); }
+.carrusel-filtros { padding-block: 16px 4px; }
 .carrusel .pill { background: color-mix(in srgb, var(--pleno-tinta) 10%, transparent); color: var(--pleno-tinta); border-color: transparent; }
 .carrusel .pill .mono { color: color-mix(in srgb, var(--pleno-tinta) 70%, transparent); }
 .carrusel .pill[aria-pressed="true"] { background: var(--pleno-acento); color: var(--pleno-sobre-acento); }
@@ -1576,6 +1576,11 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 /* Página Trabajos: las áreas una debajo de la otra, y la barra de áreas salta a cada una */
 .areas-carrusel .carrusel { scroll-margin-top: calc(var(--header-h) + 64px); }
 .areas-carrusel { padding-bottom: 0; }
+/* Espacios: el bloque de color va pegado a lo de arriba y abajo, sin franjas vacías */
+.bloque--media:has(.muro-logos .carrusel) { padding-block: 0; }
+.proyecto--carrusel .ficha { margin-top: clamp(24px, 3vw, 40px); padding-block: 24px; }
+.proyecto--carrusel .ficha + * { margin-top: 0; }
+.proyecto--carrusel .bloque--media + .bloque { padding-top: clamp(40px, 5vw, 64px); }
 .filtros--areas { position: sticky; top: var(--header-h); z-index: 300; background: var(--bg); }
 .areas-carrusel { position: relative; z-index: 0; }
 .filtros--areas .pill { text-decoration: none; }
