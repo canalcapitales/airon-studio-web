@@ -1990,6 +1990,10 @@ function muroLogos() {
 // Avanza solo (se frena al pasar el mouse, al usar el teclado, fuera de pantalla o con "reducir movimiento").
 // Se mueve con las flechas, deslizando o tocando una pieza del costado. Los filtros limitan qué piezas recorre.
 function carrusel() {
+  // Enlaces viejos a /proyectos/?categoria=x: bajan directo al carrusel de esa área
+  const cat = new URLSearchParams(location.search).get('categoria');
+  const destino = cat && document.getElementById(`area-${cat}`);
+  if (destino) requestAnimationFrame(() => destino.scrollIntoView());
   document.querySelectorAll('.carrusel').forEach((raiz) => {
     const escena = raiz.querySelector('.carrusel-escena');
     const items = [...raiz.querySelectorAll('.carrusel-item')];
@@ -2027,6 +2031,12 @@ function carrusel() {
         it.querySelectorAll('a').forEach((x) => (x.tabIndex = a === 0 ? 0 : -1));
       });
       if (contador) contador.innerHTML = `<b>${String(actual + 1).padStart(2, '0')}</b> / ${String(n).padStart(2, '0')}`;
+      // Alto de la escena y altura de las flechas según la pieza más alta (cuadrada, apaisada o vertical)
+      const alto = Math.max(...visibles.map((it) => it.offsetHeight));
+      const tile = visibles[0]?.querySelector('.carrusel-tile');
+      escena.style.setProperty('--alto', `${alto + 8}px`);
+      if (tile) escena.style.setProperty('--medio', `${tile.offsetHeight / 2}px`);
+      raiz.classList.toggle('carrusel--solo', n < 2);
     }
     const ir = (i) => { actual = (i + visibles.length) % visibles.length; pintar(); reiniciar(); };
 
