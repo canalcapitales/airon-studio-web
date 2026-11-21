@@ -1518,10 +1518,11 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
   position: relative; isolation: isolate; color: var(--pleno-tinta); padding-block: clamp(32px, 4vw, 52px) clamp(32px, 4vw, 52px); }
 .carrusel::before { content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: var(--pleno); }
 /* Tres plenos de la marca, alternados para que dos áreas seguidas nunca repitan color */
-.carrusel[data-area="branding"], .carrusel[data-area="ploteo"], .carrusel[data-area="motion"], .carrusel[data-area="foto"], .carrusel[data-area="areas"] {
+/* Áreas del inicio va en negro (el muro de Branding que sigue es rojo, así las secciones se separan) */
+.carrusel[data-area="branding"], .carrusel[data-area="ploteo"], .carrusel[data-area="motion"], .carrusel[data-area="foto"] {
   --pleno: #FF0000; --pleno-tinta: #111; --pleno-acento: #111; --pleno-sobre-acento: #F2F0EB; }
 /* Sobre el rojo, los nombres de las piezas van en blanco */
-.carrusel[data-area="branding"] .carrusel-nombre, .carrusel[data-area="ploteo"] .carrusel-nombre, .carrusel[data-area="motion"] .carrusel-nombre, .carrusel[data-area="foto"] .carrusel-nombre, .carrusel[data-area="areas"] .carrusel-nombre { color: #fff; }
+.carrusel[data-area="branding"] .carrusel-nombre, .carrusel[data-area="ploteo"] .carrusel-nombre, .carrusel[data-area="motion"] .carrusel-nombre, .carrusel[data-area="foto"] .carrusel-nombre { color: #fff; }
 /* Inicio: en lugar del título grande, dos carruseles seguidos (negro: trabajos destacados · rojo: áreas) */
 .inicio-carrusel .carrusel { padding-block: clamp(28px, 3.5vw, 48px); }
 .inicio-carrusel--hero .carrusel { padding-top: clamp(20px, 2.5vw, 32px); }
@@ -1645,9 +1646,14 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 .carrusel-item:has(.carrusel-tile--etiqueta) .carrusel-nombre { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .carrusel-detalle { grid-column: 1 / -1; font-size: 15px; line-height: 1.4; color: var(--pleno-tinta); max-width: 34em; }
 .carrusel--activo .carrusel-item:not(.es-actual) .carrusel-detalle { visibility: hidden; }
-.carrusel-atajos { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 18px 6px; }
-.carrusel-atajos .pill { text-decoration: none; }
+.carrusel-atajos { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 22px 0; margin-bottom: clamp(36px, 4.5vw, 64px); }
+.carrusel-atajos .pill { text-decoration: none; transition: background-color var(--dur-ui) var(--ease-out), color var(--dur-ui) var(--ease-out); }
+.carrusel-atajos .pill.es-actual { background: #fff; color: #111; }
+.carrusel-atajos .pill.es-actual .mono { color: #111; }
 .inicio-areas .carrusel { padding-top: clamp(40px, 5vw, 72px); }
+/* Título con tilde (ÁREAS): aire arriba para que el acento no toque el kicker, y aire debajo antes de la bajada */
+.inicio-areas .carrusel-titulo { margin-top: clamp(18px, 2.2vw, 30px); padding-top: .12em; line-height: 1; }
+.inicio-areas .carrusel-texto { margin-top: 16px; }
 .areas-carrusel { padding-bottom: 0; }
 /* Espacios: el bloque de color va pegado a lo de arriba y abajo, sin franjas vacías */
 .bloque--media:has(.muro-logos .carrusel) { padding-block: 0; }

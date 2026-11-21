@@ -1990,6 +1990,8 @@ function carrusel() {
     const items = [...raiz.querySelectorAll('.carrusel-item')];
     const contador = raiz.querySelector('.carrusel-contador');
     const pills = [...raiz.querySelectorAll('button[data-grupo]')];
+    // Áreas del inicio: el botón del área que está en el centro del carrusel se marca (blanco, texto negro)
+    const atajos = [...raiz.querySelectorAll('.carrusel-atajos a')];
     if (!escena || !items.length) return;
     const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let visibles = items;
@@ -2022,6 +2024,8 @@ function carrusel() {
         it.querySelectorAll('a').forEach((x) => (x.tabIndex = a === 0 ? 0 : -1));
       });
       if (contador) contador.innerHTML = `<b>${String(actual + 1).padStart(2, '0')}</b> / ${String(n).padStart(2, '0')}`;
+      const enCentro = items.indexOf(visibles[actual]);
+      atajos.forEach((a, i) => a.classList.toggle('es-actual', i === enCentro));
       // Alto de la escena y altura de las flechas según la pieza más alta (cuadrada, apaisada o vertical)
       const alto = Math.max(...visibles.map((it) => it.offsetHeight));
       const tile = visibles[0]?.querySelector('.carrusel-tile');
