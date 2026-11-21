@@ -1546,11 +1546,8 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
    Cada cinta tiene los logos dos veces seguidas: al llegar a la mitad vuelve al principio sin que se note. */
 .portada-fondo { position: absolute; z-index: -2; inset: -20% -15%; display: flex; flex-direction: column; justify-content: center; gap: clamp(12px, 1.6vw, 22px);
   transform: rotate(-7deg); opacity: .26; }
-.portada-cinta { display: flex; gap: clamp(12px, 1.6vw, 22px); padding-right: clamp(12px, 1.6vw, 22px); width: max-content; animation: portada-correr 140s linear infinite; }
-.portada-cinta:nth-child(2) { animation-duration: 170s; animation-direction: reverse; }
-.portada-cinta:nth-child(3) { animation-duration: 155s; }
-.portada-cinta span { flex: none; width: clamp(110px, 13vw, 200px); aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #000; }
-.portada-cinta span[data-fondo="claro"] { background: #fff; }
+.portada-cinta { display: flex; gap: clamp(14px, 1.8vw, 26px); padding-right: clamp(14px, 1.8vw, 26px); width: max-content; animation: portada-correr 150s linear infinite; }
+.portada-cinta span { flex: none; width: clamp(190px, 24vw, 380px); aspect-ratio: 1; border-radius: 12px; overflow: hidden; }
 .portada-cinta img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @keyframes portada-correr { to { transform: translateX(-50%); } }
 .portada-inicio::after { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none;
