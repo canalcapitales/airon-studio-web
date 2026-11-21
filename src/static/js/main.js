@@ -2061,13 +2061,16 @@ function carrusel() {
     });
     escena.addEventListener('pointercancel', () => (x0 = null));
     escena.addEventListener('dragstart', (e) => e.preventDefault());
-    // Ruedita del mouse o trackpad: con el puntero sobre las piezas, mueve el carrusel de a una
-    // (fuera de las piezas, la página baja normalmente)
+    // Ruedita del mouse o trackpad: la ruedita normal (para abajo/arriba) SIEMPRE baja la página, así nunca
+    // queda "pegada" en un carrusel (pedido del usuario 2026-11-21). El carrusel solo se mueve de a una con gestos
+    // de costado: deslizar a los lados en el trackpad o Shift + ruedita. También con flechas, arrastre y dedo.
     let acumulado = 0;
     let bloqueo = 0;
     escena.addEventListener('wheel', (e) => {
       if (visibles.length < 2 || e.ctrlKey) return;
-      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      const lateral = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+      if (!lateral && !e.shiftKey) return; // vertical: que baje la página
+      const delta = lateral ? e.deltaX : e.deltaY;
       e.preventDefault();
       const ahora = Date.now();
       if (ahora < bloqueo) return;
