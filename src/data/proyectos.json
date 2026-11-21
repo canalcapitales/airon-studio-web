@@ -4000,7 +4000,8 @@
     "galeria": [],
     "videos": [],
     "galerias": [],
-    "muro": "flyers"
+    "muro": "flyers",
+    "carruselArriba": true
   },
   {
     "slug": "tag-integridad",
