@@ -1800,7 +1800,7 @@ function formulario() {
 
 // ----- Áreas del inicio: la vista previa sigue al área elegida -----
 function areasInicio() {
-  const enlaces = [...document.querySelectorAll('[data-area]')];
+  const enlaces = [...document.querySelectorAll('[data-area]:not(.carrusel)')];
   const vistas = [...document.querySelectorAll('[data-vista]')];
   if (!enlaces.length) return;
   const ver = (id) => vistas.forEach((v) => v.classList.toggle('activa', v.dataset.vista === id));

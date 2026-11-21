@@ -1510,10 +1510,17 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
   position: relative; isolation: isolate; color: var(--pleno-tinta); padding-block: clamp(32px, 4vw, 52px) clamp(32px, 4vw, 52px); }
 .carrusel::before { content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: var(--pleno); }
 /* Tres plenos de la marca, alternados para que dos áreas seguidas nunca repitan color */
-.carrusel[data-area="branding"], .carrusel[data-area="ploteo"], .carrusel[data-area="motion"], .carrusel[data-area="foto"] {
+.carrusel[data-area="branding"], .carrusel[data-area="ploteo"], .carrusel[data-area="motion"], .carrusel[data-area="foto"], .carrusel[data-area="areas"] {
   --pleno: #FF0000; --pleno-tinta: #111; --pleno-acento: #111; --pleno-sobre-acento: #F2F0EB; }
 /* Sobre el rojo, los nombres de las piezas van en blanco */
-.carrusel[data-area="branding"] .carrusel-nombre, .carrusel[data-area="ploteo"] .carrusel-nombre, .carrusel[data-area="motion"] .carrusel-nombre, .carrusel[data-area="foto"] .carrusel-nombre { color: #fff; }
+.carrusel[data-area="branding"] .carrusel-nombre, .carrusel[data-area="ploteo"] .carrusel-nombre, .carrusel[data-area="motion"] .carrusel-nombre, .carrusel[data-area="foto"] .carrusel-nombre, .carrusel[data-area="areas"] .carrusel-nombre { color: #fff; }
+/* Inicio: en lugar del título grande, dos carruseles seguidos (negro: trabajos destacados · rojo: áreas) */
+.inicio-carrusel .carrusel { padding-block: clamp(28px, 3.5vw, 48px); }
+.inicio-carrusel--hero .carrusel { padding-top: clamp(20px, 2.5vw, 32px); }
+.inicio-carrusel--hero .carrusel-texto { max-width: 46em; margin-top: 14px; font-size: clamp(16px, 1.4vw, 19px); }
+.carrusel-acciones { margin-top: 18px; }
+.inicio-carrusel #areas, .inicio-carrusel[id] { scroll-margin-top: var(--header-h); }
+@media (max-width: 600px) { .carrusel-acciones .btn { flex: 1 1 auto; } }
 .carrusel[data-area="redes"], .carrusel[data-area="musical"], .carrusel[data-area="web"], .carrusel[data-area="ilustracion"] {
   --pleno: #F2F0EB; --pleno-tinta: #111; --pleno-acento: #FF0000; --pleno-sobre-acento: #111; }
 .carrusel--apaisado { --ancho: clamp(260px, 36vw, 500px); --proporcion: 640 / 501; }
@@ -1521,7 +1528,7 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 .carrusel-titulo { margin: 10px 0 0; font-family: var(--f-display); font-weight: 400; text-transform: uppercase; line-height: .95; font-size: clamp(44px, 7vw, 104px); color: var(--pleno-tinta); }
 .carrusel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .carrusel-kicker { color: var(--pleno-acento); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
-.carrusel-contador { font-size: 12px; color: color-mix(in srgb, var(--pleno-tinta) 70%, transparent); }
+.carrusel-contador { white-space: nowrap; font-size: 12px; color: color-mix(in srgb, var(--pleno-tinta) 70%, transparent); }
 .carrusel-contador b { color: var(--pleno-tinta); font-weight: 500; }
 .carrusel-texto { max-width: 40em; margin: 10px 0 0; font-size: 17px; line-height: 1.5; color: var(--pleno-tinta); }
 .carrusel-filtros { padding-block: 16px 4px; }

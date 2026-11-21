@@ -1328,7 +1328,8 @@ function piezaCarrusel({ n, imagen, href, zoom, afuera = '', aria, nombre, rubro
           </li>`;
 }
 // El bloque entero. formato: '' (cuadrado), 'apaisado' (portadas de proyectos) o 'historia' (9:16)
-function carruselHTML(l, { area, kicker, titulo, texto = '', piezas, total, filtros = '', filtrarAria = '', formato = '', id = '', extra = '' }) {
+// acciones: botones opcionales debajo del texto (el inicio los usa en el carrusel de arriba)
+function carruselHTML(l, { area, kicker, titulo, texto = '', acciones = '', piezas, total, filtros = '', filtrarAria = '', formato = '', id = '', extra = '' }) {
   const T = TXT[l];
   return `<div class="carrusel${formato ? ` carrusel--${formato}` : ''}" data-area="${area}"${id ? ` id="${id}"` : ''} aria-roledescription="carrusel" aria-label="${esc(titulo || kicker)}">
           <div class="carrusel-head">
@@ -1337,6 +1338,7 @@ function carruselHTML(l, { area, kicker, titulo, texto = '', piezas, total, filt
           </div>
           ${titulo ? `<h2 class="carrusel-titulo">${esc(titulo)}</h2>` : ''}
           ${texto ? `<p class="carrusel-texto">${texto}</p>` : ''}
+          ${acciones ? `<div class="btn-row carrusel-acciones">${acciones}</div>` : ''}
           ${filtros ? `<div class="muro-filtros carrusel-filtros" role="group" aria-label="${filtrarAria}">${filtros}</div>` : ''}
           <div class="carrusel-escena">
             <ul class="carrusel-pista">${piezas}</ul>
@@ -1479,39 +1481,39 @@ function disenoWeb(l, proyectos) {
 function inicio(l, proyectos) {
   const T = TXT[l];
   const R = RUTAS[l];
-  // Áreas del portafolio (van primero, apenas abajo del título): cada una lleva a sus proyectos, con una portada que no se repite
-  const usados = new Set();
-  const datosAreas = CAT_IDS.map((id) => ({ id, delArea: proyectos.filter((p) => p.categorias.includes(id)) }))
-    .filter((a) => a.delArea.length)
-    .map(({ id, delArea }) => {
-      const p = delArea.find((x) => !usados.has(x.slug)) || delArea[0];
-      usados.add(p.slug);
-      return { id, p, n: delArea.length };
-    });
   const C = T.cli;
-  // Cada trabajo del desplegable muestra su cliente (o el subtítulo si es propio o de muchos clientes)
-  // (si el cliente se llama igual que el caso, va el subtítulo para no repetir)
-  const conSub = (p) => {
-    const n = nombresClientes(p.slug);
-    return { ...p, sub: n && !p.titulo.toLowerCase().startsWith(n.toLowerCase().slice(0, 4)) ? n : p.subtitulo };
+  // Arriba de todo (en lugar del título grande, pedido del usuario 2026-11-21): un carrusel con el trabajo principal
+  // de cada área. Debajo, Áreas también es un carrusel: una pieza por área, con otra portada para no repetir.
+  const delArea = (id) => proyectos.filter((p) => p.categorias.includes(id));
+  const ids = CAT_IDS.filter((id) => delArea(id).length);
+  const usados = new Set();
+  const elegir = (lista) => {
+    const p = lista.find((x) => !usados.has(x.slug)) || lista[0];
+    usados.add(p.slug);
+    return p;
   };
-  const areas = datosAreas
-    .map(({ id, p, n }, i) =>
-      despliegue(l, {
-        id: `a${i}`, grupo: 'areas', num: num(i), nombre: nombreCat(l, id), mini: p.portada,
-        cuenta: `${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}`,
-        // Las webs no se listan acá: están justo abajo, en la vitrina de Diseño web
-        trabajos: id === 'web' ? [] : proyectos.filter((x) => x.categorias.includes(id)).map(conSub),
-        enlace: id === 'web' ? '#diseno-web' : enlaceServicio(l, id), enlaceTexto: id === 'urbano' ? C.verMurales : id === 'web' ? C.verWebs : C.verArea,
+  const destacados = ids.map((id) => ({ id, p: elegir(proyectos.filter((x) => x.categorias[0] === id).concat(delArea(id))) }));
+  const portadaAreas = ids.map((id) => ({ id, p: elegir(delArea(id)), n: delArea(id).length }));
+  const piezasHero = destacados
+    .map(({ id, p }, i) =>
+      piezaCarrusel({
+        n: i + 1, href: hrefP(l, p), afuera: abreAfuera(p), nombre: p.titulo, rubro: nombreCat(l, id),
+        imagen: img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 900px) 36vw, 76vw', dims: [640, 501], eager: i < 3 }),
+        boton: `<a class="carrusel-btn mono" href="${hrefP(l, p)}"${abreAfuera(p)}>${p.externo ? CARR[l].verWeb : CARR[l].verProyecto}</a>`,
       })
     )
-    .join('\n        ');
-  const vista = (id, p, activa) => `<div class="areas-vista${activa ? ' activa' : ''}" data-vista="${id}">${img(p.portada, { alt: '', sizes: '(min-width: 1400px) 540px, 38vw', dims: [640, 501], eager: activa })}</div>`;
-  // Además, una vista por trabajo: al pasar por un trabajo del desplegable se ve su portada
-  const visores = [
-    ...datosAreas.map(({ p }, i) => vista(`a${i}`, p, i === 0)),
-    ...proyectos.map((p) => vista(`t-${p.slug}`, p, false)),
-  ].join('\n        ');
+    .join('');
+  const piezasAreas = portadaAreas
+    .map(({ id, p, n }, i) => {
+      // Web y sistemas lleva a la vitrina de Diseño web, que está justo abajo
+      const href = id === 'web' ? '#diseno-web' : enlaceServicio(l, id);
+      return piezaCarrusel({
+        n: i + 1, href, nombre: nombreCat(l, id), rubro: `${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}`,
+        imagen: img(p.portada, { alt: '', sizes: '(min-width: 900px) 36vw, 76vw', dims: [640, 501] }),
+        boton: `<a class="carrusel-btn mono" href="${href}">${id === 'urbano' ? C.verMurales : id === 'web' ? C.verWebs : C.verArea}</a>`,
+      });
+    })
+    .join('');
   const pasos = T.proceso
     .map(([t, d], i) => `<li class="paso reveal"><span class="paso-num">${num(i)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`)
     .join('\n        ');
@@ -1521,38 +1523,23 @@ function inicio(l, proyectos) {
     imagen: `/img/og/inicio-${l}.jpg`,
     datos: { '@graph': [organizacion(l), { '@type': 'WebSite', name: 'AIRON Studio', url: `${SITIO.url}${R.inicio}`, inLanguage: T.htmlLang, publisher: { '@id': `${SITIO.url}/#estudio` } }] },
     cuerpo: `
-  <section class="hero">
-    <div class="wrap hero-in">
-      <div class="hero-kicker mono"><span>${T.heroKicker[0]}</span><span>${T.heroKicker[1]}</span></div>
-      <h1 class="hero-title">${T.lema.split(' ').map((w) => `<span class="palabra">${esc(w)}</span>`).join(' ')}</h1>
-      <div class="hero-bottom">
-        <p class="lead">${T.heroLead}</p>
-        <div class="btn-row">
-          <a class="btn btn-accent btn-lg" href="#areas">${T.verProyectos}</a>
-          <a class="btn btn-outline btn-lg" href="${R.contacto}">${T.hablemos}</a>
-        </div>
-      </div>
+  <section class="inicio-carrusel inicio-carrusel--hero">
+    <h1 class="oculto">${esc(T.lema)}</h1>
+    <div class="wrap">
+      ${carruselHTML(l, {
+        area: 'inicio', formato: 'apaisado', piezas: piezasHero, total: destacados.length,
+        kicker: `[★] ${T.heroKicker[0]} · ${T.heroKicker[1]}`, titulo: '', texto: T.heroLead,
+        acciones: `<a class="btn btn-accent btn-lg" href="#areas">${T.verProyectos}</a><a class="btn btn-outline-claro btn-lg" href="${R.contacto}">${T.hablemos}</a>`,
+      })}
     </div>
   </section>
 
-  <section class="seccion areas-seccion" id="areas">
+  <section class="inicio-carrusel" id="areas">
     <div class="wrap">
-      <div class="areas-head">
-        <span class="kicker mono">${C.homeKicker}</span>
-        <h2 class="h2">${C.homeTitulo}</h2>
-      </div>
-      <div class="areas-grid">
-        <div class="areas-visor" aria-hidden="true">
-        ${visores}
-        </div>
-        <div>
-          <div class="vista-panel" id="panel-areas">
-            <ul class="areas">
-        ${areas}
-            </ul>
-          </div>
-        </div>
-      </div>
+      ${carruselHTML(l, {
+        area: 'areas', formato: 'apaisado', piezas: piezasAreas, total: portadaAreas.length,
+        kicker: `[★] / ${C.homeKicker}`, titulo: C.homeTitulo,
+      })}
     </div>
   </section>
 
