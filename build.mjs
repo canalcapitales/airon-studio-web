@@ -42,7 +42,14 @@ const TXT = {
     lema: 'Diseño que construye marcas, ideas y experiencias',
     descripcion: 'Estudio de diseño multimedial en Buenos Aires desde 2015. Branding, diseño gráfico, diseño web, gráfica musical, motion, arte urbano y fotografía analógica.',
     saltar: 'Saltar al contenido', inicioAria: 'AIRON Studio — Inicio', abrirMenu: 'Abrir menú', navPrincipal: 'Principal', redes: 'Redes',
-    nav: { inicio: 'Inicio', proyectos: 'Áreas', clientes: 'Clientes', estudio: 'Nosotros', contacto: 'Contacto' },
+    nav: { inicio: 'Inicio', proyectos: 'Áreas', web: 'Diseño web', clientes: 'Clientes', estudio: 'Nosotros', contacto: 'Contacto' },
+    // Sección Diseño web del inicio (#diseno-web): muestra las webs publicadas y lleva al formulario con "web" elegido
+    webHome: {
+      kicker: 'Webs a medida', titulo: 'Diseño web',
+      lead: 'Diseñamos y programamos sitios a medida, con la identidad de tu marca: rápidos, seguros y pensados para el celular. Una web que se ve bien, se encuentra en Google y hace que te contacten.',
+      puntos: ['Diseño a medida', 'Pensadas para el celular', 'Rápidas y seguras', 'Preparadas para Google', 'Sistemas de gestión'],
+      cta: 'Quiero mi web →', verTodas: 'Ver todas las webs →', publicadas: 'Webs publicadas',
+    },
     // Dos formas de recorrer los trabajos: por área (disciplina) y por cliente
     cli: {
       titulo: 'Clientes', kicker: 'Explorá nuestros trabajos',
@@ -495,7 +502,13 @@ const TXT = {
     lema: 'Design that builds brands, ideas and experiences',
     descripcion: 'Multimedia design studio based in Buenos Aires since 2015. Branding, graphic design, web design, music artwork, motion, street art and analog photography.',
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
-    nav: { inicio: 'Home', proyectos: 'Areas', clientes: 'Clients', estudio: 'About us', contacto: 'Contact' },
+    nav: { inicio: 'Home', proyectos: 'Areas', web: 'Web design', clientes: 'Clients', estudio: 'About us', contacto: 'Contact' },
+    webHome: {
+      kicker: 'Custom websites', titulo: 'Web design',
+      lead: 'We design and build custom websites with your brand identity: fast, secure and mobile-first. A website that looks good, can be found on Google and gets people to contact you.',
+      puntos: ['Custom design', 'Mobile-first', 'Fast & secure', 'Google-ready', 'Management systems'],
+      cta: 'I want my website →', verTodas: 'See all websites →', publicadas: 'Live websites',
+    },
     cli: {
       titulo: 'Clients', kicker: 'Explore our work',
       lead: 'The brands, companies and artists we work with. Each client brings together all of their work, across every area.',
@@ -1136,6 +1149,7 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
       <nav id="menu" class="nav" aria-label="${T.navPrincipal}">
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
         <a class="nav-link" href="${trabajosHome(l)}"${actual('proyectos')}>${T.nav.proyectos}</a>
+        <a class="nav-link" href="${R.inicio}#diseno-web">${T.nav.web}</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
         <a class="nav-link nav-tarifario" href="${R.tarifarios}"${actual('tarifario')}>${T.tarifarios.nav}</a>
         <a class="nav-link nav-cta" href="${R.contacto}"${actual('contacto')}>${T.nav.contacto}</a>
@@ -1401,6 +1415,42 @@ function destacados(l, proyectos, { primeraRapida = false } = {}) {
   </section>`;
 }
 
+// Diseño web: las webs publicadas al frente (la primera, grande) y un llamado a pedir la tuya
+function disenoWeb(l, proyectos) {
+  const W = TXT[l].webHome;
+  const webs = proyectos.filter((p) => p.categorias.includes('web'));
+  if (!webs.length) return '';
+  const dominio = (u) => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+  const tarjetas = webs
+    .map((p, i) => `<a class="web-card${i === 0 ? ' web-card--grande' : ''} reveal" href="${hrefP(l, p)}"${abreAfuera(p)} data-cursor="${cursorP(l, p)}">
+          <span class="web-card-img">${img(p.portada, { alt: TXT[l].portadaDe(p.titulo), sizes: i === 0 ? '(min-width: 900px) 50vw, 100vw' : '(min-width: 900px) 25vw, 50vw', dims: [640, 501] })}</span>
+          <span class="web-card-meta"><span class="web-card-num mono">${num(i)}</span><span class="web-card-titulo">${esc(p.titulo)}</span><span class="web-card-sub">${esc(p.subtitulo)}</span>${p.externo ? `<span class="web-card-url mono">${esc(dominio(p.externo))} ↗</span>` : ''}</span>
+        </a>`)
+    .join('\n        ');
+  return `<section class="seccion web-home" id="diseno-web" aria-labelledby="diseno-web-t">
+    <div class="wrap">
+      <div class="web-home-head">
+        <div>
+          <span class="kicker mono">${W.kicker}</span>
+          <h2 class="h2 web-home-titulo" id="diseno-web-t">${W.titulo}</h2>
+        </div>
+        <div class="web-home-texto">
+          <p class="lead">${W.lead}</p>
+          <ul class="web-home-puntos mono">${W.puntos.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+          <div class="btn-row">
+            <a class="btn btn-accent btn-lg" href="${RUTAS[l].contacto}?tipo=web">${W.cta}</a>
+            <a class="btn btn-outline-claro btn-lg" href="${enlaceServicio(l, 'web')}">${W.verTodas}</a>
+          </div>
+        </div>
+      </div>
+      <span class="kicker mono web-home-sub">${W.publicadas} · ${webs.length}</span>
+      <div class="web-grid">
+        ${tarjetas}
+      </div>
+    </div>
+  </section>`;
+}
+
 // ---------- páginas ----------
 function inicio(l, proyectos) {
   const T = TXT[l];
@@ -1486,6 +1536,7 @@ function inicio(l, proyectos) {
     </div>
   </section>
 
+  ${disenoWeb(l, proyectos)}
 
   <nav class="franja" aria-label="${T.disciplinasAria}"><div class="franja-pista">${lista(false)}${lista(true)}</div></nav>
 

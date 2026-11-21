@@ -19,6 +19,7 @@
     { "id": "franqui-quiroga", "nombre": "Franqui Quiroga", "grupo": "musica", "rubro": { "es": "Artista", "en": "Artist" }, "logo": "/img/logos/franqui-quiroga.svg", "fondo": "claro", "casos": ["spotify-covers"] },
     { "id": "intekno", "nombre": "Intekno", "grupo": "musica", "rubro": { "es": "Fiestas electrónicas", "en": "Electronic music events" }, "casos": ["flyers"] },
     { "id": "tkno-radio", "nombre": "TKNO Radio", "grupo": "musica", "rubro": { "es": "Radio online", "en": "Online radio" }, "casos": ["flyers"] },
+    { "id": "casaca", "nombre": "Casaca", "grupo": "cultura", "rubro": { "es": "Centro cultural de Hip Hop", "en": "Hip hop cultural center" }, "logo": "/img/logos/casaca.svg", "fondo": "oscuro", "casos": ["web-casaca"] },
     { "id": "tag-integridad", "nombre": "Tag Integridad", "grupo": "cultura", "casos": ["tag-integridad"] },
     { "id": "airon-studio", "nombre": "AIRON Studio", "grupo": "creativos", "rubro": { "es": "Trabajos propios", "en": "Our own work" }, "logo": "/img/logos/airon.svg", "fondo": "claro", "casos": ["analogic-photos"] }
   ],
