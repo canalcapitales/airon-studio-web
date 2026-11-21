@@ -1261,7 +1261,8 @@ const nombreCat = (l, id) => TXT[l].categorias[id] ?? id;
 const catsTexto = (l, p) => p.categorias.map((c) => nombreCat(l, c)).join(' / ');
 // "Áreas" lleva a la sección Áreas del inicio (la lista de áreas), no a la grilla con todos los proyectos
 const trabajosHome = (l) => RUTAS[l].proyectos;
-const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
+// Va directo al carrusel del área con un ancla (antes era ?categoria=, que primero mostraba Trabajos arriba y después saltaba)
+const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}#area-${cat}`;
 // Los servicios llevan a su categoría; arte urbano tiene su propia página
 // Categoría del proyecto → tipo de proyecto en el formulario de Contacto
 const TIPO_CONTACTO = { flyers: 'grafica', urbano: 'mural' };
