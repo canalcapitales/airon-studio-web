@@ -2014,7 +2014,8 @@ function detalle(l, proyectos, p, i) {
   for (let r = 0; elegidas.length < 10 && todasLasPiezas.some((x) => x[r]); r++) for (const x of todasLasPiezas) if (x[r] && elegidas.length < 10) elegidas.push(x[r]);
   // Sin piezas para la tira: si hay video va arriba (y no se repite abajo); si no, la portada diseñada entera
   const videoArriba = !soloGaleria && elegidas.length < 3 && p.videos.length > 0;
-  const cabecera = p.escenas ? '' : soloGaleria ? tira(p.galeria, { hero: true }) : elegidas.length >= 3 ? tira(elegidas, { hero: true }) : videoArriba ? videos : `<div class="proyecto-portada proyecto-portada--diseno">${portadaPagina(p, T)}</div>`;
+  // "carruselArriba": el carrusel del muro reemplaza la portada y los textos del proyecto van debajo
+  const cabecera = p.escenas || p.carruselArriba ? '' : soloGaleria ? tira(p.galeria, { hero: true }) : elegidas.length >= 3 ? tira(elegidas, { hero: true }) : videoArriba ? videos : `<div class="proyecto-portada proyecto-portada--diseno">${portadaPagina(p, T)}</div>`;
   // Los datos de cada escena van en data-* (la política de seguridad del sitio no deja usar style="" en el HTML)
   // Escenas con scroll: una foto real con un velo negro; al bajar, la pieza se pinta de izquierda a derecha (main.js: escenas)
   const E = p.escenas;
@@ -2211,7 +2212,7 @@ function detalle(l, proyectos, p, i) {
         ${ficha}
       </dl>
     </div>
-    ${bloques}
+    ${p.carruselArriba ? '' : bloques}
     ${(!videoArriba && videos) || galeria || muro || galerias ? `<section class="bloque bloque--media" aria-label="${T.imagenesAria}">
       <div class="wrap">
         ${videoArriba ? '' : videos}
@@ -2220,6 +2221,7 @@ function detalle(l, proyectos, p, i) {
         ${galerias}
       </div>
     </section>` : ''}
+    ${p.carruselArriba ? bloques : ''}
     <div class="wrap">
       ${masDelCliente}
       ${bloqueRelacionados}

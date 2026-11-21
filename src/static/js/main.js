@@ -2077,6 +2077,22 @@ function carrusel() {
     });
     escena.addEventListener('pointercancel', () => (x0 = null));
     escena.addEventListener('dragstart', (e) => e.preventDefault());
+    // Ruedita del mouse o trackpad: con el puntero sobre las piezas, mueve el carrusel de a una
+    // (fuera de las piezas, la página baja normalmente)
+    let acumulado = 0;
+    let bloqueo = 0;
+    escena.addEventListener('wheel', (e) => {
+      if (visibles.length < 2 || e.ctrlKey) return;
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      e.preventDefault();
+      const ahora = Date.now();
+      if (ahora < bloqueo) return;
+      acumulado += e.deltaMode === 1 ? delta * 40 : delta;
+      if (Math.abs(acumulado) < 40) return;
+      ir(actual + (acumulado > 0 ? 1 : -1));
+      acumulado = 0;
+      bloqueo = ahora + 380;
+    }, { passive: false });
     // Pausa mientras se mira o se usa con teclado
     raiz.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { pausa = true; reiniciar(); } });
     raiz.addEventListener('pointerleave', () => { pausa = false; reiniciar(); });

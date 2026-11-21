@@ -614,7 +614,8 @@
     "galeria": [],
     "videos": [],
     "galerias": [],
-    "muroLogos": true
+    "muroLogos": true,
+  "carruselArriba": true
   },
   {
     "slug": "zocalo-fox-sports",
