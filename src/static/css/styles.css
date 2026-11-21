@@ -1512,6 +1512,8 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 /* Tres plenos de la marca, alternados para que dos áreas seguidas nunca repitan color */
 .carrusel[data-area="branding"], .carrusel[data-area="ploteo"], .carrusel[data-area="motion"], .carrusel[data-area="foto"] {
   --pleno: #FF0000; --pleno-tinta: #111; --pleno-acento: #111; --pleno-sobre-acento: #F2F0EB; }
+/* Sobre el rojo, los nombres de las piezas van en blanco */
+.carrusel[data-area="branding"] .carrusel-nombre, .carrusel[data-area="ploteo"] .carrusel-nombre, .carrusel[data-area="motion"] .carrusel-nombre, .carrusel[data-area="foto"] .carrusel-nombre { color: #fff; }
 .carrusel[data-area="redes"], .carrusel[data-area="musical"], .carrusel[data-area="web"], .carrusel[data-area="ilustracion"] {
   --pleno: #F2F0EB; --pleno-tinta: #111; --pleno-acento: #FF0000; --pleno-sobre-acento: #111; }
 .carrusel--apaisado { --ancho: clamp(260px, 36vw, 500px); --proporcion: 640 / 501; }
