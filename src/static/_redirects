@@ -26,3 +26,8 @@
 /proyectos/web-airon-studio /proyectos/?categoria=web 301
 /en/projects/web-airon-studio/ /en/projects/?categoria=web 301
 /en/projects/web-airon-studio /en/projects/?categoria=web 301
+# Desde 2026-11-21 no hay sección Clientes: sus páginas llevan a Trabajos
+/clientes /proyectos/ 301
+/clientes/* /proyectos/ 301
+/en/clients /en/projects/ 301
+/en/clients/* /en/projects/ 301

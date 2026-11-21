@@ -8,7 +8,7 @@ const MSG = EN
 
 document.addEventListener('DOMContentLoaded', () => {
   // Cada parte arranca por separado: si una falla, las demás siguen funcionando
-  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, escenas, formulario, filtros, areasInicio, filtroClientes, carrusel, sponsors, vitrinaWeb].forEach((iniciar) => {
+  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, escenas, formulario, filtros, areasInicio, carrusel, sponsors, vitrinaWeb].forEach((iniciar) => {
     try { iniciar(); } catch (e) { console.error(e); }
   });
 });
@@ -1855,30 +1855,6 @@ function areasInicio() {
   mostrar(botones[0]);
 }
 
-// ----- Clientes: filtrar por rubro -----
-function filtroClientes() {
-  const barra = document.querySelector('.filtros--clientes');
-  if (!barra) return;
-  barra.hidden = false;
-  const pills = [...barra.querySelectorAll('[data-grupo]')];
-  const filas = [...document.querySelectorAll('.cliente')];
-  const contador = barra.querySelector('[data-count]');
-  const filtrar = (g) => {
-    let n = 0;
-    filas.forEach((f) => {
-      const ver = g === 'todos' || f.dataset.grupo === g;
-      f.hidden = !ver;
-      if (ver) { n++; f.classList.add('visible'); }
-    });
-    pills.forEach((p) => p.setAttribute('aria-pressed', String(p.dataset.grupo === g)));
-    contador.textContent = n;
-  };
-  pills.forEach((p) => p.addEventListener('click', () => filtrar(p.dataset.grupo)));
-  // Si se llega con #cliente, se marca esa fila
-  const destino = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
-  if (destino && destino.classList.contains('cliente')) destino.classList.add('cliente--destacado');
-}
-
 // ----- Filtros de proyectos -----
 // Columnas de una grilla de trabajos según cuántos se ven: 4 van en 2 filas de 2, y con más se elige
 // 3 o 4 columnas para que la última fila quede lo más completa posible (empate: 3)
@@ -1895,7 +1871,7 @@ function ajustarGrilla(grilla) {
 }
 
 function filtros() {
-  // La barra de Clientes tiene su propio filtro (filtroClientes): acá solo la de proyectos
+  // Barra de filtros de proyectos (si la página la tiene)
   // Toda grilla de trabajos se ajusta, aunque la página no tenga filtros (relacionados, más del cliente)
   document.querySelectorAll('.grid-proyectos').forEach(ajustarGrilla);
   const barra = document.querySelector('.filtros:not(.filtros--clientes)');

@@ -1147,7 +1147,6 @@ function pagina(l, { clave, slug, titulo, descripcion, activo = '', imagen = `/i
       <nav id="menu" class="nav" aria-label="${T.navPrincipal}">
         <a class="nav-link only-menu" href="${R.inicio}"${actual('inicio')}>${T.nav.inicio}</a>
         <a class="nav-link" href="${R.proyectos}"${actual('proyectos')}>${T.nav.proyectos}</a>
-        <a class="nav-link" href="${R.clientes}"${actual('clientes')}>${T.nav.clientes}</a>
         <a class="nav-link" href="${R.inicio}#diseno-web">${T.nav.web}</a>
         <a class="nav-link" href="${R.estudio}"${actual('estudio')}>${T.nav.estudio}</a>
         <a class="nav-link nav-tarifario" href="${R.tarifarios}"${actual('tarifario')}>${T.tarifarios.nav}</a>
@@ -1261,8 +1260,6 @@ const enlaceCat = (l, cat) => `${RUTAS[l].proyectos}?categoria=${cat}`;
 const TIPO_CONTACTO = { flyers: 'grafica', urbano: 'mural' };
 const tipoContacto = (cat) => TIPO_CONTACTO[cat] || cat;
 const enlaceServicio = (l, cat) => (cat === 'urbano' ? RUTAS[l].murales : enlaceCat(l, cat));
-const enlaceCliente = (l, c) => rutaDe(l, 'cliente', c.id);
-const rubroDe = (l, c) => (c.rubro ? c.rubro[l] : LOGOS.grupos[c.grupo]?.[l] || '');
 // Para mostrar bajo un trabajo: "GSP Seguridad", "GSP Seguridad · Trust Fund" o "Surcipres · AFFUM +4"
 const nombresClientes = (slug) => {
   const cs = clientesDe(slug).map((c) => c.nombre);
@@ -1650,229 +1647,6 @@ function listado(l, proyectos) {
   });
 }
 
-// Clientes: cada cliente con todos sus trabajos (de cualquier área), filtro por rubro, colecciones y más marcas
-function paginaClientes(l, proyectos) {
-  const T = TXT[l];
-  const C = T.cli;
-  const R = RUTAS[l];
-  const indice = (p) => proyectos.indexOf(p);
-  const iniciales = (n) => n.replace(/[^A-Za-zÁÉÍÓÚÑ0-9 ]/g, '').split(' ').filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
-  const filas = CLIENTES.clientes
-    .map((c) => {
-      const trabajos = proyectos.filter((p) => c.casos.includes(p.slug));
-      const logo = c.logo
-        ? `<img src="${esc(c.logo)}" alt="" width="160" height="160" loading="lazy" decoding="async">`
-        : `<span class="cliente-iniciales" aria-hidden="true">${esc(iniciales(c.nombre))}</span>`;
-      const areas = areasDeCliente(proyectos, c)
-        .map((id) => `<li><a class="cliente-area mono" href="${enlaceServicio(l, id)}">${esc(nombreCat(l, id))}</a></li>`)
-        .join('');
-      // Las colecciones (casos de muchos clientes) van como enlace de texto: su tarjeta con imagen está una sola vez, más abajo
-      const enSerie = (p) => CLIENTES.colecciones.includes(p.slug);
-      const series = trabajos
-        .filter(enSerie)
-        .map((p) => `<li><a class="cliente-serie" href="${hrefP(l, p)}"${abreAfuera(p)}>${esc(p.titulo)} <span aria-hidden="true">→</span></a></li>`)
-        .join('');
-      const items = trabajos
-        .filter((p) => !enSerie(p))
-        .map((p) => `<li><a class="cliente-trabajo" href="${hrefP(l, p)}"${abreAfuera(p)} data-cursor="${cursorP(l, p)}">
-              <span class="cliente-trabajo-img">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 900px) 16vw, 44vw', dims: [640, 501] })}</span>
-              <span class="cliente-trabajo-titulo">${esc(p.titulo)}</span>
-              <span class="mono">${num(indice(p))} · ${esc(catsTexto(l, p))}</span>
-            </a></li>`)
-        .join('');
-      return `<li class="cliente reveal" id="${c.id}" data-grupo="${c.grupo}">
-          <div class="cliente-id">
-            <span class="cliente-logo"${c.fondo ? ` data-fondo="${c.fondo}"` : ''}>${logo}</span>
-            <div class="cliente-datos">
-              <h2 class="cliente-nombre"><a href="${enlaceCliente(l, c)}">${esc(c.nombre)}</a></h2>
-              <span class="mono cliente-rubro">${esc(rubroDe(l, c))} · ${trabajos.length} ${trabajos.length === 1 ? C.trabajo : C.trabajos}</span>
-              <ul class="cliente-areas" aria-label="${trabajos.length > 1 ? C.areasVarias : C.areaUna}">${areas}</ul>
-            </div>
-          </div>
-          <div class="cliente-obra">
-            ${items ? `<ul class="cliente-trabajos">${items}</ul>` : ''}
-            ${series ? `<div class="cliente-series"><span class="mono">${C.enColecciones}</span><ul>${series}</ul></div>` : ''}
-          </div>
-        </li>`;
-    })
-    .join('\n      ');
-  const conteo = (g) => CLIENTES.clientes.filter((c) => c.grupo === g).length;
-  const grupos = Object.keys(LOGOS.grupos).filter(conteo);
-  const pills = [`<button type="button" class="pill" data-grupo="todos" aria-pressed="true">${C.todos}<span class="mono">${CLIENTES.clientes.length}</span></button>`]
-    .concat(grupos.map((g) => `<button type="button" class="pill" data-grupo="${g}" aria-pressed="false">${esc(LOGOS.grupos[g][l])}<span class="mono">${conteo(g)}</span></button>`))
-    .join('\n        ');
-  const colecciones = CLIENTES.colecciones
-    .map((s) => proyectos.find((p) => p.slug === s))
-    .filter(Boolean)
-    .map((p) => tarjeta(l, p, indice(p), { sizes: '(min-width: 900px) 30vw, 50vw' }))
-    .join('\n      ');
-  // Marcas del muro que no son clientes con trabajos propios: llevan al muro de marcas
-  const muro = proyectos.find((p) => p.muroLogos);
-  const nombres = new Set(CLIENTES.clientes.map((c) => c.nombre.toLowerCase()));
-  const otras = LOGOS.logos.filter((x) => !nombres.has(String(x.nombre).toLowerCase()) && !x.caso);
-  // Intercaladas: una de fondo negro, una de fondo blanco (las que sobran de un color van al final)
-  const oscuras = otras.filter((x) => x.fondo === 'oscuro');
-  const claras = otras.filter((x) => x.fondo !== 'oscuro');
-  const [primero, segundo] = oscuras.length >= claras.length ? [oscuras, claras] : [claras, oscuras];
-  const intercaladas = primero.flatMap((x, i) => (segundo[i] ? [x, segundo[i]] : [x])).concat(segundo.slice(primero.length));
-  const marcas = intercaladas
-    .map((x) => `<li${x.fondo ? ` data-fondo="${x.fondo}"` : ''}><a href="${rutaDe(l, 'proyecto', muro.slug)}" title="${esc(x.nombre)} — ${esc(x.rubro[l])}"><img src="${esc(x.archivo)}" alt="${esc(x.nombre)}" width="160" height="160" loading="lazy" decoding="async"></a></li>`)
-    .join('');
-  return pagina(l, {
-    clave: 'clientes',
-    titulo: C.titulo,
-    activo: 'clientes',
-    descripcion: C.desc,
-    datos: {
-      '@type': 'CollectionPage',
-      name: `AIRON Studio — ${C.titulo}`,
-      url: `${SITIO.url}${R.clientes}`,
-      inLanguage: T.htmlLang,
-      hasPart: CLIENTES.clientes.map((c) => ({ '@type': 'Organization', name: c.nombre, url: `${SITIO.url}${enlaceCliente(l, c)}` })),
-    },
-    cuerpo: `
-  <section class="page-head">
-    <div class="wrap page-head-in">
-      <div>
-        <span class="kicker mono">${C.kicker}</span>
-        <h1 class="page-title">${C.titulo}</h1>
-      </div>
-      <div class="page-head-der">
-        <p class="lead">${C.lead}</p>
-      </div>
-    </div>
-  </section>
-  <div class="filtros filtros--clientes" hidden>
-    <div class="wrap filtros-in">
-      <div class="filtros-pills" role="group" aria-label="${C.filtrar}">
-        ${pills}
-      </div>
-      <span class="mono contador" aria-live="polite"><span data-count>${CLIENTES.clientes.length}</span> ${C.varios}</span>
-    </div>
-  </div>
-  <section class="seccion seccion--top">
-    <div class="wrap">
-      <ul class="clientes-grilla">
-      ${filas}
-      </ul>
-    </div>
-  </section>
-  <section class="seccion seccion--borde">
-    <div class="wrap">
-      <div class="seccion-head-fila">
-        <h2 class="h3">${C.colecciones}</h2>
-        <p class="lead">${C.coleccionesTexto}</p>
-      </div>
-      <div class="grid-proyectos">
-      ${colecciones}
-      </div>
-    </div>
-  </section>
-  ${otras.length && muro ? `<section class="seccion seccion--borde">
-    <div class="wrap">
-      <div class="seccion-head-fila">
-        <h2 class="h3">${C.masMarcas}</h2>
-        <p class="lead">${C.masMarcasTexto}</p>
-      </div>
-      <ul class="marcas-mini">${marcas}</ul>
-      <a class="link-arrow areas-todos" href="${rutaDe(l, 'proyecto', muro.slug)}">${C.verMuro}</a>
-    </div>
-  </section>` : ''}
-  ${ctaBloque(l, T.ctaInicio)}
-`,
-  });
-}
-
-// Página propia de cada cliente: su identidad, las áreas que reúne y todos sus trabajos
-function paginaCliente(l, proyectos, c) {
-  const T = TXT[l];
-  const C = T.cli;
-  const P = T.clientePag;
-  const trabajos = proyectos.filter((p) => c.casos.includes(p.slug));
-  const areas = areasDeCliente(proyectos, c);
-  const rubro = rubroDe(l, c);
-  const iniciales = c.nombre.replace(/[^A-Za-zÁÉÍÓÚÑ0-9 ]/g, '').split(' ').filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
-  const logo = c.logo
-    ? `<img src="${esc(c.logo)}" alt="${esc(c.nombre)}" width="320" height="320" decoding="async">`
-    : `<span class="cliente-iniciales" aria-hidden="true">${esc(iniciales)}</span>`;
-  const areasLista = areas
-    .map((id) => `<li><a class="cliente-area mono" href="${enlaceServicio(l, id)}">${esc(nombreCat(l, id))}</a></li>`)
-    .join('');
-  const tarjetas = trabajos
-    .map((p) => tarjeta(l, p, proyectos.indexOf(p), { sizes: trabajos.length === 1 ? '(min-width: 900px) 66vw, 100vw' : '(min-width: 900px) 45vw, 100vw' }))
-    .join('\n      ');
-  // Otros clientes del mismo rubro (si no hay, los demás en orden)
-  const mismos = CLIENTES_EXTERNOS.filter((x) => x !== c && x.grupo === c.grupo);
-  const otros = (mismos.length >= 3 ? mismos : mismos.concat(CLIENTES_EXTERNOS.filter((x) => x !== c && x.grupo !== c.grupo))).slice(0, 6);
-  const otrosLista = otros
-    .map((x) => `<li><a href="${enlaceCliente(l, x)}"><span class="otros-clientes-nombre">${esc(x.nombre)}</span><span class="mono">${esc(rubroDe(l, x))}</span></a></li>`)
-    .join('');
-  const nombresAreas = areas.map((id) => nombreCat(l, id).toLowerCase()).join(', ');
-  const tipo = areas.includes('urbano') ? 'mural' : areas.includes('branding') || areas.includes('integral') ? 'branding' : areas[0] === 'web' ? 'web' : 'grafica';
-  return pagina(l, {
-    clave: 'cliente',
-    slug: c.id,
-    titulo: `${c.nombre} — ${C.titulo}`,
-    activo: 'clientes',
-    descripcion: recortar(P.desc(c.nombre, rubro, nombresAreas)),
-    imagen: trabajos[0] ? `/img/og/${trabajos[0].slug}-${l}.jpg` : undefined,
-    datos: {
-      '@graph': [
-        {
-          '@type': 'CollectionPage',
-          name: `${c.nombre} — AIRON Studio`,
-          url: `${SITIO.url}${enlaceCliente(l, c)}`,
-          inLanguage: T.htmlLang,
-          about: { '@type': 'Organization', name: c.nombre },
-          hasPart: trabajos.map((p) => ({ '@type': 'CreativeWork', name: p.titulo, url: p.externo || `${SITIO.url}${rutaDe(l, 'proyecto', p.slug)}` })),
-        },
-        {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: T.nav.inicio, item: `${SITIO.url}${RUTAS[l].inicio}` },
-            { '@type': 'ListItem', position: 2, name: C.titulo, item: `${SITIO.url}${RUTAS[l].clientes}` },
-            { '@type': 'ListItem', position: 3, name: c.nombre, item: `${SITIO.url}${enlaceCliente(l, c)}` },
-          ],
-        },
-      ],
-    },
-    cuerpo: `
-  <section class="page-head cliente-head">
-    <div class="wrap">
-      <div class="proyecto-crumbs mono"><a href="${RUTAS[l].clientes}">${P.volver}</a></div>
-      <div class="cliente-head-in">
-        <span class="cliente-logo cliente-logo--grande"${c.fondo ? ` data-fondo="${c.fondo}"` : ''}>${logo}</span>
-        <div>
-          <span class="kicker mono">${P.kicker}${rubro ? ` · ${esc(rubro)}` : ''}</span>
-          <h1 class="page-title page-title--md">${esc(c.nombre)}</h1>
-          <p class="lead">${P.resumen(trabajos.length, areas.length)}.</p>
-          <ul class="cliente-areas" aria-label="${P.areasTitulo}">${areasLista}</ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="seccion seccion--borde">
-    <div class="wrap">
-      <h2 class="kicker mono">${P.trabajosTitulo}</h2>
-      <div class="grid-cliente grid-cliente--${Math.min(trabajos.length, 3)}">
-      ${tarjetas}
-      </div>
-    </div>
-  </section>
-  <section class="seccion seccion--borde">
-    <div class="wrap">
-      <div class="seccion-head">
-        <h2 class="h3">${P.otros}</h2>
-        <a class="link-arrow" href="${RUTAS[l].clientes}">${C.verClientes}</a>
-      </div>
-      <ul class="otros-clientes">${otrosLista}</ul>
-    </div>
-  </section>
-  ${ctaBloque(l, P.cta, `${RUTAS[l].contacto}?tipo=${tipo === 'mural' ? 'mural' : tipo === 'web' ? 'web' : tipo === 'branding' ? 'branding' : 'grafica'}`)}
-`,
-  });
-}
-
 function detalle(l, proyectos, p, i) {
   const T = TXT[l];
   // Anterior / siguiente dentro de la misma área (la primera del caso); si el área no tiene otros, se recorre todo
@@ -2076,13 +1850,12 @@ function detalle(l, proyectos, p, i) {
       : `<a class="btn btn-accent btn-lg" href="${RUTAS[l].contacto}?tipo=${esc(tipoContacto(p.categorias[0]))}">${esMarca ? T.botonSinBehance : T.botonProyecto}</a>`;
   const cierre = urbano ? T.murales.ctaProyecto : p.cta || (esMarca ? T.ctaSinBehance : T.ctaProyectoGeneral);
   const botonMural = urbano ? `<a class="btn btn-dark btn-lg" href="${RUTAS[l].murales}">${T.murales.botonProyecto}</a>` : '';
-  // Dónde está el caso en las dos formas de ordenar: sus áreas y sus clientes, con enlace a cada uno
+  // Dónde está el caso: sus áreas, con enlace a cada una (desde 2026-11-21 no hay páginas de clientes)
   const C = T.cli;
   const susClientes = clientesDe(p.slug);
   const enlaces = (xs) => xs.map(([href, t]) => `<a href="${href}">${esc(t)}</a>`).join(' / ');
   const ubicacion = [
     `${p.categorias.length > 1 ? C.areasVarias : C.areaUna}: ${enlaces(p.categorias.map((c) => [enlaceServicio(l, c), nombreCat(l, c)]))}`,
-    susClientes.length && susClientes.length <= 3 ? `${susClientes.length > 1 ? C.clientesVarios : C.clienteUno}: ${enlaces(susClientes.map((c) => [enlaceCliente(l, c), c.nombre]))}` : '',
   ].filter(Boolean).join('<span aria-hidden="true">·</span>');
   // Más trabajos del mismo cliente (solo si el caso es de un cliente y tiene otros)
   const otrosDelCliente = susClientes.length === 1 ? proyectos.filter((x) => x !== p && susClientes[0].casos.includes(x.slug)) : [];
@@ -2098,7 +1871,7 @@ function detalle(l, proyectos, p, i) {
     : '';
   const masDelCliente = otrosDelCliente.length
     ? `<section class="mas-cliente">
-        <div class="mas-cliente-head"><h2 class="h3">${esc(C.masDe(susClientes[0].nombre))}</h2><a class="link-arrow" href="${enlaceCliente(l, susClientes[0])}">${C.verCliente}</a></div>
+        <div class="mas-cliente-head"><h2 class="h3">${esc(C.masDe(susClientes[0].nombre))}</h2></div>
         <div class="grid-proyectos">${otrosDelCliente.slice(0, 3).map((x) => tarjeta(l, x, proyectos.indexOf(x), { sizes: '(min-width: 900px) 30vw, 50vw' })).join('')}</div>
       </section>`
     : '';
@@ -3059,8 +2832,6 @@ for (const l of IDIOMAS) {
   const paginas = [
     [R.inicio, inicio(l, proyectos)],
     [R.proyectos, listado(l, proyectos)],
-    [R.clientes, paginaClientes(l, proyectos)],
-    ...CLIENTES.clientes.map((c) => [enlaceCliente(l, c), paginaCliente(l, proyectos, c)]),
     ...proyectos.filter((p) => !p.externo).map((p, i, internos) => [rutaDe(l, 'proyecto', p.slug), detalle(l, internos, p, i)]),
     [R.murales, murales(l, proyectos)],
     [R.tarifarios, paginaTarifarios(l)],
