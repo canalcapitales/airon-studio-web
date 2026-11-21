@@ -1635,7 +1635,10 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 /* Un área con una sola pieza: sin flechas ni contador */
 .carrusel--solo .carrusel-flecha, .carrusel--solo .carrusel-contador { display: none; }
 /* Página Trabajos: las áreas una debajo de la otra, y la barra de áreas salta a cada una */
-.areas-carrusel .carrusel { scroll-margin-top: calc(var(--header-h) + 64px); }
+.areas-carrusel .carrusel, .areas-carrusel .muro-logos { scroll-margin-top: calc(var(--header-h) + 64px); }
+/* Muros en el inicio (logos, flyers, portadas): el enlace del carrusel destacado baja hasta acá */
+.inicio-muro .muro-logos { scroll-margin-top: var(--header-h); }
+.carrusel-texto + .carrusel-texto { margin-top: 10px; }
 .areas-carrusel { padding-bottom: 0; }
 /* Espacios: el bloque de color va pegado a lo de arriba y abajo, sin franjas vacías */
 .bloque--media:has(.muro-logos .carrusel) { padding-block: 0; }
