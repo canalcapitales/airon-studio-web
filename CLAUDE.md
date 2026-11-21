@@ -30,6 +30,7 @@ Web: https://aironstudio.com.ar · Repo: `canalcapitales/airon-studio-web` · De
 - **Murales** (`/murales/`) muestra directo los trabajos (proyectos con categoría `urbano`: Blend David, R5 y Graffiti); la idea es que cada mural nace de la identidad del cliente, no de un estilo fijo. **Graffiti** es un proyecto más (`slug: graffiti`), presentado como "otra línea estética", **sin nombrar a LAION** ni linkear a su web; sus fotos salen de `02_laion/laion-web` y la portada se armó con el mismo diseño que R5. La vieja página `/murales/encargos/` redirige a `/murales/#trabajos`.
 - Imágenes en WebP. `/img/*` tiene caché de 1 hora: si se reemplaza una imagen, **cambiarle el nombre** (ej. `portada-v2`) para que se actualice.
 - Tipografías alojadas (licencia OFL): Anton, Instrument Sans, IBM Plex Mono, Michroma (hoy sin uso) y Oswald.
+- **Títulos en Anton y espacios** (revisión de toda la web 2026-11-21): con el interlineado cerrado, las tildes y la Ñ suben por encima de la línea y signos como ¿ o Q bajan. El bloque "Aire para los títulos" de `styles.css` deja espacio fijo arriba y abajo (kicker, `.h2`, `.carrusel-titulo`, encabezados de sección). Al sumar un título grande nuevo, revisar que la tilde no toque el texto de arriba en 390, 768, 1024 y 1440 px.
 - Estética: fondo claro `#F2F0EB`, tinta `#111`, acento rojo `#FF0000`, cuadradito rojo antes de los kickers en mono.
 - Sin links a Behance.
 
