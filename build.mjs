@@ -2051,7 +2051,39 @@ function detalle(l, proyectos, p, i) {
           : `<li class="logo-item reveal" data-grupo="${x.grupo}"${fondo}><a class="logo-tile zoom" href="${esc(x.grande || x.archivo)}" aria-label="${T.ampliar}: ${esc(alt)}">${imagen}${info}</a></li>`;
       })
       .join('');
-    muro = `<div class="galeria-grupo muro-logos">
+    // Carrusel sobre un fondo pleno del color del área (por ahora solo el muro de marcas de Branding)
+    const enCarrusel = p.muroLogos;
+    if (enCarrusel) {
+      const total = String(D.logos.length).padStart(2, '0');
+      const tarjetas = D.logos
+        .map((x, i) => {
+          const nombre = typeof x.nombre === 'string' ? x.nombre : x.nombre[l];
+          const rubro = x.rubro[l];
+          const alt = `${nombre} — ${rubro}`;
+          const fondo = x.fondo ? ` data-fondo="${x.fondo}"` : '';
+          const boton = x.caso
+            ? `<a class="carrusel-btn mono" href="${rutaDe(l, 'proyecto', x.caso)}">${M.verCaso} →</a>`
+            : `<span class="carrusel-btn carrusel-btn--suave mono">${esc(D.grupos[x.grupo][l])}</span>`;
+          return `<li class="carrusel-item" data-grupo="${x.grupo}"${fondo}>
+            <a class="carrusel-tile zoom" href="${esc(x.grande || x.archivo)}" aria-label="${T.ampliar}: ${esc(alt)}"><span class="carrusel-num mono">${String(i + 1).padStart(2, '0')}</span><img src="${esc(x.archivo)}" alt="${esc(alt)}" width="1080" height="1080" loading="lazy" decoding="async"></a>
+            <div class="carrusel-info"><span class="carrusel-nombre">${esc(nombre)}</span><span class="carrusel-rubro mono">${esc(rubro)}</span>${boton}</div>
+          </li>`;
+        })
+        .join('');
+      muro = `<div class="carrusel muro-logos" data-area="${p.categorias[0]}" aria-roledescription="carrusel" aria-label="${M.titulo}">
+          <div class="carrusel-head">
+            <span class="carrusel-kicker mono">[★] / ${M.titulo}</span>
+            <span class="carrusel-contador mono" aria-live="polite"><b>01</b> / ${total}</span>
+          </div>
+          <p class="carrusel-texto">${M.texto}</p>
+          <div class="muro-filtros carrusel-filtros" role="group" aria-label="${M.filtrar}">${pills}</div>
+          <div class="carrusel-escena">
+            <ul class="carrusel-pista">${tarjetas}</ul>
+            <button type="button" class="carrusel-flecha carrusel-flecha--ant" aria-label="${T.visor.ant}">←</button>
+            <button type="button" class="carrusel-flecha carrusel-flecha--sig" aria-label="${T.visor.sig}">→</button>
+          </div>
+        </div>`;
+    } else muro = `<div class="galeria-grupo muro-logos">
           <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${M.titulo}</h3><p>${M.texto}</p><span class="mono">${D.logos.length} ${M.items} · ${grupos.length} ${M.grupos}</span></div>
           <div class="muro-filtros" role="group" aria-label="${M.filtrar}">${pills}</div>
           <ul class="logos-grid${D.formato === 'historia' ? ' logos-grid--historia' : ''}">${items}</ul>

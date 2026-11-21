@@ -1501,3 +1501,64 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 .numeros-intro-texto p { font-size: clamp(19px, 1.7vw, 24px); line-height: 1.45; color: var(--sobre-bloque); margin: 0; }
 .numeros-intro-texto .link-arrow { color: var(--sobre-bloque); }
 @media (max-width: 899px) { .numeros-intro { grid-template-columns: 1fr; align-items: start; } }
+
+/* ---------- carrusel por área (sobre un fondo pleno de color) ----------
+   Colores de AIRON (rojo, negro y crema), un pleno por área: --pleno (fondo), --pleno-tinta (textos),
+   --pleno-acento (etiquetas, número y botón) y --pleno-sobre-acento (texto sobre el acento).
+   El fondo llega al borde de la pantalla sin cambiar el ancho del contenido. */
+.carrusel { --pleno: #111; --pleno-tinta: #F2F0EB; --pleno-acento: #FF0000; --pleno-sobre-acento: #111;
+  position: relative; isolation: isolate; color: var(--pleno-tinta); padding-block: clamp(40px, 6vw, 72px) clamp(48px, 6vw, 80px); }
+.carrusel::before { content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: var(--pleno); }
+.carrusel[data-area="branding"] { --pleno: #FF0000; --pleno-tinta: #111; --pleno-acento: #111; --pleno-sobre-acento: #F2F0EB; }
+.carrusel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.carrusel-kicker { color: var(--pleno-acento); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.carrusel-contador { font-size: 12px; color: color-mix(in srgb, var(--pleno-tinta) 70%, transparent); }
+.carrusel-contador b { color: var(--pleno-tinta); font-weight: 500; }
+.carrusel-texto { max-width: 40em; margin: 14px 0 0; font-size: 17px; line-height: 1.5; color: var(--pleno-tinta); }
+.carrusel-filtros { padding-block: 20px 8px; }
+.carrusel .pill { background: color-mix(in srgb, var(--pleno-tinta) 10%, transparent); color: var(--pleno-tinta); border-color: transparent; }
+.carrusel .pill .mono { color: color-mix(in srgb, var(--pleno-tinta) 70%, transparent); }
+.carrusel .pill[aria-pressed="true"] { background: var(--pleno-acento); color: var(--pleno-sobre-acento); }
+.carrusel .pill[aria-pressed="true"] .mono { color: var(--pleno-sobre-acento); }
+
+/* Sin JavaScript: fila con desplazamiento lateral */
+.carrusel-escena { position: relative; }
+.carrusel-pista { list-style: none; margin: 0; padding: 16px 0; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.carrusel-item { flex: 0 0 clamp(220px, 26vw, 330px); scroll-snap-align: center; }
+.carrusel-tile { position: relative; display: block; aspect-ratio: 1; overflow: hidden; border-radius: 10px; background: #000; outline-offset: 4px; }
+.carrusel-item[data-fondo="claro"] .carrusel-tile { background: #fff; }
+.carrusel-tile img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.carrusel-num { position: absolute; top: 10px; left: 10px; z-index: 1; padding: 5px 8px 4px; border-radius: 6px; background: var(--pleno-acento); color: var(--pleno-sobre-acento); font-size: 12px; font-weight: 500; line-height: 1; }
+.carrusel-info { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 12px; padding-top: 14px; }
+.carrusel-nombre { font-family: var(--f-display); text-transform: uppercase; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.05; }
+.carrusel-rubro { grid-column: 1; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--pleno-tinta); }
+.carrusel-btn { grid-column: 2; grid-row: 1 / span 2; padding: 8px 14px; border-radius: 999px; background: var(--pleno-acento); color: var(--pleno-sobre-acento); font-size: 11px; font-weight: 500; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: filter var(--dur-micro) var(--ease-out); }
+a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
+.carrusel-btn--suave { background: color-mix(in srgb, var(--pleno-tinta) 12%, transparent); color: var(--pleno-tinta); }
+.carrusel-flecha { display: none; }
+
+/* Con JavaScript: escena en perspectiva */
+.carrusel--activo .carrusel-escena { height: calc(clamp(220px, 26vw, 330px) + 96px); perspective: 1400px; touch-action: pan-y; user-select: none; }
+.carrusel--activo .carrusel-pista { display: block; overflow: visible; height: 100%; padding: 0; }
+.carrusel--activo .carrusel-item { position: absolute; top: 0; left: 50%; width: clamp(220px, 26vw, 330px); transform-style: preserve-3d;
+  cursor: pointer; }
+.carrusel--listo .carrusel-item { transition: transform var(--dur-reveal) var(--ease-out), opacity var(--dur-ui) var(--ease-out); }
+.carrusel--activo .carrusel-item[hidden] { display: none; }
+.carrusel--activo .carrusel-tile { box-shadow: 0 24px 50px rgba(0, 0, 0, .35); }
+.carrusel--activo .carrusel-tile::after { content: ''; position: absolute; inset: 0; background: #000; opacity: var(--sombra, 0); transition: opacity var(--dur-ui) var(--ease-out); pointer-events: none; }
+.carrusel--activo .carrusel-item:not(.es-actual) .carrusel-info { opacity: .55; }
+.carrusel--activo .carrusel-item:not(.es-actual) .carrusel-rubro { visibility: hidden; }
+.carrusel--activo .carrusel-item:not(.es-actual) .carrusel-btn { visibility: hidden; }
+.carrusel--activo .carrusel-item.es-actual { cursor: zoom-in; }
+.carrusel--activo .carrusel-item.es-actual .carrusel-tile { outline: 2px solid color-mix(in srgb, var(--pleno-tinta) 20%, transparent); outline-offset: -2px; }
+.carrusel--activo .carrusel-flecha { display: grid; place-items: center; position: absolute; top: calc(clamp(220px, 26vw, 330px) / 2); z-index: 200; width: 44px; height: 44px; margin-top: -22px; border: 0; border-radius: 50%;
+  background: #111; color: #F2F0EB; font-size: 20px; cursor: pointer; transition: background var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out); }
+.carrusel-flecha:hover, .carrusel-flecha:focus-visible { background: var(--pleno-acento); color: var(--pleno-sobre-acento); }
+.carrusel-flecha--ant { left: 0; }
+.carrusel-flecha--sig { right: 0; }
+@media (max-width: 699px) {
+  .carrusel--activo .carrusel-item { width: 62vw; }
+  .carrusel--activo .carrusel-escena { height: calc(62vw + 96px); }
+  .carrusel--activo .carrusel-flecha { top: 31vw; width: 38px; height: 38px; margin-top: -19px; }
+}
+@media (prefers-reduced-motion: reduce) { .carrusel--listo .carrusel-item { transition: none; } }
