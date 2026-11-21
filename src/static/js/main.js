@@ -8,7 +8,7 @@ const MSG = EN
 
 document.addEventListener('DOMContentLoaded', () => {
   // Cada parte arranca por separado: si una falla, las demás siguen funcionando
-  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, escenas, formulario, filtros, areasInicio, filtroClientes, muroLogos, sponsors].forEach((iniciar) => {
+  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, escenas, formulario, filtros, areasInicio, filtroClientes, muroLogos, sponsors, vitrinaWeb].forEach((iniciar) => {
     try { iniciar(); } catch (e) { console.error(e); }
   });
 });
@@ -2172,4 +2172,39 @@ function escenas() {
     addEventListener('resize', pedir);
     pintar();
   });
+}
+
+// ----- Vitrina de Diseño web (inicio) -----
+// Cada web baja sola de arriba a abajo (animación CSS); al terminar pasa a la siguiente.
+// Tocar una web de la lista la muestra; con el mouse encima de la pantalla se pausa.
+function vitrinaWeb() {
+  const v = document.querySelector('[data-vitrina]');
+  if (!v) return;
+  const items = [...v.querySelectorAll('.vitrina-item')];
+  const sitios = [...v.querySelectorAll('.vitrina-sitio')];
+  const url = v.querySelector('.vitrina-url');
+  const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let actual = 0;
+
+  const mostrar = (i) => {
+    actual = (i + sitios.length) % sitios.length;
+    items.forEach((b, k) => { b.classList.toggle('activo', k === actual); b.setAttribute('aria-pressed', String(k === actual)); });
+    sitios.forEach((s, k) => {
+      const si = k === actual;
+      s.classList.toggle('activo', si);
+      if (si) { s.removeAttribute('aria-hidden'); s.removeAttribute('tabindex'); } else { s.setAttribute('aria-hidden', 'true'); s.setAttribute('tabindex', '-1'); }
+    });
+    if (url) url.textContent = sitios[actual].dataset.url || '';
+  };
+
+  items.forEach((b, k) => b.addEventListener('click', () => mostrar(k)));
+  // Al terminar de bajar, sigue la próxima web
+  if (!quieto) sitios.forEach((s) => s.querySelector('img')?.addEventListener('animationend', () => { if (s.classList.contains('activo')) mostrar(actual + 1); }));
+
+  // La animación arranca recién cuando la vitrina se ve en pantalla
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entradas) => entradas.forEach((e) => v.classList.toggle('en-vista', e.isIntersecting)), { threshold: 0.25 }).observe(v);
+  } else {
+    v.classList.add('en-vista');
+  }
 }

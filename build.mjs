@@ -45,10 +45,10 @@ const TXT = {
     nav: { inicio: 'Inicio', proyectos: 'Áreas', web: 'Diseño web', clientes: 'Clientes', estudio: 'Nosotros', contacto: 'Contacto' },
     // Sección Diseño web del inicio (#diseno-web): muestra las webs publicadas y lleva al formulario con "web" elegido
     webHome: {
-      kicker: 'Webs a medida', titulo: 'Diseño web',
+      kicker: 'Webs a medida', titulo: 'Diseño <em>web</em>',
       lead: 'Diseñamos y programamos sitios a medida, con la identidad de tu marca: rápidos, seguros y pensados para el celular. Una web que se ve bien, se encuentra en Google y hace que te contacten.',
       puntos: ['Diseño a medida', 'Pensadas para el celular', 'Rápidas y seguras', 'Preparadas para Google', 'Sistemas de gestión'],
-      cta: 'Quiero mi web →', verTodas: 'Ver todas las webs →', publicadas: 'Webs publicadas',
+      cta: 'Quiero mi web →', verTodas: 'Ver todas las webs →', publicadas: 'Webs publicadas', visitar: 'Visitar', elegir: 'Elegí una web para verla', vistaDe: (t) => `Vista completa de la web de ${t}`,
     },
     // Dos formas de recorrer los trabajos: por área (disciplina) y por cliente
     cli: {
@@ -504,10 +504,10 @@ const TXT = {
     saltar: 'Skip to content', inicioAria: 'AIRON Studio — Home', abrirMenu: 'Open menu', navPrincipal: 'Main', redes: 'Social media',
     nav: { inicio: 'Home', proyectos: 'Areas', web: 'Web design', clientes: 'Clients', estudio: 'About us', contacto: 'Contact' },
     webHome: {
-      kicker: 'Custom websites', titulo: 'Web design',
+      kicker: 'Custom websites', titulo: '<em>Web</em> design',
       lead: 'We design and build custom websites with your brand identity: fast, secure and mobile-first. A website that looks good, can be found on Google and gets people to contact you.',
       puntos: ['Custom design', 'Mobile-first', 'Fast & secure', 'Google-ready', 'Management systems'],
-      cta: 'I want my website →', verTodas: 'See all websites →', publicadas: 'Live websites',
+      cta: 'I want my website →', verTodas: 'See all websites →', publicadas: 'Live websites', visitar: 'Visit', elegir: 'Pick a website to preview it', vistaDe: (t) => `Full view of the ${t} website`,
     },
     cli: {
       titulo: 'Clients', kicker: 'Explore our work',
@@ -1415,37 +1415,59 @@ function destacados(l, proyectos, { primeraRapida = false } = {}) {
   </section>`;
 }
 
-// Diseño web: las webs publicadas al frente (la primera, grande) y un llamado a pedir la tuya
+// Diseño web: vitrina con las webs publicadas. A la izquierda la lista; a la derecha una ventana de navegador
+// que recorre la web elegida de arriba a abajo (captura completa en /img/casos/<slug>-scroll.webp) y pasa sola a la siguiente.
 function disenoWeb(l, proyectos) {
   const W = TXT[l].webHome;
-  const webs = proyectos.filter((p) => p.categorias.includes('web'));
+  const webs = proyectos.filter((p) => p.categorias.includes('web') && p.externo);
   if (!webs.length) return '';
   const dominio = (u) => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
-  const tarjetas = webs
-    .map((p, i) => `<a class="web-card${i === 0 ? ' web-card--grande' : ''} reveal" href="${hrefP(l, p)}"${abreAfuera(p)} data-cursor="${cursorP(l, p)}">
-          <span class="web-card-img">${img(p.portada, { alt: TXT[l].portadaDe(p.titulo), sizes: i === 0 ? '(min-width: 900px) 50vw, 100vw' : '(min-width: 900px) 25vw, 50vw', dims: [640, 501] })}</span>
-          <span class="web-card-meta"><span class="web-card-num mono">${num(i)}</span><span class="web-card-titulo">${esc(p.titulo)}</span><span class="web-card-sub">${esc(p.subtitulo)}</span>${p.externo ? `<span class="web-card-url mono">${esc(dominio(p.externo))} ↗</span>` : ''}</span>
-        </a>`)
-    .join('\n        ');
+  const lista = webs
+    .map((p, i) => `<li><button class="vitrina-item${i === 0 ? ' activo' : ''}" type="button" data-i="${i}" aria-pressed="${i === 0}">
+            <span class="vitrina-num mono">${num(i)}</span>
+            <span class="vitrina-nombre">${esc(p.titulo)}</span>
+            <span class="vitrina-sub">${esc(p.subtitulo)}</span>
+            <span class="vitrina-barra" aria-hidden="true"></span>
+          </button></li>`)
+    .join('\n          ');
+  const sitios = webs
+    .map((p, i) => `<a class="vitrina-sitio${i === 0 ? ' activo' : ''}" href="${esc(p.externo)}" target="_blank" rel="noopener" data-i="${i}" data-url="${esc(dominio(p.externo))}" data-cursor="${cursorP(l, p)}"${i === 0 ? '' : ' tabindex="-1" aria-hidden="true"'}>
+              <img src="/img/casos/${p.slug}-scroll.webp" alt="${esc(W.vistaDe(p.titulo))}" width="1100" height="3972" loading="lazy" decoding="async">
+            </a>`)
+    .join('\n            ');
   return `<section class="seccion web-home" id="diseno-web" aria-labelledby="diseno-web-t">
     <div class="wrap">
       <div class="web-home-head">
         <div>
           <span class="kicker mono">${W.kicker}</span>
-          <h2 class="h2 web-home-titulo" id="diseno-web-t">${W.titulo}</h2>
+          <h2 class="web-home-titulo" id="diseno-web-t">${W.titulo}</h2>
         </div>
         <div class="web-home-texto">
           <p class="lead">${W.lead}</p>
-          <ul class="web-home-puntos mono">${W.puntos.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
           <div class="btn-row">
             <a class="btn btn-accent btn-lg" href="${RUTAS[l].contacto}?tipo=web">${W.cta}</a>
             <a class="btn btn-outline-claro btn-lg" href="${enlaceServicio(l, 'web')}">${W.verTodas}</a>
           </div>
         </div>
       </div>
-      <span class="kicker mono web-home-sub">${W.publicadas} · ${webs.length}</span>
-      <div class="web-grid">
-        ${tarjetas}
+      <ul class="web-home-puntos mono">${W.puntos.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+      <div class="vitrina" data-vitrina>
+        <div class="vitrina-col">
+          <span class="kicker mono vitrina-cuenta">${W.publicadas} · ${webs.length}</span>
+          <ol class="vitrina-lista" aria-label="${W.elegir}">
+          ${lista}
+          </ol>
+        </div>
+        <div class="vitrina-pantalla">
+          <div class="vitrina-barra-nav" aria-hidden="true">
+            <span class="vitrina-puntos"><i></i><i></i><i></i></span>
+            <span class="vitrina-url mono">${esc(dominio(webs[0].externo))}</span>
+            <span class="vitrina-visitar mono">${W.visitar} ↗</span>
+          </div>
+          <div class="vitrina-vista">
+            ${sitios}
+          </div>
+        </div>
       </div>
     </div>
   </section>`;
