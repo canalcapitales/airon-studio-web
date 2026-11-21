@@ -1330,7 +1330,8 @@ function ctaBloque(l, titulo, href = RUTAS[l].contacto, boton = TXT[l].escribino
   </section>`;
 }
 
-function numeros(l, proyectos) {
+// Con { intro: true } (inicio) suma arriba la presentación breve del estudio, en el mismo bloque
+function numeros(l, proyectos, { intro = false } = {}) {
   const T = TXT[l];
   // Solo datos reales. Si `valor` está vacío (null), no se muestra.
   const datos = [
@@ -1348,9 +1349,22 @@ function numeros(l, proyectos) {
       (n) => `<div class="numero reveal"><span class="numero-valor"><span data-contar="${n.valor}">${n.valor}</span>${n.sufijo || ''}</span><span class="mono">${n.texto}</span></div>`
     )
     .join('\n        ');
-  return `<section class="numeros" aria-label="${T.numerosTitulo}">
+  const cabeza = intro
+    ? `<div class="numeros-intro">
+        <div>
+          <span class="kicker mono">${T.introKicker}</span>
+          <h2 class="h2" id="intro-t">${T.introTitulo}</h2>
+        </div>
+        <div class="numeros-intro-texto">
+          <p>${T.introTexto[0]}</p>
+          <a class="link-arrow" href="${RUTAS[l].estudio}">${T.introLink}</a>
+        </div>
+      </div>`
+    : `<span class="kicker mono">${T.numerosTitulo}</span>`;
+  const etiqueta = intro ? 'aria-labelledby="intro-t"' : `aria-label="${T.numerosTitulo}"`;
+  return `<section class="numeros${intro ? ' numeros--intro' : ''}" ${etiqueta}>
     <div class="wrap">
-      <span class="kicker mono">${T.numerosTitulo}</span>
+      ${cabeza}
       <div class="numeros-grid">
         ${items}
       </div>
@@ -1560,21 +1574,7 @@ function inicio(l, proyectos) {
 
   ${disenoWeb(l, proyectos)}
 
-  <section class="seccion intro-estudio" aria-labelledby="intro-t">
-    <div class="wrap intro-grid">
-      <div>
-        <span class="kicker mono">${T.introKicker}</span>
-        <h2 class="h2" id="intro-t">${T.introTitulo}</h2>
-      </div>
-      <div class="intro-texto">
-        <p class="texto-destacado">${T.introTexto[0]}</p>
-        <p>${T.introTexto[1]}</p>
-        <a class="link-arrow" href="${R.estudio}">${T.introLink}</a>
-      </div>
-    </div>
-  </section>
-
-  ${numeros(l, proyectos)}
+  ${numeros(l, proyectos, { intro: true })}
 
   ${destacados(l, proyectos)}
 
