@@ -3956,7 +3956,8 @@
     "galeria": [],
     "videos": [],
     "galerias": [],
-    "muro": "portadas"
+    "muro": "portadas",
+    "carruselArriba": true
   },
   {
     "slug": "flyers",
