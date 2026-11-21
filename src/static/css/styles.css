@@ -1484,3 +1484,11 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 @media (min-width: 600px) and (max-width: 899px) {
   .destacados--3 .destacado--1 { grid-column: 1 / -1; }
 }
+
+/* ----- Clientes: colecciones como enlace de texto (2026-11-21) ----- */
+.cliente-obra { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.cliente-series { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.cliente-series > .mono { font-size: 12px; color: var(--muted); }
+.cliente-series ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.cliente-serie { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border: 1px solid var(--ink); border-radius: 999px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out); }
+.cliente-serie:hover, .cliente-serie:focus-visible { background: var(--ink); color: var(--bg); }

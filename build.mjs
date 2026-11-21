@@ -57,7 +57,7 @@ const TXT = {
       lead: 'Las marcas, empresas y artistas con los que trabajamos. Cada cliente reúne todos sus trabajos, de todas las áreas.',
       desc: 'Clientes de AIRON Studio: empresas, inmobiliarias, gastronomía, comercios y artistas, con todos sus trabajos de branding, redes, gráfica, web y murales.',
       todos: 'Todos', filtrar: 'Filtrar clientes por rubro', uno: 'cliente', varios: 'clientes', trabajo: 'trabajo', trabajos: 'trabajos',
-      colecciones: 'Colecciones', coleccionesTexto: 'Series que reúnen piezas para muchos clientes: marcas, portadas, flyers y redes.',
+      colecciones: 'Colecciones', enColecciones: 'También en las colecciones', coleccionesTexto: 'Series que reúnen piezas para muchos clientes: marcas, portadas, flyers y redes.',
       masMarcas: 'Más marcas que diseñamos', masMarcasTexto: 'Identidades que forman parte del muro de marcas.', verMuro: 'Ver el muro de marcas →',
       ordenar: 'Ordenar por', porAreas: 'Áreas', porClientes: 'Clientes',
       homeKicker: 'Elegí un área y mirá sus trabajos', homeTitulo: 'Áreas', tabsAria: 'Cómo ordenar los trabajos',
@@ -515,7 +515,7 @@ const TXT = {
       lead: 'The brands, companies and artists we work with. Each client brings together all of their work, across every area.',
       desc: 'AIRON Studio clients: companies, real estate, food, retail and artists, with all their branding, social media, graphic, web and mural work.',
       todos: 'All', filtrar: 'Filter clients by sector', uno: 'client', varios: 'clients', trabajo: 'project', trabajos: 'projects',
-      colecciones: 'Collections', coleccionesTexto: 'Series that bring together pieces for many clients: brands, covers, flyers and social media.',
+      colecciones: 'Collections', enColecciones: 'Also in the collections', coleccionesTexto: 'Series that bring together pieces for many clients: brands, covers, flyers and social media.',
       masMarcas: 'More brands we designed', masMarcasTexto: 'Identities that are part of the brand wall.', verMuro: 'See the brand wall →',
       ordenar: 'Sort by', porAreas: 'Areas', porClientes: 'Clients',
       homeKicker: 'Pick an area and see the work', homeTitulo: 'Areas', tabsAria: 'How to sort the work',
@@ -1683,7 +1683,14 @@ function paginaClientes(l, proyectos) {
       const areas = areasDeCliente(proyectos, c)
         .map((id) => `<li><a class="cliente-area mono" href="${enlaceServicio(l, id)}">${esc(nombreCat(l, id))}</a></li>`)
         .join('');
+      // Las colecciones (casos de muchos clientes) van como enlace de texto: su tarjeta con imagen está una sola vez, más abajo
+      const enSerie = (p) => CLIENTES.colecciones.includes(p.slug);
+      const series = trabajos
+        .filter(enSerie)
+        .map((p) => `<li><a class="cliente-serie" href="${hrefP(l, p)}"${abreAfuera(p)}>${esc(p.titulo)} <span aria-hidden="true">→</span></a></li>`)
+        .join('');
       const items = trabajos
+        .filter((p) => !enSerie(p))
         .map((p) => `<li><a class="cliente-trabajo" href="${hrefP(l, p)}"${abreAfuera(p)} data-cursor="${cursorP(l, p)}">
               <span class="cliente-trabajo-img">${img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 900px) 16vw, 44vw', dims: [640, 501] })}</span>
               <span class="cliente-trabajo-titulo">${esc(p.titulo)}</span>
@@ -1699,7 +1706,10 @@ function paginaClientes(l, proyectos) {
               <ul class="cliente-areas" aria-label="${trabajos.length > 1 ? C.areasVarias : C.areaUna}">${areas}</ul>
             </div>
           </div>
-          <ul class="cliente-trabajos">${items}</ul>
+          <div class="cliente-obra">
+            ${items ? `<ul class="cliente-trabajos">${items}</ul>` : ''}
+            ${series ? `<div class="cliente-series"><span class="mono">${C.enColecciones}</span><ul>${series}</ul></div>` : ''}
+          </div>
         </li>`;
     })
     .join('\n      ');
