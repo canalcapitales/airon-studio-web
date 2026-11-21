@@ -1651,9 +1651,22 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 .carrusel-atajos .pill.es-actual { background: #fff; color: #111; }
 .carrusel-atajos .pill.es-actual .mono { color: #111; }
 .inicio-areas .carrusel { padding-top: clamp(40px, 5vw, 72px); }
-/* Título con tilde (ÁREAS): aire arriba para que el acento no toque el kicker, y aire debajo antes de la bajada */
-.inicio-areas .carrusel-titulo { margin-top: clamp(18px, 2.2vw, 30px); padding-top: .12em; line-height: 1; }
-.inicio-areas .carrusel-texto { margin-top: 16px; }
+
+/* ---------- Aire para los títulos (revisión de toda la web, pedido del usuario 2026-11-21) ----------
+   Anton con interlineado cerrado: las tildes y la Ñ suben por encima de la línea y signos como ¿ o la Q bajan.
+   Estas reglas dejan espacio fijo arriba y abajo de cada título para que nunca toquen el texto vecino. */
+.kicker { margin-bottom: 16px; }
+.h2, .h3 { padding-top: .08em; }
+.carrusel-titulo { margin-top: clamp(16px, 2vw, 26px); padding-top: .06em; line-height: 1; }
+.carrusel-texto { margin-top: 14px; }
+.carrusel-texto + .carrusel-escena, .carrusel-titulo + .carrusel-escena { margin-top: clamp(24px, 3vw, 40px); }
+.carrusel-filtros + .carrusel-escena { margin-top: 12px; }
+.seccion-head, .seccion-head-fila { row-gap: clamp(24px, 3vw, 32px); }
+.mas-cliente-head { row-gap: 16px; }
+.bloque-head { gap: 16px; }
+.web-home-titulo { margin-top: 16px; padding-top: .1em; }
+.equipo-intro { gap: 26px; }
+.tar-hub-titulo { padding-top: .1em; line-height: 1; }
 .areas-carrusel { padding-bottom: 0; }
 /* Espacios: el bloque de color va pegado a lo de arriba y abajo, sin franjas vacías */
 .bloque--media:has(.muro-logos .carrusel) { padding-block: 0; }
