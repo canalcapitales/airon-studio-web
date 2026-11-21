@@ -1579,6 +1579,8 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 /* Espacios: el bloque de color va pegado a lo de arriba y abajo, sin franjas vacías */
 .bloque--media:has(.muro-logos .carrusel) { padding-block: 0; }
 .proyecto--carrusel .ficha { margin-top: clamp(24px, 3vw, 40px); padding-block: 24px; }
+/* Título en una sola línea: "BRANDING X AIRON STUDIO" mide ~9,5 veces el tamaño de letra; se ajusta al ancho disponible */
+.proyecto--carrusel .proyecto-title { white-space: nowrap; font-size: min(150px, calc((100vw - 2 * var(--gutter) - 24px) / 9.7)); }
 .proyecto--carrusel .ficha + * { margin-top: 0; }
 .proyecto--carrusel .bloque--media + .bloque { padding-top: clamp(40px, 5vw, 64px); }
 .filtros--areas { position: sticky; top: var(--header-h); z-index: 300; background: var(--bg); }
