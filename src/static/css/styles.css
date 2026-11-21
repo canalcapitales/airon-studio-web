@@ -1445,6 +1445,12 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 .vitrina-sitio { position: absolute; inset: 0; display: block; opacity: 0; visibility: hidden; transition: opacity var(--dur-ui) var(--ease-out), visibility 0s linear var(--dur-ui); }
 .vitrina-sitio.activo { opacity: 1; visibility: visible; transition: opacity var(--dur-ui) var(--ease-out), visibility 0s; }
 .vitrina-sitio img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; display: block; }
+.vitrina-sitio video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; opacity: 0; transition: opacity var(--dur-ui) var(--ease-out); }
+.vitrina-sitio video.listo { opacity: 1; }
+/* Con video (main.js agrega .con-video) la captura no se mueve y la barra avanza según el video */
+.vitrina.con-video.en-vista .vitrina-sitio.activo img,
+.vitrina.con-video.en-vista .vitrina-item.activo .vitrina-barra { animation: none; }
+.vitrina.con-video .vitrina-item.activo .vitrina-barra { transform: scaleX(var(--avance, 0)); transition: transform 300ms linear; }
 
 /* Movimiento: la web baja de arriba a abajo y la barra de la lista avanza al mismo ritmo */
 @keyframes vitrina-bajar { 0%, 8% { object-position: 50% 0; } 92%, 100% { object-position: 50% 100%; } }
