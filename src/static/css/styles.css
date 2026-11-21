@@ -1639,6 +1639,15 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 /* Muros en el inicio (logos, flyers, portadas): el enlace del carrusel destacado baja hasta acá */
 .inicio-muro .muro-logos { scroll-margin-top: var(--header-h); }
 .carrusel-texto + .carrusel-texto { margin-top: 10px; }
+/* Áreas del inicio: el nombre del área grande sobre la imagen, su descripción debajo y todas las áreas en una fila */
+.carrusel-tile--etiqueta::before { content: ''; position: absolute; inset: 45% 0 0; z-index: 1; background: linear-gradient(to top, rgba(0, 0, 0, .82), transparent); pointer-events: none; }
+.carrusel-etiqueta { position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 2; font-family: var(--f-display); text-transform: uppercase; color: #fff; font-size: clamp(26px, 3.4vw, 46px); line-height: .95; text-wrap: balance; pointer-events: none; }
+.carrusel-item:has(.carrusel-tile--etiqueta) .carrusel-nombre { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.carrusel-detalle { grid-column: 1 / -1; font-size: 15px; line-height: 1.4; color: var(--pleno-tinta); max-width: 34em; }
+.carrusel--activo .carrusel-item:not(.es-actual) .carrusel-detalle { visibility: hidden; }
+.carrusel-atajos { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 18px 6px; }
+.carrusel-atajos .pill { text-decoration: none; }
+.inicio-areas .carrusel { padding-top: clamp(40px, 5vw, 72px); }
 .areas-carrusel { padding-bottom: 0; }
 /* Espacios: el bloque de color va pegado a lo de arriba y abajo, sin franjas vacías */
 .bloque--media:has(.muro-logos .carrusel) { padding-block: 0; }
