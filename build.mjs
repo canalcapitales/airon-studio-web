@@ -62,7 +62,8 @@ const TXT = {
       colecciones: 'Colecciones', enColecciones: 'También en las colecciones', coleccionesTexto: 'Series que reúnen piezas para muchos clientes: marcas, portadas, flyers y redes.',
       masMarcas: 'Más marcas que diseñamos', masMarcasTexto: 'Identidades que forman parte del muro de marcas.', verMuro: 'Ver el muro de marcas →',
       ordenar: 'Ordenar por', porAreas: 'Áreas', porClientes: 'Clientes',
-      homeKicker: 'Elegí un área y mirá sus trabajos', homeTitulo: 'Áreas', tabsAria: 'Cómo ordenar los trabajos',
+      homeKicker: 'Elegí un área y mirá sus trabajos', homeTitulo: 'Áreas',
+      homeTexto: (n) => `${n} áreas, un mismo estudio: de la identidad de marca al mural, de las redes a la web. Tocá un área para ver todos sus trabajos.`, tabsAria: 'Cómo ordenar los trabajos',
       tabAreas: 'Por área', tabClientes: 'Por cliente', verArea: 'Ver toda el área →', verMurales: 'Ver murales →', verWebs: 'Ver las webs ↓', verClientes: 'Ver todos los clientes →', verCliente: 'Ver cliente →',
       clienteUno: 'Cliente', clientesVarios: 'Clientes', areaUna: 'Área', areasVarias: 'Áreas',
       masDe: (n) => `Más trabajos para ${n}`,
@@ -520,7 +521,8 @@ const TXT = {
       colecciones: 'Collections', enColecciones: 'Also in the collections', coleccionesTexto: 'Series that bring together pieces for many clients: brands, covers, flyers and social media.',
       masMarcas: 'More brands we designed', masMarcasTexto: 'Identities that are part of the brand wall.', verMuro: 'See the brand wall →',
       ordenar: 'Sort by', porAreas: 'Areas', porClientes: 'Clients',
-      homeKicker: 'Pick an area and see the work', homeTitulo: 'Areas', tabsAria: 'How to sort the work',
+      homeKicker: 'Pick an area and see the work', homeTitulo: 'Areas',
+      homeTexto: (n) => `${n} areas, one studio: from brand identity to murals, from social media to the web. Tap an area to see all its work.`, tabsAria: 'How to sort the work',
       tabAreas: 'By area', tabClientes: 'By client', verArea: 'See the whole area →', verMurales: 'See murals →', verWebs: 'See the websites ↓', verClientes: 'See all clients →', verCliente: 'See client →',
       clienteUno: 'Client', clientesVarios: 'Clients', areaUna: 'Area', areasVarias: 'Areas',
       masDe: (n) => `More work for ${n}`,
@@ -1326,16 +1328,18 @@ const CARR = {
   en: { verProyecto: 'View project →', verWeb: 'Visit site ↗', saltar: 'Jump to an area', proyectos: (n) => `${n} ${n === 1 ? 'project' : 'projects'}` },
 };
 // Una pieza del carrusel. href: a dónde lleva la imagen (visor si zoom, o el proyecto). boton: HTML opcional bajo el nombre.
-function piezaCarrusel({ n, imagen, href, zoom, afuera = '', aria, nombre, rubro, boton = '', grupo = '', fondo = '' }) {
+// etiqueta: texto grande sobre la imagen (Áreas del inicio); detalle: una línea de descripción debajo del nombre
+function piezaCarrusel({ n, imagen, href, zoom, afuera = '', aria, nombre, rubro, boton = '', grupo = '', fondo = '', etiqueta = '', detalle = '' }) {
   return `<li class="carrusel-item"${grupo ? ` data-grupo="${grupo}"` : ''}${fondo ? ` data-fondo="${fondo}"` : ''}>
-            <a class="carrusel-tile${zoom ? ' zoom' : ''}" href="${esc(href)}"${afuera}${aria ? ` aria-label="${esc(aria)}"` : ''}><span class="carrusel-num mono">${String(n).padStart(2, '0')}</span>${imagen}</a>
-            <div class="carrusel-info"><span class="carrusel-nombre">${esc(nombre)}</span><span class="carrusel-rubro mono">${esc(rubro)}</span>${boton}</div>
+            <a class="carrusel-tile${zoom ? ' zoom' : ''}${etiqueta ? ' carrusel-tile--etiqueta' : ''}" href="${esc(href)}"${afuera}${aria ? ` aria-label="${esc(aria)}"` : ''}><span class="carrusel-num mono">${String(n).padStart(2, '0')}</span>${imagen}${etiqueta ? `<span class="carrusel-etiqueta" aria-hidden="true">${esc(etiqueta)}</span>` : ''}</a>
+            <div class="carrusel-info"><span class="carrusel-nombre">${esc(nombre)}</span><span class="carrusel-rubro mono">${esc(rubro)}</span>${boton}${detalle ? `<span class="carrusel-detalle">${esc(detalle)}</span>` : ''}</div>
           </li>`;
 }
 // El bloque entero. formato: '' (cuadrado), 'apaisado' (portadas de proyectos) o 'historia' (9:16)
 // acciones: botones opcionales debajo del texto (el inicio los usa en el carrusel de arriba)
 // texto puede ser una lista de párrafos (ya escapados)
-function carruselHTML(l, { area, kicker, titulo, texto = '', acciones = '', piezas, total, filtros = '', filtrarAria = '', formato = '', id = '', extra = '' }) {
+// atajos: enlaces en fila debajo del texto (Áreas del inicio: todas las áreas a la vista); atajosAria: su nombre
+function carruselHTML(l, { area, kicker, titulo, texto = '', acciones = '', piezas, total, filtros = '', filtrarAria = '', formato = '', id = '', extra = '', atajos = '', atajosAria = '' }) {
   const T = TXT[l];
   return `<div class="carrusel${formato ? ` carrusel--${formato}` : ''}" data-area="${area}"${id ? ` id="${id}"` : ''} aria-roledescription="carrusel" aria-label="${esc(titulo || kicker)}">
           <div class="carrusel-head">
@@ -1345,6 +1349,7 @@ function carruselHTML(l, { area, kicker, titulo, texto = '', acciones = '', piez
           ${titulo ? `<h2 class="carrusel-titulo">${esc(titulo)}</h2>` : ''}
           ${[].concat(texto).filter(Boolean).map((t) => `<p class="carrusel-texto">${t}</p>`).join('')}
           ${acciones ? `<div class="btn-row carrusel-acciones">${acciones}</div>` : ''}
+          ${atajos ? `<nav class="carrusel-atajos" aria-label="${esc(atajosAria)}">${atajos}</nav>` : ''}
           ${filtros ? `<div class="muro-filtros carrusel-filtros" role="group" aria-label="${filtrarAria}">${filtros}</div>` : ''}
           <div class="carrusel-escena">
             <ul class="carrusel-pista">${piezas}</ul>
@@ -1534,8 +1539,9 @@ function inicio(l, proyectos) {
   const T = TXT[l];
   const R = RUTAS[l];
   const C = T.cli;
-  // Arriba de todo (en lugar del título grande, pedido del usuario 2026-11-21): un carrusel con el trabajo principal
-  // de cada área. Debajo, Áreas también es un carrusel: una pieza por área, con otra portada para no repetir.
+  // Debajo de la portada va Áreas (desde 2026-11-21 sin "Trabajos destacados", pedido del usuario): un carrusel con una
+  // pieza por área (el trabajo principal del área, sin repetir), el nombre del área grande sobre la imagen y su descripción,
+  // más una fila con todas las áreas a la vista para ir directo.
   const delArea = (id) => proyectos.filter((p) => p.categorias.includes(id));
   const ids = CAT_IDS.filter((id) => delArea(id).length);
   const usados = new Set();
@@ -1544,16 +1550,11 @@ function inicio(l, proyectos) {
     usados.add(p.slug);
     return p;
   };
-  const destacados = ids.map((id) => ({ id, p: elegir(proyectos.filter((x) => x.categorias[0] === id).concat(delArea(id))) }));
-  const portadaAreas = ids.map((id) => ({ id, p: elegir(delArea(id)), n: delArea(id).length }));
-  const piezasHero = destacados
-    .map(({ id, p }, i) =>
-      piezaCarrusel({
-        n: i + 1, href: hrefP(l, p, { local: true }), afuera: abreAfuera(p), nombre: p.titulo, rubro: nombreCat(l, id),
-        imagen: img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 900px) 36vw, 76vw', dims: [640, 501], eager: i < 3 }),
-        boton: `<a class="carrusel-btn mono" href="${hrefP(l, p, { local: true })}"${abreAfuera(p)}>${p.externo ? CARR[l].verWeb : CARR[l].verProyecto}</a>`,
-      })
-    )
+  const portadaAreas = ids.map((id) => ({ id, p: elegir(proyectos.filter((x) => x.categorias[0] === id).concat(delArea(id))), n: delArea(id).length }));
+  const descArea = (id) => (T.servicios.find((x) => x[0] === id) || [])[2] || '';
+  const hrefArea = (id) => (id === 'web' ? '#diseno-web' : enlaceServicio(l, id));
+  const atajosAreas = portadaAreas
+    .map(({ id, n }) => `<a class="pill" href="${hrefArea(id)}">${esc(nombreCat(l, id))}<span class="mono">${n}</span></a>`)
     .join('');
   // Fondo de la portada (como laion.com.ar, pedido del usuario 2026-11-21): una cinta grande inclinada con las marcas
   // de logos.json que corre sin parar. Cada logo trae su propio fondo (blanco o negro) en el archivo y van en el
@@ -1567,11 +1568,12 @@ function inicio(l, proyectos) {
   const fondoPortada = cinta(0);
   const piezasAreas = portadaAreas
     .map(({ id, p, n }, i) => {
-      // Web y sistemas lleva a la vitrina de Diseño web, que está justo abajo
-      const href = id === 'web' ? '#diseno-web' : enlaceServicio(l, id);
+      // Web y sistemas lleva a la vitrina de Diseño web, que está más abajo
+      const href = hrefArea(id);
       return piezaCarrusel({
         n: i + 1, href, nombre: nombreCat(l, id), rubro: `${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}`,
-        imagen: img(p.portada, { alt: '', sizes: '(min-width: 900px) 36vw, 76vw', dims: [640, 501] }),
+        imagen: img(p.portada, { alt: '', sizes: '(min-width: 900px) 36vw, 76vw', dims: [640, 501], eager: i < 3 }),
+        etiqueta: nombreCat(l, id), detalle: descArea(id),
         boton: `<a class="carrusel-btn mono" href="${href}">${id === 'urbano' ? C.verMurales : id === 'web' ? C.verWebs : C.verArea}</a>`,
       });
     })
@@ -1605,20 +1607,12 @@ function inicio(l, proyectos) {
     </div>
   </section>
 
-  <section class="inicio-carrusel inicio-carrusel--hero">
-    <div class="wrap">
-      ${carruselHTML(l, {
-        area: 'inicio', formato: 'apaisado', piezas: piezasHero, total: destacados.length,
-        kicker: `[★] / ${l === 'en' ? 'Featured work' : 'Trabajos destacados'}`, titulo: '',
-      })}
-    </div>
-  </section>
-
-  <section class="inicio-carrusel" id="areas">
+  <section class="inicio-carrusel inicio-areas" id="areas">
     <div class="wrap">
       ${carruselHTML(l, {
         area: 'areas', formato: 'apaisado', piezas: piezasAreas, total: portadaAreas.length,
-        kicker: `[★] / ${C.homeKicker}`, titulo: C.homeTitulo,
+        kicker: `[★] / ${C.homeKicker}`, titulo: C.homeTitulo, texto: esc(C.homeTexto(ids.length)),
+        atajos: atajosAreas, atajosAria: C.homeTitulo,
       })}
     </div>
   </section>
