@@ -8,7 +8,7 @@ const MSG = EN
 
 document.addEventListener('DOMContentLoaded', () => {
   // Cada parte arranca por separado: si una falla, las demás siguen funcionando
-  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, escenas, formulario, filtros, areasInicio, filtroClientes, muroLogos, sponsors, vitrinaWeb].forEach((iniciar) => {
+  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, escenas, formulario, filtros, areasInicio, filtroClientes, muroLogos, carrusel, sponsors, vitrinaWeb].forEach((iniciar) => {
     try { iniciar(); } catch (e) { console.error(e); }
   });
 });
@@ -1946,7 +1946,7 @@ function filtros() {
 // ----- Muro de logos: filtrar por rubro -----
 function muroLogos() {
   const muro = document.querySelector('.muro-logos');
-  if (!muro) return;
+  if (!muro || muro.classList.contains('carrusel')) return;
   const grilla = muro.querySelector('.logos-grid');
   const pills = [...muro.querySelectorAll('[data-grupo]')].filter((b) => b.tagName === 'BUTTON');
   const items = [...muro.querySelectorAll('.logo-item')];
@@ -1983,6 +1983,126 @@ function muroLogos() {
   );
   damero(true);
   window.addEventListener('resize', () => damero(false));
+}
+
+// ----- Carrusel por área -----
+// La pieza del centro va grande y derecha; las de los costados, más chicas, giradas y oscuras.
+// Avanza solo (se frena al pasar el mouse, al usar el teclado, fuera de pantalla o con "reducir movimiento").
+// Se mueve con las flechas, deslizando o tocando una pieza del costado. Los filtros limitan qué piezas recorre.
+function carrusel() {
+  // Enlaces viejos a /proyectos/?categoria=x: bajan directo al carrusel de esa área
+  const cat = new URLSearchParams(location.search).get('categoria');
+  const destino = cat && document.getElementById(`area-${cat}`);
+  if (destino) requestAnimationFrame(() => destino.scrollIntoView());
+  document.querySelectorAll('.carrusel').forEach((raiz) => {
+    const escena = raiz.querySelector('.carrusel-escena');
+    const items = [...raiz.querySelectorAll('.carrusel-item')];
+    const contador = raiz.querySelector('.carrusel-contador');
+    const pills = [...raiz.querySelectorAll('button[data-grupo]')];
+    if (!escena || !items.length) return;
+    const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let visibles = items;
+    let actual = 0;
+    let timer = null;
+    let enPantalla = false;
+    let pausa = false;
+    raiz.classList.add('carrusel--activo');
+
+    function pintar() {
+      const n = visibles.length;
+      const ancho = visibles[0]?.offsetWidth || 300;
+      items.forEach((it) => {
+        const i = visibles.indexOf(it);
+        if (i < 0) { it.hidden = true; return; }
+        it.hidden = false;
+        let d = i - actual;
+        if (d > n / 2) d -= n;
+        if (d < -n / 2) d += n;
+        const a = Math.abs(d);
+        const signo = Math.sign(d);
+        const x = signo * (a === 0 ? 0 : ancho * (0.95 + (a - 1) * 0.66));
+        const escala = a === 0 ? 1 : Math.max(0.6, 0.82 - (a - 1) * 0.08);
+        it.style.transform = `translateX(calc(-50% + ${x}px)) scale(${escala}) rotateY(${-signo * Math.min(a, 1) * 14}deg)`;
+        it.style.zIndex = String(100 - a);
+        it.style.opacity = a > 3 ? '0' : '1';
+        it.classList.toggle('es-actual', a === 0);
+        it.style.setProperty('--sombra', a === 0 ? '0' : String(Math.min(0.35 + a * 0.15, 0.8)));
+        it.setAttribute('aria-hidden', String(a !== 0));
+        it.querySelectorAll('a').forEach((x) => (x.tabIndex = a === 0 ? 0 : -1));
+      });
+      if (contador) contador.innerHTML = `<b>${String(actual + 1).padStart(2, '0')}</b> / ${String(n).padStart(2, '0')}`;
+      // Alto de la escena y altura de las flechas según la pieza más alta (cuadrada, apaisada o vertical)
+      const alto = Math.max(...visibles.map((it) => it.offsetHeight));
+      const tile = visibles[0]?.querySelector('.carrusel-tile');
+      escena.style.setProperty('--alto', `${alto + 8}px`);
+      if (tile) escena.style.setProperty('--medio', `${tile.offsetHeight / 2}px`);
+      raiz.classList.toggle('carrusel--solo', n < 2);
+    }
+    const ir = (i) => { actual = (i + visibles.length) % visibles.length; pintar(); reiniciar(); };
+
+    function reiniciar() {
+      clearInterval(timer);
+      timer = null;
+      if (quieto || pausa || !enPantalla || document.hidden || visibles.length < 2) return;
+      timer = setInterval(() => ir(actual + 1), 3800);
+    }
+
+    raiz.querySelector('.carrusel-flecha--ant')?.addEventListener('click', () => ir(actual - 1));
+    raiz.querySelector('.carrusel-flecha--sig')?.addEventListener('click', () => ir(actual + 1));
+    // Tocar una pieza del costado la trae al centro (sin abrir el visor)
+    escena.addEventListener('click', (e) => {
+      const it = e.target.closest('.carrusel-item');
+      if (arrastrado) { e.preventDefault(); e.stopPropagation(); return; }
+      if (it && !it.classList.contains('es-actual')) {
+        e.preventDefault();
+        e.stopPropagation();
+        ir(visibles.indexOf(it));
+      }
+    }, true);
+    raiz.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') ir(actual - 1);
+      if (e.key === 'ArrowRight') ir(actual + 1);
+    });
+    // Deslizar con el dedo o arrastrar con el mouse
+    let x0 = null;
+    let arrastrado = false;
+    escena.addEventListener('pointerdown', (e) => { x0 = e.clientX; arrastrado = false; });
+    escena.addEventListener('pointermove', (e) => { if (x0 != null && Math.abs(e.clientX - x0) > 10) arrastrado = true; });
+    escena.addEventListener('pointerup', (e) => {
+      if (x0 == null) return;
+      const dx = e.clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) > 40) ir(actual + (dx < 0 ? 1 : -1));
+      setTimeout(() => (arrastrado = false), 0);
+    });
+    escena.addEventListener('pointercancel', () => (x0 = null));
+    escena.addEventListener('dragstart', (e) => e.preventDefault());
+    // Pausa mientras se mira o se usa con teclado
+    raiz.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { pausa = true; reiniciar(); } });
+    raiz.addEventListener('pointerleave', () => { pausa = false; reiniciar(); });
+    raiz.addEventListener('focusin', () => { pausa = true; reiniciar(); });
+    raiz.addEventListener('focusout', (e) => { if (!raiz.contains(e.relatedTarget)) { pausa = false; reiniciar(); } });
+    document.addEventListener('visibilitychange', reiniciar);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([en]) => { enPantalla = en.isIntersecting; reiniciar(); }, { threshold: 0.3 }).observe(escena);
+    } else enPantalla = true;
+
+    pills.forEach((pill) =>
+      pill.addEventListener('click', () => {
+        const g = pill.dataset.grupo;
+        pills.forEach((p) => p.setAttribute('aria-pressed', String(p === pill)));
+        visibles = items.filter((it) => g === 'todas' || it.dataset.grupo === g);
+        actual = 0;
+        pintar();
+        reiniciar();
+      })
+    );
+    window.addEventListener('resize', pintar);
+    pintar();
+    // Las tarjetas aparecen ya en su lugar; la animación se usa recién al moverse
+    requestAnimationFrame(() => requestAnimationFrame(() => raiz.classList.add('carrusel--listo')));
+    reiniciar();
+  });
 }
 
 // ----- Sponsors de la marquesina -----

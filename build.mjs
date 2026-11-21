@@ -1321,6 +1321,38 @@ function tarjeta(l, p, i, { sizes, etiqueta }) {
       </a>`;
 }
 
+// ----- Carrusel por área (sobre un fondo pleno de color: ver "carrusel por área" en styles.css) -----
+const CARR = {
+  es: { verProyecto: 'Ver proyecto →', verWeb: 'Ver web ↗', saltar: 'Ir a un área', proyectos: (n) => `${n} ${n === 1 ? 'proyecto' : 'proyectos'}` },
+  en: { verProyecto: 'View project →', verWeb: 'Visit site ↗', saltar: 'Jump to an area', proyectos: (n) => `${n} ${n === 1 ? 'project' : 'projects'}` },
+};
+// Una pieza del carrusel. href: a dónde lleva la imagen (visor si zoom, o el proyecto). boton: HTML opcional bajo el nombre.
+function piezaCarrusel({ n, imagen, href, zoom, afuera = '', aria, nombre, rubro, boton = '', grupo = '', fondo = '' }) {
+  return `<li class="carrusel-item"${grupo ? ` data-grupo="${grupo}"` : ''}${fondo ? ` data-fondo="${fondo}"` : ''}>
+            <a class="carrusel-tile${zoom ? ' zoom' : ''}" href="${esc(href)}"${afuera}${aria ? ` aria-label="${esc(aria)}"` : ''}><span class="carrusel-num mono">${String(n).padStart(2, '0')}</span>${imagen}</a>
+            <div class="carrusel-info"><span class="carrusel-nombre">${esc(nombre)}</span><span class="carrusel-rubro mono">${esc(rubro)}</span>${boton}</div>
+          </li>`;
+}
+// El bloque entero. formato: '' (cuadrado), 'apaisado' (portadas de proyectos) o 'historia' (9:16)
+function carruselHTML(l, { area, kicker, titulo, texto = '', piezas, total, filtros = '', filtrarAria = '', formato = '', id = '', extra = '' }) {
+  const T = TXT[l];
+  return `<div class="carrusel${formato ? ` carrusel--${formato}` : ''}" data-area="${area}"${id ? ` id="${id}"` : ''} aria-roledescription="carrusel" aria-label="${esc(titulo || kicker)}">
+          <div class="carrusel-head">
+            <span class="carrusel-kicker mono">${kicker}</span>
+            <span class="carrusel-contador mono" aria-live="polite"><b>01</b> / ${String(total).padStart(2, '0')}</span>
+          </div>
+          ${titulo ? `<h2 class="carrusel-titulo">${esc(titulo)}</h2>` : ''}
+          ${texto ? `<p class="carrusel-texto">${texto}</p>` : ''}
+          ${filtros ? `<div class="muro-filtros carrusel-filtros" role="group" aria-label="${filtrarAria}">${filtros}</div>` : ''}
+          <div class="carrusel-escena">
+            <ul class="carrusel-pista">${piezas}</ul>
+            <button type="button" class="carrusel-flecha carrusel-flecha--ant" aria-label="${T.visor.ant}">←</button>
+            <button type="button" class="carrusel-flecha carrusel-flecha--sig" aria-label="${T.visor.sig}">→</button>
+          </div>
+          ${extra}
+        </div>`;
+}
+
 function ctaBloque(l, titulo, href = RUTAS[l].contacto, boton = TXT[l].escribinos) {
   return `<section class="cta">
     <div class="wrap cta-in">
@@ -1613,12 +1645,29 @@ function inicio(l, proyectos) {
 
 function listado(l, proyectos) {
   const T = TXT[l];
-  const filtros = [{ id: 'todos', nombre: T.todos, n: proyectos.length }]
-    .concat(CAT_IDS.map((id) => ({ id, nombre: nombreCat(l, id), n: proyectos.filter((p) => p.categorias.includes(id)).length })))
-    .filter((c) => c.n > 0)
-    .map((c) => `<button type="button" class="pill" data-filter="${c.id}" aria-pressed="${c.id === 'todos'}">${esc(c.nombre)}<span class="mono">${c.n}</span></button>`)
+  // Un carrusel por área, cada uno sobre su color. Cada proyecto va en su área principal (la primera).
+  const areas = CAT_IDS.map((id) => ({ id, items: proyectos.filter((p) => p.categorias[0] === id) })).filter((a) => a.items.length);
+  const saltos = areas
+    .map((a) => `<a class="pill" href="#area-${a.id}">${esc(nombreCat(l, a.id))}<span class="mono">${a.items.length}</span></a>`)
     .join('\n        ');
-  const cards = proyectos.map((p, i) => tarjeta(l, p, i, { sizes: '(min-width: 900px) 30vw, 50vw' })).join('\n      ');
+  const carruseles = areas
+    .map((a, k) => {
+      const desc = (T.servicios.find((x) => x[0] === a.id) || [])[2] || '';
+      const piezas = a.items
+        .map((p, i) =>
+          piezaCarrusel({
+            n: i + 1, href: hrefP(l, p), afuera: abreAfuera(p), nombre: p.titulo, rubro: p.subtitulo,
+            imagen: img(p.portada, { alt: T.portadaDe(p.titulo), sizes: '(min-width: 900px) 36vw, 70vw', dims: [640, 501] }),
+            boton: `<a class="carrusel-btn mono" href="${hrefP(l, p)}"${abreAfuera(p)}>${p.externo ? CARR[l].verWeb : CARR[l].verProyecto}</a>`,
+          })
+        )
+        .join('');
+      return carruselHTML(l, {
+        area: a.id, id: `area-${a.id}`, formato: 'apaisado', piezas, total: a.items.length,
+        kicker: `[★] / ${String(k + 1).padStart(2, '0')} · ${esc(nombreCat(l, a.id))}`, titulo: nombreCat(l, a.id), texto: esc(desc),
+      });
+    })
+    .join('\n      ');
   return pagina(l, {
     clave: 'proyectos',
     titulo: T.proyectos,
@@ -1644,23 +1693,17 @@ function listado(l, proyectos) {
       </div>
     </div>
   </section>
-  <div class="filtros" hidden>
+  <nav class="filtros filtros--areas" aria-label="${CARR[l].saltar}">
     <div class="wrap filtros-in">
-      <div class="filtros-pills" role="group" aria-label="${T.filtrarAria}">
-        ${filtros}
+      <div class="filtros-pills">
+        ${saltos}
       </div>
-      <span class="mono contador" aria-live="polite"><span data-count>${proyectos.length}</span> ${T.proyectosCont}</span>
+      <span class="mono contador">${proyectos.length} ${T.proyectosCont}</span>
     </div>
-  </div>
-  <section class="seccion seccion--top">
+  </nav>
+  <section class="areas-carrusel" aria-label="${T.proyectos}">
     <div class="wrap">
-      <div class="grid-proyectos">
-      ${cards}
-      </div>
-      <div class="sin-proyectos" hidden>
-        <p class="lead">${T.sinProyectos}</p>
-        <a class="link-arrow" data-contacto="${RUTAS[l].contacto}" href="${RUTAS[l].contacto}">${T.sinProyectosCta}</a>
-      </div>
+      ${carruseles}
     </div>
   </section>
 `,
@@ -2027,7 +2070,7 @@ function detalle(l, proyectos, p, i) {
         </div>`;
     })
     .join('');
-  // Muro interactivo (logos.json o portadas.json): filtro por grupo, visor y enlace a los casos completos
+  // Muro interactivo (logos, portadas o flyers): carrusel con filtro por grupo, visor y enlace a los casos completos
   let muro = '';
   const datosMuro = p.muroLogos ? MUROS.logos : MUROS[p.muro];
   if (datosMuro) {
@@ -2038,24 +2081,26 @@ function detalle(l, proyectos, p, i) {
     const pills = [`<button type="button" class="pill" data-grupo="todas" aria-pressed="true">${M.todas}<span class="mono">${D.logos.length}</span></button>`]
       .concat(grupos.map((g) => `<button type="button" class="pill" data-grupo="${g}" aria-pressed="false">${esc(D.grupos[g][l])}<span class="mono">${conteo(g)}</span></button>`))
       .join('');
-    const items = D.logos
-      .map((x) => {
+    // Carrusel sobre un fondo pleno del color del área
+    const piezas = D.logos
+      .map((x, i) => {
         const nombre = typeof x.nombre === 'string' ? x.nombre : x.nombre[l];
         const rubro = x.rubro[l];
         const alt = `${nombre} — ${rubro}`;
-        const imagen = `<img src="${esc(x.archivo)}" alt="${esc(alt)}" ${D.formato === 'historia' ? 'width="1080" height="1920"' : 'width="1080" height="1080"'} loading="lazy" decoding="async">`;
-        const info = `<span class="logo-info"><span class="logo-nombre">${esc(nombre)}</span><span class="mono">${esc(rubro)}</span></span>`;
-        const fondo = x.fondo ? ` data-fondo="${x.fondo}"` : '';
-        return x.caso
-          ? `<li class="logo-item reveal" data-grupo="${x.grupo}"${fondo}><a class="logo-tile logo-tile--caso" href="${rutaDe(l, 'proyecto', x.caso)}" data-cursor="${esc(M.verCaso)}">${imagen}<span class="logo-caso mono">${M.verCaso} →</span>${info}</a></li>`
-          : `<li class="logo-item reveal" data-grupo="${x.grupo}"${fondo}><a class="logo-tile zoom" href="${esc(x.grande || x.archivo)}" aria-label="${T.ampliar}: ${esc(alt)}">${imagen}${info}</a></li>`;
+        const dims = D.formato === 'historia' ? 'width="1080" height="1920"' : 'width="1080" height="1080"';
+        const boton = x.caso
+          ? `<a class="carrusel-btn mono" href="${rutaDe(l, 'proyecto', x.caso)}">${M.verCaso} →</a>`
+          : `<span class="carrusel-btn carrusel-btn--suave mono">${esc(D.grupos[x.grupo][l])}</span>`;
+        return piezaCarrusel({
+          n: i + 1, href: x.grande || x.archivo, zoom: true, aria: `${T.ampliar}: ${alt}`, nombre, rubro, boton, grupo: x.grupo, fondo: x.fondo,
+          imagen: `<img src="${esc(x.archivo)}" alt="${esc(alt)}" ${dims} loading="lazy" decoding="async">`,
+        });
       })
       .join('');
-    muro = `<div class="galeria-grupo muro-logos">
-          <div class="galeria-grupo-head reveal"><h3 class="galeria-titulo">${M.titulo}</h3><p>${M.texto}</p><span class="mono">${D.logos.length} ${M.items} · ${grupos.length} ${M.grupos}</span></div>
-          <div class="muro-filtros" role="group" aria-label="${M.filtrar}">${pills}</div>
-          <ul class="logos-grid${D.formato === 'historia' ? ' logos-grid--historia' : ''}">${items}</ul>
-        </div>`;
+    muro = `<div class="muro-logos">${carruselHTML(l, {
+      area: p.categorias[0], kicker: `[★] / ${M.titulo}`, texto: M.texto, piezas, total: D.logos.length,
+      filtros: pills, filtrarAria: M.filtrar, formato: D.formato === 'historia' ? 'historia' : '',
+    })}</div>`;
   }
   const hayImagenes = p.galeria.length || (p.galerias || []).length || datosMuro;
   const visor = hayImagenes
