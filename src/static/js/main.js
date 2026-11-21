@@ -8,7 +8,7 @@ const MSG = EN
 
 document.addEventListener('DOMContentLoaded', () => {
   // Cada parte arranca por separado: si una falla, las demás siguen funcionando
-  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, escenas, formulario, filtros, areasInicio, carrusel, sponsors, vitrinaWeb].forEach((iniciar) => {
+  [menu, tema, apariciones, contadores, textosQueSeArman, cursorEstrella, calculadora, tarifarioDiseno, textosUnicode, mayusculasMinusculas, convertidorPng, visor, tiras, videosLoop, escenas, formulario, filtros, areasInicio, carrusel, sponsors, vitrinaWeb, focoInicio, botonesMagneticos].forEach((iniciar) => {
     try { iniciar(); } catch (e) { console.error(e); }
   });
 });
@@ -167,6 +167,56 @@ function textosQueSeArman() {
     { threshold: 1 }
   );
   items.forEach((el) => obs.observe(el));
+}
+
+// ----- Luz roja que sigue al mouse en el carrusel de arriba del inicio (.foco) -----
+// Le pasa al CSS la posición del mouse (--mx, --my) una vez por cuadro. Sin mouse queda quieta arriba a la derecha.
+function focoInicio() {
+  const foco = document.querySelector('.foco');
+  if (!foco || !matchMedia('(pointer: fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const zona = foco.parentElement;
+  let x = 0, y = 0, pendiente = false;
+  zona.addEventListener('pointermove', (e) => {
+    x = e.clientX;
+    y = e.clientY;
+    if (pendiente) return;
+    pendiente = true;
+    requestAnimationFrame(() => {
+      pendiente = false;
+      const r = foco.getBoundingClientRect();
+      foco.style.setProperty('--mx', `${x - r.left}px`);
+      foco.style.setProperty('--my', `${y - r.top}px`);
+    });
+  });
+}
+
+// ----- Botones magnéticos: los que tienen data-magnetic se acercan un poco al mouse y vuelven al salir -----
+// Sin librerías: cada cuadro el botón recorre una parte del camino hasta su destino (movimiento suave).
+function botonesMagneticos() {
+  if (!matchMedia('(pointer: fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const FUERZA = 0.3; // qué tanto sigue al mouse (0.3 = un 30 % de la distancia al centro)
+  document.querySelectorAll('[data-magnetic]').forEach((b) => {
+    let tx = 0, ty = 0, x = 0, y = 0, andando = false;
+    const paso = () => {
+      x += (tx - x) * 0.18;
+      y += (ty - y) * 0.18;
+      const quieto = Math.abs(tx - x) < 0.1 && Math.abs(ty - y) < 0.1;
+      if (quieto) { x = tx; y = ty; }
+      b.style.translate = x || y ? `${x.toFixed(2)}px ${y.toFixed(2)}px` : '';
+      andando = !quieto;
+      if (andando) requestAnimationFrame(paso);
+    };
+    const mover = (nx, ny) => {
+      tx = nx;
+      ty = ny;
+      if (!andando) { andando = true; requestAnimationFrame(paso); }
+    };
+    b.addEventListener('pointermove', (e) => {
+      const r = b.getBoundingClientRect();
+      mover((e.clientX - (r.left + r.width / 2)) * FUERZA, (e.clientY - (r.top + r.height / 2)) * FUERZA);
+    });
+    b.addEventListener('pointerleave', () => mover(0, 0));
+  });
 }
 
 // ----- Cursor con la estrella del logo (solo en computadora) -----

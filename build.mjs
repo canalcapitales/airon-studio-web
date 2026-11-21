@@ -1353,7 +1353,7 @@ function ctaBloque(l, titulo, href = RUTAS[l].contacto, boton = TXT[l].escribino
   return `<section class="cta">
     <div class="wrap cta-in">
       <h2 class="cta-title">${titulo}</h2>
-      <a class="btn btn-dark btn-lg" href="${href}">${boton}</a>
+      <a class="btn btn-dark btn-lg" href="${href}" data-magnetic>${boton}</a>
     </div>
   </section>`;
 }
@@ -1449,7 +1449,7 @@ function disenoWeb(l, proyectos) {
         <div class="web-home-texto">
           <p class="lead">${W.lead}</p>
           <div class="btn-row">
-            <a class="btn btn-accent btn-lg" href="${RUTAS[l].contacto}?tipo=web">${W.cta}</a>
+            <a class="btn btn-accent btn-lg" href="${RUTAS[l].contacto}?tipo=web" data-magnetic>${W.cta}</a>
             <a class="btn btn-outline-claro btn-lg" href="${enlaceServicio(l, 'web')}">${W.verTodas}</a>
           </div>
         </div>
@@ -1529,7 +1529,8 @@ function inicio(l, proyectos) {
       ${carruselHTML(l, {
         area: 'inicio', formato: 'apaisado', piezas: piezasHero, total: destacados.length,
         kicker: `[★] ${T.heroKicker[0]} · ${T.heroKicker[1]}`, titulo: '', texto: T.heroLead,
-        acciones: `<a class="btn btn-accent btn-lg" href="#areas">${T.verProyectos}</a><a class="btn btn-outline-claro btn-lg" href="${R.contacto}">${T.hablemos}</a>`,
+        acciones: `<a class="btn btn-accent btn-lg" href="#areas" data-magnetic>${T.verProyectos}</a><a class="btn btn-outline-claro btn-lg" href="${R.contacto}" data-magnetic>${T.hablemos}</a>`,
+        extra: '<div class="foco" aria-hidden="true"></div>',
       })}
     </div>
   </section>
