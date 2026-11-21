@@ -2175,36 +2175,81 @@ function escenas() {
 }
 
 // ----- Vitrina de Diseño web (inicio) -----
-// Cada web baja sola de arriba a abajo (animación CSS); al terminar pasa a la siguiente.
+// Cada web muestra un video real recorriéndola (se carga recién cuando le toca); al terminar pasa a la siguiente.
 // Tocar una web de la lista la muestra; con el mouse encima de la pantalla se pausa.
+// Si el video no carga, queda la captura que baja sola (animación CSS). Con "reducir movimiento", todo quieto.
 function vitrinaWeb() {
   const v = document.querySelector('[data-vitrina]');
   if (!v) return;
   const items = [...v.querySelectorAll('.vitrina-item')];
   const sitios = [...v.querySelectorAll('.vitrina-sitio')];
   const url = v.querySelector('.vitrina-url');
+  const pantalla = v.querySelector('.vitrina-pantalla');
   const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const videos = quieto ? [] : sitios.map((s) => s.querySelector('video'));
   let actual = 0;
+  let enVista = false;
+  let encima = false;
 
-  const mostrar = (i) => {
+  if (!quieto && videos.every(Boolean)) v.classList.add('con-video');
+  const conVideo = () => v.classList.contains('con-video');
+
+  const barra = () => items[actual]?.querySelector('.vitrina-barra');
+  const pararTodos = () => videos.forEach((vid) => { if (vid && !vid.paused) vid.pause(); });
+
+  const reproducir = () => {
+    if (!conVideo() || !enVista) return;
+    const vid = videos[actual];
+    if (!vid) return;
+    if (!vid.src) { vid.src = vid.dataset.src; vid.load(); }
+    if (!encima) vid.play().catch(() => {});
+  };
+
+  const mostrar = (i, desdeCero = true) => {
     actual = (i + sitios.length) % sitios.length;
-    items.forEach((b, k) => { b.classList.toggle('activo', k === actual); b.setAttribute('aria-pressed', String(k === actual)); });
+    items.forEach((b, k) => { b.classList.toggle('activo', k === actual); b.setAttribute('aria-pressed', String(k === actual)); b.querySelector('.vitrina-barra')?.style.setProperty('--avance', '0'); });
     sitios.forEach((s, k) => {
       const si = k === actual;
       s.classList.toggle('activo', si);
       if (si) { s.removeAttribute('aria-hidden'); s.removeAttribute('tabindex'); } else { s.setAttribute('aria-hidden', 'true'); s.setAttribute('tabindex', '-1'); }
     });
     if (url) url.textContent = sitios[actual].dataset.url || '';
+    pararTodos();
+    const vid = videos[actual];
+    if (vid && desdeCero && vid.readyState > 0) vid.currentTime = 0;
+    reproducir();
   };
 
   items.forEach((b, k) => b.addEventListener('click', () => mostrar(k)));
-  // Al terminar de bajar, sigue la próxima web
-  if (!quieto) sitios.forEach((s) => s.querySelector('img')?.addEventListener('animationend', () => { if (s.classList.contains('activo')) mostrar(actual + 1); }));
 
-  // La animación arranca recién cuando la vitrina se ve en pantalla
+  videos.forEach((vid, k) => {
+    if (!vid) return;
+    vid.addEventListener('playing', () => vid.classList.add('listo'));
+    vid.addEventListener('timeupdate', () => {
+      if (k === actual && vid.duration) barra()?.style.setProperty('--avance', String(Math.min(vid.currentTime / vid.duration, 1)));
+    });
+    vid.addEventListener('ended', () => { if (k === actual) mostrar(actual + 1); });
+    // Si un video falla, la vitrina vuelve a la captura animada
+    vid.addEventListener('error', () => v.classList.remove('con-video'));
+  });
+
+  // Sin video: al terminar de bajar la captura, sigue la próxima web
+  if (!quieto) sitios.forEach((s) => s.querySelector('img')?.addEventListener('animationend', () => { if (!conVideo() && s.classList.contains('activo')) mostrar(actual + 1); }));
+
+  if (pantalla) {
+    pantalla.addEventListener('mouseenter', () => { encima = true; videos[actual]?.pause(); });
+    pantalla.addEventListener('mouseleave', () => { encima = false; reproducir(); });
+  }
+
+  // Arranca recién cuando la vitrina se ve en pantalla y se pausa al salir
+  const cambiarVista = (si) => {
+    enVista = si;
+    v.classList.toggle('en-vista', si);
+    if (si) reproducir(); else pararTodos();
+  };
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver((entradas) => entradas.forEach((e) => v.classList.toggle('en-vista', e.isIntersecting)), { threshold: 0.25 }).observe(v);
+    new IntersectionObserver((entradas) => entradas.forEach((e) => cambiarVista(e.isIntersecting)), { threshold: 0.25 }).observe(v);
   } else {
-    v.classList.add('en-vista');
+    cambiarVista(true);
   }
 }

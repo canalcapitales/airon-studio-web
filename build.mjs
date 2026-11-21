@@ -1416,7 +1416,8 @@ function destacados(l, proyectos, { primeraRapida = false } = {}) {
 }
 
 // Diseño web: vitrina con las webs publicadas. A la izquierda la lista; a la derecha una ventana de navegador
-// que recorre la web elegida de arriba a abajo (captura completa en /img/casos/<slug>-scroll.webp) y pasa sola a la siguiente.
+// que muestra un video real recorriendo la web elegida (/video/<slug>-recorrido.mp4) y pasa sola a la siguiente.
+// Sin JavaScript o con "reducir movimiento" queda la captura completa (/img/casos/<slug>-scroll.webp).
 function disenoWeb(l, proyectos) {
   const W = TXT[l].webHome;
   const webs = proyectos.filter((p) => p.categorias.includes('web') && p.externo);
@@ -1433,6 +1434,7 @@ function disenoWeb(l, proyectos) {
   const sitios = webs
     .map((p, i) => `<a class="vitrina-sitio${i === 0 ? ' activo' : ''}" href="${esc(p.externo)}" target="_blank" rel="noopener" data-i="${i}" data-url="${esc(dominio(p.externo))}" data-cursor="${cursorP(l, p)}"${i === 0 ? '' : ' tabindex="-1" aria-hidden="true"'}>
               <img src="/img/casos/${p.slug}-scroll.webp" alt="${esc(W.vistaDe(p.titulo))}" width="1100" height="3972" loading="lazy" decoding="async">
+              <video muted playsinline preload="none" data-src="/video/${p.slug}-recorrido.mp4" aria-hidden="true"></video>
             </a>`)
     .join('\n            ');
   return `<section class="seccion web-home" id="diseno-web" aria-labelledby="diseno-web-t">
