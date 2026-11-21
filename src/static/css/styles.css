@@ -1519,6 +1519,9 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 .inicio-carrusel--hero .carrusel { padding-top: clamp(20px, 2.5vw, 32px); }
 .inicio-carrusel--hero .carrusel-texto { max-width: 46em; margin-top: 14px; font-size: clamp(16px, 1.4vw, 19px); }
 .carrusel-acciones { margin-top: 18px; }
+/* Luz roja de AIRON que sigue al mouse sobre el pleno negro del inicio (main.js: focoInicio). Va sobre el fondo y detrás de las piezas. */
+.foco { position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); pointer-events: none;
+  background: radial-gradient(600px circle at var(--mx, 70%) var(--my, 40%), rgb(255 0 0 / .16), transparent 60%); }
 .inicio-carrusel #areas, .inicio-carrusel[id] { scroll-margin-top: var(--header-h); }
 @media (max-width: 600px) { .carrusel-acciones .btn { flex: 1 1 auto; } }
 .carrusel[data-area="redes"], .carrusel[data-area="musical"], .carrusel[data-area="web"], .carrusel[data-area="ilustracion"] {
