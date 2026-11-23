@@ -1330,9 +1330,9 @@ const CARR = {
 };
 // Una pieza del carrusel. href: a dónde lleva la imagen (visor si zoom, o el proyecto). boton: HTML opcional bajo el nombre.
 // etiqueta: texto grande sobre la imagen (Áreas del inicio); detalle: una línea de descripción debajo del nombre
-function piezaCarrusel({ n, imagen, href, zoom, afuera = '', aria, nombre, rubro, boton = '', grupo = '', fondo = '', etiqueta = '', detalle = '' }) {
+function piezaCarrusel({ n, imagen, href, zoom, afuera = '', aria, nombre, rubro, boton = '', grupo = '', fondo = '', etiqueta = '', detalle = '', tile = '' }) {
   return `<li class="carrusel-item"${grupo ? ` data-grupo="${grupo}"` : ''}${fondo ? ` data-fondo="${fondo}"` : ''}>
-            <a class="carrusel-tile${zoom ? ' zoom' : ''}${etiqueta ? ' carrusel-tile--etiqueta' : ''}" href="${esc(href)}"${afuera}${aria ? ` aria-label="${esc(aria)}"` : ''}><span class="carrusel-num mono">${String(n).padStart(2, '0')}</span>${imagen}${etiqueta ? `<span class="carrusel-etiqueta" aria-hidden="true">${esc(etiqueta)}</span>` : ''}</a>
+            <a class="carrusel-tile${zoom ? ' zoom' : ''}${etiqueta ? ' carrusel-tile--etiqueta' : ''}${tile ? ` ${tile}` : ''}" href="${esc(href)}"${afuera}${aria ? ` aria-label="${esc(aria)}"` : ''}><span class="carrusel-num mono">${String(n).padStart(2, '0')}</span>${imagen}${etiqueta ? `<span class="carrusel-etiqueta" aria-hidden="true">${esc(etiqueta)}</span>` : ''}</a>
             <div class="carrusel-info"><span class="carrusel-nombre">${esc(nombre)}</span><span class="carrusel-rubro mono">${esc(rubro)}</span>${boton}${detalle ? `<span class="carrusel-detalle">${esc(detalle)}</span>` : ''}</div>
           </li>`;
 }
@@ -1567,14 +1567,39 @@ function inicio(l, proyectos) {
     return `<div class="portada-cinta">${tiras}</div>`;
   };
   const fondoPortada = cinta(0);
+  // Portada propia de cada área (pedido del usuario 2026-11-23): no repite la portada del trabajo, así al entrar a
+  // Trabajos no se ve la misma imagen. Pleno rojo, el nombre del área enorme y tres fotos de sus trabajos teñidas de rojo.
+  // Fotos chicas de la portada del área: nunca la portada del trabajo (trae la marca en grande, pedido del usuario).
+  // Primero fotos de las galerías, después piezas de los muros; Web usa capturas del sitio; si no queda nada (Motion),
+  // la parte de abajo de la portada, que es solo imagen. Cada una: [src, recortar abajo?]
+  const chica = (t) => t[anchos(t).find((w) => w >= 600) ?? anchos(t).at(-1)];
+  const fotosArea = (id) => {
+    const fotos = [];
+    for (const p of delArea(id)) {
+      const lista = [...(p.galeria || []), ...(p.galerias || []).flatMap((g) => g.imagenes || [])].filter((t) => anchos(t).length);
+      fotos.push(...lista.slice(0, 2).map((t) => [chica(t)]));
+      const muro = p.muroLogos ? MUROS.logos : p.muro ? MUROS[p.muro] : null;
+      if (muro) fotos.push(...muro.logos.slice(0, 3).map((x) => [x.archivo]));
+    }
+    if (id === 'web') fotos.push(...['inicio', 'proyectos', 'visor'].map((x) => [`/img/proyectos/web-airon/d-${x}-720.webp`]));
+    // Motion: solo un recorte de la foto que hay en la parte de abajo de su portada (sin el título de la marca)
+    if (!fotos.length) fotos.push(...delArea(id).slice(0, 1).map((p) => [chica(p.portada), true]));
+    return fotos.slice(0, 3);
+  };
+  const portadaArea = (id, i) => `<span class="area-portada" aria-hidden="true">
+              <span class="area-portada-top mono"><span>★ AIRON STUDIO</span><span>${l === 'es' ? 'ÁREA' : 'AREA'} ${String(i + 1).padStart(2, '0')} / ${String(ids.length).padStart(2, '0')}</span></span>
+              <span class="area-portada-num">${String(i + 1).padStart(2, '0')}</span>
+              <span class="area-portada-nombre">${esc(nombreCat(l, id))}</span>
+              <span class="area-portada-fotos">${fotosArea(id).map(([src, recorte]) => { const f = `<img src="${esc(src)}" alt="" ${i < 3 ? '' : 'loading="lazy" '}decoding="async">`; return recorte ? `<span class="area-portada-recorte">${f}</span>` : f; }).join('')}</span>
+              <span class="area-portada-pie mono"><span>aironstudio.com.ar</span><span>→</span></span>
+            </span>`;
   const piezasAreas = portadaAreas
-    .map(({ id, p, n }, i) => {
+    .map(({ id, n }, i) => {
       // Web y sistemas lleva a la vitrina de Diseño web, que está más abajo
       const href = hrefArea(id);
       return piezaCarrusel({
         n: i + 1, href, nombre: nombreCat(l, id), rubro: `${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}`,
-        imagen: img(p.portada, { alt: '', sizes: '(min-width: 900px) 36vw, 76vw', dims: [640, 501], eager: i < 3 }),
-        etiqueta: nombreCat(l, id), detalle: descArea(id),
+        imagen: portadaArea(id, i), tile: 'carrusel-tile--area', detalle: descArea(id),
         boton: `<a class="carrusel-btn mono" href="${href}">${id === 'urbano' ? C.verMurales : id === 'web' ? C.verWebs : C.verArea}</a>`,
       });
     })

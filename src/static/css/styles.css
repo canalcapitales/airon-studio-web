@@ -1643,7 +1643,7 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 /* Áreas del inicio: el nombre del área grande sobre la imagen, su descripción debajo y todas las áreas en una fila */
 .carrusel-tile--etiqueta::before { content: ''; position: absolute; inset: 45% 0 0; z-index: 1; background: linear-gradient(to top, rgba(0, 0, 0, .82), transparent); pointer-events: none; }
 .carrusel-etiqueta { position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 2; font-family: var(--f-display); text-transform: uppercase; color: #fff; font-size: clamp(26px, 3.4vw, 46px); line-height: .95; text-wrap: balance; pointer-events: none; }
-.carrusel-item:has(.carrusel-tile--etiqueta) .carrusel-nombre { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.carrusel-item:has(.carrusel-tile--etiqueta) .carrusel-nombre, .carrusel-item:has(.carrusel-tile--area) .carrusel-nombre { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .carrusel-detalle { grid-column: 1 / -1; font-size: 15px; line-height: 1.4; color: var(--pleno-tinta); max-width: 34em; }
 .carrusel--activo .carrusel-item:not(.es-actual) .carrusel-detalle { visibility: hidden; }
 .carrusel-atajos { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 22px 0; margin-bottom: clamp(36px, 4.5vw, 64px); }
@@ -1681,3 +1681,20 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 .filtros--areas .filtros-in { min-height: 64px; }
 @media (max-width: 699px) { .filtros--areas .contador { display: none; } .filtros--areas .filtros-pills { padding-block: 10px; } }
 @media (prefers-reduced-motion: reduce) { .carrusel--listo .carrusel-item { transition: none; } }
+
+/* Portadas propias de Áreas en el inicio (2026-11-23): pleno rojo, nombre enorme y tres fotos teñidas de rojo.
+   No reusan la portada del trabajo para que al entrar a Trabajos no se vea la misma imagen. */
+.carrusel-tile--area { background: var(--acento); container-type: inline-size; }
+.area-portada { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 5cqi 5.5cqi 4.5cqi; background: var(--acento); color: #111; overflow: hidden; }
+.area-portada-top, .area-portada-pie { position: relative; z-index: 2; display: flex; justify-content: space-between; gap: 2cqi; font-size: max(9px, 2.3cqi); letter-spacing: .08em; text-transform: uppercase; }
+.area-portada-top { padding-bottom: 2.4cqi; border-bottom: max(1px, .35cqi) solid #111; }
+.area-portada-num { position: absolute; right: -2cqi; top: 4cqi; z-index: 0; font-family: var(--f-display); font-size: 46cqi; line-height: 1; color: transparent; -webkit-text-stroke: max(1px, .4cqi) rgba(0, 0, 0, .28); pointer-events: none; }
+.area-portada-nombre { position: relative; z-index: 1; margin-top: auto; padding-top: .1em; font-family: var(--f-display); text-transform: uppercase; font-size: 15cqi; line-height: .92; color: #111; text-wrap: balance; max-width: 92%; }
+.area-portada-fotos { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2cqi; height: 24cqi; margin: 3.6cqi 0 3cqi; }
+.area-portada-fotos img { width: 100%; height: 100%; object-fit: cover; border-radius: 1cqi; object-position: 50% 35%; filter: grayscale(1) contrast(1.15); mix-blend-mode: multiply; transition: filter var(--dur-ui) var(--ease-out), mix-blend-mode 0s; }
+.carrusel-item.es-actual .carrusel-tile--area:hover .area-portada-fotos img { filter: grayscale(0) contrast(1); mix-blend-mode: normal; }
+.area-portada-pie { padding-top: 2.4cqi; border-top: max(1px, .35cqi) solid #111; }
+/* Recorte de la foto de abajo a la derecha de una portada de 640×501 (zona 322,279 → 611,472): sin el título de la marca */
+.area-portada-recorte { position: relative; height: 100%; aspect-ratio: 289 / 193; justify-self: start; overflow: hidden; border-radius: 1cqi; }
+.area-portada-fotos .area-portada-recorte img { position: absolute; width: 221.5%; max-width: none; height: auto; left: -111.4%; top: -144.6%; border-radius: 0; object-fit: fill; }
+.carrusel-tile--area .carrusel-num { display: none; }
