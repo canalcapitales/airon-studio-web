@@ -1518,11 +1518,12 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
   position: relative; isolation: isolate; color: var(--pleno-tinta); padding-block: clamp(32px, 4vw, 52px) clamp(32px, 4vw, 52px); }
 .carrusel::before { content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: var(--pleno); }
 /* Tres plenos de la marca, alternados para que dos áreas seguidas nunca repitan color */
-/* Áreas del inicio va en negro (el muro de Branding que sigue es rojo, así las secciones se separan) */
-.carrusel[data-area="branding"], .carrusel[data-area="ploteo"], .carrusel[data-area="motion"], .carrusel[data-area="foto"] {
+/* Áreas del inicio va en negro (el muro de Diseño de logos que sigue es rojo, así las secciones se separan).
+   Diseño de logos (rojo) va entre Diseño integral (negro) e Identidad de marca (negro): nunca dos áreas en el mismo pleno */
+.carrusel[data-area="logos"], .carrusel[data-area="ploteo"], .carrusel[data-area="motion"], .carrusel[data-area="foto"] {
   --pleno: #FF0000; --pleno-tinta: #111; --pleno-acento: #111; --pleno-sobre-acento: #F2F0EB; }
 /* Sobre el rojo, los nombres de las piezas van en blanco */
-.carrusel[data-area="branding"] .carrusel-nombre, .carrusel[data-area="ploteo"] .carrusel-nombre, .carrusel[data-area="motion"] .carrusel-nombre, .carrusel[data-area="foto"] .carrusel-nombre { color: #fff; }
+.carrusel[data-area="logos"] .carrusel-nombre, .carrusel[data-area="ploteo"] .carrusel-nombre, .carrusel[data-area="motion"] .carrusel-nombre, .carrusel[data-area="foto"] .carrusel-nombre { color: #fff; }
 /* Inicio: en lugar del título grande, dos carruseles seguidos (negro: trabajos destacados · rojo: áreas) */
 .inicio-carrusel .carrusel { padding-block: clamp(28px, 3.5vw, 48px); }
 .inicio-carrusel--hero .carrusel { padding-top: clamp(20px, 2.5vw, 32px); }

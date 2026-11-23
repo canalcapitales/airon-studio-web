@@ -5,10 +5,15 @@
     "/img/proyectos/trust-fund-v2/app-cartel-640.webp",
     "/img/proyectos/affum/frasco-4-800.webp"
   ],
-  "branding": [
+  "logos": [
     "/img/logos/coolsnow.svg",
+    "/img/logos/94-cypherground.svg",
+    "/img/logos/plaga-records.webp"
+  ],
+  "branding": [
     "/img/p/flexy/g05-640.webp",
-    "/img/p/empresa-black/g03-640.webp"
+    "/img/p/empresa-black/g03-640.webp",
+    "/img/p/empresa-black/g14-640.webp"
   ],
   "redes": [
     "/img/proyectos/redes-para-marcas/feed-affum-640.webp",
