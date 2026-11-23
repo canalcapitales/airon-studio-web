@@ -1628,7 +1628,10 @@ function inicio(l, proyectos) {
     })
     .join('');
   // Los muros (logos, flyers, portadas) se ven enteros en el inicio, con su texto, en el orden de las áreas
-  const murosInicio = CAT_IDS.flatMap((id) => proyectos.filter((p) => esMuro(p) && p.categorias[0] === id));
+  // Diseño web (rojo) va justo después de Áreas (negro); por eso el muro de logos (rojo) pasa después de Flyers (negro):
+  // negro, rojo, negro, rojo, crema, sin dos plenos iguales seguidos (pedido del usuario 2026-11-23)
+  const ordenMuros = ['flyers', 'logos'];
+  const murosInicio = [...ordenMuros, ...CAT_IDS.filter((id) => !ordenMuros.includes(id))].flatMap((id) => proyectos.filter((p) => esMuro(p) && p.categorias[0] === id));
   const pasos = T.proceso
     .map(([t, d], i) => `<li class="paso reveal"><span class="paso-num">${num(i)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`)
     .join('\n        ');
@@ -1666,6 +1669,8 @@ function inicio(l, proyectos) {
     </div>
   </section>
 
+  ${disenoWeb(l, proyectos)}
+
   ${murosInicio
     .map((p) => `<section class="inicio-carrusel inicio-muro">
     <div class="wrap">
@@ -1673,8 +1678,6 @@ function inicio(l, proyectos) {
     </div>
   </section>`)
     .join('\n  ')}
-
-  ${disenoWeb(l, proyectos)}
 
   ${numeros(l, proyectos, { intro: true })}
 
