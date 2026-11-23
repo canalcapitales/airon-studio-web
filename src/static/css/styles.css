@@ -1419,6 +1419,27 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
   .web-home-puntos li::before { width: 6px; height: 6px; margin-right: 7px; }
 }
 
+/* En rojo (pedido del usuario 2026-11-23): va justo debajo de Áreas (negro) y no se mezcla con su carrusel.
+   Sobre el rojo, lo que era rojo pasa a negro o blanco. */
+.web-home { background-color: var(--acento); color: #111; background-image: linear-gradient(rgba(0, 0, 0, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, .07) 1px, transparent 1px); }
+.web-home::before { background: radial-gradient(circle, rgba(0, 0, 0, .16), transparent 62%); }
+.web-home .kicker { color: #111; }
+.web-home .lead { color: #111; }
+.web-home-titulo em { color: #fff; }
+.web-home .btn-accent { background: #111; color: #fff; }
+.web-home .btn-accent:hover { background: #fff; color: #111; }
+.web-home .btn-outline-claro { border-color: #111; color: #111; }
+.web-home .btn-outline-claro:hover { background: #111; color: #fff; }
+.web-home-puntos { border-color: rgba(0, 0, 0, .25); color: #111; }
+.web-home-puntos li::before { background: #fff; }
+.web-home .vitrina-lista, .web-home .vitrina-item { border-color: rgba(0, 0, 0, .25); }
+.web-home .vitrina-item { color: rgba(17, 17, 17, .55); }
+.web-home .vitrina-item:hover, .web-home .vitrina-item:focus-visible, .web-home .vitrina-item.activo { color: #fff; }
+.web-home .vitrina-item.activo .vitrina-num { color: #111; }
+.web-home .vitrina-item:focus-visible { outline-color: #111; }
+.web-home .vitrina-barra { background: #fff; }
+.web-home .vitrina-cuenta { color: #111; }
+
 /* Vitrina: lista + pantalla */
 .vitrina { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
 .vitrina-col { order: 2; }
