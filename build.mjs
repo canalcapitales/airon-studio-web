@@ -1573,7 +1573,10 @@ function inicio(l, proyectos) {
   // Primero fotos de las galerías, después piezas de los muros; Web usa capturas del sitio; si no queda nada (Motion),
   // la parte de abajo de la portada, que es solo imagen. Cada una: [src, recortar abajo?]
   const chica = (t) => t[anchos(t).find((w) => w >= 600) ?? anchos(t).at(-1)];
+  const FOTOS_AREA = JSON.parse(readFileSync('src/data/areas-portada.json', 'utf8'));
   const fotosArea = (id) => {
+    // Elegidas a mano en src/data/areas-portada.json (pedido del usuario: nada repetido ni casi igual)
+    if (FOTOS_AREA[id]) return FOTOS_AREA[id].map((src) => [src]);
     const fotos = [];
     for (const p of delArea(id)) {
       const lista = [...(p.galeria || []), ...(p.galerias || []).flatMap((g) => g.imagenes || [])].filter((t) => anchos(t).length);
