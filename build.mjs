@@ -76,7 +76,7 @@ const TXT = {
       desc: 'Herramientas gratuitas para creativos: tarifario mural y de diseño, letras Unicode, convertidor de mayúsculas y minúsculas y de imágenes a PNG.',
       kicker: 'Gratis · Sin registrarse',
       h1: 'Herramientas',
-      lead: 'Herramientas gratuitas para diseñadores, muralistas y marcas: calculá y presupuestá trabajos, generá letras especiales para redes y convertí imágenes a PNG. Todo funciona en tu navegador.',
+      lead: 'Gratis, sin registrarte y desde tu navegador.',
       herramientas: [
         ['calculadora', 'Tarifario mural', 'Calculá el costo de un mural por m² según el Tarifario Mural 2026 de la comunidad de muralistas: medidas, tipo de cliente, diseño, evento y viáticos.', 'Calcular un mural →'],
         ['tarifarioDiseno', 'Tarifario de diseño', '118 servicios de diseño en 15 rubros —identidad, web, redes, editorial, audiovisual y más— con valores por tipo de cliente. Armá el presupuesto sumando servicios.', 'Armar un presupuesto →'],
@@ -89,8 +89,6 @@ const TXT = {
       abrir: 'Abrir',
       rubro: 'Gratis · Sin registro',
       carruselKicker: 'Gratis · Sin registrarse',
-      carruselTitulo: 'Elegí una herramienta',
-      carruselTexto: 'Cinco herramientas que usamos en el estudio, abiertas para todos. Pasalas con las flechas o tocá una directo.',
       beneficios: [
         ['gratis', 'Gratis', 'Sin pagos ni versiones pro.'],
         ['registro', 'Sin registrarte', 'Ni cuenta ni mail: entrás y usás.'],
@@ -556,7 +554,7 @@ const TXT = {
       desc: 'Free tools for creatives: mural rates, design rates, Unicode text generator, case converter and image to PNG converter.',
       kicker: 'Free · No sign-up',
       h1: 'Tools',
-      lead: 'Free tools for designers, muralists and brands: estimate and quote jobs, generate special fonts for social media and convert images to PNG. Everything runs in your browser.',
+      lead: 'Free, no sign-up, right in your browser.',
       herramientas: [
         ['calculadora', 'Mural rates', 'Estimate the cost of a mural per m² based on the 2026 Mural Rate Guide by Argentina’s muralist community: measurements, client type, design, events and travel.', 'Estimate a mural →'],
         ['tarifarioDiseno', 'Design rates', '118 design services in 15 areas —identity, web, social media, editorial, motion and more— with rates by client type. Build an estimate by adding services.', 'Build an estimate →'],
@@ -569,8 +567,6 @@ const TXT = {
       abrir: 'Open',
       rubro: 'Free · No sign-up',
       carruselKicker: 'Free · No sign-up',
-      carruselTitulo: 'Pick a tool',
-      carruselTexto: 'Five tools we use at the studio, open to everyone. Browse them with the arrows or tap one directly.',
       beneficios: [
         ['gratis', 'Free', 'No payments, no pro versions.'],
         ['registro', 'No sign-up', 'No account or email: just use it.'],
@@ -2231,7 +2227,8 @@ function paginaCalculadora(l) {
 // Página que reúne las herramientas (rediseño 2026-11-23, pedido del usuario: "más atractiva", carrusel lateral,
 // más rojo y negro para que se separen del texto, íconos y movimiento). Usa el mismo carrusel que Áreas del inicio:
 // cada herramienta tiene una portada propia en HTML (roja o negra, alternadas) con su ícono, una mini demo animada
-// que muestra qué hace y botones con sus temas. Debajo, una franja de beneficios con íconos y las preguntas sobre rojo.
+// que muestra qué hace y botones con sus temas. Orden (pedido del usuario 2026-11-23): título y bajada corta, enseguida
+// el carrusel; debajo, la franja de beneficios con íconos, la publicidad y las preguntas sobre rojo.
 const ICONOS_HERR = {
   // Rodillo de pintura (Tarifario mural)
   calculadora: '<path d="M4 4h13a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/><path d="M18 6.5h2v5h-8v3"/><rect x="10.5" y="14.5" width="3" height="6" rx="1"/>',
@@ -2309,20 +2306,22 @@ function paginaTarifarios(l) {
       </div>
       <p class="lead">${P.lead}</p>
     </div>
+  </section>
+  <section class="inicio-carrusel herr-carrusel" id="herramientas">
+    <div class="wrap">
+      ${carruselHTML(l, {
+        area: 'herramientas', formato: 'apaisado', piezas, total,
+        kicker: `[★] / ${esc(P.carruselKicker)}`,
+        atajos, atajosAria: P.h1,
+      })}
+    </div>
+  </section>
+  <section class="seccion herr-despues">
     <div class="wrap">
       <ul class="herr-beneficios">${beneficios}</ul>
     </div>
   </section>
   ${marquesinaPublicidad(l, 'compacta')}
-  <section class="inicio-carrusel herr-carrusel" id="herramientas">
-    <div class="wrap">
-      ${carruselHTML(l, {
-        area: 'herramientas', formato: 'apaisado', piezas, total,
-        kicker: `[★] / ${esc(P.carruselKicker)}`, titulo: P.carruselTitulo, texto: esc(P.carruselTexto),
-        atajos, atajosAria: P.h1,
-      })}
-    </div>
-  </section>
   <section class="seccion faq-roja">
     <div class="wrap faq-grid">
       <div>
