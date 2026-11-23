@@ -1643,7 +1643,7 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 /* Áreas del inicio: el nombre del área grande sobre la imagen, su descripción debajo y todas las áreas en una fila */
 .carrusel-tile--etiqueta::before { content: ''; position: absolute; inset: 45% 0 0; z-index: 1; background: linear-gradient(to top, rgba(0, 0, 0, .82), transparent); pointer-events: none; }
 .carrusel-etiqueta { position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 2; font-family: var(--f-display); text-transform: uppercase; color: #fff; font-size: clamp(26px, 3.4vw, 46px); line-height: .95; text-wrap: balance; pointer-events: none; }
-.carrusel-item:has(.carrusel-tile--etiqueta) .carrusel-nombre { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.carrusel-item:has(.carrusel-tile--etiqueta) .carrusel-nombre, .carrusel-item:has(.carrusel-tile--area) .carrusel-nombre { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .carrusel-detalle { grid-column: 1 / -1; font-size: 15px; line-height: 1.4; color: var(--pleno-tinta); max-width: 34em; }
 .carrusel--activo .carrusel-item:not(.es-actual) .carrusel-detalle { visibility: hidden; }
 .carrusel-atajos { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 22px 0; margin-bottom: clamp(36px, 4.5vw, 64px); }
@@ -1681,3 +1681,25 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 .filtros--areas .filtros-in { min-height: 64px; }
 @media (max-width: 699px) { .filtros--areas .contador { display: none; } .filtros--areas .filtros-pills { padding-block: 10px; } }
 @media (prefers-reduced-motion: reduce) { .carrusel--listo .carrusel-item { transition: none; } }
+
+/* Portadas propias de Áreas en el inicio (2026-11-23): pleno rojo, nombre enorme en negro, textos en blanco para
+   jerarquizar, fotos a color de sus trabajos y botones con los temas. No reusan la portada del trabajo para que al
+   entrar a Trabajos no se vea la misma imagen; ninguna marca va en grande. */
+.carrusel-tile--area { background: var(--acento); container-type: inline-size; }
+.carrusel-tile--area .carrusel-num { display: none; }
+.area-portada { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 4.6cqi 5cqi; background: var(--acento); color: #111; overflow: hidden; }
+.area-portada > * { position: relative; z-index: 1; }
+.area-portada-top { display: flex; justify-content: space-between; gap: 2cqi; padding-bottom: 2.2cqi; border-bottom: max(1px, .3cqi) solid rgba(255, 255, 255, .7); color: #fff; font-size: 1.9cqi; letter-spacing: .08em; text-transform: uppercase; }
+.area-portada .area-portada-num { position: absolute; z-index: 0; right: -2cqi; top: 3cqi; font-family: var(--f-display); font-size: 44cqi; line-height: 1; color: transparent; -webkit-text-stroke: max(1px, .4cqi) rgba(255, 255, 255, .45); pointer-events: none; }
+.area-portada-nombre { margin-top: auto; padding-top: .1em; font-family: var(--f-display); text-transform: uppercase; font-size: 12cqi; line-height: .92; color: #111; text-wrap: balance; max-width: 90%; }
+.area-portada-bajada { margin-top: 1.4cqi; max-width: 92%; color: #fff; font-weight: 600; font-size: max(10px, 2.7cqi); line-height: 1.25; text-wrap: balance; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.area-portada-fotos { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; grid-template-rows: 100%; gap: 1.8cqi; height: 17cqi; overflow: hidden; flex: none; margin: 2.6cqi 0 2.4cqi; }
+.area-portada-fotos img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; border-radius: 1cqi; background: #111; }
+.area-portada-botones { display: flex; flex-wrap: wrap; align-items: center; gap: 1.4cqi; }
+.area-portada-tema, .area-portada-ver { padding: .8cqi 2cqi; border-radius: 99px; font-family: var(--f-mono); font-size: 1.9cqi; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.area-portada-tema { background: #111; color: #fff; }
+.area-portada-ver { margin-left: auto; background: #fff; color: #111; font-weight: 600; transition: background var(--dur-micro), color var(--dur-micro); }
+.carrusel-tile--area:hover .area-portada-ver { background: #111; color: #fff; }
+/* Recorte de la foto de abajo a la derecha de una portada de 640×501 (zona 322,279 → 611,472): sin el título de la marca */
+.area-portada-recorte { position: relative; height: 100%; aspect-ratio: 289 / 193; justify-self: start; overflow: hidden; border-radius: 1cqi; }
+.area-portada-fotos .area-portada-recorte img { position: absolute; width: 221.5%; max-width: none; height: auto; left: -111.4%; top: -144.6%; border-radius: 0; object-fit: fill; }
