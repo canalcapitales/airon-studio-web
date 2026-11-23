@@ -1365,6 +1365,16 @@ function carruselHTML(l, { area, kicker, titulo, texto = '', acciones = '', piez
 
 // Muro interactivo de un caso (logos, portadas o flyers): carrusel con filtro por grupo, el título y los textos del caso.
 // Se muestra directo en Trabajos y en el Inicio (sin página propia). id: el del carrusel (p. ej. "area-flyers" en Trabajos)
+// Ordena alternando fondo claro y oscuro (si los ítems lo tienen); cuando un color se acaba, siguen los del otro
+function intercalarFondos(lista) {
+  if (!lista.some((x) => x.fondo)) return lista;
+  const claros = lista.filter((x) => x.fondo === 'claro');
+  const oscuros = lista.filter((x) => x.fondo !== 'claro');
+  const [a, b] = lista[0].fondo === 'claro' ? [claros, oscuros] : [oscuros, claros];
+  const out = [];
+  for (let i = 0; i < Math.max(a.length, b.length); i++) { if (a[i]) out.push(a[i]); if (b[i]) out.push(b[i]); }
+  return out;
+}
 function muroCarrusel(l, p, { id = '', kicker = '' } = {}) {
   const T = TXT[l];
   const D = p.muroLogos ? MUROS.logos : MUROS[p.muro];
@@ -1375,7 +1385,9 @@ function muroCarrusel(l, p, { id = '', kicker = '' } = {}) {
   const pills = [`<button type="button" class="pill" data-grupo="todas" aria-pressed="true">${M.todas}<span class="mono">${D.logos.length}</span></button>`]
     .concat(grupos.map((g) => `<button type="button" class="pill" data-grupo="${g}" aria-pressed="false">${esc(D.grupos[g][l])}<span class="mono">${conteo(g)}</span></button>`))
     .join('');
-  const piezas = D.logos
+  // Logos: van intercalados blanco / negro (pedido del usuario 2026-11-23), respetando el orden de logos.json dentro de cada color.
+  // main.js repite el intercalado al filtrar por grupo.
+  const piezas = intercalarFondos(D.logos)
     .map((x, i) => {
       const nombre = typeof x.nombre === 'string' ? x.nombre : x.nombre[l];
       const rubro = x.rubro[l];

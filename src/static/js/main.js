@@ -1985,6 +1985,16 @@ function carrusel() {
   const cat = new URLSearchParams(location.search).get('categoria');
   const destino = cat && document.getElementById(`area-${cat}`);
   if (destino) requestAnimationFrame(() => destino.scrollIntoView());
+  // Logos con fondo propio: alternar blanco / negro también al filtrar (mismo criterio que intercalarFondos en build.mjs)
+  const intercalar = (lista) => {
+    if (!lista.length || !lista[0].dataset.fondo) return lista;
+    const claros = lista.filter((it) => it.dataset.fondo === 'claro');
+    const oscuros = lista.filter((it) => it.dataset.fondo !== 'claro');
+    const [a, b] = lista[0].dataset.fondo === 'claro' ? [claros, oscuros] : [oscuros, claros];
+    const out = [];
+    for (let i = 0; i < Math.max(a.length, b.length); i++) { if (a[i]) out.push(a[i]); if (b[i]) out.push(b[i]); }
+    return out;
+  };
   document.querySelectorAll('.carrusel').forEach((raiz) => {
     const escena = raiz.querySelector('.carrusel-escena');
     const items = [...raiz.querySelectorAll('.carrusel-item')];
@@ -2105,7 +2115,9 @@ function carrusel() {
       pill.addEventListener('click', () => {
         const g = pill.dataset.grupo;
         pills.forEach((p) => p.setAttribute('aria-pressed', String(p === pill)));
-        visibles = items.filter((it) => g === 'todas' || it.dataset.grupo === g);
+        visibles = intercalar(items.filter((it) => g === 'todas' || it.dataset.grupo === g));
+        // Muro de logos: el número de cada pieza sigue el orden que se ve
+        if (items[0].dataset.fondo) visibles.forEach((it, i) => { const n = it.querySelector('.carrusel-num'); if (n) n.textContent = String(i + 1).padStart(2, '0'); });
         actual = 0;
         pintar();
         reiniciar();
