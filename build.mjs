@@ -485,10 +485,11 @@ const TXT = {
     enviar: 'Enviar mensaje →', privacidad: 'Tus datos solo se usan para responderte.',
     gracias: { titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' },
     volverInicio: 'Volver al inicio',
-    categorias: { integral: 'Diseño integral', branding: 'Branding', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', flyers: 'Flyers', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Web y sistemas', urbano: 'Murales', foto: 'Fotografía', ilustracion: 'Ilustración' },
+    categorias: { integral: 'Diseño integral', logos: 'Diseño de logos', branding: 'Identidad de marca', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', flyers: 'Flyers', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Web y sistemas', urbano: 'Murales', foto: 'Fotografía', ilustracion: 'Ilustración' },
     servicios: [
       ['integral', 'Diseño integral', 'Toda la comunicación de una empresa: identidad, papelería, vehículos y redes.'],
-      ['branding', 'Identidad & branding', 'Logos, sistemas visuales y manuales de marca.'],
+      ['logos', 'Diseño de logos', 'Logotipos e isotipos para marcas de todos los rubros.'],
+      ['branding', 'Identidad de marca', 'Sistemas visuales, papelería y manuales de marca.'],
       ['redes', 'Redes sociales', 'Contenido, plantillas, campañas y banners para redes.'],
       ['ploteo', 'Ploteo vehicular', 'Diseño de ploteos para flotas y vehículos de empresa.'],
       ['flyers', 'Flyers', 'Flyers para fiestas, eventos, shows y lanzamientos.'],
@@ -941,10 +942,11 @@ const TXT = {
     enviar: 'Send message →', privacidad: 'Your details are only used to reply to you.',
     gracias: { titulo: 'Message sent', h1: 'Thank you!', texto: "We received your message. We'll get back to you shortly." },
     volverInicio: 'Back to home',
-    categorias: { integral: 'Integrated design', branding: 'Branding', redes: 'Social media', ploteo: 'Vehicle wraps', flyers: 'Flyers', musical: 'Music artwork', motion: 'Motion & video', web: 'Web & systems', urbano: 'Murals', foto: 'Photography', ilustracion: 'Illustration' },
+    categorias: { integral: 'Integrated design', logos: 'Logo design', branding: 'Brand identity', redes: 'Social media', ploteo: 'Vehicle wraps', flyers: 'Flyers', musical: 'Music artwork', motion: 'Motion & video', web: 'Web & systems', urbano: 'Murals', foto: 'Photography', ilustracion: 'Illustration' },
     servicios: [
       ['integral', 'Integrated design', 'A company’s whole communication: identity, stationery, vehicles and social media.'],
-      ['branding', 'Identity & branding', 'Logos, visual systems and brand manuals.'],
+      ['logos', 'Logo design', 'Logotypes and icons for brands in every industry.'],
+      ['branding', 'Brand identity', 'Visual systems, stationery and brand manuals.'],
       ['redes', 'Social media', 'Content, templates, campaigns and banners for social media.'],
       ['ploteo', 'Vehicle wraps', 'Wrap design for company fleets and vehicles.'],
       ['flyers', 'Flyers', 'Flyers for parties, events, shows and releases.'],
@@ -1591,8 +1593,8 @@ function inicio(l, proyectos) {
   };
   // Temas de cada área: van como botones en la portada (pedido del usuario 2026-11-23)
   const TEMAS = {
-    es: { integral: ['Identidad', 'Papelería', 'Flota', 'Redes'], branding: ['Logos', 'Sistemas', 'Manuales'], redes: ['Contenido', 'Plantillas', 'Campañas'], ploteo: ['Flotas', 'Vehículos', 'Utilitarios'], flyers: ['Fiestas', 'Eventos', 'Shows'], musical: ['Portadas', 'Playlists', 'Spotify'], motion: ['TV', 'Redes', 'Animación'], web: ['Sitios', 'Sistemas', 'Celular'], urbano: ['Murales', 'Graffiti', 'Interiores'], foto: ['Película', 'Analógica', 'Autor'], ilustracion: ['Tags', 'Graffiti digital', 'Merch'] },
-    en: { integral: ['Identity', 'Stationery', 'Fleet', 'Social'], branding: ['Logos', 'Systems', 'Manuals'], redes: ['Content', 'Templates', 'Campaigns'], ploteo: ['Fleets', 'Vehicles', 'Vans'], flyers: ['Parties', 'Events', 'Shows'], musical: ['Covers', 'Playlists', 'Spotify'], motion: ['TV', 'Social', 'Animation'], web: ['Sites', 'Systems', 'Mobile'], urbano: ['Murals', 'Graffiti', 'Interiors'], foto: ['Film', 'Analog', 'Author'], ilustracion: ['Tags', 'Digital graffiti', 'Merch'] },
+    es: { integral: ['Identidad', 'Papelería', 'Flota', 'Redes'], logos: ['Logotipos', 'Isotipos', 'Rediseño'], branding: ['Sistemas', 'Papelería', 'Manuales'], redes: ['Contenido', 'Plantillas', 'Campañas'], ploteo: ['Flotas', 'Vehículos', 'Utilitarios'], flyers: ['Fiestas', 'Eventos', 'Shows'], musical: ['Portadas', 'Playlists', 'Spotify'], motion: ['TV', 'Redes', 'Animación'], web: ['Sitios', 'Sistemas', 'Celular'], urbano: ['Murales', 'Graffiti', 'Interiores'], foto: ['Película', 'Analógica', 'Autor'], ilustracion: ['Tags', 'Graffiti digital', 'Merch'] },
+    en: { integral: ['Identity', 'Stationery', 'Fleet', 'Social'], logos: ['Logotypes', 'Icons', 'Redesign'], branding: ['Systems', 'Stationery', 'Manuals'], redes: ['Content', 'Templates', 'Campaigns'], ploteo: ['Fleets', 'Vehicles', 'Vans'], flyers: ['Parties', 'Events', 'Shows'], musical: ['Covers', 'Playlists', 'Spotify'], motion: ['TV', 'Social', 'Animation'], web: ['Sites', 'Systems', 'Mobile'], urbano: ['Murals', 'Graffiti', 'Interiors'], foto: ['Film', 'Analog', 'Author'], ilustracion: ['Tags', 'Digital graffiti', 'Merch'] },
   };
   const portadaArea = (id, i) => `<span class="area-portada" aria-hidden="true">
               <span class="area-portada-top mono"><span>★ AIRON STUDIO</span><span>${l === 'es' ? 'ÁREA' : 'AREA'} ${String(i + 1).padStart(2, '0')} / ${String(ids.length).padStart(2, '0')}</span></span>
@@ -1777,7 +1779,7 @@ function detalle(l, proyectos, p, i) {
   // Una fila de la ficha puede llevar un enlace como tercer dato (p. ej. el Instagram de un colaborador)
   const ficha = p.ficha.map(([k, v, url]) => `<div class="ficha-item"><dt class="mono">${esc(k)}</dt><dd>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(v)}</a>` : esc(v)}</dd></div>`).concat(disciplinasFicha).join('\n        ');
   // Cada tipo de proyecto tiene su propia puesta (styles.css: .proyecto--marca, --mural, --musical, --web, --motion, --foto)
-  const TIPOS = { urbano: 'mural', musical: 'musical', web: 'web', motion: 'motion', foto: 'foto', branding: 'marca', integral: 'marca' };
+  const TIPOS = { urbano: 'mural', musical: 'musical', web: 'web', motion: 'motion', foto: 'foto', branding: 'marca', logos: 'marca', integral: 'marca' };
   const tipo = TIPOS[p.categorias[0]] || 'grafica';
   const bloques = p.bloques
     .map((b, j) => {
@@ -1911,7 +1913,7 @@ function detalle(l, proyectos, p, i) {
   const descripcion = recortar(texto);
   // Cierre del proyecto: invita a contactar (la web ya no enlaza a Behance)
   const urbano = p.categorias.includes('urbano');
-  const esMarca = p.categorias.includes('branding');
+  const esMarca = p.categorias.includes('branding') || p.categorias.includes('logos');
   // "enlaces": botones propios del proyecto (por ejemplo, ver el sitio en vivo)
   const botones = p.enlaces
     ? p.enlaces.map((b) => `<a class="btn btn-accent btn-lg" href="${esc(b.url)}" target="_blank" rel="noopener noreferrer">${esc(b.texto[l])} ↗</a>`).join('')

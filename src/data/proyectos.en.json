@@ -245,7 +245,8 @@
     ]
   },
   "branding-x-airon-studio": {
-    "subtitulo": "{n} brand identities",
+    "titulo": "Logo design",
+    "subtitulo": "{n} brand logos",
     "ficha": [["Discipline", "Visual identity and branding"], ["Identities", "{n} brands designed"], ["Industries", "Music, food, real estate, retail, industry, culture and tourism"]],
     "bloques": [
       { "titulo": "The selection", "parrafos": ["A collection of brands developed for different projects, industries and disciplines. A journey through different approaches to visual identity, exploring concepts, shapes, typefaces and graphic systems to build unique, recognizable brands.", "Behind every brand there is a geometric and technical study: shapes, proportions, grids and visual construction to create solid, consistent and recognizable identities."] }
