@@ -783,12 +783,6 @@ html:not(.js) .calc-salida { display: none; }
 @media (max-width: 499px) { .calc-opciones { grid-template-columns: 1fr; } }
 
 /* ---------- tarifarios ---------- */
-.tar-hub { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
-.tar-hub-card { display: flex; flex-direction: column; gap: 18px; padding: 28px 0 8px; border-top: 2px solid var(--ink); text-decoration: none; }
-.tar-hub-titulo { font-family: var(--f-display); text-transform: uppercase; line-height: .95; font-size: clamp(44px, 5.4vw, 84px); transition: color var(--dur-micro) var(--ease-out); }
-.tar-hub-texto { color: var(--texto-2); font-size: 18px; line-height: 1.55; max-width: 32em; }
-.tar-hub-card:hover .tar-hub-titulo { color: var(--hover); }
-@media (max-width: 899px) { .tar-hub { grid-template-columns: 1fr; } }
 
 .tar-credito { font-size: 14px; line-height: 1.5; color: var(--muted); }
 .tar-credito a { color: var(--ink); text-underline-offset: 3px; }
@@ -1688,7 +1682,6 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 .bloque-head { gap: 16px; }
 .web-home-titulo { margin-top: 16px; padding-top: .1em; }
 .equipo-intro { gap: 26px; }
-.tar-hub-titulo { padding-top: .1em; line-height: 1; }
 .areas-carrusel { padding-bottom: 0; }
 /* Espacios: el bloque de color va pegado a lo de arriba y abajo, sin franjas vacías */
 .bloque--media:has(.muro-logos .carrusel) { padding-block: 0; }
@@ -1726,3 +1719,74 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 /* Recorte de la foto de abajo a la derecha de una portada de 640×501 (zona 322,279 → 611,472): sin el título de la marca */
 .area-portada-recorte { position: relative; height: 100%; aspect-ratio: 289 / 193; justify-self: start; overflow: hidden; border-radius: 1cqi; }
 .area-portada-fotos .area-portada-recorte img { position: absolute; width: 221.5%; max-width: none; height: auto; left: -111.4%; top: -144.6%; border-radius: 0; object-fit: fill; }
+
+/* ---------- Herramientas (rediseño 2026-11-23, pedido del usuario: carrusel lateral, más rojo y negro, íconos y movimiento) ----------
+   Mismo carrusel que Áreas del inicio, sobre pleno negro. Cada herramienta tiene una portada propia (build.mjs: paginaTarifarios),
+   alternadas roja y negra con borde rojo, con su ícono, una mini demo que va cambiando y botones con sus temas. */
+.herr-carrusel .carrusel { padding-top: clamp(40px, 5vw, 72px); }
+.carrusel-tile--herr { background: #FF0000; }
+.herr-portada { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 4.6cqi 5cqi; overflow: hidden; border-radius: inherit; }
+.herr-portada > * { position: relative; z-index: 1; }
+.herr-portada--roja { background: #FF0000; color: #111; --herr-claro: #fff; --herr-chip: #111; --herr-chip-txt: #fff; }
+.herr-portada--negra { background: #141414; color: #F2F0EB; box-shadow: inset 0 0 0 max(2px, .5cqi) #FF0000; --herr-claro: #FF0000; --herr-chip: #FF0000; --herr-chip-txt: #111; }
+.herr-top { display: flex; justify-content: space-between; gap: 2cqi; padding-bottom: 2.2cqi; border-bottom: max(1px, .3cqi) solid color-mix(in srgb, var(--herr-claro) 70%, transparent); color: var(--herr-claro); font-size: 1.9cqi; letter-spacing: .08em; text-transform: uppercase; }
+.herr-portada .herr-num { position: absolute; z-index: 0; right: -2cqi; top: 3cqi; font-family: var(--f-display); font-size: 44cqi; line-height: 1; color: transparent; -webkit-text-stroke: max(1px, .4cqi) color-mix(in srgb, var(--herr-claro) 40%, transparent); pointer-events: none; }
+.herr-centro { display: flex; align-items: center; gap: 3cqi; margin-top: 4cqi; }
+.herr-icono { flex: none; display: grid; place-items: center; width: 15cqi; aspect-ratio: 1; border-radius: 3cqi; background: var(--herr-chip); color: var(--herr-chip-txt); }
+.herr-icono svg { width: 60%; height: 60%; }
+/* Mini demo: las frases se van turnando (una por vez) */
+.herr-demo { position: relative; flex: 1; height: 7cqi; overflow: hidden; font-size: 3.6cqi; font-weight: 500; letter-spacing: .02em; text-transform: none; color: var(--herr-claro); }
+.herr-demo span { position: absolute; inset: 0; display: flex; align-items: center; white-space: nowrap; opacity: 0; animation: herr-demo calc(var(--pasos) * 1.6s) infinite; animation-delay: calc(var(--k) * 1.6s); }
+.herr-demo span:first-child { opacity: 1; }
+@keyframes herr-demo { 0% { opacity: 0; transform: translateY(60%); } 6%, 30% { opacity: 1; transform: none; } 36%, 100% { opacity: 0; transform: translateY(-60%); } }
+.herr-nombre { margin-top: auto; padding-top: .1em; font-family: var(--f-display); text-transform: uppercase; font-size: 11cqi; line-height: .92; text-wrap: balance; max-width: 92%; }
+.herr-bajada { margin-top: 1.4cqi; color: var(--herr-claro); font-weight: 600; font-size: max(10px, 2.9cqi); line-height: 1.25; }
+.herr-botones { display: flex; flex-wrap: wrap; align-items: center; gap: 1.4cqi; margin-top: 3cqi; }
+.herr-tema, .herr-ver { padding: .8cqi 2cqi; border-radius: 99px; font-family: var(--f-mono); font-size: 1.9cqi; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.herr-tema { background: var(--herr-chip); color: var(--herr-chip-txt); }
+.herr-ver { margin-left: auto; background: #fff; color: #111; font-weight: 600; transition: background var(--dur-micro), color var(--dur-micro); }
+.carrusel-tile--herr:hover .herr-ver { background: #111; color: #fff; }
+.herr-portada--negra .herr-ver { background: #F2F0EB; }
+.carrusel-tile--herr:hover .herr-portada--negra .herr-ver { background: #FF0000; color: #111; }
+/* El ícono de la herramienta del centro flota y la estrella del título gira */
+.carrusel-item.es-actual .herr-icono { animation: herr-flotar 2.6s var(--ease-out) infinite alternate; }
+@keyframes herr-flotar { from { transform: translateY(0) rotate(0); } to { transform: translateY(-1.2cqi) rotate(-6deg); } }
+.carrusel-tile--herr:hover .herr-icono { transform: scale(1.08) rotate(-8deg); transition: transform var(--dur-ui) var(--ease-out); }
+/* Atajos con ícono */
+.pill-icono { display: inline-flex; align-items: center; gap: 8px; }
+.pill-icono svg { width: 16px; height: 16px; color: #FF0000; flex: none; }
+.carrusel-atajos .pill-icono.es-actual svg { color: #111; }
+.pill-icono:hover svg { transform: rotate(-10deg) scale(1.15); transition: transform var(--dur-micro) var(--ease-out); }
+
+/* Título con el número de herramientas en rojo */
+.herr-h1-cuenta { display: inline-block; margin-left: .3em; padding: .25em .55em; border-radius: 99px; background: #FF0000; color: #111; font-size: .18em; letter-spacing: .06em; vertical-align: .9em; line-height: 1; }
+/* Franja de beneficios: cuatro íconos rojos sobre negro */
+.herr-beneficios { list-style: none; margin: 0 0 clamp(28px, 4vw, 48px); padding: clamp(18px, 2vw, 26px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 24px; background: #111; color: #F2F0EB; border-radius: 14px; border: 1px solid color-mix(in srgb, #FF0000 55%, transparent); }
+.herr-beneficio { display: flex; align-items: center; gap: 14px; transition-delay: var(--d, 0ms); }
+.herr-beneficio-icono { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #FF0000; color: #111; }
+.herr-beneficio-icono svg { width: 22px; height: 22px; }
+.herr-beneficio:hover .herr-beneficio-icono svg { animation: herr-sacudir .5s var(--ease-out); }
+@keyframes herr-sacudir { 30% { transform: rotate(-14deg) scale(1.1); } 60% { transform: rotate(10deg); } }
+.herr-beneficio b { display: block; font-family: var(--f-display); font-weight: 400; text-transform: uppercase; font-size: 20px; line-height: 1.05; letter-spacing: .01em; }
+.herr-beneficio b + span { display: block; margin-top: 3px; font-size: 14px; line-height: 1.35; color: color-mix(in srgb, #F2F0EB 72%, transparent); }
+@media (max-width: 1000px) { .herr-beneficios { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .herr-beneficios { grid-template-columns: 1fr; } }
+
+/* Preguntas sobre pleno rojo: preguntas en negro con número, respuestas en blanco */
+.faq-roja { position: relative; isolation: isolate; color: #111; }
+.faq-roja::before { content: ''; position: absolute; z-index: -1; inset: 0; background: #FF0000; }
+.faq-roja .kicker { color: #fff; }
+.faq-roja .kicker::before { background: #111; }
+.faq-roja .h2 { color: #111; }
+.faq-roja .faq, .faq-roja .faq-item { border-color: #111; }
+.faq-roja .faq-item summary { justify-content: flex-start; color: #111; }
+.faq-roja .faq-item summary::after { margin-left: auto; color: #fff; }
+.faq-roja .faq-item summary:hover { color: #fff; }
+.faq-roja .faq-item p { color: #fff; font-weight: 500; }
+.faq-num { flex: none; min-width: 2.4em; font-family: var(--f-mono); font-size: 13px; letter-spacing: .06em; color: #fff; }
+.faq-roja .faq-item[open] summary { color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .herr-demo span { animation: none; }
+  .carrusel-item.es-actual .herr-icono, .herr-beneficio:hover .herr-beneficio-icono svg { animation: none; }
+}
