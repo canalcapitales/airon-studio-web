@@ -1,0 +1,52 @@
+{
+  "_ayuda": "Fotos chicas de la portada de cada área en el inicio (elegidas a mano, 2026-11-23): tres imágenes bien distintas, sin repetir proyecto, logo ni plantilla, y nunca la portada del trabajo. Si un área no figura acá, toma las primeras de sus galerías.",
+  "integral": [
+    "/img/p/gsp-seguridad/g04-640.webp",
+    "/img/proyectos/trust-fund-v2/app-cartel-640.webp",
+    "/img/proyectos/affum/frasco-4-800.webp"
+  ],
+  "branding": [
+    "/img/logos/coolsnow.svg",
+    "/img/p/flexy/g05-640.webp",
+    "/img/p/empresa-black/g03-640.webp"
+  ],
+  "redes": [
+    "/img/proyectos/redes-para-marcas/feed-affum-640.webp",
+    "/img/proyectos/redes-para-marcas/surcipres-post-2-640.webp",
+    "/img/p/portadas/g03-640.webp"
+  ],
+  "ploteo": [
+    "/img/p/ploteo-vehicular/g01-640.webp",
+    "/img/p/ploteo-vehicular/g04-640.webp"
+  ],
+  "flyers": [
+    "/img/flyers/intekno-2-540.webp",
+    "/img/flyers/kraneando-aktividad-2-540.webp",
+    "/img/flyers/dickens-28-oct-540.webp"
+  ],
+  "musical": [
+    "/img/portadas/playlist-rap-ingles-640.webp",
+    "/img/portadas/anaciel-nore-640.webp",
+    "/img/portadas/singles-instrumentales-640.webp"
+  ],
+  "web": [
+    "/img/proyectos/web-airon/d-inicio-720.webp",
+    "/img/proyectos/web-airon/d-proyectos-720.webp",
+    "/img/proyectos/web-airon/d-visor-720.webp"
+  ],
+  "urbano": [
+    "/img/proyectos/blend-david/boceto-2-800.webp",
+    "/img/proyectos/r5/propuesta-1-800.webp",
+    "/img/proyectos/graffiti/graffiti-2-700.webp"
+  ],
+  "foto": [
+    "/img/p/analogic-photos/g01-640.webp",
+    "/img/p/analogic-photos/g06-640.webp",
+    "/img/p/analogic-photos/g11-640.webp"
+  ],
+  "ilustracion": [
+    "/img/proyectos/tags-y-graffiti-digital/letra-collage-700.webp",
+    "/img/proyectos/tags-y-graffiti-digital/real-remera-700.webp",
+    "/img/proyectos/tag-integridad/final-negro-800.webp"
+  ]
+}
