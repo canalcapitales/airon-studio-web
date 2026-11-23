@@ -1433,7 +1433,7 @@ a:hover .flecha--atras, a:focus-visible .flecha--atras { transform: translateX(-
 .web-home-puntos { border-color: rgba(0, 0, 0, .25); color: #111; }
 .web-home-puntos li::before { background: #fff; }
 .web-home .vitrina-lista, .web-home .vitrina-item { border-color: rgba(0, 0, 0, .25); }
-.web-home .vitrina-item { color: rgba(17, 17, 17, .55); }
+.web-home .vitrina-item { color: #111; }
 .web-home .vitrina-item:hover, .web-home .vitrina-item:focus-visible, .web-home .vitrina-item.activo { color: #fff; }
 .web-home .vitrina-item.activo .vitrina-num { color: #111; }
 .web-home .vitrina-item:focus-visible { outline-color: #111; }
