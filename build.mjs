@@ -84,6 +84,26 @@ const TXT = {
         ['mayusculas', 'Mayúsculas y minúsculas', 'Pegá un texto y pasalo a MAYÚSCULAS, minúsculas, tipo oración, tipo título o Cada Palabra, y copialo con un toque. También quita tildes para archivos y usuarios.', 'Convertir texto →'],
         ['png', 'Convertir a PNG', 'Pasá tus imágenes JPG, WEBP, GIF o SVG a PNG, cambiá el tamaño, quitá un fondo de color para dejarlo transparente y recortá los bordes. Sin subir nada.', 'Convertir imágenes →'],
       ],
+      // Rediseño 2026-11-23: textos de las portadas del carrusel, beneficios y mini demo de cada herramienta
+      etiqueta: 'Herramienta',
+      abrir: 'Abrir',
+      rubro: 'Gratis · Sin registro',
+      carruselKicker: 'Gratis · Sin registrarse',
+      carruselTitulo: 'Elegí una herramienta',
+      carruselTexto: 'Cinco herramientas que usamos en el estudio, abiertas para todos. Pasalas con las flechas o tocá una directo.',
+      beneficios: [
+        ['gratis', 'Gratis', 'Sin pagos ni versiones pro.'],
+        ['registro', 'Sin registrarte', 'Ni cuenta ni mail: entrás y usás.'],
+        ['navegador', 'En tu navegador', 'Tus textos e imágenes no se suben.'],
+        ['celular', 'Desde el celular', 'Pensadas para usar en cualquier pantalla.'],
+      ],
+      extra: {
+        calculadora: { corto: 'Cuánto cobrar un mural, por m².', temas: ['m²', 'Clientes', 'Viáticos'], demo: ['12 m²', '× valor del m²', '= presupuesto'] },
+        tarifarioDiseno: { corto: 'Presupuestos con 118 servicios de diseño.', temas: ['Identidad', 'Web', 'Redes'], demo: ['Logo', '+ papelería', '+ redes', '= presupuesto'] },
+        unicode: { corto: 'Letras especiales para tus redes.', temas: ['Instagram', 'TikTok', 'WhatsApp'], demo: ['Hola', '𝐇𝐨𝐥𝐚', '𝓗𝓸𝓵𝓪', 'Ⓗⓞⓛⓐ'] },
+        mayusculas: { corto: 'Mayúsculas y minúsculas con un toque.', temas: ['MAYÚS', 'minús', 'Sin tildes'], demo: ['hola mundo', 'HOLA MUNDO', 'Hola Mundo'] },
+        png: { corto: 'Pasá imágenes a PNG sin subir nada.', temas: ['JPG', 'WEBP', 'SVG'], demo: ['foto.jpg', 'logo.svg', '→ .png'] },
+      },
     },
     unicode: {
       titulo: 'Letras Unicode: generador de textos para Instagram y redes',
@@ -544,6 +564,26 @@ const TXT = {
         ['mayusculas', 'Case converter', 'Paste any text and switch it to UPPERCASE, lowercase, sentence case, title case or Each Word, then copy it in one tap. It also strips accents for file names and usernames.', 'Convert text →'],
         ['png', 'Convert to PNG', 'Turn JPG, WEBP, GIF or SVG images into PNG, resize them, remove a solid background to make it transparent and trim the edges. Nothing gets uploaded.', 'Convert images →'],
       ],
+      // 2026-11-23 redesign: carousel cover texts, benefits and each tool's mini demo
+      etiqueta: 'Tool',
+      abrir: 'Open',
+      rubro: 'Free · No sign-up',
+      carruselKicker: 'Free · No sign-up',
+      carruselTitulo: 'Pick a tool',
+      carruselTexto: 'Five tools we use at the studio, open to everyone. Browse them with the arrows or tap one directly.',
+      beneficios: [
+        ['gratis', 'Free', 'No payments, no pro versions.'],
+        ['registro', 'No sign-up', 'No account or email: just use it.'],
+        ['navegador', 'In your browser', 'Your texts and images are not uploaded.'],
+        ['celular', 'On your phone', 'Made to work on any screen.'],
+      ],
+      extra: {
+        calculadora: { corto: 'What to charge for a mural, per m².', temas: ['m²', 'Clients', 'Travel'], demo: ['12 m²', '× rate per m²', '= quote'] },
+        tarifarioDiseno: { corto: 'Quotes with 118 design services.', temas: ['Identity', 'Web', 'Social'], demo: ['Logo', '+ stationery', '+ social', '= quote'] },
+        unicode: { corto: 'Special fonts for your social media.', temas: ['Instagram', 'TikTok', 'WhatsApp'], demo: ['Hello', '𝐇𝐞𝐥𝐥𝐨', '𝓗𝓮𝓵𝓵𝓸', 'Ⓗⓔⓛⓛⓞ'] },
+        mayusculas: { corto: 'Switch letter case in one tap.', temas: ['UPPER', 'lower', 'No accents'], demo: ['hello world', 'HELLO WORLD', 'Hello World'] },
+        png: { corto: 'Turn images into PNG, nothing uploaded.', temas: ['JPG', 'WEBP', 'SVG'], demo: ['photo.jpg', 'logo.svg', '→ .png'] },
+      },
     },
     unicode: {
       titulo: 'Unicode fonts: text generator for Instagram and social media',
@@ -2188,23 +2228,65 @@ function paginaCalculadora(l) {
   });
 }
 
-// Página que reúne las herramientas
+// Página que reúne las herramientas (rediseño 2026-11-23, pedido del usuario: "más atractiva", carrusel lateral,
+// más rojo y negro para que se separen del texto, íconos y movimiento). Usa el mismo carrusel que Áreas del inicio:
+// cada herramienta tiene una portada propia en HTML (roja o negra, alternadas) con su ícono, una mini demo animada
+// que muestra qué hace y botones con sus temas. Debajo, una franja de beneficios con íconos y las preguntas sobre rojo.
+const ICONOS_HERR = {
+  // Rodillo de pintura (Tarifario mural)
+  calculadora: '<path d="M4 4h13a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/><path d="M18 6.5h2v5h-8v3"/><rect x="10.5" y="14.5" width="3" height="6" rx="1"/>',
+  // Hoja de presupuesto con signo $ (Tarifario de diseño)
+  tarifarioDiseno: '<path d="M6 2.5h9l4 4V21a.5.5 0 0 1-.5.5h-12A.5.5 0 0 1 6 21Z"/><path d="M15 2.5v4h4"/><path d="M14 10.5h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3H10"/><path d="M12 9v1.5M12 16.5V18"/>',
+  // "Aa" con destellos (Letras Unicode)
+  unicode: '<path d="M3 19 8 5l5 14M4.8 14h6.4"/><path d="M20 19v-5.5a2.5 2.5 0 0 0-5 0"/><path d="M20 15.5c-2.8 0-5 .6-5 2a1.6 1.6 0 0 0 2.7 1.2"/><path d="M18.5 3v3M17 4.5h3"/>',
+  // aA con flechas de ida y vuelta (Mayúsculas y minúsculas)
+  mayusculas: '<path d="M2.5 13 6 4l3.5 9M3.6 10h4.8"/><path d="M14 13V8.6a2 2 0 0 1 4 0V13M14 10.5h4"/><path d="M4 17.5h15m0 0-2.5-2.5m2.5 2.5L16.5 20"/>',
+  // Imagen con flecha (Convertir a PNG)
+  png: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.8"/><path d="m21 15-4.5-4.5L7 20"/>',
+};
+const ICONOS_BENEFICIO = {
+  gratis: '<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+  registro: '<circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="m17 8 4 4m0-4-4 4"/>',
+  navegador: '<rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M2.5 8.5h19M6 6.3h.01M8.5 6.3h.01"/><path d="M12 11.5v5m0 0-2-2m2 2 2-2"/>',
+  celular: '<rect x="6.5" y="2.5" width="11" height="19" rx="2"/><path d="M11 18.5h2"/>',
+};
+const svgIcono = (d, clase = '') => `<svg class="${clase}" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${d}</svg>`;
+
 function paginaTarifarios(l) {
   const T = TXT[l];
   const P = T.tarifarios;
   const R = RUTAS[l];
   const F = FAQ_HERRAMIENTAS[l];
-  const preguntas = F.faq.map(([q, a]) => `<details class="faq-item reveal"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n        ');
-  const tarjetas = P.herramientas
-    .map(
-      ([ruta, titulo, texto, boton], i) => `<a class="tar-hub-card reveal" href="${R[ruta]}">
-          <span class="mono num">${num(i)}</span>
-          <span class="tar-hub-titulo">${esc(titulo)}</span>
-          <span class="tar-hub-texto">${esc(texto)}</span>
-          <span class="link-arrow">${esc(boton)}</span>
-        </a>`
-    )
-    .join('\n        ');
+  const preguntas = F.faq.map(([q, a], i) => `<details class="faq-item reveal"><summary><span class="faq-num mono">${num(i)}</span><span class="faq-q">${esc(q)}</span></summary><p>${esc(a)}</p></details>`).join('\n        ');
+  const total = P.herramientas.length;
+  const piezas = P.herramientas
+    .map(([ruta, titulo, texto, boton], i) => {
+      const x = P.extra[ruta] || {};
+      const n2 = String(i + 1).padStart(2, '0');
+      const portada = `<span class="herr-portada herr-portada--${i % 2 ? 'negra' : 'roja'}" aria-hidden="true">
+              <span class="herr-top mono"><span>★ ${esc(P.etiqueta)}</span><span>${n2} / ${String(total).padStart(2, '0')}</span></span>
+              <span class="herr-num">${n2}</span>
+              <span class="herr-centro">
+                <span class="herr-icono">${svgIcono(ICONOS_HERR[ruta] || '')}</span>
+                <span class="herr-demo mono" style="--pasos:${(x.demo || []).length}">${(x.demo || []).map((d, k) => `<span style="--k:${k}">${esc(d)}</span>`).join('')}</span>
+              </span>
+              <span class="herr-nombre">${esc(titulo)}</span>
+              <span class="herr-bajada">${esc(x.corto || '')}</span>
+              <span class="herr-botones">${(x.temas || []).map((t) => `<span class="herr-tema">${esc(t)}</span>`).join('')}<span class="herr-ver">${esc(P.abrir)} →</span></span>
+            </span>`;
+      return piezaCarrusel({
+        n: i + 1, href: R[ruta], nombre: titulo, rubro: P.rubro, aria: `${titulo}: ${x.corto || ''}`,
+        imagen: portada, tile: 'carrusel-tile--area carrusel-tile--herr', detalle: texto,
+        boton: `<a class="carrusel-btn mono" href="${R[ruta]}">${esc(boton)}</a>`,
+      });
+    })
+    .join('');
+  const atajos = P.herramientas
+    .map(([ruta, titulo]) => `<a class="pill pill-icono" href="${R[ruta]}">${svgIcono(ICONOS_HERR[ruta] || '')}${esc(titulo)}</a>`)
+    .join('');
+  const beneficios = P.beneficios
+    .map(([icono, t, d], i) => `<li class="herr-beneficio reveal" style="--d:${i * 80}ms"><span class="herr-beneficio-icono">${svgIcono(ICONOS_BENEFICIO[icono] || '')}</span><span><b>${esc(t)}</b><span>${esc(d)}</span></span></li>`)
+    .join('');
   return pagina(l, {
     clave: 'tarifarios',
     publicidadEnPie: false,
@@ -2219,22 +2301,29 @@ function paginaTarifarios(l) {
       ],
     },
     cuerpo: `
-  <section class="page-head">
+  <section class="page-head herr-head">
     <div class="wrap page-head-in">
       <div>
         <span class="kicker mono">${P.kicker}</span>
-        <h1 class="page-title page-title--md">${P.h1}</h1>
+        <h1 class="page-title page-title--md">${P.h1}<span class="herr-h1-cuenta mono" aria-hidden="true">${String(total).padStart(2, '0')}</span></h1>
       </div>
       <p class="lead">${P.lead}</p>
     </div>
-  </section>
-  ${marquesinaPublicidad(l, 'compacta')}
-  <section class="seccion seccion--top">
-    <div class="wrap tar-hub">
-        ${tarjetas}
+    <div class="wrap">
+      <ul class="herr-beneficios">${beneficios}</ul>
     </div>
   </section>
-  <section class="seccion">
+  ${marquesinaPublicidad(l, 'compacta')}
+  <section class="inicio-carrusel herr-carrusel" id="herramientas">
+    <div class="wrap">
+      ${carruselHTML(l, {
+        area: 'herramientas', formato: 'apaisado', piezas, total,
+        kicker: `[★] / ${esc(P.carruselKicker)}`, titulo: P.carruselTitulo, texto: esc(P.carruselTexto),
+        atajos, atajosAria: P.h1,
+      })}
+    </div>
+  </section>
+  <section class="seccion faq-roja">
     <div class="wrap faq-grid">
       <div>
         <span class="kicker mono">${F.kicker}</span>
