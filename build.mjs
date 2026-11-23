@@ -1586,12 +1586,18 @@ function inicio(l, proyectos) {
     if (!fotos.length) fotos.push(...delArea(id).slice(0, 1).map((p) => [chica(p.portada), true]));
     return fotos.slice(0, 3);
   };
+  // Temas de cada área: van como botones en la portada (pedido del usuario 2026-11-23)
+  const TEMAS = {
+    es: { integral: ['Identidad', 'Papelería', 'Flota', 'Redes'], branding: ['Logos', 'Sistemas', 'Manuales'], redes: ['Contenido', 'Plantillas', 'Campañas'], ploteo: ['Flotas', 'Vehículos', 'Utilitarios'], flyers: ['Fiestas', 'Eventos', 'Shows'], musical: ['Portadas', 'Playlists', 'Spotify'], motion: ['TV', 'Redes', 'Animación'], web: ['Sitios', 'Sistemas', 'Celular'], urbano: ['Murales', 'Graffiti', 'Interiores'], foto: ['Película', 'Analógica', 'Autor'], ilustracion: ['Tags', 'Graffiti digital', 'Merch'] },
+    en: { integral: ['Identity', 'Stationery', 'Fleet', 'Social'], branding: ['Logos', 'Systems', 'Manuals'], redes: ['Content', 'Templates', 'Campaigns'], ploteo: ['Fleets', 'Vehicles', 'Vans'], flyers: ['Parties', 'Events', 'Shows'], musical: ['Covers', 'Playlists', 'Spotify'], motion: ['TV', 'Social', 'Animation'], web: ['Sites', 'Systems', 'Mobile'], urbano: ['Murals', 'Graffiti', 'Interiors'], foto: ['Film', 'Analog', 'Author'], ilustracion: ['Tags', 'Digital graffiti', 'Merch'] },
+  };
   const portadaArea = (id, i) => `<span class="area-portada" aria-hidden="true">
               <span class="area-portada-top mono"><span>★ AIRON STUDIO</span><span>${l === 'es' ? 'ÁREA' : 'AREA'} ${String(i + 1).padStart(2, '0')} / ${String(ids.length).padStart(2, '0')}</span></span>
               <span class="area-portada-num">${String(i + 1).padStart(2, '0')}</span>
               <span class="area-portada-nombre">${esc(nombreCat(l, id))}</span>
+              <span class="area-portada-bajada">${esc(descArea(id))}</span>
               <span class="area-portada-fotos">${fotosArea(id).map(([src, recorte]) => { const f = `<img src="${esc(src)}" alt="" ${i < 3 ? '' : 'loading="lazy" '}decoding="async">`; return recorte ? `<span class="area-portada-recorte">${f}</span>` : f; }).join('')}</span>
-              <span class="area-portada-pie mono"><span>aironstudio.com.ar</span><span>→</span></span>
+              <span class="area-portada-botones">${(TEMAS[l][id] || []).map((t) => `<span class="area-portada-tema">${esc(t)}</span>`).join('')}<span class="area-portada-ver">${l === 'es' ? 'Ver área' : 'See area'} →</span></span>
             </span>`;
   const piezasAreas = portadaAreas
     .map(({ id, n }, i) => {
@@ -1599,7 +1605,7 @@ function inicio(l, proyectos) {
       const href = hrefArea(id);
       return piezaCarrusel({
         n: i + 1, href, nombre: nombreCat(l, id), rubro: `${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}`,
-        imagen: portadaArea(id, i), tile: 'carrusel-tile--area', detalle: descArea(id),
+        imagen: portadaArea(id, i), tile: 'carrusel-tile--area',
         boton: `<a class="carrusel-btn mono" href="${href}">${id === 'urbano' ? C.verMurales : id === 'web' ? C.verWebs : C.verArea}</a>`,
       });
     })

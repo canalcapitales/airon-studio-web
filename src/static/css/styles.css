@@ -1682,19 +1682,24 @@ a.carrusel-btn:hover, a.carrusel-btn:focus-visible { filter: brightness(1.12); }
 @media (max-width: 699px) { .filtros--areas .contador { display: none; } .filtros--areas .filtros-pills { padding-block: 10px; } }
 @media (prefers-reduced-motion: reduce) { .carrusel--listo .carrusel-item { transition: none; } }
 
-/* Portadas propias de Áreas en el inicio (2026-11-23): pleno rojo, nombre enorme y tres fotos teñidas de rojo.
-   No reusan la portada del trabajo para que al entrar a Trabajos no se vea la misma imagen. */
+/* Portadas propias de Áreas en el inicio (2026-11-23): pleno rojo, nombre enorme en negro, textos en blanco para
+   jerarquizar, fotos a color de sus trabajos y botones con los temas. No reusan la portada del trabajo para que al
+   entrar a Trabajos no se vea la misma imagen; ninguna marca va en grande. */
 .carrusel-tile--area { background: var(--acento); container-type: inline-size; }
-.area-portada { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 5cqi 5.5cqi 4.5cqi; background: var(--acento); color: #111; overflow: hidden; }
-.area-portada-top, .area-portada-pie { position: relative; z-index: 2; display: flex; justify-content: space-between; gap: 2cqi; font-size: max(9px, 2.3cqi); letter-spacing: .08em; text-transform: uppercase; }
-.area-portada-top { padding-bottom: 2.4cqi; border-bottom: max(1px, .35cqi) solid #111; }
-.area-portada-num { position: absolute; right: -2cqi; top: 4cqi; z-index: 0; font-family: var(--f-display); font-size: 46cqi; line-height: 1; color: transparent; -webkit-text-stroke: max(1px, .4cqi) rgba(0, 0, 0, .28); pointer-events: none; }
-.area-portada-nombre { position: relative; z-index: 1; margin-top: auto; padding-top: .1em; font-family: var(--f-display); text-transform: uppercase; font-size: 15cqi; line-height: .92; color: #111; text-wrap: balance; max-width: 92%; }
-.area-portada-fotos { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2cqi; height: 24cqi; margin: 3.6cqi 0 3cqi; }
-.area-portada-fotos img { width: 100%; height: 100%; object-fit: cover; border-radius: 1cqi; object-position: 50% 35%; filter: grayscale(1) contrast(1.15); mix-blend-mode: multiply; transition: filter var(--dur-ui) var(--ease-out), mix-blend-mode 0s; }
-.carrusel-item.es-actual .carrusel-tile--area:hover .area-portada-fotos img { filter: grayscale(0) contrast(1); mix-blend-mode: normal; }
-.area-portada-pie { padding-top: 2.4cqi; border-top: max(1px, .35cqi) solid #111; }
+.carrusel-tile--area .carrusel-num { display: none; }
+.area-portada { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 4.6cqi 5cqi; background: var(--acento); color: #111; overflow: hidden; }
+.area-portada > * { position: relative; z-index: 1; }
+.area-portada-top { display: flex; justify-content: space-between; gap: 2cqi; padding-bottom: 2.2cqi; border-bottom: max(1px, .3cqi) solid rgba(255, 255, 255, .7); color: #fff; font-size: 1.9cqi; letter-spacing: .08em; text-transform: uppercase; }
+.area-portada .area-portada-num { position: absolute; z-index: 0; right: -2cqi; top: 3cqi; font-family: var(--f-display); font-size: 44cqi; line-height: 1; color: transparent; -webkit-text-stroke: max(1px, .4cqi) rgba(255, 255, 255, .45); pointer-events: none; }
+.area-portada-nombre { margin-top: auto; padding-top: .1em; font-family: var(--f-display); text-transform: uppercase; font-size: 12cqi; line-height: .92; color: #111; text-wrap: balance; max-width: 90%; }
+.area-portada-bajada { margin-top: 1.4cqi; max-width: 92%; color: #fff; font-weight: 600; font-size: max(10px, 2.7cqi); line-height: 1.25; text-wrap: balance; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.area-portada-fotos { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; grid-template-rows: 100%; gap: 1.8cqi; height: 17cqi; overflow: hidden; flex: none; margin: 2.6cqi 0 2.4cqi; }
+.area-portada-fotos img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; border-radius: 1cqi; background: #111; }
+.area-portada-botones { display: flex; flex-wrap: wrap; align-items: center; gap: 1.4cqi; }
+.area-portada-tema, .area-portada-ver { padding: .8cqi 2cqi; border-radius: 99px; font-family: var(--f-mono); font-size: 1.9cqi; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.area-portada-tema { background: #111; color: #fff; }
+.area-portada-ver { margin-left: auto; background: #fff; color: #111; font-weight: 600; transition: background var(--dur-micro), color var(--dur-micro); }
+.carrusel-tile--area:hover .area-portada-ver { background: #111; color: #fff; }
 /* Recorte de la foto de abajo a la derecha de una portada de 640×501 (zona 322,279 → 611,472): sin el título de la marca */
 .area-portada-recorte { position: relative; height: 100%; aspect-ratio: 289 / 193; justify-self: start; overflow: hidden; border-radius: 1cqi; }
 .area-portada-fotos .area-portada-recorte img { position: absolute; width: 221.5%; max-width: none; height: auto; left: -111.4%; top: -144.6%; border-radius: 0; object-fit: fill; }
-.carrusel-tile--area .carrusel-num { display: none; }
