@@ -403,8 +403,8 @@ const TXT = {
     numerosTitulo: 'El estudio en números',
     numeros: ['Años de estudio', 'Trabajos en el portafolio', 'Identidades de marca', 'Clientes', 'Nuestro mural más grande', 'Disciplinas creativas'],
     portafolio: 'Explorá nuestros trabajos', proyectos: 'Trabajos', todos: 'Todos', filtrarAria: 'Filtrar por categoría', proyectosCont: 'proyectos', sinProyectos: 'Estamos preparando los proyectos de esta categoría.', sinProyectosCta: 'Contanos qué necesitás →',
-    listadoLead: 'Diseño integral, branding, redes sociales, ploteo vehicular, flyers, gráfica musical, motion, web y sistemas, murales, fotografía e ilustración. Cada proyecto está en su área principal.',
-    listadoDesc: 'Portafolio de AIRON Studio: diseño integral para empresas, branding, redes sociales, ploteo vehicular, flyers, gráfica musical, motion, web y sistemas, murales, fotografía e ilustración.',
+    listadoLead: 'Diseño integral, branding, redes sociales, ploteo vehicular, flyers, gráfica musical, motion, diseño web, murales, fotografía e ilustración. Cada proyecto está en su área principal.',
+    listadoDesc: 'Portafolio de AIRON Studio: diseño integral para empresas, branding, redes sociales, ploteo vehicular, flyers, gráfica musical, motion, diseño web, murales, fotografía e ilustración.',
     portadaDe: (t) => `Portada del proyecto ${t}`, imagenDe: (t, k, n) => `${t} — imagen ${k} de ${n}`, ampliar: 'Ampliar', muro: { titulo: 'Muro de marcas', texto: 'Logos diseñados para artistas, comercios, empresas e instituciones. Filtrá por rubro y tocá cada marca para verla en grande.', todas: 'Todas', marcas: 'marcas', rubros: 'rubros', verCaso: 'Ver caso', filtrar: 'Filtrar marcas por rubro' },
     videoDe: (t) => `Video del proyecto ${t}`, videoPausar: 'Pausar video', videoSeguir: 'Reproducir video',volver: '← Todos los trabajos', fichaAria: 'Ficha del proyecto', imagenesAria: 'Imágenes del proyecto',
     ctaSinBehance: '¿Tu marca es la próxima?', botonSinBehance: 'Pedí tu marca →', ctaProyectoGeneral: '¿Tenés un proyecto en mente?', botonProyecto: 'Pedí tu presupuesto →', otros: 'Otros proyectos', anterior: '← Anterior', siguiente: 'Siguiente →',
@@ -485,7 +485,7 @@ const TXT = {
     enviar: 'Enviar mensaje →', privacidad: 'Tus datos solo se usan para responderte.',
     gracias: { titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' },
     volverInicio: 'Volver al inicio',
-    categorias: { integral: 'Diseño integral', logos: 'Diseño de logos', branding: 'Identidad de marca', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', flyers: 'Flyers', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Web y sistemas', urbano: 'Murales', foto: 'Fotografía', ilustracion: 'Ilustración' },
+    categorias: { integral: 'Diseño integral', logos: 'Diseño de logos', branding: 'Identidad de marca', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', flyers: 'Flyers', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Diseño web', urbano: 'Murales', foto: 'Fotografía', ilustracion: 'Ilustración' },
     servicios: [
       ['integral', 'Diseño integral', 'Toda la comunicación de una empresa: identidad, papelería, vehículos y redes.'],
       ['logos', 'Diseño de logos', 'Logotipos e isotipos para marcas de todos los rubros.'],
@@ -863,8 +863,8 @@ const TXT = {
     numerosTitulo: 'The studio in numbers',
     numeros: ['Years as a studio', 'Projects in the portfolio', 'Brand identities', 'Clients', 'Our largest mural', 'Creative disciplines'],
     portafolio: 'Explore our work', proyectos: 'Work', todos: 'All', filtrarAria: 'Filter by category', proyectosCont: 'projects', sinProyectos: 'We are preparing the projects in this category.', sinProyectosCta: 'Tell us what you need →',
-    listadoLead: 'Integrated design, branding, social media, vehicle wraps, flyers, music artwork, motion, web & systems, murals, photography and illustration. Each project sits in its main area.',
-    listadoDesc: 'AIRON Studio portfolio: integrated design for companies, branding, social media, vehicle wraps, flyers, music artwork, motion, web & systems, murals, photography and illustration.',
+    listadoLead: 'Integrated design, branding, social media, vehicle wraps, flyers, music artwork, motion, web design, murals, photography and illustration. Each project sits in its main area.',
+    listadoDesc: 'AIRON Studio portfolio: integrated design for companies, branding, social media, vehicle wraps, flyers, music artwork, motion, web design, murals, photography and illustration.',
     portadaDe: (t) => `Cover of the project ${t}`, imagenDe: (t, k, n) => `${t} — image ${k} of ${n}`, ampliar: 'Enlarge', muro: { titulo: 'Brand wall', texto: 'Logos designed for artists, shops, companies and institutions. Filter by industry and tap any brand to see it large.', todas: 'All', marcas: 'brands', rubros: 'industries', verCaso: 'View case', filtrar: 'Filter brands by industry' },
     videoDe: (t) => `Video of the project ${t}`, videoPausar: 'Pause video', videoSeguir: 'Play video',volver: '← All work', fichaAria: 'Project details', imagenesAria: 'Project images',
     ctaSinBehance: 'Is your brand next?', botonSinBehance: 'Get your brand →', ctaProyectoGeneral: 'Got a project in mind?', botonProyecto: 'Get a quote →', otros: 'More projects', anterior: '← Previous', siguiente: 'Next →',
@@ -942,7 +942,7 @@ const TXT = {
     enviar: 'Send message →', privacidad: 'Your details are only used to reply to you.',
     gracias: { titulo: 'Message sent', h1: 'Thank you!', texto: "We received your message. We'll get back to you shortly." },
     volverInicio: 'Back to home',
-    categorias: { integral: 'Integrated design', logos: 'Logo design', branding: 'Brand identity', redes: 'Social media', ploteo: 'Vehicle wraps', flyers: 'Flyers', musical: 'Music artwork', motion: 'Motion & video', web: 'Web & systems', urbano: 'Murals', foto: 'Photography', ilustracion: 'Illustration' },
+    categorias: { integral: 'Integrated design', logos: 'Logo design', branding: 'Brand identity', redes: 'Social media', ploteo: 'Vehicle wraps', flyers: 'Flyers', musical: 'Music artwork', motion: 'Motion & video', web: 'Web design', urbano: 'Murals', foto: 'Photography', ilustracion: 'Illustration' },
     servicios: [
       ['integral', 'Integrated design', 'A company’s whole communication: identity, stationery, vehicles and social media.'],
       ['logos', 'Logo design', 'Logotypes and icons for brands in every industry.'],
@@ -1618,7 +1618,7 @@ function inicio(l, proyectos) {
             </span>`;
   const piezasAreas = portadaAreas
     .map(({ id, n }, i) => {
-      // Web y sistemas lleva a la vitrina de Diseño web, que está más abajo
+      // Diseño web lleva a la vitrina de Diseño web, que está más abajo
       const href = hrefArea(id);
       return piezaCarrusel({
         n: i + 1, href, nombre: nombreCat(l, id), rubro: `${n} ${n === 1 ? T.proyectoUno : T.proyectosCont}`,
