@@ -3,8 +3,8 @@ document.documentElement.classList.add('js');
 
 const EN = document.documentElement.lang.startsWith('en');
 const MSG = EN
-  ? { abrir: 'Open menu', cerrar: 'Close menu', temaOscuro: 'Switch to dark mode', temaClaro: 'Switch to light mode', pausa: 'The form will be available very soon. In the meantime, reach us on Instagram or LinkedIn.', enviando: 'Sending…', error: "Couldn't send. Please try again or reach us on Instagram or LinkedIn." }
-  : { abrir: 'Abrir menú', cerrar: 'Cerrar menú', temaOscuro: 'Cambiar a modo oscuro', temaClaro: 'Cambiar a modo claro', pausa: 'El formulario se activa muy pronto. Mientras tanto, escribinos por Instagram o LinkedIn.', enviando: 'Enviando…', error: 'No se pudo enviar. Probá de nuevo o escribinos por Instagram o LinkedIn.' };
+  ? { abrir: 'Open menu', cerrar: 'Close menu', temaOscuro: 'Switch to dark mode', temaClaro: 'Switch to light mode', enviando: 'Sending…', error: "It could not be sent. Please try again later or reach us on Instagram." }
+  : { abrir: 'Abrir menú', cerrar: 'Cerrar menú', temaOscuro: 'Cambiar a modo oscuro', temaClaro: 'Cambiar a modo claro', enviando: 'Enviando…', error: 'No se pudo enviar. Probá de nuevo en un rato o escribinos por Instagram.' };
 
 document.addEventListener('DOMContentLoaded', () => {
   // Cada parte arranca por separado: si una falla, las demás siguen funcionando
@@ -1706,7 +1706,6 @@ function visor() {
   });
 }
 
-// ----- Formulario de contacto (Formspree) -----
 // ----- Tiras deslizables: arrastre con el mouse, flechas, teclado, contador, progreso y avance automático en la cabecera -----
 // ----- Video en loop sin sonido que encabeza un caso -----
 // Marca la etapa que se está viendo, llena la barra, se frena fuera de pantalla y respeta "reducir movimiento".
@@ -1823,35 +1822,68 @@ function tiras() {
   });
 }
 
+// ----- Formulario de contacto (2026-11-23, mismo que Laionbeats) -----
+// Se manda sin recargar y avisa ahí mismo si llegó; lo recibe worker/index.mjs (POST /api/contacto).
+// Sin JavaScript también funciona: el envío común lleva a una página mínima, y las tarjetas abren el correo.
 function formulario() {
-  const form = document.querySelector('form.form');
-  if (!form) return;
-  // Si se llega desde un enlace como /contacto/?tipo=mural, se elige ese tipo de proyecto
-  const tipo = new URLSearchParams(location.search).get('tipo');
-  const opcion = tipo && [...form.querySelectorAll('#tipo option')].find((o) => o.dataset.clave === tipo);
-  if (opcion) opcion.selected = true;
-  // Y si viene desde la calculadora de murales, el mensaje llega ya escrito
-  const mensaje = new URLSearchParams(location.search).get('mensaje');
-  const campo = form.querySelector('#mensaje');
-  if (mensaje && campo && !campo.value) campo.value = mensaje.slice(0, 4000);
-  const estado = form.querySelector('[data-estado]');
-  const enviar = form.querySelector('[type="submit"]');
+  const form = document.querySelector('[data-form-contacto]');
+  if (!form || !window.fetch || !window.FormData) return;
+  const inicio = Date.now();
+  const el = form.elements;
+  const select = el.area;
+  const boton = form.querySelector('[type="submit"]');
+  const textoBoton = boton.textContent;
+  const estado = form.querySelector('[data-form-estado]');
+  const tarjetas = [...document.querySelectorAll('.area-contacto[data-area]')];
+  const marcar = () => tarjetas.forEach((t) => t.classList.toggle('elegida', t.dataset.area === select.value));
+  const avisar = (txt, ok) => {
+    estado.textContent = txt;
+    estado.classList.toggle('ok', !!txt && ok);
+    estado.classList.toggle('error', !!txt && !ok);
+  };
+  // Si se llega desde un enlace como /contacto/?tipo=mural, se elige esa área
+  const q = new URLSearchParams(location.search);
+  let tipos = {};
+  try { tipos = JSON.parse(form.dataset.tipos || '{}'); } catch {}
+  const tipo = q.get('tipo');
+  if (tipo) { select.value = tipos[tipo] || tipos.otro || ''; marcar(); }
+  // Y si viene desde la calculadora de murales o la publicidad, el mensaje llega ya escrito
+  const mensaje = q.get('mensaje');
+  if (mensaje && !el.mensaje.value) el.mensaje.value = mensaje.slice(0, 5000);
+  // Tocar un área la elige en el formulario y lleva a escribir (Ctrl/Cmd/Shift: abre el correo igual)
+  tarjetas.forEach((t) =>
+    t.addEventListener('click', (e) => {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
+      e.preventDefault();
+      select.value = t.dataset.area;
+      marcar();
+      const campo = !el.nombre.value ? el.nombre : !el.correo.value ? el.correo : el.mensaje;
+      const caja = form.getBoundingClientRect();
+      if (caja.top < 0 || caja.bottom > innerHeight) {
+        form.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      }
+      campo.focus({ preventScroll: true });
+    })
+  );
+  select.addEventListener('change', marcar);
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (form.hasAttribute('data-pendiente')) {
-      estado.textContent = MSG.pausa;
-      return;
-    }
-    enviar.disabled = true;
-    estado.textContent = MSG.enviando;
+    const datos = new FormData(form);
+    datos.set('d', String(Date.now() - inicio)); // cuánto tardó (los robots tardan menos de 3 s)
+    boton.disabled = true;
+    boton.textContent = boton.dataset.enviando;
+    avisar('', true);
     try {
-      const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      if (!r.ok) throw new Error(r.status);
-      location.href = form.dataset.gracias || '/gracias/';
+      const r = await fetch(form.action, { method: 'POST', body: datos, headers: { Accept: 'application/json' } });
+      const j = await r.json();
+      const ok = r.ok && j.ok;
+      avisar(j.texto || MSG.error, ok);
+      if (ok) { form.reset(); marcar(); }
     } catch {
-      estado.textContent = MSG.error;
-      enviar.disabled = false;
+      avisar(MSG.error, false);
     }
+    boton.disabled = false;
+    boton.textContent = textoBoton;
   });
 }
 
