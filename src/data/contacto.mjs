@@ -23,5 +23,5 @@ export const AREAS_CONTACTO = [
   { id: 'publicidad', correo: 'publicidad@aironstudio.com.ar', asunto: 'Publicidad', es: 'Publicidad en la web', en: 'Advertising on the site', tipos: ['publicidad'] },
   { id: 'equipo', correo: 'equipo@aironstudio.com.ar', asunto: 'Equipo', es: 'Sumate al equipo', en: 'Join the team', tipos: ['equipo'] },
   { id: 'prensa', correo: 'prensa@aironstudio.com.ar', asunto: 'Prensa y alianzas', es: 'Prensa y alianzas', en: 'Press & partnerships', tipos: ['prensa'] },
-  { id: 'consulta', correo: 'contacto@aironstudio.com.ar', asunto: 'Consulta', es: 'Otra consulta', en: 'Other question', tipos: ['otro'] },
+  { id: 'consulta', correo: 'hola@aironstudio.com.ar', asunto: 'Consulta', es: 'Otra consulta', en: 'Other question', tipos: ['otro'] },
 ];

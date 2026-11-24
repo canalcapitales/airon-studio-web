@@ -12,7 +12,7 @@ Web publicada: https://aironstudio.com.ar (inglés: `/en/`)
 - [x] Conectarlo en Cloudflare a la web.
 - [x] Cambiar `url:` en `build.mjs` por la nueva dirección (para Google, el mapa del sitio y las imágenes para compartir).
 - [x] `www.aironstudio.com.ar` lleva a `aironstudio.com.ar` (regla de redirección en Cloudflare + "Always Use HTTPS" activado).
-- [ ] (Opcional) Crear un email con el dominio (nombre a elegir, por ejemplo `contacto@aironstudio.com.ar`) con **Cloudflare Email Routing** (gratis), reenviando a aironstudio.ar@gmail.com. No hace falta para la web: el formulario usa Formspree.
+- [x] (Hecho 2026-11-23: hola@, info@ y una dirección por área de Contacto, ver src/data/contacto.mjs) Crear un email con el dominio (nombre a elegir, por ejemplo `contacto@aironstudio.com.ar`) con **Cloudflare Email Routing** (gratis), reenviando a aironstudio.ar@gmail.com. No hace falta para la web: el formulario usa Formspree.
 
 **Qué falta:** solo el email opcional; elegir el nombre de la dirección.
 
