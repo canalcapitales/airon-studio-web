@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, cpSync, renameSync } fr
 import { dirname, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { LEGALES, FAQ_HERRAMIENTAS, ACTUALIZADO } from './src/data/legales.mjs';
+import { AREAS_CONTACTO } from './src/data/contacto.mjs';
 
 const OUT = 'dist';
 const SITIO = {
@@ -12,14 +13,11 @@ const SITIO = {
   url: 'https://aironstudio.com.ar',
   linkedin: 'https://www.linkedin.com/in/aironstudio/',
   instagram: 'https://www.instagram.com/_aironstudio/',
-  // Código del formulario en Formspree (ej: 'xyzabcde'). Vacío = formulario en pausa.
-  formspree: 'maenlpzn',
 };
 
 const IDIOMAS = ['es', 'en'];
 const FUNDACION = 2015;
 const anio = new Date().getFullYear();
-const OPCIONES_CLAVE = ['integral', 'branding', 'grafica', 'redes', 'ploteo', 'web', 'sistemas', 'musical', 'motion', 'mural', 'foto', 'ilustracion', 'publicidad', 'otro'];
 
 // Direcciones de cada página en cada idioma
 const RUTAS = {
@@ -487,20 +485,16 @@ const TXT = {
     contactoTitulo: 'Contacto', contactoKicker: 'Contanos tu idea', contactoH1: 'Contacto.',
     contactoLead: 'Una marca, piezas gráficas, una web, motion, un mural o lo que tengas en mente: escribinos y te respondemos a la brevedad.',
     contactoDesc: 'Contanos tu proyecto: marca, piezas gráficas, web, motion, mural o lo que tengas en mente.',
-    asunto: 'Nuevo mensaje desde la web de AIRON Studio', noCompletar: 'No completar este campo',
-    campos: { nombre: 'Nombre', email: 'Email', tipo: 'Tipo de proyecto', mensaje: 'Contanos qué necesitás', marca: 'Marca o empresa (opcional)', plazo: 'Plazo (opcional)', presupuesto: 'Presupuesto estimado (opcional)', referencias: 'Link a referencias (opcional)' },
-    mensajeAyuda: 'Qué querés lograr, para quién es y si ya tenés algo hecho (logo, web, fotos).',
-    referenciasAyuda: 'Un link de Drive, WeTransfer, Pinterest o Instagram con ideas, fotos o archivos.',
-    presupuestoEjemplo: 'Ej.: un monto aproximado o “todavía no lo sé”',
-    plazos: ['Elegí una opción', 'Lo antes posible', 'En el próximo mes', 'En 1 a 3 meses', 'Sin fecha definida'],
+    contactoIntro: ['¿Tenés un proyecto o una consulta?', 'Elegí el área y escribinos.'],
+    areasAria: 'Áreas de contacto',
+    form: { nombre: 'Nombre', correo: 'Tu correo', area: 'Área', mensaje: 'Mensaje', enviar: 'Enviar', enviando: 'Enviando…', noCompletar: 'No completar este campo', otrasVias: 'También estamos en' },
     pasosTitulo: 'Qué pasa después',
     pasos: [
       ['Leemos tu mensaje', 'Te respondemos por email a la brevedad, con preguntas si hace falta.'],
       ['Charlamos el proyecto', 'Definimos objetivos, público, plazos y presupuesto.'],
       ['Te enviamos la propuesta', 'Un presupuesto por escrito, sin compromiso, antes de empezar.'],
     ],
-    opciones: ['Diseño integral', 'Branding e identidad', 'Diseño gráfico', 'Redes sociales', 'Ploteo vehicular', 'Diseño web', 'Sistema de gestión', 'Gráfica musical', 'Motion', 'Mural / arte urbano', 'Fotografía', 'Ilustración', 'Publicidad en la web', 'Otro'],
-    enviar: 'Enviar mensaje →', privacidad: 'Tus datos solo se usan para responderte.',
+    privacidad: 'Tus datos solo se usan para responderte.',
     gracias: { titulo: 'Mensaje enviado', h1: '¡Gracias!', texto: 'Recibimos tu mensaje. Te vamos a responder a la brevedad.' },
     volverInicio: 'Volver al inicio',
     categorias: { integral: 'Diseño integral', logos: 'Diseño de logos', branding: 'Identidad de marca', redes: 'Redes sociales', ploteo: 'Ploteo vehicular', flyers: 'Flyers', musical: 'Gráfica musical', motion: 'Motion y video', web: 'Diseño web', urbano: 'Murales', foto: 'Fotografía', ilustracion: 'Ilustración' },
@@ -962,20 +956,16 @@ const TXT = {
     contactoTitulo: 'Contact', contactoKicker: 'Tell us your idea', contactoH1: 'Contact.',
     contactoLead: "A brand, graphic pieces, a website, motion, a mural or whatever you have in mind: write to us and we'll get back to you shortly.",
     contactoDesc: 'Tell us about your project: a brand, graphic pieces, a website, motion, a mural or whatever you have in mind.',
-    asunto: 'New message from the AIRON Studio website (EN)', noCompletar: 'Do not fill in this field',
-    campos: { nombre: 'Name', email: 'Email', tipo: 'Project type', mensaje: 'Tell us what you need', marca: 'Brand or company (optional)', plazo: 'Timeline (optional)', presupuesto: 'Estimated budget (optional)', referencias: 'Link to references (optional)' },
-    mensajeAyuda: 'What you want to achieve, who it’s for and whether you already have something (logo, website, photos).',
-    referenciasAyuda: 'A Drive, WeTransfer, Pinterest or Instagram link with ideas, photos or files.',
-    presupuestoEjemplo: 'E.g.: a rough amount or “not sure yet”',
-    plazos: ['Choose an option', 'As soon as possible', 'Within the next month', 'In 1 to 3 months', 'No set date'],
+    contactoIntro: ['Got a project or a question?', 'Pick the area and write to us.'],
+    areasAria: 'Contact areas',
+    form: { nombre: 'Name', correo: 'Your email', area: 'Area', mensaje: 'Message', enviar: 'Send', enviando: 'Sending…', noCompletar: 'Do not fill in this field', otrasVias: 'You can also find us on' },
     pasosTitulo: 'What happens next',
     pasos: [
       ['We read your message', 'We reply by email shortly, with questions if needed.'],
       ['We talk about the project', 'We define goals, audience, timeline and budget.'],
       ['We send you a proposal', 'A written, no-obligation quote before we start.'],
     ],
-    opciones: ['Integrated design', 'Branding and identity', 'Graphic design', 'Social media', 'Vehicle wraps', 'Web design', 'Management system', 'Music artwork', 'Motion', 'Mural / street art', 'Photography', 'Illustration', 'Advertising on the site', 'Other'],
-    enviar: 'Send message →', privacidad: 'Your details are only used to reply to you.',
+    privacidad: 'Your details are only used to reply to you.',
     gracias: { titulo: 'Message sent', h1: 'Thank you!', texto: "We received your message. We'll get back to you shortly." },
     volverInicio: 'Back to home',
     categorias: { integral: 'Integrated design', logos: 'Logo design', branding: 'Brand identity', redes: 'Social media', ploteo: 'Vehicle wraps', flyers: 'Flyers', musical: 'Music artwork', motion: 'Motion & video', web: 'Web design', urbano: 'Murals', foto: 'Photography', ilustracion: 'Illustration' },
@@ -2805,10 +2795,39 @@ function estudio(l, proyectos) {
   });
 }
 
+// Íconos de las áreas de contacto (mismo trazo que ICONOS_HERR); los ids salen de src/data/contacto.mjs
+const ICONOS_CONTACTO = {
+  // Pluma de diseño
+  proyecto: '<path d="m12 19 7-7 3 3-7 7-3-3Z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5Z"/><path d="m2 2 7.6 7.6"/><circle cx="11" cy="11" r="2"/>',
+  // Ventana de navegador
+  web: '<rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M2.5 8.5h19M6 6.3h.01M8.5 6.3h.01"/><path d="m9.5 12.5-2 2 2 2M14.5 12.5l2 2-2 2"/>',
+  // Rodillo de pintura
+  mural: '<path d="M4 4h13a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/><path d="M18 6.5h2v5h-8v3"/><rect x="10.5" y="14.5" width="3" height="6" rx="1"/>',
+  // Megáfono
+  publicidad: '<path d="M3 10v4a1 1 0 0 0 1 1h2l6 4V5L6 9H4a1 1 0 0 0-1 1Z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/>',
+  // Dos personas
+  equipo: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.3a6.5 6.5 0 0 1 3.5 5.7"/>',
+  // Diario
+  prensa: '<path d="M4 4h13v16H6a2 2 0 0 1-2-2V4Z"/><path d="M17 8h3v10a2 2 0 0 1-2 2"/><path d="M7.5 8h6M7.5 11.5h6M7.5 15h4"/>',
+  // Globo de diálogo
+  consulta: '<path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9.5h8M8 12.5h5"/>',
+};
+
+// Contacto (2026-11-23, mismo bloque que Laionbeats): áreas a la izquierda y formulario a la derecha.
+// Las áreas salen de src/data/contacto.mjs (tarjetas, desplegable y asunto del correo).
+// El formulario lo recibe worker/index.mjs (POST /api/contacto) y llega por correo; sin JavaScript también funciona.
+// Los enlaces viejos con ?tipo=… eligen el área (data-tipos, main.js: formulario).
 function contacto(l) {
   const T = TXT[l];
-  // data-clave permite elegir la opción desde el enlace (por ejemplo, /contacto/?tipo=mural)
-  const opciones = T.opciones.map((o, i) => `<option data-clave="${OPCIONES_CLAVE[i]}">${o}</option>`).join('');
+  const F = T.form;
+  const tipos = Object.fromEntries(AREAS_CONTACTO.flatMap((a) => [[a.id, a.id], ...a.tipos.map((t) => [t, a.id])]));
+  const tarjetas = AREAS_CONTACTO.map(
+    (a, i) => `<li><a class="area-contacto" data-area="${a.id}" href="mailto:${a.correo}?subject=${encodeURIComponent(`${a.asunto} · AIRON Studio`)}">
+            <span class="mono area-contacto-num">${num(i)}</span>${svgIcono(ICONOS_CONTACTO[a.id] || ICONOS_CONTACTO.consulta, 'area-contacto-ico')}
+            <span class="area-contacto-titulo">${esc(a[l])}</span><span class="mono area-contacto-correo">${a.correo}</span>
+          </a></li>`
+  ).join('\n          ');
+  const opciones = AREAS_CONTACTO.map((a) => `<option value="${a.id}">${esc(a[l])}</option>`).join('');
   return pagina(l, {
     clave: 'contacto',
     titulo: T.contactoTitulo,
@@ -2816,67 +2835,49 @@ function contacto(l) {
     descripcion: T.contactoDesc,
     datos: { '@type': 'ContactPage', name: `${T.contactoTitulo} — AIRON Studio`, url: `${SITIO.url}${RUTAS[l].contacto}`, inLanguage: T.htmlLang },
     cuerpo: `
-  <section class="seccion seccion--top">
-    <div class="wrap contacto-grid">
-      <div class="contacto-info">
-        <span class="kicker mono">${T.contactoKicker}</span>
-        <h1 class="page-title">${T.contactoH1}</h1>
-        <p class="lead">${T.contactoLead}</p>
+  <section class="seccion seccion--top contacto" id="contacto" aria-labelledby="contacto-t">
+    <div class="wrap">
+      <div class="contacto-cab">
+        <div>
+          <span class="kicker mono">${T.contactoKicker}</span>
+          <h1 class="contacto-titulo" id="contacto-t">${T.contactoH1}</h1>
+        </div>
+        <p class="lead contacto-intro">${T.contactoIntro.map(esc).join('<br>')}</p>
+      </div>
+      <div class="contacto-grid">
+        <ul class="areas-contacto" aria-label="${T.areasAria}">
+          ${tarjetas}
+        </ul>
+        <form class="form-contacto" method="post" action="/api/contacto" data-form-contacto data-tipos="${esc(JSON.stringify(tipos))}">
+          <input type="hidden" name="lang" value="${l}">
+          <input type="hidden" name="volver" value="${RUTAS[l].contacto}">
+          <div class="form-trampa" aria-hidden="true"><label>${F.noCompletar} <input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
+          <p class="fc-campo"><label class="sr-only" for="fc-nombre">${F.nombre}</label><input id="fc-nombre" name="nombre" type="text" placeholder="${F.nombre}" required maxlength="100" autocomplete="name"></p>
+          <p class="fc-campo"><label class="sr-only" for="fc-correo">${F.correo}</label><input id="fc-correo" name="correo" type="email" placeholder="${F.correo}" required maxlength="200" autocomplete="email" inputmode="email"></p>
+          <p class="fc-campo fc-ancho"><label class="sr-only" for="fc-area">${F.area}</label><select id="fc-area" name="area" required><option value="" disabled selected hidden>${F.area}</option>${opciones}</select></p>
+          <p class="fc-campo fc-ancho fc-mensaje"><label class="sr-only" for="fc-mensaje">${F.mensaje}</label><textarea id="fc-mensaje" name="mensaje" placeholder="${F.mensaje}" required maxlength="5000" rows="5"></textarea></p>
+          <div class="fc-pie fc-ancho">
+            <button class="btn btn-accent btn-lg btn-block" type="submit" data-enviando="${esc(F.enviando)}">${F.enviar} →</button>
+            <p class="fc-estado" role="status" aria-live="polite" data-form-estado></p>
+          </div>
+        </form>
+      </div>
+      <p class="nota contacto-privacidad">${T.privacidad} <a href="${RUTAS[l].legales}#privacidad">${LEGALES[l].verPrivacidad}</a></p>
+    </div>
+  </section>
+  <section class="seccion contacto-mas">
+    <div class="wrap contacto-mas-grid">
+      <div>
+        <h2 class="kicker mono">${F.otrasVias}</h2>
         <nav class="redes-lista" aria-label="${T.redes}">
           <a href="${SITIO.linkedin}" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span class="mono">/in/aironstudio ↗</span></a>
           <a href="${SITIO.instagram}" target="_blank" rel="noopener noreferrer"><span>Instagram</span><span class="mono">@_aironstudio ↗</span></a>
         </nav>
-        <div class="contacto-pasos">
-          <h2 class="kicker mono">${T.pasosTitulo}</h2>
-          <ol>${T.pasos.map(([t, d], i) => `<li><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`).join('')}</ol>
-        </div>
       </div>
-      <form class="form" name="contacto" method="POST" data-gracias="${RUTAS[l].gracias}" ${
-        SITIO.formspree ? `action="https://formspree.io/f/${esc(SITIO.formspree)}"` : 'data-pendiente'
-      }>
-        <input type="hidden" name="_subject" value="${esc(T.asunto)}">
-        <input type="hidden" name="idioma" value="${l}">
-        <p class="oculto"><label>${T.noCompletar} <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
-        <div class="campo">
-          <label for="nombre" class="mono">${T.campos.nombre}</label>
-          <input id="nombre" name="nombre" type="text" autocomplete="name" required maxlength="120">
-        </div>
-        <div class="campo">
-          <label for="email" class="mono">${T.campos.email}</label>
-          <input id="email" name="email" type="email" autocomplete="email" required maxlength="160">
-        </div>
-        <div class="campo">
-          <label for="marca" class="mono">${T.campos.marca}</label>
-          <input id="marca" name="marca" type="text" autocomplete="organization" maxlength="160">
-        </div>
-        <div class="campo">
-          <label for="tipo" class="mono">${T.campos.tipo}</label>
-          <select id="tipo" name="tipo">${opciones}</select>
-        </div>
-        <div class="campo">
-          <label for="mensaje" class="mono">${T.campos.mensaje}</label>
-          <textarea id="mensaje" name="mensaje" rows="6" required maxlength="4000" aria-describedby="mensaje-ayuda"></textarea>
-          <span class="campo-ayuda" id="mensaje-ayuda">${T.mensajeAyuda}</span>
-        </div>
-        <div class="campos-fila">
-          <div class="campo">
-            <label for="plazo" class="mono">${T.campos.plazo}</label>
-            <select id="plazo" name="plazo">${T.plazos.map((o, i) => `<option${i === 0 ? ' value=""' : ''}>${esc(o)}</option>`).join('')}</select>
-          </div>
-          <div class="campo">
-            <label for="presupuesto" class="mono">${T.campos.presupuesto}</label>
-            <input id="presupuesto" name="presupuesto" type="text" maxlength="120" placeholder="${esc(T.presupuestoEjemplo)}">
-          </div>
-        </div>
-        <div class="campo">
-          <label for="referencias" class="mono">${T.campos.referencias}</label>
-          <input id="referencias" name="referencias" type="text" inputmode="url" maxlength="500" placeholder="drive.google.com/…" aria-describedby="referencias-ayuda">
-          <span class="campo-ayuda" id="referencias-ayuda">${T.referenciasAyuda}</span>
-        </div>
-        <button class="btn btn-accent btn-lg btn-block" type="submit">${T.enviar}</button>
-        <p class="nota" data-estado role="status">${T.privacidad}</p>
-        <p class="nota form-legal"><a href="${RUTAS[l].legales}#privacidad">${LEGALES[l].verPrivacidad}</a></p>
-      </form>
+      <div class="contacto-pasos">
+        <h2 class="kicker mono">${T.pasosTitulo}</h2>
+        <ol>${T.pasos.map(([t, d], i) => `<li><span class="mono num">${num(i)}</span><div><h3>${esc(t)}</h3><p>${esc(d)}</p></div></li>`).join('')}</ol>
+      </div>
     </div>
   </section>
 `,

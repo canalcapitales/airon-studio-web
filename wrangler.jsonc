@@ -1,9 +1,17 @@
-// Configuración para publicar en Cloudflare Workers (sitio estático).
+// Configuración para publicar en Cloudflare Workers.
+// La web son archivos (dist/). El programa worker/index.mjs solo atiende el formulario de contacto
+// (/api/contacto) y lo manda por correo con el «send_email» de Cloudflare (2026-11-23).
 {
   "name": "airon-studio-web",
+  "main": "./worker/index.mjs",
   "compatibility_date": "2025-09-01",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
-  }
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  // Sin destino fijo acá (el repositorio es público): el Worker manda a su secreto DESTINO,
+  // que tiene que ser una dirección verificada en Email Routing de la cuenta.
+  "send_email": [{ "name": "CORREO" }]
 }

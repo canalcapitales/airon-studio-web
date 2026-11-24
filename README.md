@@ -33,7 +33,7 @@ Necesitás tener [Node.js](https://nodejs.org) instalado (descargalo solo desde 
 
 ```bash
 node build.mjs
-cd dist && python3 -m http.server 8000
+node scripts/servidor-local.mjs
 ```
 
 Después abrí `http://localhost:8000` en el navegador.
@@ -50,13 +50,11 @@ La web se publica con **Cloudflare Workers** (plan gratis). La configuración es
 
 ## Formulario de contacto
 
-Usa **Formspree** (plan gratis), que reenvía los mensajes a tu email.
+Desde el 2026-11-23 el formulario lo recibe la propia web (sin servicios externos): el programa `worker/index.mjs` atiende `/api/contacto` y manda el mensaje por correo con el «send_email» de Cloudflare, desde `web@aironstudio.com.ar`.
 
-1. Creá una cuenta en formspree.io y un formulario nuevo.
-2. Formspree te da una dirección como `https://formspree.io/f/xyzabcde`.
-3. Copiá el código final (`xyzabcde`) en `formspree:` dentro de `build.mjs`.
-
-Mientras ese código esté vacío, el formulario muestra un aviso para escribir por redes.
+- **Las áreas** (tarjetas, desplegable y asunto del correo) están en `src/data/contacto.mjs`. Cada área tiene su dirección (`proyectos@`, `web@`, `murales@`…), creada en Cloudflare → Email Routing.
+- **La casilla que recibe todo** es el secreto `DESTINO` del Worker (Cloudflare → Workers → airon-studio-web → Settings → Variables and Secrets). Tiene que ser una dirección verificada en Email Routing. No está en el código porque el repositorio es público.
+- **Para probar en tu compu**: `node build.mjs && node scripts/servidor-local.mjs` y abrí http://localhost:8000/contacto/. Ahí no se manda nada: el correo armado aparece en la consola.
 
 ## Imágenes
 
